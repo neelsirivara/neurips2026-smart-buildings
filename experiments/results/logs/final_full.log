@@ -1,0 +1,9 @@
+60 jobs (2 policies x 30 scenarios) at 8640 steps, 4 workers -> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\full
+[1/60] building_train_1/atlanta_2/transfer: total=-32.09 steps=8640 sec/step=0.113 (policy 1.02 ms) regret=-1.76 energy=71.56 carbon=83.59 (1026s, elapsed 17.1 min)
+[2/60] building_train_1/denver_7/transfer: total=-21.47 steps=8640 sec/step=0.113 (policy 1.02 ms) regret=-0.97 energy=40.85 carbon=63.60 (1028s, elapsed 17.1 min)
+[3/60] building_train_1/phoenix_5/transfer: total=-171.27 steps=8640 sec/step=0.114 (policy 1.01 ms) regret=-4.95 energy=684.11 carbon=157.40 (1029s, elapsed 17.2 min)
+[4/60] building_train_1/fairbanks_1/transfer: total=-443.87 steps=8640 sec/step=0.114 (policy 1.08 ms) regret=-28.05 energy=608.85 carbon=1526.36 (1035s, elapsed 17.2 min)
+[5/60] building_train_1/singapore_8/transfer: total=-73.03 steps=8640 sec/step=0.106 (policy 0.95 ms) regret=-3.24 energy=284.70 carbon=70.74 (951s, elapsed 33.0 min)
+[6/60] building_train_2/denver_8/transfer: total=-47.18 steps=8640 sec/step=0.164 (policy 0.87 ms) regret=-3.08 energy=72.17 carbon=154.47 (1451s, elapsed 41.3 min)
+[7/60] building_train_2/atlanta_3/transfer: total=-31.47 steps=8640 sec/step=0.165 (policy 0.86 ms) regret=-2.90 energy=115.88 carbon=32.77 (1462s, elapsed 41.5 min)
+[8/60] building_train_2/fairbanks_2/transfer: total=-129.88 steps=8640 sec/step=0.164 (policy 0.86 ms) regret=-6.20 energy=177.97 carbon=452.82 (1457s, elapsed 41.5 min)

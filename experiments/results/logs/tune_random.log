@@ -1,0 +1,33 @@
+[17ec7cd155] score=0.00947 (316s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+-- random 1/16: rate0_kph=2.0, heat_season_steps=288, kq_w_per_k=400.0, margin_pre=0.5, margin_occ=0.3
+[17ec7cd155] score=0.00947 (0s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+-- random 2/16: min_on_steps=3, kq_w_per_k=800.0, q_sb_w=4000.0
+[0cbd8a0dcb] score=0.00945 (339s) fairbanks_8=-27 denver_7=-4 atlanta_3=-6 phoenix_4=-23 singapore_8=-19 fairbanks_5=-3
+-- random 3/16: min_on_steps=3, ki_w_per_k_step=120.0, night_low_ext=4.0
+[012e75062e] score=0.00855 (313s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-16 fairbanks_5=-2
+-- random 4/16: ki_w_per_k_step=120.0, night_low_ext=2.0, lead_safety=1.8, lead_max_h=8.0, min_on_steps=12
+[110c8ff862] score=0.00876 (307s) fairbanks_8=-28 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-16 fairbanks_5=-2
+-- random 5/16: heat_season_steps=288, disch_margin_k=3.0, sb_hyst_k=3.0, night_low_ext=1.0
+[28113b9f42] score=0.01006 (290s) fairbanks_8=-31 denver_7=-4 atlanta_3=-7 phoenix_4=-23 singapore_8=-19 fairbanks_5=-3
+-- random 6/16: night_high_ext=1.0, margin_occ=0.3, night_low_ext=2.0, lead_max_h=5.0, sat_cool_hi=291.0
+[61cff37d37] score=0.00939 (289s) fairbanks_8=-28 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-18 fairbanks_5=-3
+-- random 7/16: holiday_check_h=6.5, sb_hyst_k=1.5, lead_max_h=8.0, margin_pre=0.8, margin_occ=0.2
+[0478d8df7c] score=0.00947 (292s) fairbanks_8=-27 denver_7=-4 atlanta_3=-8 phoenix_4=-22 singapore_8=-18 fairbanks_5=-3
+-- random 8/16: lead_safety=1.8, min_on_steps=12, margin_occ=0.5, heat_season_steps=12
+[b130396904] score=0.00940 (287s) fairbanks_8=-29 denver_7=-5 atlanta_3=-6 phoenix_4=-22 singapore_8=-18 fairbanks_5=-3
+-- random 9/16: lead_max_h=5.0, lead_safety=1.8, rate0_kph=3.0, holiday_check_h=7.0
+[e3c3f959a6] score=0.00943 (291s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+-- random 10/16: holiday_check_h=6.5, sb_hyst_k=1.0, night_high_ext=1.0, q_sb_w=8000.0, sat_mix_floor=292.0
+[4c436b930b] score=0.00967 (307s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-24 singapore_8=-19 fairbanks_5=-3
+-- random 11/16: sb_hyst_k=1.0, margin_pre=0.8, sat_mix_floor=292.0, q_sb_w=4000.0, ki_w_per_k_step=120.0
+[89f4d5a115] score=0.00849 (309s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+-- random 12/16: sat_cool_hi=295.0, sat_mix_floor=290.0, night_high_ext=1.0, sb_hyst_k=1.5
+[27bc655d31] score=0.00986 (311s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-25 singapore_8=-20 fairbanks_5=-3
+-- random 13/16: sat_mix_floor=288.0, night_high_ext=1.0
+[8613fe395d] score=0.00961 (306s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-23 singapore_8=-19 fairbanks_5=-3
+-- random 14/16: margin_pre=0.8, ki_w_per_k_step=30.0
+[e265b54013] score=0.01204 (306s) fairbanks_8=-30 denver_7=-6 atlanta_3=-12 phoenix_4=-26 singapore_8=-26 fairbanks_5=-4
+-- random 15/16: lead_max_h=5.0, night_high_ext=1.0, lead_safety=1.0, rate0_kph=3.0
+[1a47f67ed3] score=0.00996 (296s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-25 singapore_8=-20 fairbanks_5=-3
+-- random 16/16: heat_season_steps=12, holiday_check_h=8.0, disch_margin_k=0.5
+[4f580f1b92] score=0.00976 (279s) fairbanks_8=-28 denver_7=-5 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3

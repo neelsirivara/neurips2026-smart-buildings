@@ -1,0 +1,16 @@
+30 jobs (1 policies x 30 scenarios) at 8640 steps, 3 workers -> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\full
+[1/30] building_train_1/atlanta_2/pid_water: total=-215.19 steps=8640 sec/step=0.127 (policy 0.59 ms) regret=-298.66 energy=95.03 carbon=84.96 (1122s, elapsed 18.7 min)
+[2/30] building_train_1/fairbanks_1/pid_water: total=-1848.31 steps=8640 sec/step=0.127 (policy 0.97 ms) regret=-1010.11 energy=2376.56 carbon=3834.64 (1122s, elapsed 18.7 min)
+[3/30] building_train_1/denver_7/pid_water: total=-267.88 steps=8640 sec/step=0.127 (policy 0.54 ms) regret=-433.35 energy=18.67 carbon=20.70 (1129s, elapsed 18.8 min)
+[4/30] FAIL pid_water building_train_2/atlanta_3 rc=1 (22s)
+     File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\kit\smart_buildings\smart_control\simulator\building_utils.py", line 417, in process_and_run_connected_components
+       connections = _run_connected_components(connection_ready_floor_plan, connectivity=4)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\kit\smart_buildings\smart_control\simulator\building_utils.py", line 266, in _run_connected_components
+       _, connections, _, _ = cv2.connectedComponentsWithStats(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   cv2.error: Unknown C++ exception from OpenCV code
+     In call to configurable 'FloorPlanBasedBuilding' (<class 'smart_buildings.smart_control.simulator.building.FloorPlanBasedBuilding'>) in scope 'sim'
+[5/30] building_train_1/singapore_8/pid_water: total=-244.95 steps=8640 sec/step=0.131 (policy 0.70 ms) regret=-257.27 energy=360.73 carbon=92.19 (1161s, elapsed 38.0 min)
+[6/30] building_train_1/phoenix_5/pid_water: total=-1179.28 steps=8640 sec/step=0.131 (policy 0.85 ms) regret=-1073.14 energy=1945.45 carbon=731.54 (1164s, elapsed 38.1 min)
+[7/30] building_train_2/denver_8/pid_water: total=-351.10 steps=8640 sec/step=0.230 (policy 1.11 ms) regret=-500.39 energy=109.80 carbon=144.54 (2035s, elapsed 53.1 min)

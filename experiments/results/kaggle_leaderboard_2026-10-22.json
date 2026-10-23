@@ -1,0 +1,30 @@
+{
+  "source": "https://www.kaggle.com/competitions/neurips-2026-smart-buildings/leaderboard (public, ~33% of test data), read 2026-10-22 ~22:50 PDT via browser",
+  "metric": "mean over held-out scenarios of |mean per-step reward|; lower is better",
+  "n_teams": 292,
+  "time_to_go": "3 months",
+  "top": [
+    {"rank": 1, "team": "Marc Donovici", "score": 0.00578},
+    {"rank": 2, "team": "boys", "score": 0.00579},
+    {"rank": 3, "team": "Joe Penn", "score": 0.00598},
+    {"rank": 4, "team": "Wenhao Zhang", "score": 0.00601},
+    {"rank": 5, "team": "Pardheev Krishna", "score": 0.00603},
+    {"rank": 6, "team": "HarshalKatari", "score": 0.00609},
+    {"rank": 7, "team": "Timass", "score": 0.00641},
+    {"rank": 8, "team": "Victor Sung", "score": 0.00647},
+    {"rank": 9, "team": "Agents", "score": 0.00648},
+    {"rank": 10, "team": "Samim Shafayi", "score": 0.00658},
+    {"rank": 12, "team": "Raymond Nocciolo", "score": 0.00664},
+    {"rank": 13, "team": "arya aghakoochek", "score": 0.00728},
+    {"rank": 15, "team": "NNMax", "score": 0.00780},
+    {"rank": 20, "team": "Vlas Veles", "score": 0.00909},
+    {"rank": 30, "team": "Krzysztof Gonia", "score": 0.00996},
+    {"rank": 37, "team": "test_smart_buildings", "score": 0.01029},
+    {"rank": 49, "team": "Malyshev Danil", "score": 0.01056}
+  ],
+  "notes": [
+    "Prize contenders are the top 8 (prize pool 1st-8th).",
+    "Scores are in per-step units: a scenario with total reward -208 over 8,640 steps is 0.0241 per step; the organizer pid_water baseline on the shipped training set therefore sits roughly an order of magnitude above the leaders.",
+    "Local 30-scenario metric is not identical to the Kaggle metric (held-out buildings, 33% public split), but it is the same formula."
+  ]
+}
