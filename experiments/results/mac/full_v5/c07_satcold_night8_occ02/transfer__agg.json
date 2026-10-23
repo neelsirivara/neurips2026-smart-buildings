@@ -1,0 +1,248 @@
+{
+  "policy": "transfer",
+  "steps": 8640,
+  "n_scenarios": 30,
+  "leaderboard_metric": 0.008506625301986861,
+  "per_scenario": {
+    "building_train_1/atlanta_2": {
+      "total_reward": -35.879819428229894,
+      "score": 0.004152756878267349,
+      "regret": -3.7350681754329003,
+      "energy": 81.11912931675033,
+      "carbon": 87.07476310098718,
+      "seconds_per_step": 0.05050845968502539
+    },
+    "building_train_1/denver_7": {
+      "total_reward": -25.125233002926507,
+      "score": 0.00290801307904242,
+      "regret": -2.283616692390524,
+      "energy": 50.30164475960191,
+      "carbon": 68.47367014679185,
+      "seconds_per_step": 0.05075610820893888
+    },
+    "building_train_1/fairbanks_1": {
+      "total_reward": -434.8949383588697,
+      "score": 0.050335062310054364,
+      "regret": -49.484317888880355,
+      "energy": 576.4754197675793,
+      "carbon": 1449.5463157841295,
+      "seconds_per_step": 0.05050366653336419
+    },
+    "building_train_1/phoenix_5": {
+      "total_reward": -136.0589408511771,
+      "score": 0.01574756259851587,
+      "regret": -6.898580934032907,
+      "energy": 536.2916392701563,
+      "carbon": 123.30732199592187,
+      "seconds_per_step": 0.05064069639753412
+    },
+    "building_train_1/singapore_8": {
+      "total_reward": -60.13286219765814,
+      "score": 0.00695982201361784,
+      "regret": -5.748902886440874,
+      "energy": 226.9492341752939,
+      "carbon": 56.46836811759931,
+      "seconds_per_step": 0.050519397220125904
+    },
+    "building_train_2/atlanta_3": {
+      "total_reward": -32.5978961117039,
+      "score": 0.003772904642558322,
+      "regret": -7.137449088877631,
+      "energy": 108.79575938649987,
+      "carbon": 32.78137391047312,
+      "seconds_per_step": 0.09925698505507576
+    },
+    "building_train_2/denver_8": {
+      "total_reward": -48.30457029031277,
+      "score": 0.0055908067465639776,
+      "regret": -5.838303955807021,
+      "energy": 74.66674336462893,
+      "carbon": 149.34119634219314,
+      "seconds_per_step": 0.09914682264681215
+    },
+    "building_train_2/fairbanks_2": {
+      "total_reward": -122.96808443272312,
+      "score": 0.014232417179713323,
+      "regret": -11.363024874564616,
+      "energy": 163.86477257152728,
+      "carbon": 416.88657539452834,
+      "seconds_per_step": 0.09916388541460038
+    },
+    "building_train_2/phoenix_6": {
+      "total_reward": -70.51857678188797,
+      "score": 0.008161872312718515,
+      "regret": -2.3635514324173528,
+      "energy": 278.8856969363658,
+      "carbon": 66.61653257236787,
+      "seconds_per_step": 0.09921951409843233
+    },
+    "building_train_2/singapore_1": {
+      "total_reward": -43.35145847752392,
+      "score": 0.0050175299163800835,
+      "regret": -1.590241615188262,
+      "energy": 170.44560773772582,
+      "carbon": 41.54095979928843,
+      "seconds_per_step": 0.0991755851716907
+    },
+    "building_train_4/atlanta_5": {
+      "total_reward": -61.74130421897689,
+      "score": 0.007145984284603807,
+      "regret": -8.646752961672348,
+      "energy": 227.25333355657494,
+      "carbon": 55.51292863048366,
+      "seconds_per_step": 0.06948151991323188
+    },
+    "building_train_4/denver_2": {
+      "total_reward": -55.90584886074976,
+      "score": 0.006470584358883074,
+      "regret": -3.6630973031211056,
+      "energy": 81.02252957961537,
+      "carbon": 187.51742290462425,
+      "seconds_per_step": 0.06926048480802112
+    },
+    "building_train_4/fairbanks_4": {
+      "total_reward": -23.469247228033055,
+      "score": 0.0027163480588001223,
+      "regret": -5.2597754717778,
+      "energy": 51.79407161057861,
+      "carbon": 49.77283819104923,
+      "seconds_per_step": 0.06943958561729502
+    },
+    "building_train_4/phoenix_8": {
+      "total_reward": -22.962229899914746,
+      "score": 0.0026576654976753177,
+      "regret": -5.095809156996864,
+      "energy": 56.74782660627352,
+      "carbon": 42.77589536884989,
+      "seconds_per_step": 0.06939336124945569
+    },
+    "building_train_4/singapore_3": {
+      "total_reward": -67.23610672163431,
+      "score": 0.007781956796485453,
+      "regret": -10.437803848124531,
+      "energy": 247.61867068911852,
+      "carbon": 57.248451371990086,
+      "seconds_per_step": 0.07642591681193422
+    },
+    "building_train_5/atlanta_6": {
+      "total_reward": -38.859434151887854,
+      "score": 0.004497619693505539,
+      "regret": -3.0147094728565094,
+      "energy": 148.6231061553408,
+      "carbon": 36.62993618728797,
+      "seconds_per_step": 0.07587723671286195
+    },
+    "building_train_5/denver_3": {
+      "total_reward": -40.54420273369851,
+      "score": 0.004692616057141032,
+      "regret": -1.4820515038199176,
+      "energy": 64.61665232008181,
+      "carbon": 133.65820674736096,
+      "seconds_per_step": 0.07573055751897671
+    },
+    "building_train_5/fairbanks_5": {
+      "total_reward": -20.760123369070698,
+      "score": 0.0024027920566054048,
+      "regret": -1.9427983650130614,
+      "energy": 70.67800198163059,
+      "carbon": 27.294219708604942,
+      "seconds_per_step": 0.075848279065556
+    },
+    "building_train_5/phoenix_1": {
+      "total_reward": -28.344072418194628,
+      "score": 0.003280563937291045,
+      "regret": -1.886028984253585,
+      "energy": 56.75696690770292,
+      "carbon": 79.30530809015181,
+      "seconds_per_step": 0.0759543484835713
+    },
+    "building_train_5/singapore_4": {
+      "total_reward": -50.056070431071475,
+      "score": 0.005793526670262902,
+      "regret": -2.1331415446402673,
+      "energy": 197.6132251070835,
+      "carbon": 46.26770234923606,
+      "seconds_per_step": 0.06717321031071521
+    },
+    "building_train_7/atlanta_8": {
+      "total_reward": -69.50911744524274,
+      "score": 0.008045036741347539,
+      "regret": -2.6337286339409047,
+      "energy": 102.29767480419468,
+      "carbon": 237.34672687585407,
+      "seconds_per_step": 0.040640045702457425
+    },
+    "building_train_7/denver_5": {
+      "total_reward": -57.84969035407994,
+      "score": 0.006695566013203697,
+      "regret": -28.193316458230584,
+      "energy": 156.02810549256856,
+      "carbon": 48.64039719199718,
+      "seconds_per_step": 0.040744981031726905
+    },
+    "building_train_7/fairbanks_7": {
+      "total_reward": -78.0886265613226,
+      "score": 0.00903803548163456,
+      "regret": -2.283872987969417,
+      "energy": 101.49580104062989,
+      "carbon": 282.0957128411246,
+      "seconds_per_step": 0.040434965463700116
+    },
+    "building_train_7/phoenix_3": {
+      "total_reward": -63.71925296896461,
+      "score": 0.007374913538074608,
+      "regret": -19.798079192957232,
+      "energy": 204.79563663815588,
+      "carbon": 54.40639090911873,
+      "seconds_per_step": 0.032600182984714156
+    },
+    "building_train_7/singapore_6": {
+      "total_reward": -52.25097461014548,
+      "score": 0.006047566505803874,
+      "regret": -1.7454251283625126,
+      "energy": 207.27617974444456,
+      "carbon": 48.742417854296946,
+      "seconds_per_step": 0.03261415389952836
+    },
+    "building_train_8/atlanta_1": {
+      "total_reward": -51.006739969427144,
+      "score": 0.005903557866831845,
+      "regret": -3.1090795979907853,
+      "energy": 79.9955267323021,
+      "carbon": 165.71093394671334,
+      "seconds_per_step": 0.030575771436647133
+    },
+    "building_train_8/denver_6": {
+      "total_reward": -39.53379427661412,
+      "score": 0.004575670633867375,
+      "regret": -12.225490774044829,
+      "energy": 120.61546997241567,
+      "carbon": 40.37702911661654,
+      "seconds_per_step": 0.030479231145646837
+    },
+    "building_train_8/fairbanks_8": {
+      "total_reward": -227.67139293648506,
+      "score": 0.02635085566394503,
+      "regret": -6.6962634431021115,
+      "energy": 301.22032856166334,
+      "carbon": 817.0478463596664,
+      "seconds_per_step": 0.030503450913561714
+    },
+    "building_train_8/phoenix_4": {
+      "total_reward": -95.26522725166345,
+      "score": 0.01102606796894253,
+      "regret": -0.9478177769524905,
+      "energy": 383.7477096953537,
+      "carbon": 89.73497322501368,
+      "seconds_per_step": 0.02462447371195864
+    },
+    "building_train_8/singapore_7": {
+      "total_reward": -50.31144193480395,
+      "score": 0.0058230835572689755,
+      "regret": -0.32528126958277426,
+      "energy": 199.52478860560132,
+      "carbon": 51.05657695951231,
+      "seconds_per_step": 0.024594132767783272
+    }
+  }
+}

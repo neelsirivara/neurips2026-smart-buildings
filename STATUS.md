@@ -1,83 +1,130 @@
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-22 21:55 PDT (INTERIM snapshot: final evaluation running in the background;
-see "If this session dies" below)
+Last updated: 2026-10-23 07:05 PDT. State: COMPLETE for the poster round -- final policy baked,
+all evaluations finished on both machines, paper built (0 errors, 0 `??`), audit and self-review
+written. Open items are the user's (Kaggle submission, OpenReview upload with name).
 
-## Environment
-- Kit copy: `kit/` (clone of the official starter kit, untouched except for `.venv` and the two
-  generated held-out buildings under `kit/smart_buildings/heldout_buildings|heldout_scenarios`).
-- Python 3.12.15 venv at `kit/.venv` (uv-managed CPython; `uv` itself is not on PATH), pins from
-  `kit/pyproject.toml` (numpy 2.0.2, numba 0.60.0, gymnasium 1.2.0, pandas 2.3.3 ...).
-- Simulator speed (this laptop, other jobs running): 0.07 s/step (30 zones) to 0.23 s/step (85 zones);
-  a full 8,640-step scenario takes 10-35 min. All long runs write per-scenario `summary.json`
-  checkpoints and resume; `run_eval_parallel.py --retries 2` re-runs a scenario whose process
-  died (one transient `cv2.connectedComponentsWithStats` "Unknown C++ exception" was seen when
-  several workers started at once).
-- Determinism: occupancy RNG seeded (17321) and convection seeded (5) in the kit, so a given
-  (policy, scenario) run is reproducible locally. Local pid_water re-runs are 1-4% more negative
-  than the organizers' `baseline_returns.json`, so the local-vs-official gap is reported explicitly
-  and paired comparisons use local re-runs.
+Repository: https://github.com/neelsirivara/neurips2026-smart-buildings (private; `kit/` and the
+per-scenario time series are git-ignored; `.git`, `.gitignore`, `LICENSE`, `.github` and the
+top-level `README.md` are managed by `make_repos.py` and were not edited here). Nothing was
+committed or pushed from this session.
 
-## Policy (submission/transfer_policy.py) -- SADR v4, tuned parameters BAKED
+## Headline numbers (leaderboard metric = mean over scenarios of |mean per-step reward|, lower is better)
+| set | SADR v5 (final) | SADR v4 | pid_water (same machine) | ratio v5/pid_water [95% CI] | wins |
+|---|---|---|---|---|---|
+| 30 public scenarios, 8,640 steps (Mac) | **0.00831** | 0.00920 | 0.05498 | 0.151 [0.117, 0.188] | 30/30 |
+| 10 generated held-out scenarios (Mac, run once after selection) | **0.01109** | 0.01138 | 0.03989 | 0.278 [0.175, 0.355] | 10/10 |
+
+- Official scorer (`kit/score_leaderboard.py` on `experiments/results/final`): LEADERBOARD SCORE =
+  0.00831 over 30 scenarios; shipped baselines on the same scenarios: pid_water 0.05414,
+  fixed_setpoint 0.06592, pid 0.06736, bang_bang 0.22520 (`experiments/results/score_leaderboard_final.txt`).
+- Local re-runs of all four baselines on the Mac: pid_water 0.05498, pid 0.06782,
+  fixed_setpoint 0.06550, bang_bang 0.22453. Local pid_water is -1.7% vs the shipped values on
+  average (range -12.7% to +4.6% per scenario).
+- v4 -> v5 on the public set: -9.7% (CI 5.1% to 15.2%), 19/30 wins, gain in Phoenix (-0.0020) and
+  Singapore (-0.0018); on the held-out set -0.00030 (CI [-0.00071, +0.00006], 6/10) -- not
+  significant, reported as such.
+- By station (v5, public): Fairbanks 0.0175, Phoenix 0.0075, Singapore 0.0060, Atlanta 0.0055,
+  Denver 0.0050. Comfort regret is 4.2% of our loss (3.2% of occupied zone-steps out of band);
+  pid_water: 71.5% regret share, 61.5% out of band. 25% of our loss falls on unoccupied steps
+  (38% in Fairbanks); the biggest hourly spend is hour 5 (12.5% of the day).
+- Cross-machine check: v4 on the laptop 0.00920 vs the Mac 0.00920, per-scenario relative
+  difference 0.000% (pid_water 0.017%).
+- Kaggle public leaderboard (coordinator's read, 2026-10-22, `experiments/results/kaggle_leaderboard_2026-10-22.json`):
+  #1 0.00578, #8 0.00647, #30 0.00996, #49 0.01056 on held-out buildings (33% public split) --
+  same formula, not directly comparable; our public-set 0.00831 is 1.4x the leader.
+
+## Final policy (`submission/transfer_policy.py`, SADR v5)
 Schedule-Aware Demand-based Reset: occupancy-gated OCCUPIED / PRECONDITION / SETBACK modes with
 holiday detection and a self-tuning optimum-start lead; per-zone PI loops on net heat (W)
 translated to damper flow via the supply-air temperature and to reheat valve position via the
-water capacity rate and the 308.15 K discharge limit; SAT reset from the coldest supply any
-cooling zone needs at floor pressure; static pressure trim-and-respond; proportional economiser
-with fan break-even; loop dP reset to the most-open valve; hot water held hot in heating season;
-setback handled by burst heating/cooling with hysteresis (v4) instead of PI-held floors (v3).
+water capacity rate and the 308.15 K discharge limit; coldest supply air (285 K) whenever a
+handler cools (v5; the coil load is q + flow x (mixed - zone) and the COP is constant, so lower
+flow is strictly cheaper), 292 K floor on handlers that also heat; static pressure trim-and-respond
+in closed form; proportional economiser with the fan break-even; loop dP reset to the most-open
+valve; hot water 350 K in heating season; setback by burst heating/cooling against a floor widened
+by 8 K below / 6 K above the eco band (v5; v4: 4/2 K). Pure numpy + stdlib, ~0.5 ms per step,
+deterministic, shape-agnostic, every action slot written and clipped.
 
-Tuning (P2) is COMPLETE: seeded random search, 16 distinct configurations (default + 15 random
-perturbations; one of the 16 draws reproduced the default) on 6 screening scenarios x 1,440
-steps (`experiments/results/tune/tune_log.json`). Best = `89f4d5a115`, screening score 0.00849 vs
-default 0.00947; it differs from the default in ki_w_per_k_step 60->120, margin_pre 0.5->0.8,
-sat_mix_floor 290->292, sb_hyst_k 1.5->1.0. The three best configurations all have ki=120.
-Coordinate descent was NOT run (compute went to the full evaluation). The best values are baked
-into `DEFAULT_PARAMS` (`bake_params.py`, verified "mismatches after bake: none"); provenance copy
-in `submission/best_params.json` and `experiments/results/tune/best_params.json`.
+Parameter provenance: random search (16 configurations, 6 screening scenarios x 1,440 steps,
+2026-10-21/22; ki_w_per_k_step 60 -> 120 is the whole gain, -9.8% alone; margin_pre 0.8,
+sat_mix_floor 292, sb_hyst_k 1.0 are individually neutral, see `experiments/results/tune/ablation.json`),
+then 13 analysis-driven candidates (`experiments/src/policy_candidates/`) screened and ALL run at
+full length on the 30 public scenarios on the Mac (`experiments/results/mac/full_v5/`,
+`experiments/results/candidates_summary.json`, ranking in `candidates_ranking.txt`); winner
+`c10_satcold_night8_hi6` = sat_cool_hi 285, night_low_ext 8, night_high_ext 6 (0.00831; the next
+two, c09 and c06, are within 0.00002). The v5 code change is one line (the mixed-handler SAT floor
+no longer depends on the cooling ceiling); with v4 values it reproduces v4 exactly (0.00920).
+Baked with `bake_params.py` ("mismatches after bake: none"); `submission/best_params.json` =
+`experiments/results/tune/best_params.json`; v4 set kept as `tune/best_params_v4.json`.
+The submitted file differs from the one that produced the Mac results only by a comment on the
+`sat_cool_hi` line (synced back to the Mac afterwards).
 
-## Runs
-- RUNNING (started 2026-10-22 21:42 PDT, `experiments/src/run_final_eval.sh`, 4 workers,
-  log `experiments/results/logs/final_full.log` then `final_heldout.log`, chain log
-  `final_chain.log`):
-  1. `experiments/results/full/`: transfer (baked) + pid_water on all 30 public scenarios at
-     8,640 steps with timeseries (pid_water already done for 6 scenarios from 2026-10-21).
-  2. `experiments/results/heldout/`: transfer + pid_water on the 10 generated held-out scenarios
-     (building_0501: 5 AHUs, 2 floors, 1 occupant/zone; building_0502: 4 AHUs, 3 floors; weather
-     strips atlanta_7, denver_4, fairbanks_6, phoenix_7, singapore_5 / atlanta_4, denver_1,
-     fairbanks_3, phoenix_2, singapore_2 -- none of them in the public set).
-- NEXT (`experiments/src/run_post_chain.sh`): pid_water on the 6 screening scenarios at 1,440
-  steps (`results/tune_baseline`), ablation of the 4 tuned parameters on the screening set
-  (`ablation.py` -> `results/tune/ablation.json`), optionally the other three baselines at full
-  length (`RUN_OTHER_BASELINES=1`, ~8 h).
-- Then: `score_all.py` (full -> final_scores.json; heldout -> heldout_scores.json), `env_info.py`,
-  `make_macros.py`, `make_figures.py --trace building_train_8/fairbanks_8 --trace-day 8`,
-  `kit/score_leaderboard.py` for the official number, paper build, AUDIT.md, REVIEW_1.md.
-- Earlier: `experiments/results/dev_full/` (v3 snapshot, b8/fairbanks_8: -244.9 vs organizer
-  pid_water -667.3), `dev576/` (2-day shakedowns), `tune/` (sweep), `smoke*/`.
+## Machines
+- `laptop`: this Windows laptop (8 cores shared; <= 4 simulator processes; 0.05-0.23 s/step).
+  Runs: `experiments/results/full` (v4 + pid_water, 30 scenarios, with time series),
+  `heldout` (v4 + pid_water, 10 scenarios), `tune` (random search), `dev*`, `smoke*`.
+- `mac`: `ssh mac`, Apple M5 Pro, 18 cores, 48 GB, kit clone + uv venv (Python 3.12.15, same
+  pins), ~6x faster per step; layout mirrors this tree at `~/neurips/sb` (`kit` -> clone); results
+  copied back with `experiments/src/fetch_mac_results.sh` into `experiments/results/mac/`
+  (summary.json only, plus time series for `mac/final`). Runs: `mac_jobs.sh` stage 1 (screening
+  reference, v5 sweep, ablation), stage 2 (v4 + 4 baselines public; v4 + pid_water held-out),
+  `mac_stage3.sh` (13 candidates at full length), `mac_final.sh` (v5 + pid_water public WITH time
+  series, and held-out). Mac logs mirrored to `experiments/results/logs/mac/`.
+- Paper trees: `experiments/results/final` and `final_heldout` (assembled from the Mac runs by
+  `assemble_final_tree.py`: transfer = v5, transfer_v4 = v4, pid_water/pid/fixed_setpoint/bang_bang);
+  the laptop trees are the cross-machine check.
 
-## If this session dies
-Everything resumes: re-run `bash experiments/src/run_final_eval.sh` (skips finished scenarios),
-then `bash experiments/src/run_post_chain.sh`, then the scoring/paper commands above. Do not
-re-tune; do not change `submission/transfer_policy.py` (baked, final).
+## Deliverables (all present)
+1. `submission/transfer_policy.py` (v5, baked), `submission/README.md` (paste-in steps for the
+   Kaggle notebook, repo link), `submission/kaggle_notebook_template.py` (smoke-tested against the
+   local kit with the final policy), `submission/best_params.json`.
+2. `experiments/results/final_scores.json`, `heldout_scores.json`, `final_scores_local.json`,
+   `heldout_scores_local.json`, `analysis.json`, `analysis_v4_local.json`, `candidates_summary.json`,
+   `env_info.json`, `score_leaderboard_final.txt`; `paper/results_macros.tex`,
+   `per_scenario_table.tex`, `tuning_tables.tex`; `paper/figures/*.pdf|png` (scores dumbbell,
+   station decomposition, loss by hour, one-day trace, tuning); `paper/main.pdf` (10 pages: main
+   text through page 6, references + Appendices A-C; 0 errors, 0 undefined, 0 `??`, 0 TODO,
+   0 overfull boxes); `paper/AUDIT.md` (generated by `make_audit.py`: 24 claims, 0 missing values;
+   header in `AUDIT_header.md`); `paper/bib_verification_log.json`; `paper/review/REVIEW_1.md`.
+3. This file.
+
+Pipeline (idempotent): `bash experiments/src/finalize.sh` regenerates everything in item 2 from the
+result trees.
 
 ## Paper
-- `paper/main.tex` drafted (NeurIPS 2026 style, `[sglblindworkshop,final]` + `\workshoptitle`
-  because `[final]` alone leaves the track name undefined in the official .sty); compiles with
-  placeholder macros (`\textbf{??}`) until results exist. Table 1 = ours, local pid_water, and the
-  four organizer-provided baselines; Appendix A = per-scenario table (auto-generated).
-  `paper/refs.bib` holds only entries verified in `paper/bib_verification_log.json`.
+NeurIPS 2026 style, `[sglblindworkshop,final]` + `\workshoptitle` (the official .sty needs a track
+option with `[final]`). Sections: Introduction; Environment and metric; Method (topology, modes,
+net-heat PI loops, actuator mapping incl. the v5 cold-SAT argument, safeguards, tuning protocol,
+parameter table); Results (same-machine Table 2 with all baselines + organizer row, leaderboard
+context, decomposition, held-out, candidates); Analysis (why it wins, where the loss sits and what
+the revision bought, where it loses, implications); Limitations; Reproducibility and disclosure;
+Appendices A (per-scenario tables), B (ablation + candidates), C (algorithm, trace, tuning figure).
+Self-review (`paper/review/REVIEW_1.md`): overall 7/10; must-fixes 1-4 applied in this draft
+(held-out v5 gain stated as not significant; Fairbanks v4->v5 change not called a gain;
+decomposition in shares; main text within six pages); item 5 (author block) is the user's.
 
 ## To do (user)
-- Join the Kaggle competition (https://www.kaggle.com/competitions/neurips-2026-smart-buildings),
-  read the official notebook template (not readable without login), paste `submission/transfer_policy.py`
-  as described in `submission/README.md`, run once on the public scenarios, submit.
-- Poster-round paper on OpenReview (group NeurIPS.cc/2026/Workshop/SB26_Challenge) by 2026-11-13:
-  fill in name/affiliation in `paper/main.tex`, check the Overleaf template
-  (https://www.overleaf.com/project/6ace893ebb021a3e1807b140) for any page limit, upload `paper/main.pdf`.
+- Kaggle (joined): follow `submission/README.md` -- open the official notebook template, replace
+  the policy cell with `submission/transfer_policy.py`, run once on the public scenarios (expect
+  the per-scenario totals in `experiments/results/final_scores.json` -> `policies.transfer.per_scenario`,
+  a few per cent off if the grader's kit differs), submit. Keep the submitted file identical to
+  the one here so the paper's numbers refer to the submitted policy.
+- OpenReview poster paper (group NeurIPS.cc/2026/Workshop/SB26_Challenge) by 2026-11-13: fill in
+  name/affiliation in `paper/main.tex` (author block), rebuild (`bash experiments/src/finalize.sh`
+  or the three pdflatex passes), check the Overleaf template
+  (https://www.overleaf.com/project/6ace893ebb021a3e1807b140) for the page limit (the main text is
+  six pages), upload `paper/main.pdf`.
+- Optional before the January final paper: more generated held-out buildings (the Mac does a
+  10-scenario set in 12 min), a diagnosis of the larger generated building (building_0502, ratio
+  0.36 vs 0.14 on building_0501), and the Kaggle score once available.
 
 ## Risks
-- Kaggle's held-out buildings may use different valve/plant constants than the kit (the policy
-  degrades gracefully: PI loops still regulate, proportional path mis-scaled).
-- Local-vs-official gap (1-4% on pid_water) means Kaggle numbers will differ slightly.
-- Compute: ~45 core-hours of simulation planned; interruptions resume from per-scenario checkpoints.
+- Model selection used the public set at full length: the public number (0.00831) is optimistic;
+  the held-out number (0.01109) is the honest estimate and the Kaggle test buildings may differ
+  further (the policy degrades gracefully if plant constants differ: PI loops still regulate).
+- Public leaderboard leaders (0.0058) are 1.4x below our public-set number; most of our remaining
+  loss is heating gas in Fairbanks (physics of 30% outside air at -20 C) and cooling electricity
+  in Phoenix/Singapore.
+- Local-vs-official pid_water gap (-1.7% mean, up to -12.7% on one scenario) means the organizers'
+  kit version may differ slightly from the clone used here.

@@ -38,233 +38,203 @@ The NeurIPS 2026 Smart Buildings Challenge asks for one HVAC control policy that
 procedurally generated commercial buildings it has never seen, under 30-day weather strips
 from five climates, trading occupant comfort against energy cost and carbon. We present
 SADR (Schedule-Aware Demand-based Reset), a pure-numpy rule-based controller that reads the
-plant topology from the building metadata and is otherwise built from three facts shared by
-every generated building: the comfort term is charged only while zones are occupied, fan
-power grows as static pressure to the three-halves, and all heat reaches a zone through a
-reheat coil whose discharge is capped at 308.15\,K. SADR gates its operating mode on the
-occupancy count and the schedule flags (with a self-tuning optimum start), regulates each
-zone with a PI loop on \emph{net heat} that is translated into damper and valve commands
-through the known supply-air and discharge physics, and resets supply-air temperature,
-static pressure, loop differential pressure and hot-water temperature from zone demand in
-the trim-and-respond spirit of ASHRAE Guideline 36. On the 30 public scenarios SADR scores
-\MetricOurs{} on the leaderboard metric (mean absolute per-step reward, lower is better)
-against \MetricPidWater{} for the strongest organizer baseline (\texttt{pid\_water}), a
-paired-bootstrap ratio of \RatioPidWater{} (95\% CI \RatioLoPidWater--\RatioHiPidWater; wins
-on \WinsPidWater{}/\NScen{} scenarios). On \NHeld{} scenarios from two freshly generated
-buildings never used for tuning, the ratio is \HeldRatio. We argue that such
-structure-aware rules are the right reference point for foundation-model controllers in
-this benchmark, release the controller, and report where it still loses.
+plant topology from the building metadata and is otherwise built from facts shared by every
+generated building: comfort is charged only while zones are occupied, fan power grows as
+static pressure to the three-halves, the chiller has a constant coefficient of performance,
+and all heat reaches a zone through a reheat coil whose discharge is capped at 308.15\,K.
+SADR gates its mode on the occupancy count and schedule flags (with a self-tuning optimum
+start), regulates each zone with a PI loop on \emph{net heat} translated into damper and
+valve commands through the supply-air and discharge physics, and resets static pressure,
+loop differential pressure and hot-water temperature from zone demand. On the 30 public
+scenarios SADR scores \MetricOurs{} on the leaderboard metric (mean absolute per-step reward,
+lower is better) against \MetricPidWater{} for the strongest organizer baseline
+(\texttt{pid\_water}) under identical conditions, a paired-bootstrap ratio of
+\RatioPidWater{} (95\% CI \RatioLoPidWater--\RatioHiPidWater; \WinsPidWater{}/\NScen{} wins); on
+\NHeld{} scenarios from \NHeldBuild{} freshly generated buildings and unseen strips the ratio
+is \HeldRatio. Decomposing the remaining loss by term, station and hour led to one
+physics-motivated revision (coldest supply air whenever a handler cools, deeper night
+setback) that cut the public-set loss by a further \RelRedOursVFour{} (a smaller, not
+significant gain on the held-out set). We release the controller and report where it still
+loses.
 \end{abstract}
 
 \section{Introduction}
 
-Learned building controllers have been studied for two decades, yet very few run in real
+Learned building controllers have been studied for two decades, yet few run in real
 buildings; the recurring obstacles are data-hungry training, fragile robustness and poor
 generalization across buildings~\citep{wang2020rl}. The Smart Buildings Challenge (SB26)
-isolates the last of these. A submission is a single policy class that is instantiated on
-held-out buildings drawn from the same procedural generator as six public ones, and scored
-on 30-day episodes under weather strips it has not seen~\citep{sb26kit}. The observation and
-action vectors change shape with the building: a building with $K$ air handlers and $V$
-zones exposes $K{+}1$ on/off commands and $3K{+}2{+}2V$ continuous setpoints. The simulator is
-the open-source Smart Buildings simulator that underlies Google's calibrated digital twins
-and the Smart Buildings Control Suite~\citep{goldfeder2023lightweight,goldfeder2025suite}.
+isolates the last of these: a submission is a single policy class, instantiated on held-out
+buildings drawn from the same procedural generator as six public ones and scored on 30-day
+episodes under weather strips it has not seen~\citep{sb26kit}. The observation and action
+vectors change shape with the building ($K$ air handlers and $V$ zones expose $K{+}1$ on/off
+commands and $3K{+}2{+}2V$ continuous setpoints), and the simulator is the open-source Smart
+Buildings simulator behind Google's calibrated digital twins and the Smart Buildings Control
+Suite~\citep{goldfeder2023lightweight,goldfeder2025suite}.
 
-This paper takes the position that the right first entry in such a benchmark is a
+We take the position that the right first entry in such a benchmark is a
 \emph{structure-aware rule-based controller}: one that reads the plant topology from the
-metadata the organizers provide and otherwise encodes physics that every generated building
-shares. Three reasons. First, such a controller transfers to unseen buildings by
-construction, because nothing in it is fitted to a particular floor plan. Second, it exposes
-which parts of the score are reachable without learning, so that the gains of a foundation
-model can be attributed to what it learns rather than to what the baselines failed to
-exploit. Third, the organizers' own baselines are rule-based but plant-agnostic (fixed
-setpoints, per-handler PID on an average temperature), and the gap between those and a
-sequence written in the trim-and-respond spirit of ASHRAE Guideline
-36~\citep{ashrae2021g36,taylor2018vav} is, as we show, large.
+metadata and otherwise encodes physics every generated building shares. It transfers by
+construction, it shows which part of the score is reachable without learning, and the gap
+to the organizers' plant-agnostic baselines is, as we show, large.
 
 \paragraph{Contributions.}
-(i) An analysis of the SB26 reward and plant that yields three design facts: comfort is
-charged only while a zone is occupied; fan power scales as pressure$^{3/2}$, so wide dampers
-at the ventilation floor are the cheap way to move air; and heat is delivered only through
-reheat coils capped at 308.15\,K discharge, so hotter loop water does not cost more gas per
-joule delivered (Section~\ref{sec:env}).
-(ii) SADR, a deterministic numpy controller (\PolicyMsOurs{}\,ms per step) that turns those
-facts into a mode machine, per-zone PI loops on net heat, and demand-based resets of every
-plant setpoint (Section~\ref{sec:method}).
-(iii) A tuning protocol that searches \NTuneConfigs{} parameter configurations on
-five-day screening runs of six scenarios from four buildings and confirms on all 30
-public scenarios at full length, with two buildings held out, plus a transfer check on two
-freshly generated buildings (Section~\ref{sec:results}).
-(iv) An honest account of where SADR still loses and why (Section~\ref{sec:analysis}).
+(i) An analysis of the SB26 reward and plant that yields the design facts above
+(Section~\ref{sec:env}). (ii) SADR, a deterministic numpy controller (\PolicyMsOurs{}\,ms per
+step) built from them (Section~\ref{sec:method}). (iii) A tuning protocol -- random search on
+five-day screens, an ablation, then a decomposition of the full-length loss that motivated
+one revision verified at full length on all 30 public scenarios and once on \NHeld{}
+scenarios from generated buildings (Section~\ref{sec:results}). (iv) An account of where the
+loss sits and where SADR still loses (Section~\ref{sec:analysis}), every number generated
+from the result files.
 
 \section{Environment and metric}
 \label{sec:env}
 
 \paragraph{Plant.}
-Each building is a multi-storey floor plan partitioned into zones; a handful of air handlers
-(AHUs) each serve up to ten zones through one VAV box per zone. An AHU mixes return air with
-outside air (recirculation fraction $r\le 0.7$) and cools the mixture to its supply-air
-temperature (SAT) setpoint, so the supply is $\min(\text{mixed}, \text{SAT})$: the AHU cannot
-heat. Zone flow is $d\,F_{\max}\sqrt{P/P_{\text{design}}}$ for damper position $d\in[0.1,1]$
-(floored by the simulator) and static pressure $P\in[200,2000]$\,Pa (floored at 200\,Pa
-while the unit runs). Fan power is $\text{flow}\times P/\eta$, so for a given flow the
-cheapest pressure is the floor, and power grows as $P^{3/2}$ once dampers are open. Heat
-comes only from each VAV's reheat coil, fed by a single gas boiler loop whose supply
-temperature (310--350\,K) and differential pressure (0--20\,bar) are setpoints; the coil's
-effectiveness is $\min(1, C_w/C_a, (308.15-T_{\text{sa}})/(T_w - T_{\text{sa}}))$, where
-$C_w, C_a$ are the water and air capacity rates, so discharge air is capped at 308.15\,K.
-Gas is billed as heat delivered plus a small tank loss; the boiler tank follows its
-setpoint at 0.5\,K/min up and 0.1\,K/min down regardless of the pump.
+Each building is a multi-storey floor plan partitioned into zones; air handlers (AHUs) each
+serve up to ten zones through one VAV box per zone. An AHU mixes return air with outside
+air (recirculation fraction $r\le 0.7$) and cools the mixture to its supply-air temperature
+(SAT) setpoint, so the supply is $\min(\text{mixed}, \text{SAT})$: the AHU cannot heat. Zone
+flow is $d\,F_{\max}\sqrt{P/P_{\text{design}}}$ for damper position $d\in[0.1,1]$ and static
+pressure $P\in[200,2000]$\,Pa (both floored by the simulator while the unit runs). Fan power
+is $\text{flow}\times P/\eta$, so the cheapest pressure for a given flow is the floor and
+power grows as $P^{3/2}$ once dampers are open; the chiller's coefficient of performance is a
+constant 3.5. Heat comes only from each VAV's reheat coil, fed by one gas boiler loop whose
+supply temperature (310--350\,K) and differential pressure (0--20\,bar) are setpoints; the
+coil's effectiveness $\min(1, C_w/C_a, (308.15-T_{\text{sa}})/(T_w - T_{\text{sa}}))$ caps the
+discharge at 308.15\,K. Gas is billed as heat delivered plus a tank loss.
 
 \paragraph{Reward and metric.}
 Each 5-minute step pays $0.6\,\text{(comfort shortfall)} + 0.2\,\text{(normalized energy
-cost)} + 0.2\,\text{(normalized carbon)}$. Comfort shortfall is the occupancy-weighted
-productivity loss: a zone inside its band costs nothing; a deviation of $\Delta$\,K costs
-$\Delta/5$ up to 5\,K and $1+((\Delta-5)/5)^2$ beyond, normalized by the total occupancy. It
-is therefore \emph{zero whenever nobody is in the building}, and occupants are present only on
-weekday comfort hours (arrivals 06--12, departures 13--19, none on US holidays). The band is
-294--297\,K in comfort hours (06:00--19:00 weekdays) and 289--298\,K otherwise. Energy is
-normalized by a plant maximum that scales with $K$; from the kit's cost tables one kW of
-electricity for one step costs about $2.1\times$ one kW of gas in metric units, and one kW
-of chiller cooling (COP 3.5) about $0.6\times$ one kW of gas. The leaderboard metric is the
-mean over scenarios of $|\text{mean per-step reward}|$, lower is better; it is dominated by
-the cold and hot extremes: the organizers' \texttt{pid\_water} loses \ExtremeRatioFairbanks$\times$
-(Fairbanks) and \ExtremeRatioPhoenix$\times$ (Phoenix) its mean loss in the three mild climates.
+cost)} + 0.2\,\text{(normalized carbon)}$. The comfort shortfall is the occupancy-weighted
+productivity loss (a deviation of $\Delta$\,K from the band costs $\Delta/5$ up to 5\,K and
+$1+((\Delta-5)/5)^2$ beyond, normalized by total occupancy), so it is \emph{zero whenever
+nobody is in the building}; occupants are present only on weekday comfort hours (arrivals
+06--12, departures 13--19, none on US holidays) and only the building-wide count is
+observed. The band is 294--297\,K in comfort hours (06:00--19:00 weekdays) and 289--298\,K
+otherwise. Energy is normalized by a plant maximum that scales with $K$; from the kit's cost
+tables one kW of electricity costs about $2.1\times$ one kW of gas in metric units and one kW
+of chiller cooling about $0.6\times$. The leaderboard metric is the mean over scenarios of
+$|\text{mean per-step reward}|$, lower is better; it is dominated by the extremes: the
+organizers' \texttt{pid\_water} loses \ExtremeRatioFairbanks$\times$ (Fairbanks) and
+\ExtremeRatioPhoenix$\times$ (Phoenix) its mean loss in the three mild climates.
 
 \paragraph{Baselines.}
-The kit ships four reference controllers: \texttt{bang\_bang}, \texttt{fixed\_setpoint},
-\texttt{pid} (per-AHU PID on the mean served-zone temperature, pressure scaled with
-effort), and \texttt{pid\_water} (\texttt{pid} plus worst-zone tracking, a proportional
-economizer, proportional reheat and a demand-based hot-water reset). \texttt{pid\_water} is
-the strongest overall and is our main comparison. There is no learned baseline.
+The kit ships \texttt{bang\_bang}, \texttt{fixed\_setpoint}, \texttt{pid} (per-AHU PID on the
+mean served-zone temperature, pressure scaled with effort, plant idle outside work hours) and
+\texttt{pid\_water} (\texttt{pid} plus worst-zone tracking, a proportional economizer,
+proportional reheat and a demand-based hot-water reset). \texttt{pid\_water} is the strongest
+and is our main comparison; there is no learned baseline.
 
 \section{Method: SADR}
 \label{sec:method}
 
-SADR is a single \texttt{TransferPolicy} class with no state other than per-zone integrals,
-per-AHU dwell counters and the optimum-start statistics. All gains live in one parameter
-dictionary (Table~\ref{tab:params}). Algorithm~\ref{alg:sadr} summarizes one step.
+SADR is a single \texttt{TransferPolicy} class whose only state is per-zone integrals,
+per-AHU dwell counters and the optimum-start statistics; all gains live in one parameter
+dictionary (Table~\ref{tab:params}); Algorithm~\ref{alg:sadr} (Appendix~\ref{app:figs}) summarizes one step.
 
 \paragraph{Topology from metadata.}
 At construction the controller builds index tables from
-\texttt{observation\_field\_names}, the positional AHU action lists
-(\texttt{temp/pressure/recirculation\_indices}), the per-VAV
-\texttt{zone\_action\_indices}, and \texttt{ahu\_zone\_assignments}, giving a zone-to-AHU
-membership matrix. Native action ranges are read from
-\texttt{action\_normalization\_metadata}; zone temperatures are de-normalized with the
-observation statistics; setpoint sensors, AHU fields and the loop water temperature are
-raw kelvin. Every action slot is written on every step and clipped to $[-1,1]$; a zone whose
-sensor or AHU cannot be placed gets its damper and valve driven to the floor.
+\texttt{observation\_field\_names}, the positional AHU action lists, the per-VAV
+\texttt{zone\_action\_indices} and \texttt{ahu\_zone\_assignments}, giving a zone-to-AHU
+membership matrix; native action ranges come from \texttt{action\_normalization\_metadata}
+and zone temperatures are de-normalized with the observation statistics. Every action slot
+is written on every step and clipped to $[-1,1]$; a zone whose sensor or AHU cannot be placed
+gets its damper and valve driven to the floor.
 
 \paragraph{Modes.}
 \textsc{Occupied} when the \texttt{comfort\_mode\_now} flag is set and the building is not
 detected as closed; \textsc{Precondition} when unoccupied but comfort hours start within a
 lead time (or \texttt{comfort\_mode\_soon}); \textsc{Setback} otherwise. The occupancy count
-is affinely normalized with a constant that is not in the metadata, so ``somebody is here''
-is detected relative to the running minimum of the signal. A weekday on which nobody has
-arrived by \ParHolidayCheckH{}:00 is a holiday in the kit's occupancy model and is treated as
-unoccupied until the count rises. The optimum-start lead is
-$\ell = \ell_0 + \text{deficit}/(\hat{r}/s)$, where the deficit is the worst zone's distance
-from the comfort band (plus a margin), $\hat{r}$ is a recovery-rate estimate in K/h that is
-re-estimated from each morning's observed recovery (exponential average, weight
-\ParRateEma), and $s=\ParLeadSafety$ is a safety factor; $\ell$ is clipped to
+is affinely normalized with an unknown constant, so ``somebody is here'' is detected
+relative to the running minimum of the signal; a weekday on which nobody has arrived by
+\ParHolidayCheckH{}:00 is a holiday in the kit's occupancy model and is treated as
+unoccupied until the count rises. The optimum-start lead is $\ell = \ell_0 +
+\text{deficit}/(\hat{r}/s)$: the worst zone's distance from the comfort band over a
+recovery-rate estimate $\hat{r}$ (K/h) re-estimated from each morning's recovery
+(exponential average, weight \ParRateEma) with safety factor $s=\ParLeadSafety$, clipped to
 $[\ParLeadMinH, \ParLeadMaxH]$\,h.
 
 \paragraph{Zone loops on net heat.}
-Each zone has a heating target $T_h^\star$ and a cooling target $T_c^\star$: the sensor
-band shrunk by a margin (\ParMarginOcc\,K occupied, \ParMarginPre\,K preconditioning).
-Two PI loops compute requested net heat $q_h = k_q (T_h^\star - T)^+ + I_h$ and cooling
-$q_c = k_q (T - T_c^\star)^+ + I_c$ in watts, with $k_q = \ParKqWPerK$\,W/K and integral
-gain \ParKiWPerKStep\,W/K per step; the integrals unwind when the zone passes its target, so
-a zone in the middle of the band free-floats. The larger request wins. Why net heat and not
-flow: the zone-air node has a time constant of a few minutes against supply flow, so a
-flow-proportional controller with a 5-minute step oscillates (our first version swung
-zone temperatures across the whole eco band within one step at full pressure); a net-heat
-gain of \ParKqWPerK\,W/K, of the order of the air node's conductance to the slab, is
-stable, and the integral carries the steady load.
-\textsc{Setback} does not use the PI loops: a running handler pays the ventilation load of
-every zone it serves whatever the dampers do, so the drift is bounded by \emph{bursts}
-instead. The floor is the eco band widened by \ParNightLowExt{}/\ParNightHighExt\,K; a zone
-that crosses it requests \ParQSbW\,W until it is \ParSbHystK\,K inside again, and the
-handler is off otherwise. In a version that held the floor with the PI loops, at least one
-handler was running for \VthreeAhuOnUnocc{} of the unoccupied steps on the coldest public
-scenario, mostly heating outside air at floor flow.
+Each zone has heating and cooling targets, the sensor band shrunk by \ParMarginOcc\,K
+(occupied) or \ParMarginPre\,K (preconditioning). Two PI loops compute requested net heat
+$q_h = k_q (T_h^\star - T)^+ + I_h$ and cooling $q_c = k_q (T - T_c^\star)^+ + I_c$ in watts
+($k_q = \ParKqWPerK$\,W/K, integral gain \ParKiWPerKStep\,W/K per step); the integrals unwind
+past the target, so a zone inside the band free-floats, and the larger request wins. Net
+heat rather than flow because the zone-air node responds within minutes: a flow-proportional
+controller with a 5-minute step oscillates (our first version swung zone temperatures across
+the whole eco band in one step at full pressure), whereas a net-heat gain of the order of
+the air node's conductance to the slab is stable and the integral carries the steady load.
+\textsc{Setback} uses \emph{bursts} instead: a running handler pays the ventilation load of
+every zone it serves, so the floor (eco band widened by \ParNightLowExt{}/\ParNightHighExt\,K)
+is held by requesting \ParQSbW\,W from any zone that crosses it until it is \ParSbHystK\,K
+inside, and the handler is off otherwise. A version that held the floor with the PI loops
+kept at least one handler running for \VthreeAhuOnUnocc{} of the unoccupied steps on the
+coldest public scenario, mostly heating outside air at floor flow.
 
 \paragraph{From heat to actuators.}
-For a cooling zone the required capacity rate is $F = q_c/(T - T_{\text{sa}})$ with
-$T_{\text{sa}}$ the AHU's estimated supply temperature; for a heating zone it is bounded by
-the discharge limit, $F = q_h/(308.15 - \delta - T)$. Per AHU the SAT is reset to the coldest
-supply any served cooling zone needs at 100\% damper and floor pressure, clipped to
-$[285, \ParSatCoolHi]$\,K and floored at \ParSatMixFloor\,K when the same handler also
-heats; a heating-only handler commands 305\,K so the coil idles. Static pressure is
-trim-and-respond in closed form: $P = P_{\text{design}}\,\max_z f_z^2$ clipped to
-$[200, 2000]$\,Pa where $f_z$ is each zone's requested fraction of design flow, so the most
-demanding damper is fully open and pressure leaves the floor only when a zone needs more
-than the floor can deliver. Dampers are $f_z/\sqrt{P/P_{\text{design}}}$. For heating
-zones the discharge temperature that delivers $q_h$ at the delivered flow gives the water
-capacity rate $W_z = F_z\,(T_{\text{disch}} - T_{\text{sa}})/(T_w - T_{\text{sa}})$; the loop
-differential pressure is reset so the largest $W_z$ corresponds to a valve at
-\ParValveTarget{} of travel, and each valve is $W_z/(k_v \sqrt{\Delta p})$ with $k_v$ the
-kit's valve coefficient. An AHU runs iff a served zone requests more than \texttt{q\_on}
-(dwell \ParMinOnSteps{} steps); the pump runs iff a valve is open. Recirculation is at the
-0.7 cap except when a handler cools with no heating zones and outside air is colder than the
-return air by more than the exhaust-fan break-even ($0.00322$\,K/Pa$\times P$), in which case
-the outside-air fraction is solved so the mixed air lands on the SAT target. The hot-water
-setpoint is 350\,K whenever heating was requested in the last \ParHeatSeasonSteps{} steps
-and 310\,K otherwise, because gas is billed as heat delivered and the discharge limit makes
-hotter water strictly more useful.
+A cooling zone needs capacity rate $F = q_c/(T - T_{\text{sa}})$, $T_{\text{sa}}$ being the
+AHU's estimated supply temperature; a heating zone is bounded by the discharge limit, $F =
+q_h/(308.15 - \delta - T)$. \emph{SAT:} a cooling handler commands the coldest value,
+\ParSatCoolHi\,K. The coil load is $F\,(T_{\text{mixed}} - T_{\text{sa}}) = q_c + F\,
+(T_{\text{mixed}} - T)$ and the COP is constant, so for a given $q_c$ both the ventilation term
+and the fan power fall with flow and the coldest supply is cheapest; v4 instead reset SAT
+upward to the warmest value that still served the worst zone at floor pressure, in the
+trim-and-respond spirit of Guideline 36~\citep{ashrae2021g36,taylor2018vav} -- right in a real
+building (part-load reheat, humidity), wrong here (Section~\ref{sec:analysis}). A handler
+that also heats is floored at \ParSatMixFloor\,K so its cooling zones are not overcooled into
+reheat; a heating-only handler commands 305\,K so the coil idles. \emph{Static pressure} is
+trim-and-respond in closed form, $P = P_{\text{design}}\max_z f_z^2$ clipped to
+$[200, 2000]$\,Pa with $f_z$ each zone's requested fraction of design flow, so the most
+demanding damper is fully open and pressure leaves the floor only when it must; dampers are
+$f_z/\sqrt{P/P_{\text{design}}}$. \emph{Reheat:} the discharge temperature that delivers $q_h$
+at the delivered flow gives the water capacity rate $W_z = F_z\,(T_{\text{disch}} -
+T_{\text{sa}})/(T_w - T_{\text{sa}})$; the loop differential pressure is reset so the largest
+$W_z$ sits at \ParValveTarget{} of valve travel and each valve is $W_z/(k_v \sqrt{\Delta p})$
+with the kit's $k_v$. An AHU runs iff a served zone requests more than \texttt{q\_on}
+(dwell \ParMinOnSteps{} steps); the pump runs iff a valve is open. Recirculation is at the 0.7
+cap except when a cooling-only handler sees outside air colder than return air by more than
+the exhaust-fan break-even ($0.00322$\,K/Pa$\times P$), in which case the outside-air
+fraction is solved so the mixed air lands on the SAT target. The hot-water setpoint is 350\,K
+whenever heating was requested in the last \ParHeatSeasonSteps{} steps and 310\,K otherwise:
+gas is billed as heat delivered and the discharge limit makes hotter water strictly more
+useful, at an extra tank dissipation of \TankLossExtraKw\,kW by the kit's boiler model.
 
-\begin{algorithm}[t]
-\caption{SADR, one step (vectorized over zones $z$ and handlers $k$)}
-\label{alg:sadr}
-\begin{algorithmic}[1]
-\State mode $\gets$ \textsc{Occupied} / \textsc{Precondition} / \textsc{Setback} from flags, time, occupancy count, lead $\ell$
-\State $(T_h^\star, T_c^\star)_z \gets$ band for the mode; update $I_h, I_c$; $q_h, q_c \gets$ PI requests (W)
-\State run$_k \gets$ hysteresis on $\max_{z\in k}(q_h, q_c)$
-\State SAT$_k \gets$ coldest supply a cooling zone needs at floor pressure; recirc$_k \gets$ economizer
-\State $F_z \gets q_c/(T_z - T_{\text{sa},k})$ or $q_h/(308.15-\delta-T_z)$; $P_k \gets P_{\text{design}}\max_z f_z^2$; damper$_z \gets f_z/\sqrt{P_k/P_{\text{design}}}$
-\State $W_z \gets F_z (T_{\text{disch},z} - T_{\text{sa}})/(T_w - T_{\text{sa}})$; $\Delta p \gets (\max_z W_z / (0.9 k_v))^2$; valve$_z \gets W_z/(k_v\sqrt{\Delta p})$
-\State $T_w^{\text{sp}} \gets 350$\,K if heating season else 310\,K; pump $\gets$ any valve open
-\State scatter all setpoints into the normalized action vectors; clip
-\end{algorithmic}
-\end{algorithm}
 
 \paragraph{Transfer safeguards.}
-Nothing depends on the number of zones or handlers, the floor plan, or the weather strip;
-the only building-specific constants are read from metadata or observations (design flow
-per VAV is read from \texttt{supply\_air\_flowrate\_setpoint}). The valve coefficient
-$k_v$ and the discharge limit are kit constants; if a held-out building changed them the
-PI loops would still regulate, with a mis-scaled proportional path. Non-finite inputs fall
-back to schedule values. The controller never reads files or the network and has no
-randomness.
+Nothing depends on the number of zones or handlers, the floor plan or the strip; the only
+building-specific constants are read from metadata or observations (design flow per VAV
+from \texttt{supply\_air\_flowrate\_setpoint}). $k_v$ and the discharge limit are kit
+constants; if a held-out building changed them the PI loops would still regulate with a
+mis-scaled proportional path. Non-finite inputs fall back to schedule values; no files, no
+network, no randomness.
 
-\paragraph{Tuning protocol (P2).}
-Parameters were tuned by seeded random search on a screening set of six scenarios drawn
-from four of the six public buildings (buildings 1, 2, 5, 8; one strip per station plus a
-second Fairbanks strip) at 1,440 steps (five days: a weekend day and four workdays). The
-default configuration plus \NTuneRandom{} random perturbations of two to five parameters
-each were evaluated (\NTuneConfigs{} distinct configurations). The screening score is the
-leaderboard metric on that set; the default configuration scored \TuneDefaultScreen{}, the
-best \TuneBestScreen{} and \texttt{pid\_water} \TunePidWaterScreen{} on the same six runs.
-The best configuration differs from the default in four values: integral gain doubled to
-\ParKiWPerKStep\,W/K per step, preconditioning margin \ParMarginPre\,K, mixed-handler SAT
-floor \ParSatMixFloor\,K and setback hysteresis \ParSbHystK\,K; the three best configurations
-all share the doubled integral gain. A coordinate-descent refinement was planned but not
-run: the compute went to the full-length evaluation instead. Buildings 4 and 7 were never
-used during tuning. The tuned configuration was then run on all 30 public scenarios at the
-full 8,640 steps, and on \NHeld{} scenarios from \NHeldBuild{} buildings generated with the
-kit's \texttt{run\_floor\_generator} (seeds 501 and 502, outside the public set) paired with
-weather strips that do not occur in the public set.
+\paragraph{Tuning protocol.}
+Parameters were first tuned by seeded random search on a screening set of six scenarios
+from four public buildings (1, 2, 5, 8; one strip per station plus a second Fairbanks strip)
+at 1,440 steps (five days): the design defaults plus \NTuneRandom{} random perturbations of
+two to five parameters (\NTuneConfigs{} distinct configurations). The defaults scored
+\TuneDefaultScreen, the best \TuneBestScreen{} and \texttt{pid\_water} \TunePidWaterScreen{}
+on the same runs. The best configuration (v4) differs from the defaults in four values, and
+a one-at-a-time ablation (Appendix~\ref{app:tuning}) shows that doubling the integral gain to
+\ParKiWPerKStep\,W/K per step is the whole gain (\AblRelDefAddKi{} on its own; the other three
+are within 1\%). Buildings 4 and 7 were never screened. v4 was then run on all 30 public
+scenarios at 8,640 steps, its loss decomposed (Section~\ref{sec:analysis}), and \NCandV{}
+physics-motivated candidates (cold SAT; night setback widened to 8--12\,K; combinations) were
+screened the same way and all run at full length on the 30 public scenarios
+(Appendix~\ref{app:tuning}). The winner on the public set is the final policy (v5); the
+\NHeld{} generated-building scenarios were run once, after that choice.
 
 \begin{table}[t]
-\caption{Tuned SADR parameters (final values); the full dictionary is in the code.}
+\caption{Final SADR parameters (v5); values that changed from v4 are marked. The full dictionary is in the code.}
 \label{tab:params}
 \centering\small
 \begin{tabular}{llll}
 \toprule
 occupied margin & \ParMarginOcc\,K & precondition margin & \ParMarginPre\,K \\
-setback widening (low/high) & \ParNightLowExt{}/\ParNightHighExt\,K & $k_q$, $k_i$ & \ParKqWPerK, \ParKiWPerKStep\,W/K \\
-SAT ceiling / mixed floor & \ParSatCoolHi{}/\ParSatMixFloor\,K & discharge margin & \ParDischMarginK\,K \\
-lead safety / rate$_0$ & \ParLeadSafety{} / \ParRateZeroKph\,K/h & holiday check hour & \ParHolidayCheckH \\
+setback widening (low/high) & \ParNightLowExt{}/\ParNightHighExt\,K (v4: \VFourNightLowExt/\VFourNightHighExt) & $k_q$, $k_i$ & \ParKqWPerK, \ParKiWPerKStep\,W/K \\
+cooling SAT / mixed floor & \ParSatCoolHi{}/\ParSatMixFloor\,K (v4 ceiling: \VFourSatCoolHi) & discharge margin & \ParDischMarginK\,K \\
+lead safety / rate$_0$ & \ParLeadSafety{} / \ParRateZeroKph\,K/h & lead range & \ParLeadMinH--\ParLeadMaxH\,h \\
 heating-season memory & \ParHeatSeasonSteps{} steps & AHU dwell & \ParMinOnSteps{} steps \\
 \bottomrule
 \end{tabular}
@@ -275,177 +245,197 @@ heating-season memory & \ParHeatSeasonSteps{} steps & AHU dwell & \ParMinOnSteps
 
 \paragraph{Setup.}
 All runs use the kit's environment loader and \texttt{SimulationTracker}, 8,640 steps per
-scenario, scored with the kit's \texttt{score\_leaderboard.py} logic (we re-implemented the
-same formula to add bootstrap CIs). The strongest organizer baseline, \texttt{pid\_water}, was
-re-run locally on every scenario under identical conditions; the other three baselines are
-reported from the shipped \texttt{baseline\_returns.json} and labelled as organizer values.
-Local \texttt{pid\_water} returns are \GapMeanPidWater{} relative to the shipped values on
-average (range \GapMinPidWater{} to \GapMaxPidWater), so the local-vs-official gap is small
-but not zero, and all paired comparisons use the local re-runs. Compute: one CPU-only laptop (8 cores,
-34\,GB RAM, no GPU), \SimSecPerStep\,s per simulator step (median), about \TotalCoreHours{}
-core-hours in total.
+scenario, and the kit's \texttt{score\_leaderboard.py} formula with paired bootstrap CIs over
+scenarios added. Every policy in Table~\ref{tab:main} -- SADR v5, SADR v4 and the four
+organizer baselines -- was run on one machine (Apple M5 Pro, \SecPerStepOurs\,s per simulator
+step with 14 concurrent runs); local \texttt{pid\_water} returns are \GapMeanPidWater{}
+relative to the shipped \texttt{baseline\_returns.json} on average (range \GapMinPidWater{} to
+\GapMaxPidWater), so all paired comparisons use local runs. As a cross-machine check, v4 and
+\texttt{pid\_water} were also run on a Windows laptop (\SimSecPerStep\,s per step): v4 scores
+\LocalVFourMetric{} there against \MetricOursVFour{} on the Mac, a per-scenario relative
+difference of \MachineGapMean{} (max \MachineGapMax; \MachineGapPidWater{} for
+\texttt{pid\_water}); the simulator's seeds are fixed, so the numbers reproduce across machines.
 
 \begin{table}[t]
 \caption{Leaderboard metric (mean over the \NScen{} public scenarios of $|$mean per-step
 reward$|$; lower is better) and per-station means (diagnostic only; the leaderboard never
-groups). Paired bootstrap 95\% CIs (\NBoot{} resamples over scenarios) are for ours minus
-the baseline (negative favours ours). ``organizer'' rows use the returns shipped in
-\texttt{baseline\_returns.json}; the per-scenario numbers are in Appendix~\ref{app:per_scenario}.}
+groups). Paired bootstrap 95\% CIs (\NBoot{} resamples over scenarios) are for SADR v5 minus
+the row (negative favours v5). All rows were run on one machine; the last row is the
+organizers' shipped returns. Per-scenario numbers: Appendix~\ref{app:per_scenario}.}
 \label{tab:main}
-\centering\small
-\setlength{\tabcolsep}{4pt}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lcccccc c}
 \toprule
-policy & all & Fairbanks & Denver & Atlanta & Phoenix & Singapore & $\Delta$ vs ours [95\% CI] \\
+policy & all & Fairbanks & Denver & Atlanta & Phoenix & Singapore & $\Delta$ vs v5 [95\% CI] \\
 \midrule
-SADR (ours) & \textbf{\MetricOurs} & \MetricOursFairbanks & \MetricOursDenver & \MetricOursAtlanta & \MetricOursPhoenix & \MetricOursSingapore & -- \\
-pid\_water (local re-run) & \MetricPidWater & \MetricPidWaterFairbanks & \MetricPidWaterDenver & \MetricPidWaterAtlanta & \MetricPidWaterPhoenix & \MetricPidWaterSingapore & \DiffPidWater{} [\DiffLoPidWater, \DiffHiPidWater] \\
+SADR v5 (final) & \textbf{\MetricOurs} & \MetricOursFairbanks & \MetricOursDenver & \MetricOursAtlanta & \MetricOursPhoenix & \MetricOursSingapore & -- \\
+SADR v4 & \MetricOursVFour & \MetricOursVFourFairbanks & \MetricOursVFourDenver & \MetricOursVFourAtlanta & \MetricOursVFourPhoenix & \MetricOursVFourSingapore & \DiffOursVFour{} [\DiffLoOursVFour, \DiffHiOursVFour] \\
+pid\_water & \MetricPidWater & \MetricPidWaterFairbanks & \MetricPidWaterDenver & \MetricPidWaterAtlanta & \MetricPidWaterPhoenix & \MetricPidWaterSingapore & \DiffPidWater{} [\DiffLoPidWater, \DiffHiPidWater] \\
+pid & \MetricPid & \MetricPidFairbanks & \MetricPidDenver & \MetricPidAtlanta & \MetricPidPhoenix & \MetricPidSingapore & \DiffPid{} [\DiffLoPid, \DiffHiPid] \\
+fixed\_setpoint & \MetricFixedSp & \MetricFixedSpFairbanks & \MetricFixedSpDenver & \MetricFixedSpAtlanta & \MetricFixedSpPhoenix & \MetricFixedSpSingapore & \DiffFixedSp{} [\DiffLoFixedSp, \DiffHiFixedSp] \\
+bang\_bang & \MetricBangBang & \MetricBangBangFairbanks & \MetricBangBangDenver & \MetricBangBangAtlanta & \MetricBangBangPhoenix & \MetricBangBangSingapore & \DiffBangBang{} [\DiffLoBangBang, \DiffHiBangBang] \\
 \midrule
-pid\_water (organizer) & \MetricPidWaterOff & \MetricPidWaterOffFairbanks & \MetricPidWaterOffDenver & \MetricPidWaterOffAtlanta & \MetricPidWaterOffPhoenix & \MetricPidWaterOffSingapore & \DiffPidWaterOff{} [\DiffLoPidWaterOff, \DiffHiPidWaterOff] \\
-pid (organizer) & \MetricPidOff & \MetricPidOffFairbanks & \MetricPidOffDenver & \MetricPidOffAtlanta & \MetricPidOffPhoenix & \MetricPidOffSingapore & \DiffPidOff{} [\DiffLoPidOff, \DiffHiPidOff] \\
-fixed\_setpoint (organizer) & \MetricFixedSpOff & \MetricFixedSpOffFairbanks & \MetricFixedSpOffDenver & \MetricFixedSpOffAtlanta & \MetricFixedSpOffPhoenix & \MetricFixedSpOffSingapore & \DiffFixedSpOff{} [\DiffLoFixedSpOff, \DiffHiFixedSpOff] \\
-bang\_bang (organizer) & \MetricBangBangOff & \MetricBangBangOffFairbanks & \MetricBangBangOffDenver & \MetricBangBangOffAtlanta & \MetricBangBangOffPhoenix & \MetricBangBangOffSingapore & \DiffBangBangOff{} [\DiffLoBangBangOff, \DiffHiBangBangOff] \\
+pid\_water (organizer values) & \MetricPidWaterOff & \MetricPidWaterOffFairbanks & \MetricPidWaterOffDenver & \MetricPidWaterOffAtlanta & \MetricPidWaterOffPhoenix & \MetricPidWaterOffSingapore & \DiffPidWaterOff{} [\DiffLoPidWaterOff, \DiffHiPidWaterOff] \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Main result.}
-Table~\ref{tab:main} and Figure~\ref{fig:scores} give the headline numbers. SADR reaches
-\MetricOurs{} against \MetricPidWater{} for the locally re-run \texttt{pid\_water}, a
-relative reduction of \RelRedPidWater{} (95\% CI \RelRedLoPidWater{} to \RelRedHiPidWater),
-winning on \WinsPidWater{} of \NScen{} scenarios (Wilcoxon signed-rank
-$p=\PWilcoxonPidWater$). The reduction is largest in absolute terms in the two extreme
-climates (Fairbanks: \DiffPidWaterFairbanks; Phoenix: \DiffPidWaterPhoenix) and smallest in
-the mild ones (Atlanta: \DiffPidWaterAtlanta). Against the shipped organizer values the
-ratio is \RatioPidWaterOff.
+SADR v5 reaches \MetricOurs{} against \MetricPidWater{} for \texttt{pid\_water}
+(Table~\ref{tab:main}, Figure~\ref{fig:scores}), a relative reduction of \RelRedPidWater{}
+(95\% CI \RelRedLoPidWater{} to \RelRedHiPidWater), winning on \WinsPidWater{} of \NScen{}
+scenarios (Wilcoxon signed-rank $p\PWilcoxonPidWater$); against the shipped organizer values
+the ratio is \RatioPidWaterOff. The absolute reduction is largest in Fairbanks
+(\DiffPidWaterFairbanks) and Phoenix (\DiffPidWaterPhoenix). The revision from v4 to v5 cut
+the metric by \RelRedOursVFour{} (CI \RelRedLoOursVFour{} to \RelRedHiOursVFour; wins
+\WinsOursVFour/\NScen), concentrated in the cooling climates (Phoenix \DiffOursVFourPhoenix,
+Singapore \DiffOursVFourSingapore); Fairbanks moves by \DiffOursVFourFairbanks{} and the mild
+climates by at most \DiffOursVFourAtlanta. For scale, the
+public Kaggle leaderboard (read \LbDate; \LbNTeams{} teams; a third of the held-out test
+data; same formula on unseen buildings and strips, so not directly comparable) stood at
+\LbRankOne{} for rank 1, \LbRankEight{} for rank 8 (the last prize rank), \LbRankThirty{} for
+rank 30 and \LbRankFortyNine{} for rank 49, against \MetricOurs{} here
+(\OursVsLbOne$\times$ the leader).
 
 \begin{figure}[t]
 \centering
 \figfile{\linewidth}{figures/fig_scores_by_scenario.pdf}
-\caption{Per-scenario leaderboard score (lower is better), ours vs the locally re-run
-\texttt{pid\_water}, grouped by station; bars are labelled by building.}
+\caption{Per-scenario leaderboard score (log scale, lower is better), SADR v5 vs
+\texttt{pid\_water} on the same machine, grouped by station and labelled by building (b =
+public, g = generated held-out). Left: the 30 public scenarios; right: the \NHeld{}
+held-out scenarios.}
 \label{fig:scores}
 \end{figure}
 
 \paragraph{Where the loss goes.}
 Figure~\ref{fig:decomp} splits each policy's per-step loss into comfort, energy and carbon
-per station. For SADR the comfort term is \DecompOursComfort{} of a total of \MetricOurs{}
-(energy \DecompOursEnergy, carbon \DecompOursCarbon); for \texttt{pid\_water} it is
-\DecompPidWaterComfort{} of \MetricPidWater{} (energy \DecompPidWaterEnergy, carbon
-\DecompPidWaterCarbon).
+per station, and Figure~\ref{fig:hours} by hour of day. Over the \NAnalysis{} public
+scenarios, comfort regret is \RegretShareOurs{} of SADR v5's loss (energy \EnergyShareOurs,
+carbon \CarbonShareOurs) against \RegretSharePidWater{} of \texttt{pid\_water}'s (energy
+\EnergySharePidWater, carbon \CarbonSharePidWater). A one-day trace of both controllers on
+the coldest scenario is in Appendix~\ref{app:figs}.
 
 \begin{figure}[t]
 \centering
-\figfile{0.78\linewidth}{figures/fig_station_decomp.pdf}
+\figfile{0.58\linewidth}{figures/fig_station_decomp.pdf}
 \caption{Per-station decomposition of the per-step loss (metric units) into comfort,
-energy and carbon, for SADR and \texttt{pid\_water} (local re-runs).}
+energy and carbon, SADR v5 vs \texttt{pid\_water}.}
 \label{fig:decomp}
 \end{figure}
 
-\paragraph{Traces.}
-Figure~\ref{fig:trace} shows one weekday of the coldest scenario for both controllers: the
-envelope of all zone temperatures against the comfort band, with occupancy shaded.
-
 \begin{figure}[t]
 \centering
-\figfile{\linewidth}{figures/fig_trace_building_train_8_fairbanks_8_day8.pdf}
-\caption{One weekday on \texttt{building\_train\_8/fairbanks\_8}: zone-temperature
-envelope (min--max shaded, median line) against the comfort band (green wash), with the
-building occupancy count shaded in grey. Left: SADR; right: \texttt{pid\_water}.}
-\label{fig:trace}
+\figfile{\linewidth}{figures/fig_loss_by_hour.pdf}
+\caption{Mean per-step loss by hour of day over the \NAnalysis{} public scenarios, split
+into comfort regret and energy\,+\,carbon; comfort hours (06--19) shaded. Left: SADR v5;
+right: \texttt{pid\_water}.}
+\label{fig:hours}
 \end{figure}
 
 \paragraph{Held-out buildings.}
-On the \NHeld{} scenarios of the two generated buildings (never seen during tuning), SADR
-scores \HeldMetricOurs{} against \HeldMetricPidWater{} for \texttt{pid\_water}, a ratio of
-\HeldRatio{} (difference \HeldDiff, 95\% CI [\HeldDiffLo, \HeldDiffHi]; wins
-\HeldWins/\NHeld). Within the public set, the held-out buildings 4 and 7 behave like the
-tuning buildings (ours \MetricOursBfour{} and \MetricOursBseven{} vs
-\MetricPidWaterBfour{} and \MetricPidWaterBseven).
+On the \NHeld{} scenarios of the two generated buildings (\ZonesBgena{} zones/\AhusBgena{}
+AHUs and \ZonesBgenb{} zones/\AhusBgenb{} AHUs; strips absent from the public set), run once
+after the final policy was chosen, SADR v5 scores \HeldMetricOurs{} against
+\HeldMetricPidWater{} for \texttt{pid\_water}, a ratio of \HeldRatio{} (difference \HeldDiff,
+95\% CI [\HeldDiffLo, \HeldDiffHi]; wins \HeldWins/\NHeld): the ratio carries over, less
+favourably mainly on the larger generated building. The v4-to-v5 gain shrinks to
+\HeldVFourDiff{} (v4 \HeldMetricOursVFour; ratio \HeldVFourRatio, CI [\HeldVFourDiffLo,
+\HeldVFourDiffHi], wins \HeldVFourWins/\NHeld) and is not significant on ten scenarios. The
+public buildings never screened (4 and 7) behave like the others (v5 \MetricOursBfour{} and
+\MetricOursBseven{} vs \MetricPidWaterBfour{} and \MetricPidWaterBseven).
 
-\paragraph{Tuning.}
-Figure~\ref{fig:tuning} shows the screening score of every configuration evaluated. The
-spread across \NTuneConfigs{} configurations (\TuneBestScreen{} to \TuneWorstScreen) is
-small relative to the gap to the baselines, i.e.\ the gains come from the structure, not
-from the tuning.
-
-\begin{figure}[t]
-\centering
-\figfile{0.5\linewidth}{figures/fig_tuning.pdf}
-\caption{Screening score (six scenarios, five days) of every tuned configuration, sorted;
-the default configuration is highlighted.}
-\label{fig:tuning}
-\end{figure}
+\paragraph{Tuning and candidates.}
+The spread of the \NTuneConfigs{} random-search configurations on the screen
+(\TuneBestScreen{} to \TuneWorstScreen, Appendix~\ref{app:figs}) is small relative to the gap
+to \texttt{pid\_water} (\TunePidWaterScreen{} on the same runs): the gains come from the
+structure, not the tuning. The \NCandV{} analysis-driven candidates score \CandBestScreen{} at
+best on the screen (cold SAT alone \CandSatColdScreen; the deeper setback alone
+\CandNightEightScreen, which a five-day screen cannot see); at full length the winner,
+\CandWinner, reaches \CandWinnerMetric{} against \CandWinnerVFourMetric{} for v4 on the same
+machine (ratio \CandWinnerRatio, CI [\CandWinnerCiLo, \CandWinnerCiHi], wins
+\CandWinnerWins/\NScen); all candidates are in Appendix~\ref{app:tuning}.
 
 \section{Analysis}
 \label{sec:analysis}
 
 \paragraph{Why it wins.}
-The decomposition shows where the structure pays. (a) \emph{Occupancy gating}: the organizer
-baselines condition to the eco band all night and all weekend although nothing is charged
-for comfort then; SADR shuts the plant down and spends only on the morning recovery.
-(b) \emph{Pressure at the floor}: \texttt{pid\_water} scales static pressure with control
-effort, so a 2\,K excursion commands 2000\,Pa on the whole handler; SADR serves the same
-zone with a wide damper at 200\,Pa, which costs ten times less fan power for the same
-flow (fan power is flow$\times$pressure). (c) \emph{Net-heat loops}: proportional-to-temperature actuation on a zone-air
-node that responds within minutes produces the overshoot and limit cycles visible in the
-\texttt{pid\_water} traces; commanding watts, not positions, removes them, and the
-integral removes the steady offset that a proportional controller leaves inside a band
-that is only 3\,K wide. (d) \emph{Hot water}: holding the loop at 350\,K in heating
-season makes the full discharge limit available during recovery; the extra tank
-dissipation, by the kit's boiler model, is \TankLossExtraKw\,kW.
+The decomposition is unambiguous about the baseline: for \texttt{pid\_water} comfort regret
+is \RegretSharePidWater{} of the loss and \OccOutPidWater{} of occupied zone-steps lie outside
+the comfort band (mean worst-zone deviation \OccWorstDevPidWater\,K), because its handler
+loop regulates one temperature per handler while individual zones drift, and its start is a
+step at 06:00 (the spike in Figure~\ref{fig:hours}). SADR keeps \OccOutOurs{} of occupied
+zone-steps out of band (comfort \RegretShareOurs{} of its loss) with zone-level integral
+control and a learned lead. In the extreme climates it also uses far less energy: pressure
+at the floor with wide dampers (ten times less fan power than the 2000\,Pa
+\texttt{pid\_water} commands on a 2\,K excursion, for the same flow), hot water at 350\,K with
+the minimum flow the discharge cap allows (the ventilation penalty per joule of heat,
+$(T - T_{\text{mixed}})/(T_{\text{disch}} - T)$, is minimized), recirculation at the cap, and no
+conditioning while nobody is charged for comfort.
+
+\paragraph{Where the loss sits now, and what the revision bought.}
+For SADR v5, \UnoccShareOurs{} of the loss is incurred on unoccupied steps
+(\UnoccShareOursFairbanks{} in Fairbanks), and the largest hourly spend is hour
+\PeakLossHourOurs{} (\PeakLossShareOurs{} of the day), the warm-up and pre-cool before 06:00. Fairbanks is gas: heating with a mandatory 30\%
+outside-air fraction at $-20^\circ$C costs about $1.9$\,J of gas per joule of net heat at
+the discharge cap, and no plant in this benchmark heats any other way; what remains
+adjustable is the envelope loss, hence the deeper setback. Phoenix and Singapore were
+electricity for cooling, and the v4 SAT reset was spending flow: with coil load $q_c +
+F\,(T_{\text{mixed}} - T)$ and a constant COP, the coldest supply at the lowest flow is
+strictly cheaper. The candidates test exactly these two levers and the full-length
+differences (Table~\ref{tab:main}, Appendix~\ref{app:tuning}) match the prediction: the
+cooling climates improve with cold SAT, Fairbanks improves slightly with the deeper setback
+(cold SAT costs it a little on mixed handlers, so the two nearly cancel there), the mild
+climates barely move. The first workday, before any recovery rate has been measured, is not a weak
+spot either: its comfort regret exceeds the mean of the later workdays on
+\NFirstWorkdayWorse{} of \NFirstWorkdayTotal{} scenarios (median ratio
+\FirstWorkdayRatioMedianOurs), and the comfort term is \RegretShareOurs{} of the loss in any
+case.
 
 \paragraph{Where it loses.}
-SADR is worse than \texttt{pid\_water} on \NScenWorse{} of \NScen{} scenarios; the worst
-is \WorstScen{} (\WorstScenDiff{} in metric units). The failure modes we observed are:
-(i) the first weekday of an episode, before any recovery rate has been measured, uses the
-prior $\hat r$ and a safety factor and is sometimes late; (ii) in the hottest strips (outside air up to \PhoenixPeakOatC\,$^\circ$C) the cooling
-capacity at floor pressure is insufficient for perimeter zones at the afternoon peak, and the
-pressure escalation then costs fan energy; (iii) in mixed shoulder weather one handler may have
-heating and cooling zones at once, and the SAT compromise (\ParSatMixFloor\,K floor) heats
-some zones with gas while cooling their neighbours. None of these is a transfer failure:
-the same modes appear on tuning and held-out buildings.
+SADR v5 is worse than \texttt{pid\_water} on \NScenWorse{} of \NScen{} scenarios; its
+largest residual loss is on \MaxOursScen{} (\MaxOursScore). The failure modes we observe are
+(i) in the coldest strips the morning recovery still leaves regret in the first two comfort
+hours (Figure~\ref{fig:hours}): the lead is tuned to be cheap, not perfect; (ii) in the
+hottest strips (outside air up to \PhoenixPeakOatC\,$^\circ$C) perimeter zones exceed what
+floor pressure can serve at the afternoon peak and the pressure escalation costs fan energy;
+(iii) on mixed handlers in shoulder weather the \ParSatMixFloor\,K floor heats some zones with
+gas while cooling their neighbours. None is a transfer failure: the same modes appear on
+screened, unscreened and generated buildings alike.
 
 \paragraph{What this says about foundation-model control.}
-The leaderboard metric rewards two things: never letting an occupied zone drift, and never
-moving air at high pressure. Both are reachable from the metadata and the physics alone.
-A learned policy for this benchmark should therefore be compared with a controller of this
-kind, and its advantage should be looked for where rules are weak: predicting the recovery
-rate before the first morning, anticipating the afternoon peak, and resolving
-heating/cooling conflicts on a shared handler.
+The metric rewards never letting an occupied zone drift and never moving more air, at higher
+pressure or warmer than necessary; both are reachable from the metadata and the physics
+alone, and one analysis-driven revision was worth more than the whole parameter search. A
+learned policy should be compared with a controller of this kind and its advantage looked
+for where rules are weak: the first morning, the afternoon peak, shared handlers.
 
 \section{Limitations}
 SADR encodes constants of this simulator (the discharge limit, the valve coefficient, the
-economizer break-even implied by the exhaust-fan model); in a real building these would be
-commissioning parameters. The tuning used six screening scenarios of five days each, so the
-parameters are not guaranteed optimal at 30 days, and the held-out check covers two
-generated buildings only. The local-vs-official gap (\GapMeanPidWater{} for
-\texttt{pid\_water}) means Kaggle numbers will differ slightly from ours. The controller
-does not model the hot-water tank's thermal inertia or the slab explicitly; a model
-predictive controller or a learned residual on top of SADR is the natural next step, and we
-did not have the compute to evaluate one honestly.
+constant COP, the exhaust-fan break-even); in a real building these would be commissioning
+parameters, and the cold-SAT rule would have to be weighed against humidity and reheat. The
+candidate selection used the 30 public scenarios at full length, so the public-set number is
+optimistic; the \NHeld{} held-out scenarios, run once on two generated buildings, are the
+honest one, and the Kaggle test buildings may differ in ways the generator's public ranges do
+not show. The controller models neither the tank's nor the slab's thermal inertia; a model
+predictive controller or a learned residual on top of SADR is the natural next step.
 
-\section{Reproducibility}
-Code: \texttt{submission/transfer\_policy.py} (the policy, drop-in for the kit),
-\texttt{experiments/src/run\_scenario.py} and \texttt{run\_eval\_parallel.py} (evaluation,
-resumable), \texttt{tune.py} (search), \texttt{score\_all.py} (metric, bootstrap),
-\texttt{make\_macros.py} and \texttt{make\_figures.py} (every number and figure in this
-paper). Commands: \texttt{bash run\_final\_eval.sh} (equivalent to
-\texttt{python run\_eval\_parallel.py --policies transfer pid\_water --steps 8640 --workers 4
---save-ts} on the public and then on the held-out scenario trees); then
-\texttt{python score\_all.py --results-dir ../results/full --out ../results/final\_scores.json},
-\texttt{python make\_macros.py} and \texttt{python make\_figures.py}. Every run writes its own
-\texttt{summary.json}, so an interrupted batch resumes.
-Seeds: the simulator's occupancy (17321) and convection (5) seeds are fixed in the kit, so
-every number is deterministic; the bootstrap uses seed 0. Environment: Python 3.12.15 with
-the kit's pinned packages (numpy 2.0.2, numba 0.60.0, gymnasium 1.2.0).
-
-\section{Disclosure}
-All experiments ran on a CPU-only laptop (8 cores, 34\,GB RAM, no GPU). An LLM coding
-assistant (Claude) was used to write code and to draft and edit this text; the design
-decisions, the numbers and their verification against the result files are recorded in
-\texttt{paper/AUDIT.md}. No external data or models beyond the organizers' starter kit were
-used.
+\section{Reproducibility and disclosure}
+Code: \url{https://github.com/neelsirivara/neurips2026-smart-buildings} (kit and time series
+excluded). \texttt{submission/transfer\_policy.py} is the policy (drop-in for the kit);
+\texttt{experiments/src/} holds the resumable evaluators (\texttt{run\_scenario.py},
+\texttt{run\_eval\_parallel.py}), the search (\texttt{tune.py}, \texttt{ablation.py},
+\texttt{compare\_candidates.py}), the scoring (\texttt{score\_all.py},
+\texttt{analyze\_final.py}) and the generators of every number and figure here
+(\texttt{make\_macros.py}, \texttt{make\_figures.py}); the run scripts are
+\texttt{mac\_jobs.sh}, \texttt{mac\_final.sh} and \texttt{run\_final\_eval.sh}. The simulator's
+occupancy (17321) and convection (5) seeds are fixed in the kit; the bootstrap uses seed 0.
+Python 3.12.15 with the kit's pins on both machines; about \TotalCoreHours{} core-hours on the
+laptop plus the Mac runs. Compute was a CPU-only Windows laptop (8 cores, 34\,GB RAM) and an
+Apple M5 Pro (18 cores, 48\,GB RAM), no GPU. An LLM coding assistant (Claude) was used to write
+code and to draft and edit this text; the design decisions and the verification of every
+number against the result files are recorded in \texttt{paper/AUDIT.md}. No external data or
+models beyond the organizers' starter kit were used.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
@@ -454,8 +444,47 @@ used.
 \section{Per-scenario results}
 \label{app:per_scenario}
 Tables~\ref{tab:per_scenario} and~\ref{tab:per_scenario_held} list every scenario's total
-return and leaderboard score for SADR and \texttt{pid\_water}. All values are generated from
-the result files by \texttt{make\_macros.py}.
+return and leaderboard score; all values are generated from the result files by
+\texttt{make\_macros.py}.
 \input{per_scenario_table}
+
+\section{Ablation and candidates}
+\label{app:tuning}
+Table~\ref{tab:ablation} reverts each tuned v4 value on its own (and adds each on its own to
+the defaults) on the screening set; Table~\ref{tab:candidates} lists every v5 candidate at
+full length on the 30 public scenarios against v4 on the same machine.
+\input{tuning_tables}
+
+\section{Algorithm and additional figures}
+\label{app:figs}
+\begin{algorithm}[h]
+\caption{SADR, one step (vectorized over zones $z$ and handlers $k$)}
+\label{alg:sadr}
+\begin{algorithmic}[1]
+\State mode $\gets$ \textsc{Occupied} / \textsc{Precondition} / \textsc{Setback} from flags, time, occupancy count, lead $\ell$
+\State $(T_h^\star, T_c^\star)_z \gets$ band for the mode; update $I_h, I_c$; $q_h, q_c \gets$ PI requests (W), or setback bursts
+\State run$_k \gets$ hysteresis on $\max_{z\in k}(q_h, q_c)$
+\State SAT$_k \gets$ \ParSatCoolHi\,K if cooling (\ParSatMixFloor\,K if also heating), 305\,K otherwise; recirc$_k \gets$ economizer
+\State $F_z \gets q_c/(T_z - T_{\text{sa},k})$ or $q_h/(308.15-\delta-T_z)$; $P_k \gets P_{\text{design}}\max_z f_z^2$; damper$_z \gets f_z/\sqrt{P_k/P_{\text{design}}}$
+\State $W_z \gets F_z (T_{\text{disch},z} - T_{\text{sa}})/(T_w - T_{\text{sa}})$; $\Delta p \gets (\max_z W_z / (0.9 k_v))^2$; valve$_z \gets W_z/(k_v\sqrt{\Delta p})$
+\State $T_w^{\text{sp}} \gets 350$\,K if heating season else 310\,K; pump $\gets$ any valve open
+\State scatter all setpoints into the normalized action vectors; clip
+\end{algorithmic}
+\end{algorithm}
+\begin{figure}[h]
+\centering
+\figfile{\linewidth}{figures/fig_trace_building_train_8_fairbanks_8_day8.pdf}
+\caption{One weekday on \texttt{building\_train\_8/fairbanks\_8}: zone-temperature
+envelope (min--max shaded, median line) against the comfort band (green wash), with the
+building occupancy count shaded in grey. Left: SADR v5; right: \texttt{pid\_water}.}
+\label{fig:trace}
+\end{figure}
+\begin{figure}[h]
+\centering
+\figfile{0.5\linewidth}{figures/fig_tuning.pdf}
+\caption{Screening score (six scenarios, five days) of every random-search configuration,
+sorted, with the design defaults highlighted and \texttt{pid\_water} on the same runs.}
+\label{fig:tuning}
+\end{figure}
 
 \end{document}

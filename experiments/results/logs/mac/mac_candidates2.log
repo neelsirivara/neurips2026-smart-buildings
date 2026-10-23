@@ -1,0 +1,8 @@
+-- candidate policy_candidates/c09_satcold_night12_hi4_lead10.json
+[e117e076ed] score=0.00759 (226s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c10_satcold_night8_hi6.json
+[b2017f47ad] score=0.00758 (218s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c11_satcold_hi4.json
+[c6902bc1dd] score=0.00762 (175s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c12_satcold_night8_hi4_occ02.json
+[12826a1a10] score=0.00766 (169s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3

@@ -1,0 +1,37 @@
+-- candidate policy_candidates/c00_baseline_v5code.json
+[b986cb0a8c] score=0.00849 (66s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+-- candidate policy_candidates/c01_satcold.json
+[1072ec8c69] score=0.00770 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-16 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c02_sat288.json
+[b188b206a0] score=0.00785 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-17 singapore_8=-13 fairbanks_5=-3
+-- candidate policy_candidates/c03_night8.json
+[15adac68d9] score=0.00846 (57s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+-- candidate policy_candidates/c04_night12.json
+[ebb5035f1b] score=0.00846 (57s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+-- candidate policy_candidates/c05_satcold_night8.json
+[b03d800105] score=0.00767 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-16 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c06_satcold_night8_nighthi4.json
+[dbf65210d4] score=0.00759 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c07_satcold_night8_occ02.json
+[6fa4061b06] score=0.00773 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-5 phoenix_4=-15 singapore_8=-12 fairbanks_5=-3
+-- candidate policy_candidates/c08_night8_lead10.json
+[1f85cd7e2a] score=0.00846 (57s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+tuned parameters: {'ki_w_per_k_step': (60.0, 120.0), 'margin_pre': (0.5, 0.8), 'sat_mix_floor': (290.0, 292.0), 'sb_hyst_k': (1.5, 1.0)}
+[89f4d5a115] score=0.00849 (0s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+[17ec7cd155] score=0.00947 (0s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+[d1448c0253] score=0.00905 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-6 phoenix_4=-21 singapore_8=-18 fairbanks_5=-3
+[012e75062e] score=0.00855 (0s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-16 fairbanks_5=-2
+[0e14682dd9] score=0.00846 (57s) fairbanks_8=-26 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-16 fairbanks_5=-2
+[e7c683ca5c] score=0.00910 (57s) fairbanks_8=-27 denver_7=-4 atlanta_3=-6 phoenix_4=-21 singapore_8=-18 fairbanks_5=-3
+[63d84089e7] score=0.00849 (57s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+[c3ed867965] score=0.00947 (59s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+[fd42bc14ac] score=0.00850 (66s) fairbanks_8=-27 denver_7=-3 atlanta_3=-5 phoenix_4=-21 singapore_8=-15 fairbanks_5=-2
+[45f1220144] score=0.00944 (59s) fairbanks_8=-27 denver_7=-4 atlanta_3=-7 phoenix_4=-22 singapore_8=-19 fairbanks_5=-3
+RevKi            best with ki_w_per_k_step reverted to 60           score=0.00905 rel_vs_best=+6.7%
+AddKi            default with ki_w_per_k_step set to 120            score=0.00855 rel_vs_best=+0.7%
+RevMarginPre     best with margin_pre reverted to 0.5               score=0.00846 rel_vs_best=-0.3%
+AddMarginPre     default with margin_pre set to 0.8                 score=0.00910 rel_vs_best=+7.2%
+RevSatMix        best with sat_mix_floor reverted to 290            score=0.00849 rel_vs_best=+0.0%
+AddSatMix        default with sat_mix_floor set to 292              score=0.00947 rel_vs_best=+11.6%
+RevSbHyst        best with sb_hyst_k reverted to 1.5                score=0.00850 rel_vs_best=+0.2%
+AddSbHyst        default with sb_hyst_k set to 1                    score=0.00944 rel_vs_best=+11.2%

@@ -1,4 +1,4 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge.
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v5, final).
 
 Drop-in replacement for ``smart_buildings/baselines/transfer_policy.py`` in the
 official starter kit. Pure numpy + stdlib, deterministic, no file or network
@@ -88,8 +88,8 @@ DEFAULT_PARAMS: dict[str, float] = {
     # --- band handling (K) ---
     "margin_occ": 0.3,        # inside the sensor band at which control starts (occupied)
     "margin_pre": 0.8,        # same, while preconditioning (target comfort band)
-    "night_low_ext": 4.0,     # drift allowed below the eco heating setpoint while set back
-    "night_high_ext": 2.0,    # drift allowed above the eco cooling setpoint while set back
+    "night_low_ext": 8.0,     # drift allowed below the eco heating setpoint while set back
+    "night_high_ext": 6.0,    # drift allowed above the eco cooling setpoint while set back
     "sb_hyst_k": 1.0,         # setback burst: heat/cool a zone from the floor until this far inside
     "q_sb_w": 4000.0,         # net heat (W) requested per zone during a setback burst
     "e_full_k": 1.0,          # error at which stage-1 demand saturates
@@ -113,7 +113,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     # --- air handler ---
     "min_on_steps": 3,        # dwell (5-min steps) after a start
     "min_off_steps": 2,       # dwell after a stop
-    "sat_cool_hi": 293.0,     # warmest SAT (K) commanded while cooling
+    "sat_cool_hi": 285.0,     # SAT ceiling (K) while cooling; 285 = always the coldest supply (v5)
     "sat_mix_floor": 292.0,   # SAT floor while the same handler also has heating zones
     "disch_margin_k": 1.0,    # keep discharge air this far below the 308.15 K limit
     "econ_on": 1.0,
@@ -562,7 +562,9 @@ class TransferPolicy:
             np.minimum.at(t_need_ahu, self.z_a, t_need)
             has_cool = C > 0.0
             s = np.clip(t_need_ahu, sat_lo, sat_hi)
-            s = np.where(H > 0.0, np.maximum(s, min(p["sat_mix_floor"], sat_hi)), s)
+            # the mixed-handler floor is independent of the cooling ceiling, so a cold SAT for
+            # cooling-only handlers (v5) does not remove the reheat protection on mixed handlers
+            s = np.where(H > 0.0, np.maximum(s, min(p["sat_mix_floor"], sat_hi_native)), s)
             sat = np.where(has_cool, s, sat_hi_native)
         sat = np.clip(sat, sat_lo, sat_hi_native)
 

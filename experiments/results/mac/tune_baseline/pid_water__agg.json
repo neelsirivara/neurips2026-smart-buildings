@@ -1,0 +1,56 @@
+{
+  "policy": "pid_water",
+  "steps": 1440,
+  "n_scenarios": 6,
+  "leaderboard_metric": 0.04904121359417115,
+  "per_scenario": {
+    "building_train_1/denver_7": {
+      "total_reward": -38.49455525039957,
+      "score": 0.026732330034999703,
+      "regret": -62.67889109440148,
+      "energy": 3.0478930042590946,
+      "carbon": 1.3882101745984983,
+      "seconds_per_step": 0.025046679377555846
+    },
+    "building_train_1/singapore_8": {
+      "total_reward": -48.7862488342098,
+      "score": 0.03387933946820125,
+      "regret": -51.68199635633209,
+      "energy": 71.02276467184674,
+      "carbon": 17.86249032415617,
+      "seconds_per_step": 0.025273890296618143
+    },
+    "building_train_2/atlanta_3": {
+      "total_reward": -32.38115127763831,
+      "score": 0.02248691060947105,
+      "regret": -45.894113067537546,
+      "energy": 18.968017847885676,
+      "carbon": 5.255399252666393,
+      "seconds_per_step": 0.04189931253592173
+    },
+    "building_train_5/fairbanks_5": {
+      "total_reward": -20.665972403377964,
+      "score": 0.01435136972456803,
+      "regret": -30.258102261461318,
+      "energy": 10.12059366777794,
+      "carbon": 2.4349619009226444,
+      "seconds_per_step": 0.03302661097711987
+    },
+    "building_train_8/fairbanks_8": {
+      "total_reward": -89.28106108123757,
+      "score": 0.06200073686197053,
+      "regret": -77.96229335805401,
+      "energy": 73.45627719026379,
+      "carbon": 139.06214769766666,
+      "seconds_per_step": 0.01618507852156957
+    },
+    "building_train_8/phoenix_4": {
+      "total_reward": -194.10709660677549,
+      "score": 0.1347965948658163,
+      "regret": -189.27583575701283,
+      "energy": 278.57877172474923,
+      "carbon": 124.1292052697745,
+      "seconds_per_step": 0.01615930497646332
+    }
+  }
+}

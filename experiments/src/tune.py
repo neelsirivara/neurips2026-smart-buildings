@@ -37,7 +37,7 @@ if not PY.exists():
     PY = KIT / ".venv" / "bin" / "python"
 TUNE_DIR = ROOT / "experiments" / "results" / "tune"
 LOG = TUNE_DIR / "tune_log.json"
-POLICY_FILE = ROOT / "submission" / "transfer_policy.py"
+POLICY_FILE = ROOT / "submission" / "transfer_policy.py"   # overridden by --policy-file (candidate code)
 
 # Buildings held out from tuning (transfer check): never appear in SCREEN.
 HELDOUT_BUILDINGS = ("building_train_4", "building_train_7")
@@ -177,7 +177,12 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--scenarios", nargs="*", default=None)
     ap.add_argument("--params-json", default=None, help="for 'eval': a params file to score")
+    ap.add_argument("--policy-file", default=None, help="candidate policy source (default: submission/transfer_policy.py)")
+    ap.add_argument("--tag", default=None, help="for 'eval': label of the candidate code, stored as params['_policy']")
     a = ap.parse_args()
+    global POLICY_FILE
+    if a.policy_file:
+        POLICY_FILE = Path(a.policy_file).resolve()
     scenarios = a.scenarios or SCREEN
     log = load_log()
 
@@ -186,6 +191,8 @@ def main() -> int:
         return 0
     if a.stage == "eval":
         p = full_params(json.loads(Path(a.params_json).read_text()))
+        if a.tag:
+            p["_policy"] = a.tag        # part of the hash: the same numbers with other code is another eval
         evaluate(p, a.steps, a.workers, log, scenarios)
         return 0
     if a.stage == "random":
@@ -200,6 +207,8 @@ def main() -> int:
                 p[k] = rng.choice(SPACE[k])
             print(f"-- random {i + 1}/{a.n}: " + ", ".join(f"{k}={p[k]}" for k in keys), flush=True)
             evaluate(p, a.steps, a.workers, log, scenarios)
+            log["evals"].setdefault(phash(p), {})["stage"] = "random"
+            save_log(log)
         return 0
     if a.stage == "coord":
         h, s = best_in_log(log, a.steps, scenarios)

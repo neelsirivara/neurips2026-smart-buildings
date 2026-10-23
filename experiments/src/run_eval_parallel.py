@@ -134,6 +134,11 @@ def main() -> int:
     if not results_dir.is_absolute():
         results_dir = (HERE / a.results_dir).resolve()
     results_dir.mkdir(parents=True, exist_ok=True)
+    # the worker subprocess runs with cwd=kit, so relative paths must be resolved here
+    if a.params_json and not Path(a.params_json).is_absolute():
+        a.params_json = str((Path.cwd() / a.params_json).resolve())
+    if a.policy_file and not Path(a.policy_file).is_absolute():
+        a.policy_file = str((Path.cwd() / a.policy_file).resolve())
     scen_dir = Path(a.scenarios_dir)
     if not scen_dir.is_absolute():
         scen_dir = (Path.cwd() / scen_dir).resolve()

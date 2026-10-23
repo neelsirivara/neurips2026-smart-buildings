@@ -1,0 +1,24 @@
+20 jobs (2 policies x 10 scenarios) at 8640 steps, 14 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/final_heldout
+[1/20] building_0501/atlanta_7/pid_water: total=-241.62 steps=8640 sec/step=0.038 (policy 0.23 ms) regret=-348.27 energy=99.04 carbon=64.27 (337s, elapsed 5.6 min)
+[2/20] building_0501/phoenix_7/pid_water: total=-232.01 steps=8640 sec/step=0.038 (policy 0.23 ms) regret=-299.02 energy=201.54 carbon=61.46 (338s, elapsed 5.6 min)
+[3/20] building_0501/fairbanks_6/pid_water: total=-291.82 steps=8640 sec/step=0.038 (policy 0.22 ms) regret=-459.72 energy=40.30 carbon=39.63 (339s, elapsed 5.6 min)
+[4/20] building_0501/denver_4/pid_water: total=-226.42 steps=8640 sec/step=0.039 (policy 0.23 ms) regret=-315.08 energy=121.91 carbon=64.94 (339s, elapsed 5.6 min)
+[5/20] building_0501/phoenix_7/transfer: total=-34.84 steps=8640 sec/step=0.039 (policy 0.39 ms) regret=-9.47 energy=109.96 carbon=35.82 (340s, elapsed 5.7 min)
+[6/20] building_0501/fairbanks_6/transfer: total=-26.08 steps=8640 sec/step=0.039 (policy 0.40 ms) regret=-4.71 energy=48.25 carbon=68.01 (340s, elapsed 5.7 min)
+[7/20] building_0501/denver_4/transfer: total=-37.77 steps=8640 sec/step=0.039 (policy 0.39 ms) regret=-14.25 energy=80.38 carbon=65.74 (341s, elapsed 5.7 min)
+[8/20] building_0501/singapore_5/transfer: total=-55.34 steps=8640 sec/step=0.039 (policy 0.39 ms) regret=-10.94 energy=197.97 carbon=45.92 (341s, elapsed 5.7 min)
+[9/20] building_0501/atlanta_7/transfer: total=-37.47 steps=8640 sec/step=0.039 (policy 0.39 ms) regret=-10.12 energy=81.02 carbon=75.97 (341s, elapsed 5.7 min)
+[10/20] building_0502/phoenix_2/transfer: total=-61.07 steps=8640 sec/step=0.059 (policy 0.39 ms) regret=-31.07 energy=159.41 carbon=52.74 (515s, elapsed 8.6 min)
+[11/20] building_0502/fairbanks_3/transfer: total=-245.91 steps=8640 sec/step=0.059 (policy 0.40 ms) regret=-64.17 energy=279.27 carbon=757.77 (515s, elapsed 8.6 min)
+[12/20] building_0502/singapore_2/transfer: total=-92.74 steps=8640 sec/step=0.059 (policy 0.39 ms) regret=-2.39 energy=369.35 carbon=87.20 (515s, elapsed 8.6 min)
+[13/20] building_0502/atlanta_4/transfer: total=-85.89 steps=8640 sec/step=0.059 (policy 0.38 ms) regret=-16.09 energy=307.87 carbon=73.34 (515s, elapsed 8.6 min)
+[14/20] building_0502/denver_1/transfer: total=-280.82 steps=8640 sec/step=0.059 (policy 0.40 ms) regret=-91.41 energy=327.75 carbon=802.15 (516s, elapsed 8.6 min)
+[15/20] building_0501/singapore_5/pid_water: total=-345.72 steps=8640 sec/step=0.030 (policy 0.22 ms) regret=-388.56 energy=429.26 carbon=133.68 (270s, elapsed 10.1 min)
+[16/20] building_0502/atlanta_4/pid_water: total=-305.13 steps=8640 sec/step=0.043 (policy 0.18 ms) regret=-311.83 energy=477.97 carbon=112.18 (381s, elapsed 12.0 min)
+[17/20] building_0502/phoenix_2/pid_water: total=-240.05 steps=8640 sec/step=0.043 (policy 0.17 ms) regret=-309.18 energy=218.97 carbon=53.73 (379s, elapsed 12.0 min)
+[18/20] building_0502/denver_1/pid_water: total=-616.12 steps=8640 sec/step=0.043 (policy 0.23 ms) regret=-513.49 energy=562.18 carbon=977.97 (381s, elapsed 12.0 min)
+[19/20] building_0502/singapore_2/pid_water: total=-348.66 steps=8640 sec/step=0.043 (policy 0.19 ms) regret=-350.71 energy=558.42 carbon=132.76 (380s, elapsed 12.0 min)
+[20/20] building_0502/fairbanks_3/pid_water: total=-598.62 steps=8640 sec/step=0.043 (policy 0.23 ms) regret=-553.90 energy=472.33 carbon=859.11 (381s, elapsed 12.0 min)
+== transfer: n=10 metric=0.01109
+== pid_water: n=10 metric=0.03989
+total wall 12.0 min, 0 failures

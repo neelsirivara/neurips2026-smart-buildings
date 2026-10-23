@@ -67,21 +67,24 @@ def _dumbbell(ax, ours: dict, base: dict, title: str, show_legend: bool):
     ax.set_xticklabels([k.split("/")[0].replace("building_train_", "b").replace("building_0", "g") for k in keys],
                        rotation=90, fontsize=6)
     ax.set_xlim(-0.7, len(keys) - 0.3)
-    ymin, ymax = min(yo.min(), yb.min()), max(yo.max(), yb.max())
-    ax.set_ylim(ymin / 1.6, ymax * 2.2)
     bounds = []
     for st in STATIONS:
         idx = [i for i, k in enumerate(keys) if k.split("/")[1].startswith(st)]
         if idx:
             bounds.append((st, min(idx), max(idx)))
     for st, lo, hi in bounds:
-        ax.text((lo + hi) / 2, ymax * 1.9, st.capitalize(), ha="center", va="top", fontsize=6.5, color=INK2)
+        label = st.capitalize() if hi - lo >= 2 else st[:3].capitalize() + "."
+        ax.text((lo + hi) / 2, 0.98, label, ha="center", va="top", fontsize=6.5, color=INK2,
+                transform=ax.get_xaxis_transform())
         if hi + 1 < len(keys):
             ax.axvline(hi + 0.5, color=GRID, linewidth=0.6, zorder=0)
     ax.grid(axis="x", visible=False)
-    ax.set_title(title, fontsize=8, loc="left", color=INK)
+    if title:
+        ax.set_title(title, fontsize=8, loc="left", color=INK)
     if show_legend:
-        ax.legend(loc="lower left", fontsize=6.5, ncol=1, handletextpad=0.3, borderaxespad=0.2)
+        ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.0), fontsize=6.5, ncol=2, handletextpad=0.3,
+                  borderaxespad=0.0, frameon=False)
+    return min(yo.min(), yb.min()), max(yo.max(), yb.max())
 
 
 def fig_scores(scores: dict, held: dict | None = None):
@@ -95,15 +98,17 @@ def fig_scores(scores: dict, held: dict | None = None):
     hbase = (held or {}).get("policies", {}).get("pid_water", {}).get("per_scenario", {})
     two = bool(hours and hbase)
     if two:
-        fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.5), sharey=True,
+        fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.05), sharey=True,
                                  gridspec_kw={"width_ratios": [len(ours), max(len(hours), 4)], "wspace": 0.06})
-        _dumbbell(axes[0], ours, base, "30 public scenarios", True)
-        _dumbbell(axes[1], hours, hbase, f"{len(hours)} held-out scenarios (generated buildings)", False)
+        lim0 = _dumbbell(axes[0], ours, base, "", True)
+        lim1 = _dumbbell(axes[1], hours, hbase, "held-out (generated)", False)
         axes[1].tick_params(axis="y", length=0)
         ax0 = axes[0]
+        lo, hi = min(lim0[0], lim1[0]), max(lim0[1], lim1[1])
     else:
         fig, ax0 = plt.subplots(figsize=(7.0, 2.5))
-        _dumbbell(ax0, ours, base, "30 public scenarios", True)
+        lo, hi = _dumbbell(ax0, ours, base, "", True)
+    ax0.set_ylim(lo / 1.6, hi * 2.6)
     ax0.set_ylabel("|mean per-step reward|\n(log scale, lower is better)")
     save(fig, "fig_scores_by_scenario")
 
@@ -115,7 +120,7 @@ def fig_decomp(scores: dict):
     if "decomp_by_station" not in ours or "decomp_by_station" not in base:
         print("fig_decomp: missing local decomposition")
         return
-    fig, ax = plt.subplots(figsize=(5.2, 2.4))
+    fig, ax = plt.subplots(figsize=(5.2, 2.1))
     x = np.arange(len(STATIONS))
     w = 0.38
     comps = [("comfort", C_THIRD), ("energy", C_OURS), ("carbon", C_FOURTH)]
@@ -132,8 +137,8 @@ def fig_decomp(scores: dict):
     ax.set_xticklabels([s.capitalize() for s in STATIONS])
     ax.set_ylabel("per-step loss (metric units)")
     ax.grid(axis="x", visible=False)
-    ax.legend(fontsize=7, ncol=3, loc="upper right")
-    ax.set_ylim(0, ax.get_ylim()[1] * 1.25)
+    ax.set_ylim(0, ax.get_ylim()[1] * 1.3)
+    ax.legend(fontsize=7, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.02))
     save(fig, "fig_station_decomp")
 
 
@@ -172,13 +177,12 @@ def fig_trace(results_dir: Path, scen: str, day: int, policies=("transfer", "pid
             ax2.set_ylim(0, occ.max() * 4)
             ax2.set_yticks([])
             ax2.spines["right"].set_visible(False)
-        ax.set_title(f"{titles.get(pol, pol)} - {scen.replace('_', chr(92) + '_')}, day {day} ({d0.strftime('%a %Y-%m-%d')})"
-                     .replace(chr(92) + "_", "_"), fontsize=7.5)
+        ax.set_title(f"{titles.get(pol, pol)}, {d0.strftime('%a %Y-%m-%d')}", fontsize=8, loc="left", color=INK)
         ax.set_xlabel("hour of day")
         ax.set_xlim(0, 24)
         ax.set_xticks([0, 6, 12, 18, 24])
     axes[0].set_ylabel("zone temperature (K)")
-    axes[0].legend(fontsize=6.5, loc="lower left", ncol=1)
+    axes[0].legend(fontsize=6.5, loc="upper left", ncol=1)
     if any_ok:
         save(fig, f"fig_trace_{scen.replace('/', '_')}_day{day}")
     else:
@@ -197,7 +201,7 @@ def fig_loss_by_hour(analysis: Path):
         print("fig_loss_by_hour: incomplete")
         return
     hours = np.arange(24) + 0.5
-    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.2), sharey=True, gridspec_kw={"wspace": 0.08})
+    fig, axes = plt.subplots(1, 2, figsize=(7.0, 1.7), sharey=True, gridspec_kw={"wspace": 0.08})
     for ax, (pol, col, lab) in zip(axes, (("transfer", C_OURS, "SADR (ours)"), ("pid_water", C_PID, "pid_water"))):
         tot = np.array(means[pol]["loss_by_hour"])
         reg = np.array(means[pol]["regret_by_hour"])
@@ -221,7 +225,20 @@ def fig_tuning(tune_log: Path, baseline_agg: Path | None = None):
         print("fig_tuning: no tune log")
         return
     log = json.loads(tune_log.read_text())
-    rows = [(v["score"], v.get("is_default", False)) for v in log["evals"].values() if "score" in v]
+    abl = set()
+    abf = tune_log.parent / "ablation.json"
+    if abf.exists():
+        import hashlib
+        ab = json.loads(abf.read_text())
+        for row in ab["rows"]:
+            src = ab["best"]["params"] if row["macro"].startswith("Rev") else ab["default"]["params"]
+            pp = dict(src)
+            pp[row["param"]] = row["value"]
+            abl.add(hashlib.md5(json.dumps(pp, sort_keys=True).encode()).hexdigest()[:10])
+    tagged = any(v.get("stage") == "random" for v in log["evals"].values())
+    rows = [(v["score"], v.get("is_default", False)) for h, v in log["evals"].items()
+            if "score" in v and ((v.get("stage") == "random") if tagged else
+                                 ("_policy" not in v.get("params", {}) and h not in abl))]
     if not rows:
         return
     rows.sort()

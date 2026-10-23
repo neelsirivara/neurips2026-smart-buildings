@@ -1,0 +1,1025 @@
+{
+ "screening": [
+  {
+   "hash": "b2017f47ad",
+   "tag": "v5",
+   "score": 0.007578873362693216,
+   "diff_vs_best": {
+    "night_low_ext": 8.0,
+    "night_high_ext": 6.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -14.766151557896219,
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_2/atlanta_3": -5.02664275731604,
+    "building_train_5/fairbanks_5": -3.2750484511316245
+   }
+  },
+  {
+   "hash": "dbf65210d4",
+   "tag": "v5",
+   "score": 0.007593410047110025,
+   "diff_vs_best": {
+    "night_low_ext": 8.0,
+    "night_high_ext": 4.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -14.891748511257447,
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_5/fairbanks_5": -3.2750484511316245,
+    "building_train_2/atlanta_3": -5.02664275731604
+   }
+  },
+  {
+   "hash": "e117e076ed",
+   "tag": "v5",
+   "score": 0.007593410047110025,
+   "diff_vs_best": {
+    "night_low_ext": 12.0,
+    "night_high_ext": 4.0,
+    "lead_max_h": 10.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -14.891748511257447,
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_2/atlanta_3": -5.02664275731604,
+    "building_train_5/fairbanks_5": -3.2750484511316245
+   }
+  },
+  {
+   "hash": "c6902bc1dd",
+   "tag": "v5",
+   "score": 0.007616622062323639,
+   "diff_vs_best": {
+    "night_high_ext": 4.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -14.891748511257447,
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_2/atlanta_3": -5.02664275731604,
+    "building_train_5/fairbanks_5": -3.2750484511316245
+   }
+  },
+  {
+   "hash": "12826a1a10",
+   "tag": "v5",
+   "score": 0.007661210942594491,
+   "diff_vs_best": {
+    "margin_occ": 0.2,
+    "night_low_ext": 8.0,
+    "night_high_ext": 4.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -14.86830376871194,
+    "building_train_8/fairbanks_8": -26.56287988715485,
+    "building_train_1/denver_7": -3.978593951851508,
+    "building_train_1/singapore_8": -12.113031632730781,
+    "building_train_2/atlanta_3": -5.325498929470086,
+    "building_train_5/fairbanks_5": -3.3445543740972425
+   }
+  },
+  {
+   "hash": "b03d800105",
+   "tag": "v5",
+   "score": 0.007673926402430917,
+   "diff_vs_best": {
+    "night_low_ext": 8.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -15.587409821229954,
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_5/fairbanks_5": -3.2750484511316245,
+    "building_train_2/atlanta_3": -5.02664275731604
+   }
+  },
+  {
+   "hash": "1072ec8c69",
+   "tag": "v5",
+   "score": 0.00769713841764453,
+   "diff_vs_best": {
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_8/phoenix_4": -15.587409821229954,
+    "building_train_1/denver_7": -3.8442446837252646,
+    "building_train_1/singapore_8": -11.863376895630608,
+    "building_train_5/fairbanks_5": -3.2750484511316245,
+    "building_train_2/atlanta_3": -5.02664275731604
+   }
+  },
+  {
+   "hash": "6fa4061b06",
+   "tag": "v5",
+   "score": 0.007731503074282456,
+   "diff_vs_best": {
+    "margin_occ": 0.2,
+    "night_low_ext": 8.0,
+    "sat_cool_hi": 285.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -15.475627786495949,
+    "building_train_8/fairbanks_8": -26.56287988715485,
+    "building_train_1/denver_7": -3.978593951851508,
+    "building_train_1/singapore_8": -12.113031632730781,
+    "building_train_5/fairbanks_5": -3.3445543740972425,
+    "building_train_2/atlanta_3": -5.325498929470086
+   }
+  },
+  {
+   "hash": "b188b206a0",
+   "tag": "v5",
+   "score": 0.007845520773515337,
+   "diff_vs_best": {
+    "sat_cool_hi": 288.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -16.88867852619174,
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_1/singapore_8": -12.577093889258322,
+    "building_train_1/denver_7": -3.6475106201723975,
+    "building_train_5/fairbanks_5": -2.9429662392076352,
+    "building_train_2/atlanta_3": -4.822496888927162
+   }
+  },
+  {
+   "hash": "0e14682dd9",
+   "tag": "v4",
+   "score": 0.008458303888473188,
+   "diff_vs_best": {
+    "margin_pre": 0.5
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.87832009740478,
+    "building_train_8/fairbanks_8": -25.833492695841414,
+    "building_train_1/denver_7": -3.286687615887786,
+    "building_train_1/singapore_8": -15.890932765417347,
+    "building_train_5/fairbanks_5": -2.4957438298124544,
+    "building_train_2/atlanta_3": -4.694568592044561
+   }
+  },
+  {
+   "hash": "15adac68d9",
+   "tag": "v5",
+   "score": 0.008463394141129165,
+   "diff_vs_best": {
+    "night_low_ext": 8.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "ebb5035f1b",
+   "tag": "v5",
+   "score": 0.008463394141129165,
+   "diff_vs_best": {
+    "night_low_ext": 12.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "1f85cd7e2a",
+   "tag": "v5",
+   "score": 0.008463394141129165,
+   "diff_vs_best": {
+    "night_low_ext": 8.0,
+    "lead_max_h": 10.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.70600150796963,
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "89f4d5a115",
+   "tag": "v4",
+   "score": 0.008486606156342778,
+   "diff_vs_best": {},
+   "is_best_v4": true,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_2/atlanta_3": -4.61807681848677,
+    "building_train_5/fairbanks_5": -2.4728315490365276
+   }
+  },
+  {
+   "hash": "b986cb0a8c",
+   "tag": "v5",
+   "score": 0.008486606156342778,
+   "diff_vs_best": {},
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "63d84089e7",
+   "tag": "v4",
+   "score": 0.008486606156342778,
+   "diff_vs_best": {
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.782954993584923,
+    "building_train_8/fairbanks_8": -26.906553319415252,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "fd42bc14ac",
+   "tag": "v4",
+   "score": 0.008504041816861378,
+   "diff_vs_best": {
+    "sb_hyst_k": 1.5
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.91633660122457,
+    "building_train_8/fairbanks_8": -26.923815818656294,
+    "building_train_1/singapore_8": -15.285285324228425,
+    "building_train_1/denver_7": -3.258575186049711,
+    "building_train_5/fairbanks_5": -2.4728315490365276,
+    "building_train_2/atlanta_3": -4.61807681848677
+   }
+  },
+  {
+   "hash": "012e75062e",
+   "tag": "v4",
+   "score": 0.008548346102217249,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.581731128615502,
+    "building_train_8/phoenix_4": -20.908046391379372,
+    "building_train_1/denver_7": -3.286687615887786,
+    "building_train_1/singapore_8": -15.890932765417347,
+    "building_train_2/atlanta_3": -4.694568592044561,
+    "building_train_5/fairbanks_5": -2.4957438298124544
+   }
+  },
+  {
+   "hash": "110c8ff862",
+   "tag": "v4",
+   "score": 0.008756437633180805,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_low_ext": 2.0,
+    "sb_hyst_k": 1.5,
+    "lead_safety": 1.8,
+    "min_on_steps": 12,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -28.145601576390618,
+    "building_train_8/phoenix_4": -21.025830143015725,
+    "building_train_1/denver_7": -3.379981404868886,
+    "building_train_1/singapore_8": -15.864954658254646,
+    "building_train_2/atlanta_3": -4.757908468486676,
+    "building_train_5/fairbanks_5": -2.4813448996656007
+   }
+  },
+  {
+   "hash": "d1448c0253",
+   "tag": "v4",
+   "score": 0.00905158910164676,
+   "diff_vs_best": {
+    "ki_w_per_k_step": 60.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -20.85718780501989,
+    "building_train_8/fairbanks_8": -26.970316168175486,
+    "building_train_1/singapore_8": -17.514398021262423,
+    "building_train_1/denver_7": -3.8336009246377216,
+    "building_train_5/fairbanks_5": -2.632069030712046,
+    "building_train_2/atlanta_3": -6.398157888420428
+   }
+  },
+  {
+   "hash": "e7c683ca5c",
+   "tag": "v4",
+   "score": 0.009095866044236369,
+   "diff_vs_best": {
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -21.40392360519118,
+    "building_train_8/fairbanks_8": -26.80613315197843,
+    "building_train_1/denver_7": -3.8336009246377216,
+    "building_train_1/singapore_8": -17.514398021262423,
+    "building_train_5/fairbanks_5": -2.632069030712046,
+    "building_train_2/atlanta_3": -6.398157888420428
+   }
+  },
+  {
+   "hash": "61cff37d37",
+   "tag": "v4",
+   "score": 0.009389143060492502,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_low_ext": 2.0,
+    "night_high_ext": 1.0,
+    "sb_hyst_k": 1.5,
+    "lead_max_h": 5.0,
+    "ki_w_per_k_step": 60.0,
+    "sat_cool_hi": 291.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -21.73194036526968,
+    "building_train_8/fairbanks_8": -27.68076270882011,
+    "building_train_1/denver_7": -4.164005937302136,
+    "building_train_1/singapore_8": -17.71426554808295,
+    "building_train_2/atlanta_3": -6.8562253617101305,
+    "building_train_5/fairbanks_5": -2.9749961214702125
+   }
+  },
+  {
+   "hash": "b130396904",
+   "tag": "v4",
+   "score": 0.009396008577544137,
+   "diff_vs_best": {
+    "margin_occ": 0.5,
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "lead_safety": 1.8,
+    "ki_w_per_k_step": 60.0,
+    "min_on_steps": 12,
+    "sat_mix_floor": 290.0,
+    "heat_season_steps": 12
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -28.65954942211829,
+    "building_train_8/phoenix_4": -21.583413557294904,
+    "building_train_1/denver_7": -4.548602818249492,
+    "building_train_1/singapore_8": -17.56633033208618,
+    "building_train_2/atlanta_3": -5.845973824232715,
+    "building_train_5/fairbanks_5": -2.9776441559997693
+   }
+  },
+  {
+   "hash": "e3c3f959a6",
+   "tag": "v4",
+   "score": 0.009432890137334471,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "lead_max_h": 5.0,
+    "rate0_kph": 3.0,
+    "lead_safety": 1.8,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -27.475092876738927,
+    "building_train_8/phoenix_4": -21.60505469990713,
+    "building_train_1/denver_7": -4.1701529197562195,
+    "building_train_1/singapore_8": -18.722525493672038,
+    "building_train_2/atlanta_3": -6.752725589126385,
+    "building_train_5/fairbanks_5": -2.774619207369142
+   }
+  },
+  {
+   "hash": "45f1220144",
+   "tag": "v4",
+   "score": 0.009440358446851437,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -21.9924103529344,
+    "building_train_8/fairbanks_8": -27.111619518145744,
+    "building_train_1/denver_7": -3.8292944522036123,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_5/fairbanks_5": -2.8348819461871244,
+    "building_train_2/atlanta_3": -6.7576415049925345
+   }
+  },
+  {
+   "hash": "0cbd8a0dcb",
+   "tag": "v4",
+   "score": 0.009454780072952076,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "kq_w_per_k": 800.0,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -23.402339667566054,
+    "building_train_8/fairbanks_8": -27.060956816734688,
+    "building_train_1/denver_7": -3.5072420466240146,
+    "building_train_1/singapore_8": -19.128246664196013,
+    "building_train_2/atlanta_3": -5.886894906744601,
+    "building_train_5/fairbanks_5": -2.7036197284405716
+   }
+  },
+  {
+   "hash": "0478d8df7c",
+   "tag": "v4",
+   "score": 0.009468403574270123,
+   "diff_vs_best": {
+    "margin_occ": 0.2,
+    "sb_hyst_k": 1.5,
+    "holiday_check_h": 6.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -26.75212040804763,
+    "building_train_8/phoenix_4": -21.583257511667995,
+    "building_train_1/denver_7": -4.443107417308056,
+    "building_train_1/singapore_8": -18.36748827702195,
+    "building_train_2/atlanta_3": -7.689041373651889,
+    "building_train_5/fairbanks_5": -2.9719918939963463
+   }
+  },
+  {
+   "hash": "17ec7cd155",
+   "tag": "v4",
+   "score": 0.00947276228370733,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -27.357048983198183,
+    "building_train_8/phoenix_4": -22.02695003831687,
+    "building_train_1/denver_7": -3.8292944522036123,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_2/atlanta_3": -6.7576415049925345,
+    "building_train_5/fairbanks_5": -2.8348819461871244
+   }
+  },
+  {
+   "hash": "c3ed867965",
+   "tag": "v4",
+   "score": 0.00947276228370733,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 60.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -22.02695003831687,
+    "building_train_8/fairbanks_8": -27.357048983198183,
+    "building_train_1/denver_7": -3.8292944522036123,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_5/fairbanks_5": -2.8348819461871244,
+    "building_train_2/atlanta_3": -6.7576415049925345
+   }
+  },
+  {
+   "hash": "8613fe395d",
+   "tag": "v4",
+   "score": 0.009606318662445927,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_high_ext": 1.0,
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 288.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -23.180877150618358,
+    "building_train_8/fairbanks_8": -27.357048983198183,
+    "building_train_1/denver_7": -3.8292944522036123,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_2/atlanta_3": -6.7576415049925345,
+    "building_train_5/fairbanks_5": -2.8348819461871244
+   }
+  },
+  {
+   "hash": "4c436b930b",
+   "tag": "v4",
+   "score": 0.00966563869804833,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_high_ext": 1.0,
+    "q_sb_w": 8000.0,
+    "holiday_check_h": 6.5,
+    "ki_w_per_k_step": 60.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -27.13037284886377,
+    "building_train_8/phoenix_4": -23.94198094837199,
+    "building_train_1/denver_7": -3.8292944522036123,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_2/atlanta_3": -6.7576415049925345,
+    "building_train_5/fairbanks_5": -2.812979390372675
+   }
+  },
+  {
+   "hash": "4f580f1b92",
+   "tag": "v4",
+   "score": 0.009758419595268691,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "sb_hyst_k": 1.5,
+    "holiday_check_h": 8.0,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0,
+    "disch_margin_k": 0.5,
+    "heat_season_steps": 12
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -22.02695003831687,
+    "building_train_8/fairbanks_8": -28.173319501402148,
+    "building_train_1/denver_7": -4.809231345734588,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_2/atlanta_3": -7.109584827401704,
+    "building_train_5/fairbanks_5": -3.1548103839331816
+   }
+  },
+  {
+   "hash": "27bc655d31",
+   "tag": "v4",
+   "score": 0.009864494267811654,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_high_ext": 1.0,
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 60.0,
+    "sat_cool_hi": 295.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -27.357048983198183,
+    "building_train_8/phoenix_4": -24.702058922108904,
+    "building_train_1/denver_7": -3.7652707310553524,
+    "building_train_1/singapore_8": -19.553568845890368,
+    "building_train_2/atlanta_3": -6.751373041734951,
+    "building_train_5/fairbanks_5": -3.0999099499049407
+   }
+  },
+  {
+   "hash": "1a47f67ed3",
+   "tag": "v4",
+   "score": 0.009956692358426701,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_high_ext": 1.0,
+    "sb_hyst_k": 1.5,
+    "lead_max_h": 5.0,
+    "rate0_kph": 3.0,
+    "lead_safety": 1.0,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -27.14445284957037,
+    "building_train_8/phoenix_4": -25.17527825269474,
+    "building_train_1/denver_7": -3.7521014434132667,
+    "building_train_1/singapore_8": -20.199098922533267,
+    "building_train_2/atlanta_3": -6.852456535522833,
+    "building_train_5/fairbanks_5": -2.9024339730722204
+   }
+  },
+  {
+   "hash": "28113b9f42",
+   "tag": "v4",
+   "score": 0.010056165078345764,
+   "diff_vs_best": {
+    "margin_pre": 0.5,
+    "night_low_ext": 1.0,
+    "sb_hyst_k": 3.0,
+    "ki_w_per_k_step": 60.0,
+    "sat_mix_floor": 290.0,
+    "disch_margin_k": 3.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/fairbanks_8": -31.022790868533775,
+    "building_train_8/phoenix_4": -23.414380116557965,
+    "building_train_1/denver_7": -3.850121764575306,
+    "building_train_1/singapore_8": -19.038849206332998,
+    "building_train_2/atlanta_3": -6.724240243621352,
+    "building_train_5/fairbanks_5": -2.8348840772860058
+   }
+  },
+  {
+   "hash": "e265b54013",
+   "tag": "v4",
+   "score": 0.012042830566003923,
+   "diff_vs_best": {
+    "sb_hyst_k": 1.5,
+    "ki_w_per_k_step": 30.0,
+    "sat_mix_floor": 290.0
+   },
+   "is_best_v4": false,
+   "totals": {
+    "building_train_8/phoenix_4": -26.42754376303415,
+    "building_train_8/fairbanks_8": -30.286929962217982,
+    "building_train_1/denver_7": -5.876778256522812,
+    "building_train_1/singapore_8": -25.612150798453513,
+    "building_train_2/atlanta_3": -12.039229709768733,
+    "building_train_5/fairbanks_5": -3.8074236002767066
+   }
+  }
+ ],
+ "screening_pid_water": 0.04904121359417115,
+ "full": {
+  "v4_mac": {
+   "metric": 0.00920349350953962,
+   "n": 30
+  },
+  "candidates": [
+   {
+    "name": "c10_satcold_night8_hi6",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 8.0,
+     "night_high_ext": 6.0
+    },
+    "n": 30,
+    "metric": 0.008308536678302843,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9027590088145185,
+    "diff": -0.00089495683123678,
+    "ci_lo": -0.001393659530674546,
+    "ci_hi": -0.0004393475203549361,
+    "wins": 19,
+    "losses": 11,
+    "by_station": {
+     "fairbanks": 0.017518971682993725,
+     "denver": 0.004968929641658325,
+     "atlanta": 0.005487827863168165,
+     "phoenix": 0.007545520061031625,
+     "singapore": 0.006021434142662366
+    },
+    "complete": true
+   },
+   {
+    "name": "c09_satcold_night12_hi4_lead10",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 12.0,
+     "night_high_ext": 4.0,
+     "lead_max_h": 10.0
+    },
+    "n": 30,
+    "metric": 0.008321376154093769,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9041540742619617,
+    "diff": -0.0008821173554458522,
+    "ci_lo": -0.0013663182414203295,
+    "ci_hi": -0.00042347333100052826,
+    "wins": 19,
+    "losses": 11,
+    "by_station": {
+     "fairbanks": 0.017454688999347948,
+     "denver": 0.004984933973969221,
+     "atlanta": 0.005479067984509838,
+     "phoenix": 0.0076483970530155645,
+     "singapore": 0.006039792759626273
+    },
+    "complete": true
+   },
+   {
+    "name": "c06_satcold_night8_nighthi4",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 8.0,
+     "night_high_ext": 4.0
+    },
+    "n": 30,
+    "metric": 0.008332978689060517,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9054147406550788,
+    "diff": -0.0008705148204791057,
+    "ci_lo": -0.0013635064377538553,
+    "ci_hi": -0.00042707411301963515,
+    "wins": 19,
+    "losses": 11,
+    "by_station": {
+     "fairbanks": 0.017520873142101667,
+     "denver": 0.0049714729516421126,
+     "atlanta": 0.005484405639321782,
+     "phoenix": 0.0076483970530155645,
+     "singapore": 0.006039744659221455
+    },
+    "complete": true
+   },
+   {
+    "name": "c12_satcold_night8_hi4_occ02",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 8.0,
+     "night_high_ext": 4.0,
+     "margin_occ": 0.2
+    },
+    "n": 30,
+    "metric": 0.008403830455152318,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9131130962869225,
+    "diff": -0.0007996630543873012,
+    "ci_lo": -0.0013150709377755118,
+    "ci_hi": -0.0003363499173733119,
+    "wins": 18,
+    "losses": 12,
+    "by_station": {
+     "fairbanks": 0.017511735130093905,
+     "denver": 0.00512462204090926,
+     "atlanta": 0.005568593974419611,
+     "phoenix": 0.007739279473513533,
+     "singapore": 0.006074921656825293
+    },
+    "complete": true
+   },
+   {
+    "name": "c05_satcold_night8",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 8.0
+    },
+    "n": 30,
+    "metric": 0.00842985228485994,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.915940482396409,
+    "diff": -0.0007736412246796819,
+    "ci_lo": -0.001210324103777357,
+    "ci_hi": -0.0003768919509290539,
+    "wins": 19,
+    "losses": 11,
+    "by_station": {
+     "fairbanks": 0.01752240284682808,
+     "denver": 0.004999913156261676,
+     "atlanta": 0.0055021291457477755,
+     "phoenix": 0.007927712555583364,
+     "singapore": 0.0061971037198788005
+    },
+    "complete": true
+   },
+   {
+    "name": "c11_satcold_hi4",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_high_ext": 4.0
+    },
+    "n": 30,
+    "metric": 0.008457216011985992,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9189136715552528,
+    "diff": -0.0007462774975536282,
+    "ci_lo": -0.001271013121998145,
+    "ci_hi": -0.0002888598546483207,
+    "wins": 16,
+    "losses": 12,
+    "by_station": {
+     "fairbanks": 0.018046273425511704,
+     "denver": 0.005029662382524828,
+     "atlanta": 0.005526153376152637,
+     "phoenix": 0.007644246216519344,
+     "singapore": 0.006039744659221455
+    },
+    "complete": true
+   },
+   {
+    "name": "c07_satcold_night8_occ02",
+    "params": {
+     "sat_cool_hi": 285.0,
+     "night_low_ext": 8.0,
+     "margin_occ": 0.2
+    },
+    "n": 30,
+    "metric": 0.008506625301986861,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9242822079647863,
+    "diff": -0.0006968682075527616,
+    "ci_lo": -0.001154489339475038,
+    "ci_hi": -0.00028096524126641786,
+    "wins": 18,
+    "losses": 12,
+    "by_station": {
+     "fairbanks": 0.017512585125125466,
+     "denver": 0.0051555428147835956,
+     "atlanta": 0.005586310017852401,
+     "phoenix": 0.008041440975536314,
+     "singapore": 0.006237247576636521
+    },
+    "complete": true
+   },
+   {
+    "name": "c01_satcold",
+    "params": {
+     "sat_cool_hi": 285.0
+    },
+    "n": 30,
+    "metric": 0.008555763306231236,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9296212679851408,
+    "diff": -0.0006477302033083849,
+    "ci_lo": -0.0011279301185400986,
+    "ci_hi": -0.00023265027427277112,
+    "wins": 15,
+    "losses": 13,
+    "by_station": {
+     "fairbanks": 0.01805168935319446,
+     "denver": 0.005062627270685584,
+     "atlanta": 0.005543834468310196,
+     "phoenix": 0.007923561719087141,
+     "singapore": 0.0061971037198788005
+    },
+    "complete": true
+   },
+   {
+    "name": "c02_sat288",
+    "params": {
+     "sat_cool_hi": 288.0
+    },
+    "n": 30,
+    "metric": 0.008662379557855366,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9412055920805096,
+    "diff": -0.0005411139516842564,
+    "ci_lo": -0.000882993407695231,
+    "ci_hi": -0.0002306464193432201,
+    "wins": 15,
+    "losses": 13,
+    "by_station": {
+     "fairbanks": 0.017972708121518733,
+     "denver": 0.004981609880534991,
+     "atlanta": 0.00553653965043482,
+     "phoenix": 0.008330825690898146,
+     "singapore": 0.006490214445890135
+    },
+    "complete": true
+   },
+   {
+    "name": "c04_night12",
+    "params": {
+     "night_low_ext": 12.0
+    },
+    "n": 30,
+    "metric": 0.00907044117155304,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9855432789898021,
+    "diff": -0.00013305233798658068,
+    "ci_lo": -0.0003065597794122197,
+    "ci_hi": -1.5863852173625956e-05,
+    "wins": 7,
+    "losses": 3,
+    "by_station": {
+     "fairbanks": 0.017252732712626163,
+     "denver": 0.004963019166122725,
+     "atlanta": 0.005778502359595126,
+     "phoenix": 0.009557623604684809,
+     "singapore": 0.00780032801473638
+    },
+    "complete": true
+   },
+   {
+    "name": "c03_night8",
+    "params": {
+     "night_low_ext": 8.0
+    },
+    "n": 30,
+    "metric": 0.00908242983061562,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9868458994621426,
+    "diff": -0.00012106367892400113,
+    "ci_lo": -0.00024229004991967783,
+    "ci_hi": -2.4510244953945017e-05,
+    "wins": 7,
+    "losses": 3,
+    "by_station": {
+     "fairbanks": 0.017325222924912304,
+     "denver": 0.004945176281756472,
+     "atlanta": 0.005783798326988134,
+     "phoenix": 0.009557623604684809,
+     "singapore": 0.00780032801473638
+    },
+    "complete": true
+   },
+   {
+    "name": "c08_night8_lead10",
+    "params": {
+     "night_low_ext": 8.0,
+     "lead_max_h": 10.0
+    },
+    "n": 30,
+    "metric": 0.009083094709588064,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 0.9869181414832573,
+    "diff": -0.00012039879995155759,
+    "ci_lo": -0.00024296967739543735,
+    "ci_hi": -2.3166399267668845e-05,
+    "wins": 7,
+    "losses": 3,
+    "by_station": {
+     "fairbanks": 0.017328547319774523,
+     "denver": 0.004945176281756472,
+     "atlanta": 0.005783798326988134,
+     "phoenix": 0.009557623604684809,
+     "singapore": 0.00780032801473638
+    },
+    "complete": true
+   },
+   {
+    "name": "c00_baseline_v5code",
+    "params": {},
+    "n": 30,
+    "metric": 0.00920349350953962,
+    "metric_v4_same_scenarios": 0.00920349350953962,
+    "ratio_vs_v4": 1.0,
+    "diff": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "wins": 0,
+    "losses": 0,
+    "by_station": {
+     "fairbanks": 0.017842274030600815,
+     "denver": 0.005010258066467983,
+     "atlanta": 0.0058085010455877556,
+     "phoenix": 0.009556106390305174,
+     "singapore": 0.00780032801473638
+    },
+    "complete": true
+   }
+  ]
+ }
+}

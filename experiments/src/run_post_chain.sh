@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-# Cheap follow-ups after run_final_eval.sh (all resumable, 4 workers at most):
+# Follow-ups after run_final_eval.sh (all resumable, 4 workers at most):
 #   1. pid_water on the six tuning screening scenarios at 1,440 steps (reference for the
-#      screening scores in the tuning figure/paragraph)            -> results/tune_baseline
-#   2. ablation of the four tuned parameters on the screening set  -> results/tune/ablation.json
-#   3. (optional, long) the other three organizer baselines on the 30 public scenarios
-#      at 8,640 steps; skipped unless RUN_OTHER_BASELINES=1          -> results/full
+#      screening scores)                                            -> results/tune_baseline
+#   2. screening sweep of the v5 candidates (policy_candidates/*.json on top of the baked v4
+#      values, run with the v5 candidate code; cached in tune_log.json under tag "v5")
+#   3. ablation of the four tuned v4 parameters on the screening set -> results/tune/ablation.json
+#   4. (optional, long) the other three organizer baselines on the 30 public scenarios
+#      at 8,640 steps; only when RUN_OTHER_BASELINES=1               -> results/full
 set -u
 cd "$(dirname "$0")"
 PY=../../kit/.venv/Scripts/python.exe
@@ -16,13 +18,20 @@ echo "[$(date)] post 1: pid_water on the screening set" | tee -a "$LOG/post_chai
                 building_train_8/phoenix_4 building_train_1/singapore_8 building_train_5/fairbanks_5 \
     >> "$LOG/post_tune_baseline.log" 2>&1
 echo "[$(date)] post 1 rc=$?" | tee -a "$LOG/post_chain.log"
-echo "[$(date)] post 2: ablation" | tee -a "$LOG/post_chain.log"
-"$PY" ablation.py --workers 4 >> "$LOG/post_ablation.log" 2>&1
+echo "[$(date)] post 2: v5 candidate sweep" | tee -a "$LOG/post_chain.log"
+for f in policy_candidates/c*.json; do
+  echo "-- candidate $f" >> "$LOG/post_candidates.log"
+  "$PY" tune.py eval --params-json "$f" --policy-file policy_candidates/transfer_policy_v5.py --tag v5 \
+      --steps 1440 --workers 4 >> "$LOG/post_candidates.log" 2>&1
+done
 echo "[$(date)] post 2 rc=$?" | tee -a "$LOG/post_chain.log"
+echo "[$(date)] post 3: ablation" | tee -a "$LOG/post_chain.log"
+"$PY" ablation.py --workers 4 >> "$LOG/post_ablation.log" 2>&1
+echo "[$(date)] post 3 rc=$?" | tee -a "$LOG/post_chain.log"
 if [ "${RUN_OTHER_BASELINES:-0}" = "1" ]; then
-  echo "[$(date)] post 3: pid / fixed_setpoint / bang_bang on the public scenarios" | tee -a "$LOG/post_chain.log"
+  echo "[$(date)] post 4: pid / fixed_setpoint / bang_bang on the public scenarios" | tee -a "$LOG/post_chain.log"
   "$PY" run_eval_parallel.py --policies pid fixed_setpoint bang_bang --steps 8640 --results-dir ../results/full \
       --workers 4 >> "$LOG/post_other_baselines.log" 2>&1
-  echo "[$(date)] post 3 rc=$?" | tee -a "$LOG/post_chain.log"
+  echo "[$(date)] post 4 rc=$?" | tee -a "$LOG/post_chain.log"
 fi
 echo "[$(date)] post chain done" | tee -a "$LOG/post_chain.log"

@@ -1,0 +1,40 @@
+== screening (6 scenarios x 1,440 steps); pid_water = 0.04904121359417115
+  0.00758 [v5] b2017f47ad {'night_low_ext': 8.0, 'night_high_ext': 6.0, 'sat_cool_hi': 285.0}
+  0.00759 [v5] dbf65210d4 {'night_low_ext': 8.0, 'night_high_ext': 4.0, 'sat_cool_hi': 285.0}
+  0.00759 [v5] e117e076ed {'night_low_ext': 12.0, 'night_high_ext': 4.0, 'lead_max_h': 10.0, 'sat_cool_hi': 285.0}
+  0.00762 [v5] c6902bc1dd {'night_high_ext': 4.0, 'sat_cool_hi': 285.0}
+  0.00766 [v5] 12826a1a10 {'margin_occ': 0.2, 'night_low_ext': 8.0, 'night_high_ext': 4.0, 'sat_cool_hi': 285.0}
+  0.00767 [v5] b03d800105 {'night_low_ext': 8.0, 'sat_cool_hi': 285.0}
+  0.00770 [v5] 1072ec8c69 {'sat_cool_hi': 285.0}
+  0.00773 [v5] 6fa4061b06 {'margin_occ': 0.2, 'night_low_ext': 8.0, 'sat_cool_hi': 285.0}
+  0.00785 [v5] b188b206a0 {'sat_cool_hi': 288.0}
+  0.00846 [v4] 0e14682dd9 {'margin_pre': 0.5}
+  0.00846 [v5] 15adac68d9 {'night_low_ext': 8.0}
+  0.00846 [v5] ebb5035f1b {'night_low_ext': 12.0}
+  0.00846 [v5] 1f85cd7e2a {'night_low_ext': 8.0, 'lead_max_h': 10.0}
+  0.00849 [v4] 89f4d5a115 {} <= baked v4
+  0.00849 [v5] b986cb0a8c {}
+  0.00849 [v4] 63d84089e7 {'sat_mix_floor': 290.0}
+  0.00850 [v4] fd42bc14ac {'sb_hyst_k': 1.5}
+  0.00855 [v4] 012e75062e {'margin_pre': 0.5, 'sb_hyst_k': 1.5, 'sat_mix_floor': 290.0}
+  0.00876 [v4] 110c8ff862 {'margin_pre': 0.5, 'night_low_ext': 2.0, 'sb_hyst_k': 1.5, 'lead_safety': 1.8, 'min_on_steps': 12, 'sat_mix_floor': 290.0}
+  0.00905 [v4] d1448c0253 {'ki_w_per_k_step': 60.0}
+  0.00910 [v4] e7c683ca5c {'sb_hyst_k': 1.5, 'ki_w_per_k_step': 60.0, 'sat_mix_floor': 290.0}
+  0.00939 [v4] 61cff37d37 {'margin_pre': 0.5, 'night_low_ext': 2.0, 'night_high_ext': 1.0, 'sb_hyst_k': 1.5, 'lead_max_h': 5.0, 'ki_w_per_k_step': 60.0, 'sat_cool_hi': 291.0, 'sat_mix_floor': 290.0}
+  0.00940 [v4] b130396904 {'margin_occ': 0.5, 'margin_pre': 0.5, 'sb_hyst_k': 1.5, 'lead_safety': 1.8, 'ki_w_per_k_step': 60.0, 'min_on_steps': 12, 'sat_mix_floor': 290.0, 'heat_season_steps': 12}
+  0.00943 [v4] e3c3f959a6 {'margin_pre': 0.5, 'sb_hyst_k': 1.5, 'lead_max_h': 5.0, 'rate0_kph': 3.0, 'lead_safety': 1.8, 'ki_w_per_k_step': 60.0, 'sat_mix_floor': 290.0}
+  0.00944 [v4] 45f1220144 {'margin_pre': 0.5, 'ki_w_per_k_step': 60.0, 'sat_mix_floor': 290.0}
+== full length (30 public scenarios, Mac), v4 on the same machine: {'metric': 0.00920349350953962, 'n': 30}
+  c10_satcold_night8_hi6       metric=0.00831 (v4 0.00920) ratio=0.903 diff=-0.00089 [-0.00139,-0.00044] wins=19/30 complete=True fai=0.0175 den=0.0050 atl=0.0055 pho=0.0075 sin=0.0060
+  c09_satcold_night12_hi4_lead10 metric=0.00832 (v4 0.00920) ratio=0.904 diff=-0.00088 [-0.00137,-0.00042] wins=19/30 complete=True fai=0.0175 den=0.0050 atl=0.0055 pho=0.0076 sin=0.0060
+  c06_satcold_night8_nighthi4  metric=0.00833 (v4 0.00920) ratio=0.905 diff=-0.00087 [-0.00136,-0.00043] wins=19/30 complete=True fai=0.0175 den=0.0050 atl=0.0055 pho=0.0076 sin=0.0060
+  c12_satcold_night8_hi4_occ02 metric=0.00840 (v4 0.00920) ratio=0.913 diff=-0.00080 [-0.00132,-0.00034] wins=18/30 complete=True fai=0.0175 den=0.0051 atl=0.0056 pho=0.0077 sin=0.0061
+  c05_satcold_night8           metric=0.00843 (v4 0.00920) ratio=0.916 diff=-0.00077 [-0.00121,-0.00038] wins=19/30 complete=True fai=0.0175 den=0.0050 atl=0.0055 pho=0.0079 sin=0.0062
+  c11_satcold_hi4              metric=0.00846 (v4 0.00920) ratio=0.919 diff=-0.00075 [-0.00127,-0.00029] wins=16/30 complete=True fai=0.0180 den=0.0050 atl=0.0055 pho=0.0076 sin=0.0060
+  c07_satcold_night8_occ02     metric=0.00851 (v4 0.00920) ratio=0.924 diff=-0.00070 [-0.00115,-0.00028] wins=18/30 complete=True fai=0.0175 den=0.0052 atl=0.0056 pho=0.0080 sin=0.0062
+  c01_satcold                  metric=0.00856 (v4 0.00920) ratio=0.930 diff=-0.00065 [-0.00113,-0.00023] wins=15/30 complete=True fai=0.0181 den=0.0051 atl=0.0055 pho=0.0079 sin=0.0062
+  c02_sat288                   metric=0.00866 (v4 0.00920) ratio=0.941 diff=-0.00054 [-0.00088,-0.00023] wins=15/30 complete=True fai=0.0180 den=0.0050 atl=0.0055 pho=0.0083 sin=0.0065
+  c04_night12                  metric=0.00907 (v4 0.00920) ratio=0.986 diff=-0.00013 [-0.00031,-0.00002] wins=7/30 complete=True fai=0.0173 den=0.0050 atl=0.0058 pho=0.0096 sin=0.0078
+  c03_night8                   metric=0.00908 (v4 0.00920) ratio=0.987 diff=-0.00012 [-0.00024,-0.00002] wins=7/30 complete=True fai=0.0173 den=0.0049 atl=0.0058 pho=0.0096 sin=0.0078
+  c08_night8_lead10            metric=0.00908 (v4 0.00920) ratio=0.987 diff=-0.00012 [-0.00024,-0.00002] wins=7/30 complete=True fai=0.0173 den=0.0049 atl=0.0058 pho=0.0096 sin=0.0078
+  c00_baseline_v5code          metric=0.00920 (v4 0.00920) ratio=1.000 diff=+0.00000 [+0.00000,+0.00000] wins=0/30 complete=True fai=0.0178 den=0.0050 atl=0.0058 pho=0.0096 sin=0.0078

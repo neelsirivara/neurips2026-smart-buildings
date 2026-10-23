@@ -1,0 +1,9 @@
+6 jobs (1 policies x 6 scenarios) at 1440 steps, 6 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/tune_baseline
+[1/6] building_train_8/phoenix_4/pid_water: total=-194.11 steps=1440 sec/step=0.016 (policy 0.15 ms) regret=-189.28 energy=278.58 carbon=124.13 (28s, elapsed 0.5 min)
+[2/6] building_train_8/fairbanks_8/pid_water: total=-89.28 steps=1440 sec/step=0.016 (policy 0.16 ms) regret=-77.96 energy=73.46 carbon=139.06 (28s, elapsed 0.5 min)
+[3/6] building_train_1/denver_7/pid_water: total=-38.49 steps=1440 sec/step=0.025 (policy 0.12 ms) regret=-62.68 energy=3.05 carbon=1.39 (41s, elapsed 0.7 min)
+[4/6] building_train_1/singapore_8/pid_water: total=-48.79 steps=1440 sec/step=0.025 (policy 0.15 ms) regret=-51.68 energy=71.02 carbon=17.86 (42s, elapsed 0.7 min)
+[5/6] building_train_5/fairbanks_5/pid_water: total=-20.67 steps=1440 sec/step=0.033 (policy 0.19 ms) regret=-30.26 energy=10.12 carbon=2.43 (54s, elapsed 0.9 min)
+[6/6] building_train_2/atlanta_3/pid_water: total=-32.38 steps=1440 sec/step=0.042 (policy 0.20 ms) regret=-45.89 energy=18.97 carbon=5.26 (66s, elapsed 1.1 min)
+== pid_water: n=6 metric=0.04904
+total wall 1.1 min, 0 failures

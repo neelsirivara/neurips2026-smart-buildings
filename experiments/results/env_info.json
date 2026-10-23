@@ -1,0 +1,32 @@
+{
+ "n_runs": 1173,
+ "runs_per_tree": {
+  "dev576": 8,
+  "dev_full": 1,
+  "final": 180,
+  "final_heldout": 30,
+  "full": 60,
+  "heldout": 20,
+  "mac": 766,
+  "smoke": 1,
+  "smoke_baked": 2,
+  "smoke_final": 1,
+  "smoke_heldout": 1,
+  "smoke_v5": 1,
+  "tune": 96,
+  "tune_baseline": 6
+ },
+ "sec_per_step_median": 0.05527946482653971,
+ "sec_per_step_min": 0.01723048124048445,
+ "sec_per_step_max": 0.2297768878440062,
+ "min_per_scenario_median": 7.960242935021719,
+ "total_core_hours": 134.89055234246783,
+ "python": "3.12.15",
+ "platform": "Windows-11-10.0.26200-SP0",
+ "versions": {
+  "numpy": "2.0.2",
+  "numba": "0.60.0",
+  "gymnasium": "1.2.0",
+  "pandas": "2.3.3"
+ }
+}
