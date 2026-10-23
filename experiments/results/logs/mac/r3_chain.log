@@ -1,0 +1,21 @@
+[Fri Oct 23 07:07:51 PDT 2026] r3 diag: v5 public
+[Fri Oct 23 07:29:42 PDT 2026] r3 diag: v5 public rc=0 == transfer: n=30 metric=0.00831
+[Fri Oct 23 07:29:42 PDT 2026] r3 diag: v5 held-out (0501, 0502)
+[Fri Oct 23 07:38:11 PDT 2026] r3 diag: v5 held-out rc=0 == transfer: n=10 metric=0.01109
+[Fri Oct 23 07:38:11 PDT 2026] r3 diag: v5 + pid_water on the 30 new held-out scenarios
+[Fri Oct 23 09:52:01 PDT 2026] r3 diag: new held-out rc=0 == transfer: n=30 metric=0.01458 == pid_water: n=30 metric=0.05467 
+[Fri Oct 23 09:52:01 PDT 2026] r3 diag chain done
+[Fri Oct 23 10:16:47 PDT 2026] confirm chain: r3_c16_pre035_min1 (v6) public heldout r3, then r3_c00 heldout r3
+[Fri Oct 23 10:16:47 PDT 2026] r3 full (r3_c16_pre035_min1 -> final_v6_public, 12 workers)
+[Fri Oct 23 10:31:59 PDT 2026] r3 full: public rc=0 == transfer: n=30 metric=0.00803
+[Fri Oct 23 10:31:59 PDT 2026] r3 full (r3_c16_pre035_min1 -> final_v6_heldout, 10 workers)
+[Fri Oct 23 10:37:00 PDT 2026] r3 full: heldout rc=0 == transfer: n=10 metric=0.00944
+[Fri Oct 23 10:37:00 PDT 2026] r3 full (r3_c16_pre035_min1 -> final_v6_r3, 10 workers)
+[Fri Oct 23 11:41:40 PDT 2026] r3 full: r3 rc=0 == transfer: n=30 metric=0.01294
+[Fri Oct 23 11:41:40 PDT 2026] r3 full (r3_c16_pre035_min1: public heldout r3) done
+[Fri Oct 23 11:41:40 PDT 2026] r3 full (r3_c00_v6_default -> final_c00_heldout, 10 workers)
+[Fri Oct 23 11:50:56 PDT 2026] r3 full: heldout rc=0 == transfer: n=10 metric=0.00955
+[Fri Oct 23 11:50:56 PDT 2026] r3 full (r3_c00_v6_default -> final_c00_r3, 10 workers)
+[Fri Oct 23 13:04:03 PDT 2026] r3 full: r3 rc=0 == transfer: n=30 metric=0.01312
+[Fri Oct 23 13:04:03 PDT 2026] r3 full (r3_c00_v6_default: heldout r3) done
+[Fri Oct 23 13:04:03 PDT 2026] confirm chain done

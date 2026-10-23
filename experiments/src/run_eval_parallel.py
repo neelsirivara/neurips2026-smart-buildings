@@ -57,15 +57,16 @@ def discover(scen_dir: Path) -> list[str]:
     return out
 
 
-def run_job(policy, scen, steps, results_dir, params_json, save_ts, scen_dir, policy_file, force, retries=2):
+def run_job(policy, scen, steps, results_dir, params_json, save_ts, scen_dir, policy_file, force, retries=2, runner="scenario"):
     b, w = scen.split("/")
-    cmd = [str(PY), str(HERE / "run_scenario.py"), "--policy", policy, "--building", b, "--weather", w,
+    script = "run_diag.py" if runner == "diag" else "run_scenario.py"
+    cmd = [str(PY), str(HERE / script), "--policy", policy, "--building", b, "--weather", w,
            "--steps", str(steps), "--results-dir", str(results_dir), "--scenarios-dir", str(scen_dir)]
     if params_json:
         cmd += ["--params-json", str(params_json)]
     if policy_file:
         cmd += ["--policy-file", str(policy_file)]
-    if save_ts:
+    if save_ts and runner != "diag":
         cmd.append("--save-ts")
     if force:
         cmd.append("--force")
@@ -128,6 +129,8 @@ def main() -> int:
     ap.add_argument("--save-ts", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--retries", type=int, default=2, help="re-run a failed scenario this many times")
+    ap.add_argument("--runner", choices=["scenario", "diag"], default="scenario",
+                    help="diag = run_diag.py (per-step energy components, plant commands, zone states)")
     a = ap.parse_args()
 
     results_dir = Path(a.results_dir)
@@ -155,7 +158,7 @@ def main() -> int:
     fails = 0
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         futs = [ex.submit(run_job, p, s, a.steps, results_dir, a.params_json, a.save_ts, scen_dir,
-                          a.policy_file, a.force, a.retries) for p, s in jobs]
+                          a.policy_file, a.force, a.retries, a.runner) for p, s in jobs]
         for fut in as_completed(futs):
             policy, scen, rc, dt, last, err = fut.result()
             done += 1

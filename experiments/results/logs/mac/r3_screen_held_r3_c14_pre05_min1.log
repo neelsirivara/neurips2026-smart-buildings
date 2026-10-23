@@ -1,0 +1,14 @@
+== r3_c14_pre05_min1 / held / heldout_scenarios: 2 scenarios
+2 jobs (1 policies x 2 scenarios) at 2880 steps, 4 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/round3/screen/r3_c14_pre05_min1/held
+[1/2] skip (done): building_0502/denver_1/transfer -67.87 (2s, elapsed 0.0 min)
+[2/2] skip (done): building_0502/fairbanks_3/transfer -88.94 (2s, elapsed 0.0 min)
+== transfer: n=2 metric=0.02722
+total wall 0.0 min, 0 failures
+== r3_c14_pre05_min1 / held / heldout_scenarios_r3: 4 scenarios
+4 jobs (1 policies x 4 scenarios) at 2880 steps, 4 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/round3/screen/r3_c14_pre05_min1/held
+[1/4] building_0509/denver_5/transfer: total=-21.01 steps=2880 sec/step=0.061 (policy 0.41 ms) regret=-1.08 energy=81.90 carbon=19.88 (181s, elapsed 3.0 min)
+[2/4] building_0505/singapore_4/transfer: total=-29.43 steps=2880 sec/step=0.077 (policy 0.41 ms) regret=-0.35 energy=118.72 carbon=27.37 (230s, elapsed 3.8 min)
+[3/4] building_0507/fairbanks_2/transfer: total=-91.13 steps=2880 sec/step=0.147 (policy 0.40 ms) regret=-2.77 energy=138.26 carbon=309.08 (437s, elapsed 7.3 min)
+[4/4] building_0500/phoenix_2/transfer: total=-18.14 steps=2880 sec/step=0.160 (policy 0.41 ms) regret=-1.03 energy=66.92 carbon=20.68 (474s, elapsed 7.9 min)
+== transfer: n=4 metric=0.01386
+total wall 7.9 min, 0 failures

@@ -1,0 +1,4 @@
+1 jobs (1 policies x 1 scenarios) at 2880 steps, 1 workers -> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\round3\b0502_v5
+[1/1] building_0502/denver_1/transfer: total=-81.54 steps=2880 sec/step=0.054 (policy 0.32 ms) regret=-16.95 energy=104.71 carbon=252.17 (166s, elapsed 2.8 min)
+== transfer: n=1 metric=0.02831
+total wall 2.8 min, 0 failures

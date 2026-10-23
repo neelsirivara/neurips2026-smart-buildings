@@ -68,7 +68,7 @@ def get(d, *keys, default=None):
 
 STATION_NAMES = {"fairbanks": "Fairbanks", "denver": "Denver", "atlanta": "Atlanta",
                  "phoenix": "Phoenix", "singapore": "Singapore"}
-POLICY_MACRO = {"transfer": "Ours", "transfer_v4": "OursVFour", "pid_water": "PidWater", "pid": "Pid",
+POLICY_MACRO = {"transfer": "Ours", "transfer_v5": "OursVFive", "transfer_v4": "OursVFour", "pid_water": "PidWater", "pid": "Pid",
                 "fixed_setpoint": "FixedSp", "bang_bang": "BangBang", "pid_water_official": "PidWaterOff",
                 "pid_official": "PidOff", "fixed_setpoint_official": "FixedSpOff", "bang_bang_official": "BangBangOff"}
 BUILDING_MACRO = {"building_train_1": "Bone", "building_train_2": "Btwo", "building_train_4": "Bfour",
@@ -105,8 +105,11 @@ def peak_oat_c(results_dir: Path, station: str):
     try:
         import pandas as pd
         best = None
-        for f in results_dir.glob(f"building_*/{station}_*/transfer/ahu_log.csv"):
+        for f in results_dir.glob(f"building_*/{station}_*/transfer*/ahu_log.csv"):
             m = float(pd.read_csv(f, usecols=["outside_air"])["outside_air"].max())
+            best = m if best is None else max(best, m)
+        for f in results_dir.glob(f"building_*/{station}_*/transfer/diag.csv"):   # round-3 runs log the OAT here
+            m = float(pd.read_csv(f, usecols=["oat_k"])["oat_k"].max())
             best = m if best is None else max(best, m)
         return None if best is None else best - 273.15
     except Exception:  # noqa: BLE001
@@ -189,29 +192,95 @@ def write_tuning_tables(ab, cs) -> None:
                      f"{bs.get('atlanta', float('nan')):.4f} & {bs.get('phoenix', float('nan')):.4f} & "
                      f"{bs.get('singapore', float('nan')):.4f} \\\\\n")
         L.append("\\bottomrule\n\\end{tabular}\n\\end{table}\n\n")
+    L += write_round3_table()
     out.write_text("".join(L))
 
 
-def write_per_scenario_table(fs, hs) -> None:
-    """paper/per_scenario_table.tex: every scenario's return and score for ours, local pid_water
-    and the organizer-provided pid_water (public set), then the held-out generated buildings."""
+def write_round3_table() -> list[str]:
+    """The round-3 (v6) candidates on both screening sets, from results/round3/candidates.json:
+    metric, ratio against the shipped v5, and the paired difference against the v6 defaults (c00)
+    with its bootstrap CI and the screen verdict under the shipping rule."""
+    lg = load(RES / "round3" / "candidates.json")
+    if not lg:
+        return []
+    cands = lg.get("candidates") or {}
+    if not cands:
+        return []
+    steps = lg.get("screen_steps")
+    short = {"f_cap_pre": "$f_{\\text{cap}}^{\\text{pre}}$", "f_cap_occ": "$f_{\\text{cap}}^{\\text{occ}}$",
+             "gain_area_scaling": "area scaling", "per_zone_start": "per-zone start", "adaptive_floor": "adaptive floor",
+             "area_scale_min": "scale min", "q_cap_w": "$q$ cap (W)", "margin_pre": "pre margin", "rate0_kph": "rate$_0$",
+             "pre_latch": "latch", "lead_safety": "lead safety"}
+    L = ["\\begin{table}[h]\n\\caption{Round-3 candidates (v6 code) on the two screening sets at "
+         + (f"{steps:,}" if steps else "??") + " steps: six public scenarios and six held-out scenarios "
+         "(building 0502 twice, buildings 0500, 0505, 0507 and 0509 once). Metric = leaderboard metric on the set; "
+         "ratio = against the shipped v5 on the same scenarios; $\\Delta$ = paired mean difference against the v6 "
+         "defaults (c00) in units of $10^{-5}$ with its bootstrap 95\\% CI (negative favours the candidate). "
+         "Verdict under the shipping rule against c00: \\emph{rule met} = held-out CI below zero and public CI not "
+         "above it; \\emph{public only} = only the public CI below zero; \\emph{worse} = a CI above zero; n.s. = "
+         "neither. c01--c13 change one or two values of the v6 defaults (c03--c05 are ablations); c14--c16 combine "
+         "the changes that helped; $\\star$ marks the shipped variant. Parameter files: "
+         "\\texttt{experiments/src/policy\\_candidates/}.}\n"
+         "\\label{tab:candidates_r3}\n\\centering\\scriptsize\n\\setlength{\\tabcolsep}{2.2pt}\n"
+         "\\begin{tabular}{llrrrrrrl}\n\\toprule\n"
+         " & & \\multicolumn{3}{c}{public screen} & \\multicolumn{3}{c}{held-out screen} & \\\\\n"
+         "\\cmidrule(lr){3-5}\\cmidrule(lr){6-8}\n"
+         "id & change vs v6 defaults & metric & ratio & $\\Delta$ vs c00 [CI] & metric & ratio & "
+         "$\\Delta$ vs c00 [CI] & verdict \\\\\n\\midrule\n"]
+
+    def delta(d):
+        if not d or d.get("diff") is None:
+            return "--"
+        s = 1e5
+        return f"{d['diff'] * s:+.1f} [{d['ci_lo'] * s:+.1f}, {d['ci_hi'] * s:+.1f}]"
+
+    def cell(d, d0):
+        if not d or d.get("metric") is None:
+            return "-- & -- & --"
+        r = "--" if d.get("ratio") is None else f"{d['ratio']:.3f}"
+        return f"{d['metric']:.5f} & {r} & {delta(d0)}"
+    shipped = (lg.get("shipped") or {}).get("candidate")
+    order = sorted(cands, key=lambda n: (n != "ref_v5", n))
+    for name in order:
+        e = cands[name]
+        if name == "ref_v5":
+            ident, change = "v5", "shipped v5 (reference)"
+        else:
+            ident = name.split("_")[1]
+            pr = e.get("params") or {}
+            change = ", ".join(f"{short.get(k, _tex(k))} {v:g}" for k, v in pr.items()) or "v6 defaults"
+        if name == shipped:
+            ident = "$\\star$" + ident
+        verdict = {"r3_c00_v6_default": "base", "ref_v5": "--"}.get(name, e.get("screen_outcome_vs_c00", "--"))
+        L.append(f"{ident} & {change} & {cell(e.get('screen_public'), e.get('screen_public_vs_c00'))} & "
+                 f"{cell(e.get('screen_held'), e.get('screen_held_vs_c00'))} & {verdict} \\\\\n")
+    L.append("\\bottomrule\n\\end{tabular}\n\\end{table}\n\n")
+    return L
+
+
+def write_per_scenario_table(fs, hs, r3=None) -> None:
+    """paper/per_scenario_table.tex: every scenario's return and score for ours (the shipped
+    policy), v5, v4, local pid_water and the organizer-provided pid_water (public set), then the
+    two held-out sets of generated buildings."""
     out = ROOT / "paper" / "per_scenario_table.tex"
     L = ["% AUTO-GENERATED by experiments/src/make_macros.py -- do not edit by hand\n"]
 
     def block(scores, title, label, with_official):
         ours = get(scores, "policies", "transfer", "per_scenario") or {}
+        v5 = get(scores, "policies", "transfer_v5", "per_scenario") or {}
         v4 = get(scores, "policies", "transfer_v4", "per_scenario") or {}
         loc = get(scores, "policies", "pid_water", "per_scenario") or {}
         off = get(scores, "policies", "pid_water_official", "per_scenario") or {}
         if not ours:
             L.append(f"% {label}: no data yet\n")
             return
-        cols = "llrrrrr" + ("r" if with_official else "")
+        cols = "llrrrrrr" + ("r" if with_official else "")
         L.append("\\begin{table}[t]\n\\caption{" + title + "}\n\\label{" + label + "}\n\\centering\\scriptsize\n"
                  "\\setlength{\\tabcolsep}{2.5pt}\n\\begin{tabular}{" + cols + "}\n\\toprule\n")
-        hdr = "scenario & zones/AHUs & v5 return & v5 score & v4 score & pid\\_water return & pid\\_water score"
+        hdr = ("scenario & zones/AHUs & SADR v6 return & v6 score & v5 score & v4 score & "
+               "pid\\_water return & pid\\_water score")
         if with_official:
-            hdr += " & pid\\_water official score"
+            hdr += " & organizer"
         L.append(hdr + " \\\\\n\\midrule\n")
         keys = sorted(ours, key=lambda k: (k.split("/")[1].rsplit("_", 1)[0], k))
         for k in keys:
@@ -222,7 +291,9 @@ def write_per_scenario_table(fs, hs) -> None:
             better = o["score"] < b.get("score", float("inf"))
             sc = f"\\textbf{{{o['score']:.4f}}}" if better else f"{o['score']:.4f}"
             v = v4.get(k, {})
+            w5 = v5.get(k, {})
             row = (f"{_tex(k)} & {size} & {o['total']:.1f} & {sc} & "
+                   + (f"{w5['score']:.4f}" if w5 else "--") + " & "
                    + (f"{v['score']:.4f}" if v else "--") + " & "
                    + (f"{b['total']:.1f} & {b['score']:.4f}" if b else "-- & --"))
             if with_official:
@@ -231,11 +302,245 @@ def write_per_scenario_table(fs, hs) -> None:
         L.append("\\bottomrule\n\\end{tabular}\n\\end{table}\n\n")
 
     block(fs, "Per-scenario results on the 30 public scenarios (8,640 steps). Score is $|$total$/8640|$, lower is "
-              "better; bold marks scenarios where SADR beats the locally re-run \\texttt{pid\\_water}.",
+              "better; bold marks scenarios where SADR beats the locally re-run \\texttt{pid\\_water}; organizer = "
+              "the \\texttt{pid\\_water} score from the kit's \\texttt{baseline\\_returns.json}.",
           "tab:per_scenario", True)
-    block(hs, "Per-scenario results on the generated held-out buildings (8,640 steps), SADR vs locally run "
+    block(hs, "Per-scenario results on the generated held-out buildings 0501 and 0502 (8,640 steps), SADR vs locally run "
               "\\texttt{pid\\_water}.", "tab:per_scenario_held", False)
+    if r3:
+        block(r3, "Per-scenario results on the six generated held-out buildings of round 3 (8,640 steps), SADR vs locally run "
+                  "\\texttt{pid\\_water}.", "tab:per_scenario_held_r3", False)
     out.write_text("".join(L))
+
+
+R3_BUILDINGS = {"building_0500": "Bfivehundred", "building_0505": "Bfivefive", "building_0507": "Bfiveseven",
+                "building_0508": "Bfiveeight", "building_0509": "Bfivenine", "building_0511": "Bfiveeleven"}
+
+
+def _comp_macros(prefix: str, c: dict | None) -> list[str]:
+    out = [macro(f"{prefix}Diff", fmt(get(c, "diff"), 5, signed=True)),
+           macro(f"{prefix}DiffLo", fmt(get(c, "ci_lo"), 5, signed=True)),
+           macro(f"{prefix}DiffHi", fmt(get(c, "ci_hi"), 5, signed=True)),
+           macro(f"{prefix}Ratio", fmt(get(c, "ratio"), 3)),
+           macro(f"{prefix}RatioLo", fmt(get(c, "ratio_ci_lo"), 3)),
+           macro(f"{prefix}RatioHi", fmt(get(c, "ratio_ci_hi"), 3)),
+           macro(f"{prefix}Wins", fmt(get(c, "wins"), int_=True)),
+           macro(f"{prefix}Losses", fmt(get(c, "losses"), int_=True)),
+           macro(f"{prefix}PWilcoxon", pfmt(get(c, "wilcoxon", "p_value")))]
+    r = get(c, "ratio")
+    out.append(macro(f"{prefix}RelRed", fmt(None if r is None else 1.0 - r, pct=True)))
+    rlo, rhi = get(c, "ratio_ci_lo"), get(c, "ratio_ci_hi")
+    out.append(macro(f"{prefix}RelRedLo", fmt(None if rhi is None else 1.0 - rhi, pct=True)))
+    out.append(macro(f"{prefix}RelRedHi", fmt(None if rlo is None else 1.0 - rlo, pct=True)))
+    return out
+
+
+def pooled_heldout_macros(hs, r3) -> list[str]:
+    """Both held-out sets pooled (buildings 0501/0502 + the six round-3 buildings), and the same pool
+    without the six scenarios whose first 10 days were used by the round-3 screen (the 'unscreened'
+    subset). Paired bootstrap over scenarios exactly as score_all.py (5,000 resamples, seed 0)."""
+    import numpy as _np
+    from score_all import paired_bootstrap, wilcoxon
+    ss = load(RES / "round3" / "screen_summary.json")
+    screened = set(get(ss, "sets", "held") or [])
+    L = []
+
+    def per(pol):
+        out = {}
+        for sc in (hs, r3):
+            for k, v in (get(sc, "policies", pol, "per_scenario") or {}).items():
+                out[k] = v["score"]
+        return out
+    ours, v5, pw = per("transfer"), per("transfer_v5"), per("pid_water")
+    for tag, excl in (("HeldAll", set()), ("HeldUnscr", screened)):
+        keys = sorted(k for k in ours if k in v5 and k in pw and k not in excl)
+        complete = bool(hs) and bool(r3) and len(keys) > 0
+        L.append(macro(f"N{tag}", fmt(len(keys) if complete else None, int_=True)))
+        L.append(macro(f"N{tag}Build", fmt(len({k.split('/')[0] for k in keys}) if complete else None, int_=True)))
+        for pol, mname, d in (("transfer", "Ours", ours), ("transfer_v5", "OursVFive", v5), ("pid_water", "PidWater", pw)):
+            L.append(macro(f"{tag}Metric{mname}", fmt(float(_np.mean([d[k] for k in keys])) if complete else None, 4)))
+            L.append(macro(f"{tag}Metric{mname}Five", fmt(float(_np.mean([d[k] for k in keys])) if complete else None, 5)))
+        for other, oname, d in (("transfer_v5", "VFive", v5), ("pid_water", "PidWater", pw)):
+            c = None
+            if complete:
+                A = _np.array([ours[k] for k in keys]); B = _np.array([d[k] for k in keys])
+                c = paired_bootstrap(A, B)
+                c["wilcoxon"] = wilcoxon(A, B)
+            L += _comp_macros(f"{tag}{oname}", c)
+        if complete:
+            A5 = _np.mean([v5[k] for k in keys]); B5 = _np.mean([pw[k] for k in keys])
+            L.append(macro(f"{tag}RatioVFivePidWater", fmt(A5 / B5, 3)))
+        else:
+            L.append(macro(f"{tag}RatioVFivePidWater", MISSING))
+    L.append(macro("NHeldScreened", fmt(len(screened) if ss else None, int_=True)))
+    return L
+
+
+def round3_macros(fs, hs) -> list[str]:
+    """Macros for the round-3 revision: the shipped v6 against v5 on the public set, the previous
+    held-out set and the new held-out set (heldout_r3_scores.json); the per-component loss
+    decomposition (decompose_loss.py); the new buildings' sizes; the screening summary."""
+    L = []
+    r3 = load(RES / "heldout_r3_scores.json")
+    for tag, sc in (("Pub", fs), ("Held", hs), ("HeldR", r3)):
+        if tag == "Pub":   # Held/HeldR MetricOursVFive are written with the other held-out policy macros
+            L.append(macro(f"{tag}MetricOursVFive", fmt(get(sc, "policies", "transfer_v5", "metric"), 4)))
+        L += _comp_macros(f"{tag}VFive", get(sc, "comparisons", "transfer_vs_transfer_v5"))
+        for st, sn in STATION_NAMES.items():
+            L.append(macro(f"{tag}VFiveDiff{sn}", fmt(get(sc, "comparisons", "transfer_vs_transfer_v5", "by_station_diff", st), 5, signed=True)))
+    for tag, sc in (("Held", hs), ("HeldR", r3)):
+        _v5, _pw = get(sc, "policies", "transfer_v5", "metric"), get(sc, "policies", "pid_water", "metric")
+        L.append(macro(f"{tag}RatioVFivePidWater", fmt(None if (not _v5 or not _pw) else _v5 / _pw, 3)))
+    L.append(macro("NHeldR", fmt(get(r3, "n_scenarios"), int_=True)))
+    r3_b = sorted({k.split("/")[0] for k in (get(r3, "scenarios") or [])})
+    L.append(macro("NHeldRBuild", fmt(len(r3_b) if r3 else None, int_=True)))
+    for pol, mname in (("transfer", "Ours"), ("transfer_v5", "OursVFive"), ("pid_water", "PidWater")):
+        L.append(macro(f"HeldRMetric{mname}", fmt(get(r3, "policies", pol, "metric"), 4)))
+        for st, sn in STATION_NAMES.items():
+            L.append(macro(f"HeldRMetric{mname}{sn}", fmt(get(r3, "policies", pol, "by_station", st), 4)))
+        for b, bn in R3_BUILDINGS.items():
+            L.append(macro(f"HeldRMetric{mname}{bn}", fmt(get(r3, "policies", pol, "by_building", b), 4)))
+        for comp in ("comfort", "energy", "carbon"):
+            L.append(macro(f"HeldRDecomp{mname}{comp.capitalize()}", fmt(get(r3, "policies", pol, "decomp", comp), 4)))
+    L += _comp_macros("HeldRPidWater", get(r3, "comparisons", "transfer_vs_pid_water"))
+    L += pooled_heldout_macros(hs, r3)
+    sizes = {}
+    for pol in ("transfer", "pid_water", "transfer_v5"):
+        sizes.update(get(r3, "policies", pol, "building_size") or {})
+    for b, bn in R3_BUILDINGS.items():
+        L.append(macro(f"Zones{bn}", fmt(get(sizes, b, "num_zones"), int_=True)))
+        L.append(macro(f"Ahus{bn}", fmt(get(sizes, b, "num_ahus"), int_=True)))
+    zs = [get(sizes, b, "num_zones") for b in R3_BUILDINGS if get(sizes, b, "num_zones") is not None]
+    ah = [get(sizes, b, "num_ahus") for b in R3_BUILDINGS if get(sizes, b, "num_ahus") is not None]
+    full = len(zs) == len(R3_BUILDINGS)
+    L.append(macro("HeldRZonesMin", fmt(min(zs) if full else None, int_=True)))
+    L.append(macro("HeldRZonesMax", fmt(max(zs) if full else None, int_=True)))
+    L.append(macro("HeldRAhusMin", fmt(min(ah) if full else None, int_=True)))
+    L.append(macro("HeldRAhusMax", fmt(max(ah) if full else None, int_=True)))
+    import numpy as _np
+    all_b = {}
+    for tree, tag in ((RES / "final", "Pub"), (RES / "final_heldout", "Held"), (RES / "final_heldout_r3", "HeldR")):
+        areas = []
+        per_b = {}
+        for f in sorted(tree.glob("building_*/*/transfer*/zones.npz")):
+            b = f.parts[-4]
+            if b in per_b:
+                continue
+            try:
+                a_ = _np.load(f)["zone_area_m2"]
+            except Exception:  # noqa: BLE001
+                continue
+            if _np.all(_np.isfinite(a_)):
+                per_b[b] = a_
+                areas += a_.tolist()
+        all_b.update(per_b)
+        L.append(macro(f"{tag}ZoneAreaMedian", fmt(float(_np.median(areas)) if areas else None, 0)))
+        L.append(macro(f"{tag}ZoneAreaMax", fmt(float(max(areas)) if areas else None, 0)))
+        L.append(macro(f"{tag}ZoneAreaMin", fmt(float(min(areas)) if areas else None, 0)))
+    # the old held-out buildings' areas may only exist in the round-3 diag copies before assembly
+    for f in sorted((RES / "mac" / "round3").glob("diag_v5_*/building_*/*/transfer/zones.npz")):
+        b = f.parts[-4]
+        if b not in all_b:
+            try:
+                a_ = _np.load(f)["zone_area_m2"]
+                if _np.all(_np.isfinite(a_)):
+                    all_b[b] = a_
+            except Exception:  # noqa: BLE001
+                pass
+    for b, bn in {**BUILDING_MACRO, **R3_BUILDINGS}.items():
+        a_ = all_b.get(b)
+        L.append(macro(f"ZoneAreaMedian{bn}", fmt(None if a_ is None else float(_np.median(a_)), 0)))
+        L.append(macro(f"ZoneAreaMax{bn}", fmt(None if a_ is None else float(a_.max()), 0)))
+    for tag, fn in (("DecPubVFive", "loss_decomposition_public_v5.json"), ("DecPubOurs", "loss_decomposition_public_v6.json"),
+                    ("DecHeldVFive", "loss_decomposition_heldout_v5.json"), ("DecHeldOurs", "loss_decomposition_heldout_v6.json"),
+                    ("DecHeldRVFive", "loss_decomposition_heldout_r3_v5.json"), ("DecHeldROurs", "loss_decomposition_heldout_r3_v6.json")):
+        d = load(RES / "round3" / fn)
+        o = get(d, "overall")
+        L.append(macro(f"{tag}N", fmt(get(d, "n_scenarios"), int_=True)))
+        L.append(macro(f"{tag}Metric", fmt(get(o, "metric"), 5)))
+        for comp in ("comfort", "fan", "cooling", "pump", "gas"):
+            L.append(macro(f"{tag}{comp.capitalize()}", fmt(get(o, "components", comp), 5)))
+            L.append(macro(f"{tag}{comp.capitalize()}Share", fmt(get(o, "shares", comp), pct=True)))
+        for m, mn in (("0", "Occ"), ("1", "Pre"), ("2", "Sb")):
+            bm = get(o, "by_mode", m)
+            L.append(macro(f"{tag}Mode{mn}Share", fmt(None if (bm is None or not get(o, "metric")) else sum(bm.values()) / o["metric"], pct=True)))
+        L.append(macro(f"{tag}UnoccShare", fmt(None if (o is None or not o.get("metric")) else sum(o["by_occupancy"]["unoccupied"].values()) / o["metric"], pct=True)))
+        L.append(macro(f"{tag}IdleMinflow", fmt(get(o, "minflow_idle_share_of_supply_air_while_heating"), pct=True)))
+        L.append(macro(f"{tag}OccOut", fmt(get(o, "occupied_zone_steps_out_of_band"), pct=True)))
+        L.append(macro(f"{tag}RecoveryBig", fmt(get(o, "recovery_hours_mean_largest_quartile"), 2)))
+        L.append(macro(f"{tag}RecoveryRest", fmt(get(o, "recovery_hours_mean_rest"), 2)))
+        for st, sn in STATION_NAMES.items():
+            g = get(d, "by_station", st)
+            for comp in ("comfort", "fan", "cooling", "gas"):
+                L.append(macro(f"{tag}{comp.capitalize()}Share{sn}", fmt(get(g, "shares", comp), pct=True)))
+        for b, bn in {**BUILDING_MACRO, **R3_BUILDINGS}.items():
+            g = get(d, "by_building", b)
+            if g is not None:
+                L.append(macro(f"{tag}Metric{bn}", fmt(get(g, "metric"), 5)))
+                L.append(macro(f"{tag}ComfortShare{bn}", fmt(get(g, "shares", "comfort"), pct=True)))
+                L.append(macro(f"{tag}RecoveryBig{bn}", fmt(get(g, "recovery_hours_mean_largest_quartile"), 2)))
+    ss = load(RES / "round3" / "screen_summary.json")
+    lg3 = load(RES / "round3" / "candidates.json")
+    rows = {r["name"]: r for r in (get(ss, "rows") or [])}
+    L.append(macro("ScreenSteps", f"{get(ss, 'steps'):,}" if get(ss, "steps") else MISSING))
+    L.append(macro("NScreenCands", fmt(len([n for n in rows if n != "ref_v5"]) if ss else None, int_=True)))
+    for name, mn in (("ref_v5", "RefVFive"), ("r3_c00_v6_default", "CZero"), ("r3_c01_fcap_pre1", "COne"),
+                     ("r3_c02_fcap_pre05", "CTwo"), ("r3_c03_no_gain_scaling", "CThree"), ("r3_c04_no_zone_start", "CFour"),
+                     ("r3_c05_no_adaptive_floor", "CFive"), ("r3_c06_scale_min1", "CSix"), ("r3_c07_qcap20k", "CSeven"),
+                     ("r3_c08_margin_pre05", "CEight"), ("r3_c09_rate0_1", "CNine"), ("r3_c10_fcap_occ07", "CTen"),
+                     ("r3_c11_latch", "CEleven"), ("r3_c12_safety16", "CTwelve"), ("r3_c13_pre05_safety16", "CThirteen"),
+                     ("r3_c14_pre05_min1", "CFourteen"), ("r3_c15_pre05_min1_mpre05", "CFifteen"),
+                     ("r3_c16_pre035_min1", "CSixteen")):
+        r = rows.get(name) or {}
+        e0 = get(lg3, "candidates", name) or {}
+        for s_, sn in (("public", "Pub"), ("held", "Held")):
+            d = r.get(s_) or {}
+            L.append(macro(f"Screen{mn}{sn}", fmt(d.get("metric"), 5)))
+            L.append(macro(f"Screen{mn}{sn}Ratio", fmt(d.get("ratio"), 3)))
+            L.append(macro(f"Screen{mn}{sn}Wins", fmt(d.get("wins"), int_=True)))
+            # paired against the v6 defaults (c00), per-step difference in units of 1e-5
+            d0 = e0.get(f"screen_{s_}_vs_c00") or {}
+            for k_, kn in (("diff", ""), ("ci_lo", "Lo"), ("ci_hi", "Hi")):
+                v_ = d0.get(k_)
+                L.append(macro(f"Screen{mn}{sn}DZero{kn}", fmt(None if v_ is None else v_ * 1e5, 1, signed=True)))
+            L.append(macro(f"Screen{mn}{sn}DZeroWins", fmt(d0.get("wins"), int_=True)))
+        L.append(macro(f"Screen{mn}Verdict", e0.get("screen_outcome_vs_c00", "--")))
+    # round-3 ledger counts and the shipped variant
+    cl = get(lg3, "candidates") or {}
+    verdicts = [e.get("screen_outcome_vs_c00") for n, e in cl.items() if n not in ("ref_v5", "r3_c00_v6_default")]
+    L.append(macro("NRThreeVariants", fmt(len(verdicts) if lg3 else None, int_=True)))
+    for v_, vn in (("worse", "Worse"), ("n.s.", "Ns"), ("rule met", "RuleMet"), ("public only", "PubOnly")):
+        L.append(macro(f"NRThree{vn}", fmt(sum(1 for x in verdicts if x == v_) if lg3 else None, int_=True)))
+    sh = get(lg3, "shipped") or {}
+    L.append(macro("ShippedCand", _tex(sh["candidate"]) if sh.get("candidate") else MISSING))
+    L.append(macro("ShippedCandId", sh["candidate"].split("_")[1] if sh.get("candidate") else MISSING))
+    c0 = get(lg3, "full_length_c00_public") or {}
+    L.append(macro("FullCZeroPub", fmt(c0.get("metric"), 5)))
+    for k_, kn in (("diff", "Diff"), ("ci_lo", "DiffLo"), ("ci_hi", "DiffHi")):
+        L.append(macro(f"FullCZeroPubVFive{kn}", fmt(get(c0, "vs_v5", k_), 5, signed=True)))
+    L.append(macro("FullCZeroPubVFiveWins", fmt(get(c0, "vs_v5", "wins"), int_=True)))
+    sc0 = get(lg3, "full_length_shipped_vs_c00_public") or {}
+    for k_, kn in (("diff", "Diff"), ("ci_lo", "DiffLo"), ("ci_hi", "DiffHi")):
+        L.append(macro(f"FullShipVsCZeroPub{kn}", fmt(sc0.get(k_), 5, signed=True)))
+    L.append(macro("FullShipVsCZeroPubWins", fmt(sc0.get("wins"), int_=True)))
+    L.append(macro("FullShipPub", fmt(sc0.get("metric_shipped"), 5)))
+    ch = get(lg3, "full_length_c00_heldout") or {}
+    ok = bool(ch.get("complete"))
+    L.append(macro("FullCZeroHeldN", fmt(ch.get("n") if ok else None, int_=True)))
+    L.append(macro("FullCZeroHeld", fmt(ch.get("metric") if ok else None, 5)))
+    L.append(macro("FullCZeroHeldShip", fmt(ch.get("metric_shipped") if ok else None, 5)))
+    for k_, kn in (("diff", "Diff"), ("ci_lo", "DiffLo"), ("ci_hi", "DiffHi")):
+        L.append(macro(f"FullShipVsCZeroHeld{kn}", fmt(get(ch, "shipped_vs_c00", k_) if ok else None, 5, signed=True)))
+    L.append(macro("FullShipVsCZeroHeldWins", fmt(get(ch, "shipped_vs_c00", "wins") if ok else None, int_=True)))
+    # five-decimal versions for sentences that set our numbers against the leaderboard's
+    L.append(macro("MetricOursFive", fmt(get(fs, "policies", "transfer", "metric"), 5)))
+    L.append(macro("FullShipVsCZeroPubLosses", fmt(sc0.get("losses"), int_=True)))
+    for tag, mn in (("b0502_v5", "TenDayVFive"), ("b0502_v6", "TenDayVSixA"), ("b0502_v6b", "TenDayVSixB"), ("b0502_v6c", "TenDayVSixC")):
+        f = RES / "round3" / tag / "building_0502" / "denver_1" / "transfer" / "summary.json"
+        sm = load(f)
+        L.append(macro(f"{mn}Score", fmt(None if not sm else abs(sm["total_reward"]) / sm["total_steps"], 5)))
+        L.append(macro(f"{mn}Regret", fmt(get(sm, "total_normalized_productivity_regret"), 2)))
+    return L
 
 
 def main() -> int:
@@ -323,13 +628,13 @@ def main() -> int:
     lines.append(macro("NHeld", fmt(get(hs, "n_scenarios"), int_=True)))
     held_b = sorted({k.split("/")[0] for k in (get(hs, "scenarios") or [])})
     lines.append(macro("NHeldBuild", fmt(len(held_b) if hs else None, int_=True)))
-    for pol, mname in (("transfer", "Ours"), ("pid_water", "PidWater"), ("transfer_v4", "OursVFour")):
+    for pol, mname in (("transfer", "Ours"), ("pid_water", "PidWater"), ("transfer_v4", "OursVFour"), ("transfer_v5", "OursVFive")):
         for b, bn in BUILDING_MACRO.items():
             if b.startswith("building_0"):
                 lines.append(macro(f"HeldMetric{mname}{bn}", fmt(get(hs, "policies", pol, "by_building", b), 4)))
         for st, sn in STATION_NAMES.items():
             lines.append(macro(f"HeldMetric{mname}{sn}", fmt(get(hs, "policies", pol, "by_station", st), 4)))
-    for pol, mname in (("transfer", "Ours"), ("pid_water", "PidWater"), ("transfer_v4", "OursVFour")):
+    for pol, mname in (("transfer", "Ours"), ("pid_water", "PidWater"), ("transfer_v4", "OursVFour"), ("transfer_v5", "OursVFive")):
         lines.append(macro(f"HeldMetric{mname}", fmt(get(hs, "policies", pol, "metric"), 4)))
     c = get(hs, "comparisons", "transfer_vs_pid_water")
     lines.append(macro("HeldDiff", fmt(get(c, "diff"), 4, signed=True)))
@@ -408,7 +713,8 @@ def main() -> int:
                  "heat_season_steps": "ParHeatSeasonSteps", "min_on_steps": "ParMinOnSteps",
                  "disch_margin_k": "ParDischMarginK", "rate_ema": "ParRateEma", "lead_min_h": "ParLeadMinH",
                  "lead_max_h": "ParLeadMaxH", "valve_target": "ParValveTarget", "q_cap_w": "ParQCapW",
-                 "sb_hyst_k": "ParSbHystK", "q_sb_w": "ParQSbW"}
+                 "sb_hyst_k": "ParSbHystK", "q_sb_w": "ParQSbW", "f_cap_pre": "ParFCapPre", "f_cap_occ": "ParFCapOcc",
+                 "area_scale_min": "ParAreaScaleMin", "area_scale_max": "ParAreaScaleMax", "area_ref_m2": "ParAreaRef"}
     for k, name in par_names.items():
         v = bp.get(k)
         lines.append(macro(name, MISSING if v is None else f"{v:g}"))
@@ -482,6 +788,13 @@ def main() -> int:
     lines.append(macro("CandWinnerCiLo", fmt(get(win, "ci_lo"), 5, signed=True)))
     lines.append(macro("CandWinnerCiHi", fmt(get(win, "ci_hi"), 5, signed=True)))
     lines.append(macro("CandWinnerWins", fmt(get(win, "wins"), int_=True)))
+    _r = get(win, "ratio_vs_v4")
+    lines.append(macro("CandWinnerRelRed", fmt(None if _r is None else 1.0 - _r, pct=True)))
+    # v5 minus v4 per station (the candidate's station means against v4's on the same machine)
+    for st, sn in STATION_NAMES.items():
+        _a = get(win, "by_station", st)
+        _b = get(fs, "policies", "transfer_v4", "by_station", st)
+        lines.append(macro(f"CandWinnerDiff{sn}", fmt(None if (_a is None or _b is None) else _a - _b, 4, signed=True)))
 
     def cand_metric(params):
         return next((c["metric"] for c in full_c if c["params"] == params), None)
@@ -512,13 +825,16 @@ def main() -> int:
         if common else MISSING))
     write_tuning_tables(ab, cs)
 
+    # ---- round 3: v6 vs v5 on the three sets, the new held-out set, the loss decomposition ----
+    lines += round3_macros(fs, hs)
+
     # ---- environment ----
     lines.append(macro("SimSecPerStep", fmt(get(ei, "sec_per_step_median"), 3)))
     lines.append(macro("SimMinPerScenario", fmt(get(ei, "min_per_scenario_median"), 1)))
     lines.append(macro("TotalCoreHours", fmt(get(ei, "total_core_hours"), 1)))
 
     OUT.write_text("".join(lines))
-    write_per_scenario_table(fs, hs)
+    write_per_scenario_table(fs, hs, load(RES / "heldout_r3_scores.json"))
     n_missing = sum(1 for ln in lines if MISSING in ln)
     print(f"wrote {OUT} ({len(lines)} macros, {n_missing} missing)")
     return 0

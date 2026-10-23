@@ -70,3 +70,72 @@ further 9.7% on the public set (not significant on the ten held-out scenarios).
   written up; the review scores refer to that draft.
 - Not applied (would need more compute or user input): more generated buildings; a diagnosis of
   building_0502; the Kaggle submission.
+
+---
+
+# Self-review 1, pass 2 -- round-3 draft (2026-10-23, ~12:00 PDT)
+
+Same form. Draft reviewed: `paper/main.pdf` after `finalize.sh` with SADR v6 (`r3_c16_pre035_min1`)
+shipped; 12 pages (main text through page 6, references page 7, appendices from page 8).
+
+## Summary
+The round-3 revision decomposes the remaining loss of SADR v5 into comfort, fan, chiller, pump and
+gas, diagnoses the controller's weakness on large generated zones (fixed caps and gains tuned on
+~100 m2 zones; every VAV box has the same design flow), and adds area-scaled zone loops, physical
+and water-side request caps, a per-zone optimum start and an adaptive setback floor (v6). 17 v6
+configurations are screened against v5 and the v6 defaults; a composite chosen by a rule fixed in
+advance ships after a full-length confirmation: public 0.00803 vs 0.00831 for v5 (-3.4%, 28/30),
+40 held-out scenarios on 8 generated buildings 0.01206 vs 0.01371 (-12.0%, CI 9.5-14.3%, 40/40),
+34 never-screened held-out scenarios -10.8% (CI 8.3-13.5%, 34/34); ratio to pid_water 0.146
+(public) and 0.237 (held-out).
+
+## Strengths (new in round 3)
+- The held-out set is four times larger and spans the generator's size range (32-120 zones, zones
+  up to 1,373 m2); v5 and pid_water are re-run on it, so the before/after is paired per scenario.
+- Selection hygiene is explicit: the choice rule was fixed before any full-length composite run,
+  the six held-out scenarios that informed the screen are excluded in a separate estimate, and the
+  ledger (Table 8) lists every variant including the seven that lost.
+- The mechanism story is checked by the decomposition: on the new buildings the comfort term falls
+  from 14.2% to 3.0% of the loss and the largest-quartile recovery from 0.65 h to 0.12 h, matching
+  the diagnosis; the cost (fan energy) is stated.
+- The bake is verified bit for bit against the evaluated configuration and across machines.
+
+## Weaknesses
+- The public-set gain of v6 is small (3.4%); the paper says so and attributes the held-out gain to
+  zone size, which the per-building figure supports, but the attribution is still correlational
+  (no per-mechanism full-length ablation; the ablations are 10-day screens on 12 scenarios).
+- The shipped flow cap (0.35) is the edge of the screened range; a reviewer could ask why the line
+  search stopped. (Addressed in Limitations.)
+- Screen CIs over 6 scenarios are coarse; several "worse" verdicts (c01) are tiny in absolute terms.
+  The table reports the effect sizes, so a reader can judge.
+- Still no Kaggle score; the leaderboard paragraph is context only and says so.
+- Remaining gap on generated buildings is chiller electricity (2x the public level per step); the
+  paper states it but does not diagnose it.
+
+## Scores
+| criterion | score | justification |
+|---|---|---|
+| Clarity | 4 | Round-3 protocol and ledger are clear; the main text is dense (six full pages). |
+| Soundness | 4 | Pre-fixed rule, paired CIs on every set, clean unscreened subset; mechanism attribution partly from screens. |
+| Reproducibility | 5 | Every number from result files (AUDIT 34 claims, 0 missing), resumable scripts, bit-identical bake and cross-machine checks. |
+| Significance | 4 | A strong, transparent non-learned reference; the held-out improvement is large and consistent (40/40). |
+| Overall | 7 | Better supported than pass 1 (held-out set 4x, failures reported); still no Kaggle number. |
+| Confidence | 4 | |
+
+## Must-fix before upload (pass 2)
+1. Reconcile "17 v6 variants" (Sec. 3) with "7 of the 16 variants" (Sec. 4): the 17 include the v6
+   defaults. -- applied: Sec. 3 now says "17 v6 configurations (the v6 defaults and 16 variants)".
+2. State the cost side of v6 on large buildings (fan energy) and what remains (chiller). -- applied
+   in "Why v5 lost on large zones".
+3. Say that the shipped preconditioning flow cap is at the edge of the screened range. -- applied in
+   Limitations.
+4. Do not describe v5/pid_water on the held-out sets as run "before the screen" (they ran
+   concurrently on the Mac); they are fixed policies, which is what matters. -- applied.
+5. Main text within six pages after the additions. -- applied (per-scenario figure moved to
+   Appendix A, one Analysis sentence shortened; references start on page 7).
+6. Fill the author block before upload. -- user.
+
+## Applied fixes (deltas recorded in STATUS.md)
+Items 1-5 applied in the 2026-10-23 ~12:00 draft; build: 0 errors, 0 undefined references, 0 `??`,
+0 overfull boxes. Not applied: per-mechanism full-length ablations, the chiller diagnosis on the
+generated buildings and the Kaggle submission (compute / user).

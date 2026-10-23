@@ -1,0 +1,156 @@
+== assemble final trees
+public scenarios:
+  mac\final/transfer -> final/transfer: 30 scenarios
+  mac\final/pid_water -> final/pid_water: 30 scenarios
+  mac\full/transfer -> final/transfer_v4: 30 scenarios
+  mac\full/pid -> final/pid: 30 scenarios
+  mac\full/fixed_setpoint -> final/fixed_setpoint: 30 scenarios
+  mac\full/bang_bang -> final/bang_bang: 30 scenarios
+held-out scenarios:
+  mac\final_heldout/transfer -> final_heldout/transfer: 10 scenarios
+  mac\final_heldout/pid_water -> final_heldout/pid_water: 10 scenarios
+  mac\heldout/transfer -> final_heldout/transfer_v4: 10 scenarios
+public:  promoted v5 -> 0 scenarios
+heldout: promoted v5 -> 0 scenarios
+final: installed new transfer from mac\round3\final_v6_public: 30 scenarios
+final_heldout: installed new transfer from mac\round3\final_v6_heldout: 10 scenarios
+r3: installed new transfer: 30 scenarios
+r3: transfer_v5 30, pid_water 30 scenarios from diag_v5_r3
+== score
+n=30 scenarios
+  transfer                   metric=0.00803  fairbanks=0.0167 denver=0.0047 atlanta=0.0053 phoenix=0.0074 singapore=0.0059
+  transfer_v5                metric=0.00831  fairbanks=0.0175 denver=0.0050 atlanta=0.0055 phoenix=0.0075 singapore=0.0060
+  transfer_v4                metric=0.00920  fairbanks=0.0178 denver=0.0050 atlanta=0.0058 phoenix=0.0096 singapore=0.0078
+  pid_water                  metric=0.05498  fairbanks=0.0791 denver=0.0379 atlanta=0.0306 phoenix=0.0801 singapore=0.0471
+  pid_water_official         metric=0.05414  fairbanks=0.0785 denver=0.0374 atlanta=0.0301 phoenix=0.0781 singapore=0.0466
+  pid                        metric=0.06782  fairbanks=0.0759 denver=0.0506 atlanta=0.0432 phoenix=0.0955 singapore=0.0739
+  pid_official               metric=0.06736  fairbanks=0.0755 denver=0.0496 atlanta=0.0418 phoenix=0.0950 singapore=0.0750
+  fixed_setpoint             metric=0.06550  fairbanks=0.0759 denver=0.0772 atlanta=0.0330 phoenix=0.1161 singapore=0.0253
+  fixed_setpoint_official    metric=0.06592  fairbanks=0.0743 denver=0.0768 atlanta=0.0331 phoenix=0.1202 singapore=0.0252
+  bang_bang                  metric=0.22453  fairbanks=0.1996 denver=0.1830 atlanta=0.2315 phoenix=0.2367 singapore=0.2718
+  bang_bang_official         metric=0.22520  fairbanks=0.1999 denver=0.1844 atlanta=0.2320 phoenix=0.2378 singapore=0.2719
+  transfer_vs_transfer_v5: diff=-0.00028 [-0.00045,-0.00015] ratio=0.966 wins=28/30 p_wilcoxon=2.05e-07
+  transfer_vs_transfer_v4: diff=-0.00118 [-0.00169,-0.00069] ratio=0.872 wins=22/30 p_wilcoxon=2.09e-04
+  transfer_vs_pid_water: diff=-0.04695 [-0.06200,-0.03441] ratio=0.146 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid_water_official: diff=-0.04612 [-0.06093,-0.03382] ratio=0.148 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid: diff=-0.05980 [-0.07550,-0.04557] ratio=0.118 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid_official: diff=-0.05933 [-0.07501,-0.04500] ratio=0.119 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_fixed_setpoint: diff=-0.05747 [-0.07509,-0.04046] ratio=0.123 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_fixed_setpoint_official: diff=-0.05789 [-0.07632,-0.04047] ratio=0.122 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_bang_bang: diff=-0.21650 [-0.23580,-0.19631] ratio=0.036 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_bang_bang_official: diff=-0.21718 [-0.23631,-0.19719] ratio=0.036 wins=30/30 p_wilcoxon=1.86e-09
+n=10 scenarios
+  transfer                   metric=0.00944  fairbanks=0.0131 denver=0.0151 atlanta=0.0064 phoenix=0.0044 singapore=0.0082
+  transfer_v5                metric=0.01109  fairbanks=0.0157 denver=0.0184 atlanta=0.0071 phoenix=0.0056 singapore=0.0086
+  transfer_v4                metric=0.01138  fairbanks=0.0154 denver=0.0185 atlanta=0.0075 phoenix=0.0057 singapore=0.0099
+  pid_water                  metric=0.03989  fairbanks=0.0515 denver=0.0488 atlanta=0.0316 phoenix=0.0273 singapore=0.0402
+  transfer_vs_transfer_v5: diff=-0.00165 [-0.00298,-0.00055] ratio=0.851 wins=10/10 p_wilcoxon=1.95e-03
+  transfer_vs_transfer_v4: diff=-0.00194 [-0.00312,-0.00093] ratio=0.829 wins=9/10 p_wilcoxon=3.91e-03
+  transfer_vs_pid_water: diff=-0.03045 [-0.03577,-0.02570] ratio=0.237 wins=10/10 p_wilcoxon=1.95e-03
+n=30 scenarios
+  transfer                   metric=0.01294  fairbanks=0.0179 denver=0.0107 atlanta=0.0083 phoenix=0.0149 singapore=0.0130
+  transfer_v5                metric=0.01458  fairbanks=0.0209 denver=0.0123 atlanta=0.0094 phoenix=0.0165 singapore=0.0138
+  pid_water                  metric=0.05467  fairbanks=0.0857 denver=0.0547 atlanta=0.0423 phoenix=0.0484 singapore=0.0422
+  transfer_vs_transfer_v5: diff=-0.00164 [-0.00230,-0.00109] ratio=0.887 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid_water: diff=-0.04173 [-0.05277,-0.03277] ratio=0.237 wins=30/30 p_wilcoxon=1.86e-09
+n=30 scenarios
+  transfer                   metric=0.00920  fairbanks=0.0178 denver=0.0050 atlanta=0.0058 phoenix=0.0096 singapore=0.0078
+  pid_water                  metric=0.05496  fairbanks=0.0791 denver=0.0379 atlanta=0.0306 phoenix=0.0800 singapore=0.0471
+  pid_water_official         metric=0.05414  fairbanks=0.0785 denver=0.0374 atlanta=0.0301 phoenix=0.0781 singapore=0.0466
+  pid_official               metric=0.06736  fairbanks=0.0755 denver=0.0496 atlanta=0.0418 phoenix=0.0950 singapore=0.0750
+  fixed_setpoint_official    metric=0.06592  fairbanks=0.0743 denver=0.0768 atlanta=0.0331 phoenix=0.1202 singapore=0.0252
+  bang_bang_official         metric=0.22520  fairbanks=0.1999 denver=0.1844 atlanta=0.2320 phoenix=0.2378 singapore=0.2719
+  transfer_vs_pid_water: diff=-0.04575 [-0.06033,-0.03353] ratio=0.167 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid_water_official: diff=-0.04494 [-0.05924,-0.03299] ratio=0.170 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_pid_official: diff=-0.05815 [-0.07353,-0.04416] ratio=0.137 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_fixed_setpoint_official: diff=-0.05671 [-0.07488,-0.03947] ratio=0.140 wins=30/30 p_wilcoxon=1.86e-09
+  transfer_vs_bang_bang_official: diff=-0.21600 [-0.23493,-0.19630] ratio=0.041 wins=30/30 p_wilcoxon=1.86e-09
+n=10 scenarios
+  transfer                   metric=0.01138  fairbanks=0.0154 denver=0.0185 atlanta=0.0075 phoenix=0.0057 singapore=0.0099
+  pid_water                  metric=0.03989  fairbanks=0.0515 denver=0.0488 atlanta=0.0316 phoenix=0.0273 singapore=0.0402
+  transfer_vs_pid_water: diff=-0.02850 [-0.03288,-0.02451] ratio=0.285 wins=10/10 p_wilcoxon=1.95e-03
+== analysis (final tree, time series)
+building_train_1/atlanta_2: transfer: unocc 23% regret 1% out 0.8%  pid_water: unocc 0% regret 83% out 55.6%
+building_train_1/denver_7: transfer: unocc 33% regret 1% out 0.6%  pid_water: unocc 0% regret 97% out 56.9%
+building_train_1/fairbanks_1: transfer: unocc 32% regret 2% out 2.7%  pid_water: unocc 24% regret 33% out 80.3%
+building_train_1/phoenix_5: transfer: unocc 16% regret 2% out 3.3%  pid_water: unocc 6% regret 55% out 71.8%
+building_train_1/singapore_8: transfer: unocc 12% regret 3% out 3.9%  pid_water: unocc 6% regret 63% out 59.3%
+building_train_2/atlanta_3: transfer: unocc 11% regret 3% out 2.7%  pid_water: unocc 1% regret 78% out 56.4%
+building_train_2/denver_8: transfer: unocc 41% regret 2% out 1.9%  pid_water: unocc 4% regret 86% out 60.6%
+building_train_2/fairbanks_2: transfer: unocc 46% regret 1% out 1.8%  pid_water: unocc 10% regret 76% out 69.7%
+building_train_2/phoenix_6: transfer: unocc 20% regret 0% out 0.6%  pid_water: unocc 7% regret 58% out 65.8%
+building_train_2/singapore_1: transfer: unocc 15% regret 1% out 1.0%  pid_water: unocc 6% regret 65% out 58.3%
+building_train_4/atlanta_5: transfer: unocc 9% regret 4% out 4.2%  pid_water: unocc 4% regret 64% out 58.8%
+building_train_4/denver_2: transfer: unocc 37% regret 1% out 0.9%  pid_water: unocc 1% regret 90% out 59.4%
+building_train_4/fairbanks_4: transfer: unocc 32% regret 4% out 1.4%  pid_water: unocc 1% regret 96% out 62.6%
+building_train_4/phoenix_8: transfer: unocc 25% regret 3% out 1.5%  pid_water: unocc 0% regret 95% out 62.5%
+building_train_4/singapore_3: transfer: unocc 13% regret 3% out 3.7%  pid_water: unocc 6% regret 60% out 59.8%
+building_train_5/atlanta_6: transfer: unocc 10% regret 2% out 2.4%  pid_water: unocc 2% regret 65% out 60.6%
+building_train_5/denver_3: transfer: unocc 28% regret 1% out 0.9%  pid_water: unocc 0% regret 89% out 56.2%
+building_train_5/fairbanks_5: transfer: unocc 14% regret 3% out 1.5%  pid_water: unocc 1% regret 88% out 53.7%
+building_train_5/phoenix_1: transfer: unocc 27% regret 2% out 1.3%  pid_water: unocc 0% regret 93% out 53.5%
+building_train_5/singapore_4: transfer: unocc 14% regret 2% out 2.5%  pid_water: unocc 6% regret 58% out 72.2%
+building_train_7/atlanta_8: transfer: unocc 39% regret 0% out 1.4%  pid_water: unocc 6% regret 81% out 60.4%
+building_train_7/denver_5: transfer: unocc 9% regret 19% out 10.6%  pid_water: unocc 2% regret 67% out 59.9%
+building_train_7/fairbanks_7: transfer: unocc 35% regret 0% out 0.7%  pid_water: unocc 7% regret 78% out 63.4%
+building_train_7/phoenix_3: transfer: unocc 8% regret 9% out 7.4%  pid_water: unocc 3% regret 64% out 59.9%
+building_train_7/singapore_6: transfer: unocc 13% regret 2% out 1.9%  pid_water: unocc 7% regret 62% out 58.9%
+building_train_8/atlanta_1: transfer: unocc 45% regret 1% out 0.9%  pid_water: unocc 7% regret 73% out 51.3%
+building_train_8/denver_6: transfer: unocc 12% regret 6% out 4.7%  pid_water: unocc 2% regret 75% out 57.8%
+building_train_8/fairbanks_8: transfer: unocc 46% regret 0% out 1.1%  pid_water: unocc 26% regret 40% out 60.2%
+building_train_8/phoenix_4: transfer: unocc 23% regret 0% out 0.6%  pid_water: unocc 5% regret 57% out 76.2%
+building_train_8/singapore_7: transfer: unocc 17% regret 1% out 1.2%  pid_water: unocc 3% regret 60% out 63.3%
+n=30 -> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\analysis.json
+  transfer: unocc share 0.235  regret share 0.028  occupied zone-steps out of band 0.0234  first-workday ratio 0.9883249200484537
+  pid_water: unocc share 0.051  regret share 0.715  occupied zone-steps out of band 0.6151  first-workday ratio 0.7980054834078021
+building_train_1/atlanta_2: transfer: unocc 24% regret 3% out 2.1%  pid_water: unocc 0% regret 83% out 55.6%
+building_train_1/denver_7: transfer: unocc 35% regret 3% out 1.1%  pid_water: unocc 0% regret 97% out 56.9%
+building_train_1/fairbanks_1: transfer: unocc 39% regret 4% out 4.6%  pid_water: unocc 24% regret 33% out 80.4%
+building_train_1/phoenix_5: transfer: unocc 27% regret 2% out 3.1%  pid_water: unocc 6% regret 55% out 71.6%
+building_train_1/singapore_8: transfer: unocc 17% regret 3% out 3.6%  pid_water: unocc 6% regret 63% out 59.3%
+building_train_2/atlanta_3: transfer: unocc 9% regret 6% out 4.7%  pid_water: unocc 1% regret 78% out 56.4%
+building_train_2/denver_8: transfer: unocc 51% regret 4% out 3.5%  pid_water: unocc 4% regret 86% out 60.6%
+building_train_2/fairbanks_2: transfer: unocc 61% regret 3% out 3.3%  pid_water: unocc 10% regret 76% out 69.9%
+building_train_2/phoenix_6: transfer: unocc 31% regret 0% out 0.7%  pid_water: unocc 7% regret 58% out 65.8%
+building_train_2/singapore_1: transfer: unocc 23% regret 1% out 0.8%  pid_water: unocc 6% regret 65% out 58.3%
+building_train_4/atlanta_5: transfer: unocc 12% regret 4% out 5.0%  pid_water: unocc 4% regret 64% out 58.8%
+building_train_4/denver_2: transfer: unocc 41% regret 1% out 1.7%  pid_water: unocc 1% regret 90% out 59.4%
+building_train_4/fairbanks_4: transfer: unocc 38% regret 8% out 2.4%  pid_water: unocc 1% regret 96% out 62.6%
+building_train_4/phoenix_8: transfer: unocc 28% regret 8% out 3.0%  pid_water: unocc 0% regret 95% out 62.5%
+building_train_4/singapore_3: transfer: unocc 17% regret 6% out 5.6%  pid_water: unocc 6% regret 60% out 59.8%
+building_train_5/atlanta_6: transfer: unocc 11% regret 1% out 1.6%  pid_water: unocc 2% regret 65% out 60.6%
+building_train_5/denver_3: transfer: unocc 30% regret 1% out 0.8%  pid_water: unocc 0% regret 89% out 56.2%
+building_train_5/fairbanks_5: transfer: unocc 17% regret 1% out 0.9%  pid_water: unocc 1% regret 88% out 53.7%
+building_train_5/phoenix_1: transfer: unocc 31% regret 1% out 0.6%  pid_water: unocc 0% regret 93% out 53.5%
+building_train_5/singapore_4: transfer: unocc 22% regret 1% out 1.5%  pid_water: unocc 6% regret 58% out 72.2%
+building_train_7/atlanta_8: transfer: unocc 47% regret 1% out 1.8%  pid_water: unocc 6% regret 81% out 60.4%
+building_train_7/denver_5: transfer: unocc 9% regret 15% out 12.2%  pid_water: unocc 2% regret 67% out 59.9%
+building_train_7/fairbanks_7: transfer: unocc 41% regret 1% out 1.1%  pid_water: unocc 7% regret 78% out 63.4%
+building_train_7/phoenix_3: transfer: unocc 10% regret 6% out 7.5%  pid_water: unocc 3% regret 64% out 59.9%
+building_train_7/singapore_6: transfer: unocc 19% regret 1% out 1.1%  pid_water: unocc 7% regret 62% out 58.9%
+building_train_8/atlanta_1: transfer: unocc 51% regret 1% out 1.0%  pid_water: unocc 7% regret 73% out 51.3%
+building_train_8/denver_6: transfer: unocc 12% regret 4% out 4.8%  pid_water: unocc 2% regret 75% out 57.8%
+building_train_8/fairbanks_8: transfer: unocc 56% regret 1% out 1.9%  pid_water: unocc 26% regret 40% out 60.2%
+building_train_8/phoenix_4: transfer: unocc 34% regret 0% out 0.2%  pid_water: unocc 5% regret 57% out 76.2%
+building_train_8/singapore_7: transfer: unocc 22% regret 0% out 0.1%  pid_water: unocc 3% regret 60% out 63.3%
+n=30 -> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\analysis_v4_local.json
+  transfer: unocc share 0.288  regret share 0.029  occupied zone-steps out of band 0.0274  first-workday ratio 1.1277720539584921
+  pid_water: unocc share 0.051  regret share 0.715  occupied zone-steps out of band 0.6151  first-workday ratio 0.7980927704303845
+== round 3: loss decomposition, screening summary, candidates ledger
+== macros + figures
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\results_macros.tex (1689 macros, 152 missing)
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\AUDIT.md (34 claims, 0 missing values)
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_scores_by_scenario.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_station_decomp.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_trace_building_train_8_fairbanks_8_day8.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_tuning.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_loss_by_hour.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_loss_decomp.pdf
+wrote C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\paper\figures\fig_heldout_buildings.pdf
+== official scorer on the final tree
+=== transfer: LEADERBOARD SCORE = 0.00803 over 30 scenarios  (lower is better) ===
+reference baselines on the same scenarios (same metric, lower is better):
+  pid_water  0.05414
+fairbanks_5        1  0.00231  0.00231  0.00231  pid_water
+== paper
+errors: 0  undefined refs: 0  pages: 12  ??: 0  TODO: 0

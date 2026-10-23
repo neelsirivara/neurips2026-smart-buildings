@@ -1,0 +1,782 @@
+{
+ "steps": 2880,
+ "ref": "ref_v5",
+ "sets": {
+  "public": [
+   "building_train_8/fairbanks_8",
+   "building_train_1/denver_7",
+   "building_train_2/atlanta_3",
+   "building_train_8/phoenix_4",
+   "building_train_1/singapore_8",
+   "building_train_5/fairbanks_5"
+  ],
+  "held": [
+   "building_0502/denver_1",
+   "building_0502/fairbanks_3",
+   "building_0507/fairbanks_2",
+   "building_0500/phoenix_2",
+   "building_0509/denver_5",
+   "building_0505/singapore_4"
+  ]
+ },
+ "rows": [
+  {
+   "name": "r3_c16_pre035_min1",
+   "public": {
+    "n": 6,
+    "metric": 0.008414719613890924,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024194302877900656,
+     "building_train_1/denver_7": 0.003418721719428201,
+     "building_train_2/atlanta_3": 0.002948978211940951,
+     "building_train_8/phoenix_4": 0.010172984701544296,
+     "building_train_1/singapore_8": 0.007543674387940768,
+     "building_train_5/fairbanks_5": 0.0022096557845906594
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00021197797689608043,
+    "ratio": 0.9754276796346186,
+    "ci_lo": -0.0004652809412939901,
+    "ci_hi": -5.5433541999544986e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018240730560991656,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023445210481213508,
+     "building_0502/fairbanks_3": 0.03095194701384369,
+     "building_0507/fairbanks_2": 0.03127045079848914,
+     "building_0500/phoenix_2": 0.006292654751040534,
+     "building_0509/denver_5": 0.0072834700105554855,
+     "building_0505/singapore_4": 0.010200650310807587
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003396239251635,
+    "ratio": 0.8430353565658227,
+    "ci_lo": -0.005015415977495532,
+    "ci_hi": -0.0017771301218989048,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c15_pre05_min1_mpre05",
+   "public": {
+    "n": 6,
+    "metric": 0.008421504653837293,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024115832647877748,
+     "building_train_1/denver_7": 0.0033074651698459293,
+     "building_train_2/atlanta_3": 0.002959404558390904,
+     "building_train_8/phoenix_4": 0.010206663058545312,
+     "building_train_1/singapore_8": 0.007730034378503269,
+     "building_train_5/fairbanks_5": 0.0022096281098605963
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00020519293694970923,
+    "ratio": 0.9762141961289047,
+    "ci_lo": -0.0005027946421487656,
+    "ci_hi": -1.0658194848110913e-05,
+    "wins": 5,
+    "losses": 1
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018272696656594003,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02342508795844272,
+     "building_0502/fairbanks_3": 0.030693823516983482,
+     "building_0507/fairbanks_2": 0.03142933308470472,
+     "building_0500/phoenix_2": 0.006335655132154254,
+     "building_0509/denver_5": 0.0073984647296021595,
+     "building_0505/singapore_4": 0.01035381551767666
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003364273156032658,
+    "ratio": 0.8445127397613056,
+    "ci_lo": -0.005125176998475342,
+    "ci_hi": -0.001688963540244338,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c14_pre05_min1",
+   "public": {
+    "n": 6,
+    "metric": 0.008431179777026778,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024293011325595318,
+     "building_train_1/denver_7": 0.003418721719428201,
+     "building_train_2/atlanta_3": 0.002948978211940951,
+     "building_train_8/phoenix_4": 0.010173037232664767,
+     "building_train_1/singapore_8": 0.007543674387940768,
+     "building_train_5/fairbanks_5": 0.0022096557845906594
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00019551781376022495,
+    "ratio": 0.97733572879974,
+    "ci_lo": -0.0004188029011850016,
+    "ci_hi": -5.540000942225711e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018316355778651993,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02356667118006549,
+     "building_0502/fairbanks_3": 0.030880575726137574,
+     "building_0507/fairbanks_2": 0.0316420662392981,
+     "building_0500/phoenix_2": 0.0062970949910111235,
+     "building_0509/denver_5": 0.007293897351581475,
+     "building_0505/singapore_4": 0.0102178291838182
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003320614033974664,
+    "ratio": 0.8465305418119659,
+    "ci_lo": -0.0049432454272478445,
+    "ci_hi": -0.0017022525248455726,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c02_fcap_pre05",
+   "public": {
+    "n": 6,
+    "metric": 0.00846067577642097,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024293803770057014,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016602181436603338,
+    "ratio": 0.9807548818515047,
+    "ci_lo": -0.00040180194489683485,
+    "ci_hi": -2.0888641293425492e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018320193202483622,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02354792448907372,
+     "building_0502/fairbanks_3": 0.030913741654159013,
+     "building_0507/fairbanks_2": 0.0316420662392981,
+     "building_0500/phoenix_2": 0.0062933833487824765,
+     "building_0509/denver_5": 0.007293897351581475,
+     "building_0505/singapore_4": 0.01023014613200696
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0033167766101430338,
+    "ratio": 0.8467078967680833,
+    "ci_lo": -0.0050248898309996955,
+    "ci_hi": -0.0017516150035979297,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c08_margin_pre05",
+   "public": {
+    "n": 6,
+    "metric": 0.008475453908356077,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024201513873127724,
+     "building_train_1/denver_7": 0.003333197900294888,
+     "building_train_2/atlanta_3": 0.0029849988606293386,
+     "building_train_8/phoenix_4": 0.010247416433260265,
+     "building_train_1/singapore_8": 0.007879281014794199,
+     "building_train_5/fairbanks_5": 0.002206315368030055
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001512436824309241,
+    "ratio": 0.9824679512827192,
+    "ci_lo": -0.00045246800624096486,
+    "ci_hi": 6.327297663540933e-05,
+    "wins": 4,
+    "losses": 2
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.01836514692170973,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02354885737832875,
+     "building_0502/fairbanks_3": 0.030915292394481892,
+     "building_0507/fairbanks_2": 0.03164052149678203,
+     "building_0500/phoenix_2": 0.006352145250280867,
+     "building_0509/denver_5": 0.0073956991559978435,
+     "building_0505/singapore_4": 0.010338365854387
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0032718228909169277,
+    "ratio": 0.8487855314653353,
+    "ci_lo": -0.004967400250287806,
+    "ci_hi": -0.0016020276480051539,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c06_scale_min1",
+   "public": {
+    "n": 6,
+    "metric": 0.00842913017218698,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.02428071369655653,
+     "building_train_1/denver_7": 0.003418721719428201,
+     "building_train_2/atlanta_3": 0.002948978211940951,
+     "building_train_8/phoenix_4": 0.010173037232664767,
+     "building_train_1/singapore_8": 0.007543674387940768,
+     "building_train_5/fairbanks_5": 0.0022096557845906594
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001975674186000229,
+    "ratio": 0.9770981402186835,
+    "ci_lo": -0.0004326902406970865,
+    "ci_hi": -5.543205382985226e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018440795429310815,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023750058891836387,
+     "building_0502/fairbanks_3": 0.0310680225343074,
+     "building_0507/fairbanks_2": 0.031998676101963816,
+     "building_0500/phoenix_2": 0.0062970949910111235,
+     "building_0509/denver_5": 0.007292042169651028,
+     "building_0505/singapore_4": 0.01023887788709514
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031961743833158417,
+    "ratio": 0.8522817931071544,
+    "ci_lo": -0.004744098242405062,
+    "ci_hi": -0.0017150151383801325,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c00_v6_default",
+   "public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.0243202665762687,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.0003935268957198263,
+    "ci_hi": -2.067341257211441e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018455941148893863,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023755973129638935,
+     "building_0502/fairbanks_3": 0.031147433696681524,
+     "building_0507/fairbanks_2": 0.031998676101963816,
+     "building_0500/phoenix_2": 0.0062933833487824765,
+     "building_0509/denver_5": 0.007292042169651028,
+     "building_0505/singapore_4": 0.010248138446645388
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031810286637327964,
+    "ratio": 0.8529817857454123,
+    "ci_lo": -0.004726203748045168,
+    "ci_hi": -0.0016322093604903933,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c10_fcap_occ07",
+   "public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.0243202665762687,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.0003887857705123031,
+    "ci_hi": -2.0888641293425492e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.01845801759905308,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02378894279520662,
+     "building_0502/fairbanks_3": 0.03114621208191137,
+     "building_0507/fairbanks_2": 0.03199657005388114,
+     "building_0500/phoenix_2": 0.0062933833487824765,
+     "building_0509/denver_5": 0.007274858867891491,
+     "building_0505/singapore_4": 0.010248138446645388
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031789522135735773,
+    "ratio": 0.8530777534422386,
+    "ci_lo": -0.004727516571457805,
+    "ci_hi": -0.0017081205694660605,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c07_qcap20k",
+   "public": {
+    "n": 6,
+    "metric": 0.008481073730921775,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024416191497061847,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00014562385986522787,
+    "ratio": 0.9831193966946575,
+    "ci_lo": -0.0003463621908970787,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018446911784622003,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02377613936413986,
+     "building_0502/fairbanks_3": 0.031073065651920237,
+     "building_0507/fairbanks_2": 0.031998701726593026,
+     "building_0500/phoenix_2": 0.0062933833487824765,
+     "building_0509/denver_5": 0.007292042169651028,
+     "building_0505/singapore_4": 0.010248138446645388
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003190058028004655,
+    "ratio": 0.8525644738782676,
+    "ci_lo": -0.004763379228882741,
+    "ci_hi": -0.0017082001468509127,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c01_fcap_pre1",
+   "public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.0243202665762687,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.00039432465129365235,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018464177116175907,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023801509080511905,
+     "building_0502/fairbanks_3": 0.031147526027815627,
+     "building_0507/fairbanks_2": 0.031998676101963816,
+     "building_0500/phoenix_2": 0.0062933833487824765,
+     "building_0509/denver_5": 0.00729452718950275,
+     "building_0505/singapore_4": 0.010249440948478869
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031727926964507506,
+    "ratio": 0.853362429031111,
+    "ci_lo": -0.004699718558194058,
+    "ci_hi": -0.0017027093535605046,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c05_no_adaptive_floor",
+   "public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.0243202665762687,
+     "building_train_1/denver_7": 0.0034355514831733874,
+     "building_train_2/atlanta_3": 0.002971433771505379,
+     "building_train_8/phoenix_4": 0.010208352446248464,
+     "building_train_1/singapore_8": 0.0076504486189312125,
+     "building_train_5/fairbanks_5": 0.0022044645686103573
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.00038857054179099204,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018477195826405935,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023829506089401143,
+     "building_0502/fairbanks_3": 0.031196935159391613,
+     "building_0507/fairbanks_2": 0.031985579386597844,
+     "building_0500/phoenix_2": 0.006310973706748592,
+     "building_0509/denver_5": 0.007292042169651028,
+     "building_0505/singapore_4": 0.010248138446645388
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031597739862207225,
+    "ratio": 0.8539641172685477,
+    "ci_lo": -0.004697496506888466,
+    "ci_hi": -0.0016832629005841572,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c13_pre05_safety16",
+   "public": {
+    "n": 6,
+    "metric": 0.008540115240861642,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024353892303757778,
+     "building_train_1/denver_7": 0.003394186032668737,
+     "building_train_2/atlanta_3": 0.0030065007849231053,
+     "building_train_8/phoenix_4": 0.010399709794960608,
+     "building_train_1/singapore_8": 0.007875152384468405,
+     "building_train_5/fairbanks_5": 0.002211250144391228
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -8.658234992535892e-05,
+    "ratio": 0.989963442091928,
+    "ci_lo": -0.0003462623781713427,
+    "ci_hi": 0.00011430614588064979,
+    "wins": 4,
+    "losses": 2
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018556499915623397,
+    "per_scenario": {
+     "building_0502/denver_1": 0.023966787919663248,
+     "building_0502/fairbanks_3": 0.031151576595769056,
+     "building_0507/fairbanks_2": 0.032106860380604806,
+     "building_0500/phoenix_2": 0.006367542680828503,
+     "building_0509/denver_5": 0.007355931976054661,
+     "building_0505/singapore_4": 0.010390299940820096
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0030804698970032626,
+    "ratio": 0.8576293296298083,
+    "ci_lo": -0.0046375206928623205,
+    "ci_hi": -0.001499467225880993,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c09_rate0_1",
+   "public": {
+    "n": 6,
+    "metric": 0.008501569817353038,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024535355127603804,
+     "building_train_1/denver_7": 0.0034452655977209663,
+     "building_train_2/atlanta_3": 0.002975653053380572,
+     "building_train_8/phoenix_4": 0.010241602161181832,
+     "building_train_1/singapore_8": 0.007603548579938193,
+     "building_train_5/fairbanks_5": 0.002207994384292849
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00012512777343396623,
+    "ratio": 0.9854952869140099,
+    "ci_lo": -0.0002840850689965338,
+    "ci_hi": -1.6431941729759e-05,
+    "wins": 5,
+    "losses": 1
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.01864703837831668,
+    "per_scenario": {
+     "building_0502/denver_1": 0.024179388935752083,
+     "building_0502/fairbanks_3": 0.03144988961000005,
+     "building_0507/fairbanks_2": 0.03237030962778944,
+     "building_0500/phoenix_2": 0.006314906915386271,
+     "building_0509/denver_5": 0.007300432651786713,
+     "building_0505/singapore_4": 0.010267302529185526
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.002989931434309977,
+    "ratio": 0.8618137631931647,
+    "ci_lo": -0.004464610945727857,
+    "ci_hi": -0.0016143658242777786,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c12_safety16",
+   "public": {
+    "n": 6,
+    "metric": 0.00851390943417908,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024493594351777878,
+     "building_train_1/denver_7": 0.003529127478162132,
+     "building_train_2/atlanta_3": 0.002986557201653126,
+     "building_train_8/phoenix_4": 0.010232772274996634,
+     "building_train_1/singapore_8": 0.007630211304586649,
+     "building_train_5/fairbanks_5": 0.002211193993898064
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001127881566079219,
+    "ratio": 0.9869256855916249,
+    "ci_lo": -0.00029915089393463306,
+    "ci_hi": 1.5976756388092145e-05,
+    "wins": 4,
+    "losses": 2
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.018637667526059557,
+    "per_scenario": {
+     "building_0502/denver_1": 0.02412967326096249,
+     "building_0502/fairbanks_3": 0.03143385092676504,
+     "building_0507/fairbanks_2": 0.032411193004437185,
+     "building_0500/phoenix_2": 0.0063082804664759354,
+     "building_0509/denver_5": 0.007271250047511697,
+     "building_0505/singapore_4": 0.010271757450204986
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0029993022865671026,
+    "ratio": 0.8613806687100518,
+    "ci_lo": -0.0044427221066839625,
+    "ci_hi": -0.0016419519066684738,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c04_no_zone_start",
+   "public": {
+    "n": 6,
+    "metric": 0.008482421062270077,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024537664917865083,
+     "building_train_1/denver_7": 0.003519475049420685,
+     "building_train_2/atlanta_3": 0.0029718194303468533,
+     "building_train_8/phoenix_4": 0.010121210090173425,
+     "building_train_1/singapore_8": 0.007488964483034819,
+     "building_train_5/fairbanks_5": 0.002255392402779598
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00014427652851692522,
+    "ratio": 0.9832755782849038,
+    "ci_lo": -0.0002939179403136914,
+    "ci_hi": -1.4991135164262442e-05,
+    "wins": 5,
+    "losses": 1
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.01902134486437123,
+    "per_scenario": {
+     "building_0502/denver_1": 0.024958221297326114,
+     "building_0502/fairbanks_3": 0.032513979753156896,
+     "building_0507/fairbanks_2": 0.03273573477104795,
+     "building_0500/phoenix_2": 0.006388668876296164,
+     "building_0509/denver_5": 0.007282251033325653,
+     "building_0505/singapore_4": 0.010249213455074605
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0026156249482554273,
+    "ratio": 0.879113158131365,
+    "ci_lo": -0.003804960868722443,
+    "ci_hi": -0.001496740960783006,
+    "wins": 6,
+    "losses": 0
+   }
+  },
+  {
+   "name": "r3_c11_latch",
+   "public": {
+    "n": 6,
+    "metric": 0.00917884209459749,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.02724083894524938,
+     "building_train_1/denver_7": 0.00425349318939349,
+     "building_train_2/atlanta_3": 0.0030416068736299293,
+     "building_train_8/phoenix_4": 0.010657125906395391,
+     "building_train_1/singapore_8": 0.0076483906014222685,
+     "building_train_5/fairbanks_5": 0.0022315970514944815
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": 0.0005521445038104874,
+    "ratio": 1.0640041566311722,
+    "ci_lo": 3.172814058936e-05,
+    "ci_hi": 0.001234813052971378,
+    "wins": 3,
+    "losses": 3
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.02100460633577571,
+    "per_scenario": {
+     "building_0502/denver_1": 0.028156595672852645,
+     "building_0502/fairbanks_3": 0.03583664782885939,
+     "building_0507/fairbanks_2": 0.038037874843106084,
+     "building_0500/phoenix_2": 0.006356682323868452,
+     "building_0509/denver_5": 0.007077921026074326,
+     "building_0505/singapore_4": 0.010561916319893387
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0006323634768509436,
+    "ratio": 0.9707739354296313,
+    "ci_lo": -0.0012265856668218196,
+    "ci_hi": 5.296864655427296e-05,
+    "wins": 5,
+    "losses": 1
+   }
+  },
+  {
+   "name": "ref_v5",
+   "public": {
+    "n": 6,
+    "metric": 0.008626697590787002,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.02503295849509565,
+     "building_train_1/denver_7": 0.003453142440997049,
+     "building_train_2/atlanta_3": 0.0031308907224510247,
+     "building_train_8/phoenix_4": 0.010219865498301303,
+     "building_train_1/singapore_8": 0.007666748204427008,
+     "building_train_5/fairbanks_5": 0.0022565801834499807
+    }
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.021636969812626656,
+    "per_scenario": {
+     "building_0502/denver_1": 0.028314121842514497,
+     "building_0502/fairbanks_3": 0.036828452505983475,
+     "building_0507/fairbanks_2": 0.03726597327860822,
+     "building_0500/phoenix_2": 0.00774157951320136,
+     "building_0509/denver_5": 0.008643981581730662,
+     "building_0505/singapore_4": 0.011027710153721731
+    }
+   }
+  },
+  {
+   "name": "r3_c03_no_gain_scaling",
+   "public": {
+    "n": 6,
+    "metric": 0.008563477510393104,
+    "per_scenario": {
+     "building_train_8/fairbanks_8": 0.024410981132554195,
+     "building_train_1/denver_7": 0.003546046922295116,
+     "building_train_2/atlanta_3": 0.0031557542702232567,
+     "building_train_8/phoenix_4": 0.01016841639036414,
+     "building_train_1/singapore_8": 0.00787263842148573,
+     "building_train_5/fairbanks_5": 0.002227027925436194
+    },
+    "n_paired": 6,
+    "ref_metric": 0.008626697590787004,
+    "diff": -6.322008039389717e-05,
+    "ratio": 0.9926715780020601,
+    "ci_lo": -0.00029859137289370936,
+    "ci_hi": 0.00010039528167053696,
+    "wins": 3,
+    "losses": 3
+   },
+   "held": {
+    "n": 6,
+    "metric": 0.021780948581433954,
+    "per_scenario": {
+     "building_0502/denver_1": 0.026943179977848154,
+     "building_0502/fairbanks_3": 0.035881032808816195,
+     "building_0507/fairbanks_2": 0.03923179233813446,
+     "building_0500/phoenix_2": 0.007950813701751259,
+     "building_0509/denver_5": 0.009815090096536968,
+     "building_0505/singapore_4": 0.010863782565516702
+    },
+    "n_paired": 6,
+    "ref_metric": 0.021636969812626656,
+    "diff": 0.00014397876880729854,
+    "ratio": 1.0066542944808878,
+    "ci_lo": -0.0007442747595333922,
+    "ci_hi": 0.0011153872542941478,
+    "wins": 3,
+    "losses": 3
+   }
+  }
+ ]
+}

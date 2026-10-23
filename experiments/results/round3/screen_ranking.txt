@@ -1,0 +1,20 @@
+== round-3 screen at 2880 steps (lower is better; diff/ratio vs ref_v5 on the same scenarios)
+  r3_c16_pre035_min1           | public: 0.00841 (n=6) ratio=0.975 [-0.00047,-0.00006] w=6/6 | held: 0.01824 (n=6) ratio=0.843 [-0.00502,-0.00178] w=6/6
+  r3_c15_pre05_min1_mpre05     | public: 0.00842 (n=6) ratio=0.976 [-0.00050,-0.00001] w=5/6 | held: 0.01827 (n=6) ratio=0.845 [-0.00513,-0.00169] w=6/6
+  r3_c14_pre05_min1            | public: 0.00843 (n=6) ratio=0.977 [-0.00042,-0.00006] w=6/6 | held: 0.01832 (n=6) ratio=0.847 [-0.00494,-0.00170] w=6/6
+  r3_c02_fcap_pre05            | public: 0.00846 (n=6) ratio=0.981 [-0.00040,-0.00002] w=6/6 | held: 0.01832 (n=6) ratio=0.847 [-0.00502,-0.00175] w=6/6
+  r3_c08_margin_pre05          | public: 0.00848 (n=6) ratio=0.982 [-0.00045,+0.00006] w=4/6 | held: 0.01837 (n=6) ratio=0.849 [-0.00497,-0.00160] w=6/6
+  r3_c06_scale_min1            | public: 0.00843 (n=6) ratio=0.977 [-0.00043,-0.00006] w=6/6 | held: 0.01844 (n=6) ratio=0.852 [-0.00474,-0.00172] w=6/6
+  r3_c00_v6_default            | public: 0.00847 (n=6) ratio=0.981 [-0.00039,-0.00002] w=6/6 | held: 0.01846 (n=6) ratio=0.853 [-0.00473,-0.00163] w=6/6
+  r3_c10_fcap_occ07            | public: 0.00847 (n=6) ratio=0.981 [-0.00039,-0.00002] w=6/6 | held: 0.01846 (n=6) ratio=0.853 [-0.00473,-0.00171] w=6/6
+  r3_c07_qcap20k               | public: 0.00848 (n=6) ratio=0.983 [-0.00035,-0.00002] w=6/6 | held: 0.01845 (n=6) ratio=0.853 [-0.00476,-0.00171] w=6/6
+  r3_c01_fcap_pre1             | public: 0.00847 (n=6) ratio=0.981 [-0.00039,-0.00002] w=6/6 | held: 0.01846 (n=6) ratio=0.853 [-0.00470,-0.00170] w=6/6
+  r3_c05_no_adaptive_floor     | public: 0.00847 (n=6) ratio=0.981 [-0.00039,-0.00002] w=6/6 | held: 0.01848 (n=6) ratio=0.854 [-0.00470,-0.00168] w=6/6
+  r3_c13_pre05_safety16        | public: 0.00854 (n=6) ratio=0.990 [-0.00035,+0.00011] w=4/6 | held: 0.01856 (n=6) ratio=0.858 [-0.00464,-0.00150] w=6/6
+  r3_c09_rate0_1               | public: 0.00850 (n=6) ratio=0.985 [-0.00028,-0.00002] w=5/6 | held: 0.01865 (n=6) ratio=0.862 [-0.00446,-0.00161] w=6/6
+  r3_c12_safety16              | public: 0.00851 (n=6) ratio=0.987 [-0.00030,+0.00002] w=4/6 | held: 0.01864 (n=6) ratio=0.861 [-0.00444,-0.00164] w=6/6
+  r3_c04_no_zone_start         | public: 0.00848 (n=6) ratio=0.983 [-0.00029,-0.00001] w=5/6 | held: 0.01902 (n=6) ratio=0.879 [-0.00380,-0.00150] w=6/6
+  r3_c11_latch                 | public: 0.00918 (n=6) ratio=1.064 [+0.00003,+0.00123] w=3/6 | held: 0.02100 (n=6) ratio=0.971 [-0.00123,+0.00005] w=5/6
+  ref_v5                       | public: 0.00863 (n=6) | held: 0.02164 (n=6)
+  r3_c03_no_gain_scaling       | public: 0.00856 (n=6) ratio=0.993 [-0.00030,+0.00010] w=3/6 | held: 0.02178 (n=6) ratio=1.007 [-0.00074,+0.00112] w=3/6
+-> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\round3\screen_summary.json

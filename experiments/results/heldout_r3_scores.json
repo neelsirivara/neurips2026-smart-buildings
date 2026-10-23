@@ -1,0 +1,1778 @@
+{
+ "label": "Mac, six generated held-out buildings (round 3)",
+ "steps": 8640,
+ "n_scenarios": 30,
+ "scenarios": [
+  "building_0500/atlanta_4",
+  "building_0500/denver_1",
+  "building_0500/fairbanks_3",
+  "building_0500/phoenix_2",
+  "building_0500/singapore_2",
+  "building_0505/atlanta_1",
+  "building_0505/denver_2",
+  "building_0505/fairbanks_1",
+  "building_0505/phoenix_3",
+  "building_0505/singapore_4",
+  "building_0507/atlanta_2",
+  "building_0507/denver_3",
+  "building_0507/fairbanks_2",
+  "building_0507/phoenix_4",
+  "building_0507/singapore_6",
+  "building_0508/atlanta_7",
+  "building_0508/denver_4",
+  "building_0508/fairbanks_6",
+  "building_0508/phoenix_7",
+  "building_0508/singapore_5",
+  "building_0509/atlanta_3",
+  "building_0509/denver_5",
+  "building_0509/fairbanks_4",
+  "building_0509/phoenix_5",
+  "building_0509/singapore_7",
+  "building_0511/atlanta_5",
+  "building_0511/denver_6",
+  "building_0511/fairbanks_5",
+  "building_0511/phoenix_6",
+  "building_0511/singapore_8"
+ ],
+ "policies": {
+  "transfer": {
+   "metric": 0.012938449012237917,
+   "metric_sd": 0.00980240720525407,
+   "n": 30,
+   "per_scenario": {
+    "building_0500/atlanta_4": {
+     "total": -104.22605835937554,
+     "score": 0.012063201199001799,
+     "regret": -3.5607589902738255,
+     "energy": 413.4882962396297,
+     "carbon": 96.95971880938532,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1995947228261718,
+     "policy_seconds_per_step": 0.00047957168685065375,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/denver_1": {
+     "total": -197.53184616263934,
+     "score": 0.022862482194749924,
+     "regret": -13.378078920892591,
+     "energy": 293.83303330836134,
+     "carbon": 653.6919599817047,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.199382303820716,
+     "policy_seconds_per_step": 0.000473966007983243,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/fairbanks_3": {
+     "total": -175.8010053255366,
+     "score": 0.020347338579344516,
+     "regret": -11.303316432050565,
+     "energy": 244.8685933663055,
+     "carbon": 600.2264847488404,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.19928780496120452,
+     "policy_seconds_per_step": 0.0004883533826580754,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/phoenix_2": {
+     "total": -66.29217822299597,
+     "score": 0.007672705812846756,
+     "regret": -3.7957618850093127,
+     "energy": 251.35108581700888,
+     "carbon": 68.72251945519929,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1995173288440263,
+     "policy_seconds_per_step": 0.0004743518928686778,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/singapore_2": {
+     "total": -116.9441999936115,
+     "score": 0.013535208332593925,
+     "regret": -2.8073334257892384,
+     "energy": 466.2560499291169,
+     "carbon": 110.04294998312344,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.19961778852674697,
+     "policy_seconds_per_step": 0.0004633951242323275,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505/atlanta_1": {
+     "total": -51.219184146444604,
+     "score": 0.005928146313245904,
+     "regret": -1.9636732737146758,
+     "energy": 99.23713082345057,
+     "carbon": 150.96776978978596,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07341965450732796,
+     "policy_seconds_per_step": 0.00037534645310154666,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/denver_2": {
+     "total": -87.27777168718603,
+     "score": 0.010101593945276162,
+     "regret": -3.135279858461672,
+     "energy": 135.51205440872218,
+     "carbon": 291.4709647072741,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07349886389242279,
+     "policy_seconds_per_step": 0.0003690622195049568,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/fairbanks_1": {
+     "total": -435.6414526233384,
+     "score": 0.0504214644239975,
+     "regret": -33.78187594942551,
+     "energy": 609.451919323692,
+     "carbon": 1467.4097150377493,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07356089143841354,
+     "policy_seconds_per_step": 0.00038135584305833885,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/phoenix_3": {
+     "total": -85.72251361237801,
+     "score": 0.009921587223654863,
+     "regret": -2.663092629940536,
+     "energy": 339.44089991352763,
+     "carbon": 81.18239022185742,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07363294040163358,
+     "policy_seconds_per_step": 0.00035930286954950405,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/singapore_4": {
+     "total": -88.99534560679672,
+     "score": 0.01030038722300888,
+     "regret": -1.539325475487658,
+     "energy": 357.9367343296017,
+     "carbon": 82.42201684480096,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07340080771181319,
+     "policy_seconds_per_step": 0.0003588576007772375,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507/atlanta_2": {
+     "total": -83.1500892183476,
+     "score": 0.009623852918790232,
+     "regret": -2.7642040646284727,
+     "energy": 291.357862636607,
+     "carbon": 116.09997137679966,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.18844079355950707,
+     "policy_seconds_per_step": 0.0005023893382814196,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/denver_3": {
+     "total": -76.4363536327437,
+     "score": 0.008846800188974966,
+     "regret": -2.0567835263145184,
+     "energy": 254.1362278697061,
+     "carbon": 121.87518964376795,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.18807416726593618,
+     "policy_seconds_per_step": 0.0004881467256281111,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/fairbanks_2": {
+     "total": -213.07335183096075,
+     "score": 0.024661267573027865,
+     "regret": -15.92243223511241,
+     "energy": 314.4309734252565,
+     "carbon": 703.1684880411922,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.18823724295254107,
+     "policy_seconds_per_step": 0.00048368051648139954,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/phoenix_4": {
+     "total": -272.66288743983347,
+     "score": 0.03155820456479554,
+     "regret": -8.421267935582364,
+     "energy": 1087.2455014342029,
+     "carbon": 250.80513347979203,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.18819617292395344,
+     "policy_seconds_per_step": 0.0004929183257950676,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/singapore_6": {
+     "total": -190.98424338738118,
+     "score": 0.022104657799465414,
+     "regret": -6.526893415377344,
+     "energy": 759.1323670717743,
+     "carbon": 176.20816942132478,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.18836848299812387,
+     "policy_seconds_per_step": 0.0004699406248551828,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508/atlanta_7": {
+     "total": -66.17459881325067,
+     "score": 0.0076590970848669756,
+     "regret": -2.695091044454813,
+     "energy": 238.3648707792272,
+     "carbon": 84.42285041012838,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.179219586595341,
+     "policy_seconds_per_step": 0.0005101589968910924,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/denver_4": {
+     "total": -69.29554436537182,
+     "score": 0.008020317634880997,
+     "regret": -2.8880854642486753,
+     "energy": 257.4061864640878,
+     "carbon": 80.40727886352033,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.17872270693381628,
+     "policy_seconds_per_step": 0.000535335640112559,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/fairbanks_6": {
+     "total": -44.74046561278965,
+     "score": 0.005178294631109913,
+     "regret": -1.7248402762117507,
+     "energy": 158.42402090680207,
+     "carbon": 60.10378616228445,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.17941839929532122,
+     "policy_seconds_per_step": 0.0005390969967400586,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/phoenix_7": {
+     "total": -84.26443058155735,
+     "score": 0.009752827613606175,
+     "regret": -2.5434903189188844,
+     "energy": 332.0655294098408,
+     "carbon": 81.62615254235402,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.17906321794898422,
+     "policy_seconds_per_step": 0.0005155479742421044,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/singapore_5": {
+     "total": -122.99417726268712,
+     "score": 0.01423543718318138,
+     "regret": -2.853386866544156,
+     "energy": 493.02479835351323,
+     "carbon": 113.38592754678484,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.17892693272895283,
+     "policy_seconds_per_step": 0.0005295984171054981,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509/atlanta_3": {
+     "total": -62.27714706437928,
+     "score": 0.007208003132451305,
+     "regret": -3.9245389916276423,
+     "energy": 239.9706788058802,
+     "carbon": 59.64143947699267,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07936635395442998,
+     "policy_seconds_per_step": 0.0004767863286866082,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/denver_5": {
+     "total": -82.48629994557996,
+     "score": 0.009547025456664348,
+     "regret": -4.748136224650352,
+     "energy": 322.30707890729036,
+     "carbon": 75.8800118724048,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07924867802196078,
+     "policy_seconds_per_step": 0.0005043249991205003,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/fairbanks_4": {
+     "total": -27.880553530725592,
+     "score": 0.0032269159179080546,
+     "regret": -2.2147241044386305,
+     "energy": 95.08285470514238,
+     "carbon": 37.67574058094033,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07941818623631089,
+     "policy_seconds_per_step": 0.0004900637876104426,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/phoenix_5": {
+     "total": -161.1928411543631,
+     "score": 0.018656578837310544,
+     "regret": -8.293767236240456,
+     "energy": 634.8337607822449,
+     "carbon": 146.2491431902108,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07942591792455427,
+     "policy_seconds_per_step": 0.0005070913721013953,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/singapore_7": {
+     "total": -95.19227889867443,
+     "score": 0.011017624872531762,
+     "regret": -6.204717629656443,
+     "energy": 369.56217927792204,
+     "carbon": 87.78506237482179,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07958643508178216,
+     "policy_seconds_per_step": 0.0004998749328984155,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511/atlanta_5": {
+     "total": -64.24248354896031,
+     "score": 0.007435472632981517,
+     "regret": -3.2739431898162366,
+     "energy": 252.48940914694435,
+     "carbon": 58.901179251822214,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10241998262979367,
+     "policy_seconds_per_step": 0.0006129426812684094,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/denver_6": {
+     "total": -40.68283155152267,
+     "score": 0.004708661059204013,
+     "regret": -3.285185375737342,
+     "energy": 151.51029844848222,
+     "carbon": 42.048303228070154,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1020196605335783,
+     "policy_seconds_per_step": 0.0006105214081428669,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/fairbanks_5": {
+     "total": -29.623728294705415,
+     "score": 0.0034286722563316454,
+     "regret": -1.6588773862632706,
+     "energy": 108.35458405320242,
+     "carbon": 34.78742518198487,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10213737338781356,
+     "policy_seconds_per_step": 0.0006102210117710961,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/phoenix_6": {
+     "total": -100.00226865923403,
+     "score": 0.01157433665037431,
+     "regret": -3.4908664493887045,
+     "energy": 397.135934356775,
+     "carbon": 92.40280940124012,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10216128299081767,
+     "policy_seconds_per_step": 0.0006264882507147613,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/singapore_8": {
+     "total": -56.637853438696766,
+     "score": 0.006555307110960274,
+     "regret": -3.306285490567916,
+     "energy": 218.6857718023257,
+     "carbon": 54.58463885492529,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10142918413987866,
+     "policy_seconds_per_step": 0.000585995642123399,
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "by_station": {
+    "fairbanks": 0.017877325563619914,
+    "denver": 0.010681146746625065,
+    "atlanta": 0.008319628880222956,
+    "phoenix": 0.014856040117098034,
+    "singapore": 0.012958103753623607
+   },
+   "by_building": {
+    "building_0500": 0.015296187223707385,
+    "building_0505": 0.017334635825836664,
+    "building_0507": 0.019358956609010804,
+    "building_0508": 0.008969194829529088,
+    "building_0509": 0.009931229643373202,
+    "building_0511": 0.006740489941970351
+   },
+   "building_size": {
+    "building_0500": {
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505": {
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507": {
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508": {
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509": {
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511": {
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "decomp": {
+    "comfort": 0.00038593984737691193,
+    "energy": 0.007860259788654818,
+    "carbon": 0.004692249375371206
+   },
+   "decomp_by_station": {
+    "fairbanks": {
+     "comfort": 0.0007709035461053487,
+     "energy": 0.005905142537733028,
+     "carbon": 0.01120127947435568
+    },
+    "denver": {
+     "comfort": 0.0003413373769711244,
+     "energy": 0.005457966355735533,
+     "carbon": 0.004881843010404097
+    },
+    "atlanta": {
+     "comfort": 0.00021044224021430169,
+     "energy": 0.005921713921418746,
+     "carbon": 0.0021874727203507493
+    },
+    "phoenix": {
+     "comfort": 0.0003380584080449104,
+     "energy": 0.011736391634697531,
+     "carbon": 0.0027815900782818433
+    },
+    "singapore": {
+     "comfort": 0.00026895766554887443,
+     "energy": 0.010280084493689251,
+     "carbon": 0.002409061593463662
+    }
+   },
+   "seconds_per_step_mean": 0.13695979550112913,
+   "policy_ms_per_step_mean": 0.49382290170516496
+  },
+  "transfer_v5": {
+   "metric": 0.014582136624007532,
+   "metric_sd": 0.011117866652973206,
+   "n": 30,
+   "per_scenario": {
+    "building_0500/atlanta_4": {
+     "total": -112.50546428575456,
+     "score": 0.013021465773814184,
+     "regret": -18.70858124656121,
+     "energy": 410.2096214724139,
+     "carbon": 96.19195568821488,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.2693032906011299,
+     "policy_seconds_per_step": 0.0004890344485088631,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/denver_1": {
+     "total": -236.5898237139627,
+     "score": 0.027383081448375313,
+     "regret": -68.77946880419833,
+     "energy": 296.59960157512614,
+     "carbon": 680.0111107930425,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.2688898145876549,
+     "policy_seconds_per_step": 0.0005074662742791352,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/fairbanks_3": {
+     "total": -209.39798969286676,
+     "score": 0.024235878436674393,
+     "regret": -62.51705427843834,
+     "energy": 242.64403462831615,
+     "carbon": 616.794750605266,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.270171540616839,
+     "policy_seconds_per_step": 0.0005164064742900707,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/phoenix_2": {
+     "total": -77.12666097247393,
+     "score": 0.008926696871814112,
+     "regret": -22.7245331288575,
+     "energy": 247.70146666440178,
+     "carbon": 69.75823926299199,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.2689548341764344,
+     "policy_seconds_per_step": 0.0005062289811946728,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/singapore_2": {
+     "total": -130.76784305130684,
+     "score": 0.015135167019827181,
+     "regret": -25.917853726121535,
+     "energy": 465.93673288492687,
+     "carbon": 110.1489213637351,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.2687866242947402,
+     "policy_seconds_per_step": 0.0004989175332917108,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505/atlanta_1": {
+     "total": -59.64169813848639,
+     "score": 0.006902974321584073,
+     "regret": -11.366307172765687,
+     "energy": 104.0230888009828,
+     "carbon": 160.08648046885355,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10848348422182931,
+     "policy_seconds_per_step": 0.00040078281804367346,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/denver_2": {
+     "total": -98.72734337740621,
+     "score": 0.01142677585386646,
+     "regret": -16.876279010633965,
+     "energy": 140.21835906054184,
+     "carbon": 302.7895201822539,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1082421199867019,
+     "policy_seconds_per_step": 0.00039269344674216377,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/fairbanks_1": {
+     "total": -490.34308811106166,
+     "score": 0.05675267223507658,
+     "regret": -139.94396380626756,
+     "energy": 586.9898426351683,
+     "carbon": 1444.8937037487776,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.10820725993425757,
+     "policy_seconds_per_step": 0.00040924132422164635,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/phoenix_3": {
+     "total": -90.33014431554744,
+     "score": 0.010454877814299473,
+     "regret": -10.2803161962143,
+     "energy": 339.160312734467,
+     "carbon": 81.64946052460971,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.11486682304077678,
+     "policy_seconds_per_step": 0.0004082293422133834,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/singapore_4": {
+     "total": -95.26535707933749,
+     "score": 0.01102608299529369,
+     "regret": -10.907792631752514,
+     "energy": 358.99007523443015,
+     "carbon": 84.61333192386155,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.11479866722667659,
+     "policy_seconds_per_step": 0.0004061642344351168,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507/atlanta_2": {
+     "total": -97.21599777062784,
+     "score": 0.011251851593822667,
+     "regret": -29.3409584139265,
+     "energy": 269.80606653061113,
+     "carbon": 128.2510470304369,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.21530123162600728,
+     "policy_seconds_per_step": 0.0004036506844891442,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/denver_3": {
+     "total": -83.685658435199,
+     "score": 0.009685840096666551,
+     "regret": -27.377508020227197,
+     "energy": 203.6457020340922,
+     "carbon": 132.65006565353542,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.16032158900742177,
+     "policy_seconds_per_step": 0.00032695297289777686,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/fairbanks_2": {
+     "total": -262.4245896218308,
+     "score": 0.030373216391415603,
+     "regret": -62.49892319213268,
+     "energy": 333.694430190626,
+     "carbon": 790.9317493573908,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.15826922144602845,
+     "policy_seconds_per_step": 0.0003201590092093856,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/phoenix_4": {
+     "total": -281.55850666746073,
+     "score": 0.0325877901235487,
+     "regret": -43.785654336955304,
+     "energy": 1036.7504817034082,
+     "carbon": 239.68508805123116,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1455282923799974,
+     "policy_seconds_per_step": 0.00028625704624034743,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/singapore_6": {
+     "total": -197.59186699149336,
+     "score": 0.02286942904994136,
+     "regret": -26.70041498287719,
+     "energy": 737.5687888230796,
+     "carbon": 170.28930141667024,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.14552803922582555,
+     "policy_seconds_per_step": 0.00028519401395762407,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508/atlanta_7": {
+     "total": -78.1010593033352,
+     "score": 0.009039474456404538,
+     "regret": -18.029883076721163,
+     "energy": 242.3116733623665,
+     "carbon": 94.1039738584841,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.12906651262331892,
+     "policy_seconds_per_step": 0.0002929689155684577,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/denver_4": {
+     "total": -83.93054064774287,
+     "score": 0.00971418294534061,
+     "regret": -26.868083391312666,
+     "energy": 255.57894669655047,
+     "carbon": 83.46950629358253,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.12912028484322408,
+     "policy_seconds_per_step": 0.0002951925551449811,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/fairbanks_6": {
+     "total": -53.28890479873053,
+     "score": 0.006167697314667885,
+     "regret": -15.37904513278579,
+     "energy": 152.39003837738255,
+     "carbon": 67.91735012143727,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.12913039999979514,
+     "policy_seconds_per_step": 0.00029353805714183383,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/phoenix_7": {
+     "total": -91.56426621433309,
+     "score": 0.010597715997029293,
+     "regret": -15.266194004665067,
+     "energy": 330.00152295896464,
+     "carbon": 82.02122566062985,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.13008711641585385,
+     "policy_seconds_per_step": 0.000294402324491077,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/singapore_5": {
+     "total": -130.93294469651119,
+     "score": 0.015154276006540646,
+     "regret": -15.949079347412408,
+     "energy": 493.3717648099919,
+     "carbon": 113.44572036012414,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.12910574398658894,
+     "policy_seconds_per_step": 0.00029676029527628863,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509/atlanta_3": {
+     "total": -72.72941957833518,
+     "score": 0.008417756895640647,
+     "regret": -23.455083932099456,
+     "energy": 234.37334899934376,
+     "carbon": 58.90849701379193,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.057352976031877376,
+     "policy_seconds_per_step": 0.00029132208890385097,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/denver_5": {
+     "total": -92.10822042067593,
+     "score": 0.010660673659800455,
+     "regret": -26.491111735800587,
+     "energy": 307.4802568163682,
+     "carbon": 73.58751028765437,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.057719763782289296,
+     "policy_seconds_per_step": 0.0002884209431983806,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/fairbanks_4": {
+     "total": -37.72767768486301,
+     "score": 0.004366629361673959,
+     "regret": -20.350228422710643,
+     "energy": 86.93362410082773,
+     "carbon": 40.65407919514837,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05764552757695869,
+     "policy_seconds_per_step": 0.000287492573261261,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/phoenix_5": {
+     "total": -212.1523097263988,
+     "score": 0.024554665477592455,
+     "regret": -105.18348586418324,
+     "energy": 605.7644290590445,
+     "carbon": 139.44666212842756,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.057560892596288965,
+     "policy_seconds_per_step": 0.0002902960611714257,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/singapore_7": {
+     "total": -105.21221781190843,
+     "score": 0.012177340024526438,
+     "regret": -25.373681159114085,
+     "energy": 363.91056181739714,
+     "carbon": 86.02948366450983,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05771169919106695,
+     "policy_seconds_per_step": 0.0002820199562443627,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511/atlanta_5": {
+     "total": -64.849741544592,
+     "score": 0.007505757123216668,
+     "regret": -4.181972842831243,
+     "energy": 252.78037765542854,
+     "carbon": 58.922411596621714,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.06245107465872058,
+     "policy_seconds_per_step": 0.0002883701964660927,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/denver_6": {
+     "total": -42.75116647850291,
+     "score": 0.004948051675752652,
+     "regret": -7.30865606480512,
+     "energy": 149.8808890666453,
+     "carbon": 41.948975143308644,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.06078414676917924,
+     "policy_seconds_per_step": 0.000281775384037583,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/fairbanks_5": {
+     "total": -30.585340948709472,
+     "score": 0.0035399700172117445,
+     "regret": -2.4073065247023493,
+     "energy": 108.81660432412173,
+     "carbon": 36.88818074678056,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.0612814381994583,
+     "policy_seconds_per_step": 0.00028993873684494585,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/phoenix_6": {
+     "total": -102.6485271825457,
+     "score": 0.011880616572053901,
+     "regret": -8.10059090580512,
+     "energy": 396.6224032950643,
+     "carbon": 92.31846010864713,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.061352137476205826,
+     "policy_seconds_per_step": 0.0002846891957300681,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/singapore_8": {
+     "total": -57.93544368075254,
+     "score": 0.006705491166753766,
+     "regret": -4.602274942103122,
+     "energy": 220.79956308775218,
+     "carbon": 55.07083039511781,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.06155674559650598,
+     "policy_seconds_per_step": 0.0002851524010852531,
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "by_station": {
+    "fairbanks": 0.02090601062612003,
+    "denver": 0.012303100946633677,
+    "atlanta": 0.009356546694080464,
+    "phoenix": 0.016500393809389655,
+    "singapore": 0.01384463104381385
+   },
+   "by_building": {
+    "building_0500": 0.017740457910101034,
+    "building_0505": 0.019312676644024057,
+    "building_0507": 0.021353625451078974,
+    "building_0508": 0.010134669343996594,
+    "building_0509": 0.01203541308384679,
+    "building_0511": 0.006915977310997747
+   },
+   "building_size": {
+    "building_0500": {
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505": {
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507": {
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508": {
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509": {
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511": {
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "decomp": {
+    "comfort": 0.0020756302923494946,
+    "energy": 0.007696724235648026,
+    "carbon": 0.004809782093090384
+   },
+   "decomp_by_station": {
+    "fairbanks": {
+     "comfort": 0.0035080615897805246,
+     "energy": 0.005831283079693065,
+     "carbon": 0.011566665948205252
+    },
+    "denver": {
+     "comfort": 0.0020104294794789103,
+     "energy": 0.005221465105128566,
+     "carbon": 0.00507120635938803
+    },
+    "atlanta": {
+     "comfort": 0.0012162359570012183,
+     "energy": 0.005839136484649486,
+     "carbon": 0.0023011742502176045
+    },
+    "phoenix": {
+     "comfort": 0.0023766293337578767,
+     "energy": 0.011404323365799962,
+     "carbon": 0.0027194411100946655
+    },
+    "singapore": {
+     "comfort": 0.001266795101728945,
+     "energy": 0.01018741314296905,
+     "carbon": 0.002390422797546368
+    }
+   },
+   "seconds_per_step_mean": 0.13225264307065512,
+   "policy_ms_per_step_mean": 0.34999060961935263,
+   "source": "local"
+  },
+  "pid_water": {
+   "metric": 0.05466729778248699,
+   "metric_sd": 0.0368024155699381,
+   "n": 30,
+   "per_scenario": {
+    "building_0500/atlanta_4": {
+     "total": -343.9813571529826,
+     "score": 0.0398126570778915,
+     "regret": -312.7911683918137,
+     "energy": 633.5604342778674,
+     "carbon": 147.97284568254872,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.16437920279524945,
+     "policy_seconds_per_step": 0.00040435343980789186,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/denver_1": {
+     "total": -828.0928340603177,
+     "score": 0.09584407801624048,
+     "regret": -1046.393642656505,
+     "energy": 383.2112928742081,
+     "carbon": 618.0719491674645,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1669654118242087,
+     "policy_seconds_per_step": 0.0003981597445629261,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/fairbanks_3": {
+     "total": -843.3015064259353,
+     "score": 0.09760434102152028,
+     "regret": -1125.9496537521482,
+     "energy": 315.71811476121366,
+     "carbon": 522.9404575578919,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.16760214768626072,
+     "policy_seconds_per_step": 0.00039095936550034415,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/phoenix_2": {
+     "total": -311.1645391900993,
+     "score": 0.036014414258113345,
+     "regret": -368.4340377871413,
+     "energy": 362.5930295481603,
+     "carbon": 87.92755182114342,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.16776165534500723,
+     "policy_seconds_per_step": 0.00037641263118496645,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0500/singapore_2": {
+     "total": -383.92435614428337,
+     "score": 0.044435689368551315,
+     "regret": -347.8282028789872,
+     "energy": 708.205911675836,
+     "carbon": 167.93126119494082,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1671023695833153,
+     "policy_seconds_per_step": 0.0004267585774262746,
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505/atlanta_1": {
+     "total": -525.1787243123763,
+     "score": 0.0607845745731917,
+     "regret": -807.2024773224257,
+     "energy": 101.72400578786983,
+     "carbon": 102.5621849575873,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07172372349434429,
+     "policy_seconds_per_step": 0.0002206181486447652,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/denver_2": {
+     "total": -755.0229304941804,
+     "score": 0.08738691325164125,
+     "regret": -1145.1000454011373,
+     "energy": 134.2713604618457,
+     "carbon": 205.54315420683997,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07171735024010693,
+     "policy_seconds_per_step": 0.00023181537787119548,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/fairbanks_1": {
+     "total": -1763.8123997145012,
+     "score": 0.20414495367065985,
+     "regret": -1368.5245874375105,
+     "energy": 1819.9480480047096,
+     "carbon": 2893.540193863373,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07201059212287267,
+     "policy_seconds_per_step": 0.00031242367845994457,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/phoenix_3": {
+     "total": -323.35351177685277,
+     "score": 0.037425174974172776,
+     "regret": -319.65037217136205,
+     "energy": 533.7761920288677,
+     "carbon": 124.04025061447555,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07442652514135396,
+     "policy_seconds_per_step": 0.00027090368999375237,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0505/singapore_4": {
+     "total": -312.36292953992734,
+     "score": 0.036153116844899,
+     "regret": -285.5651380996205,
+     "energy": 572.24181806151,
+     "carbon": 132.8774153643617,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.07432417800581013,
+     "policy_seconds_per_step": 0.000275055926155161,
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507/atlanta_2": {
+     "total": -409.9465013884019,
+     "score": 0.04744751173476874,
+     "regret": -532.4440057040192,
+     "energy": 357.50630077959795,
+     "carbon": 94.89418987920726,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.15069504129113975,
+     "policy_seconds_per_step": 0.00025496488368069686,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/denver_3": {
+     "total": -392.7020015789194,
+     "score": 0.04545162055311567,
+     "regret": -562.569476602599,
+     "energy": 215.61761446042692,
+     "carbon": 60.183964370744434,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.15209608105597672,
+     "policy_seconds_per_step": 0.0002528349006617511,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/fairbanks_2": {
+     "total": -1064.410266170452,
+     "score": 0.12319563265861712,
+     "regret": -1523.5043322686106,
+     "energy": 287.3851567733791,
+     "carbon": 464.1531800346711,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.15140880429082446,
+     "policy_seconds_per_step": 0.00025500340594185723,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/phoenix_4": {
+     "total": -625.3202502270224,
+     "score": 0.07237502896146092,
+     "regret": -427.43156237281437,
+     "energy": 1497.8564058693992,
+     "carbon": 346.4501565769817,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.15147427364631935,
+     "policy_seconds_per_step": 0.0002926805505046138,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0507/singapore_6": {
+     "total": -500.3323590041987,
+     "score": 0.05790883784770818,
+     "regret": -408.21840571931534,
+     "energy": 1035.6443295420995,
+     "carbon": 241.36224848417805,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.14984100267842965,
+     "policy_seconds_per_step": 0.000290427522526847,
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508/atlanta_7": {
+     "total": -334.2963158681978,
+     "score": 0.03869170322548585,
+     "regret": -417.3641747845686,
+     "energy": 332.17807893390227,
+     "carbon": 87.21097626146184,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.13358620438310836,
+     "policy_seconds_per_step": 0.00031080963434996427,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/denver_4": {
+     "total": -310.2886503342106,
+     "score": 0.03591303823312623,
+     "regret": -365.3167089112103,
+     "energy": 365.0066915082325,
+     "carbon": 90.48643322181306,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.13327838055513525,
+     "policy_seconds_per_step": 0.00029915695389111835,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/fairbanks_6": {
+     "total": -313.70775943354647,
+     "score": 0.03630876845295677,
+     "regret": -432.43395446427166,
+     "energy": 214.76097765714985,
+     "carbon": 56.475956169100755,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.1333375975765564,
+     "policy_seconds_per_step": 0.00029477998614311216,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/phoenix_7": {
+     "total": -318.794226369811,
+     "score": 0.03689747990391331,
+     "regret": -325.1259666765691,
+     "energy": 499.56549163214277,
+     "carbon": 119.02774066735219,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.13400240082431722,
+     "policy_seconds_per_step": 0.00032566418802296675,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0508/singapore_5": {
+     "total": -386.5394895610061,
+     "score": 0.04473836684733867,
+     "regret": -342.6255525704255,
+     "energy": 735.2033915252891,
+     "carbon": 169.61739822590334,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.12992306321307465,
+     "policy_seconds_per_step": 0.00034082024185745803,
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509/atlanta_3": {
+     "total": -302.2006760620661,
+     "score": 0.03497693009977617,
+     "regret": -363.07049547979113,
+     "energy": 341.4005141757634,
+     "carbon": 80.39137915856918,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05890344629685084,
+     "policy_seconds_per_step": 0.00018846080810935409,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/denver_5": {
+     "total": -330.67621332366616,
+     "score": 0.038272709875424325,
+     "regret": -361.2638685855054,
+     "energy": 461.6257581814525,
+     "carbon": 107.96370251617151,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.059205863900758604,
+     "policy_seconds_per_step": 0.00019586740268601313,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/fairbanks_4": {
+     "total": -256.07856492225073,
+     "score": 0.02963872279192717,
+     "regret": -370.28272684663534,
+     "energy": 135.72461719839703,
+     "carbon": 33.820027331399615,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05916214353508419,
+     "policy_seconds_per_step": 0.00017436422683574535,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/phoenix_5": {
+     "total": -477.03586047228885,
+     "score": 0.05521248385095936,
+     "regret": -423.11669467785396,
+     "energy": 906.8446195127257,
+     "carbon": 208.98460100236073,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05963659234069012,
+     "policy_seconds_per_step": 0.00021443275941742792,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0509/singapore_7": {
+     "total": -348.65875118589065,
+     "score": 0.0403540221279966,
+     "regret": -366.8415156349147,
+     "energy": 519.0325570493887,
+     "carbon": 123.73665304250608,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.0597611381775803,
+     "policy_seconds_per_step": 0.00020317620149365177,
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511/atlanta_5": {
+     "total": -279.3588714301577,
+     "score": 0.03233320271182381,
+     "regret": -291.0749851209389,
+     "energy": 418.77090262536376,
+     "carbon": 104.79849914908482,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.06498582451431839,
+     "policy_seconds_per_step": 0.00028989610296708564,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/denver_6": {
+     "total": -219.39595604488704,
+     "score": 0.025393050468158224,
+     "regret": -269.6274266894616,
+     "energy": 232.0717690175395,
+     "carbon": 56.02573038907758,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.058368735318934474,
+     "policy_seconds_per_step": 0.00023137264781528048,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/fairbanks_5": {
+     "total": -203.1797362184734,
+     "score": 0.02351617317343442,
+     "regret": -281.74670375778805,
+     "energy": 137.09424440234852,
+     "carbon": 33.56432562095506,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.056863889236141135,
+     "policy_seconds_per_step": 0.00022450942132208084,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/phoenix_6": {
+     "total": -452.7425906145412,
+     "score": 0.052400762802608934,
+     "regret": -402.79953519911214,
+     "energy": 827.1311551988862,
+     "carbon": 228.18319276764453,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.056567127450748725,
+     "policy_seconds_per_step": 0.0002655417278960899,
+     "num_zones": 71,
+     "num_ahus": 8
+    },
+    "building_0511/singapore_8": {
+     "total": -253.9034561991848,
+     "score": 0.02938697409712787,
+     "regret": -268.6967582849902,
+     "energy": 365.7480827055633,
+     "carbon": 97.67892334568751,
+     "w": [
+      0.6,
+      0.2,
+      0.2
+     ],
+     "seconds_per_step": 0.05401276054757613,
+     "policy_seconds_per_step": 0.0002408647702799903,
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "by_station": {
+    "fairbanks": 0.08573476529485262,
+    "denver": 0.054710235066284356,
+    "atlanta": 0.04234109657048963,
+    "phoenix": 0.0483875574585381,
+    "singapore": 0.04216283452227027
+   },
+   "by_building": {
+    "building_0500": 0.06274223594846338,
+    "building_0505": 0.0851789466629129,
+    "building_0507": 0.06927572635113413,
+    "building_0508": 0.038509871332564165,
+    "building_0509": 0.03969097374921672,
+    "building_0511": 0.032606032650630654
+   },
+   "building_size": {
+    "building_0500": {
+     "num_zones": 120,
+     "num_ahus": 12
+    },
+    "building_0505": {
+     "num_zones": 63,
+     "num_ahus": 7
+    },
+    "building_0507": {
+     "num_zones": 68,
+     "num_ahus": 7
+    },
+    "building_0508": {
+     "num_zones": 89,
+     "num_ahus": 9
+    },
+    "building_0509": {
+     "num_zones": 32,
+     "num_ahus": 5
+    },
+    "building_0511": {
+     "num_zones": 71,
+     "num_ahus": 8
+    }
+   },
+   "decomp": {
+    "comfort": 0.036719893926504744,
+    "energy": 0.01192239110048699,
+    "carbon": 0.006025012764386959
+   },
+   "decomp_by_station": {
+    "fairbanks": {
+     "comfort": 0.059056041186654674,
+     "energy": 0.01122928687807561,
+     "carbon": 0.01544943727074611
+    },
+    "denver": {
+     "comfort": 0.04340591630609281,
+     "energy": 0.006912825951017381,
+     "carbon": 0.004391492800432529
+    },
+    "atlanta": {
+     "comfort": 0.031527167902818946,
+     "energy": 0.008430324986806964,
+     "carbon": 0.002383603684754858
+    },
+    "phoenix": {
+     "comfort": 0.02623331213987098,
+     "energy": 0.01785403894209175,
+     "carbon": 0.004300206379050765
+    },
+    "singapore": {
+     "comfort": 0.023377032097086265,
+     "energy": 0.015185478744443237,
+     "carbon": 0.0036003236869505315
+    }
+   },
+   "seconds_per_step_mean": 0.10683745090240314,
+   "policy_ms_per_step_mean": 0.28176963053367754,
+   "source": "local"
+  }
+ },
+ "comparisons": {
+  "transfer_vs_transfer_v5": {
+   "diff": -0.0016436876117696176,
+   "ci_lo": -0.002301500732242687,
+   "ci_hi": -0.0010880793220869453,
+   "ratio": 0.8872807425858633,
+   "ratio_ci_lo": 0.8614904166414319,
+   "ratio_ci_hi": 0.9134408659923308,
+   "n": 30,
+   "n_boot": 5000,
+   "frac_boot_negative": 1.0,
+   "wins": 30,
+   "losses": 0,
+   "wilcoxon": {
+    "statistic": 0.0,
+    "p_value": 1.862645149230957e-09
+   },
+   "by_station_diff": {
+    "fairbanks": -0.003028685062500111,
+    "denver": -0.001621954200008605,
+    "atlanta": -0.0010369178138575073,
+    "phoenix": -0.0016443536922916236,
+    "singapore": -0.0008865272901902414
+   }
+  },
+  "transfer_vs_pid_water": {
+   "diff": -0.04172884877024908,
+   "ci_lo": -0.05277323656898312,
+   "ci_hi": -0.03276683932747595,
+   "ratio": 0.2366762129658955,
+   "ratio_ci_lo": 0.20852595649808092,
+   "ratio_ci_hi": 0.2677972252078526,
+   "n": 30,
+   "n_boot": 5000,
+   "frac_boot_negative": 1.0,
+   "wins": 30,
+   "losses": 0,
+   "wilcoxon": {
+    "statistic": 0.0,
+    "p_value": 1.862645149230957e-09
+   },
+   "by_station_diff": {
+    "fairbanks": -0.06785743973123269,
+    "denver": -0.04402908831965929,
+    "atlanta": -0.03402146769026667,
+    "phoenix": -0.03353151734144008,
+    "singapore": -0.02920473076864667
+   }
+  }
+ },
+ "local_vs_official_gap": {}
+}

@@ -9,15 +9,27 @@ Files:
 |---|---|
 | `transfer_policy.py` | The policy. Drop-in replacement for `smart_buildings/baselines/transfer_policy.py` in the starter kit. Class `TransferPolicy(building_meta_data, action_spec)` with `get_action(obs)`; pure numpy + stdlib; deterministic; shape-agnostic. |
 | `kaggle_notebook_template.py` | A self-contained script mirroring the kit's evaluation loop, with the policy inlined, for adapting to the official Kaggle notebook template. |
-| `best_params.json` | The final parameter set (v4 random search + the v5 overrides). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/bake_params.py`; kept for provenance only, the policy file does not read it. The v4 set is `../experiments/results/tune/best_params_v4.json`. |
+| `best_params.json` | The final parameter set (v6: the v5 values + the v6 defaults + the round-3 overrides). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round3.py` / `bake_params.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v5.json`, `best_params_v4.json`; the shipped v5 file is `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
 
-Version: **SADR v5 (final)**, baked 2026-10-23. Relative to the design defaults: `ki_w_per_k_step`
-120 (random search, 2026-10-21/22), `margin_pre` 0.8, `sat_mix_floor` 292, `sb_hyst_k` 1.0 (same
-search, individually neutral), and the analysis-driven v5 changes `sat_cool_hi` 285 (coldest supply
-air whenever a handler cools), `night_low_ext` 8 and `night_high_ext` 6 (deeper night setback). The
-v5 code differs from v4 in one line: the mixed-handler SAT floor no longer depends on the cooling
-ceiling. Candidate `c10_satcold_night8_hi6` won on the 30 public scenarios at full length
-(0.00831 vs 0.00920 for v4; `../experiments/results/candidates_summary.json`).
+Version: **SADR v6 (final, round 3)**, baked 2026-10-23 from
+`../experiments/src/policy_candidates/transfer_policy_v6.py` + `r3_c16_pre035_min1.json`
+(`f_cap_pre` 0.35, `area_scale_min` 1.0 on top of the v6 defaults). v6 keeps every v5 rule and
+adds five mechanisms for large zones: (1) PI gains, request cap and setback burst scaled with the
+zone's floor area / 100 m2, read from the metadata `zone_map` (only upwards: zones under 100 m2
+keep the v5 gains); (2) each request bounded by what the VAV box can deliver at a flow fraction
+(`f_cap_pre` 0.35 while preconditioning or set back, `f_cap_occ` 1 while occupied); (3) heating
+requests bounded by the coil's water-side limit; (4) per-zone optimum start; (5) a setback floor
+raised for zones that could not recover within the maximum lead. If `zone_map` is missing from the
+metadata the area scaling switches off (every zone is treated as 100 m2) and the rest still works.
+With the v6 switches off the code reproduces v5 bit for bit.
+
+Selection (`../experiments/results/round3/candidates.json`): 17 v6 variants screened at 2,880 steps
+on 6 public + 6 held-out scenarios against v5 and the v6 defaults; the composite with the best
+held-out screen among those that met the rule was run once at full length (8,640 steps, Mac) and
+shipped because it beat v5 on every set: 30 public scenarios 0.00803 vs 0.00831 (28/30 wins),
+generated buildings 0501/0502 0.00944 vs 0.01109 (10/10), six new generated buildings 0.01294 vs
+0.01458 (30/30); `pid_water` on the same runs: 0.05498, 0.03989, 0.05467
+(`../experiments/results/final_scores.json`, `heldout_scores.json`, `heldout_r3_scores.json`).
 
 ## What the policy needs from the harness
 
@@ -27,7 +39,10 @@ Exactly what the starter kit provides and nothing else:
   `pressure_indices`, `recirculation_indices`, `water_indices`, `zone_action_indices`,
   `observation_field_names`, `ahu_zone_assignments`, `comfort_temp_window`, `eco_temp_window`,
   `morning_start_hour`, `evening_start_hour`, `observation_normalization_metadata`,
-  `action_normalization_metadata`. Missing keys fall back to the kit's defaults.
+  `action_normalization_metadata`, and (v6, optional) `zone_map`, which the kit's
+  `create_building_meta_data` loads from the scenario's `zone_map.npy`. Missing keys fall back to
+  the kit's defaults. The zone map is read once in `__init__` (a breadth-first labelling, about
+  40 ms on a 120-zone building).
 - `obs`: the flat float observation. Fields are located by name once in `__init__`.
 - Returns `{"continuous_action": float32[3K+2+2V] in [-1,1], "discrete_action": int32[K+1] in {0,1}}`
   with every slot written explicitly (the zero action is not "off" in this environment).
@@ -48,6 +63,15 @@ cp ../submission/transfer_policy.py smart_buildings/baselines/transfer_policy.py
 python -m smart_buildings.evaluate --policies transfer --buildings building_train_1 --weathers fairbanks_1
 python score_leaderboard.py smart_buildings/results --policy transfer
 ```
+
+## Kaggle rules (what could be read without a login)
+
+Checked 2026-10-23: the competition's `/rules` and `/overview` pages return only the page title to
+an anonymous fetch (login-gated), so no runtime, file-size, package or submission-count constraint
+could be recorded here. Verify on the page after logging in; the policy itself is a single
+stdlib+numpy file (about 0.5 ms per step, under 50 KB) and the full 30-scenario run of the kit's
+loop takes about 2 hours on 12 cores, so a Kaggle session limit on CPU hours is the only plausible
+constraint.
 
 ## Paste-in instructions for the official Kaggle notebook (user action)
 

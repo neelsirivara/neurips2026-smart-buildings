@@ -1,4 +1,4 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v5, final).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v6, final; round 3, r3_c16_pre035_min1).
 
 Drop-in replacement for ``smart_buildings/baselines/transfer_policy.py`` in the
 official starter kit. Pure numpy + stdlib, deterministic, no file or network
@@ -28,14 +28,42 @@ that hold for every generated building:
     are sized from the heat each zone needs, and the loop differential
     pressure is reset so the most-open valve sits near full travel.
 
+v6 (round 3) makes the zone loops scale with the building instead of with
+constants tuned on 100 m2 zones.  Every VAV box has the same design flow
+(2 m3/s), so a 500 m2 zone has a fifth of the heating authority per square
+metre of a 100 m2 zone and several times the thermal mass; with fixed gains
+and a fixed 12 kW request cap it recovers from a night setback at well under
+1 K/h and sits below the band for the first hours of every workday.  v6:
+
+  1. reads each zone's floor area from the metadata zone map (4-connected
+     rooms in raster order reproduce the simulator's room numbering) and
+     scales the PI gains, the request cap and the setback burst with
+     area / 100 m2 (clipped);
+  2. caps each zone's request at what its box can physically deliver at a
+     bounded flow fraction (f_cap_pre while preconditioning or set back,
+     f_cap_occ while occupied), i.e. at the discharge-air limit for heating
+     and the coldest supply air for cooling;
+  3. runs the optimum start per zone: each zone learns its own recovery rate
+     and enters PRECONDITION at its own lead, so fast zones are not woken
+     with the slowest one;
+  4. raises the setback floor (lowers the ceiling) of a zone whose learned
+     recovery rate could not bring it back within the maximum lead;
+  5. caps a heating request at what the reheat coil can deliver with its valve
+     fully open at the maximum loop differential pressure (the hot-water Kv
+     is the same for every box): past that point more airflow only cools the
+     discharge air and the zone receives less heat, not more.
+
+With ``gain_area_scaling``, ``per_zone_start`` and ``adaptive_floor`` at 0 and
+``f_cap_*`` at 1 the controller reproduces v5 up to the request cap.
+
 Per step, vectorised over zones:
 
-  1. Mode (OCCUPIED / PRECONDITION / SETBACK) from the comfort-mode flags, the
-     cyclic time features, and the building occupancy count.
+  1. Mode (OCCUPIED / PRECONDITION / SETBACK) per zone from the comfort-mode
+     flags, the cyclic time features, the building occupancy count and the
+     zone's own lead.
   2. Zone demands from each zone's temperature against the mode's band
      (sensor setpoints while occupied, comfort window while preconditioning,
-     widened eco window while set back), in [0, 1] with a second stage for
-     large errors.
+     widened eco window while set back).
   3. Air handler: runs iff some served zone has demand (dwell hysteresis);
      supply-air temperature reset from cooling demand (raised when the same
      handler also has heating zones); static pressure from the maximum flow
@@ -58,6 +86,7 @@ import json
 import math
 import os
 import re
+from collections import deque
 from collections.abc import Mapping
 from typing import Any
 
@@ -80,6 +109,7 @@ WATER_RHO_CP = 1000.0 * 4180.0
 # Economiser break-even, K of outside-air advantage per Pa of static pressure:
 # COP / (fan_eff * rho * cp) = 3.5 / (0.9 * 1.2 * 1006).
 ECON_K_PER_PA = 0.00322
+CV_AREA_M2 = 0.04          # 20 cm control volumes in the zone map
 
 F_FLOOR100 = math.sqrt(P_FLOOR_PA / P_MAX_PA)   # flow fraction, 100% damper at floor pressure
 F_MIN = DAMPER_FLOOR * F_FLOOR100               # flow fraction, 10% damper at floor pressure
@@ -91,9 +121,9 @@ DEFAULT_PARAMS: dict[str, float] = {
     "night_low_ext": 8.0,     # drift allowed below the eco heating setpoint while set back
     "night_high_ext": 6.0,    # drift allowed above the eco cooling setpoint while set back
     "sb_hyst_k": 1.0,         # setback burst: heat/cool a zone from the floor until this far inside
-    "q_sb_w": 4000.0,         # net heat (W) requested per zone during a setback burst
-    "e_full_k": 1.0,          # error at which stage-1 demand saturates
-    "e_full2_k": 4.0,         # error at which stage-2 (escalation) demand saturates
+    "q_sb_w": 4000.0,         # net heat (W) requested per 100 m2 zone during a setback burst
+    "e_full_k": 1.0,          # (unused, kept for parameter-file compatibility)
+    "e_full2_k": 4.0,         # (unused, kept for parameter-file compatibility)
     # --- optimum start ---
     "lead_base_h": 0.5,       # fixed part of the preconditioning lead (h)
     "lead_min_h": 0.75,
@@ -104,12 +134,24 @@ DEFAULT_PARAMS: dict[str, float] = {
     "rate_ema": 0.5,          # weight of the newest observed recovery rate
     "lead_safety": 1.3,       # lead uses rate / safety
     "holiday_check_h": 7.0,   # weekday hour by which somebody must have arrived
-    # --- zone PI loops (net heat into the zone air, W) ---
+    "per_zone_start": 1.0,    # v6: 1 = each zone learns its own rate and has its own lead
+    "adaptive_floor": 1.0,    # v6: 1 = setback floor/ceiling limited to what the zone can recover
+    "pre_latch": 0.0,         # v6: 1 = a zone that started preconditioning holds the target until 06:00 (tested: costlier)
+    # --- zone PI loops (net heat into the zone air, W, per 100 m2 of zone area) ---
     "kq_w_per_k": 400.0,      # proportional gain: W of net heat per K of error
     "ki_w_per_k_step": 120.0,  # integral gain: W added per K of error per 5-min step
     "i_decay_mult": 1.0,      # integral unwinding speed when the zone is past its target
-    "q_cap_w": 12000.0,       # cap on net heat (either sign) a zone may ask for
+    "q_cap_w": 12000.0,       # cap on net heat (either sign) a zone may ask for, per 100 m2
     "q_on_w": 50.0,           # a zone with |Q| above this is "in demand"
+    "area_ref_m2": 100.0,     # v6: zone area at which the gains above apply unscaled
+    "gain_area_scaling": 1.0,  # v6: 1 = scale kq, ki, q_cap_w, q_sb_w with area / area_ref
+    "area_scale_min": 1.0,    # v6: clip of the area scale factor
+    "area_scale_max": 6.0,
+    "f_cap_pre": 0.35,         # v6: flow-fraction cap on a zone's request while preconditioning / set back
+    "f_cap_occ": 1.0,         # v6: same while occupied (1 = the box's full design flow)
+    "water_cap": 1.0,         # v6: 1 = cap heating requests at what the coil can deliver with the valve
+                              #     fully open at the maximum loop dP (more airflow would cool the discharge)
+    "water_cap_frac": 0.97,   # v6: fraction of that limit to request (keeps the valve off its stop)
     # --- air handler ---
     "min_on_steps": 3,        # dwell (5-min steps) after a start
     "min_off_steps": 2,       # dwell after a stop
@@ -138,6 +180,55 @@ def _clip01(x):
     return np.clip(x, 0.0, 1.0)
 
 
+def _room_areas(zone_map) -> np.ndarray | None:
+    """Floor area (m2) of room_1..room_n from the metadata zone map, or None.
+
+    The simulator numbers rooms by 4-connected components of the free cells
+    (value 0) in raster order of their first cell; this reproduces that
+    numbering with a breadth-first search, so index i-1 is room_i.
+    """
+    try:
+        zm = np.asarray(zone_map)
+    except Exception:  # noqa: BLE001
+        return None
+    if zm.ndim != 2 or zm.size == 0 or zm.size > 20_000_000:
+        return None
+    free = zm == 0
+    if not free.any():
+        return None
+    H, W = free.shape
+    lab = np.zeros((H, W), dtype=np.int32)
+    counts: list[int] = []
+    rows, cols = np.nonzero(free)
+    for r0, c0 in zip(rows.tolist(), cols.tolist()):
+        if lab[r0, c0]:
+            continue
+        n = len(counts) + 1
+        lab[r0, c0] = n
+        size = 1
+        dq = deque([(r0, c0)])
+        while dq:
+            r, c = dq.popleft()
+            if r + 1 < H and free[r + 1, c] and not lab[r + 1, c]:
+                lab[r + 1, c] = n
+                size += 1
+                dq.append((r + 1, c))
+            if r > 0 and free[r - 1, c] and not lab[r - 1, c]:
+                lab[r - 1, c] = n
+                size += 1
+                dq.append((r - 1, c))
+            if c + 1 < W and free[r, c + 1] and not lab[r, c + 1]:
+                lab[r, c + 1] = n
+                size += 1
+                dq.append((r, c + 1))
+            if c > 0 and free[r, c - 1] and not lab[r, c - 1]:
+                lab[r, c - 1] = n
+                size += 1
+                dq.append((r, c - 1))
+        counts.append(size)
+    return np.asarray(counts, dtype=float) * CV_AREA_M2
+
+
 class TransferPolicy:
     """Schedule-aware demand-based reset (SADR) rule-based controller."""
 
@@ -164,6 +255,7 @@ class TransferPolicy:
                     self.p.update(json.load(f))
             except (OSError, ValueError):
                 pass
+        p = self.p
 
         self.n_discrete = int(md["n_discrete_action"])
         self.n_continuous = int(md["n_continuous_action"])
@@ -207,7 +299,7 @@ class TransferPolicy:
             for room in assignments[aid]:
                 vav_to_ahu[room.replace("room_", "VAV_")] = a
 
-        z_t, z_lo, z_hi, z_d, z_v, z_a, z_mf = [], [], [], [], [], [], []
+        z_t, z_lo, z_hi, z_d, z_v, z_a, z_mf, z_num = [], [], [], [], [], [], [], []
         self.orphan_slots: list[int] = []  # action slots of zones we cannot see or place
         for vav_id, acts in zone_action_indices.items():
             d_idx = acts.get("supply_air_damper_percentage_command")
@@ -226,6 +318,7 @@ class TransferPolicy:
             z_v.append(-1 if v_idx is None else int(v_idx))
             z_a.append(a_idx)
             z_mf.append(self.ix.get(f"{vav_id}_supply_air_flowrate_setpoint", -1))
+            z_num.append(_num_suffix(vav_id))
         self.V = len(z_t)
         self.z_t = np.array(z_t, dtype=int)
         self.z_lo = np.array(z_lo, dtype=int)
@@ -239,6 +332,23 @@ class TransferPolicy:
             self.member[self.z_a, np.arange(self.V)] = True
         self.ahu_has_zones = self.member.any(axis=1)
         self.ahu_zone_count = np.maximum(self.member.sum(axis=1), 1)
+
+        # ---- zone floor areas -> gain scale (v6) ----
+        area_ref = max(float(p.get("area_ref_m2", 100.0)), 1.0)
+        self.area_m2 = np.full(max(self.V, 1), area_ref)
+        self.area_known = False
+        if self.V and float(p.get("gain_area_scaling", 1.0)) > 0.5:
+            areas = _room_areas(md.get("zone_map"))
+            if areas is not None and len(areas) >= max(z_num) >= 1 and min(z_num) >= 1:
+                cand = areas[np.array(z_num, dtype=int) - 1]
+                if np.all(np.isfinite(cand)) and np.all(cand > 0) and len(areas) == self.V:
+                    self.area_m2 = cand.astype(float)
+                    self.area_known = True
+        if self.V and self.area_known:
+            self.scale = np.clip(self.area_m2 / area_ref, float(p.get("area_scale_min", 0.3)),
+                                 float(p.get("area_scale_max", 6.0)))
+        else:
+            self.scale = np.ones(max(self.V, 1))
 
         # ---- hot water system ----
         self.water_temp_idx = int(water_indices[0]) if water_indices else -1
@@ -286,7 +396,7 @@ class TransferPolicy:
                 self._dbg = open(dbg_path, "w")
                 self._dbg.write("step,hod,dow,now,soon,occupied,mode,holiday,lead_h,rate_h,rate_c,"
                                 "deficit_h,deficit_c,Tmin,Tmax,Tmean,n_heat,n_cool,maxP,n_on,tw,dp,pump,"
-                                "max_valve,max_damper,sat_min,recirc_min\n")
+                                "max_valve,max_damper,sat_min,recirc_min,n_pre\n")
             except OSError:
                 self._dbg = None
 
@@ -295,13 +405,14 @@ class TransferPolicy:
     # ------------------------------------------------------------------ state
     def reset(self) -> None:
         p = self.p
+        Vn = max(self.V, 1)
         self.ahu_on = np.zeros(self.K, dtype=bool)
         self.dwell = np.zeros(self.K, dtype=int)
         self.recirc_prev = np.full(self.K, RECIRC_MAX)
-        self.I_h = np.zeros(max(self.V, 1))   # integral of heating demand, W
-        self.I_c = np.zeros(max(self.V, 1))   # integral of cooling demand, W
-        self.sb_latch_h = np.zeros(max(self.V, 1), dtype=bool)  # setback burst latches
-        self.sb_latch_c = np.zeros(max(self.V, 1), dtype=bool)
+        self.I_h = np.zeros(Vn)   # integral of heating demand, W
+        self.I_c = np.zeros(Vn)   # integral of cooling demand, W
+        self.sb_latch_h = np.zeros(Vn, dtype=bool)  # setback burst latches
+        self.sb_latch_c = np.zeros(Vn, dtype=bool)
         self.heat_timer = 0
         self.step_count = 0
         self.occ_min = math.inf
@@ -309,7 +420,8 @@ class TransferPolicy:
         self.seen_occ_today = False
         self.holiday = False
         self.mode = self.SETBACK
-        # optimum start
+        self.zone_mode = np.full(Vn, self.SETBACK, dtype=int)
+        # optimum start, building level (fallback when per_zone_start == 0)
         self.rate_h = float(p["rate0_kph"])
         self.rate_c = float(p["rate0_kph"])
         self.pre_active = False
@@ -317,6 +429,16 @@ class TransferPolicy:
         self.pre_deficit0 = 0.0
         self.pre_kind = 0          # +1 heating deficit, -1 cooling deficit
         self.pre_reached_step = -1
+        # optimum start, per zone (v6)
+        self.rate_h_z = np.full(Vn, float(p["rate0_kph"]))
+        self.rate_c_z = np.full(Vn, float(p["rate0_kph"]))
+        self.zpre_active = np.zeros(Vn, dtype=bool)
+        self.zpre_t0 = np.zeros(Vn, dtype=int)
+        self.zpre_def0 = np.zeros(Vn)
+        self.zpre_kind = np.zeros(Vn, dtype=int)
+        self.zpre_reached = np.full(Vn, -1, dtype=int)
+        self.pre_latch = np.zeros(Vn, dtype=bool)   # zone stays in PRECONDITION until comfort hours
+        self._lead_dbg = -1.0
 
     @staticmethod
     def _norm(x, lo, hi):
@@ -355,6 +477,7 @@ class TransferPolicy:
         disc = np.zeros(self.n_discrete, dtype=np.int32)
         K, V = self.K, self.V
         self.step_count += 1
+        per_zone_start = V > 0 and float(p.get("per_zone_start", 1.0)) > 0.5
 
         # ---------------- time & flags ----------------
         hod = self._cyclic(obs, self.hod_sin, self.hod_cos, 24.0)
@@ -398,23 +521,79 @@ class TransferPolicy:
         else:
             T = lo_s = hi_s = np.zeros(0)
 
-        # ---------------- mode ----------------
-        deficit_h = deficit_c = 0.0
+        # ---------------- design flow per zone (needed for the request caps) ----------------
         if V:
-            deficit_h = float(np.max(np.maximum(0.0, (self.comfort_lo + p["margin_pre"]) - T)))
-            deficit_c = float(np.max(np.maximum(0.0, T - (self.comfort_hi - p["margin_pre"]))))
+            design_flow = np.where(self.z_mf >= 0, obs[np.maximum(self.z_mf, 0)], 2.0)
+            design_flow = np.where(np.isfinite(design_flow) & (design_flow > 0.01) & (design_flow < 100.0),
+                                   design_flow, 2.0)
+            F_design = AIR_RHO_CP * design_flow                 # W/K at 100% damper, design pressure
+            F_floor = F_design * F_FLOOR100                     # W/K at 100% damper, floor pressure
+            F_min = F_design * F_MIN                            # W/K at the damper floor
+        else:
+            design_flow = F_design = F_floor = F_min = np.zeros(0)
+
+        # ---------------- per-AHU return air, outside air, hot water sensor ----------------
+        if V:
+            T_ret = (self.member * T[None, :]).sum(axis=1) / self.ahu_zone_count
+        else:
+            T_ret = np.full(K, self.zt_mean)
+        oat = self._oat(obs)
+        oat_f = np.where(np.isfinite(oat), oat, T_ret)
+        tw_obs = float(obs[self.hws_temp_obs_idx]) if self.hws_temp_obs_idx >= 0 else float("nan")
+        if not (math.isfinite(tw_obs) and 273.0 < tw_obs < 400.0):
+            tw_obs = 340.0
+        kv = max(p["kv_valve"], 1e-4)
+        cap1 = WATER_RHO_CP * kv / 3600.0            # W/K of water capacity rate per unit valve per sqrt(bar)
+
+        # ---------------- mode ----------------
+        lo_pre = self.comfort_lo + p["margin_pre"]
+        hi_pre = self.comfort_hi - p["margin_pre"]
+        safety = max(p["lead_safety"], 1e-3)
+        if V:
+            def_h_z = np.maximum(0.0, lo_pre - T)
+            def_c_z = np.maximum(0.0, T - hi_pre)
+            deficit_h = float(def_h_z.max())
+            deficit_c = float(def_c_z.max())
+        else:
+            def_h_z = def_c_z = np.zeros(0)
+            deficit_h = deficit_c = 0.0
+        prev_zone_mode = self.zone_mode
         if now:
             if (hod is not None and hod >= p["holiday_check_h"] and not self.seen_occ_today
                     and self.occ_idx >= 0):
                 self.holiday = True
             mode = self.SETBACK if (self.holiday and not occupied) else self.OCCUPIED
+            zone_mode = np.full(max(V, 1), mode, dtype=int)
+            self.pre_latch[:] = False
         else:
-            precondition = bool(soon)
+            workday_ahead = False
+            hours_to_start = 24.0
             if hod is not None and dow is not None:
                 hours_to_start = (self.morning_start - hod) % 24.0
                 day_next = dow if hod < self.morning_start else (dow + 1.0) % 7.0
-                if day_next < 5.0:
-                    safety = max(p["lead_safety"], 1e-3)
+                workday_ahead = day_next < 5.0
+            if per_zone_start:
+                lead_z = p["lead_base_h"] + np.maximum(
+                    def_h_z / np.maximum(self.rate_h_z / safety, 1e-3),
+                    def_c_z / np.maximum(self.rate_c_z / safety, 1e-3))
+                lead_z = np.clip(lead_z, p["lead_min_h"], p["lead_max_h"])
+                self._lead_dbg = float(lead_z.max())
+                lead_rule = workday_ahead & (hours_to_start <= lead_z)
+                if float(p.get("pre_latch", 0.0)) > 0.5:
+                    # once a zone has started its recovery for the coming workday it holds the
+                    # preconditioning target until comfort hours: the air responds within minutes
+                    # while the walls take hours, so letting it fall back to SETBACK as soon as the
+                    # air is warm would cycle the handler and inflate the learned recovery rate
+                    self.pre_latch = ((self.pre_latch | lead_rule | bool(soon)) & workday_ahead
+                                      & (hours_to_start <= p["lead_max_h"]))
+                    pre_z = self.pre_latch | occupied
+                else:
+                    pre_z = lead_rule | bool(soon) | occupied
+                zone_mode = np.where(pre_z, self.PRECOND, self.SETBACK)
+                mode = self.PRECOND if bool(pre_z.any()) else self.SETBACK
+            else:
+                precondition = bool(soon)
+                if workday_ahead:
                     lead = p["lead_base_h"] + max(
                         deficit_h / max(self.rate_h / safety, 1e-3),
                         deficit_c / max(self.rate_c / safety, 1e-3))
@@ -422,96 +601,151 @@ class TransferPolicy:
                     self._lead_dbg = lead
                     if hours_to_start <= lead:
                         precondition = True
-            mode = self.PRECOND if (precondition or occupied) else self.SETBACK
+                mode = self.PRECOND if (precondition or occupied) else self.SETBACK
+                zone_mode = np.full(max(V, 1), mode, dtype=int)
 
-        # optimum-start learning: track one preconditioning episode per morning
-        if mode == self.PRECOND and not self.pre_active and self.mode != self.OCCUPIED:
-            self.pre_active = True
-            self.pre_t0 = self.step_count
-            self.pre_deficit0 = max(deficit_h, deficit_c)
-            self.pre_kind = 1 if deficit_h >= deficit_c else -1
-            self.pre_reached_step = -1
-        if self.pre_active:
-            cur = deficit_h if self.pre_kind > 0 else deficit_c
-            if self.pre_reached_step < 0 and cur <= 0.1:
-                self.pre_reached_step = self.step_count
-            if mode != self.PRECOND:
-                # preconditioning ended (comfort hours began, or a setback resumed)
-                if self.pre_deficit0 >= 0.5:
-                    end_step = self.pre_reached_step if self.pre_reached_step > 0 else self.step_count
-                    hours = max((end_step - self.pre_t0) / 12.0, 1.0 / 12.0)
-                    recovered = self.pre_deficit0 - (0.0 if self.pre_reached_step > 0 else cur)
-                    if recovered > 0.0:
-                        r_obs = recovered / hours
-                        r_obs = min(max(r_obs, p["rate_min_kph"]), p["rate_max_kph"])
-                        a = p["rate_ema"]
-                        if self.pre_kind > 0:
-                            self.rate_h = (1 - a) * self.rate_h + a * r_obs
-                        else:
-                            self.rate_c = (1 - a) * self.rate_c + a * r_obs
-                    elif mode == self.OCCUPIED:
-                        # did not recover at all: assume a much slower plant
-                        if self.pre_kind > 0:
-                            self.rate_h = max(self.rate_h * 0.5, p["rate_min_kph"])
-                        else:
-                            self.rate_c = max(self.rate_c * 0.5, p["rate_min_kph"])
-                self.pre_active = False
-        self.mode = mode
-
-        # ---------------- band for this mode ----------------
-        if mode == self.OCCUPIED:
-            lo = lo_s + p["margin_occ"]
-            hi = hi_s - p["margin_occ"]
-        elif mode == self.PRECOND:
-            lo = np.full(V, self.comfort_lo + p["margin_pre"])
-            hi = np.full(V, self.comfort_hi - p["margin_pre"])
+        # ---------------- optimum-start learning ----------------
+        if per_zone_start:
+            # one episode per zone: from entering PRECONDITION (not from OCCUPIED) until the
+            # deficit it started with is gone or the mode changes
+            start = (zone_mode == self.PRECOND) & ~self.zpre_active & (prev_zone_mode != self.OCCUPIED)
+            if start.any():
+                self.zpre_active[start] = True
+                self.zpre_t0[start] = self.step_count
+                self.zpre_def0[start] = np.maximum(def_h_z, def_c_z)[start]
+                self.zpre_kind[start] = np.where(def_h_z >= def_c_z, 1, -1)[start]
+                self.zpre_reached[start] = -1
+            act = self.zpre_active
+            if act.any():
+                cur = np.where(self.zpre_kind > 0, def_h_z, def_c_z)
+                newly = act & (self.zpre_reached < 0) & (cur <= 0.1)
+                self.zpre_reached[newly] = self.step_count
+                ended = act & (zone_mode != self.PRECOND)
+                if ended.any():
+                    end_step = np.where(self.zpre_reached > 0, self.zpre_reached, self.step_count)
+                    hours = np.maximum((end_step - self.zpre_t0) / 12.0, 1.0 / 12.0)
+                    recovered = self.zpre_def0 - np.where(self.zpre_reached > 0, 0.0, cur)
+                    valid = ended & (self.zpre_def0 >= 0.5)
+                    good = valid & (recovered > 0.0)
+                    r_obs = np.clip(recovered / hours, p["rate_min_kph"], p["rate_max_kph"])
+                    a = p["rate_ema"]
+                    upd_h = good & (self.zpre_kind > 0)
+                    upd_c = good & (self.zpre_kind < 0)
+                    self.rate_h_z = np.where(upd_h, (1 - a) * self.rate_h_z + a * r_obs, self.rate_h_z)
+                    self.rate_c_z = np.where(upd_c, (1 - a) * self.rate_c_z + a * r_obs, self.rate_c_z)
+                    # did not recover at all before comfort hours: assume a much slower zone
+                    fail = valid & ~good & (zone_mode == self.OCCUPIED)
+                    self.rate_h_z = np.where(fail & (self.zpre_kind > 0),
+                                             np.maximum(self.rate_h_z * 0.5, p["rate_min_kph"]), self.rate_h_z)
+                    self.rate_c_z = np.where(fail & (self.zpre_kind < 0),
+                                             np.maximum(self.rate_c_z * 0.5, p["rate_min_kph"]), self.rate_c_z)
+                    self.zpre_active[ended] = False
         else:
-            lo = np.full(V, self.eco_lo - p["night_low_ext"])
-            hi = np.full(V, self.eco_hi + p["night_high_ext"])
+            if mode == self.PRECOND and not self.pre_active and self.mode != self.OCCUPIED:
+                self.pre_active = True
+                self.pre_t0 = self.step_count
+                self.pre_deficit0 = max(deficit_h, deficit_c)
+                self.pre_kind = 1 if deficit_h >= deficit_c else -1
+                self.pre_reached_step = -1
+            if self.pre_active:
+                cur = deficit_h if self.pre_kind > 0 else deficit_c
+                if self.pre_reached_step < 0 and cur <= 0.1:
+                    self.pre_reached_step = self.step_count
+                if mode != self.PRECOND:
+                    if self.pre_deficit0 >= 0.5:
+                        end_step = self.pre_reached_step if self.pre_reached_step > 0 else self.step_count
+                        hours = max((end_step - self.pre_t0) / 12.0, 1.0 / 12.0)
+                        recovered = self.pre_deficit0 - (0.0 if self.pre_reached_step > 0 else cur)
+                        if recovered > 0.0:
+                            r_obs = recovered / hours
+                            r_obs = min(max(r_obs, p["rate_min_kph"]), p["rate_max_kph"])
+                            a = p["rate_ema"]
+                            if self.pre_kind > 0:
+                                self.rate_h = (1 - a) * self.rate_h + a * r_obs
+                            else:
+                                self.rate_c = (1 - a) * self.rate_c + a * r_obs
+                        elif mode == self.OCCUPIED:
+                            if self.pre_kind > 0:
+                                self.rate_h = max(self.rate_h * 0.5, p["rate_min_kph"])
+                            else:
+                                self.rate_c = max(self.rate_c * 0.5, p["rate_min_kph"])
+                    self.pre_active = False
+        self.mode = mode
+        self.zone_mode = zone_mode
+
+        # ---------------- band for this mode (per zone) ----------------
         if V:
+            is_occ = zone_mode == self.OCCUPIED
+            is_pre = zone_mode == self.PRECOND
+            is_sb = zone_mode == self.SETBACK
+            floor_z = np.full(V, self.eco_lo - p["night_low_ext"])
+            ceil_z = np.full(V, self.eco_hi + p["night_high_ext"])
+            if per_zone_start and float(p.get("adaptive_floor", 1.0)) > 0.5:
+                recover_h = max(p["lead_max_h"] - p["lead_base_h"], 0.5)
+                floor_z = np.maximum(floor_z, lo_pre - (self.rate_h_z / safety) * recover_h)
+                ceil_z = np.minimum(ceil_z, hi_pre + (self.rate_c_z / safety) * recover_h)
+            lo = np.where(is_occ, lo_s + p["margin_occ"], np.where(is_pre, lo_pre, floor_z))
+            hi = np.where(is_occ, hi_s - p["margin_occ"], np.where(is_pre, hi_pre, ceil_z))
             mid = 0.5 * (lo + hi)
             lo = np.minimum(lo, mid - 0.1)
             hi = np.maximum(hi, mid + 0.1)
+        else:
+            is_occ = is_pre = is_sb = np.zeros(0, dtype=bool)
+            lo = hi = np.zeros(0)
 
         # ---------------- zone PI loops on net heat (W into the zone air) ----------------
         # Positive e_h: zone below its heating target; positive e_c: above its cooling
         # target.  Each loop regulates to its own target, so inside the deadband both
-        # integrals unwind and the zone free-floats.
+        # integrals unwind and the zone free-floats.  Gains and caps scale with the zone
+        # area (v6); the cap is also bounded by what the box can deliver at the mode's
+        # flow fraction.
         e_h = lo - T
         e_c = T - hi
-        kq = max(p["kq_w_per_k"], 0.0)
-        ki = max(p["ki_w_per_k_step"], 0.0)
-        q_cap = max(p["q_cap_w"], 100.0)
-        if V and mode == self.SETBACK:
-            # Burst heating/cooling against a wide floor: a running handler always pays
-            # the ventilation load of every served zone, so the cheap way to bound the
-            # drift is to stay off and, when a zone crosses the floor, heat it hard until
+        kq_z = max(p["kq_w_per_k"], 0.0) * self.scale[:V]
+        ki_z = max(p["ki_w_per_k_step"], 0.0) * self.scale[:V]
+        t_disch_max = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
+        sat_lo, sat_hi_native = self.sat_rng
+        if V:
+            f_cap = np.where(is_occ, float(p.get("f_cap_occ", 1.0)), float(p.get("f_cap_pre", 0.7)))
+            f_cap = np.clip(f_cap, F_FLOOR100, 1.0)
+            cap_h = F_design * f_cap * np.maximum(t_disch_max - T, 0.5)
+            cap_c = F_design * f_cap * np.maximum(T - sat_lo, 0.5)
+            q_cap_h = np.minimum(max(p["q_cap_w"], 100.0) * self.scale[:V], cap_h)
+            q_cap_c = np.maximum(np.minimum(max(p["q_cap_w"], 100.0) * self.scale[:V], cap_c), 100.0)
+            if float(p.get("water_cap", 1.0)) > 0.5:
+                mixed_est = (RECIRC_MAX * T_ret + (1.0 - RECIRC_MAX) * oat_f)[self.z_a]
+                t_sa_est = np.minimum(mixed_est, T - 0.5)
+                w_avail = cap1 * math.sqrt(max(min(p["dp_hi_bar"], self.dp_rng[1]), p["dp_lo_bar"], 1e-3))
+                coil_max = w_avail * np.maximum(tw_obs - t_sa_est, 1.0)
+                cap_h_water = coil_max * np.maximum(t_disch_max - T, 0.5) / np.maximum(t_disch_max - t_sa_est, 1.0)
+                q_cap_h = np.minimum(q_cap_h, float(p.get("water_cap_frac", 0.97)) * cap_h_water)
+            q_cap_h = np.maximum(q_cap_h, 100.0)
+            # Burst heating/cooling against a wide floor for set-back zones: a running handler
+            # always pays the ventilation load of every served zone, so the cheap way to bound
+            # the drift is to stay off and, when a zone crosses the floor, heat it hard until
             # it is sb_hyst_k inside, then switch off again.  No steady load is held.
-            self.I_h[:] = 0.0
-            self.I_c[:] = 0.0
             hyst = max(p["sb_hyst_k"], 0.1)
-            self.sb_latch_h = (self.sb_latch_h | (e_h > 0.0)) & (e_h > -hyst)
-            self.sb_latch_c = (self.sb_latch_c | (e_c > 0.0)) & (e_c > -hyst)
-            q_sb = min(max(p["q_sb_w"], 100.0), q_cap)
-            heat_zone = self.sb_latch_h & ~self.sb_latch_c
-            cool_zone = self.sb_latch_c & ~self.sb_latch_h
-            q_h = np.where(heat_zone, q_sb, 0.0)
-            q_c = np.where(cool_zone, q_sb, 0.0)
-        elif V:
-            self.sb_latch_h[:] = False
-            self.sb_latch_c[:] = False
+            self.sb_latch_h = is_sb & (self.sb_latch_h | (e_h > 0.0)) & (e_h > -hyst)
+            self.sb_latch_c = is_sb & (self.sb_latch_c | (e_c > 0.0)) & (e_c > -hyst)
+            q_sb_h = np.minimum(max(p["q_sb_w"], 100.0) * self.scale[:V], q_cap_h)
+            q_sb_c = np.minimum(max(p["q_sb_w"], 100.0) * self.scale[:V], q_cap_c)
+            heat_sb = self.sb_latch_h & ~self.sb_latch_c
+            cool_sb = self.sb_latch_c & ~self.sb_latch_h
+            # PI for occupied / preconditioning zones; integrals of set-back zones are reset
             dec = max(p["i_decay_mult"], 0.0)
-            dI_h = np.where(e_h > 0.0, ki * e_h, dec * ki * e_h)
-            dI_c = np.where(e_c > 0.0, ki * e_c, dec * ki * e_c)
-            self.I_h = np.clip(self.I_h + dI_h, 0.0, q_cap)
-            self.I_c = np.clip(self.I_c + dI_c, 0.0, q_cap)
-            q_h = np.clip(kq * np.maximum(e_h, 0.0) + self.I_h, 0.0, q_cap)
-            q_c = np.clip(kq * np.maximum(e_c, 0.0) + self.I_c, 0.0, q_cap)
+            dI_h = np.where(e_h > 0.0, ki_z * e_h, dec * ki_z * e_h)
+            dI_c = np.where(e_c > 0.0, ki_z * e_c, dec * ki_z * e_c)
+            self.I_h = np.where(is_sb, 0.0, np.clip(self.I_h + dI_h, 0.0, q_cap_h))
+            self.I_c = np.where(is_sb, 0.0, np.clip(self.I_c + dI_c, 0.0, q_cap_c))
+            q_h_pi = np.clip(kq_z * np.maximum(e_h, 0.0) + self.I_h, 0.0, q_cap_h)
+            q_c_pi = np.clip(kq_z * np.maximum(e_c, 0.0) + self.I_c, 0.0, q_cap_c)
             # a zone cannot be heated and cooled at once: the larger request wins
-            heat_zone = (q_h > q_c) & (q_h > p["q_on_w"])
-            cool_zone = (q_c >= q_h) & (q_c > p["q_on_w"])
-            q_h = np.where(heat_zone, q_h, 0.0)
-            q_c = np.where(cool_zone, q_c, 0.0)
+            heat_pi = ~is_sb & (q_h_pi > q_c_pi) & (q_h_pi > p["q_on_w"])
+            cool_pi = ~is_sb & (q_c_pi >= q_h_pi) & (q_c_pi > p["q_on_w"])
+            heat_zone = heat_sb | heat_pi
+            cool_zone = cool_sb | cool_pi
+            q_h = np.where(heat_sb, q_sb_h, np.where(heat_pi, q_h_pi, 0.0))
+            q_c = np.where(cool_sb, q_sb_c, np.where(cool_pi, q_c_pi, 0.0))
         else:
             q_h = q_c = np.zeros(0)
             heat_zone = cool_zone = np.zeros(0, dtype=bool)
@@ -520,10 +754,8 @@ class TransferPolicy:
         if V:
             H = np.where(self.ahu_has_zones, (self.member * q_h[None, :]).max(axis=1), 0.0)
             C = np.where(self.ahu_has_zones, (self.member * q_c[None, :]).max(axis=1), 0.0)
-            T_ret = (self.member * T[None, :]).sum(axis=1) / self.ahu_zone_count
         else:
             H = C = np.zeros(K)
-            T_ret = np.full(K, self.zt_mean)
         D = np.maximum(H, C)
 
         # run / stop with dwell hysteresis
@@ -537,23 +769,10 @@ class TransferPolicy:
         self.ahu_on = new_on
         on = self.ahu_on
 
-        # ---------------- design flow per zone & floor-pressure capacity ----------------
-        oat = self._oat(obs)
-        oat_f = np.where(np.isfinite(oat), oat, T_ret)
-        if V:
-            design_flow = np.where(self.z_mf >= 0, obs[np.maximum(self.z_mf, 0)], 2.0)
-            design_flow = np.where(np.isfinite(design_flow) & (design_flow > 0.01) & (design_flow < 100.0),
-                                   design_flow, 2.0)
-            F_floor = AIR_RHO_CP * design_flow * F_FLOOR100     # W/K at 100% damper, floor pressure
-            F_min = AIR_RHO_CP * design_flow * F_MIN            # W/K at the damper floor
-        else:
-            design_flow = F_floor = F_min = np.zeros(0)
-
         # ---------------- supply air temperature reset (per AHU) ----------------
         # Cooling: the coldest supply any cooling zone needs to be served at 100%
         # damper and floor pressure, bounded to [285, sat_cool_hi]; floored when the
         # handler also has heating zones.  Heating only: coil off (SAT at maximum).
-        sat_lo, sat_hi_native = self.sat_rng
         sat_hi = min(max(p["sat_cool_hi"], sat_lo), sat_hi_native)
         sat = np.full(K, sat_hi_native)
         if V:
@@ -570,7 +789,6 @@ class TransferPolicy:
 
         # ---------------- economiser ----------------
         recirc = np.full(K, RECIRC_MAX)
-        # provisional pressure (floor) for the break-even; refined below
         if p["econ_on"] > 0.5:
             cooling = on & (C > 0.0) & (H <= 0.0) & np.isfinite(oat)
             adv = T_ret - oat_f
@@ -586,9 +804,6 @@ class TransferPolicy:
         t_sa = np.minimum(mixed, sat)
 
         # ---------------- hot water temperature ----------------
-        tw_obs = float(obs[self.hws_temp_obs_idx]) if self.hws_temp_obs_idx >= 0 else float("nan")
-        if not (math.isfinite(tw_obs) and 273.0 < tw_obs < 400.0):
-            tw_obs = 340.0
         any_heat_now = bool(V) and bool((heat_zone & on[self.z_a]).any())
         if any_heat_now or (mode == self.PRECOND and deficit_h > 0.0):
             self.heat_timer = int(p["heat_season_steps"])
@@ -608,12 +823,11 @@ class TransferPolicy:
             dT_c = np.maximum(T - t_sa_z, 0.5)
             F_cool = np.where(cool_zone, q_c / dT_c, 0.0)
             # heating: the discharge limit bounds the heat per unit flow
-            t_disch_max = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
             dT_h = np.maximum(t_disch_max - T, 0.5)
             F_heat = np.where(heat_zone, q_h / dT_h, 0.0)
             F_req = np.maximum(np.maximum(F_cool, F_heat), F_min)
             F_req = np.where(zone_on, F_req, F_min)
-            f_req = np.clip(F_req / (AIR_RHO_CP * design_flow), F_MIN, 1.0)   # fraction of design flow
+            f_req = np.clip(F_req / F_design, F_MIN, 1.0)   # fraction of design flow
             f_max = np.zeros(K)
             np.maximum.at(f_max, self.z_a, f_req)
             f_max = np.maximum(f_max, F_FLOOR100)
@@ -623,7 +837,7 @@ class TransferPolicy:
             damper = np.clip(f_req / f_real[self.z_a], DAMPER_FLOOR, 1.0)
             damper = np.where(zone_on, damper, 0.0)
             # actual flow delivered at the commanded damper and pressure
-            F_act = AIR_RHO_CP * design_flow * np.clip(damper, DAMPER_FLOOR, 1.0) * f_real[self.z_a]
+            F_act = F_design * np.clip(damper, DAMPER_FLOOR, 1.0) * f_real[self.z_a]
             # reheat: discharge temperature that delivers q_h net, then the water
             # capacity rate that produces it, then the valve at the chosen dP
             if any_heat_now:
@@ -631,8 +845,6 @@ class TransferPolicy:
                 gap = np.maximum(tw_obs - t_sa_z, 1.0)
                 w_need = np.where(heat_zone & zone_on,
                                   F_act * np.clip((t_disch - t_sa_z) / gap, 0.0, 1.0), 0.0)
-                kv = max(p["kv_valve"], 1e-4)
-                cap1 = WATER_RHO_CP * kv / 3600.0            # W/K per unit valve per sqrt(bar)
                 w_max = float(w_need.max())
                 target = max(p["valve_target"], 0.05)
                 dp_bar = (w_max / (target * cap1)) ** 2
@@ -656,8 +868,8 @@ class TransferPolicy:
             cont[self.z_d[md_]] = 2.0 * damper[md_] - 1.0
             mv_ = self.z_v >= 0
             cont[self.z_v[mv_]] = 2.0 * valve[mv_] - 1.0
-        for s in self.orphan_slots:
-            cont[s] = -1.0
+        for s_ in self.orphan_slots:
+            cont[s_] = -1.0
         if self.water_temp_idx >= 0:
             cont[self.water_temp_idx] = self._norm(tw, *self.tw_rng)
         if self.water_press_idx >= 0:
@@ -670,15 +882,18 @@ class TransferPolicy:
 
         if self._dbg is not None:
             try:
+                rh = float(self.rate_h_z.min()) if per_zone_start else self.rate_h
+                rc = float(self.rate_c_z.min()) if per_zone_start else self.rate_c
                 self._dbg.write(
                     f"{self.step_count},{-1 if hod is None else hod:.3f},{-1 if dow is None else dow:.2f},"
                     f"{int(now)},{int(soon)},{int(occupied)},{mode},{int(self.holiday)},"
-                    f"{getattr(self, '_lead_dbg', -1):.2f},{self.rate_h:.2f},{self.rate_c:.2f},"
+                    f"{self._lead_dbg:.2f},{rh:.2f},{rc:.2f},"
                     f"{deficit_h:.2f},{deficit_c:.2f},"
                     f"{T.min() if V else 0:.2f},{T.max() if V else 0:.2f},{T.mean() if V else 0:.2f},"
                     f"{int(heat_zone.sum())},{int(cool_zone.sum())},{p_cmd.max():.0f},{int(on.sum())},"
                     f"{tw:.0f},{dp_bar:.1f},{int(pump_on)},{valve.max() if V else 0:.2f},"
-                    f"{damper.max() if V else 0:.2f},{sat.min():.1f},{recirc.min():.2f}\n")
+                    f"{damper.max() if V else 0:.2f},{sat.min():.1f},{recirc.min():.2f},"
+                    f"{int((zone_mode == self.PRECOND).sum())}\n")
             except (OSError, ValueError):
                 pass
         return {"continuous_action": cont.astype(np.float32), "discrete_action": disc.astype(np.int32)}

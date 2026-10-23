@@ -1,0 +1,40 @@
+{
+  "policy": "transfer",
+  "steps": 2880,
+  "n_scenarios": 4,
+  "leaderboard_metric": 0.013959006897181978,
+  "per_scenario": {
+    "building_0500/phoenix_2": {
+      "total_reward": -18.12494404449353,
+      "score": 0.0062933833487824765,
+      "regret": -1.1022887400922912,
+      "energy": 66.81165264602441,
+      "carbon": 20.506201390770002,
+      "seconds_per_step": 0.20802875931064288
+    },
+    "building_0505/singapore_4": {
+      "total_reward": -29.51838993161914,
+      "score": 0.010249440948478869,
+      "regret": -0.40363802375941304,
+      "energy": 118.95792307631564,
+      "carbon": 27.42311251800311,
+      "seconds_per_step": 0.10699558547801441
+    },
+    "building_0507/fairbanks_2": {
+      "total_reward": -92.15618717365578,
+      "score": 0.031998676101963816,
+      "regret": -2.063201181049422,
+      "energy": 141.9310111388113,
+      "carbon": 312.6603215354844,
+      "seconds_per_step": 0.19391349371936586
+    },
+    "building_0509/denver_5": {
+      "total_reward": -21.008238305767918,
+      "score": 0.00729452718950275,
+      "regret": -1.0499340662020131,
+      "energy": 81.99388286690373,
+      "carbon": 19.897506475010232,
+      "seconds_per_step": 0.09230527844693925
+    }
+  }
+}

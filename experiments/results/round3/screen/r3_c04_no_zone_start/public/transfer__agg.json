@@ -1,0 +1,56 @@
+{
+  "policy": "transfer",
+  "steps": 2880,
+  "n_scenarios": 6,
+  "leaderboard_metric": 0.008482421062270077,
+  "per_scenario": {
+    "building_train_1/denver_7": {
+      "total_reward": -10.136088142331573,
+      "score": 0.003519475049420685,
+      "regret": -0.1484543680689967,
+      "energy": 19.692363585219937,
+      "carbon": 30.542714063274616,
+      "seconds_per_step": 0.06699114400479529
+    },
+    "building_train_1/singapore_8": {
+      "total_reward": -21.568217711140278,
+      "score": 0.007488964483034819,
+      "regret": -0.8267340222155326,
+      "energy": 84.57790323791869,
+      "carbon": 20.782983259337925,
+      "seconds_per_step": 0.0654709561003579
+    },
+    "building_train_2/atlanta_3": {
+      "total_reward": -8.558839959398938,
+      "score": 0.0029718194303468533,
+      "regret": -0.29914227735025634,
+      "energy": 30.245884901628415,
+      "carbon": 11.650887975934893,
+      "seconds_per_step": 0.11842351944910155
+    },
+    "building_train_5/fairbanks_5": {
+      "total_reward": -6.495530120005242,
+      "score": 0.002255392402779598,
+      "regret": -0.1435124605303031,
+      "energy": 23.448533515203053,
+      "carbon": 8.598579692996282,
+      "seconds_per_step": 0.0909743713008033
+    },
+    "building_train_8/fairbanks_8": {
+      "total_reward": -70.66847496345144,
+      "score": 0.024537664917865083,
+      "regret": -0.5527754836049894,
+      "energy": 92.2977887666857,
+      "carbon": 259.386259769788,
+      "seconds_per_step": 0.03583832474218474
+    },
+    "building_train_8/phoenix_4": {
+      "total_reward": -29.149085059699463,
+      "score": 0.010121210090173425,
+      "regret": -0.005165826775510141,
+      "energy": 118.44121221678391,
+      "carbon": 27.288715513189814,
+      "seconds_per_step": 0.03672056744496028
+    }
+  }
+}

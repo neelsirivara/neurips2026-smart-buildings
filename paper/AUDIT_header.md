@@ -8,7 +8,17 @@ code or configs (band edges 294/297/289/298 K, discharge cap 308.15 K, recircula
 pressure range 200-2000 Pa, COP 3.5, cost-table ratios 2.1x / 0.6x, economizer break-even
 0.00322 K/Pa, boiler ramp rates, outside-air fraction 30%, the 1.9 J/J ventilation factor
 derived from (294.8-281.7)/(307.15-294.8) at -20 C), each checked against
-`kit/smart_buildings/smart_control/{simulator,reward}` on 2026-10-21/22.
+`kit/smart_buildings/smart_control/{simulator,reward}` on 2026-10-21/22. Round 3 (2026-10-23) adds
+the VAV design flow 2 m3/s (`VAV_MAX_AIR_FLOWRATE`), the hot-water Kv 0.108 and the 20 bar
+differential-pressure range (kit gin), the v5 12 kW cap (`q_cap_w` of `DEFAULT_PARAMS`; the
+area reference, the scale clip and the flow caps of the shipped v6 are macros `ParAreaRef`,
+`ParAreaScaleMin/Max`, `ParFCapPre/Occ`), the "12--14 concurrent runs" of the Mac (the worker
+counts in `experiments/src/mac_*.sh`), "a fifth of the heating
+authority per square metre" (2 m3/s per box regardless of area), "walls carry 10-20 times the
+air's heat capacity" (a 0.2 m x 0.2 m x 3 m wall cell at density 600 kg/m3 and 900 J/kg/K holds
+65 kJ/K against 145 J/K for an air cell, and a 100-400 m2 room has 140-420 wall cells against
+2,500-10,000 air cells), "under 1 K/h" and "28 W/m2" (12 kW into 429 m2; the v5 trace on
+building_0502/denver_1 climbed 0.8 K/h), and the 350-430 m2 zone areas of building 0502.
 
 ## Build / conventions
 | item | status |
@@ -27,6 +37,10 @@ derived from (294.8-281.7)/(307.15-294.8) at -20 C), each checked against
 | "a version that held the floor with the PI loops kept at least one handler running for `\VthreeAhuOnUnocc` of unoccupied steps" (Sec. 3) | `experiments/results/dev_full/building_train_8/fairbanks_8/transfer/` is the v3 snapshot run (`transfer_policy_v3_snapshot.py` next to it); value computed by `make_macros.ahu_on_frac_unoccupied`. |
 | pid_water mechanism ("one temperature per handler", "step at 06:00", "2000 Pa on a 2 K excursion", "idle outside work hours") (Secs. 2, 5) | `kit/smart_buildings/baselines/pid.py` (kp=0.5 -> |u|=1 at 2 K; pressure = 2|u|-1; `is_weekday and is_work_hour` gate; idle inside the band) and `pid_plus.py` (worst-zone error). |
 
+| room numbering from the zone map (Sec. 3, round 3) | `experiments/src/run_diag.py::zone_areas` and the policy's `_room_areas` label the 4-connected free cells in raster order; compared cell by cell with the simulator's `room_dict` on the 6 public, 2 previous held-out and 6 new buildings (all identical), 2026-10-23. |
+| the controller-state trace behind "why v5 lost on large zones" (Sec. 5) | ad-hoc trace of `policy_candidates/transfer_policy_v6.py` internals on `heldout_scenarios/building_0502/denver_1` (1,500 steps, 2026-10-23); the per-zone mean temperatures by hour are in `results/round3/b0502_v5/.../zones.npz`. |
+| the rejected preconditioning latch (Sec. 3) | `results/round3/b0502_v6c` (latch on) vs `b0502_v6b` (latch off), 2,880 steps on the laptop; macros `TenDayVSixCScore`, `TenDayVSixBScore`. |
+
 ## Directional statements and how they were checked
 - "SADR beats pid_water" (abstract, Sec. 4): requires `comparisons.transfer_vs_pid_water.ci_hi < 0` in `final_scores.json`; the wording "wins on N/30" uses `.wins`.
 - "largest absolute reduction in Fairbanks and Phoenix" (Sec. 4): from `by_station_diff`; the two most negative entries must be those stations.
@@ -35,6 +49,10 @@ derived from (294.8-281.7)/(307.15-294.8) at -20 C), each checked against
 - "the ratio and the v4-to-v5 gain both carry over" to the held-out set (Sec. 4): `heldout_scores.json` -> `comparisons.transfer_vs_pid_water.ci_hi < 0` and `transfer.metric < transfer_v4.metric`; "less favourable mainly on the larger generated building": `by_building`.
 - "comfort is 2-4% of SADR's loss; pid_water fails primarily at comfort" (Sec. 5): `analysis.json` -> `means.*.regret_share`, `occ_frac_zone_steps_out`.
 - "first workday is not a weak spot" (Sec. 5): `n_first_workday_worse` / total and the median ratio; the sentence states the counts rather than claiming a direction.
+- Round 3 ship rule (Sec. 3, fixed 2026-10-23 10:15 PDT before any full-length run of a composite; `experiments/src/candidates_notes.json -> decision_rule`): the shipped v6 variant must satisfy `comparisons.transfer_vs_transfer_v5.ci_lo <= 0` on `final_scores.json` (not worse on the public set) and `ci_hi < 0` for the pooled 40 held-out scenarios (`HeldAllVFiveDiffHi`) and `diff < 0` on each held-out set; the abstract's "the loss falls by HeldAllVFiveRelRed" requires `HeldAllVFiveDiffHi < 0`, and "UnscrVFiveRelRed on the 34 never used for selection" is reported whatever its sign.
+- Round 3 composite choice (Sec. 3): among the composites whose screen verdict against the v6 defaults is "rule met" (`candidates.json -> candidates.*.screen_outcome_vs_c00`), the lowest held-out screen metric; the ledger sentence of Sec. 4 lists the verdict counts (`NRThree*`) and names the failed mechanisms whose verdict is "worse" (c03, c04 against v5 via their held-out ratios; c09, c11, c12 via `ScreenC*Verdict`).
+- "v5 to v6 ... small because the public zones are small" (Sec. 4): `PubVFiveRelRed` must be small against `HeldRVFiveRelRed`, and `PubZoneAreaMedian` against `HeldRZoneAreaMedian`.
+- "v6 moves these shares only slightly on the public set" (Sec. 4): the `DecPubOurs*Share` macros within a few points of `DecPubVFive*Share`.
 - "None is a transfer failure" (Sec. 5): the per-building scores of buildings 4, 7 and the generated ones are in the same range as the screened buildings (`by_building` in both score files).
 
 ## Machines

@@ -1,0 +1,1279 @@
+{
+ "doc": "Round-3 candidates ledger (hand-written part). ledger_round3.py merges these notes with the screening numbers (results/round3/screen_summary.json) and the full-length comparisons into results/round3/candidates.json. status: idea | screened | rejected | confirmed | shipped.",
+ "v6_code_changes": [
+  {
+   "id": "area_scaling",
+   "what": "zone PI gains, request cap and setback burst scale with zone floor area / 100 m2 (areas from the metadata zone map, 4-connected rooms in raster order, verified to reproduce the simulator's room numbering on all 14 buildings)",
+   "why": "v5 constants were tuned on ~100 m2 zones; building_0502's 350-470 m2 zones recovered at <1 K/h and sat below the band until noon (diagnosis of the v4/v5 time series, 2026-10-23)",
+   "param": "gain_area_scaling, area_ref_m2, area_scale_min/max"
+  },
+  {
+   "id": "physical_cap",
+   "what": "request cap bounded by what the box can deliver at a flow fraction f_cap (discharge limit 308.15 K for heating, 285 K supply for cooling)",
+   "why": "the 12 kW constant cap was the binding limit on large zones",
+   "param": "f_cap_pre, f_cap_occ, q_cap_w"
+  },
+  {
+   "id": "water_cap",
+   "what": "heating request also bounded by the coil's water-side limit: valve fully open at the maximum loop dP (Kv 0.108) moves w_avail*(T_water - T_supply) W; at the discharge limit the net heat is coil*(T_disch_max - T)/(T_disch_max - T_supply)",
+   "why": "asking for more than that raises airflow, cools the discharge air and delivers LESS heat (seen on building_0502: valve saturated, damper at 1, zone 0.8 K below band). Ten-day test on 0502/denver_1: 0.02437 -> 0.02376",
+   "param": "water_cap, water_cap_frac"
+  },
+  {
+   "id": "per_zone_start",
+   "what": "optimum start per zone: each zone learns its own recovery rate (EMA of recovered K / h over its preconditioning episodes) and enters PRECONDITION at its own lead",
+   "why": "one building-wide lead woke every zone with the slowest one; with heterogeneous zone sizes the fast zones were held for hours",
+   "param": "per_zone_start"
+  },
+  {
+   "id": "adaptive_floor",
+   "what": "setback floor (ceiling) of a zone raised (lowered) to what its learned rate can recover within lead_max_h",
+   "why": "a 400+ m2 zone cannot recover 13 K in 8 h",
+   "param": "adaptive_floor"
+  },
+  {
+   "id": "pre_latch",
+   "what": "a zone that started preconditioning holds the target until 06:00 instead of flipping back to SETBACK when the air is warm",
+   "why": "hypothesis: the PRECOND/SETBACK oscillation inflates the learned rate. REJECTED: ten-day test on 0502/denver_1 0.02816 vs 0.02376 without the latch; holding the air at 294.8 K for the extra hours costs more gas than the pulsed recovery (the walls lag the air by hours, so letting the air collapse and re-burst keeps the mean air temperature, hence the envelope loss, lower)",
+   "param": "pre_latch (default 0)"
+  }
+ ],
+ "ideas_not_run": {
+  "night_free_cooling_precool": "run the economiser at night to pre-cool the mass in Atlanta/Denver summers (fan-only cooling at COP ~20 vs chiller 3.5); not run: night OAT-return differences in the public strips are small and Singapore/Phoenix never qualify; estimated < 2% of the public mean",
+  "morning_precool_phoenix": "pre-cool to the band bottom before noon when OAT is lower and electricity is 18 c instead of 20 c; not run: the extra envelope gain from holding the colder zone offsets most of the 20% per-kWh advantage; estimated ~1%",
+  "ahu_duty_cycling_occupied": "switch handlers off for short periods during occupied hours to cut the forced minimum-flow ventilation of idle zones (27% of supply air while heating); not run: comfort is ~150x the energy value of 1 K per occupied zone and the air collapses toward the wall temperature within a step when the handler stops",
+  "holiday_calendar": "skip the preconditioning before US federal holidays; not possible: the observation carries hour and weekday only, no date",
+  "learned_residual": "ridge/GBM correction on logged (obs -> action) pairs; not started: the rule-based changes did not plateau within the round",
+  "mixed_handler_simultaneous_heat_cool": "quantified on the v5 public diag runs: 26% of running handler-steps have a cooling SAT (<= 292.5 K) together with an open reheat valve, but the chiller runs in only 6.5% of the cooling kWh during them (cold-climate mixed air is below the 292 K floor, so the coil is idle); the simultaneous heating/cooling waste is a few per cent of the cooling term at most, not pursued",
+  "fcap_pre_on_public": "f_cap_pre 0.5 / 0.7 / 1.0 give identical public screens (0.00846-0.00847): the 12 kW x area cap binds first on 100 m2 zones; the flow cap only matters on the large held-out zones"
+ },
+ "screen_steps": 2880,
+ "screen_sets": {
+  "public": [
+   "building_train_8/fairbanks_8",
+   "building_train_1/denver_7",
+   "building_train_2/atlanta_3",
+   "building_train_8/phoenix_4",
+   "building_train_1/singapore_8",
+   "building_train_5/fairbanks_5"
+  ],
+  "held": [
+   "building_0502/denver_1",
+   "building_0502/fairbanks_3",
+   "building_0507/fairbanks_2",
+   "building_0500/phoenix_2",
+   "building_0509/denver_5",
+   "building_0505/singapore_4"
+  ]
+ },
+ "shipped": {
+  "candidate": "r3_c16_pre035_min1",
+  "version": "SADR v6",
+  "date": "2026-10-23",
+  "overrides_vs_v6_defaults": {
+   "f_cap_pre": 0.35,
+   "area_scale_min": 1.0
+  },
+  "confirmation": "full length (8,640 steps, Mac): public 0.00803 vs v5 0.00831; held-out 0501/0502 0.00944 vs 0.01109; six new buildings 0.01294 vs 0.01458; see results/final_scores.json, heldout_scores.json, heldout_r3_scores.json",
+  "files": "submission/transfer_policy.py (policy_candidates/transfer_policy_v6.py + r3_c16_pre035_min1.json, baked by ship_round3.py/bake_params.py), submission/best_params.json == results/tune/best_params.json == best_params_v6.json; v5 kept as results/tune/best_params_v5.json and results/round3/transfer_policy_v5_shipped_before_round3.py"
+ },
+ "decision_rule": {
+  "screen": "each v6 variant vs the v6 defaults (r3_c00) on the 6 public + 6 held-out screening scenarios at 2,880 steps, paired bootstrap 95% CIs over scenarios (4,000 resamples, seed 0); a change 'helps' if its held-out CI is below zero and its public CI is not above zero ('rule met'), or if its public CI is below zero and its held-out CI is not above zero ('public only')",
+  "composites": "the changes that helped (c02 rule met, c06 public only) were combined (c14) and two neighbours screened (c15 = c14 + c08, the best non-significant single change; c16 = c14 with the preconditioning flow cap lowered to 0.35 because 1.0 -> 0.7 -> 0.5 was monotone on the held-out screen)",
+  "choice": "among composites that meet the rule against c00, the lowest held-out screen metric (fixed before the full-length runs): r3_c16_pre035_min1 (held 0.01824 vs c14 0.01832; c16 vs c14 itself not significant on either set)",
+  "ship": "the chosen variant ships only if, at full length (8,640 steps), it is not worse than v5 on the 30 public scenarios (paired CI not above zero) and better than v5 on the held-out scenarios (paired CI below zero), on the 40 pooled held-out scenarios and on each held-out set",
+  "decided": "2026-10-23 10:15 PDT, before any full-length run of a composite"
+ },
+ "candidates": {
+  "ref_v5": {
+   "idea": "the shipped v5 policy (reference)",
+   "status": "reference",
+   "params": {},
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008626697590787002,
+    "ref_metric": null,
+    "diff": null,
+    "ratio": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "wins": null,
+    "losses": null,
+    "n_paired": null
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.021636969812626656,
+    "ref_metric": null,
+    "diff": null,
+    "ratio": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "wins": null,
+    "losses": null,
+    "n_paired": null
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008626697590787002,
+    "ref_metric": 0.008465086244122916,
+    "diff": 0.00016161134666408577,
+    "ratio": 1.0190915180310525,
+    "ci_lo": 2.0306114440910553e-05,
+    "ci_hi": 0.00038857054179099204,
+    "wins": 0,
+    "losses": 6,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.021636969812626656,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.0031810286637327964,
+    "ratio": 1.1723579761156449,
+    "ci_lo": 0.0016387945115346673,
+    "ci_hi": 0.004703406954917576,
+    "wins": 0,
+    "losses": 6,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c00_v6_default": {
+   "idea": "v6 defaults: area scaling, physical + water caps (f_cap_pre 0.7, f_cap_occ 1.0), per-zone start, adaptive floor, no latch",
+   "status": "screened",
+   "outcome": "base of the round-3 variants; full length on the 30 public scenarios (laptop) 0.00814 vs v5 0.00831",
+   "params": {},
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.0003935268957198263,
+    "ci_hi": -2.067341257211441e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018455941148893863,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031810286637327964,
+    "ratio": 0.8529817857454123,
+    "ci_lo": -0.004726203748045168,
+    "ci_hi": -0.0016322093604903933,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   }
+  },
+  "r3_c01_fcap_pre1": {
+   "idea": "full design flow allowed while preconditioning (f_cap_pre 1.0)",
+   "rationale": "faster recovery vs more fan power and more min-flow ventilation of idle zones at high pressure",
+   "status": "rejected",
+   "outcome": "worse than c00 on the held-out screen (0/6 wins); identical on the public screen",
+   "params": {
+    "f_cap_pre": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.00039432465129365235,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018464177116175907,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031727926964507506,
+    "ratio": 0.853362429031111,
+    "ci_lo": -0.004699718558194058,
+    "ci_hi": -0.0017027093535605046,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008465086244122916,
+    "diff": 0.0,
+    "ratio": 1.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "wins": 0,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018464177116175907,
+    "ref_metric": 0.018455941148893863,
+    "diff": 8.235967282045937e-06,
+    "ratio": 1.000446250192044,
+    "ci_lo": 2.3247216126397416e-07,
+    "ci_hi": 2.339922905068544e-05,
+    "wins": 0,
+    "losses": 4,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c02_fcap_pre05": {
+   "idea": "preconditioning flow capped at half design (500 Pa)",
+   "rationale": "fan energy scales with f^2 for a given heat; longer leads instead",
+   "status": "screened",
+   "outcome": "met the rule against c00 (held-out better, public tied); folded into c14/c16",
+   "params": {
+    "f_cap_pre": 0.5
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.00846067577642097,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016602181436603338,
+    "ratio": 0.9807548818515047,
+    "ci_lo": -0.00040180194489683485,
+    "ci_hi": -2.0888641293425492e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018320193202483622,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0033167766101430338,
+    "ratio": 0.8467078967680833,
+    "ci_lo": -0.0050248898309996955,
+    "ci_hi": -0.0017516150035979297,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.00846067577642097,
+    "ref_metric": 0.008465086244122916,
+    "diff": -4.410467701947603e-06,
+    "ratio": 0.9994789813624155,
+    "ci_lo": -1.323140310584281e-05,
+    "ci_hi": 0.0,
+    "wins": 1,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018320193202483622,
+    "ref_metric": 0.018455941148893863,
+    "diff": -0.00013574794641023723,
+    "ratio": 0.9926447562161644,
+    "ci_lo": -0.0002516191815257384,
+    "ci_hi": -3.736429554553258e-05,
+    "wins": 4,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "rule met"
+  },
+  "r3_c03_no_gain_scaling": {
+   "idea": "v6 without the area scaling of gains/caps/burst (caps and per-zone start only)",
+   "rationale": "isolates the effect of the gain scaling",
+   "status": "rejected",
+   "outcome": "ablation: without the area scaling the held-out gain over v5 disappears; mechanism kept",
+   "params": {
+    "gain_area_scaling": 0.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008563477510393104,
+    "ref_metric": 0.008626697590787004,
+    "diff": -6.322008039389717e-05,
+    "ratio": 0.9926715780020601,
+    "ci_lo": -0.00029859137289370936,
+    "ci_hi": 0.00010039528167053696,
+    "wins": 3,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.021780948581433954,
+    "ref_metric": 0.021636969812626656,
+    "diff": 0.00014397876880729854,
+    "ratio": 1.0066542944808878,
+    "ci_lo": -0.0007442747595333922,
+    "ci_hi": 0.0011153872542941478,
+    "wins": 3,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008563477510393104,
+    "ref_metric": 0.008465086244122916,
+    "diff": 9.83912662701886e-05,
+    "ratio": 1.0116231853323998,
+    "ci_lo": 2.7744099548374942e-05,
+    "ci_hi": 0.0001660236961586012,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.021780948581433954,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.003325007432540095,
+    "ratio": 1.1801591913257359,
+    "ci_lo": 0.0017429770618948718,
+    "ci_hi": 0.005198346289271873,
+    "wins": 0,
+    "losses": 6,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c04_no_zone_start": {
+   "idea": "v6 without the per-zone optimum start and adaptive floor (building-wide lead as v5)",
+   "rationale": "isolates the effect of the per-zone start",
+   "status": "rejected",
+   "outcome": "ablation: without the per-zone start the held-out gain shrinks; mechanism kept",
+   "params": {
+    "per_zone_start": 0.0,
+    "adaptive_floor": 0.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008482421062270077,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00014427652851692522,
+    "ratio": 0.9832755782849038,
+    "ci_lo": -0.0002939179403136914,
+    "ci_hi": -1.4991135164262442e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.01902134486437123,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0026156249482554273,
+    "ratio": 0.879113158131365,
+    "ci_lo": -0.003804960868722443,
+    "ci_hi": -0.001496740960783006,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008482421062270077,
+    "ref_metric": 0.008465086244122916,
+    "diff": 1.733481814716055e-05,
+    "ratio": 1.0020478017172236,
+    "ci_lo": -7.432324848869192e-05,
+    "ci_hi": 0.00011665067818844171,
+    "wins": 2,
+    "losses": 4,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.01902134486437123,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.0005654037154773694,
+    "ratio": 1.0306353228435199,
+    "ci_lo": 0.00013762968092668302,
+    "ci_hi": 0.00102237175561852,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c05_no_adaptive_floor": {
+   "idea": "v6 without the adaptive setback floor",
+   "status": "screened",
+   "outcome": "ablation: not significant against c00 on either screen; mechanism kept (no evidence to remove it)",
+   "params": {
+    "adaptive_floor": 0.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.00038857054179099204,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018477195826405935,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031597739862207225,
+    "ratio": 0.8539641172685477,
+    "ci_lo": -0.004697496506888466,
+    "ci_hi": -0.0016832629005841572,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008465086244122916,
+    "diff": 0.0,
+    "ratio": 1.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "wins": 0,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018477195826405935,
+    "ref_metric": 0.018455941148893863,
+    "diff": 2.1254677512073564e-05,
+    "ratio": 1.0011516441963377,
+    "ci_lo": -1.4338454609713902e-06,
+    "ci_hi": 4.526409819452104e-05,
+    "wins": 1,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "n.s."
+  },
+  "r3_c06_scale_min1": {
+   "idea": "area scaling only upwards (small zones keep the v5 gains)",
+   "rationale": "the public set's small zones were tuned at the v5 gains",
+   "status": "screened",
+   "outcome": "better than c00 on the public screen only (held-out not significant); folded into c14/c16",
+   "params": {
+    "area_scale_min": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.00842913017218698,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001975674186000229,
+    "ratio": 0.9770981402186835,
+    "ci_lo": -0.0004326902406970865,
+    "ci_hi": -5.543205382985226e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018440795429310815,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031961743833158417,
+    "ratio": 0.8522817931071544,
+    "ci_lo": -0.004744098242405062,
+    "ci_hi": -0.0017150151383801325,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.00842913017218698,
+    "ref_metric": 0.008465086244122916,
+    "diff": -3.595607193593713e-05,
+    "ratio": 0.9957524269807763,
+    "ci_lo": -6.652681599885275e-05,
+    "ci_hi": -1.136470244310408e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018440795429310815,
+    "ref_metric": 0.018455941148893863,
+    "diff": -1.5145719583045033e-05,
+    "ratio": 0.9991793580473162,
+    "ci_lo": -4.167699378791051e-05,
+    "ci_hi": 2.5150777579104516e-07,
+    "wins": 3,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "public only"
+  },
+  "r3_c07_qcap20k": {
+   "idea": "request cap 20 kW per 100 m2 (before the physical/water caps)",
+   "status": "rejected",
+   "outcome": "not significant against c00",
+   "params": {
+    "q_cap_w": 20000.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008481073730921775,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00014562385986522787,
+    "ratio": 0.9831193966946575,
+    "ci_lo": -0.0003463621908970787,
+    "ci_hi": -2.110387001473658e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018446911784622003,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003190058028004655,
+    "ratio": 0.8525644738782676,
+    "ci_lo": -0.004763379228882741,
+    "ci_hi": -0.0017082001468509127,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008481073730921775,
+    "ref_metric": 0.008465086244122916,
+    "diff": 1.598748679885788e-05,
+    "ratio": 1.001888638383331,
+    "ci_lo": 0.0,
+    "ci_hi": 4.796246039657365e-05,
+    "wins": 0,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018446911784622003,
+    "ref_metric": 0.018455941148893863,
+    "diff": -9.029364271858723e-06,
+    "ratio": 0.9995107611040253,
+    "ci_lo": -3.7179751609108316e-05,
+    "ci_hi": 1.0087388021997115e-05,
+    "wins": 1,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "n.s."
+  },
+  "r3_c08_margin_pre05": {
+   "idea": "preconditioning target 0.5 K inside the band instead of 0.8",
+   "rationale": "less heat before 06:00 if the per-zone start is accurate",
+   "status": "rejected",
+   "outcome": "not significant against c00 on either screen; tried on top of c14 as c15",
+   "params": {
+    "margin_pre": 0.5
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008475453908356077,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001512436824309241,
+    "ratio": 0.9824679512827192,
+    "ci_lo": -0.00045246800624096486,
+    "ci_hi": 6.327297663540933e-05,
+    "wins": 4,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.01836514692170973,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0032718228909169277,
+    "ratio": 0.8487855314653353,
+    "ci_lo": -0.004967400250287806,
+    "ci_hi": -0.0016020276480051539,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008475453908356077,
+    "ref_metric": 0.008465086244122916,
+    "diff": 1.036766423316166e-05,
+    "ratio": 1.0012247558895644,
+    "ci_lo": -7.035197548951298e-05,
+    "ci_hi": 0.00010612878014103681,
+    "wins": 2,
+    "losses": 4,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.01836514692170973,
+    "ref_metric": 0.018455941148893863,
+    "diff": -9.079422718413054e-05,
+    "ratio": 0.9950804878249423,
+    "ci_lo": -0.00024144666851447542,
+    "ci_hi": 4.214075282837759e-05,
+    "wins": 3,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "n.s."
+  },
+  "r3_c09_rate0_1": {
+   "idea": "conservative initial recovery-rate prior (1 K/h)",
+   "rationale": "earlier first-morning start on large zones",
+   "status": "rejected",
+   "outcome": "worse than c00 on the held-out screen",
+   "params": {
+    "rate0_kph": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008501569817353038,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00012512777343396623,
+    "ratio": 0.9854952869140099,
+    "ci_lo": -0.0002840850689965338,
+    "ci_hi": -1.6431941729759e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.01864703837831668,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.002989931434309977,
+    "ratio": 0.8618137631931647,
+    "ci_lo": -0.004464610945727857,
+    "ci_hi": -0.0016143658242777786,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008501569817353038,
+    "ref_metric": 0.008465086244122916,
+    "diff": 3.6483573230119536e-05,
+    "ratio": 1.004309887953646,
+    "ci_lo": -1.316522484389526e-05,
+    "ci_hi": 0.00011449232211484482,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.01864703837831668,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.00019109722942281946,
+    "ratio": 1.010354239205746,
+    "ci_lo": 6.278818753505226e-05,
+    "ci_hi": 0.00032835377863980815,
+    "wins": 0,
+    "losses": 6,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c10_fcap_occ07": {
+   "idea": "flow cap 0.7 also while occupied",
+   "rationale": "bounds fan power during the day at the risk of under-delivery",
+   "status": "rejected",
+   "outcome": "not significant against c00 (identical on the public screen)",
+   "params": {
+    "f_cap_occ": 0.7
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00016161134666408577,
+    "ratio": 0.9812661397987705,
+    "ci_lo": -0.0003887857705123031,
+    "ci_hi": -2.0888641293425492e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.01845801759905308,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0031789522135735773,
+    "ratio": 0.8530777534422386,
+    "ci_lo": -0.004727516571457805,
+    "ci_hi": -0.0017081205694660605,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008465086244122918,
+    "ref_metric": 0.008465086244122916,
+    "diff": 0.0,
+    "ratio": 1.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "wins": 0,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.01845801759905308,
+    "ref_metric": 0.018455941148893863,
+    "diff": 2.0764501592192342e-06,
+    "ratio": 1.000112508494824,
+    "ci_lo": -8.942658893548294e-06,
+    "ci_hi": 1.5930222308370434e-05,
+    "wins": 3,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "n.s."
+  },
+  "r3_c11_latch": {
+   "idea": "preconditioning latch (hold the target until 06:00)",
+   "rationale": "see v6_code_changes/pre_latch; rejected on the ten-day test, kept in the screen for the record",
+   "status": "rejected",
+   "outcome": "worse than c00 on both screens (and on the ten-day test)",
+   "params": {
+    "pre_latch": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.00917884209459749,
+    "ref_metric": 0.008626697590787004,
+    "diff": 0.0005521445038104874,
+    "ratio": 1.0640041566311722,
+    "ci_lo": 3.172814058936e-05,
+    "ci_hi": 0.001234813052971378,
+    "wins": 3,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.02100460633577571,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0006323634768509436,
+    "ratio": 0.9707739354296313,
+    "ci_lo": -0.0012265856668218196,
+    "ci_hi": 5.296864655427296e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.00917884209459749,
+    "ref_metric": 0.008465086244122916,
+    "diff": 0.0007137558504745732,
+    "ratio": 1.084317611172611,
+    "ci_lo": 8.998416543812824e-05,
+    "ci_hi": 0.0016200008362352069,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.02100460633577571,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.0025486651868818527,
+    "ratio": 1.1380945662061022,
+    "ci_lo": 0.0006955747752699519,
+    "ci_hi": 0.004586868462011063,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c12_safety16": {
+   "idea": "lead safety factor 1.6 instead of 1.3",
+   "rationale": "ten-day 0502 test showed the big zones 0.5-1 K short at 06:00",
+   "status": "rejected",
+   "outcome": "worse than c00 on the held-out screen",
+   "params": {
+    "lead_safety": 1.6
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.00851390943417908,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.0001127881566079219,
+    "ratio": 0.9869256855916249,
+    "ci_lo": -0.00029915089393463306,
+    "ci_hi": 1.5976756388092145e-05,
+    "wins": 4,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018637667526059557,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0029993022865671026,
+    "ratio": 0.8613806687100518,
+    "ci_lo": -0.0044427221066839625,
+    "ci_hi": -0.0016419519066684738,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.00851390943417908,
+    "ref_metric": 0.008465086244122916,
+    "diff": 4.882319005616387e-05,
+    "ratio": 1.0057675951134062,
+    "ci_lo": 3.486914273707261e-06,
+    "ci_hi": 0.00010590202949195563,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018637667526059557,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.0001817263771656939,
+    "ratio": 1.009846497434057,
+    "ci_lo": 4.5213145130786263e-05,
+    "ci_hi": 0.0003266878383939074,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c13_pre05_safety16": {
+   "idea": "margin_pre 0.5 with safety 1.6",
+   "status": "rejected",
+   "outcome": "worse than c00 on the held-out screen",
+   "params": {
+    "margin_pre": 0.5,
+    "lead_safety": 1.6
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008540115240861642,
+    "ref_metric": 0.008626697590787004,
+    "diff": -8.658234992535892e-05,
+    "ratio": 0.989963442091928,
+    "ci_lo": -0.0003462623781713427,
+    "ci_hi": 0.00011430614588064979,
+    "wins": 4,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018556499915623397,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.0030804698970032626,
+    "ratio": 0.8576293296298083,
+    "ci_lo": -0.0046375206928623205,
+    "ci_hi": -0.001499467225880993,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008540115240861642,
+    "ref_metric": 0.008465086244122916,
+    "diff": 7.502899673872685e-05,
+    "ratio": 1.0088633469967088,
+    "ci_lo": -7.783475679249963e-08,
+    "ci_hi": 0.00015569356437175426,
+    "wins": 1,
+    "losses": 5,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018556499915623397,
+    "ref_metric": 0.018455941148893863,
+    "diff": 0.0001005587667295339,
+    "ratio": 1.0054485851422192,
+    "ci_lo": 4.910073953709399e-05,
+    "ci_hi": 0.00015372018761333704,
+    "wins": 0,
+    "losses": 6,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "worse"
+  },
+  "r3_c14_pre05_min1": {
+   "idea": "composite: preconditioning flow cap 0.5 (c02) + area scaling only upwards (c06) on the v6 default",
+   "rationale": "c02 met the shipping rule against c00 in the screen (public tied, held better); c06 was better on public and neutral on held; the two act on different zones (large zones while preconditioning vs small zones' gains)",
+   "status": "screened",
+   "outcome": "met the rule against c00 on both screens; not chosen (held-out screen 0.01832 vs 0.01824 for c16; c16 vs c14 not significant)",
+   "params": {
+    "f_cap_pre": 0.5,
+    "area_scale_min": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008431179777026778,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00019551781376022495,
+    "ratio": 0.97733572879974,
+    "ci_lo": -0.0004188029011850016,
+    "ci_hi": -5.540000942225711e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018316355778651993,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003320614033974664,
+    "ratio": 0.8465305418119659,
+    "ci_lo": -0.0049432454272478445,
+    "ci_hi": -0.0017022525248455726,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008431179777026778,
+    "ref_metric": 0.008465086244122916,
+    "diff": -3.390646709613918e-05,
+    "ratio": 0.995994551488512,
+    "ci_lo": -6.5820538310774e-05,
+    "ci_hi": -1.0637763343559776e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018316355778651993,
+    "ref_metric": 0.018455941148893863,
+    "diff": -0.00013958537024186748,
+    "ratio": 0.9924368327187565,
+    "ci_lo": -0.0002559646122407422,
+    "ci_hi": -3.474626068040738e-05,
+    "wins": 4,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "rule met"
+  },
+  "r3_c15_pre05_min1_mpre05": {
+   "idea": "composite c14 + preconditioning target 0.5 K inside the band (c08)",
+   "rationale": "c08 alone was not significant on either screen (held point estimate -0.5%); tests whether it adds on top of c14",
+   "status": "rejected",
+   "outcome": "not significant against c00 on either screen",
+   "params": {
+    "f_cap_pre": 0.5,
+    "area_scale_min": 1.0,
+    "margin_pre": 0.5
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008421504653837293,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00020519293694970923,
+    "ratio": 0.9762141961289047,
+    "ci_lo": -0.0005027946421487656,
+    "ci_hi": -1.0658194848110913e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018272696656594003,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003364273156032658,
+    "ratio": 0.8445127397613056,
+    "ci_lo": -0.005125176998475342,
+    "ci_hi": -0.001688963540244338,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008421504653837293,
+    "ref_metric": 0.008465086244122916,
+    "diff": -4.3581590285623476e-05,
+    "ratio": 0.994851607056469,
+    "ci_lo": -0.000122164402123585,
+    "ci_hi": 2.5963333471160636e-05,
+    "wins": 4,
+    "losses": 2,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018272696656594003,
+    "ref_metric": 0.018455941148893863,
+    "diff": -0.00018324449229986154,
+    "ratio": 0.9900712463904424,
+    "ci_lo": -0.0003989732504301741,
+    "ci_hi": 2.2721893843372e-05,
+    "wins": 3,
+    "losses": 3,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "n.s."
+  },
+  "r3_c16_pre035_min1": {
+   "idea": "composite with a lower preconditioning flow cap: f_cap_pre 0.35 + area_scale_min 1",
+   "rationale": "f_cap_pre 1.0 -> 0.7 -> 0.5 was monotone on the held screen; checks whether the trend continues below 0.5",
+   "status": "shipped",
+   "outcome": "chosen by the pre-fixed rule (lowest held-out screen among composites meeting the rule); confirmed at full length on 30 public + 40 held-out scenarios; shipped as v6",
+   "params": {
+    "f_cap_pre": 0.35,
+    "area_scale_min": 1.0
+   },
+   "screen_public": {
+    "n": 6,
+    "metric": 0.008414719613890924,
+    "ref_metric": 0.008626697590787004,
+    "diff": -0.00021197797689608043,
+    "ratio": 0.9754276796346186,
+    "ci_lo": -0.0004652809412939901,
+    "ci_hi": -5.5433541999544986e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_held": {
+    "n": 6,
+    "metric": 0.018240730560991656,
+    "ref_metric": 0.021636969812626656,
+    "diff": -0.003396239251635,
+    "ratio": 0.8430353565658227,
+    "ci_lo": -0.005015415977495532,
+    "ci_hi": -0.0017771301218989048,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_public_vs_c00": {
+    "n": 6,
+    "metric": 0.008414719613890924,
+    "ref_metric": 0.008465086244122916,
+    "diff": -5.036663023199467e-05,
+    "ratio": 0.9940500747683506,
+    "ci_lo": -8.947713909065493e-05,
+    "ci_hi": -1.4082720599284712e-05,
+    "wins": 5,
+    "losses": 1,
+    "n_paired": 6
+   },
+   "screen_held_vs_c00": {
+    "n": 6,
+    "metric": 0.018240730560991656,
+    "ref_metric": 0.018455941148893863,
+    "diff": -0.00021521058790220345,
+    "ratio": 0.9883392244174389,
+    "ci_lo": -0.0004486089732382045,
+    "ci_hi": -4.4903315617367236e-05,
+    "wins": 6,
+    "losses": 0,
+    "n_paired": 6
+   },
+   "screen_outcome_vs_c00": "rule met"
+  }
+ },
+ "ten_day_tests_building_0502_denver_1": {
+  "doc": "v5 = shipped; v6 = area scaling + physical caps + per-zone start; v6b = + water-limited cap; v6c = v6b + preconditioning latch (rejected)",
+  "b0502_v5": {
+   "steps": 2880,
+   "score": 0.028314121842514497,
+   "regret": -16.950270152275607,
+   "energy": 104.70517119824945,
+   "carbon": 252.1673735738732
+  },
+  "b0502_v6": {
+   "steps": 2880,
+   "score": 0.0243665355184223,
+   "regret": -1.9759023859961644,
+   "energy": 108.80378290577937,
+   "carbon": 236.14662154283724
+  },
+  "b0502_v6b": {
+   "steps": 2880,
+   "score": 0.023755973129638935,
+   "regret": -1.2821917888124972,
+   "energy": 104.48522030993627,
+   "carbon": 233.75421720943996
+  },
+  "b0502_v6c": {
+   "steps": 2880,
+   "score": 0.028156595672852645,
+   "regret": -0.04679723066328734,
+   "energy": 128.17256564922718,
+   "carbon": 277.14202020454104
+  }
+ },
+ "full_length_shipped_vs_v5": {
+  "public": {
+   "n": 30,
+   "metric_new": 0.0080258732376669,
+   "metric_v5": 0.008308536678302843,
+   "diff": -0.00028266344063594115,
+   "ci_lo": -0.00045131244225577637,
+   "ci_hi": -0.00015245682042369993,
+   "ratio": 0.9659791547440479,
+   "ratio_ci_lo": 0.9571930258739995,
+   "ratio_ci_hi": 0.9752873050182176,
+   "wins": 28,
+   "losses": 2,
+   "wilcoxon_p": 2.0489096641540527e-07
+  },
+  "heldout": {
+   "n": 10,
+   "metric_new": 0.00943808283106777,
+   "metric_v5": 0.01108723694484299,
+   "diff": -0.0016491541137752205,
+   "ci_lo": -0.0029756115019057418,
+   "ci_hi": -0.0005470201019840819,
+   "ratio": 0.8512565283866967,
+   "ratio_ci_lo": 0.8204169335749996,
+   "ratio_ci_hi": 0.9109822823886707,
+   "wins": 10,
+   "losses": 0,
+   "wilcoxon_p": 0.001953125
+  },
+  "heldout_r3": {
+   "n": 30,
+   "metric_new": 0.012938449012237917,
+   "metric_v5": 0.014582136624007532,
+   "diff": -0.0016436876117696176,
+   "ci_lo": -0.002301500732242687,
+   "ci_hi": -0.0010880793220869453,
+   "ratio": 0.8872807425858633,
+   "ratio_ci_lo": 0.8614904166414319,
+   "ratio_ci_hi": 0.9134408659923308,
+   "wins": 30,
+   "losses": 0,
+   "wilcoxon_p": 1.862645149230957e-09
+  }
+ },
+ "full_length_c00_public": {
+  "machine": "laptop",
+  "n": 30,
+  "metric": 0.008136287209408797,
+  "vs_v5": {
+   "diff": -0.00017224946889404433,
+   "ci_lo": -0.0002888530613690065,
+   "ci_hi": -6.687472144574997e-05,
+   "ratio": 0.9792683747375319,
+   "ratio_ci_lo": 0.9704815708931592,
+   "ratio_ci_hi": 0.9891921247460924,
+   "n": 30,
+   "n_boot": 5000,
+   "frac_boot_negative": 0.9998,
+   "wins": 22,
+   "losses": 8
+  },
+  "metric_v5": 0.008308536678302843,
+  "per_scenario": {
+   "building_train_1/atlanta_2": 0.00398582881425703,
+   "building_train_1/denver_7": 0.0028563614376551,
+   "building_train_1/fairbanks_1": 0.04956868671460294,
+   "building_train_1/phoenix_5": 0.01490546519936014,
+   "building_train_1/singapore_8": 0.00671906342341715,
+   "building_train_2/atlanta_3": 0.0034196880504885137,
+   "building_train_2/denver_8": 0.0050646810406935515,
+   "building_train_2/fairbanks_2": 0.013141265711822227,
+   "building_train_2/phoenix_6": 0.007434657851831381,
+   "building_train_2/singapore_1": 0.0048242246689628185,
+   "building_train_4/atlanta_5": 0.006776908551444089,
+   "building_train_4/denver_2": 0.0062787993096601775,
+   "building_train_4/fairbanks_4": 0.0024330597396453025,
+   "building_train_4/phoenix_8": 0.0024135219396448013,
+   "building_train_4/singapore_3": 0.007075079225668638,
+   "building_train_5/atlanta_6": 0.004532336088291484,
+   "building_train_5/denver_3": 0.00479292367429983,
+   "building_train_5/fairbanks_5": 0.0023108100143041364,
+   "building_train_5/phoenix_1": 0.0033108276854094316,
+   "building_train_5/singapore_4": 0.005824476206127879,
+   "building_train_7/atlanta_8": 0.007789498090439203,
+   "building_train_7/denver_5": 0.006190677112598598,
+   "building_train_7/fairbanks_7": 0.00878435819839246,
+   "building_train_7/phoenix_3": 0.006671568177049176,
+   "building_train_7/singapore_6": 0.005896828117553441,
+   "building_train_8/atlanta_1": 0.005716556406401584,
+   "building_train_8/denver_6": 0.004013706531631924,
+   "building_train_8/fairbanks_8": 0.025512274674115022,
+   "building_train_8/phoenix_4": 0.010143701151607998,
+   "building_train_8/singapore_7": 0.005700782474887892
+  }
+ },
+ "full_length_c00_heldout": {
+  "machine": "mac",
+  "complete": true,
+  "n": 40,
+  "metric": 0.012224699861495821,
+  "metric_v5": 0.0137084117042164,
+  "metric_shipped": 0.012063357466945378,
+  "vs_v5": {
+   "diff": -0.001483711842720577,
+   "ci_lo": -0.0020138679207282084,
+   "ci_hi": -0.0010234774297362993,
+   "ratio": 0.8917663202175184,
+   "ratio_ci_lo": 0.8675656023890358,
+   "ratio_ci_hi": 0.9155075530699045,
+   "n": 40,
+   "n_boot": 5000,
+   "frac_boot_negative": 1.0,
+   "wins": 40,
+   "losses": 0
+  },
+  "shipped_vs_c00": {
+   "diff": -0.00016134239455044128,
+   "ci_lo": -0.0003054750111484093,
+   "ci_hi": -5.763429708004359e-05,
+   "ratio": 0.9868019340860364,
+   "ratio_ci_lo": 0.9785737610834856,
+   "ratio_ci_hi": 0.9946772021474328,
+   "n": 40,
+   "n_boot": 5000,
+   "frac_boot_negative": 1.0,
+   "wins": 33,
+   "losses": 7
+  }
+ },
+ "full_length_shipped_vs_c00_public": {
+  "n": 30,
+  "metric_shipped": 0.0080258732376669,
+  "metric_c00": 0.008136287209408797,
+  "diff": -0.00011041397174189682,
+  "ci_lo": -0.00017991237428871017,
+  "ci_hi": -5.960921902714016e-05,
+  "ratio": 0.9864294402471173,
+  "ratio_ci_lo": 0.981809289789726,
+  "ratio_ci_hi": 0.9911576460754106,
+  "n_boot": 5000,
+  "frac_boot_negative": 1.0,
+  "wins": 28,
+  "losses": 2
+ }
+}

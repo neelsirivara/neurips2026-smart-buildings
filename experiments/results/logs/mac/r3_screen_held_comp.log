@@ -1,0 +1,8 @@
+== r3_c14_pre05_min1 / held / heldout_scenarios: 2 scenarios
+2 jobs (1 policies x 2 scenarios) at 2880 steps, 6 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/round3/screen/r3_c14_pre05_min1/held
+[1/2] building_0502/fairbanks_3/transfer: total=-88.94 steps=2880 sec/step=0.026 (policy 0.26 ms) regret=-3.45 energy=123.73 carbon=310.60 (78s, elapsed 1.3 min)
+[2/2] building_0502/denver_1/transfer: total=-67.87 steps=2880 sec/step=0.026 (policy 0.25 ms) regret=-2.47 energy=100.86 carbon=231.08 (78s, elapsed 1.3 min)
+== transfer: n=2 metric=0.02722
+total wall 1.3 min, 0 failures
+== r3_c14_pre05_min1 / held / heldout_scenarios_r3: 4 scenarios
+4 jobs (1 policies x 4 scenarios) at 2880 steps, 6 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/round3/screen/r3_c14_pre05_min1/held

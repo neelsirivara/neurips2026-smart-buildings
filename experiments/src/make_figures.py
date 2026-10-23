@@ -270,6 +270,72 @@ def fig_tuning(tune_log: Path, baseline_agg: Path | None = None):
     save(fig, "fig_tuning")
 
 
+COMP5 = [("comfort", C_THIRD), ("fan", C_FOURTH), ("cooling", C_OURS), ("pump", MUTED), ("gas", C_PID)]
+
+
+def fig_loss_decomp(decomps: list[tuple[str, Path]]):
+    """Round 3: per-station loss by component (comfort / fan / cooling / pump / gas, metric units)
+    for up to three policies/sets, from decompose_loss.py JSON files; one bar group per station."""
+    data = [(lab, json.loads(p.read_text())) for lab, p in decomps if p.exists()]
+    if not data:
+        print("fig_loss_decomp: no decomposition json")
+        return
+    fig, ax = plt.subplots(figsize=(5.6, 2.2))
+    x = np.arange(len(STATIONS))
+    n = len(data)
+    w = 0.8 / n
+    for j, (lab, d) in enumerate(data):
+        off = (j - (n - 1) / 2) * w
+        bottom = np.zeros(len(STATIONS))
+        for comp, col in COMP5:
+            vals = np.array([d["by_station"].get(st, {}).get("components", {}).get(comp, 0.0) for st in STATIONS])
+            ax.bar(x + off, vals, w * 0.92, bottom=bottom, color=col, linewidth=0.6, edgecolor="#fcfcfb",
+                   label=comp if j == 0 else None)
+            bottom += vals
+        for xi, b in zip(x + off, bottom):
+            ax.text(xi, b, lab, ha="center", va="bottom", fontsize=5.2, color=INK2, rotation=90)
+    ax.set_xticks(x)
+    ax.set_xticklabels([s.capitalize() for s in STATIONS])
+    ax.set_ylabel("per-step loss (metric units)")
+    ax.grid(axis="x", visible=False)
+    ax.set_ylim(0, ax.get_ylim()[1] * 1.35)
+    ax.legend(fontsize=6.5, ncol=5, loc="upper center", bbox_to_anchor=(0.5, 1.03), handlelength=1.0, columnspacing=1.0)
+    save(fig, "fig_loss_decomp")
+
+
+def fig_heldout_buildings(score_files: list[Path]):
+    """Round 3: per-building metric on every generated held-out building, pid_water vs v5 vs the
+    round-3 policy (log scale, lower is better); buildings sorted by median zone area when known."""
+    rows = {}
+    for f in score_files:
+        if not f.exists():
+            continue
+        sc = json.loads(f.read_text())
+        for pol in ("pid_water", "transfer_v5", "transfer"):
+            for b, v in (sc["policies"].get(pol, {}).get("by_building") or {}).items():
+                rows.setdefault(b, {})[pol] = v
+            for b, v in (sc["policies"].get(pol, {}).get("building_size") or {}).items():
+                rows.setdefault(b, {}).setdefault("zones", v.get("num_zones"))
+    rows = {b: r for b, r in rows.items() if "transfer" in r}
+    if not rows:
+        print("fig_heldout_buildings: no data")
+        return
+    order = sorted(rows, key=lambda b: rows[b].get("zones") or 0)
+    fig, ax = plt.subplots(figsize=(5.6, 2.0))
+    x = np.arange(len(order))
+    for pol, col, lab, mk in (("pid_water", C_PID, "pid_water", "s"), ("transfer_v5", MUTED, "SADR v5", "o"),
+                              ("transfer", C_OURS, "SADR v6 (round 3)", "D")):
+        ys = [rows[b].get(pol, np.nan) for b in order]
+        ax.plot(x, ys, mk, color=col, markersize=4.5, label=lab, linestyle="none")
+    ax.set_yscale("log")
+    ax.set_xticks(x)
+    ax.set_xticklabels([f"{b.replace('building_', 'b')}\n({rows[b].get('zones', '?')} z)" for b in order], fontsize=6)
+    ax.set_ylabel("|mean per-step reward|\n(log, lower is better)")
+    ax.grid(axis="x", visible=False)
+    ax.legend(fontsize=6.5, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.08))
+    save(fig, "fig_heldout_buildings")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--results-dir", default="../results/full")
@@ -280,6 +346,8 @@ def main() -> int:
     ap.add_argument("--tune-baseline", default="../results/tune_baseline/pid_water__agg.json")
     ap.add_argument("--held-scores", default="../results/heldout_scores.json")
     ap.add_argument("--analysis", default="../results/analysis.json")
+    ap.add_argument("--decomp", nargs="*", default=[], help="label=path pairs of decompose_loss.py JSON files")
+    ap.add_argument("--heldout-scores-r3", default="../results/heldout_r3_scores.json")
     a = ap.parse_args()
     rd = (HERE / a.results_dir).resolve() if not Path(a.results_dir).is_absolute() else Path(a.results_dir)
     sp = (HERE / a.scores).resolve() if not Path(a.scores).is_absolute() else Path(a.scores)
@@ -298,6 +366,16 @@ def main() -> int:
     fig_tuning(tl, ba)
     an = (HERE / a.analysis).resolve() if not Path(a.analysis).is_absolute() else Path(a.analysis)
     fig_loss_by_hour(an)
+    dec = []
+    for item in a.decomp:
+        lab, _, pth = item.partition("=")
+        pp = Path(pth)
+        dec.append((lab, (HERE / pp).resolve() if not pp.is_absolute() else pp))
+    if dec:
+        fig_loss_decomp(dec)
+    r3 = Path(a.heldout_scores_r3)
+    r3 = (HERE / r3).resolve() if not r3.is_absolute() else r3
+    fig_heldout_buildings([hp, r3])
     return 0
 
 

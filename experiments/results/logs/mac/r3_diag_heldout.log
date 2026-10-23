@@ -1,0 +1,13 @@
+10 jobs (1 policies x 10 scenarios) at 8640 steps, 12 workers -> /Users/neel.sirivara/neurips/sb/experiments/results/round3/diag_v5_heldout
+[1/10] building_0501/phoenix_7/transfer: total=-34.84 steps=8640 sec/step=0.041 (policy 0.39 ms) regret=-9.47 energy=109.96 carbon=35.82 (362s, elapsed 6.0 min)
+[2/10] building_0501/atlanta_7/transfer: total=-37.47 steps=8640 sec/step=0.041 (policy 0.39 ms) regret=-10.12 energy=81.02 carbon=75.97 (362s, elapsed 6.0 min)
+[3/10] building_0501/singapore_5/transfer: total=-55.34 steps=8640 sec/step=0.041 (policy 0.39 ms) regret=-10.94 energy=197.97 carbon=45.92 (363s, elapsed 6.1 min)
+[4/10] building_0501/fairbanks_6/transfer: total=-26.08 steps=8640 sec/step=0.041 (policy 0.39 ms) regret=-4.71 energy=48.25 carbon=68.01 (364s, elapsed 6.1 min)
+[5/10] building_0501/denver_4/transfer: total=-37.77 steps=8640 sec/step=0.041 (policy 0.40 ms) regret=-14.25 energy=80.38 carbon=65.74 (364s, elapsed 6.1 min)
+[6/10] building_0502/phoenix_2/transfer: total=-61.07 steps=8640 sec/step=0.057 (policy 0.35 ms) regret=-31.07 energy=159.41 carbon=52.74 (504s, elapsed 8.4 min)
+[7/10] building_0502/singapore_2/transfer: total=-92.74 steps=8640 sec/step=0.058 (policy 0.35 ms) regret=-2.39 energy=369.35 carbon=87.20 (506s, elapsed 8.4 min)
+[8/10] building_0502/denver_1/transfer: total=-280.82 steps=8640 sec/step=0.058 (policy 0.37 ms) regret=-91.41 energy=327.75 carbon=802.15 (508s, elapsed 8.5 min)
+[9/10] building_0502/atlanta_4/transfer: total=-85.89 steps=8640 sec/step=0.058 (policy 0.35 ms) regret=-16.09 energy=307.87 carbon=73.34 (508s, elapsed 8.5 min)
+[10/10] building_0502/fairbanks_3/transfer: total=-245.91 steps=8640 sec/step=0.058 (policy 0.36 ms) regret=-64.17 energy=279.27 carbon=757.77 (508s, elapsed 8.5 min)
+== transfer: n=10 metric=0.01109
+total wall 8.5 min, 0 failures

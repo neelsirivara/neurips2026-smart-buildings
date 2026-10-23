@@ -45,3 +45,36 @@ none (v5 code, v4 values) & 0.00920 & 1.000 & [+0.00000, +0.00000] & 0/30 & 0.01
 \end{tabular}
 \end{table}
 
+\begin{table}[h]
+\caption{Round-3 candidates (v6 code) on the two screening sets at 2,880 steps: six public scenarios and six held-out scenarios (building 0502 twice, buildings 0500, 0505, 0507 and 0509 once). Metric = leaderboard metric on the set; ratio = against the shipped v5 on the same scenarios; $\Delta$ = paired mean difference against the v6 defaults (c00) in units of $10^{-5}$ with its bootstrap 95\% CI (negative favours the candidate). Verdict under the shipping rule against c00: \emph{rule met} = held-out CI below zero and public CI not above it; \emph{public only} = only the public CI below zero; \emph{worse} = a CI above zero; n.s. = neither. c01--c13 change one or two values of the v6 defaults (c03--c05 are ablations); c14--c16 combine the changes that helped; $\star$ marks the shipped variant. Parameter files: \texttt{experiments/src/policy\_candidates/}.}
+\label{tab:candidates_r3}
+\centering\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{llrrrrrrl}
+\toprule
+ & & \multicolumn{3}{c}{public screen} & \multicolumn{3}{c}{held-out screen} & \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+id & change vs v6 defaults & metric & ratio & $\Delta$ vs c00 [CI] & metric & ratio & $\Delta$ vs c00 [CI] & verdict \\
+\midrule
+v5 & shipped v5 (reference) & 0.00863 & -- & +16.2 [+2.0, +38.9] & 0.02164 & -- & +318.1 [+163.9, +470.3] & -- \\
+c00 & v6 defaults & 0.00847 & 0.981 & -- & 0.01846 & 0.853 & -- & base \\
+c01 & $f_{\text{cap}}^{\text{pre}}$ 1 & 0.00847 & 0.981 & +0.0 [+0.0, +0.0] & 0.01846 & 0.853 & +0.8 [+0.0, +2.3] & worse \\
+c02 & $f_{\text{cap}}^{\text{pre}}$ 0.5 & 0.00846 & 0.981 & -0.4 [-1.3, +0.0] & 0.01832 & 0.847 & -13.6 [-25.2, -3.7] & rule met \\
+c03 & area scaling 0 & 0.00856 & 0.993 & +9.8 [+2.8, +16.6] & 0.02178 & 1.007 & +332.5 [+174.3, +519.8] & worse \\
+c04 & per-zone start 0, adaptive floor 0 & 0.00848 & 0.983 & +1.7 [-7.4, +11.7] & 0.01902 & 0.879 & +56.5 [+13.8, +102.2] & worse \\
+c05 & adaptive floor 0 & 0.00847 & 0.981 & +0.0 [+0.0, +0.0] & 0.01848 & 0.854 & +2.1 [-0.1, +4.5] & n.s. \\
+c06 & scale min 1 & 0.00843 & 0.977 & -3.6 [-6.7, -1.1] & 0.01844 & 0.852 & -1.5 [-4.2, +0.0] & public only \\
+c07 & $q$ cap (W) 20000 & 0.00848 & 0.983 & +1.6 [+0.0, +4.8] & 0.01845 & 0.853 & -0.9 [-3.7, +1.0] & n.s. \\
+c08 & pre margin 0.5 & 0.00848 & 0.982 & +1.0 [-7.0, +10.6] & 0.01837 & 0.849 & -9.1 [-24.1, +4.2] & n.s. \\
+c09 & rate$_0$ 1 & 0.00850 & 0.985 & +3.6 [-1.3, +11.4] & 0.01865 & 0.862 & +19.1 [+6.3, +32.8] & worse \\
+c10 & $f_{\text{cap}}^{\text{occ}}$ 0.7 & 0.00847 & 0.981 & +0.0 [+0.0, +0.0] & 0.01846 & 0.853 & +0.2 [-0.9, +1.6] & n.s. \\
+c11 & latch 1 & 0.00918 & 1.064 & +71.4 [+9.0, +162.0] & 0.02100 & 0.971 & +254.9 [+69.6, +458.7] & worse \\
+c12 & lead safety 1.6 & 0.00851 & 0.987 & +4.9 [+0.3, +10.6] & 0.01864 & 0.861 & +18.2 [+4.5, +32.7] & worse \\
+c13 & pre margin 0.5, lead safety 1.6 & 0.00854 & 0.990 & +7.5 [-0.0, +15.6] & 0.01856 & 0.858 & +10.1 [+4.9, +15.4] & worse \\
+c14 & $f_{\text{cap}}^{\text{pre}}$ 0.5, scale min 1 & 0.00843 & 0.977 & -3.4 [-6.6, -1.1] & 0.01832 & 0.847 & -14.0 [-25.6, -3.5] & rule met \\
+c15 & $f_{\text{cap}}^{\text{pre}}$ 0.5, scale min 1, pre margin 0.5 & 0.00842 & 0.976 & -4.4 [-12.2, +2.6] & 0.01827 & 0.845 & -18.3 [-39.9, +2.3] & n.s. \\
+$\star$c16 & $f_{\text{cap}}^{\text{pre}}$ 0.35, scale min 1 & 0.00841 & 0.975 & -5.0 [-8.9, -1.4] & 0.01824 & 0.843 & -21.5 [-44.9, -4.5] & rule met \\
+\bottomrule
+\end{tabular}
+\end{table}
+
