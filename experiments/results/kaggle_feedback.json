@@ -1,0 +1,21 @@
+{
+  "submissions": [
+    {
+      "ref": 57580485,
+      "submitted_utc": "2026-10-24T03:09:20Z",
+      "policy": "SADR v7 (submission/transfer_policy.py, kernel neelsiri/sadr-v7-smart-buildings v1)",
+      "public_score": 0.01088,
+      "public_rank": 75,
+      "teams": 315,
+      "read_at": "2026-10-24T09:00Z"
+    }
+  ],
+  "leaderboard_at_read": {"#1": 0.00572, "#8": 0.00624, "#10": 0.00648, "#20": 0.00775, "#30": 0.00971, "#50": 0.01040},
+  "local_proxies_v7": {"public_30": 0.00786, "fresh_shipped_size_20": 0.00725, "untouched_heldout_74": 0.00971, "old_heldout_40_default_size": 0.01173},
+  "kaggle_run_check": "Kaggle's interactive run of building_train_1/atlanta_2 gave total -33.8546 vs local -33.8504 (0.01%), so the wiring is not the cause",
+  "notes": [
+    "Public LB uses ~33% of the 30 hidden scenarios (about 10), so it is noisy.",
+    "0.01088 is worse than the public-30 and shipped-size proxies but inside the range of our default-size held-out sets (0.0097-0.0117): the hidden buildings may be larger than the shipped six and/or the hidden weather colder (the unused Minneapolis station).",
+    "Per NEXT_ROUND_PLAN.md (score > 0.0090): robustness round when the Mac returns."
+  ]
+}

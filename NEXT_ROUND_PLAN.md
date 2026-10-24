@@ -1,5 +1,17 @@
 # Round 5 plan, keyed to v7's Kaggle public score (written 2026-10-23, before the score is known)
 
+**Outcome (2026-10-24):** v7 public score **0.01088**, rank **75 / 315** → the "> 0.0090" row applies: robustness round.
+Concretely, when the Mac returns (in this order):
+1. Which local set predicts Kaggle? Our default-size held-out sets (0.0097–0.0117) bracket 0.01088; the public-30 (0.00786)
+   and shipped-size (0.00725) sets do not. Re-run v7 + pid_water on (a) the unused Minneapolis weather station with the
+   shipped six buildings, (b) default-size generated buildings × all six stations, (c) with and without starter-kit PR #1
+   (occupancy fix) and PR #2 (gas-billing fix) to see whether the grader's kit version moves our number.
+2. Loss decomposition on whichever set matches 0.0109, then targeted fixes (cold-climate ventilation gas, morning
+   recovery, large-building comfort) plus the public-notebook and literature ideas in `../COMPETITION_INTEL_2026-10-24.md`
+   (cost-based supply-air reset, weekend/Monday handling, sensor-lag compensation, mild-weather hot-water reset).
+3. Never use the gas-billing quirk (setpoint toggling); a check that v7 does not benefit from it goes in the paper.
+4. Up to 5 Kaggle submissions/day: spend them on discriminating variants (e.g. v6 vs v7) only after local screening.
+
 Local reference points for v7 (mean |mean per-step reward|, lower is better):
 public 30 scenarios **0.00786**; fresh buildings at the shipped six's sizes **0.00725**; 74 untouched held-out
 **0.00971** (mixes larger default-size buildings). Kaggle public board on 2026-10-22: #1 0.00578, #8 0.00647, #30 0.00996.

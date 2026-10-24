@@ -98,7 +98,23 @@ stdlib+numpy file (about 0.5 ms per step, under 50 KB) and the full 30-scenario 
 loop takes about 2 hours on 12 cores, so a Kaggle session limit on CPU hours is the only plausible
 constraint.
 
-## Paste-in instructions for the official Kaggle notebook (user action)
+## Submitting with the Kaggle CLI (what was actually done, 2026-10-23)
+
+The official template (`ayushrai1114/transferpolicy-notebook`) is one cell: a `TransferPolicy` subclass of
+`kaggle_evaluation.smart_buildings_inference_server.Policy`, then
+`SmartBuildingsInferenceServer(TransferPolicy).run(competition_data_folder=...)`; it writes `submission.parquet`.
+`kaggle/sadr_v7_submission.py` is v7's source unchanged (class renamed `_SADRPolicy`) followed by that wiring, with a
+`TransferPolicy(Policy)` wrapper that delegates to `_SADRPolicy`. `kaggle/push/` holds the one-cell notebook and
+`kernel-metadata.json` (private, internet off, competition source attached). Commands:
+
+```bash
+kaggle kernels push -p submission/kaggle/push
+kaggle kernels status neelsiri/sadr-v7-smart-buildings
+kaggle competitions submit neurips-2026-smart-buildings -k neelsiri/sadr-v7-smart-buildings -v <version> -f submission.parquet -m "SADR v7"
+```
+The CLI (2.2.5) lives in `%USERPROFILE%\.kaggle-cli-venv`; credentials in `%USERPROFILE%\.kaggle\access_token`.
+
+## Paste-in instructions for the official Kaggle notebook (manual alternative)
 
 The competition page and its notebook template are only readable when logged in; you have
 joined, so open the official submission notebook template from the competition's Code tab and
