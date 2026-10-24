@@ -1,0 +1,1056 @@
+{
+ "doc": "Round-4 candidates ledger (hand-written part). ledger_round4.py merges these notes with the screen summary (results/round4/screen_summary_screen_vs_r4_c00_v6.json) and the full-length comparisons (results/round4/confirm_*.json) into results/round4/candidates.json. Pre-registration: results/round4/PREREG.md (written before any policy ran on the new sets).",
+ "code": "experiments/src/policy_candidates/transfer_policy_v7.py = submission/transfer_policy.py (v6) + round-4 switches, all off by default; r4_c00_v6 (no overrides) reproduces v6 bit for bit (results/round4/regress: 3 public scenarios x 576 steps, identical totals)",
+ "prereg": "results/round4/PREREG.md",
+ "screen_steps": 2880,
+ "screen_sets": {
+  "public": [
+   "building_train_8/fairbanks_8",
+   "building_train_1/denver_7",
+   "building_train_2/atlanta_3",
+   "building_train_8/phoenix_4",
+   "building_train_1/singapore_8",
+   "building_train_5/fairbanks_5",
+   "building_train_1/fairbanks_1",
+   "building_train_2/fairbanks_2",
+   "building_train_4/fairbanks_4",
+   "building_train_7/fairbanks_7"
+  ],
+  "held": [
+   "building_0502/denver_1",
+   "building_0502/fairbanks_3",
+   "building_0507/fairbanks_2",
+   "building_0500/phoenix_2",
+   "building_0509/denver_5",
+   "building_0505/singapore_4",
+   "building_0520/atlanta_5",
+   "building_0520/denver_3",
+   "building_0520/fairbanks_1",
+   "building_0520/phoenix_7",
+   "building_0520/singapore_1",
+   "building_0522/atlanta_7",
+   "building_0522/denver_5",
+   "building_0522/fairbanks_3",
+   "building_0522/phoenix_1",
+   "building_0522/singapore_3",
+   "building_0523/atlanta_8",
+   "building_0523/denver_6",
+   "building_0523/fairbanks_4",
+   "building_0523/phoenix_2",
+   "building_0523/singapore_4",
+   "building_0524/atlanta_6",
+   "building_0524/denver_4",
+   "building_0524/fairbanks_2",
+   "building_0524/phoenix_8",
+   "building_0524/singapore_2"
+  ]
+ },
+ "decision": {
+  "doc": "Round-4 decision record under PREREG.md (screen -> composite -> choice -> confirmation).",
+  "screen_complete": "2026-10-23 15:58 PDT (c00-c12 on public-10 and held-26 at 2,880 steps; c13 still running)",
+  "regression_check": "r4_c00_v6 reproduces the round-3 screen values of the shipped v6 (r3_c16) bit for bit on all 12 round-3 screening scenarios",
+  "classification_vs_c00": {
+   "helps": [
+    "r4_c12_disch0",
+    "r4_c05_disch025",
+    "r4_c11_flush_guard",
+    "r4_c08_occ_dyn_mild",
+    "r4_c10_sb_neutral"
+   ],
+   "public only": [
+    "r4_c07_occ_dyn",
+    "r4_c01_fcap_floor"
+   ],
+   "n.s.": [
+    "r4_c06_mix_relief"
+   ],
+   "worse": [
+    "r4_c02_fcap025",
+    "r4_c03_fcap015",
+    "r4_c04_fcap005",
+    "r4_c09_flush"
+   ]
+  },
+  "composite_rule_applied": {
+   "discharge": "r4_c12_disch0 (helps, held-26 0.01290 < r4_c05 0.01294)",
+   "occupied pressure": "r4_c08_occ_dyn_mild (helps; r4_c07 is public only)",
+   "night flush": "r4_c11_flush_guard (helps; r4_c09 is worse)",
+   "f_cap_pre": "r4_c01_fcap_floor (public only; the only member not worse)",
+   "set-back ventilation": "r4_c10_sb_neutral, or r4_c13_neutral_cold if it helps with a lower held-26 metric (c13 added after the screen; its screen was still running, so both composites were launched: c14 with c10, c15 with c13; the one matching the rule is 'the composite', the other is a ledger entry)",
+   "mixed SAT": "excluded (r4_c06 n.s.)"
+  },
+  "composites": {
+   "r4_c14_comp_a": "c12 + c08 + c11 + c01 + c10",
+   "r4_c15_comp_b": "c12 + c08 + c11 + c01 + c13"
+  },
+  "labels": {
+   "r4_c14_comp_a": "composite: c12+c08+c11+c01+c10",
+   "r4_c15_comp_b": "composite: c12+c08+c11+c01+c13"
+  },
+  "chosen": "r4_c14_comp_a",
+  "choice_rule": "among the composite and the single changes classified helps, the lowest held-26 screen metric whose classification vs c00 is helps (PREREG.md)",
+  "composite_screen_complete": "2026-10-23 16:38 PDT",
+  "c13_outcome": "r4_c13_neutral_cold n.s. (held-26 CI upper bound +0.0000003), so the set-back family member is r4_c10 and the composite is r4_c14_comp_a; r4_c15_comp_b (with c13) is a ledger entry only (held-26 0.012690 vs c14 0.012695, a difference far inside either CI)",
+  "chosen_reason": "helps vs c00 (held-26 -0.000457 [-0.000726, -0.000227], 23/26; public-10 -0.000517 [-0.001137, -0.000029], 8/10) and the lowest held-26 metric (0.01269) among the composite and the single changes classified helps (next: c12 0.01290)",
+  "decided": "2026-10-23 16:40 PDT, before any full-length run of a candidate; v6 (r4_c00) on fresh-40 had run (laptop, shipped-range buildings) but its results were not looked at",
+  "confirmation_complete": "2026-10-23 19:09 PDT (Mac 130 runs + laptop 18 runs at 8,640 steps with diagnostics; 6 scenarios run on both machines: identical totals)",
+  "ship_rule_met": true,
+  "outcome": "v7 (r4_c14_comp_a) ships: public-30 better (not only not worse), pooled-74 clean held-out better, neither old-34 nor fresh-40 worse; see confirm_r4_c14_comp_a.json"
+ },
+ "candidates": {
+  "r4_c00_v6": {
+   "family": "reference",
+   "change": "none (shipped v6)",
+   "hypothesis": "-",
+   "screen": {
+    "class_vs_c00": "reference",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "metric": 0.013321777959533302
+    },
+    "held": {
+     "n": 26,
+     "metric": 0.013146685162657533
+    },
+    "held_old6": null,
+    "held_new20": null
+   }
+  },
+  "r4_c01_fcap_floor": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.35 -> 0.316 (the floor-pressure flow; v6 clips any lower value to this)",
+   "hypothesis": "continues the round-3 trend (1.0 -> 0.7 -> 0.5 -> 0.35): a lower cap keeps preconditioning handlers at the 200 Pa floor, saving fan power and the sqrt(P) growth of every idle zone's forced flow",
+   "screen": {
+    "class_vs_c00": "public only",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013318566767356932,
+     "ref_metric": 0.013321777959533302,
+     "diff": -3.211192176369015e-06,
+     "ratio": 0.9997589516815155,
+     "ci_lo": -6.256067794042502e-06,
+     "ci_hi": -7.148499114717333e-07,
+     "wins": 5,
+     "losses": 1
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013163312372085798,
+     "ref_metric": 0.013146685162657533,
+     "diff": 1.662720942826392e-05,
+     "ratio": 1.0012647453880994,
+     "ci_lo": -3.0151150851032505e-06,
+     "ci_hi": 4.143161433962036e-05,
+     "wins": 7,
+     "losses": 13
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018285042636172227,
+     "ref_metric": 0.018240730560991656,
+     "diff": 4.431207518056987e-05,
+     "ratio": 1.0024292927869531,
+     "ci_lo": -1.93647434728033e-05,
+     "ci_hi": 0.00012272769333039642,
+     "wins": 1,
+     "losses": 5
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011626793292859868,
+     "ref_metric": 0.011618471543157295,
+     "diff": 8.321749702572138e-06,
+     "ratio": 1.0007162516749006,
+     "ci_lo": -6.276187790403689e-06,
+     "ci_hi": 2.599450416212231e-05,
+     "wins": 6,
+     "losses": 8
+    }
+   }
+  },
+  "r4_c02_fcap025": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.25 with the clip removed (f_cap_min 0)",
+   "hypothesis": "below the floor-pressure flow no pressure is saved; the gas per joule of net heat at the discharge cap does not depend on flow; expected neutral or worse (slower recovery)",
+   "screen": {
+    "class_vs_c00": "worse",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013334364199610366,
+     "ref_metric": 0.013321777959533302,
+     "diff": 1.2586240077063806e-05,
+     "ratio": 1.0009447868081345,
+     "ci_lo": -2.7168463081030884e-06,
+     "ci_hi": 3.5578758417093244e-05,
+     "wins": 4,
+     "losses": 4
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013278235916937425,
+     "ref_metric": 0.013146685162657533,
+     "diff": 0.00013155075427989172,
+     "ratio": 1.010006382038687,
+     "ci_lo": 4.1005802045270576e-05,
+     "ci_hi": 0.00024842334665399815,
+     "wins": 8,
+     "losses": 16
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018500112259523874,
+     "ref_metric": 0.018240730560991656,
+     "diff": 0.0002593816985322162,
+     "ratio": 1.0142199183122036,
+     "ci_lo": 4.622026464339244e-05,
+     "ci_hi": 0.0005323202576955552,
+     "wins": 1,
+     "losses": 5
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011711673014161489,
+     "ref_metric": 0.011618471543157295,
+     "diff": 9.320147100419435e-05,
+     "ratio": 1.0080218358032718,
+     "ci_lo": 5.854608779732762e-06,
+     "ci_hi": 0.00022133206676669572,
+     "wins": 7,
+     "losses": 11
+    }
+   }
+  },
+  "r4_c03_fcap015": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.15, f_cap_min 0",
+   "hypothesis": "as c02",
+   "screen": {
+    "class_vs_c00": "worse",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.01364013210780978,
+     "ref_metric": 0.013321777959533302,
+     "diff": 0.0003183541482764796,
+     "ratio": 1.0238972717638382,
+     "ci_lo": 7.578375750704489e-05,
+     "ci_hi": 0.0005924444866746928,
+     "wins": 2,
+     "losses": 7
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013640322671719243,
+     "ref_metric": 0.013146685162657533,
+     "diff": 0.0004936375090617078,
+     "ratio": 1.0375484392418448,
+     "ci_lo": 0.00019430978554892348,
+     "ci_hi": 0.0008516987998348018,
+     "wins": 4,
+     "losses": 22
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.019305694298201958,
+     "ref_metric": 0.018240730560991656,
+     "diff": 0.0010649637372103016,
+     "ratio": 1.058383831373934,
+     "ci_lo": 0.0003279030482669096,
+     "ci_hi": 0.001884164896758073,
+     "wins": 0,
+     "losses": 6
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011940711183774424,
+     "ref_metric": 0.011618471543157295,
+     "diff": 0.00032223964061712975,
+     "ratio": 1.027735114676673,
+     "ci_lo": 5.558594911476312e-05,
+     "ci_hi": 0.0006939948929503318,
+     "wins": 4,
+     "losses": 16
+    }
+   }
+  },
+  "r4_c04_fcap005": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.05, f_cap_min 0",
+   "hypothesis": "as c02, extreme (a recovery request of ~1.6 kW per zone)",
+   "screen": {
+    "class_vs_c00": "worse",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.015406252556911196,
+     "ref_metric": 0.013321777959533302,
+     "diff": 0.0020844745973778926,
+     "ratio": 1.1564712010446179,
+     "ci_lo": 0.0007390827743552945,
+     "ci_hi": 0.003578826740001909,
+     "wins": 0,
+     "losses": 10
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.01505161777972695,
+     "ref_metric": 0.013146685162657533,
+     "diff": 0.0019049326170694192,
+     "ratio": 1.1448983217823059,
+     "ci_lo": 0.0009807172637736235,
+     "ci_hi": 0.0029719849087330467,
+     "wins": 1,
+     "losses": 25
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.021238895364899035,
+     "ref_metric": 0.018240730560991656,
+     "diff": 0.0029981648039073745,
+     "ratio": 1.1643664870703723,
+     "ci_lo": 0.0011515276418598496,
+     "ci_hi": 0.00495369737507733,
+     "wins": 0,
+     "losses": 6
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.013195434504175329,
+     "ref_metric": 0.011618471543157295,
+     "diff": 0.001576962961018033,
+     "ratio": 1.135728951537243,
+     "ci_lo": 0.0005918524274726653,
+     "ci_hi": 0.002862169400246929,
+     "wins": 1,
+     "losses": 19
+    }
+   }
+  },
+  "r4_c05_disch025": {
+   "family": "discharge",
+   "change": "disch_margin_k 1.0 -> 0.25",
+   "hypothesis": "the simulator caps the discharge at 308.15 K itself; assuming a hotter discharge needs ~6% less flow per joule, so less outside air to heat (gas ventilation ratio 1 + 0.3 (T - T_out)/(T_disch - T)) and less fan",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013064864099403328,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.0002569138601299733,
+     "ratio": 0.9807147468670936,
+     "ci_lo": -0.0005745670667012231,
+     "ci_hi": -3.0035963415555523e-05,
+     "wins": 8,
+     "losses": 0
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.01293996162764793,
+     "ref_metric": 0.013146685162657533,
+     "diff": -0.00020672353500960367,
+     "ratio": 0.9842756153013544,
+     "ci_lo": -0.00038049055915615105,
+     "ci_hi": -6.420209139613628e-05,
+     "wins": 15,
+     "losses": 1
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.017891245707020262,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.0003494848539713974,
+     "ratio": 0.9808404135567477,
+     "ci_lo": -0.0006206721544997547,
+     "ci_hi": -8.321508652594865e-05,
+     "wins": 4,
+     "losses": 0
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011454576403836228,
+     "ref_metric": 0.011618471543157295,
+     "diff": -0.0001638951393210656,
+     "ratio": 0.9858935713951468,
+     "ci_lo": -0.00036583594925512357,
+     "ci_hi": -1.5692073372550804e-05,
+     "wins": 11,
+     "losses": 1
+    }
+   }
+  },
+  "r4_c06_mix_relief": {
+   "family": "mixed SAT",
+   "change": "sat_mix_relief 1: on a handler that heats and cools, SAT = max(the supply temperature that serves the most demanding cooling zone at floor pressure, 285 K), capped at the 292 K floor",
+   "hypothesis": "on the round-3 buildings 46% of the above-floor fan power is on mixed handlers held at 292 K, where big cooling zones need full flow and raise the handler's pressure",
+   "screen": {
+    "class_vs_c00": "n.s.",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.01332166286594425,
+     "ref_metric": 0.013321777959533302,
+     "diff": -1.1509358905140675e-07,
+     "ratio": 0.9999913604933665,
+     "ci_lo": -3.458698226193029e-07,
+     "ci_hi": 5.890554650826718e-10,
+     "wins": 1,
+     "losses": 1
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013183991235011898,
+     "ref_metric": 0.013146685162657533,
+     "diff": 3.730607235436568e-05,
+     "ratio": 1.0028376789960964,
+     "ci_lo": -1.0280504924558892e-05,
+     "ci_hi": 0.00010880506947973087,
+     "wins": 5,
+     "losses": 6
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018361104436807347,
+     "ref_metric": 0.018240730560991656,
+     "diff": 0.00012037387581568936,
+     "ratio": 1.0065991806311263,
+     "ci_lo": -9.361500152256681e-06,
+     "ci_hi": 0.0003704831275993248,
+     "wins": 1,
+     "losses": 1
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011630857274473265,
+     "ref_metric": 0.011618471543157295,
+     "diff": 1.2385731315968579e-05,
+     "ratio": 1.0010660379267584,
+     "ci_lo": -1.6924460335488362e-05,
+     "ci_hi": 5.552026131138347e-05,
+     "wins": 4,
+     "losses": 5
+    }
+   }
+  },
+  "r4_c07_occ_dyn": {
+   "family": "occupied pressure",
+   "change": "occ_press_dyn 1, e0 0.3 K, span 1.0 K: an occupied zone may ask for flow above the floor-pressure flow only in proportion to how far it is past its target",
+   "hypothesis": "fan power above the 200 Pa floor costs 0.00047/step on the round-3 buildings (39% of their fan term; 26% of fan power as a mean of per-scenario shares) and raises every zone's forced flow, while comfort is charged per occupant (1-2 per zone whatever the area); a 0.5 K excursion of a one-occupant zone in a 35-occupant building costs ~0.0009/step vs ~0.007/step for a handler at 2000 Pa (order-of-magnitude estimate)",
+   "screen": {
+    "class_vs_c00": "public only",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013278273033558849,
+     "ref_metric": 0.013321777959533302,
+     "diff": -4.3504925974452004e-05,
+     "ratio": 0.9967343003233798,
+     "ci_lo": -9.275289428337033e-05,
+     "ci_hi": -2.1317194235355096e-06,
+     "wins": 6,
+     "losses": 0
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013122561791202803,
+     "ref_metric": 0.013146685162657533,
+     "diff": -2.4123371454729716e-05,
+     "ratio": 0.9981650605337951,
+     "ci_lo": -7.712136524848804e-05,
+     "ci_hi": 2.004512601246337e-05,
+     "wins": 13,
+     "losses": 7
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.01813523295209901,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.00010549760889265183,
+     "ratio": 0.9942163715131971,
+     "ci_lo": -0.0002871429399043564,
+     "ci_hi": 1.9882679507077054e-05,
+     "wins": 4,
+     "losses": 2
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011618760442933942,
+     "ref_metric": 0.011618471543157295,
+     "diff": 2.888997766469208e-07,
+     "ratio": 1.0000248655578812,
+     "ci_lo": -3.596582678385299e-05,
+     "ci_hi": 3.786551714326045e-05,
+     "wins": 9,
+     "losses": 5
+    }
+   }
+  },
+  "r4_c08_occ_dyn_mild": {
+   "family": "occupied pressure",
+   "change": "occ_press_dyn 1, e0 0.1 K, span 0.5 K",
+   "hypothesis": "milder version of c07 (less comfort risk)",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.01327506570035839,
+     "ref_metric": 0.013321777959533302,
+     "diff": -4.671225917491058e-05,
+     "ratio": 0.9964935416791357,
+     "ci_lo": -0.00010184060620374897,
+     "ci_hi": -2.0401681548617644e-06,
+     "wins": 6,
+     "losses": 0
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013073070075419203,
+     "ref_metric": 0.013146685162657533,
+     "diff": -7.361508723832886e-05,
+     "ratio": 0.9944004829865836,
+     "ci_lo": -0.00013308256339943092,
+     "ci_hi": -2.4216019947243777e-05,
+     "wins": 17,
+     "losses": 3
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.0180828375175747,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.0001578930434169588,
+     "ratio": 0.9913439298448596,
+     "ci_lo": -0.0003422608513685829,
+     "ci_hi": -3.174273276053335e-05,
+     "wins": 5,
+     "losses": 1
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011570139842772555,
+     "ref_metric": 0.011618471543157295,
+     "diff": -4.833170038473988e-05,
+     "ratio": 0.9958400982258975,
+     "ci_lo": -0.00010219010568780391,
+     "ci_hi": -5.232485508326668e-06,
+     "wins": 12,
+     "losses": 2
+    }
+   }
+  },
+  "r4_c09_flush": {
+   "family": "night flush",
+   "change": "flush_on 1: within 8 h before a workday, a set-back zone warmer than max(hi_pre - 1 K, lo_pre + 0.5 K) is flushed with 100% outside air at floor pressure (coil off, 100% damper) while OAT <= T_zone - 3 K, on handlers with no other demand",
+   "hypothesis": "Denver/Atlanta summer nights have OAT >= 3 K below the zones on 30-98% of unoccupied steps; flushing moves ~8-14 J of heat per J of fan electricity at 16 c/kWh vs the chiller's 3.5 at 18-20 c/kWh",
+   "screen": {
+    "class_vs_c00": "worse",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.01348698299647641,
+     "ref_metric": 0.013321777959533302,
+     "diff": 0.00016520503694310778,
+     "ratio": 1.012401125243563,
+     "ci_lo": 2.5623559367414355e-06,
+     "ci_hi": 0.00034307748595176896,
+     "wins": 3,
+     "losses": 6
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013113241969343513,
+     "ref_metric": 0.013146685162657533,
+     "diff": -3.344319331401812e-05,
+     "ratio": 0.997456150132125,
+     "ci_lo": -0.00024620103624897906,
+     "ci_hi": 0.0001871632364304549,
+     "wins": 15,
+     "losses": 10
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018344572834313913,
+     "ref_metric": 0.018240730560991656,
+     "diff": 0.00010384227332225296,
+     "ratio": 1.0056928790749382,
+     "ci_lo": -0.0006032115207011763,
+     "ci_hi": 0.0008863202997451495,
+     "wins": 3,
+     "losses": 3
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011543842709852394,
+     "ref_metric": 0.011618471543157295,
+     "diff": -7.462883330489944e-05,
+     "ratio": 0.9935767081730424,
+     "ci_lo": -0.0002649566073944716,
+     "ci_hi": 0.00010120360695166098,
+     "wins": 12,
+     "losses": 7
+    }
+   }
+  },
+  "r4_c10_sb_neutral": {
+   "family": "set-back ventilation",
+   "change": "sb_neutral 1: in heating season, the forced minimum flow of set-back zones on a running handler is reheated to the zone temperature",
+   "hypothesis": "that air chills idle zones (2-5% of gas in the cold Fairbanks strips while set back or preconditioning); reheating it now costs 1 J/J vs ~1.9 J/J in the ventilated recovery later",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.01316462327018569,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.00015715468934760987,
+     "ratio": 0.9882031745443446,
+     "ci_lo": -0.00035839865016500176,
+     "ci_hi": 1.2239569497236633e-05,
+     "wins": 3,
+     "losses": 5
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013088469443191392,
+     "ref_metric": 0.013146685162657533,
+     "diff": -5.8215719466142246e-05,
+     "ratio": 0.995571832842586,
+     "ci_lo": -0.00013009934140412947,
+     "ci_hi": -2.5414192769731277e-06,
+     "wins": 8,
+     "losses": 8
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.01821665089293588,
+     "ref_metric": 0.018240730560991656,
+     "diff": -2.407966805577742e-05,
+     "ratio": 0.9986798956338255,
+     "ci_lo": -6.458574788818494e-05,
+     "ci_hi": 2.274418296129531e-06,
+     "wins": 3,
+     "losses": 1
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011550015008268045,
+     "ref_metric": 0.011618471543157295,
+     "diff": -6.845653488925169e-05,
+     "ratio": 0.9941079569171413,
+     "ci_lo": -0.0001587992706600729,
+     "ci_hi": 2.5298351006756695e-06,
+     "wins": 5,
+     "losses": 7
+    }
+   }
+  },
+  "r4_c11_flush_guard": {
+   "family": "night flush",
+   "added": "after the first partial screen read (14:30 PDT): c09 lost on building_train_2/fairbanks_2, a winter strip, by flushing warm interior zones with -8 C air",
+   "change": "c09 + flush_heat_guard 1: no flush while the hot-water loop is in heating season (some zone heated in the last 24 h)",
+   "hypothesis": "keeps c09's summer gain without buying the flushed heat back with gas",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013313802756482154,
+     "ref_metric": 0.013321777959533302,
+     "diff": -7.975203051147159e-06,
+     "ratio": 0.9994013409414739,
+     "ci_lo": -1.6586291692672173e-05,
+     "ci_hi": -2.711951757797867e-07,
+     "wins": 5,
+     "losses": 0
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013050974788632265,
+     "ref_metric": 0.013146685162657533,
+     "diff": -9.571037402526606e-05,
+     "ratio": 0.992719809378479,
+     "ci_lo": -0.00016556306343479588,
+     "ci_hi": -3.712233870752013e-05,
+     "wins": 14,
+     "losses": 3
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018134948105853952,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.00010578245513770503,
+     "ratio": 0.994200755568205,
+     "ci_lo": -0.00026858061966110995,
+     "ci_hi": -4.131676302500502e-06,
+     "wins": 3,
+     "losses": 0
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.01152578279346576,
+     "ref_metric": 0.011618471543157295,
+     "diff": -9.268874969153436e-05,
+     "ratio": 0.9920222940386574,
+     "ci_lo": -0.00017249346095417554,
+     "ci_hi": -2.7864787536821583e-05,
+     "wins": 11,
+     "losses": 3
+    }
+   }
+  },
+  "r4_c12_disch0": {
+   "family": "discharge",
+   "added": "after the first partial screen read: c05 helped on both screens",
+   "change": "disch_margin_k 1.0 -> 0.0 (assume the discharge reaches the 308.15 K cap)",
+   "hypothesis": "as c05, further along the same line",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013007218471747475,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.0003145594877858256,
+     "ratio": 0.9763875746359575,
+     "ci_lo": -0.0007077964780466806,
+     "ci_hi": -3.582010036859317e-05,
+     "wins": 8,
+     "losses": 0
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.012895819998926016,
+     "ref_metric": 0.013146685162657533,
+     "diff": -0.00025086516373151957,
+     "ratio": 0.9809179910656044,
+     "ci_lo": -0.0004602441471803489,
+     "ci_hi": -8.054650437546191e-05,
+     "wins": 15,
+     "losses": 1
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.017796517823438145,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.00044421273755351347,
+     "ratio": 0.9756472068885512,
+     "ci_lo": -0.0007955686053820627,
+     "ci_hi": -0.00010385445171373732,
+     "wins": 4,
+     "losses": 0
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011425610651572375,
+     "ref_metric": 0.011618471543157295,
+     "diff": -0.00019286089158492142,
+     "ratio": 0.9834004936993193,
+     "ci_lo": -0.0004327766575294689,
+     "ci_hi": -1.9362102242767877e-05,
+     "wins": 11,
+     "losses": 1
+    }
+   }
+  },
+  "r4_c13_neutral_cold": {
+   "family": "set-back ventilation",
+   "added": "after the near-complete screen (15:40 PDT): c10 helped the cold Fairbanks strips (-1.4 to -2.8%) and hurt mild ones (+0.5 to +1.2%), where set-back zones warm up by themselves during the day",
+   "change": "c10 + sb_neutral_cold 1: reheat the forced air only while the outside air is below the zone's setback floor",
+   "hypothesis": "keeps c10's cold-climate gain, removes the mild-climate loss",
+   "screen": {
+    "class_vs_c00": "n.s.",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.013163305040889311,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.00015847291864398952,
+     "ratio": 0.9881042215892373,
+     "ci_lo": -0.00035793071909342045,
+     "ci_hi": 9.680437268069017e-06,
+     "wins": 3,
+     "losses": 5
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.013091553622251203,
+     "ref_metric": 0.013146685162657533,
+     "diff": -5.513154040632891e-05,
+     "ratio": 0.995806430311199,
+     "ci_lo": -0.00012786512531611288,
+     "ci_hi": 4.405891129307004e-07,
+     "wins": 7,
+     "losses": 8
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.018213820590276365,
+     "ref_metric": 0.018240730560991656,
+     "diff": -2.6909970715289853e-05,
+     "ratio": 0.9985247317466089,
+     "ci_lo": -6.652872610220543e-05,
+     "ci_hi": -5.558843633829009e-07,
+     "wins": 3,
+     "losses": 1
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011554873531843656,
+     "ref_metric": 0.011618471543157295,
+     "diff": -6.359801131364063e-05,
+     "ratio": 0.9945261292694653,
+     "ci_lo": -0.00015505846005131298,
+     "ci_hi": 8.097093220989344e-06,
+     "wins": 4,
+     "losses": 7
+    }
+   }
+  },
+  "r4_c14_comp_a": {
+   "family": "composite",
+   "change": "c12 (discharge margin 0) + c08 (occupied pressure cap, mild) + c11 (night flush outside heating season) + c01 (f_cap_pre 0.316) + c10 (reheat set-back zones' forced air)",
+   "hypothesis": "the changes act on different terms (gas ventilation, fan pressure, night cooling) and should add up",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.012804417749728014,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.0005173602098052881,
+     "ratio": 0.9611643272109144,
+     "ci_lo": -0.0011373901796579104,
+     "ci_hi": -2.865564671363097e-05,
+     "wins": 8,
+     "losses": 2
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.012689812102657131,
+     "ref_metric": 0.013146685162657533,
+     "diff": -0.000456873060000402,
+     "ratio": 0.9652480412858653,
+     "ci_lo": -0.0007260316188672905,
+     "ci_hi": -0.00022672452717068033,
+     "wins": 23,
+     "losses": 3
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.017554700905665976,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.0006860296553256795,
+     "ratio": 0.9623902314092192,
+     "ci_lo": -0.0011143109921625683,
+     "ci_hi": -0.0002578174711059789,
+     "wins": 6,
+     "losses": 0
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011230345461754474,
+     "ref_metric": 0.011618471543157295,
+     "diff": -0.0003881260814028187,
+     "ratio": 0.9665940498316744,
+     "ci_lo": -0.0007099530000080971,
+     "ci_hi": -0.00014126706527037929,
+     "wins": 17,
+     "losses": 3
+    }
+   },
+   "full_length_vs_v6": {
+    "pub30": {
+     "n": 30,
+     "cand": 0.007855024492987103,
+     "v6": 0.0080258732376669,
+     "diff": -0.0001708487446797975,
+     "rel": -0.021287246835393927,
+     "ci_lo": -0.0003784345284661898,
+     "ci_hi": -3.198347256096716e-05,
+     "rel_ci_lo": -0.04715181977832978,
+     "rel_ci_hi": -0.003985045815433869,
+     "wins": 24,
+     "losses": 6
+    },
+    "old40": {
+     "n": 40,
+     "cand": 0.011728437869153101,
+     "v6": 0.012063357466945378,
+     "diff": -0.00033491959779227687,
+     "rel": -0.0277633816878912,
+     "ci_lo": -0.0005137064200633702,
+     "ci_hi": -0.00019831298012086817,
+     "rel_ci_lo": -0.04258403363002127,
+     "rel_ci_hi": -0.016439285718280548,
+     "wins": 39,
+     "losses": 1
+    },
+    "fresh40": {
+     "n": 40,
+     "cand": 0.008688823026759983,
+     "v6": 0.008897619889051534,
+     "diff": -0.0002087968622915514,
+     "rel": -0.023466597235567977,
+     "ci_lo": -0.0003505421406334111,
+     "ci_hi": -0.000107721343460108,
+     "rel_ci_lo": -0.039397293321638854,
+     "rel_ci_hi": -0.012106759425929,
+     "wins": 38,
+     "losses": 2
+    },
+    "old34": {
+     "n": 34,
+     "cand": 0.010903656153848418,
+     "v6": 0.011189074622865211,
+     "diff": -0.0002854184690167929,
+     "rel": -0.025508675081452374,
+     "ci_lo": -0.0004880760242336796,
+     "ci_hi": -0.00014758921301269272,
+     "rel_ci_lo": -0.04362076764027309,
+     "rel_ci_hi": -0.013190475350936504,
+     "wins": 33,
+     "losses": 1
+    },
+    "old_screen6": {
+     "n": 6,
+     "cand": 0.016402200922546312,
+     "v6": 0.017017626916732996,
+     "diff": -0.0006154259941866854,
+     "rel": -0.03616403140096771,
+     "ci_lo": -0.0009270515818979901,
+     "ci_hi": -0.0002921741657479794,
+     "rel_ci_lo": -0.05447596109810376,
+     "rel_ci_hi": -0.0171689135728256,
+     "wins": 6,
+     "losses": 0
+    },
+    "fresh_shipped20": {
+     "n": 20,
+     "cand": 0.007252866892596401,
+     "v6": 0.007355843706697539,
+     "diff": -0.00010297681410113892,
+     "rel": -0.013999320568404399,
+     "ci_lo": -0.00021026904265878518,
+     "ci_hi": -2.9604792018893998e-05,
+     "rel_ci_lo": -0.028585305920425415,
+     "rel_ci_hi": -0.004024663002551109,
+     "wins": 18,
+     "losses": 2
+    },
+    "fresh_default20": {
+     "n": 20,
+     "cand": 0.010124779160923565,
+     "v6": 0.01043939607140553,
+     "diff": -0.00031461691048196384,
+     "rel": -0.030137462773706675,
+     "ci_lo": -0.0005659946642692884,
+     "ci_hi": -0.0001483668521971419,
+     "rel_ci_lo": -0.054217184633850626,
+     "rel_ci_hi": -0.014212206451629173,
+     "wins": 20,
+     "losses": 0
+    },
+    "pooled74": {
+     "n": 74,
+     "cand": 0.009706449058124941,
+     "v6": 0.009950450442425388,
+     "diff": -0.00024400138430044619,
+     "rel": -0.02452164208165954,
+     "ci_lo": -0.00035740910652598215,
+     "ci_hi": -0.00015298272192985934,
+     "rel_ci_lo": -0.03591888714928014,
+     "rel_ci_hi": -0.015374451922054931,
+     "wins": 71,
+     "losses": 3
+    }
+   },
+   "ship_rule_met": true
+  },
+  "r4_c15_comp_b": {
+   "family": "composite",
+   "change": "as c14 with c13 (set-back reheat only below the setback floor) instead of c10",
+   "hypothesis": "as c14 without c10's mild-climate loss",
+   "screen": {
+    "class_vs_c00": "helps",
+    "complete": true,
+    "public": {
+     "n": 10,
+     "n_paired": 10,
+     "metric": 0.012803954205831278,
+     "ref_metric": 0.013321777959533302,
+     "diff": -0.0005178237537020228,
+     "ratio": 0.9611295312626451,
+     "ci_lo": -0.001135643973447848,
+     "ci_hi": -3.0536954421548074e-05,
+     "wins": 8,
+     "losses": 2
+    },
+    "held": {
+     "n": 26,
+     "n_paired": 26,
+     "metric": 0.012685010094368815,
+     "ref_metric": 0.013146685162657533,
+     "diff": -0.0004616750682887173,
+     "ratio": 0.9648827774776199,
+     "ci_lo": -0.0007311680084498932,
+     "ci_hi": -0.00022927641635583432,
+     "wins": 23,
+     "losses": 3
+    },
+    "held_old6": {
+     "n_paired": 6,
+     "metric": 0.01755636871230636,
+     "ref_metric": 0.018240730560991656,
+     "diff": -0.000684361848685298,
+     "ratio": 0.9624816645146426,
+     "ci_lo": -0.0011144526282221702,
+     "ci_hi": -0.0002543402217656143,
+     "wins": 6,
+     "losses": 0
+    },
+    "held_new20": {
+     "n_paired": 20,
+     "metric": 0.011223602508987553,
+     "ref_metric": 0.011618471543157295,
+     "diff": -0.0003948690341697431,
+     "ratio": 0.9660136849582163,
+     "ci_lo": -0.0007152847608043103,
+     "ci_hi": -0.00014633807423144636,
+     "wins": 17,
+     "losses": 3
+    }
+   }
+  }
+ }
+}

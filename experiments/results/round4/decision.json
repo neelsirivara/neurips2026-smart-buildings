@@ -1,0 +1,52 @@
+{
+ "doc": "Round-4 decision record under PREREG.md (screen -> composite -> choice -> confirmation).",
+ "screen_complete": "2026-10-23 15:58 PDT (c00-c12 on public-10 and held-26 at 2,880 steps; c13 still running)",
+ "regression_check": "r4_c00_v6 reproduces the round-3 screen values of the shipped v6 (r3_c16) bit for bit on all 12 round-3 screening scenarios",
+ "classification_vs_c00": {
+  "helps": [
+   "r4_c12_disch0",
+   "r4_c05_disch025",
+   "r4_c11_flush_guard",
+   "r4_c08_occ_dyn_mild",
+   "r4_c10_sb_neutral"
+  ],
+  "public only": [
+   "r4_c07_occ_dyn",
+   "r4_c01_fcap_floor"
+  ],
+  "n.s.": [
+   "r4_c06_mix_relief"
+  ],
+  "worse": [
+   "r4_c02_fcap025",
+   "r4_c03_fcap015",
+   "r4_c04_fcap005",
+   "r4_c09_flush"
+  ]
+ },
+ "composite_rule_applied": {
+  "discharge": "r4_c12_disch0 (helps, held-26 0.01290 < r4_c05 0.01294)",
+  "occupied pressure": "r4_c08_occ_dyn_mild (helps; r4_c07 is public only)",
+  "night flush": "r4_c11_flush_guard (helps; r4_c09 is worse)",
+  "f_cap_pre": "r4_c01_fcap_floor (public only; the only member not worse)",
+  "set-back ventilation": "r4_c10_sb_neutral, or r4_c13_neutral_cold if it helps with a lower held-26 metric (c13 added after the screen; its screen was still running, so both composites were launched: c14 with c10, c15 with c13; the one matching the rule is 'the composite', the other is a ledger entry)",
+  "mixed SAT": "excluded (r4_c06 n.s.)"
+ },
+ "composites": {
+  "r4_c14_comp_a": "c12 + c08 + c11 + c01 + c10",
+  "r4_c15_comp_b": "c12 + c08 + c11 + c01 + c13"
+ },
+ "labels": {
+  "r4_c14_comp_a": "composite: c12+c08+c11+c01+c10",
+  "r4_c15_comp_b": "composite: c12+c08+c11+c01+c13"
+ },
+ "chosen": "r4_c14_comp_a",
+ "choice_rule": "among the composite and the single changes classified helps, the lowest held-26 screen metric whose classification vs c00 is helps (PREREG.md)",
+ "composite_screen_complete": "2026-10-23 16:38 PDT",
+ "c13_outcome": "r4_c13_neutral_cold n.s. (held-26 CI upper bound +0.0000003), so the set-back family member is r4_c10 and the composite is r4_c14_comp_a; r4_c15_comp_b (with c13) is a ledger entry only (held-26 0.012690 vs c14 0.012695, a difference far inside either CI)",
+ "chosen_reason": "helps vs c00 (held-26 -0.000457 [-0.000726, -0.000227], 23/26; public-10 -0.000517 [-0.001137, -0.000029], 8/10) and the lowest held-26 metric (0.01269) among the composite and the single changes classified helps (next: c12 0.01290)",
+ "decided": "2026-10-23 16:40 PDT, before any full-length run of a candidate; v6 (r4_c00) on fresh-40 had run (laptop, shipped-range buildings) but its results were not looked at",
+ "confirmation_complete": "2026-10-23 19:09 PDT (Mac 130 runs + laptop 18 runs at 8,640 steps with diagnostics; 6 scenarios run on both machines: identical totals)",
+ "ship_rule_met": true,
+ "outcome": "v7 (r4_c14_comp_a) ships: public-30 better (not only not worse), pooled-74 clean held-out better, neither old-34 nor fresh-40 worse; see confirm_r4_c14_comp_a.json"
+}

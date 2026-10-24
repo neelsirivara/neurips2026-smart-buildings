@@ -1,0 +1,10 @@
+pub30            n=30 cand=0.00786 v6=0.00803 diff=-0.000171 [-0.000378,-0.000032] (-2.1%, CI -4.7..-0.4%) wins 24/30
+old40            n=40 cand=0.01173 v6=0.01206 diff=-0.000335 [-0.000514,-0.000198] (-2.8%, CI -4.3..-1.6%) wins 39/40
+old34            n=34 cand=0.01090 v6=0.01119 diff=-0.000285 [-0.000488,-0.000148] (-2.6%, CI -4.4..-1.3%) wins 33/34
+old_screen6      n= 6 cand=0.01640 v6=0.01702 diff=-0.000615 [-0.000927,-0.000292] (-3.6%, CI -5.4..-1.7%) wins 6/6
+fresh40          n=40 cand=0.00869 v6=0.00890 diff=-0.000209 [-0.000351,-0.000108] (-2.3%, CI -3.9..-1.2%) wins 38/40
+fresh_shipped20  n=20 cand=0.00725 v6=0.00736 diff=-0.000103 [-0.000210,-0.000030] (-1.4%, CI -2.9..-0.4%) wins 18/20
+fresh_default20  n=20 cand=0.01012 v6=0.01044 diff=-0.000315 [-0.000566,-0.000148] (-3.0%, CI -5.4..-1.4%) wins 20/20
+pooled74         n=74 cand=0.00971 v6=0.00995 diff=-0.000244 [-0.000357,-0.000153] (-2.5%, CI -3.6..-1.5%) wins 71/74
+complete: True ship rule met: True
+-> C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\round4\confirm_r4_c14_comp_a.json

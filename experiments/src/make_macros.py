@@ -193,6 +193,8 @@ def write_tuning_tables(ab, cs) -> None:
                      f"{bs.get('singapore', float('nan')):.4f} \\\\\n")
         L.append("\\bottomrule\n\\end{tabular}\n\\end{table}\n\n")
     L += write_round3_table()
+    from make_macros_r4 import write_round4_table
+    L += write_round4_table()
     out.write_text("".join(L))
 
 
@@ -717,7 +719,7 @@ def main() -> int:
                  "area_scale_min": "ParAreaScaleMin", "area_scale_max": "ParAreaScaleMax", "area_ref_m2": "ParAreaRef"}
     for k, name in par_names.items():
         v = bp.get(k)
-        lines.append(macro(name, MISSING if v is None else f"{v:g}"))
+        lines.append(macro(name, MISSING if v is None else (f"{v:.3g}" if k == "f_cap_pre" else f"{v:g}")))
 
     # ---- derived diagnostics that the text quotes (each from a file on disk) ----
     # (a) v3 snapshot: fraction of unoccupied steps with any AHU running (b8/fairbanks_8, 8,640 steps)
@@ -828,6 +830,10 @@ def main() -> int:
     # ---- round 3: v6 vs v5 on the three sets, the new held-out set, the loss decomposition ----
     lines += round3_macros(fs, hs)
 
+    # ---- round 4: diagnosis, screen, confirmation (make_macros_r4.py) ----
+    from make_macros_r4 import round4_macros
+    lines += round4_macros()
+
     # ---- environment ----
     lines.append(macro("SimSecPerStep", fmt(get(ei, "sec_per_step_median"), 3)))
     lines.append(macro("SimMinPerScenario", fmt(get(ei, "min_per_scenario_median"), 1)))
@@ -835,6 +841,8 @@ def main() -> int:
 
     OUT.write_text("".join(lines))
     write_per_scenario_table(fs, hs, load(RES / "heldout_r3_scores.json"))
+    from make_macros_r4 import write_round4_per_scenario
+    write_round4_per_scenario()
     n_missing = sum(1 for ln in lines if MISSING in ln)
     print(f"wrote {OUT} ({len(lines)} macros, {n_missing} missing)")
     return 0

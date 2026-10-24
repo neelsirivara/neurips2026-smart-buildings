@@ -139,3 +139,76 @@ advance ships after a full-length confirmation: public 0.00803 vs 0.00831 for v5
 Items 1-5 applied in the 2026-10-23 ~12:00 draft; build: 0 errors, 0 undefined references, 0 `??`,
 0 overfull boxes. Not applied: per-mechanism full-length ablations, the chiller diagnosis on the
 generated buildings and the Kaggle submission (compute / user).
+
+---
+
+# Self-review 1, pass 3 -- round-4 draft (2026-10-23, ~19:30 PDT)
+
+Same form. Draft reviewed: `paper/main.pdf` after `finalize.sh` with SADR v7 (`r4_c14_comp_a`)
+shipped; 13 pages (main text through page 6, references page 7, appendices A-C from page 8).
+
+## Summary
+Round 4 diagnoses v6's full-length runs, writes a protocol down before running anything
+(`experiments/results/round4/PREREG.md`), screens 13 single changes against v6 on 10 public and 26
+held-out scenarios (four new screening buildings), combines the best change per family and confirms
+the composite (v7) once at full length on the public set, on the 34 clean old held-out scenarios and
+on 40 scenarios of 8 freshly generated buildings that nothing else touched (half in the shipped six's
+parameter ranges, half in the kit's default ranges). v7 beats v6 on every set: public 0.00786 vs
+0.00803 (-2.1%, CI 0.4-4.7%, 24/30), pooled clean held-out -2.5% (CI 1.5-3.6%, 71/74), fresh
+shipped-range buildings -1.4% (CI 0.4-2.9%, 18/20). The diagnosis also finds that the generated
+buildings' larger chiller term is the per-handler energy normalization (same W/m2, 2.4x the floor area
+per handler) and that the kit's default generator ranges do not reproduce the shipped buildings.
+
+## Strengths (new in round 4)
+- The strongest evaluation design of the series: a written-down rule, a screening set disjoint from
+  the clean sets, a confirmation set generated for the purpose, both building families reported, and
+  the decision and its timing recorded (`decision.json`) before any full-length candidate run.
+- Honest effect sizes: a 2-3% gain is reported as such, with its price (comfort up from 0.00039 to
+  0.00047 per step on the old held-out set) and where it comes from (mostly gas, then chiller and fan).
+- The normalization finding answers the open question of pass 2 (why the generated buildings' chiller
+  term is twice the public one) and redirects effort away from cooling control.
+- Reproducibility: v7 with every switch off is bit-identical to v6 (3 public scenarios x 576 steps and
+  all 12 round-3 screening scenarios); six full-length v7 runs on both machines are identical; the
+  baked file reproduces the screened configuration; official scorer 0.00786 on the v7 tree.
+
+## Weaknesses
+- Three candidates (c11-c13) were added after a first look at the screen, and the composite family
+  rule then used one of them (c11). This is a forking path on the screening sets; it does not touch the
+  clean sets, and the paper says so in Section 3, but the screen-level numbers of the composite are
+  selected and optimistic.
+- The two composites tie (c14 vs c15 differ by 5e-6 on the held-out screen); the rule picked c14
+  mechanically. Harmless, but a reader may ask why c13 existed.
+- No full-length ablation of the five v7 switches; attribution rests on the 10-day single-change
+  screens and on the decomposition (gas dominates, consistent with the discharge margin).
+- pid_water was not run on the fresh buildings, so the fresh set reports v7 vs v6 only.
+- The generator-range observation relies on the kit README's wording; the Kaggle buildings remain
+  unknown, and the shipped-range buildings show the smallest gain (-1.4%).
+- To keep six pages, both result figures moved to the appendix; the main text now has tables only.
+
+## Scores
+| criterion | score | justification |
+|---|---|---|
+| Clarity | 4 | Linear; Table 2 states the round-4 result at a glance; dense, no main-text figure. |
+| Soundness | 4.5 | Pre-registered, clean fresh set, paired CIs on every set; post-hoc additions confined to the screen and disclosed. |
+| Reproducibility | 5 | Every number scripted (AUDIT 43 claims, 0 missing), bit-identical across machines and after the bake. |
+| Significance | 4 | Small but clean gain; the normalization and generator-range findings are useful to other entrants. |
+| Overall | 7 | Better supported than pass 2; gains are modest; still no Kaggle number. |
+| Confidence | 4 | |
+
+## Must-fix before upload (pass 3)
+1. Say in the protocol that three candidates were added after a first look at the screen. -- applied
+   (Section 3, "Tuning protocol").
+2. Do not write "the five that helped" for the composite: one member (the floor-pressure cap) helped on
+   the public screen only. -- applied (Section 4, "Round 4").
+3. Use unsigned reductions in prose ("lowers by 2.5%"), signed changes only in tables. -- applied
+   (abstract, Section 4).
+4. Label the analysis statistics that still come from v6 runs (out-of-band zone-steps, unoccupied
+   share) as v6. -- applied (Section 5).
+5. Main text within six pages after the additions. -- applied (figures 3-4 to Appendix C, Sections 3-5
+   compressed; references start on page 7).
+6. Fill the author block before upload. -- user.
+
+## Applied fixes (deltas recorded in STATUS.md)
+Items 1-5 applied in the 19:30 PDT draft; build: 0 errors, 0 undefined references, 0 `??`, 0 TODO,
+0 overfull boxes, 13 pages. Not applied: full-length ablation of the v7 switches, pid_water on the fresh
+buildings (compute), the Kaggle submission (user).

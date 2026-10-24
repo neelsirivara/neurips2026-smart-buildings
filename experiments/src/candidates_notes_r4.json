@@ -1,0 +1,89 @@
+{
+ "doc": "Round-4 candidates ledger (hand-written part). ledger_round4.py merges these notes with the screen summary (results/round4/screen_summary_screen_vs_r4_c00_v6.json) and the full-length comparisons (results/round4/confirm_*.json) into results/round4/candidates.json. Pre-registration: results/round4/PREREG.md (written before any policy ran on the new sets).",
+ "code": "experiments/src/policy_candidates/transfer_policy_v7.py = submission/transfer_policy.py (v6) + round-4 switches, all off by default; r4_c00_v6 (no overrides) reproduces v6 bit for bit (results/round4/regress: 3 public scenarios x 576 steps, identical totals)",
+ "candidates": {
+  "r4_c00_v6": {
+   "family": "reference",
+   "change": "none (shipped v6)",
+   "hypothesis": "-"
+  },
+  "r4_c01_fcap_floor": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.35 -> 0.316 (the floor-pressure flow; v6 clips any lower value to this)",
+   "hypothesis": "continues the round-3 trend (1.0 -> 0.7 -> 0.5 -> 0.35): a lower cap keeps preconditioning handlers at the 200 Pa floor, saving fan power and the sqrt(P) growth of every idle zone's forced flow"
+  },
+  "r4_c02_fcap025": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.25 with the clip removed (f_cap_min 0)",
+   "hypothesis": "below the floor-pressure flow no pressure is saved; the gas per joule of net heat at the discharge cap does not depend on flow; expected neutral or worse (slower recovery)"
+  },
+  "r4_c03_fcap015": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.15, f_cap_min 0",
+   "hypothesis": "as c02"
+  },
+  "r4_c04_fcap005": {
+   "family": "f_cap_pre",
+   "change": "f_cap_pre 0.05, f_cap_min 0",
+   "hypothesis": "as c02, extreme (a recovery request of ~1.6 kW per zone)"
+  },
+  "r4_c05_disch025": {
+   "family": "discharge",
+   "change": "disch_margin_k 1.0 -> 0.25",
+   "hypothesis": "the simulator caps the discharge at 308.15 K itself; assuming a hotter discharge needs ~6% less flow per joule, so less outside air to heat (gas ventilation ratio 1 + 0.3 (T - T_out)/(T_disch - T)) and less fan"
+  },
+  "r4_c06_mix_relief": {
+   "family": "mixed SAT",
+   "change": "sat_mix_relief 1: on a handler that heats and cools, SAT = max(the supply temperature that serves the most demanding cooling zone at floor pressure, 285 K), capped at the 292 K floor",
+   "hypothesis": "on the round-3 buildings 46% of the above-floor fan power is on mixed handlers held at 292 K, where big cooling zones need full flow and raise the handler's pressure"
+  },
+  "r4_c07_occ_dyn": {
+   "family": "occupied pressure",
+   "change": "occ_press_dyn 1, e0 0.3 K, span 1.0 K: an occupied zone may ask for flow above the floor-pressure flow only in proportion to how far it is past its target",
+   "hypothesis": "fan power above the 200 Pa floor costs 0.00047/step on the round-3 buildings (39% of their fan term; 26% of fan power as a mean of per-scenario shares) and raises every zone's forced flow, while comfort is charged per occupant (1-2 per zone whatever the area); a 0.5 K excursion of a one-occupant zone in a 35-occupant building costs ~0.0009/step vs ~0.007/step for a handler at 2000 Pa (order-of-magnitude estimate)"
+  },
+  "r4_c08_occ_dyn_mild": {
+   "family": "occupied pressure",
+   "change": "occ_press_dyn 1, e0 0.1 K, span 0.5 K",
+   "hypothesis": "milder version of c07 (less comfort risk)"
+  },
+  "r4_c09_flush": {
+   "family": "night flush",
+   "change": "flush_on 1: within 8 h before a workday, a set-back zone warmer than max(hi_pre - 1 K, lo_pre + 0.5 K) is flushed with 100% outside air at floor pressure (coil off, 100% damper) while OAT <= T_zone - 3 K, on handlers with no other demand",
+   "hypothesis": "Denver/Atlanta summer nights have OAT >= 3 K below the zones on 30-98% of unoccupied steps; flushing moves ~8-14 J of heat per J of fan electricity at 16 c/kWh vs the chiller's 3.5 at 18-20 c/kWh"
+  },
+  "r4_c10_sb_neutral": {
+   "family": "set-back ventilation",
+   "change": "sb_neutral 1: in heating season, the forced minimum flow of set-back zones on a running handler is reheated to the zone temperature",
+   "hypothesis": "that air chills idle zones (2-5% of gas in the cold Fairbanks strips while set back or preconditioning); reheating it now costs 1 J/J vs ~1.9 J/J in the ventilated recovery later"
+  },
+  "r4_c11_flush_guard": {
+   "family": "night flush",
+   "added": "after the first partial screen read (14:30 PDT): c09 lost on building_train_2/fairbanks_2, a winter strip, by flushing warm interior zones with -8 C air",
+   "change": "c09 + flush_heat_guard 1: no flush while the hot-water loop is in heating season (some zone heated in the last 24 h)",
+   "hypothesis": "keeps c09's summer gain without buying the flushed heat back with gas"
+  },
+  "r4_c12_disch0": {
+   "family": "discharge",
+   "added": "after the first partial screen read: c05 helped on both screens",
+   "change": "disch_margin_k 1.0 -> 0.0 (assume the discharge reaches the 308.15 K cap)",
+   "hypothesis": "as c05, further along the same line"
+  },
+  "r4_c13_neutral_cold": {
+   "family": "set-back ventilation",
+   "added": "after the near-complete screen (15:40 PDT): c10 helped the cold Fairbanks strips (-1.4 to -2.8%) and hurt mild ones (+0.5 to +1.2%), where set-back zones warm up by themselves during the day",
+   "change": "c10 + sb_neutral_cold 1: reheat the forced air only while the outside air is below the zone's setback floor",
+   "hypothesis": "keeps c10's cold-climate gain, removes the mild-climate loss"
+  },
+  "r4_c14_comp_a": {
+   "family": "composite",
+   "change": "c12 (discharge margin 0) + c08 (occupied pressure cap, mild) + c11 (night flush outside heating season) + c01 (f_cap_pre 0.316) + c10 (reheat set-back zones' forced air)",
+   "hypothesis": "the changes act on different terms (gas ventilation, fan pressure, night cooling) and should add up"
+  },
+  "r4_c15_comp_b": {
+   "family": "composite",
+   "change": "as c14 with c13 (set-back reheat only below the setback floor) instead of c10",
+   "hypothesis": "as c14 without c10's mild-climate loss"
+  }
+ }
+}

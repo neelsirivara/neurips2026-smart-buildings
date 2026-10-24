@@ -1,4 +1,14 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v6, final; round 3, r3_c16_pre035_min1).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v7, final; round 4, r4_c14_comp_a).
+
+Round-4 switches (v7 turns on the five overrides of r4_c14_comp_a in DEFAULT_PARAMS:
+disch_margin_k 0, occ_press_dyn with e0 0.1 K / span 0.5 K, flush_on + flush_heat_guard,
+sb_neutral, f_cap_pre 0.316; with all of them off the code reproduces v6 bit for bit). Switches: ``f_cap_min`` (lower clip of the request flow cap), ``occ_press_dyn``
+(occupied request cap that only allows handler pressure above the floor in proportion to
+the zone's error), ``sat_mix_relief`` (on a handler that heats and cools, lower the supply
+air below the mixed floor just enough to serve the cooling zones at floor pressure),
+``flush_on`` (night flush with outside air before a workday when the outside air is
+cooler than the zones), ``sb_neutral`` (in heating season, reheat the forced minimum flow
+of set-back zones on a running handler to the zone temperature).
 
 Drop-in replacement for ``smart_buildings/baselines/transfer_policy.py`` in the
 official starter kit. Pure numpy + stdlib, deterministic, no file or network
@@ -147,7 +157,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     "gain_area_scaling": 1.0,  # v6: 1 = scale kq, ki, q_cap_w, q_sb_w with area / area_ref
     "area_scale_min": 1.0,    # v6: clip of the area scale factor
     "area_scale_max": 6.0,
-    "f_cap_pre": 0.35,         # v6: flow-fraction cap on a zone's request while preconditioning / set back
+    "f_cap_pre": 0.31622776601683794,         # v6: flow-fraction cap on a zone's request while preconditioning / set back
     "f_cap_occ": 1.0,         # v6: same while occupied (1 = the box's full design flow)
     "water_cap": 1.0,         # v6: 1 = cap heating requests at what the coil can deliver with the valve
                               #     fully open at the maximum loop dP (more airflow would cool the discharge)
@@ -157,7 +167,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     "min_off_steps": 2,       # dwell after a stop
     "sat_cool_hi": 285.0,     # SAT ceiling (K) while cooling; 285 = always the coldest supply (v5)
     "sat_mix_floor": 292.0,   # SAT floor while the same handler also has heating zones
-    "disch_margin_k": 1.0,    # keep discharge air this far below the 308.15 K limit
+    "disch_margin_k": 0.0,    # keep discharge air this far below the 308.15 K limit
     "econ_on": 1.0,
     # --- zones ---
     "kv_valve": 0.108,        # reheat valve Kv at full open (m3/h/sqrt(bar)), kit default
@@ -168,6 +178,22 @@ DEFAULT_PARAMS: dict[str, float] = {
     "tw_idle_k": 310.0,
     "tw_hot_k": 350.0,
     "heat_season_steps": 288, # keep the loop hot this long after the last heating demand
+    # --- round-4 candidate switches (defaults = v6) ---
+    "f_cap_min": 0.31622776601683794,  # lower clip of f_cap_*; v6 = sqrt(200/2000), the floor-pressure flow
+    "occ_press_dyn": 1.0,     # 1 = occupied request cap ramps from f_cap_occ_lo to f_cap_occ with the error
+    "f_cap_occ_lo": 0.31622776601683794,  # occupied cap while the error is below occ_press_e0
+    "occ_press_e0": 0.1,      # K beyond the occupied target before the cap starts to rise
+    "occ_press_span": 0.5,    # K over which it rises to f_cap_occ
+    "sat_mix_relief": 0.0,    # 1 = mixed handler SAT = max(need at floor pressure, relief_min), <= sat_mix_floor
+    "sat_mix_relief_min": 285.0,
+    "flush_on": 1.0,          # 1 = night flush with outside air before a workday
+    "flush_dt_k": 3.0,        # outside air must be this much colder than the zone
+    "flush_depth_k": 1.0,     # flush target = hi_pre - depth (not below lo_pre + flush_lo_margin_k)
+    "flush_lo_margin_k": 0.5,
+    "flush_window_h": 8.0,    # only within this many hours before a workday start
+    "flush_heat_guard": 1.0,  # 1 = no flush in heating season (heat_timer > 0)
+    "sb_neutral": 1.0,        # 1 = heating season: reheat set-back zones' forced air to zone temperature
+    "sb_neutral_cold": 0.0,   # 1 = ... only while the outside air is below the zone's setback floor
 }
 
 
@@ -421,6 +447,7 @@ class TransferPolicy:
         self.holiday = False
         self.mode = self.SETBACK
         self.zone_mode = np.full(Vn, self.SETBACK, dtype=int)
+        self.flush_latch = np.zeros(Vn, dtype=bool)  # round 4: night flush per zone
         # optimum start, building level (fallback when per_zone_start == 0)
         self.rate_h = float(p["rate0_kph"])
         self.rate_c = float(p["rate0_kph"])
@@ -558,6 +585,8 @@ class TransferPolicy:
             def_h_z = def_c_z = np.zeros(0)
             deficit_h = deficit_c = 0.0
         prev_zone_mode = self.zone_mode
+        workday_ahead = False
+        hours_to_start = 24.0
         if now:
             if (hod is not None and hod >= p["holiday_check_h"] and not self.seen_occ_today
                     and self.occ_idx >= 0):
@@ -693,6 +722,26 @@ class TransferPolicy:
             is_occ = is_pre = is_sb = np.zeros(0, dtype=bool)
             lo = hi = np.zeros(0)
 
+        # ---------------- night flush (round 4 candidate) ----------------
+        # Before a workday, a set-back zone that is warmer than the flush target is cooled with
+        # outside air when the outside air is at least flush_dt_k colder than the zone: fan only
+        # (floor pressure, 100% outside air, cooling coil off), which moves several times more
+        # heat per unit of electricity than the chiller does in the afternoon.
+        flush_z = np.zeros(V, dtype=bool)
+        if V and float(p.get("flush_on", 0.0)) > 0.5 and not now and workday_ahead \
+                and hours_to_start <= float(p.get("flush_window_h", 8.0)):
+            oat_z = oat[self.z_a]
+            tgt = max(hi_pre - float(p.get("flush_depth_k", 1.0)), lo_pre + float(p.get("flush_lo_margin_k", 0.5)))
+            ok = is_sb & np.isfinite(oat_z) & (oat_z <= T - float(p.get("flush_dt_k", 3.0)))
+            if float(p.get("flush_heat_guard", 0.0)) > 0.5 and self.heat_timer > 0:
+                # heating season (some zone was heated in the last heat_season_steps): flushed heat
+                # would have to be bought back with gas in the morning
+                ok = np.zeros(V, dtype=bool)
+            self.flush_latch = ok & (self.flush_latch | (T > tgt + 0.3)) & (T > tgt)
+            flush_z = self.flush_latch.copy()
+        elif V:
+            self.flush_latch[:] = False
+
         # ---------------- zone PI loops on net heat (W into the zone air) ----------------
         # Positive e_h: zone below its heating target; positive e_c: above its cooling
         # target.  Each loop regulates to its own target, so inside the deadband both
@@ -706,8 +755,19 @@ class TransferPolicy:
         t_disch_max = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
         sat_lo, sat_hi_native = self.sat_rng
         if V:
-            f_cap = np.where(is_occ, float(p.get("f_cap_occ", 1.0)), float(p.get("f_cap_pre", 0.7)))
-            f_cap = np.clip(f_cap, F_FLOOR100, 1.0)
+            f_occ = float(p.get("f_cap_occ", 1.0))
+            if float(p.get("occ_press_dyn", 0.0)) > 0.5:
+                # handler pressure above the floor is expensive twice (fan power and the forced
+                # minimum flow of every other zone grows with sqrt(P)), while a zone carries the
+                # same one or two occupants whatever its size: allow a zone flow above the
+                # floor-pressure flow only in proportion to how far it is past its target
+                e_pos = np.maximum(np.maximum(e_h, e_c), 0.0)
+                f_lo = float(p.get("f_cap_occ_lo", F_FLOOR100))
+                ramp = np.clip((e_pos - float(p.get("occ_press_e0", 0.3)))
+                               / max(float(p.get("occ_press_span", 1.0)), 1e-3), 0.0, 1.0)
+                f_occ = f_lo + (max(f_occ, f_lo) - f_lo) * ramp
+            f_cap = np.where(is_occ, f_occ, float(p.get("f_cap_pre", 0.7)))
+            f_cap = np.clip(f_cap, max(float(p.get("f_cap_min", F_FLOOR100)), 0.0), 1.0)
             cap_h = F_design * f_cap * np.maximum(t_disch_max - T, 0.5)
             cap_c = F_design * f_cap * np.maximum(T - sat_lo, 0.5)
             q_cap_h = np.minimum(max(p["q_cap_w"], 100.0) * self.scale[:V], cap_h)
@@ -757,10 +817,16 @@ class TransferPolicy:
         else:
             H = C = np.zeros(K)
         D = np.maximum(H, C)
+        # night flush: a handler flushes only when none of its zones asks for heat or cooling
+        fl_ahu = np.zeros(K, dtype=bool)
+        if V and flush_z.any():
+            np.logical_or.at(fl_ahu, self.z_a, flush_z)
+            fl_ahu &= D <= 0.0
+        flush_eff = flush_z & fl_ahu[self.z_a] if V else np.zeros(0, dtype=bool)
 
         # run / stop with dwell hysteresis
-        want_on = D > p["q_on_w"]
-        want_off = D <= 0.0
+        want_on = (D > p["q_on_w"]) | fl_ahu
+        want_off = (D <= 0.0) & ~fl_ahu
         can_switch = self.dwell >= np.where(self.ahu_on, p["min_on_steps"], p["min_off_steps"])
         turn_on = ~self.ahu_on & want_on & can_switch
         turn_off = self.ahu_on & want_off & can_switch
@@ -783,7 +849,16 @@ class TransferPolicy:
             s = np.clip(t_need_ahu, sat_lo, sat_hi)
             # the mixed-handler floor is independent of the cooling ceiling, so a cold SAT for
             # cooling-only handlers (v5) does not remove the reheat protection on mixed handlers
-            s = np.where(H > 0.0, np.maximum(s, min(p["sat_mix_floor"], sat_hi_native)), s)
+            mix_floor = min(p["sat_mix_floor"], sat_hi_native)
+            if float(p.get("sat_mix_relief", 0.0)) > 0.5:
+                # round 4: on a handler that heats and cools, go below the mixed floor only as far
+                # as the most demanding cooling zone needs to be served at floor pressure (raising
+                # the pressure instead costs fan power and inflates every zone's minimum flow)
+                relief_min = max(float(p.get("sat_mix_relief_min", sat_lo)), sat_lo)
+                floor_k = np.clip(t_need_ahu, relief_min, max(mix_floor, relief_min))
+            else:
+                floor_k = np.full(K, mix_floor)
+            s = np.where(H > 0.0, np.maximum(s, floor_k), s)
             sat = np.where(has_cool, s, sat_hi_native)
         sat = np.clip(sat, sat_lo, sat_hi_native)
 
@@ -797,6 +872,7 @@ class TransferPolicy:
                 f_oa = np.where(econ, (T_ret - sat) / np.where(adv > 0, adv, 1.0), 0.0)
             f_oa = np.clip(f_oa, 1.0 - RECIRC_MAX, 1.0)
             recirc = np.where(econ, 1.0 - f_oa, RECIRC_MAX)
+        recirc = np.where(on & fl_ahu, 0.0, recirc)   # night flush: all outside air
         self.recirc_prev = recirc
 
         # estimated coil-entering (supply) air temperature per AHU
@@ -826,6 +902,7 @@ class TransferPolicy:
             dT_h = np.maximum(t_disch_max - T, 0.5)
             F_heat = np.where(heat_zone, q_h / dT_h, 0.0)
             F_req = np.maximum(np.maximum(F_cool, F_heat), F_min)
+            F_req = np.where(flush_eff, np.maximum(F_req, F_floor), F_req)   # flush: 100% damper at the floor
             F_req = np.where(zone_on, F_req, F_min)
             f_req = np.clip(F_req / F_design, F_MIN, 1.0)   # fraction of design flow
             f_max = np.zeros(K)
@@ -840,10 +917,21 @@ class TransferPolicy:
             F_act = F_design * np.clip(damper, DAMPER_FLOOR, 1.0) * f_real[self.z_a]
             # reheat: discharge temperature that delivers q_h net, then the water
             # capacity rate that produces it, then the valve at the chosen dP
-            if any_heat_now:
+            # round 4: in heating season, a set-back zone below its preconditioning target that
+            # sits on a running handler gets its forced minimum flow reheated to its own
+            # temperature (1 J of gas per J now instead of ~2 J per J in the ventilated recovery)
+            neutral = np.zeros(V, dtype=bool)
+            if float(p.get("sb_neutral", 0.0)) > 0.5 and self.heat_timer > 0:
+                neutral = zone_on & is_sb & ~heat_zone & ~cool_zone & (T < lo_pre) & (T > t_sa_z + 0.5)
+                if float(p.get("sb_neutral_cold", 0.0)) > 0.5:
+                    # only when the outside air is below the zone's setback floor, i.e. the zone will
+                    # certainly need heat before the workday (in mild weather it warms by itself)
+                    neutral &= np.isfinite(oat[self.z_a]) & (oat[self.z_a] <= floor_z)
+            if any_heat_now or neutral.any():
                 t_disch = np.clip(T + q_h / np.maximum(F_act, 1.0), t_sa_z, t_disch_max)
+                t_disch = np.where(neutral, np.minimum(T, t_disch_max), t_disch)
                 gap = np.maximum(tw_obs - t_sa_z, 1.0)
-                w_need = np.where(heat_zone & zone_on,
+                w_need = np.where((heat_zone | neutral) & zone_on,
                                   F_act * np.clip((t_disch - t_sa_z) / gap, 0.0, 1.0), 0.0)
                 w_max = float(w_need.max())
                 target = max(p["valve_target"], 0.05)

@@ -42,6 +42,32 @@ done
 "$PY" screen_round3.py summarize --steps 2880 > ../results/round3/screen_ranking.txt 2>&1 || true
 "$PY" screen_round3.py summarize --steps 2880 --ref r3_c00_v6_default > ../results/round3/screen_ranking_vs_c00.txt 2>&1 || true
 "$PY" ledger_round3.py > /dev/null || true
+echo "== round 4: diagnosis of v6, screen summary, full-length confirmation, ledger"
+if [ ! -f ../results/round4/diag_round4.json ]; then
+  "$PY" diag_cooling_r4.py --dirs ../results/mac/round3/final_v6_public ../results/mac/round3/final_v6_heldout \
+      ../results/mac/round3/final_v6_r3 --out ../results/round4/diag_cooling_v6.json > /dev/null
+  "$PY" diag_round4.py > /dev/null
+fi
+"$PY" screen_round4.py summarize --steps 2880 > ../results/round4/screen_ranking.txt 2>&1 || true
+R4CAND=$("$PY" -c "import json; print(json.load(open('../results/round4/decision.json')).get('chosen') or '')" 2>/dev/null || true)
+if [ -n "$R4CAND" ]; then
+  "$PY" confirm_round4.py --cand "$R4CAND" > ../results/round4/confirm_ranking.txt 2>&1 || true
+  tail -n 2 ../results/round4/confirm_ranking.txt
+  # where the gain comes from: decompositions of v7 and v6 on the three confirmation sets
+  R=../results
+  for spec in "public_v7:$R/round4/full/$R4CAND/pub30 $R/mac/round4/full/$R4CAND/pub30" \
+              "old40_v7:$R/round4/full/$R4CAND/old40 $R/mac/round4/full/$R4CAND/old40" \
+              "old40_v6:$R/mac/round3/final_v6_heldout $R/mac/round3/final_v6_r3" \
+              "fresh40_v7:$R/round4/full/$R4CAND/fresh40 $R/mac/round4/full/$R4CAND/fresh40" \
+              "fresh40_v6:$R/round4/full/r4_c00_v6/fresh40 $R/mac/round4/full/r4_c00_v6/fresh40"; do
+    name=${spec%%:*}; dirs=${spec#*:}
+    existing=""; for d in $dirs; do [ -d "$d" ] && existing="$existing $d"; done
+    [ -n "$existing" ] && "$PY" decompose_loss.py --dirs $existing --policy transfer \
+        --out "$R/round4/loss_decomposition_$name.json" --label "$name" > /dev/null 2>&1 || true
+  done
+fi
+"$PY" ledger_round4.py > /dev/null || true
+if [ -f assemble_round4_tree.py ]; then "$PY" assemble_round4_tree.py || true; fi
 echo "== macros + figures"
 "$PY" make_macros.py
 "$PY" make_audit.py
@@ -50,6 +76,7 @@ echo "== macros + figures"
     --trace building_train_8/fairbanks_8 --trace-day 8 \
     --decomp "v5=../results/round3/loss_decomposition_public_v5.json" "v6=../results/round3/loss_decomposition_public_v6.json" \
     --heldout-scores-r3 ../results/heldout_r3_scores.json
+"$PY" make_figures_r4.py
 echo "== official scorer on the final tree"
 ( cd ../../kit && "./.venv/Scripts/python.exe" score_leaderboard.py ../experiments/results/final --policy transfer --expect 30 \
     > ../experiments/results/score_leaderboard_final.txt 2>&1 || "./.venv/bin/python" score_leaderboard.py ../experiments/results/final --policy transfer --expect 30 > ../experiments/results/score_leaderboard_final.txt 2>&1 )

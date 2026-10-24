@@ -20,6 +20,17 @@ air's heat capacity" (a 0.2 m x 0.2 m x 3 m wall cell at density 600 kg/m3 and 9
 2,500-10,000 air cells), "under 1 K/h" and "28 W/m2" (12 kW into 429 m2; the v5 trace on
 building_0502/denver_1 climbed 0.8 K/h), and the 350-430 m2 zone areas of building 0502.
 
+Round 4 (2026-10-23) adds these typed constants: "a handler serves at most ten zones"
+(`max_zones_per_ahu = 10` in `kit/smart_buildings/smart_control/utils/scenario_generator.py`; the energy
+normalizer is 80 kW of electricity per handler, `max_electricity_rate` in every scenario's config.gin);
+the 200 Pa pressure floor and the damper floor (kit `AirHandler`/`VAV` minima); "1 J of gas per joule"
+for reheating air that is forced through anyway (energy balance of the reheat coil); "below 0 C" (the
+selection rule of the Fairbanks strips in `make_macros_r4.py`); "seed 0" and building_train_1's seed
+(the shipped YAML); "five switches" and the switch list (the overrides in
+`experiments/src/policy_candidates/r4_c14_comp_a.json`); "three added after a first look at the
+screen" (c11-c13, `results/round4/decision.json` and `candidates.json -> added`); the round-4
+generator seeds (`experiments/src/make_sets_r4.sh`).
+
 ## Build / conventions
 | item | status |
 |---|---|

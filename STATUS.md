@@ -1,11 +1,12 @@
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-23 13:10 PDT. State: ROUND 3 COMPLETE for the poster round -- SADR v6
-(round-3 composite `r3_c16_pre035_min1`) confirmed at full length on 30 public + 40 held-out
-scenarios, baked into `submission/transfer_policy.py`, paper rebuilt (0 errors, 0 undefined refs,
-0 `??`, 0 overfull boxes, main text ends on page 6), audit and self-review pass 2 written. All
-Mac jobs finished (the Mac is idle). Open items are the user's (Kaggle submission, OpenReview
-upload with name).
+Last updated: 2026-10-23 19:35 PDT. State: ROUND 4 COMPLETE -- SADR v7 (round-4 composite
+`r4_c14_comp_a`) met the pre-registered rule at full length on 30 public + 34 clean old held-out +
+40 freshly generated held-out scenarios, baked into `submission/transfer_policy.py` (v6 kept for
+provenance), paper rebuilt (13 pages, main text ends on page 6; 0 errors, 0 undefined refs, 0 `??`,
+0 overfull boxes), audit (43 claims, 0 missing) and self-review pass 3 written. All Mac and laptop
+jobs finished (the Mac is idle). Open items are the user's (Kaggle submission, OpenReview upload
+with name).
 
 Repository: https://github.com/neelsirivara/neurips2026-smart-buildings (private; `kit/` and the
 per-scenario time series are git-ignored; `.git`, `.gitignore`, `LICENSE`, `.github` and the
@@ -13,9 +14,32 @@ top-level `README.md` are managed by `make_repos.py` and were not edited here). 
 committed or pushed from this session.
 
 ## Headline numbers (leaderboard metric = mean over scenarios of |mean per-step reward|, lower is better)
-All rows: 8,640 steps, Mac, paired bootstrap 95% CIs over scenarios (5,000 resamples).
+All rows: 8,640 steps, paired bootstrap 95% CIs over scenarios (5,000 resamples, seed 0).
 
-| set | SADR v6 (final) | SADR v5 (previous) | pid_water (same machine) | v6 vs v5 [95% CI], wins | v6 / pid_water [95% CI], wins |
+Round 4, SADR v7 (final) vs the shipped v6 (`experiments/results/round4/confirm_r4_c14_comp_a.json`;
+v7 runs: Mac + laptop, bit-identical on the 6 scenarios run on both; v6: round-3 Mac runs, and
+`r4_c00_v6` on the fresh set):
+
+| set | v7 (final) | v6 | v7 - v6 x1e-5 [95% CI] | relative [95% CI] | wins | v7 / pid_water [95% CI], wins |
+|---|---|---|---|---|---|---|
+| 30 public scenarios | **0.00786** | 0.00803 | -17.1 [-37.8, -3.2] | -2.1% [-4.7, -0.4] | 24/30 | 0.143 [0.113, 0.176], 30/30 |
+| 40 old held-out (r2 + r3 buildings) | **0.01173** | 0.01206 | -33.5 [-51.4, -19.8] | -2.8% [-4.3, -1.6] | 39/40 | 0.230 [0.203, 0.258], 40/40 |
+| 34 old held-out never screened | 0.01090 | 0.01119 | -28.5 [-48.8, -14.8] | -2.6% [-4.4, -1.3] | 33/34 | -- |
+| 40 fresh (8 new buildings, round 4) | **0.00869** | 0.00890 | -20.9 [-35.1, -10.8] | -2.3% [-3.9, -1.2] | 38/40 | not run |
+| 20 fresh, shipped-six ranges (0601-0603, 0606) | 0.00725 | 0.00736 | -10.3 [-21.0, -3.0] | -1.4% [-2.9, -0.4] | 18/20 | not run |
+| 20 fresh, kit default ranges (0604, 0607, 0610, 0639) | 0.01012 | 0.01044 | -31.5 [-56.6, -14.8] | -3.0% [-5.4, -1.4] | 20/20 | not run |
+| 74 clean held-out pooled (34 + 40) | 0.00971 | 0.00995 | -24.4 [-35.7, -15.3] | -2.5% [-3.6, -1.5] | 71/74 | -- |
+
+- Official scorer on the v7 tree (`experiments/results/final_r4`, `score_leaderboard_final_r4.txt`):
+  LEADERBOARD SCORE = 0.00786 over 30 scenarios (shipped baselines: pid_water 0.05414,
+  fixed_setpoint 0.06592, pid 0.06736, bang_bang 0.22520).
+- v7 by station (public): Fairbanks 0.0160 (v6 0.0167, -4.5%), Denver 0.0047, Atlanta 0.0052,
+  Phoenix 0.0074, Singapore 0.0059. Public v7 is 1.36x the Kaggle leader's 0.00578 and 1.21x rank
+  8 (0.00647) -- different buildings and strips, not comparable.
+
+Round 3 (unchanged; the v6 rows of the paper's round-3 narrative), all Mac:
+
+| set | SADR v6 | SADR v5 (previous) | pid_water (same machine) | v6 vs v5 [95% CI], wins | v6 / pid_water [95% CI], wins |
 |---|---|---|---|---|---|
 | 30 public scenarios | **0.00803** | 0.00831 | 0.05498 | -0.00028 [-0.00045, -0.00015] (-3.4%), 28/30 | 0.146 [0.114, 0.182], 30/30 |
 | 10 held-out, buildings 0501/0502 | **0.00944** | 0.01109 | 0.03989 | -0.00165 [-0.00298, -0.00055] (-14.9%), 10/10 | 0.237 [0.153, 0.296], 10/10 |
@@ -23,16 +47,17 @@ All rows: 8,640 steps, Mac, paired bootstrap 95% CIs over scenarios (5,000 resam
 | all 40 held-out (8 generated buildings) | **0.01206** | 0.01371 | 0.05097 | -0.00165 [-0.00223, -0.00112] (-12.0%, CI 9.5-14.3%), 40/40 | 0.237 [0.209, 0.264], 40/40 |
 | 34 held-out never screened | 0.01119 | 0.01254 | -- | -0.00135 [-0.00190, -0.00089] (-10.8%, CI 8.3-13.5%), 34/34 | -- |
 
-- Official scorer (`kit/score_leaderboard.py` on `experiments/results/final`): LEADERBOARD SCORE =
-  0.00803 over 30 scenarios; shipped baselines on the same scenarios: pid_water 0.05414,
+- Official scorer on the round-3 tree (`kit/score_leaderboard.py` on `experiments/results/final`,
+  transfer = v6): LEADERBOARD SCORE = 0.00803 over 30 scenarios; shipped baselines: pid_water 0.05414,
   fixed_setpoint 0.06592, pid 0.06736, bang_bang 0.22520 (`experiments/results/score_leaderboard_final.txt`).
 - v6 by station (public): Fairbanks 0.01673 (v5 0.01752), Phoenix 0.00742 (0.00755), Singapore
   0.00594 (0.00602), Atlanta 0.00530 (0.00549), Denver 0.00475 (0.00497).
 - Kaggle public leaderboard (coordinator's read, 2026-10-22, `experiments/results/kaggle_leaderboard_2026-10-22.json`):
   #1 0.00578, #8 0.00647 (last prize rank), #30 0.00996, 292 teams, on different held-out
   buildings with a 33% public split -- same formula, not directly comparable. Our public-set
-  0.00803 is 1.4x the leader; our generated-building number (0.01206) is higher still because those
-  buildings are larger than the public ones; the Kaggle test buildings are unknown.
+  number (v6 0.00803, v7 0.00786) is 1.4x the leader; our generated-building numbers are higher
+  still because those buildings are larger than the public ones (round 4: the kit's default ranges
+  produce larger buildings than the shipped six); the Kaggle test buildings are unknown.
 - Older rounds, unchanged: v4 -> v5 on the public set -9.7% (CI 5.1% to 15.2%), 19/30 wins;
   local re-runs of all four baselines on the Mac: pid_water 0.05498, pid 0.06782, fixed_setpoint
   0.06550, bang_bang 0.22453 (local pid_water -1.7% vs the shipped values on average, range
@@ -41,6 +66,134 @@ All rows: 8,640 steps, Mac, paired bootstrap 95% CIs over scenarios (5,000 resam
   (`r3_c16`) on building_0502/denver_1 at 2,880 steps, laptop vs Mac, identical total
   (-67.5222061858949), and the baked `submission/transfer_policy.py` (no parameter file) gives the
   same total (`experiments/results/round3/xcheck_c16_laptop`, `regress_shipped_v6`).
+
+## Round 4 (2026-10-23, 13:20-19:35 PDT): diagnosis, pre-registered screen, fresh confirmation
+
+Goal: follow the open leads of round 3 (lower `f_cap_pre`, chiller on the generated buildings,
+Fairbanks gas), with a fresh never-screened confirmation set, and ship only under a rule written
+down first.
+
+1. **Pre-registration** `experiments/results/round4/PREREG.md` (written before any policy ran on the
+   new sets): sets, the 10 planned candidates with hypotheses, classification (helps / public only /
+   n.s. / worse vs the shipped v6), composite and choice rule, ship rule (public not worse; pooled
+   clean held-out better; neither clean part worse). Decision record with times:
+   `results/round4/decision.json`.
+2. **Diagnosis** (`results/round4/diagnosis_note.md`, `diag_round4.json`, `diag_cooling_v6.json`;
+   `experiments/src/diag_cooling_r4.py` reconstructs the chiller load from the logged handler states
+   within 0.1%, `diag_round4.py`; inputs: the round-3 v6 diagnostic runs, no new simulation):
+   - Chiller on the generated buildings is a normalization effect: Phoenix + Singapore strips cool at
+     2.05 W/m2 of zone (public 2.31) but 0.067 of the 80 kW-per-handler normalizer (public 0.032),
+     because a handler serves at most ten zones and the generated buildings have 2,643 m2 of zone per
+     handler (public 1,088). Economizer active on 5.5% of the hot strips' coil load (outside air is
+     hotter than return air); reheat-while-cooling and missed economizer 1.5-2.4% of the
+     cooling-weighted coil load; no latent load in the simulator; flat load through comfort hours;
+     preconditioning ~11% of the coil load, setback ~1%. Night air >= 3 K below the zones on 59% of
+     unoccupied steps in the generated Denver/Atlanta strips that cool (public 42%), almost never in
+     Phoenix/Singapore summers.
+   - What control can still reach: fan power above the 200 Pa floor, 0.00047/step on the round-3
+     buildings (3.6% of their metric, 39% of their fan term; public 0.00002), 46% of it on handlers
+     that heat and cool at once (SAT floored at 292 K, so big cooling zones need full flow) and 41% on
+     cooling handlers already at 285 K; pressure above the floor also enlarges every idle zone's forced
+     flow.
+   - Fairbanks gas (public strips below 0 C): outside-air heat of running handlers = 54% of the gas
+     (round-3 buildings 68%); preconditioning 30% and setback 11% of the gas; idle zones chilled by
+     their forced minimum flow while unoccupied = 5.1% of the gas. The gas per joule of net heat at
+     the discharge cap, 1 + 0.3 (T - Tout)/(Tdisch - T), does not depend on flow -> lowering the
+     preconditioning cap below the floor-pressure flow can only slow the recovery.
+   - **The kit's DEFAULT_RANGES do not reproduce the shipped six** (seed 0: 597 x 494 ft vs
+     building_train_1, seed 0, 373 x 188 ft; the six span width 318-430, height 188-301, rooms 25-51;
+     `results/round4/generator_ranges.json`), while the kit README says the Kaggle buildings come from
+     "the same generator and parameter ranges as the shipped six". The round-3 held-out buildings
+     (default ranges, median zone 246 m2) are therefore larger than the likely test buildings; round 4
+     generates both families and reports them separately.
+3. **New sets** (`experiments/src/make_sets_r4.sh`, `gen_buildings_r4.py`; generated on the Mac and
+   copied to the laptop -- the laptop's own generation writes Windows backslashes into config.gin,
+   which gin reads as escapes; floor plans and zone maps are identical on both machines):
+   screening `kit/smart_buildings/heldout_scenarios_r4s` = 0520, 0524 (shipped ranges), 0522, 0523
+   (default ranges) x 5 stations = 20 scenarios (31-146 zones, rooms up to 1,024 m2); fresh
+   confirmation `heldout_scenarios_r4c` = 0601, 0602, 0603, 0606 (shipped ranges) + 0604, 0607, 0610
+   (largest rooms of seeds 606-699), 0639 (largest floor area of 606-699; 179 zones, 18 handlers) x 5
+   = 40 scenarios (40-179 zones, rooms up to 1,439 m2). Seeds the kit rejects (zones < 20 m2: 521, 600,
+   605) replaced by the next free seed (524, 606, 607). Strips: Latin square per station.
+4. **Code**: `policy_candidates/transfer_policy_v7.py` = shipped v6 + switches (`f_cap_min`,
+   `occ_press_dyn`, `sat_mix_relief`, `flush_on`/`flush_heat_guard`, `sb_neutral`/`sb_neutral_cold`),
+   all off by default. Regressions: v7 defaults = v6 bit for bit (3 public scenarios x 576 steps,
+   `results/round4/regress`), and the screen's `r4_c00_v6` equals the round-3 screen values of the
+   shipped c16 on all 12 round-3 screening scenarios.
+5. **Screen** (2,880 steps; public-10 = the 6 earlier public screening scenarios + the other 4
+   Fairbanks strips; held-26 = the 6 round-3 held-out screening scenarios + the 20 r4s scenarios;
+   `screen_round4.py`, ledger `results/round4/candidates.json`, paper Table 11). Against v6
+   (x1e-5 per step, paired 95% CI):
+
+   | id | change | public-10 | held-26 | verdict |
+   |---|---|---|---|---|
+   | c01 | f_cap_pre 0.316 (floor-pressure flow) | -0.3 [-0.6, -0.1] | +1.7 [-0.3, +4.1] | public only |
+   | c02 | f_cap_pre 0.25 (clip removed) | +1.3 [-0.3, +3.6] | +13.2 [+4.1, +24.8] | worse |
+   | c03 | f_cap_pre 0.15 | +31.8 [+7.6, +59.2] | +49.4 [+19.4, +85.2] | worse |
+   | c04 | f_cap_pre 0.05 | +208.4 [+73.9, +357.9] | +190.5 [+98.1, +297.2] | worse |
+   | c05 | discharge margin 0.25 K | -25.7 [-57.5, -3.0] | -20.7 [-38.0, -6.4] | helps |
+   | c06 | mixed-handler SAT relief | -0.0 [-0.0, +0.0] | +3.7 [-1.0, +10.9] | n.s. |
+   | c07 | occupied pressure cap (e0 0.3, span 1 K) | -4.4 [-9.3, -0.2] | -2.4 [-7.7, +2.0] | public only |
+   | c08 | occupied pressure cap (e0 0.1, span 0.5 K) | -4.7 [-10.2, -0.2] | -7.4 [-13.3, -2.4] | helps |
+   | c09 | night flush (outside air) | +16.5 [+0.3, +34.3] | -3.3 [-24.6, +18.7] | worse |
+   | c10 | reheat set-back zones' forced air | -15.7 [-35.8, +1.2] | -5.8 [-13.0, -0.3] | helps |
+   | c11* | night flush, not in heating season | -0.8 [-1.7, -0.0] | -9.6 [-16.6, -3.7] | helps |
+   | c12* | discharge margin 0 K | -31.5 [-70.8, -3.6] | -25.1 [-46.0, -8.1] | helps |
+   | c13* | c10 only below the setback floor | -15.8 [-35.8, +1.0] | -5.5 [-12.8, +0.0] | n.s. |
+   | **c14** | composite c12+c08+c11+c01+c10 | -51.7 [-113.7, -2.9] | -45.7 [-72.6, -22.7] | helps (chosen) |
+   | c15 | composite with c13 instead of c10 | -51.8 [-113.6, -3.1] | -46.2 [-73.1, -22.9] | helps (ledger only) |
+
+   \* added after a first partial read of the screen (c09 lost on a winter Fairbanks strip by
+   flushing heat that gas had to buy back; c05 helped -> c12; c10 hurt mild strips -> c13); recorded
+   in `candidates_notes_r4.json` and `decision.json`. The hypotheses held for the discharge margin
+   (consistent -1 to -3% in every heating scenario), the set-back reheat (cold Fairbanks -1.4 to -2.8%)
+   and the guarded flush (Denver/Atlanta summers up to -7%); the fan-pressure diagnosis gave only the
+   mild occupied cap (c08) and the mixed-handler relief did nothing measurable; caps below the
+   floor-pressure flow were worse, as predicted.
+6. **Decision** (16:40 PDT, before any full-length candidate run): one change per family among those
+   that helped (discharge: c12 over c05 by held metric; occupied cap: c08; flush: c11; set-back:
+   c10 because c13 was n.s.; f_cap: c01 public only) -> composite c14; the lowest held-26 metric
+   among the composite and the helping singles -> **c14**.
+7. **Confirmation** (8,640 steps, diagnostics on; v6 on the fresh set run at the same time and not
+   looked at before the decision): the table at the top. The ship rule is met (public better, not
+   only not worse; pooled clean held-out better; neither clean part worse). Where the gain comes
+   from (`results/round4/loss_decomposition_{public_v7,old40_v6,old40_v7,fresh40_v6,fresh40_v7}.json`):
+   public gas 0.00425 -> 0.00411 per step (Fairbanks 0.01673 -> 0.01598, -4.5%); old held-out cooling
+   -0.00014, fan -0.00010, gas -0.00017, comfort +0.00008 (0.00039 -> 0.00047); fresh gas -0.00011,
+   cooling -0.00009, fan -0.00004, comfort +0.00003.
+8. **Shipped**: `python experiments/src/ship_round4.py r4_c14_comp_a` -> `submission/transfer_policy.py`
+   (v7 code with the five overrides baked into `DEFAULT_PARAMS`; "mismatches after bake: none"),
+   `submission/best_params.json` = `results/tune/best_params.json` = `best_params_v7.json`; v6 kept as
+   `results/tune/best_params_v6.json` and `results/round4/transfer_policy_v6_shipped_before_round4.py`.
+   Robustness test 35/35 cases; 36-step smoke run; Kaggle template smoke test (288 steps,
+   building_train_1/fairbanks_1: -2.141, `results/round4/kaggle_template_smoke_v7.txt`); the baked file
+   (no parameter file) reproduces the Mac's c14 screen runs bit for bit on building_train_8/fairbanks_8
+   and building_train_1/denver_7 at 2,880 steps on the laptop (`results/round4/xcheck_shipped_v7`);
+   official scorer 0.00786 on `results/final_r4`. Policy time per step in the full runs 0.6-0.7 ms (0.74 ms on the 179-zone building 0639).
+9. **Machines**: Mac -- held-26 screen of c00-c10 (286 runs, 14 workers, 132 min), c11-c13 and
+   the two composites on both screening sets, v6 and v7 full length on the fresh default-range
+   buildings, v7 on the old 40 and on 20 public scenarios (130 full-length runs, 0 failures; load
+   40-110 from the user's Chrome). Laptop -- public-10 screen of c00-c10 (110 runs, 3 workers, 94 min),
+   regressions and smoke tests, v6 full length on the fresh shipped-range buildings (20), v7 full
+   length on 18 public/fresh scenarios; six v7 scenarios ran on both machines with identical totals.
+   Fetched with `experiments/src/fetch_mac_round4.sh` into `experiments/results/mac/round4/`; Mac logs
+   `experiments/results/logs/mac/r4_*.log`.
+10. **Paper** (`paper/main.tex`): abstract and Section 4 lead with v7; Section 3 adds the v7 switches
+    and the round-4 protocol; Section 4 adds Table 2 (v7 vs v6 on every set) and the round-4 ledger
+    summary; Section 5 adds "What round 4 found" (normalization, fan pressure, ventilation, generator
+    ranges); Table 1 gains a v7 row; Appendix A gains Table 6 (fresh set per scenario) and Figure 1
+    (v7 vs v6 per generated building); Appendix B Table 11 (round-4 ledger); the decomposition and
+    held-out-building figures moved to Appendix C to keep six pages; Sections 3-5 compressed.
+    `finalize.sh` now also runs the round-4 summary, confirmation, ledger, `assemble_round4_tree.py`
+    and `make_figures_r4.py`; macros in `make_macros_r4.py`; audit 43 claims, 0 missing.
+
+### Round 4 -- what remains
+- Nothing running. Not done: a full-length ablation of the five v7 switches; `pid_water` on the
+  fresh buildings (the fresh set reports v7 vs v6 only); the Kaggle submission (user).
+- Ideas for January: the shipped-range buildings gain least (-1.4%) and are the likely test
+  distribution -- screen future changes on shipped-range buildings first; Fairbanks remains the
+  largest single loss (building_train_1/fairbanks_1 0.0461, 95% gas), bounded by the 30% outside-air
+  physics; a learned residual or MPC for the morning recovery.
 
 ## Round 3 (2026-10-23): what was done, before/after, which machine ran what
 
@@ -114,87 +267,108 @@ Machines in round 3:
 - The 6 held-out screening scenarios (first 10 days) informed the choice; the 34 never screened are
   the clean held-out estimate (-10.8%, CI 8.3-13.5%, 34/34).
 
-## Final policy (`submission/transfer_policy.py`, SADR v6)
+## Final policy (`submission/transfer_policy.py`, SADR v7)
 Schedule-Aware Demand-based Reset: occupancy-gated OCCUPIED / PRECONDITION / SETBACK modes with
-holiday detection and a self-tuning optimum-start lead (v6: per zone); per-zone PI loops on net
+holiday detection and a self-tuning optimum-start lead (per zone since v6); per-zone PI loops on net
 heat (W) translated to damper flow via the supply-air temperature and to reheat valve position via
 the water capacity rate and the 308.15 K discharge limit; coldest supply air (285 K) whenever a
 handler cools, 292 K floor on handlers that also heat; static pressure trim-and-respond in closed
 form; proportional economiser with the fan break-even; loop dP reset to the most-open valve; hot
 water 350 K in heating season; setback by burst heating/cooling against a floor widened by 8 K
-below / 6 K above the eco band. v6 adds: gains, request cap and setback burst scaled with zone area
-/ 100 m2 (clip [1, 6], i.e. only upwards), request caps at what the box delivers at flow fraction
-0.35 (preconditioning/setback) or 1.0 (occupied) and at the coil's water-side limit, per-zone
-optimum start, adaptive setback floor. Pure numpy + stdlib, ~0.35-0.5 ms per step (init ~40 ms on
-a 120-zone building for the zone-map labelling), deterministic, shape-agnostic, every action slot
-written and clipped; 48 KB.
+below / 6 K above the eco band. v6 added: gains, request cap and setback burst scaled with zone area
+/ 100 m2 (clip [1, 6]), request caps at what the box delivers at a flow fraction and at the coil's
+water-side limit, per-zone optimum start, adaptive setback floor. v7 (round 4) adds: discharge
+margin 0 (flows and valves sized for the simulator's own 308.15 K cap); a pressure-aware occupied
+request cap (flow above the 200 Pa floor-pressure flow only in proportion to the zone's error, from
+0.1 K, full 0.5 K later); a night flush with outside air before workdays outside heating season
+(zone >= 3 K warmer than outside, floor pressure, coil off, within 8 h of the start); reheat of the
+forced minimum flow of set-back zones on running handlers in heating season; preconditioning cap
+at the floor-pressure flow (0.316). With the five v7 switches off the code reproduces v6 bit for
+bit. Pure numpy + stdlib, ~0.6-0.7 ms per step in the full runs (init ~40-100 ms on a 120-zone
+building for the zone-map labelling), deterministic, shape-agnostic, every action slot written and
+clipped; 54 KB.
 
 Parameter provenance: v4 random search (16 configurations, ki 60 -> 120 is the whole gain), v5
 analysis-driven candidates at full length on the public set (winner `c10_satcold_night8_hi6`:
 sat_cool_hi 285, night_low_ext 8, night_high_ext 6), v6 round-3 screen + full-length confirmation
-(winner `r3_c16_pre035_min1`: f_cap_pre 0.35, area_scale_min 1.0 on the v6 defaults).
+(winner `r3_c16_pre035_min1`: f_cap_pre 0.35, area_scale_min 1.0 on the v6 defaults), v7 round-4
+pre-registered screen + full-length confirmation (winner `r4_c14_comp_a`: disch_margin_k 0,
+occ_press_dyn 1 / e0 0.1 / span 0.5, flush_on + flush_heat_guard, sb_neutral, f_cap_pre 0.316).
 
 ## Machines
-- `laptop`: this Windows laptop (8 cores shared; <= 3-4 simulator processes; 0.05-0.23 s/step).
+- `laptop`: this Windows laptop (8 cores shared; <= 3 simulator processes; 0.03-0.2 s/step).
+  Generating scenarios here writes backslash paths into config.gin (gin reads them as escapes):
+  generate on the Mac and copy (done for r4s/r4c).
 - `mac`: `ssh mac`, Apple M5 Pro, 18 cores, 48 GB, kit clone + uv venv (Python 3.12.15, same pins),
-  layout mirrors this tree at `~/neurips/sb`; shared with the user's own apps (load 12-24 during
-  round 3). All paper rows come from Mac runs (one machine for every policy).
+  layout mirrors this tree at `~/neurips/sb`; shared with the user's own apps (Chrome used 5-8
+  cores during round 4; load 40-110). Round 1-3 paper rows come from Mac runs; round-4 v7 rows mix
+  Mac and laptop runs, which are bit-identical (checked on 6 full-length scenarios).
 
 ## Deliverables (all present)
-1. `submission/transfer_policy.py` (v6, baked), `submission/README.md` (v6 description, paste-in
-   steps for the Kaggle notebook, repo link), `submission/kaggle_notebook_template.py` (smoke-tested
-   with the v6 policy), `submission/best_params.json`.
-2. `experiments/results/final_scores.json`, `heldout_scores.json`, `heldout_r3_scores.json`,
-   `final_scores_local.json`, `heldout_scores_local.json`, `analysis.json`, `candidates_summary.json`,
-   `env_info.json`, `score_leaderboard_final.txt`; round 3: `results/round3/candidates.json`
-   (ledger), `screen_summary.json` (vs v5), `screen_summary_vs_r3_c00_v6_default.json` (vs c00),
-   `loss_decomposition_{public,heldout,heldout_r3}_{v5,v6}.json`, `loss_decomposition_note.md`,
-   `finalize_r3.log`; `paper/results_macros.tex`, `per_scenario_table.tex` (3 tables),
-   `tuning_tables.tex` (ablation, v5 candidates, round-3 ledger); `paper/figures/*` (loss
-   decomposition v5/v6, held-out buildings, per-scenario scores, loss by hour, trace, tuning);
-   `paper/main.pdf` (12 pages: main text through page 6, references page 7, Appendices A-C from
-   page 8; 0 errors, 0 undefined, 0 `??`, 0 overfull); `paper/AUDIT.md` (34 claims, 0 missing
-   values; header `AUDIT_header.md`); `paper/review/REVIEW_1.md` (pass 1 + pass 2).
+1. `submission/transfer_policy.py` (v7, baked), `submission/README.md` (v7 description and
+   selection, v6 kept as "previous version", paste-in steps for the Kaggle notebook, repo link),
+   `submission/kaggle_notebook_template.py` (smoke-tested with v7), `submission/best_params.json`.
+2. `experiments/results/final_scores.json`, `heldout_scores.json`, `heldout_r3_scores.json`
+   (round-3 trees, transfer = v6), `final_scores_local.json`, `heldout_scores_local.json`,
+   `analysis.json`, `candidates_summary.json`, `env_info.json`, `score_leaderboard_final.txt` (v6) and
+   `score_leaderboard_final_r4.txt` (v7, tree `results/final_r4`); round 3: `results/round3/*`;
+   round 4: `results/round4/PREREG.md`, `decision.json`, `candidates.json` (ledger),
+   `screen_summary_screen_vs_r4_c00_v6.json`, `screen_ranking.txt`, `confirm_r4_c14_comp_a.json`,
+   `confirm_ranking.txt`, `diagnosis_note.md`, `diag_round4.json`, `diag_cooling_v6.json`,
+   `generator_ranges.json`, `scan_default_606_699.json`, `loss_decomposition_*_v{6,7}.json`,
+   `regress/`, `xcheck_shipped_v7/`, `kaggle_template_smoke_v7.txt`, `finalize_r4.log`;
+   `paper/results_macros.tex`, `per_scenario_table.tex` (3 tables), `per_scenario_table_r4.tex`,
+   `tuning_tables.tex` (ablation, v5 candidates, round-3 and round-4 ledgers); `paper/figures/*`
+   (+ `fig_round4_buildings`); `paper/main.pdf` (13 pages: main text through page 6, references page
+   7, Appendices A-C from page 8; 0 errors, 0 undefined, 0 `??`, 0 overfull); `paper/AUDIT.md` (43
+   claims, 0 missing values; header `AUDIT_header.md`); `paper/review/REVIEW_1.md` (passes 1-3).
 3. This file.
 
 Pipeline (idempotent): `bash experiments/src/finalize.sh` regenerates everything in item 2 from the
-result trees (assemble, score, analysis, decompositions, screen summaries, ledger, macros, audit,
-figures, official scorer, three pdflatex passes).
+result trees (assemble, score, analysis, decompositions, screen summaries, round-4 confirmation and
+ledger, the v7 tree and its official score, macros, audit, figures, three pdflatex passes).
 
 ## Paper
-NeurIPS 2026 style, `[sglblindworkshop,final]` + `\workshoptitle`. Round-3 changes: abstract and
-results report the pooled 40-scenario held-out set (and the 34 never screened); Section 3 states the
-v6 mechanisms with the shipped values as macros and the round-3 protocol (screens vs v5 and vs c00,
-composites, choice rule fixed in advance); Section 4 has the loss decomposition (Figure 1, v5 vs
-v6), the held-out-buildings figure (8 buildings), v5 -> v6 with CIs on every set, the ledger
-summary including failures, and the Kaggle leaderboard caveat; the per-scenario figure moved to
-Appendix A to keep the main text at six pages; Appendix B Table 8 is the full round-3 ledger.
-Self-review pass 2 (`paper/review/REVIEW_1.md`): see the file; must-fixes applied.
+NeurIPS 2026 style, `[sglblindworkshop,final]` + `\workshoptitle`. Round-4 changes: abstract leads
+with v7 (public 0.00786, ratio to pid_water 0.143) and the round-4 result on the 74 untouched
+held-out scenarios; Section 3 adds "Round 4 (v7)" and the pre-registered protocol (and that three
+candidates were added after a first look); Section 4 adds Table 2 (v7 vs v6 on every set, both
+building families) and the round-4 ledger summary with where the gain comes from; Section 5 adds
+"What round 4 found"; Table 1 has a v7 row; Appendix A: Table 6 (fresh set) and Figure 1 (v7 vs v6
+per building); Appendix B: Table 11 (round-4 ledger); the decomposition and held-out-building
+figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-review pass 3
+(`paper/review/REVIEW_1.md`): must-fixes 1-5 applied.
 
 ## To do (user)
 - Kaggle (joined): follow `submission/README.md` -- open the official notebook template, replace
-  the policy cell with `submission/transfer_policy.py` (v6), run once on the public scenarios
-  (expect the per-scenario totals in `experiments/results/final_scores.json` ->
-  `policies.transfer.per_scenario`, a few per cent off if the grader's kit differs), submit. Keep
-  the submitted file identical to the one here so the paper's numbers refer to the submitted policy.
-  v6 reads the optional `zone_map` from the metadata (the kit provides it); without it the area
-  scaling switches off and the policy still runs.
+  the policy cell with `submission/transfer_policy.py` (v7), run once on the public scenarios
+  (expect the per-scenario totals in `experiments/results/final_r4/<b>/<w>/transfer/summary.json`,
+  leaderboard 0.00786; a few per cent off if the grader's kit differs), submit. Keep the submitted
+  file identical to the one here so the paper's numbers refer to the submitted policy. v7 reads the
+  optional `zone_map` from the metadata (the kit provides it); without it the area scaling switches
+  off and the policy still runs.
 - OpenReview poster paper (group NeurIPS.cc/2026/Workshop/SB26_Challenge) by 2026-11-13: fill in
   name/affiliation in `paper/main.tex` (author block), rebuild (`bash experiments/src/finalize.sh`
   or the three pdflatex passes), check the Overleaf template
   (https://www.overleaf.com/project/6ace893ebb021a3e1807b140) for the page limit (main text is six
   pages), upload `paper/main.pdf`.
 - Before the January final paper (2027-01-15): the Kaggle score once available; the open ideas in
-  "Round 3 -- what remains".
+  "Round 4 -- what remains".
 
 ## Risks
-- Selection used the public set at full length (v5) and both screening sets (v6): the public number
-  (0.00803) is optimistic; the 34 never-screened held-out scenarios are the clean estimate, and
-  eight generated buildings are still a small sample of the generator.
-- The Kaggle leaders (0.0058) are 1.4x below our public-set number; most of our remaining loss is
-  heating gas in Fairbanks and chiller electricity in the hot strips (2x the public level on the
-  large generated buildings).
+- Selection used the public set at full length (v5) and the screening sets (v6, v7): the public
+  number (0.00786) is optimistic; the 74 held-out scenarios no decision touched (34 old + 40 fresh)
+  are the clean estimate; 16 generated buildings are still a small sample of the generator.
+- The kit's default generator ranges produce larger buildings than the shipped six; the README says
+  the Kaggle buildings share the shipped six's ranges. On fresh shipped-range buildings v7 gains
+  1.4% over v6 (CI 0.4-2.9%), less than on large buildings (3.0%); round-3's large held-out gains
+  (-12%) probably overstate what v6/v7 gain on Kaggle over v5.
+- The Kaggle leaders (0.0058) are 1.36x below our public-set number; most of our remaining loss is
+  heating gas in Fairbanks (outside-air physics: 54% of the gas in the cold public strips is
+  ventilation heat) and chiller electricity in the hot strips.
+- v7 changes comfort slightly (old held-out comfort term 0.00039 -> 0.00047 per step) in exchange
+  for energy; the trade is net positive on every set at full length.
 - Local-vs-official pid_water gap (-1.7% mean, up to -12.7% on one scenario) means the organizers'
   kit version may differ slightly from the clone used here.
-- v6 depends on the metadata `zone_map` for its main gain; if the grader's harness omitted it, v6
-  would fall back to unscaled gains (still with the per-zone start and the physical caps).
+- v6/v7 depend on the metadata `zone_map` for the area scaling; if the grader's harness omitted it,
+  the policy would fall back to unscaled gains (the round-4 switches do not need it).

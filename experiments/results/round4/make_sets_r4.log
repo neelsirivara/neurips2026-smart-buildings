@@ -1,0 +1,72 @@
+building_0520 (shipped): 319x195 ft, floors=3, rooms 31-43, AHUs>=6, U=1.66, C=0.74 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4s
+building_0524 (shipped): 346x189 ft, floors=4, rooms 29-43, AHUs>=5, U=1.27, C=0.84 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4s
+building_0522 (default): 439x359 ft, floors=3, rooms 54-69, AHUs>=3, U=2.04, C=2.18 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4s
+building_0523 (default): 546x434 ft, floors=3, rooms 35-49, AHUs>=7, U=1.33, C=0.78 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4s
+building_0601 (shipped): 342x275 ft, floors=4, rooms 33-49, AHUs>=6, U=1.84, C=0.62 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0602 (shipped): 369x211 ft, floors=3, rooms 33-49, AHUs>=6, U=1.15, C=0.83 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0603 (shipped): 339x258 ft, floors=4, rooms 30-44, AHUs>=9, U=1.47, C=1.75 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0606 (shipped): 412x300 ft, floors=2, rooms 30-46, AHUs>=6, U=1.68, C=0.47 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0604 (default): 432x351 ft, floors=3, rooms 54-67, AHUs>=5, U=1.40, C=0.63 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0607 (default): 440x493 ft, floors=2, rooms 34-47, AHUs>=4, U=1.80, C=1.06 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0610 (default): 627x404 ft, floors=3, rooms 60-73, AHUs>=7, U=1.16, C=0.48 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+building_0639 (default): 600x475 ft, floors=4, rooms 34-47, AHUs>=5, U=1.83, C=1.86 MJ/m3K -> ../../kit/smart_buildings/heldout_buildings_r4c
+  building_0520 + fairbanks_1 -> smart_buildings/heldout_scenarios_r4s/building_0520/fairbanks_1
+  building_0520 + denver_3 -> smart_buildings/heldout_scenarios_r4s/building_0520/denver_3
+  building_0520 + atlanta_5 -> smart_buildings/heldout_scenarios_r4s/building_0520/atlanta_5
+  building_0520 + phoenix_7 -> smart_buildings/heldout_scenarios_r4s/building_0520/phoenix_7
+  building_0520 + singapore_1 -> smart_buildings/heldout_scenarios_r4s/building_0520/singapore_1
+  building_0524 + fairbanks_2 -> smart_buildings/heldout_scenarios_r4s/building_0524/fairbanks_2
+  building_0524 + denver_4 -> smart_buildings/heldout_scenarios_r4s/building_0524/denver_4
+  building_0524 + atlanta_6 -> smart_buildings/heldout_scenarios_r4s/building_0524/atlanta_6
+  building_0524 + phoenix_8 -> smart_buildings/heldout_scenarios_r4s/building_0524/phoenix_8
+  building_0524 + singapore_2 -> smart_buildings/heldout_scenarios_r4s/building_0524/singapore_2
+  building_0522 + fairbanks_3 -> smart_buildings/heldout_scenarios_r4s/building_0522/fairbanks_3
+  building_0522 + denver_5 -> smart_buildings/heldout_scenarios_r4s/building_0522/denver_5
+  building_0522 + atlanta_7 -> smart_buildings/heldout_scenarios_r4s/building_0522/atlanta_7
+  building_0522 + phoenix_1 -> smart_buildings/heldout_scenarios_r4s/building_0522/phoenix_1
+  building_0522 + singapore_3 -> smart_buildings/heldout_scenarios_r4s/building_0522/singapore_3
+  building_0523 + fairbanks_4 -> smart_buildings/heldout_scenarios_r4s/building_0523/fairbanks_4
+  building_0523 + denver_6 -> smart_buildings/heldout_scenarios_r4s/building_0523/denver_6
+  building_0523 + atlanta_8 -> smart_buildings/heldout_scenarios_r4s/building_0523/atlanta_8
+  building_0523 + phoenix_2 -> smart_buildings/heldout_scenarios_r4s/building_0523/phoenix_2
+  building_0523 + singapore_4 -> smart_buildings/heldout_scenarios_r4s/building_0523/singapore_4
+  building_0601 + fairbanks_5 -> smart_buildings/heldout_scenarios_r4c/building_0601/fairbanks_5
+  building_0601 + denver_7 -> smart_buildings/heldout_scenarios_r4c/building_0601/denver_7
+  building_0601 + atlanta_1 -> smart_buildings/heldout_scenarios_r4c/building_0601/atlanta_1
+  building_0601 + phoenix_3 -> smart_buildings/heldout_scenarios_r4c/building_0601/phoenix_3
+  building_0601 + singapore_5 -> smart_buildings/heldout_scenarios_r4c/building_0601/singapore_5
+  building_0602 + fairbanks_6 -> smart_buildings/heldout_scenarios_r4c/building_0602/fairbanks_6
+  building_0602 + denver_8 -> smart_buildings/heldout_scenarios_r4c/building_0602/denver_8
+  building_0602 + atlanta_2 -> smart_buildings/heldout_scenarios_r4c/building_0602/atlanta_2
+  building_0602 + phoenix_4 -> smart_buildings/heldout_scenarios_r4c/building_0602/phoenix_4
+  building_0602 + singapore_6 -> smart_buildings/heldout_scenarios_r4c/building_0602/singapore_6
+  building_0603 + fairbanks_7 -> smart_buildings/heldout_scenarios_r4c/building_0603/fairbanks_7
+  building_0603 + denver_1 -> smart_buildings/heldout_scenarios_r4c/building_0603/denver_1
+  building_0603 + atlanta_3 -> smart_buildings/heldout_scenarios_r4c/building_0603/atlanta_3
+  building_0603 + phoenix_5 -> smart_buildings/heldout_scenarios_r4c/building_0603/phoenix_5
+  building_0603 + singapore_7 -> smart_buildings/heldout_scenarios_r4c/building_0603/singapore_7
+  building_0606 + fairbanks_8 -> smart_buildings/heldout_scenarios_r4c/building_0606/fairbanks_8
+  building_0606 + denver_2 -> smart_buildings/heldout_scenarios_r4c/building_0606/denver_2
+  building_0606 + atlanta_4 -> smart_buildings/heldout_scenarios_r4c/building_0606/atlanta_4
+  building_0606 + phoenix_6 -> smart_buildings/heldout_scenarios_r4c/building_0606/phoenix_6
+  building_0606 + singapore_8 -> smart_buildings/heldout_scenarios_r4c/building_0606/singapore_8
+  building_0604 + fairbanks_1 -> smart_buildings/heldout_scenarios_r4c/building_0604/fairbanks_1
+  building_0604 + denver_3 -> smart_buildings/heldout_scenarios_r4c/building_0604/denver_3
+  building_0604 + atlanta_5 -> smart_buildings/heldout_scenarios_r4c/building_0604/atlanta_5
+  building_0604 + phoenix_7 -> smart_buildings/heldout_scenarios_r4c/building_0604/phoenix_7
+  building_0604 + singapore_1 -> smart_buildings/heldout_scenarios_r4c/building_0604/singapore_1
+  building_0607 + fairbanks_2 -> smart_buildings/heldout_scenarios_r4c/building_0607/fairbanks_2
+  building_0607 + denver_4 -> smart_buildings/heldout_scenarios_r4c/building_0607/denver_4
+  building_0607 + atlanta_6 -> smart_buildings/heldout_scenarios_r4c/building_0607/atlanta_6
+  building_0607 + phoenix_8 -> smart_buildings/heldout_scenarios_r4c/building_0607/phoenix_8
+  building_0607 + singapore_2 -> smart_buildings/heldout_scenarios_r4c/building_0607/singapore_2
+  building_0610 + fairbanks_3 -> smart_buildings/heldout_scenarios_r4c/building_0610/fairbanks_3
+  building_0610 + denver_5 -> smart_buildings/heldout_scenarios_r4c/building_0610/denver_5
+  building_0610 + atlanta_7 -> smart_buildings/heldout_scenarios_r4c/building_0610/atlanta_7
+  building_0610 + phoenix_1 -> smart_buildings/heldout_scenarios_r4c/building_0610/phoenix_1
+  building_0610 + singapore_3 -> smart_buildings/heldout_scenarios_r4c/building_0610/singapore_3
+  building_0639 + fairbanks_4 -> smart_buildings/heldout_scenarios_r4c/building_0639/fairbanks_4
+  building_0639 + denver_6 -> smart_buildings/heldout_scenarios_r4c/building_0639/denver_6
+  building_0639 + atlanta_8 -> smart_buildings/heldout_scenarios_r4c/building_0639/atlanta_8
+  building_0639 + phoenix_2 -> smart_buildings/heldout_scenarios_r4c/building_0639/phoenix_2
+  building_0639 + singapore_4 -> smart_buildings/heldout_scenarios_r4c/building_0639/singapore_4

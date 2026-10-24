@@ -1,0 +1,16 @@
+{
+  "policy": "transfer",
+  "steps": 288,
+  "n_scenarios": 1,
+  "leaderboard_metric": 0.00012479176650891254,
+  "per_scenario": {
+    "building_0523/denver_6": {
+      "total_reward": -0.03594002875456681,
+      "score": 0.00012479176650891254,
+      "regret": 0.0,
+      "energy": 0.043781871631381364,
+      "carbon": 0.13591827305299375,
+      "seconds_per_step": 0.23384327358669704
+    }
+  }
+}

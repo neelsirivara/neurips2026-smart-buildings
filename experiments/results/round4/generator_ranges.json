@@ -1,0 +1,181 @@
+{
+ "doc": "Shipped six buildings vs the kit generator at DEFAULT_RANGES for the same seeds (geometry only), and the parameter envelope of the shipped six (round 4).",
+ "shipped": {
+  "building_train_1": {
+   "seed": 0,
+   "width": 373,
+   "height": 188,
+   "floors": 3,
+   "min_room": 33,
+   "max_room": 48
+  },
+  "building_train_2": {
+   "seed": 1,
+   "width": 420,
+   "height": 301,
+   "floors": 2,
+   "min_room": 27,
+   "max_room": 39
+  },
+  "building_train_4": {
+   "seed": 3001,
+   "width": 430,
+   "height": 211,
+   "floors": 3,
+   "min_room": 35,
+   "max_room": 51
+  },
+  "building_train_5": {
+   "seed": 4007,
+   "width": 340,
+   "height": 199,
+   "floors": 4,
+   "min_room": 25,
+   "max_room": 36
+  },
+  "building_train_7": {
+   "seed": 8,
+   "width": 325,
+   "height": 218,
+   "floors": 2,
+   "min_room": 25,
+   "max_room": 36
+  },
+  "building_train_8": {
+   "seed": 9008,
+   "width": 318,
+   "height": 198,
+   "floors": 2,
+   "min_room": 27,
+   "max_room": 39
+  }
+ },
+ "regenerated_default": {
+  "building_train_1": {
+   "seed": 0,
+   "width": 597,
+   "height": 494,
+   "floors": 3,
+   "min_room": 31,
+   "max_room": 44
+  },
+  "building_train_2": {
+   "seed": 1,
+   "width": 468,
+   "height": 445,
+   "floors": 2,
+   "min_room": 38,
+   "max_room": 49
+  },
+  "building_train_4": {
+   "seed": 3001,
+   "width": 549,
+   "height": 478,
+   "floors": 3,
+   "min_room": 34,
+   "max_room": 47
+  },
+  "building_train_5": {
+   "seed": 4007,
+   "width": 495,
+   "height": 371,
+   "floors": 2,
+   "min_room": 35,
+   "max_room": 49
+  },
+  "building_train_7": {
+   "seed": 8,
+   "width": 516,
+   "height": 394,
+   "floors": 3,
+   "min_room": 34,
+   "max_room": 46
+  },
+  "building_train_8": {
+   "seed": 9008,
+   "width": 639,
+   "height": 408,
+   "floors": 3,
+   "min_room": 40,
+   "max_room": 56
+  }
+ },
+ "shipped_envelope": {
+  "width": [
+   318,
+   430
+  ],
+  "height": [
+   188,
+   301
+  ],
+  "num_floors": [
+   2,
+   4
+  ],
+  "min_room_size": [
+   25,
+   35
+  ],
+  "room_size_span": [
+   11,
+   16
+  ],
+  "shape_ratio": [
+   0.294,
+   0.384
+  ],
+  "composite_coverage": [
+   0.651,
+   0.802
+  ],
+  "composite_style": "architectural",
+  "num_ahus": [
+   3,
+   9
+  ],
+  "occupants_per_zone": [
+   1,
+   2
+  ]
+ },
+ "default_ranges": {
+  "width": [
+   400,
+   700
+  ],
+  "height": [
+   300,
+   500
+  ],
+  "num_floors": [
+   2,
+   4
+  ],
+  "min_room_size": [
+   30,
+   60
+  ],
+  "room_size_span": [
+   11,
+   16
+  ],
+  "shape_ratio": [
+   0.28,
+   0.4
+  ],
+  "composite_coverage": [
+   0.65,
+   0.85
+  ],
+  "composite_style": "architectural",
+  "num_ahus": [
+   3,
+   7
+  ],
+  "occupants_per_zone": [
+   1,
+   2
+  ]
+ }
+}

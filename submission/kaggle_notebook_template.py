@@ -1,4 +1,4 @@
-"""Kaggle notebook template for the SB26 Smart Buildings Challenge -- SADR policy (v6, final; round 3).
+"""Kaggle notebook template for the SB26 Smart Buildings Challenge -- SADR policy (v7, final; round 4).
 
 HOW TO USE (the official template could not be read without a Kaggle login, so this
 mirrors the starter kit's own evaluation loop; adapt cell by cell):

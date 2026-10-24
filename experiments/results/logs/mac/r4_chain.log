@@ -1,0 +1,11 @@
+[Fri Oct 23 13:43:57 PDT 2026] r4 screen held-26: r4_c00_v6 r4_c01_fcap_floor r4_c02_fcap025 r4_c03_fcap015 r4_c04_fcap005 r4_c05_disch025 r4_c06_mix_relief r4_c07_occ_dyn r4_c08_occ_dyn_mild r4_c09_flush r4_c10_sb_neutral (14 workers)
+[Fri Oct 23 14:29:02 PDT 2026] r4 screen c11 (added after the first partial read: c09 lost on a winter Fairbanks strip) held+public, 4 workers
+[Fri Oct 23 14:49:51 PDT 2026] r4 screen c12 (disch_margin 0, family of c05) held+public, 3 workers
+[Fri Oct 23 15:43:26 PDT 2026] r4 screen c13 (sb_neutral only below the setback floor; c10 hurt mild strips) held+public, 6 workers
+[Fri Oct 23 15:56:03 PDT 2026] r4 screen held-26 rc=0 done: 286 jobs, 0 failures, wall 132.1 min
+[Fri Oct 23 15:56:44 PDT 2026] r4 screen c13 relaunched with 8 workers; r4 full v6 (r4_c00) on fresh40 default-range buildings, 6 workers
+[Fri Oct 23 15:57:29 PDT 2026] r4 screen composites c14 (c12+c08+c11+c01+c10) and c15 (same with c13 instead of c10), held+public, 6 workers
+[Fri Oct 23 16:00:51 PDT 2026] paused r4 full v6 fresh default-range (restarts with the confirmation queue); composites relaunched with 10 workers
+[Fri Oct 23 16:29:57 PDT 2026] r4 full v6 (r4_c00) fresh40 default-range restarted, 6 workers
+[Fri Oct 23 16:39:28 PDT 2026] decision: r4_c14_comp_a (decision.json). Mac full queue: v6 fresh40 default-range + c14 old40, fresh40 default-range, pub30 train_5/7/8 (laptop: c14 fresh40 shipped-range + pub30 train_1/2/4)
+[Fri Oct 23 18:10:53 PDT 2026] r4 full: laptop backlog (c14 fresh shipped-range + pub30 train_1/2/4) also on the Mac, ascending, 4 workers
