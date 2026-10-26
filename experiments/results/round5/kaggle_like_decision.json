@@ -1,0 +1,28 @@
+{
+ "time": "2026-10-25T17:45:18-07:00",
+ "status": "preliminary (Kaggle v6 pending; v5/v6 on M still running)",
+ "kaggle_public": {
+  "v7": 0.01088,
+  "v5": 0.01161,
+  "pid_water": 0.06404
+ },
+ "shape_err": {
+  "P": 0.09101042987935733,
+  "O": 0.1971864557012108,
+  "FS": null,
+  "FD": null,
+  "M": 0.31351219241480366,
+  "P+M": 0.01566044352033842
+ },
+ "level": {
+  "P": 0.7219691629583733,
+  "O": 1.07798142179716,
+  "FS": 0.6666237952754044,
+  "FD": 0.9305863199378276,
+  "M": 1.0286399120828038,
+  "P+M": 0.8095893769939247
+ },
+ "rule": "PREREG part 1: lowest shape error E predicts best; within 0.02 -> better level wins",
+ "kaggle_like_set": "P+M",
+ "reading": "v5/v7 on Kaggle (1.067) matches the shipped-size buildings (public 1.058; default-size old held-out 1.169); pid_water/v7 on Kaggle (5.89) lies between the public stations (7.00) and Minneapolis (4.30) and matches public+Minneapolis (6.02). v7's level on P+M is 0.81 of Kaggle: the hidden stations are harsher than the public mix even with Minneapolis added."
+}

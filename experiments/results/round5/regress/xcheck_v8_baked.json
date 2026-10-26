@@ -1,0 +1,19 @@
+{
+ "steps": 2880,
+ "baked": "results/round5/policies/v8_r5_c12_comp.py (no parameter file)",
+ "ref": "screen runs of transfer_policy_v8.py + r5_c12_comp.json",
+ "rows": [
+  {
+   "scenario": "building_train_7/fairbanks_1",
+   "baked_file_total": -194.43390689721127,
+   "v8_code_plus_params_total": -194.43390689721127,
+   "identical": true
+  },
+  {
+   "scenario": "building_train_8/fairbanks_8",
+   "baked_file_total": -64.74634447586868,
+   "v8_code_plus_params_total": -64.74634447586868,
+   "identical": true
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+[
+ {
+  "id": "full/v5/r4c/building_0604/atlanta_5",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v5.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r4c",
+  "scenario": "building_0604/atlanta_5",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v5\\r4c",
+  "runner": "scenario",
+  "kit_dir": null
+ },
+ {
+  "id": "full/v5/r4c/building_0604/denver_3",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v5.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r4c",
+  "scenario": "building_0604/denver_3",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v5\\r4c",
+  "runner": "scenario",
+  "kit_dir": null
+ },
+ {
+  "id": "full/v5/r4c/building_0604/fairbanks_1",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v5.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r4c",
+  "scenario": "building_0604/fairbanks_1",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v5\\r4c",
+  "runner": "scenario",
+  "kit_dir": null
+ },
+ {
+  "id": "full/v5/r4c/building_0604/phoenix_7",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v5.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r4c",
+  "scenario": "building_0604/phoenix_7",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v5\\r4c",
+  "runner": "scenario",
+  "kit_dir": null
+ },
+ {
+  "id": "full/v5/r4c/building_0604/singapore_1",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v5.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r4c",
+  "scenario": "building_0604/singapore_1",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v5\\r4c",
+  "runner": "scenario",
+  "kit_dir": null
+ }
+]

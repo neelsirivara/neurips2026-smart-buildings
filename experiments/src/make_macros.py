@@ -834,6 +834,13 @@ def main() -> int:
     from make_macros_r4 import round4_macros
     lines += round4_macros()
 
+    # ---- round 5: Kaggle probes, local sets vs Kaggle, screen, confirmation (make_macros_r5.py) ----
+    from make_macros_r5 import round5_macros, write_round5_kaggle_table, write_round5_per_scenario, write_round5_table
+    lines += round5_macros()
+    write_round5_kaggle_table()
+    write_round5_table()
+    write_round5_per_scenario()
+
     # ---- environment ----
     lines.append(macro("SimSecPerStep", fmt(get(ei, "sec_per_step_median"), 3)))
     lines.append(macro("SimMinPerScenario", fmt(get(ei, "min_per_scenario_median"), 1)))

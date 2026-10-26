@@ -1,0 +1,5 @@
+Downloading submission.parquet to C:/Users/neels/Downloads/gen_papers_2/neurips_challenges/smart_buildings/submission/kaggle/sadr-v5-smart-buildings/run_v1
+  0%|          | 0.00/946 [00:00<?, ?B/s]100%|##########| 946/946 [00:00<00:00, 1.27MB/s]
+
+Output file downloaded to C:/Users/neels/Downloads/gen_papers_2/neurips_challenges/smart_buildings/submission/kaggle/sadr-v5-smart-buildings/run_v1\submission.parquet
+Kernel log downloaded to C:/Users/neels/Downloads/gen_papers_2/neurips_challenges/smart_buildings/submission/kaggle/sadr-v5-smart-buildings/run_v1\sadr-v5-smart-buildings.log 

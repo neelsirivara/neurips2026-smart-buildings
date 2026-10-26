@@ -1,17 +1,92 @@
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-23 19:35 PDT. State: ROUND 4 COMPLETE -- SADR v7 (round-4 composite
-`r4_c14_comp_a`) met the pre-registered rule at full length on 30 public + 34 clean old held-out +
-40 freshly generated held-out scenarios, baked into `submission/transfer_policy.py` (v6 kept for
-provenance), paper rebuilt (13 pages, main text ends on page 6; 0 errors, 0 undefined refs, 0 `??`,
-0 overfull boxes), audit (43 claims, 0 missing) and self-review pass 3 written. All Mac and laptop
-jobs finished (the Mac is idle). Open items are the user's (Kaggle submission, OpenReview upload
-with name).
+Last updated: 2026-10-26 04:00 PDT. State: ROUND 5 COMPLETE -- Kaggle used as an oracle (v7 0.01088,
+v6 0.01116, v5 0.01161, pid_water 0.06404, v8 0.01074): the hidden buildings behave like the shipped six
+and the local-vs-Kaggle gap is weather (public + Minneapolis reproduces the probes' ratios); SADR v8
+(round-5 composite `r5_c12_comp`: weekend setback, request cap 20 kW per 100 m2) met the pre-registered
+rule at full length (public -1.1%, M -4.1%, P+M -2.2%; FD a tie) and is baked into
+`submission/transfer_policy.py` (v7 kept for provenance); paper rebuilt (14 pages, main text ends on
+page 6; 0 errors, 0 undefined refs, 0 `??`, 0 overfull boxes), audit 51 claims (0 missing), self-review
+pass 4. Laptop jobs finished; the Mac was offline. Open items are the user's (OpenReview upload with
+name; choosing the two final Kaggle submissions). Round 4 header kept below for reference.
 
 Repository: https://github.com/neelsirivara/neurips2026-smart-buildings (private; `kit/` and the
 per-scenario time series are git-ignored; `.git`, `.gitignore`, `LICENSE`, `.github` and the
 top-level `README.md` are managed by `make_repos.py` and were not edited here). Nothing was
 committed or pushed from this session.
+
+## Round 5 (2026-10-25 11:25 PDT - 2026-10-26 04:00 PDT, laptop only, <= 3 simulator workers): Kaggle as an oracle
+
+State: ROUND 5 COMPLETE. Goal 1 answered (the hidden buildings behave like the shipped six; the gap to Kaggle is weather); four Kaggle probes and the v8 candidate scored; 11-candidate pre-registered screen; full-length confirmation met the rule (narrowly on FD); **v8 shipped** in `submission/transfer_policy.py`; paper, AUDIT, REVIEW pass 4 updated. Nothing committed or pushed (coordinator).
+
+1. **Pre-registration** `experiments/results/round5/PREREG.md`: part 1 (11:30 PDT, before any round-5 result) = candidate
+   sets, probes, level + shape criteria; part 2 (11:50, before any candidate ran) = 9 candidates, screening sets, rules;
+   amendment (12:20, before any screen job) = request cap c10/c11 and one deep-cold screening scenario
+   (building_train_7 x fairbanks_1), from the v7 decomposition of the Minneapolis set; note (18:12, after the probe
+   scores, before the confirmation) = the literal shape rule names FD (its E rests on the non-discriminating v6 ratio),
+   so the ship rule became: public-30 not worse AND better on both P+M and FD; addenda 18:50 / 22:40 = runs dropped for time.
+2. **Tooling** (`experiments/src/`): `run_queue_r5.py` (job queue; RAM check before each launch, 3/2/1 workers at
+   >= 1.0 / 0.6-1.0 / < 0.6 GB; resumable; log `results/round5/queue/queue_log.txt`; disabled job files end in `.off`),
+   `jobs_r5.py`, `make_sets_r5.py` (Minneapolis scenarios by rewriting the weather lines of a shipped strip; self-check:
+   all 120 shipped strip-to-strip rewrites reproduce the shipped configs byte for byte; sets `kit/smart_buildings/
+   heldout_scenarios_r5m` (confirmation, 12), `r5ms` (screening, 12), `r5x` (building_train_7 x fairbanks_1)),
+   `kaggle_build.py` (rebuilds the v7 notebook cell byte for byte) + `kaggle_wait_kernels.sh` + `kaggle_poll_submissions.sh`,
+   `compare_sets_r5.py`, `screen_round5.py`, `decide_round5.py`, `confirm_round5.py`, `bake_candidate_r5.py`, `ship_round5.py`,
+   `regress_r5.py`, `diag_comfort_r5.py`, `diag_capacity_r5.py`, `diag_ahu_starts_r5.py`, `make_macros_r5.py`;
+   `run_scenario.py` / `run_diag.py` take `SB_KIT_DIR` (kit copy) and `run_scenario.py` records `sim_module`.
+   Policies frozen for round 5: `results/round5/policies/{v7,v6,v5}.py`; v8 code `policy_candidates/transfer_policy_v8.py`
+   (all round-5 switches off = v7 bit for bit, 576 steps x 3 public scenarios, `results/round5/regress/`).
+3. **Kaggle** (CLI, `results/kaggle_feedback.json`; every interactive building_train_1/atlanta_2 total within 0.014% of
+   local): v7 0.01088 (rank 75/315 when scored; 2026-10-25 20:40 UTC: 347 teams, 85 ahead), v6 0.01116, v5 0.01161,
+   pid_water 0.06404 (all submitted 2026-10-25 18:40 UTC), v8 candidate r5_c12_comp submitted 2026-10-26 00:44 UTC
+   (ref 57647928): public score 0.01074 (v7 0.01088; difference below the 0.0005 noise threshold, same direction as local); best own score now 0.01074, 82 of 358 teams ahead (2026-10-26 07:10 UTC). Daily count: 10-25 UTC 3, 10-26 UTC 1 (limit kept at 4/day).
+4. **Which local set predicts Kaggle** (`results/round5/set_comparison.json`, `kaggle_like_decision.json`, paper Table 2):
+   v5/v7 on Kaggle 1.067 = public buildings 1.058 (default-size old held-out 1.169; M, n=5, 1.076) -> the hidden buildings
+   behave like the shipped six; pid_water/v7 on Kaggle 5.89 vs public 7.00, Minneapolis 4.30, default-size 4.35,
+   public+Minneapolis 6.02 -> the gap is weather; v6/v7 1.026 vs 1.02-1.03 everywhere (no information). Shape error E
+   (v6, v5, pid_water): P+M 0.010, P 0.062, M 0.109, O 0.132 (FS 0.011 / FD 0.005 on v6 alone). Level v7/Kaggle: M 1.03,
+   O 1.08, FD 0.93, P+M 0.81, P 0.72, FS 0.67. Reading: hidden buildings like the shipped six, hidden stations harsher
+   than public + Minneapolis. A public notebook's three controllers show the same 1.17-1.37 gap; its baseline scored
+   0.06439 on Kaggle (our pid_water 0.06404).
+5. **PR #2** (energy-balanced tank; diff read from GitHub and saved as `results/round5/pr2_download/pr2.diff`; applied
+   only in a separate kit copy (moved out of the repo after the runs; recreate by copying `kit/smart_buildings/{__init__.py,
+   evaluate.py,baselines,smart_control,weather,training_scenarios}` and `patch -p1 < pr2.diff`), import verified):
+   v7 -0.4% (range -2.8% to -0.1%) on the 6 public Fairbanks scenarios; pid_water +23.4% (fairbanks_1 +33%,
+   fairbanks_8 +38%): SADR does not use the billing gap, the organizers' baseline partly does.
+6. **v7 on M** (`results/round5/loss_decomposition_r5m_v7.json`, `analysis/`): gas 78%, cooling 12%, comfort 5.5%, fan 4% (12 scenarios);
+   78% of M's comfort loss is building_train_7/minneapolis_1, where 4 zones sit 0.5-3.3 K below the band with open
+   dampers at <= 276 Pa because the v5-era request cap (12 kW per 100 m2) binds below the box/coil limit (22-25 kW).
+   06:00-07:00 carries 45-68% of v7's comfort loss on the public/generated sets (Monday 2.1x on the old held-out set);
+   AHUs start 2.4-4.8 times a day (cycling not a lever).
+7. **Screen** (`results/round5/screen_summary.json`, ledger paper Table 13; 2,880 steps, held-11 / public-4, vs v7):
+   Monday lead x1.5 worse (+1.1% / +0.9%), x1.25 worse; weekend setback -3/+2 K helps (-0.7% / -1.0%), -6/+4 K helps
+   (-1.2% / -1.5%); lag compensation 1.0 / 0.5 n.s.; cooling precondition cap 0.5 n.s. (no effect); setback burst 8 kW
+   worse (public +0.3%); preconditioning at the cap worse (+6.3% / +6.6%); request cap 20 / 30 kW help (-7.6% held,
+   driven by building_train_7 x fairbanks_1 -19%; -0.5% public); composite c12 (wk -6/+4 + cap 20 kW) helps
+   (-8.8% [CI -529, -14 x1e-5] held, -2.3% [-116, -1.6] public) and is chosen (`decision.json`, 17:26).
+   Baked candidate `results/round5/policies/v8_r5_c12_comp.py` reproduces the screen runs bit for bit (2 scenarios).
+8. **Confirmation** (8,640 steps, `results/round5/confirm_r5_c12_comp.json`): 
+   public-30: v7 0.00786 -> v8 0.00777, -1.10% [-18.2, -1.5] x1e-5 (-2.31% to -0.19%), wins 17/30;
+   M (shipped six x Minneapolis): v7 0.01119 -> v8 0.01073, -4.10% [-116.8, -4.9] x1e-5 (-10.44% to -0.44%), wins 6/12;
+   P+M: v7 0.00881 -> v8 0.00862, -2.19% [-42.2, -4.9] x1e-5 (-4.79% to -0.56%), wins 23/42;
+   FD (fresh default-range): v7 0.01012 -> v8 0.01007, -0.56% [-14.3, -0.0] x1e-5 (-1.41% to -0.00%), wins 9/20.
+   Ship rule (public not worse AND better on both P+M and FD): MET as written (seed 0). FD is a tie: the CI's upper end is below zero for 1 of 10 bootstrap seeds (seed 0 only; `results/round5/fd_seed_sensitivity.json`), while public, M and P+M pass for 10/10 seeds. Worst single scenarios: public building_train_7/phoenix_3 +0.5%, FD building_0610/denver_5 +0.7% (hot strips); the gain is in the cold strips (M: building_train_7/minneapolis_1 -10.2%, the request-cap case). Official scorer on `results/round5/full/r5_c12_comp/pub30`: 0.00777 (`results/score_leaderboard_final_r5.txt`).
+9. **Shipped**: `python experiments/src/ship_round5.py r5_c12_comp` (2026-10-26 ~03:40 PDT) -> `submission/transfer_policy.py` = v8 (`transfer_policy_v8.py` + wk_ext_lo 6, wk_ext_hi 4, q_cap_w 20000 baked; md5 98036ef2...), `submission/best_params.json` = `results/tune/best_params.json` = `best_params_v8.json`; v7 kept as `results/round5/transfer_policy_v7_shipped_before_round5.py` and `results/tune/best_params_v7.json`. Checks: bake (DEFAULT_PARAMS = v8 defaults + overrides), robustness test 35/35, 36-step smoke run, Kaggle template smoke test (288 steps, `results/round5/kaggle_template_smoke_v8.txt`), the shipped file reproduces the screen runs bit for bit on 2 scenarios x 2,880 steps (`results/round5/regress/xcheck_shipped_v8.json`). The Kaggle-scored notebook (`submission/kaggle/sadr-v8-smart-buildings`, built from `results/round5/policies/v8_r5_c12_comp.py`) differs from the shipped file only in two docstring lines (`results/round5/regress/shipped_vs_kaggle_scored.diff`). README updated.
+10. **Paper** (`paper/main.tex`): abstract adds the Kaggle result and reading; Section 3 tuning protocol compressed and
+    extended to round 5; Section 4 adds Table 2 (local sets vs Kaggle), paragraphs "Kaggle" and "Round 5"; Section 5
+    adds "What round 5 found" (Minneapolis decomposition, the request-cap case, 06:00/Monday comfort, AHU starts, PR #2);
+    the round-4 full-length table moved to Appendix A, which also gains Table "set M per scenario"; Appendix B gains the
+    round-5 ledger; Sections 2-5 compressed to keep the main text on six pages. Build: 14 pages (main text through page 6, references page 7, appendices A-C), 0 errors, 0 undefined references, 0 `??`, 0 TODO, 0 overfull boxes. `paper/AUDIT.md` (51 claims, 0 missing),
+    `paper/review/REVIEW_1.md` pass 4.
+11. **Machine note**: the laptop ran on battery 18:00-20:30 PDT; from about 18:10 the simulator ran 2-3x slower (also after
+    plugging in; Windows kept the workers on congested cores -- pinning my own oldest worker to core 5 helped, helper
+    loop in the scratchpad); this is why the extra v5 runs were dropped.
+
+### Round 5 -- what remains
+- Kaggle: allows two final selections; v8 (0.01074) and v7 (0.01088) are the natural pair. Daily count used: 10-25 UTC 3, 10-26 UTC 1.
+- Not run (time): v5 on FD (FD's shape error stays on the v6 ratio alone), 7 of 12 v5 runs on M, pid_water/v5 on FS (`results/round5/queue/*.json.off`; rename to .json and restart the runner). A full-length ablation of the two v8 switches (which one costs the hot strips: the weekend ceiling or the cooling side of the request cap).
+- Ideas: weight screens toward cold strips (the hidden stations are harsher than public + Minneapolis); more cold stations if weather files become available; the morning recovery (MPC / learned lead).
+- User: author block, OpenReview upload by 2026-11-13.
 
 ## Headline numbers (leaderboard metric = mean over scenarios of |mean per-step reward|, lower is better)
 All rows: 8,640 steps, paired bootstrap 95% CIs over scenarios (5,000 resamples, seed 0).
@@ -267,7 +342,12 @@ Machines in round 3:
 - The 6 held-out screening scenarios (first 10 days) informed the choice; the 34 never screened are
   the clean held-out estimate (-10.8%, CI 8.3-13.5%, 34/34).
 
-## Final policy (`submission/transfer_policy.py`, SADR v7)
+## Final policy (`submission/transfer_policy.py`, SADR v8 since round 5)
+v8 = the v7 rules below + two round-5 switches: far from the next workday start (weekends) the setback floor drops
+by 6 K and the ceiling rises by 4 K, ramped back over the 12 h that end 10 h before the start; and the per-zone
+request cap is 20 kW per 100 m2 (v7: 12 kW), so in deep cold the box and coil bound the heat. With every round-5
+switch off the v8 code reproduces v7 bit for bit. The v7 description follows.
+
 Schedule-Aware Demand-based Reset: occupancy-gated OCCUPIED / PRECONDITION / SETBACK modes with
 holiday detection and a self-tuning optimum-start lead (per zone since v6); per-zone PI loops on net
 heat (W) translated to damper flow via the supply-air temperature and to reheat valve position via
@@ -340,6 +420,8 @@ figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-rev
 (`paper/review/REVIEW_1.md`): must-fixes 1-5 applied.
 
 ## To do (user)
+- Round 5: v8 is shipped and was scored on Kaggle (0.01074; v7 0.01088). Choose the two final Kaggle submissions
+  before 2027-01-15 (v8 and v7 are the natural pair). The older Kaggle instructions below are kept for reference.
 - Kaggle (joined): follow `submission/README.md` -- open the official notebook template, replace
   the policy cell with `submission/transfer_policy.py` (v7), run once on the public scenarios
   (expect the per-scenario totals in `experiments/results/final_r4/<b>/<w>/transfer/summary.json`,

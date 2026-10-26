@@ -1,0 +1,14 @@
+[
+ {
+  "id": "full/r5_c12_comp/pub30/building_train_1/atlanta_2",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\src\\policy_candidates\\transfer_policy_v8.py",
+  "params_json": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\src\\policy_candidates\\r5_c12_comp.json",
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\training_scenarios",
+  "scenario": "building_train_1/atlanta_2",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\r5_c12_comp\\pub30",
+  "runner": "scenario",
+  "kit_dir": null
+ }
+]

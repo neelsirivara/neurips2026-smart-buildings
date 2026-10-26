@@ -1,0 +1,296 @@
+{
+ "label": "pub30_v7",
+ "n": 30,
+ "metric": 0.007855023989197529,
+ "comfort": 0.0001977846134259259,
+ "comfort_share": 0.025179377389289378,
+ "comfort_by_hour": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  8.082534722222223e-06,
+  8.833657638888889e-05,
+  1.6925125e-05,
+  1.2668770833333334e-05,
+  1.8224606481481484e-05,
+  1.7813101851851853e-05,
+  8.906958333333335e-06,
+  7.80699537037037e-06,
+  6.585173611111112e-06,
+  3.960118055555555e-06,
+  2.743361111111111e-06,
+  2.103939814814815e-06,
+  2.0972777777777782e-06,
+  1.530074074074074e-06,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "comfort_h6_by_dow_mon0": [
+  2.2403504629629623e-05,
+  1.8318337962962964e-05,
+  1.6055923611111113e-05,
+  1.5584784722222222e-05,
+  1.5974025462962962e-05,
+  0.0,
+  0.0
+ ],
+ "deviation_share": {
+  "cold_h6": 0.06858959488060741,
+  "hot_h6": 0.16903355503850567,
+  "cold_other": 0.2613519649523217,
+  "hot_other": 0.5010248851285652
+ },
+ "deviation_share_by_area_quartile": [
+  0.29755903432087094,
+  0.20031609705700323,
+  0.18740919912616494,
+  0.3147156694959609
+ ],
+ "per_scenario": [
+  {
+   "scenario": "building_train_1/atlanta_2",
+   "metric": 0.003917864467592592,
+   "comfort": 3.729076388888889e-05,
+   "comfort_h6": 3.142722222222222e-05,
+   "comfort_h6_monday": 3.622222222222222e-07,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_1/denver_7",
+   "metric": 0.0028622563657407407,
+   "comfort": 2.9216666666666664e-05,
+   "comfort_h6": 2.1321874999999998e-05,
+   "comfort_h6_monday": 0.0,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_1/fairbanks_1",
+   "metric": 0.04613264918981481,
+   "comfort": 0.001188154513888889,
+   "comfort_h6": 0.0005902841666666666,
+   "comfort_h6_monday": 0.0003303922916666666,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_1/phoenix_5",
+   "metric": 0.01490163958333333,
+   "comfort": 0.0003011142361111111,
+   "comfort_h6": 0.00026375208333333336,
+   "comfort_h6_monday": 6.581472222222223e-05,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_1/singapore_8",
+   "metric": 0.006658484722222222,
+   "comfort": 0.000228291875,
+   "comfort_h6": 0.00022476388888888888,
+   "comfort_h6_monday": 2.489638888888889e-05,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_2/atlanta_3",
+   "metric": 0.003359932986111111,
+   "comfort": 0.0001257998611111111,
+   "comfort_h6": 3.856444444444444e-05,
+   "comfort_h6_monday": 7.325277777777777e-06,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_2/denver_8",
+   "metric": 0.004906636226851852,
+   "comfort": 0.00010345680555555554,
+   "comfort_h6": 4.3328819444444445e-05,
+   "comfort_h6_monday": 4.453194444444445e-06,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_2/fairbanks_2",
+   "metric": 0.012240777199074074,
+   "comfort": 0.00023820194444444448,
+   "comfort_h6": 0.00011525069444444444,
+   "comfort_h6_monday": 3.3589375000000006e-05,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_2/phoenix_6",
+   "metric": 0.007419542476851851,
+   "comfort": 3.18725e-05,
+   "comfort_h6": 3.149756944444444e-05,
+   "comfort_h6_monday": 1.7056944444444445e-06,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_2/singapore_1",
+   "metric": 0.004791821064814815,
+   "comfort": 4.6441944444444456e-05,
+   "comfort_h6": 4.559673611111111e-05,
+   "comfort_h6_monday": 2.532361111111111e-06,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_4/atlanta_5",
+   "metric": 0.006698036226851852,
+   "comfort": 0.0002626752777777777,
+   "comfort_h6": 0.00022549895833333332,
+   "comfort_h6_monday": 3.643791666666667e-05,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_4/denver_2",
+   "metric": 0.006169814467592593,
+   "comfort": 6.371999999999999e-05,
+   "comfort_h6": 3.1554374999999996e-05,
+   "comfort_h6_monday": 1.625763888888889e-06,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_4/fairbanks_4",
+   "metric": 0.0024331865740740734,
+   "comfort": 9.064840277777777e-05,
+   "comfort_h6": 5.2431041666666665e-05,
+   "comfort_h6_monday": 1.2877777777777778e-06,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_4/phoenix_8",
+   "metric": 0.0024100093749999997,
+   "comfort": 7.814319444444443e-05,
+   "comfort_h6": 4.424659722222222e-05,
+   "comfort_h6_monday": 4.7103472222222225e-06,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_4/singapore_3",
+   "metric": 0.007038503240740741,
+   "comfort": 0.00022252618055555555,
+   "comfort_h6": 0.00022025819444444444,
+   "comfort_h6_monday": 1.9211944444444444e-05,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_5/atlanta_6",
+   "metric": 0.004355546180555555,
+   "comfort": 9.851090277777778e-05,
+   "comfort_h6": 7.581791666666665e-05,
+   "comfort_h6_monday": 1.363034722222222e-05,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_5/denver_3",
+   "metric": 0.004657169328703704,
+   "comfort": 4.993131944444444e-05,
+   "comfort_h6": 1.6725833333333332e-05,
+   "comfort_h6_monday": 1.0209027777777777e-06,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_5/fairbanks_5",
+   "metric": 0.0022951292824074073,
+   "comfort": 6.656756944444444e-05,
+   "comfort_h6": 3.254354166666666e-05,
+   "comfort_h6_monday": 2.290486111111111e-06,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_5/phoenix_1",
+   "metric": 0.0032501523148148145,
+   "comfort": 7.135354166666667e-05,
+   "comfort_h6": 2.184069444444444e-05,
+   "comfort_h6_monday": 1.4995138888888886e-06,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_5/singapore_4",
+   "metric": 0.005607649768518519,
+   "comfort": 0.00013791374999999996,
+   "comfort_h6": 0.00013547104166666666,
+   "comfort_h6_monday": 2.2883819444444443e-05,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_7/atlanta_8",
+   "metric": 0.007574935185185185,
+   "comfort": 3.450020833333334e-05,
+   "comfort_h6": 1.2456458333333332e-05,
+   "comfort_h6_monday": 0.0,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_7/denver_5",
+   "metric": 0.005789292939814815,
+   "comfort": 0.0011341252777777777,
+   "comfort_h6": 8.039013888888888e-05,
+   "comfort_h6_monday": 3.0292430555555548e-05,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_7/fairbanks_7",
+   "metric": 0.008588596180555555,
+   "comfort": 3.782451388888889e-05,
+   "comfort_h6": 3.466597222222222e-06,
+   "comfort_h6_monday": 0.0,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_7/phoenix_3",
+   "metric": 0.006379144560185185,
+   "comfort": 0.0006109289583333333,
+   "comfort_h6": 3.4076875000000004e-05,
+   "comfort_h6_monday": 2.0423541666666667e-05,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_7/singapore_6",
+   "metric": 0.0058624528935185185,
+   "comfort": 0.00011834937499999998,
+   "comfort_h6": 0.00011466284722222222,
+   "comfort_h6_monday": 2.151534722222222e-05,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_8/atlanta_1",
+   "metric": 0.005526948611111111,
+   "comfort": 6.8770625e-05,
+   "comfort_h6": 9.293402777777777e-06,
+   "comfort_h6_monday": 1.5575694444444444e-06,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_8/denver_6",
+   "metric": 0.0038979663194444445,
+   "comfort": 0.0002764634722222222,
+   "comfort_h6": 1.1747569444444445e-05,
+   "comfort_h6_monday": 2.811111111111111e-07,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_8/fairbanks_8",
+   "metric": 0.024187026967592593,
+   "comfort": 0.0001007776388888889,
+   "comfort_h6": 4.229173611111111e-05,
+   "comfort_h6_monday": 1.4169236111111109e-05,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_8/phoenix_4",
+   "metric": 0.010090663310185185,
+   "comfort": 1.971090277777778e-05,
+   "comfort_h6": 1.9588680555555554e-05,
+   "comfort_h6_monday": 2.2566666666666665e-06,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_8/singapore_7",
+   "metric": 0.0056468916666666666,
+   "comfort": 6.0256180555555554e-05,
+   "comfort_h6": 5.994729166666666e-05,
+   "comfort_h6_monday": 5.9388888888888894e-06,
+   "n_zones": 30
+  }
+ ]
+}

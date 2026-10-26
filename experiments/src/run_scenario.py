@@ -25,7 +25,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]            # smart_buildings/
-KIT = ROOT / "kit"
+KIT = Path(os.environ["SB_KIT_DIR"]) if os.environ.get("SB_KIT_DIR") else ROOT / "kit"   # round 5: kit copy (PR #2 check)
 ORIG_CWD = Path(os.getcwd())      # relative CLI paths are resolved against this
 sys.path.insert(0, str(KIT))
 os.chdir(KIT)                     # the gin configs use kit-relative paths
@@ -161,6 +161,7 @@ def main() -> int:
         "num_ahus": int(len(md["ahu_zone_assignments"])),
         "params_hash": phash,
         "params_json": a.params_json,
+        "sim_module": sys.modules["smart_buildings"].__file__,
     }
     # occupied-hours comfort diagnostics
     if zt.size and len(rc):

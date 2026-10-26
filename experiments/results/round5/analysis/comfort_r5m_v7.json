@@ -1,0 +1,152 @@
+{
+ "label": "r5m_v7",
+ "n": 12,
+ "metric": 0.01119160407986111,
+ "comfort": 0.0006111489409722222,
+ "comfort_share": 0.0546078056917652,
+ "comfort_by_hour": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  2.4856215277777776e-05,
+  0.00014560948495370374,
+  9.028732638888888e-05,
+  6.458401041666665e-05,
+  5.510983796296295e-05,
+  4.7292106481481476e-05,
+  3.5853304398148144e-05,
+  2.846498842592592e-05,
+  2.147678819444444e-05,
+  1.965302083333334e-05,
+  1.8625225694444445e-05,
+  2.1404357638888885e-05,
+  2.2624016203703705e-05,
+  1.530825810185185e-05,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "comfort_h6_by_dow_mon0": [
+  3.155115162037037e-05,
+  2.3918697916666666e-05,
+  2.672188657407407e-05,
+  2.0468906250000002e-05,
+  4.2948842592592584e-05,
+  0.0,
+  0.0
+ ],
+ "deviation_share": {
+  "cold_h6": 0.08723559680916822,
+  "hot_h6": 0.034867146766571246,
+  "cold_other": 0.699971829667541,
+  "hot_other": 0.17792542675671952
+ },
+ "deviation_share_by_area_quartile": [
+  0.11449254812618616,
+  0.3740724658842198,
+  0.07116162627416106,
+  0.44027335971543297
+ ],
+ "per_scenario": [
+  {
+   "scenario": "building_train_2/minneapolis_6",
+   "metric": 0.0033494295138888886,
+   "comfort": 0.00010586666666666667,
+   "comfort_h6": 2.8959999999999994e-05,
+   "comfort_h6_monday": 5.419097222222222e-06,
+   "n_zones": 85
+  },
+  {
+   "scenario": "building_train_4/minneapolis_3",
+   "metric": 0.005259714930555555,
+   "comfort": 6.962645833333332e-05,
+   "comfort_h6": 3.260701388888889e-05,
+   "comfort_h6_monday": 0.0,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_4/minneapolis_7",
+   "metric": 0.003009944212962963,
+   "comfort": 0.00011204347222222222,
+   "comfort_h6": 6.58209722222222e-05,
+   "comfort_h6_monday": 1.9072916666666665e-05,
+   "n_zones": 54
+  },
+  {
+   "scenario": "building_train_5/minneapolis_4",
+   "metric": 0.003319001273148148,
+   "comfort": 8.110048611111111e-05,
+   "comfort_h6": 2.9972430555555557e-05,
+   "comfort_h6_monday": 4.870138888888889e-06,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_5/minneapolis_8",
+   "metric": 0.010449285532407407,
+   "comfort": 2.500909722222222e-05,
+   "comfort_h6": 1.7350694444444442e-05,
+   "comfort_h6_monday": 1.0002986111111111e-05,
+   "n_zones": 79
+  },
+  {
+   "scenario": "building_train_7/minneapolis_1",
+   "metric": 0.040983179050925925,
+   "comfort": 0.005721582708333332,
+   "comfort_h6": 0.001072163611111111,
+   "comfort_h6_monday": 0.00015928305555555557,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_7/minneapolis_5",
+   "metric": 0.0039257043981481485,
+   "comfort": 0.0003174580555555555,
+   "comfort_h6": 2.5377986111111107e-05,
+   "comfort_h6_monday": 6.48423611111111e-06,
+   "n_zones": 36
+  },
+  {
+   "scenario": "building_train_8/minneapolis_2",
+   "metric": 0.018167654513888888,
+   "comfort": 8.586020833333333e-05,
+   "comfort_h6": 3.335513888888889e-05,
+   "comfort_h6_monday": 6.004166666666666e-07,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_8/minneapolis_6",
+   "metric": 0.0034541093749999997,
+   "comfort": 6.939131944444445e-05,
+   "comfort_h6": 1.8712569444444445e-05,
+   "comfort_h6_monday": 1.6096527777777778e-06,
+   "n_zones": 30
+  },
+  {
+   "scenario": "building_train_1/minneapolis_1",
+   "metric": 0.02698131273148148,
+   "comfort": 0.00039155736111111107,
+   "comfort_h6": 0.0001908170138888889,
+   "comfort_h6_monday": 0.0001418782638888889,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_1/minneapolis_5",
+   "metric": 0.004896592708333334,
+   "comfort": 0.00013275937500000003,
+   "comfort_h6": 0.00012388854166666668,
+   "comfort_h6_monday": 2.611472222222222e-05,
+   "n_zones": 39
+  },
+  {
+   "scenario": "building_train_2/minneapolis_2",
+   "metric": 0.010503320717592591,
+   "comfort": 0.00022153208333333332,
+   "comfort_h6": 0.00010828784722222222,
+   "comfort_h6_monday": 3.278333333333333e-06,
+   "n_zones": 85
+  }
+ ]
+}

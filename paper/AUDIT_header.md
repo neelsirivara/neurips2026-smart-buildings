@@ -71,3 +71,13 @@ generator seeds (`experiments/src/make_sets_r4.sh`).
   (`experiments/results/final*`) is assembled from Mac runs only (`assemble_final_tree.py`); the
   laptop trees (`experiments/results/full`, `heldout`) are the cross-machine check (macro
   `MachineGapMean`). Both use the same kit version (pyproject 0.1.0) and the same pins.
+
+Round 5 (2026-10-25/26) adds these typed constants: "0.38 of its value" (the billed-to-delivered ratio stated in
+starter-kit PR #2's description and test docstring, `experiments/results/round5/pr2_download/pr2.diff`); "about ten"
+hidden scenarios in the public split (33% of 6 x 5, Kaggle Evaluation page); the candidate settings "6 K lower / 4 K
+higher, ramped out 10--22 h before the start" (`r5_c04_wk6.json` + the `wk_ramp_h` 12 / `wk_ramp_end_h` 10 defaults of
+`policy_candidates/transfer_policy_v8.py`) and "20 kW per 100 m2" (`r5_c10_qcap20k.json`); "eleven held-out scenarios
+(six ... one ...) and four public ones" (PREREG.md part 2 and its 12:20 amendment; `jobs_r5.SCREEN`); "within 0.02%"
+(Kaggle's interactive building_train_1/atlanta_2 totals against the local ones, `results/kaggle_feedback.json`:
+0.012-0.014% for v5, v6, pid_water and the v8 candidate, 0.01% for v7); "a weekend floor near freezing" (v8's floor:
+289 K eco band - 8 K - 6 K = 275 K before the adaptive clamp).

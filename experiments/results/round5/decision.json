@@ -1,0 +1,55 @@
+{
+ "log": [
+  {
+   "time": "2026-10-25T16:57:07-07:00",
+   "step": "composite",
+   "members": [
+    "r5_c04_wk6",
+    "r5_c10_qcap20k"
+   ]
+  },
+  {
+   "time": "2026-10-25T17:26:24-07:00",
+   "step": "choose",
+   "pool": [
+    "r5_c03_wk3",
+    "r5_c04_wk6",
+    "r5_c10_qcap20k",
+    "r5_c11_qcap30k",
+    "r5_c12_comp"
+   ],
+   "chosen": "r5_c12_comp"
+  }
+ ],
+ "singles_verdicts": {
+  "r5_c01_mon15": "worse",
+  "r5_c02_mon125": "worse",
+  "r5_c03_wk3": "helps",
+  "r5_c04_wk6": "helps",
+  "r5_c05_lag10": "n.s.",
+  "r5_c06_lag05": "n.s.",
+  "r5_c07_fcapc05": "n.s.",
+  "r5_c08_qsb8k": "worse",
+  "r5_c09_preburst": "worse",
+  "r5_c10_qcap20k": "helps",
+  "r5_c11_qcap30k": "helps"
+ },
+ "composite_members": [
+  "r5_c04_wk6",
+  "r5_c10_qcap20k"
+ ],
+ "composite": "r5_c12_comp",
+ "composite_params": {
+  "wk_ext_lo": 6.0,
+  "wk_ext_hi": 4.0,
+  "q_cap_w": 20000.0
+ },
+ "pool": [
+  "r5_c03_wk3",
+  "r5_c04_wk6",
+  "r5_c10_qcap20k",
+  "r5_c11_qcap30k",
+  "r5_c12_comp"
+ ],
+ "chosen": "r5_c12_comp"
+}

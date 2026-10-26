@@ -35,7 +35,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-KIT = ROOT / "kit"
+KIT = Path(os.environ["SB_KIT_DIR"]) if os.environ.get("SB_KIT_DIR") else ROOT / "kit"   # round 5: kit copy (PR #2 check)
 ORIG_CWD = Path(os.getcwd())
 sys.path.insert(0, str(KIT))
 os.chdir(KIT)

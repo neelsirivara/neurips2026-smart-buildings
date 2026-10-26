@@ -1,0 +1,98 @@
+{
+ "scenario": "building_train_7/minneapolis_1",
+ "metric": 0.040983179050925925,
+ "comfort_per_step": 0.005721582708333332,
+ "zones": [
+  {
+   "zone": 14,
+   "area_m2": 111.56,
+   "cold_occupied_steps": 1150,
+   "occupied_steps": 1870,
+   "mean_deficit_k": 2.31787109375,
+   "mean_damper": 0.9639564752578735,
+   "mean_valve": 0.8188430666923523,
+   "mean_handler_pa": 238.94947814941406,
+   "mean_oat_c": -12.866913043478235,
+   "request_cap_w": 13387.199999999999,
+   "water_side_net_heat_w": 24165.067743691623
+  },
+  {
+   "zone": 28,
+   "area_m2": 86.92,
+   "cold_occupied_steps": 942,
+   "occupied_steps": 1465,
+   "mean_deficit_k": 3.29107666015625,
+   "mean_damper": 0.8371826410293579,
+   "mean_valve": 0.7026842832565308,
+   "mean_handler_pa": 248.49339294433594,
+   "mean_oat_c": -11.97432059447982,
+   "request_cap_w": 12000.0,
+   "water_side_net_heat_w": 25344.58237847879
+  },
+  {
+   "zone": 25,
+   "area_m2": 147.12,
+   "cold_occupied_steps": 468,
+   "occupied_steps": 1662,
+   "mean_deficit_k": 0.530517578125,
+   "mean_damper": 0.9994467496871948,
+   "mean_valve": 0.8758288025856018,
+   "mean_handler_pa": 276.0168762207031,
+   "mean_oat_c": -14.73724358974357,
+   "request_cap_w": 17654.4,
+   "water_side_net_heat_w": 21906.77474975348
+  },
+  {
+   "zone": 31,
+   "area_m2": 111.32000000000001,
+   "cold_occupied_steps": 458,
+   "occupied_steps": 1662,
+   "mean_deficit_k": 1.008514404296875,
+   "mean_damper": 0.9986953139305115,
+   "mean_valve": 0.7880135774612427,
+   "mean_handler_pa": 240.6257781982422,
+   "mean_oat_c": -15.91951965065499,
+   "request_cap_w": 13358.4,
+   "water_side_net_heat_w": 22244.11554004749
+  },
+  {
+   "zone": 9,
+   "area_m2": 77.4,
+   "cold_occupied_steps": 365,
+   "occupied_steps": 1890,
+   "mean_deficit_k": 1.144561767578125,
+   "mean_damper": 0.9531980156898499,
+   "mean_valve": 0.7144046425819397,
+   "mean_handler_pa": 226.44834899902344,
+   "mean_oat_c": -16.929890410958876,
+   "request_cap_w": 12000.0,
+   "water_side_net_heat_w": 22233.615005929227
+  },
+  {
+   "zone": 19,
+   "area_m2": 80.64,
+   "cold_occupied_steps": 189,
+   "occupied_steps": 1734,
+   "mean_deficit_k": 1.33349609375,
+   "mean_damper": 0.939345121383667,
+   "mean_valve": 0.6810325384140015,
+   "mean_handler_pa": 228.18063354492188,
+   "mean_oat_c": -19.283544973544906,
+   "request_cap_w": 12000.0,
+   "water_side_net_heat_w": 22080.950427116477
+  },
+  {
+   "zone": 33,
+   "area_m2": 76.96000000000001,
+   "cold_occupied_steps": 148,
+   "occupied_steps": 1409,
+   "mean_deficit_k": 0.963775634765625,
+   "mean_damper": 0.9465436935424805,
+   "mean_valve": 0.656843364238739,
+   "mean_handler_pa": 230.9037628173828,
+   "mean_oat_c": -19.054189189189202,
+   "request_cap_w": 12000.0,
+   "water_side_net_heat_w": 21713.58470996877
+  }
+ ]
+}

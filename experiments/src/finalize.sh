@@ -68,6 +68,20 @@ if [ -n "$R4CAND" ]; then
 fi
 "$PY" ledger_round4.py > /dev/null || true
 if [ -f assemble_round4_tree.py ]; then "$PY" assemble_round4_tree.py || true; fi
+echo "== round 5: local sets vs Kaggle, screen, decision record, confirmation, diagnostics"
+"$PY" compare_sets_r5.py > ../results/round5/set_comparison.txt 2>&1 || true
+"$PY" screen_round5.py > ../results/round5/screen_ranking.txt 2>&1 || true
+R5CAND=$("$PY" -c "import json; print(json.load(open('../results/round5/decision.json')).get('chosen') or '')" 2>/dev/null || true)
+if [ -n "$R5CAND" ]; then
+  "$PY" confirm_round5.py --cand "$R5CAND" --kaggle-like "P+M,FD" > ../results/round5/confirm_ranking.txt 2>&1 || true
+  tail -n 1 ../results/round5/confirm_ranking.txt
+  "$PY" fd_seed_sensitivity_r5.py > /dev/null 2>&1 || true
+fi
+R=../results
+if [ ! -f "$R/round5/loss_decomposition_r5m_v7.json" ]; then
+  "$PY" decompose_loss.py --dirs $R/round5/full/v7/r5m $R/round5/full/v7diag/r5m --policy transfer \
+      --out "$R/round5/loss_decomposition_r5m_v7.json" --label r5m_v7 > /dev/null 2>&1 || true
+fi
 echo "== macros + figures"
 "$PY" make_macros.py
 "$PY" make_audit.py

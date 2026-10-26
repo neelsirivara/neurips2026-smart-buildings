@@ -1,0 +1,48 @@
+
+=== transfer: LEADERBOARD SCORE = 0.00777 over 30 scenarios  (lower is better) ===
+
+reference baselines on the same scenarios (same metric, lower is better):
+  pid_water  0.05414
+  fixed_setpoint 0.06592
+  pid        0.06736
+  bang_bang  0.22520
+
+-- diagnostic only, NOT the metric (the leaderboard never groups) --
+weather            n     mean      min      max  best baseline
+fairbanks_5        1  0.00230  0.00230  0.00230  pid_water
+phoenix_8          1  0.00241  0.00241  0.00241  fixed_setpoint
+fairbanks_4        1  0.00243  0.00243  0.00243  fixed_setpoint
+denver_7           1  0.00286  0.00286  0.00286  pid_water
+phoenix_1          1  0.00324  0.00324  0.00324  pid_water
+atlanta_3          1  0.00336  0.00336  0.00336  pid_water
+denver_6           1  0.00390  0.00390  0.00390  pid_water
+atlanta_2          1  0.00392  0.00392  0.00392  pid_water
+atlanta_6          1  0.00435  0.00435  0.00435  fixed_setpoint
+denver_3           1  0.00466  0.00466  0.00466  pid_water
+singapore_1        1  0.00479  0.00479  0.00479  fixed_setpoint
+denver_8           1  0.00491  0.00491  0.00491  pid_water
+atlanta_1          1  0.00550  0.00550  0.00550  pid_water
+singapore_4        1  0.00561  0.00561  0.00561  fixed_setpoint
+singapore_7        1  0.00565  0.00565  0.00565  fixed_setpoint
+denver_5           1  0.00579  0.00579  0.00579  pid_water
+singapore_6        1  0.00586  0.00586  0.00586  fixed_setpoint
+denver_2           1  0.00609  0.00609  0.00609  pid_water
+phoenix_3          1  0.00641  0.00641  0.00641  pid_water
+singapore_8        1  0.00666  0.00666  0.00666  fixed_setpoint
+atlanta_5          1  0.00670  0.00670  0.00670  fixed_setpoint
+singapore_3        1  0.00704  0.00704  0.00704  fixed_setpoint
+phoenix_6          1  0.00736  0.00736  0.00736  pid_water
+atlanta_8          1  0.00754  0.00754  0.00754  pid_water
+fairbanks_7        1  0.00859  0.00859  0.00859  pid_water
+phoenix_4          1  0.00995  0.00995  0.00995  pid_water
+fairbanks_2        1  0.01185  0.01185  0.01185  pid_water
+phoenix_5          1  0.01484  0.01484  0.01484  fixed_setpoint
+fairbanks_8        1  0.02339  0.02339  0.02339  pid_water
+fairbanks_1        1  0.04513  0.04513  0.04513  fixed_setpoint
+
+worst 5 scenarios (largest score):
+  building_train_1/fairbanks_1     score  0.04513  return     -389.9  best baseline fixed_setpoint
+  building_train_8/fairbanks_8     score  0.02339  return     -202.1  best baseline pid_water
+  building_train_1/phoenix_5       score  0.01484  return     -128.2  best baseline fixed_setpoint
+  building_train_2/fairbanks_2     score  0.01185  return     -102.4  best baseline pid_water
+  building_train_8/phoenix_4       score  0.00995  return      -85.9  best baseline pid_water

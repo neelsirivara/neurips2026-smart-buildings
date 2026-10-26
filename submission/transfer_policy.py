@@ -1,4 +1,14 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v7, final; round 4, r4_c14_comp_a).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v8, final; round 5, r5_c12_comp).
+
+v8 turns on the overrides of r5_c12_comp in DEFAULT_PARAMS (wk_ext_lo 6, wk_ext_hi 4, q_cap_w 20000); the round-5 switches (with them off the code reproduces v7 bit for bit) are:
+``mon_lead_mult`` / ``mon_lead_max_h`` / ``mon_no_learn`` (longer optimum-start lead into a workday that follows a
+non-workday, and no rate learning from it), ``wk_ext_lo`` / ``wk_ext_hi`` (deeper setback far from the next
+workday start, ramped out ``wk_ramp_end_h`` .. ``wk_ramp_end_h + wk_ramp_h`` hours before it), ``lag_comp``
+(one-step extrapolation of the zone temperature in the PI errors) and ``f_cap_pre_c`` (separate flow cap for
+cooling while preconditioning) and ``pre_burst_h`` (a preconditioning zone far below its target requests
+its full flow-capped heat at once instead of ramping up through the PI integral).
+
+v7 (round 4, r4_c14_comp_a):
 
 Round-4 switches (v7 turns on the five overrides of r4_c14_comp_a in DEFAULT_PARAMS:
 disch_margin_k 0, occ_press_dyn with e0 0.1 K / span 0.5 K, flush_on + flush_heat_guard,
@@ -151,7 +161,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     "kq_w_per_k": 400.0,      # proportional gain: W of net heat per K of error
     "ki_w_per_k_step": 120.0,  # integral gain: W added per K of error per 5-min step
     "i_decay_mult": 1.0,      # integral unwinding speed when the zone is past its target
-    "q_cap_w": 12000.0,       # cap on net heat (either sign) a zone may ask for, per 100 m2
+    "q_cap_w": 20000.0,       # cap on net heat (either sign) a zone may ask for, per 100 m2
     "q_on_w": 50.0,           # a zone with |Q| above this is "in demand"
     "area_ref_m2": 100.0,     # v6: zone area at which the gains above apply unscaled
     "gain_area_scaling": 1.0,  # v6: 1 = scale kq, ki, q_cap_w, q_sb_w with area / area_ref
@@ -194,6 +204,18 @@ DEFAULT_PARAMS: dict[str, float] = {
     "flush_heat_guard": 1.0,  # 1 = no flush in heating season (heat_timer > 0)
     "sb_neutral": 1.0,        # 1 = heating season: reheat set-back zones' forced air to zone temperature
     "sb_neutral_cold": 0.0,   # 1 = ... only while the outside air is below the zone's setback floor
+    # --- round-5 candidate switches (defaults = v7) ---
+    "mon_lead_mult": 1.0,     # lead multiplier for the recovery into a workday that follows a non-workday
+    "mon_lead_max_h": 8.0,    # cap of that lead (h)
+    "mon_no_learn": 0.0,      # 1 = recoveries into such a workday do not update the learned rates
+    "wk_ext_lo": 6.0,         # extra setback depth (K, below the floor) far from the next workday start
+    "wk_ext_hi": 4.0,         # extra setback height (K, above the ceiling) far from the next workday start
+    "wk_ramp_h": 12.0,        # the extra depth ramps out over this many hours ...
+    "wk_ramp_end_h": 10.0,    # ... ending this many hours before the next workday start
+    "lag_comp": 0.0,          # zone PI uses T + lag_comp * (T - T_prev) (one-step sensor lag)
+    "f_cap_pre_c": -1.0,      # >= 0: separate request flow-fraction cap for cooling while preconditioning
+    "pre_burst_h": 0.0,       # 1 = a preconditioning zone more than pre_burst_e0 below target requests its full cap
+    "pre_burst_e0": 0.3,
 }
 
 
@@ -448,6 +470,8 @@ class TransferPolicy:
         self.mode = self.SETBACK
         self.zone_mode = np.full(Vn, self.SETBACK, dtype=int)
         self.flush_latch = np.zeros(Vn, dtype=bool)  # round 4: night flush per zone
+        self.T_prev = None                           # round 5: previous zone temperatures (lag compensation)
+        self.after_off = False                       # round 5: the coming workday follows a non-workday
         # optimum start, building level (fallback when per_zone_start == 0)
         self.rate_h = float(p["rate0_kph"])
         self.rate_c = float(p["rate0_kph"])
@@ -587,6 +611,7 @@ class TransferPolicy:
         prev_zone_mode = self.zone_mode
         workday_ahead = False
         hours_to_start = 24.0
+        hours_to_workday = 24.0
         if now:
             if (hod is not None and hod >= p["holiday_check_h"] and not self.seen_occ_today
                     and self.occ_idx >= 0):
@@ -601,11 +626,24 @@ class TransferPolicy:
                 hours_to_start = (self.morning_start - hod) % 24.0
                 day_next = dow if hod < self.morning_start else (dow + 1.0) % 7.0
                 workday_ahead = day_next < 5.0
+                # round 5: hours to the next workday start (skipping weekend days) and whether that
+                # workday follows a non-workday (a Monday in the shipped schedule)
+                n_skip = 0
+                dn = int(round(day_next)) % 7          # the day-of-week feature is integral (Monday = 0)
+                while dn >= 5 and n_skip < 7:
+                    dn = (dn + 1) % 7
+                    n_skip += 1
+                hours_to_workday = hours_to_start + 24.0 * n_skip
+                self.after_off = (dn - 1) % 7 >= 5
             if per_zone_start:
                 lead_z = p["lead_base_h"] + np.maximum(
                     def_h_z / np.maximum(self.rate_h_z / safety, 1e-3),
                     def_c_z / np.maximum(self.rate_c_z / safety, 1e-3))
                 lead_z = np.clip(lead_z, p["lead_min_h"], p["lead_max_h"])
+                m_lead = float(p.get("mon_lead_mult", 1.0))
+                if m_lead != 1.0 and self.after_off:
+                    lead_z = np.clip(lead_z * m_lead, p["lead_min_h"],
+                                     max(float(p.get("mon_lead_max_h", 8.0)), p["lead_max_h"]))
                 self._lead_dbg = float(lead_z.max())
                 lead_rule = workday_ahead & (hours_to_start <= lead_z)
                 if float(p.get("pre_latch", 0.0)) > 0.5:
@@ -656,6 +694,9 @@ class TransferPolicy:
                     recovered = self.zpre_def0 - np.where(self.zpre_reached > 0, 0.0, cur)
                     valid = ended & (self.zpre_def0 >= 0.5)
                     good = valid & (recovered > 0.0)
+                    if float(p.get("mon_no_learn", 0.0)) > 0.5 and self.after_off:
+                        valid = valid & False
+                        good = good & False
                     r_obs = np.clip(recovered / hours, p["rate_min_kph"], p["rate_max_kph"])
                     a = p["rate_ema"]
                     upd_h = good & (self.zpre_kind > 0)
@@ -713,6 +754,14 @@ class TransferPolicy:
                 recover_h = max(p["lead_max_h"] - p["lead_base_h"], 0.5)
                 floor_z = np.maximum(floor_z, lo_pre - (self.rate_h_z / safety) * recover_h)
                 ceil_z = np.minimum(ceil_z, hi_pre + (self.rate_c_z / safety) * recover_h)
+            wk_lo, wk_hi = float(p.get("wk_ext_lo", 0.0)), float(p.get("wk_ext_hi", 0.0))
+            if (wk_lo > 0.0 or wk_hi > 0.0) and not now:
+                # round 5: far from the next workday start (weekends) the setback band widens; the extra
+                # depth ramps out linearly so the zones are back at the normal floor before any lead
+                ramp = np.clip((hours_to_workday - float(p.get("wk_ramp_end_h", 10.0)))
+                               / max(float(p.get("wk_ramp_h", 12.0)), 1e-3), 0.0, 1.0)
+                floor_z = floor_z - wk_lo * ramp
+                ceil_z = ceil_z + wk_hi * ramp
             lo = np.where(is_occ, lo_s + p["margin_occ"], np.where(is_pre, lo_pre, floor_z))
             hi = np.where(is_occ, hi_s - p["margin_occ"], np.where(is_pre, hi_pre, ceil_z))
             mid = 0.5 * (lo + hi)
@@ -748,8 +797,15 @@ class TransferPolicy:
         # integrals unwind and the zone free-floats.  Gains and caps scale with the zone
         # area (v6); the cap is also bounded by what the box can deliver at the mode's
         # flow fraction.
-        e_h = lo - T
-        e_c = T - hi
+        T_pi = T
+        lc = float(p.get("lag_comp", 0.0))
+        if V and lc != 0.0 and self.T_prev is not None and len(self.T_prev) == V:
+            # round 5: the zone sensor lags one step; extrapolate one step for the PI errors
+            T_pi = T + lc * np.clip(T - self.T_prev, -1.0, 1.0)
+        if V:
+            self.T_prev = T.copy()
+        e_h = lo - T_pi
+        e_c = T_pi - hi
         kq_z = max(p["kq_w_per_k"], 0.0) * self.scale[:V]
         ki_z = max(p["ki_w_per_k_step"], 0.0) * self.scale[:V]
         t_disch_max = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
@@ -768,8 +824,11 @@ class TransferPolicy:
                 f_occ = f_lo + (max(f_occ, f_lo) - f_lo) * ramp
             f_cap = np.where(is_occ, f_occ, float(p.get("f_cap_pre", 0.7)))
             f_cap = np.clip(f_cap, max(float(p.get("f_cap_min", F_FLOOR100)), 0.0), 1.0)
+            f_cap_c = f_cap
+            if float(p.get("f_cap_pre_c", -1.0)) >= 0.0:
+                f_cap_c = np.where(is_pre, np.clip(float(p["f_cap_pre_c"]), F_MIN, 1.0), f_cap)
             cap_h = F_design * f_cap * np.maximum(t_disch_max - T, 0.5)
-            cap_c = F_design * f_cap * np.maximum(T - sat_lo, 0.5)
+            cap_c = F_design * f_cap_c * np.maximum(T - sat_lo, 0.5)
             q_cap_h = np.minimum(max(p["q_cap_w"], 100.0) * self.scale[:V], cap_h)
             q_cap_c = np.maximum(np.minimum(max(p["q_cap_w"], 100.0) * self.scale[:V], cap_c), 100.0)
             if float(p.get("water_cap", 1.0)) > 0.5:
@@ -798,6 +857,10 @@ class TransferPolicy:
             self.I_h = np.where(is_sb, 0.0, np.clip(self.I_h + dI_h, 0.0, q_cap_h))
             self.I_c = np.where(is_sb, 0.0, np.clip(self.I_c + dI_c, 0.0, q_cap_c))
             q_h_pi = np.clip(kq_z * np.maximum(e_h, 0.0) + self.I_h, 0.0, q_cap_h)
+            if float(p.get("pre_burst_h", 0.0)) > 0.5:
+                # round 5: recover at the floor-pressure cap from the start (the other zones' forced
+                # ventilation is paid per minute of handler run time, so a faster recovery is cheaper)
+                q_h_pi = np.where(is_pre & (e_h > float(p.get("pre_burst_e0", 0.3))), q_cap_h, q_h_pi)
             q_c_pi = np.clip(kq_z * np.maximum(e_c, 0.0) + self.I_c, 0.0, q_cap_c)
             # a zone cannot be heated and cooled at once: the larger request wins
             heat_pi = ~is_sb & (q_h_pi > q_c_pi) & (q_h_pi > p["q_on_w"])

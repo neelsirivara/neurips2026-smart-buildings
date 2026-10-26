@@ -1,0 +1,14 @@
+[
+ {
+  "id": "full/v7diag/r5m/building_train_2/minneapolis_2",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v7.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r5m",
+  "scenario": "building_train_2/minneapolis_2",
+  "steps": 8640,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\full\\v7diag\\r5m",
+  "runner": "diag",
+  "kit_dir": null
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "id": "regress/v8_baked_xcheck/r5x/building_train_7/fairbanks_1",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v8_r5_c12_comp.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\heldout_scenarios_r5x",
+  "scenario": "building_train_7/fairbanks_1",
+  "steps": 2880,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\regress\\v8_baked_xcheck\\r5x",
+  "runner": "scenario",
+  "kit_dir": null
+ },
+ {
+  "id": "regress/v8_baked_xcheck/pub30/building_train_8/fairbanks_8",
+  "policy": "transfer",
+  "policy_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v8_r5_c12_comp.py",
+  "params_json": null,
+  "scen_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\kit\\smart_buildings\\training_scenarios",
+  "scenario": "building_train_8/fairbanks_8",
+  "steps": 2880,
+  "results_dir": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\regress\\v8_baked_xcheck\\pub30",
+  "runner": "scenario",
+  "kit_dir": null
+ }
+]

@@ -1,0 +1,681 @@
+2026-10-25 113117 runner start pid=36236 max_workers=3
+2026-10-25 113117 RAM available 5.53 GB -> worker limit 3; running 0, pending 60
+2026-10-25 113117 START full/v7/r5m/building_train_1/minneapolis_1 (RAM 5.53 GB, running 1/3)
+2026-10-25 113120 START full/v7/r5m/building_train_1/minneapolis_5 (RAM 5.22 GB, running 2/3)
+2026-10-25 113123 START full/v7/r5m/building_train_2/minneapolis_2 (RAM 4.57 GB, running 3/3)
+2026-10-25 113936 DONE full/v7/r5m/building_train_1/minneapolis_1 (8.3 min) building_train_1/minneapolis_1/transfer: total=-233.12 steps=8640 sec/step=0.056 (policy 0.60 ms) regret=-5.64 energy=324.03 carbon=824.65
+2026-10-25 113936 DONE full/v7/r5m/building_train_1/minneapolis_5 (8.3 min) building_train_1/minneapolis_5/transfer: total=-42.31 steps=8640 sec/step=0.056 (policy 0.58 ms) regret=-1.91 energy=160.46 carbon=45.34
+2026-10-25 113936 START full/v7/r5m/building_train_2/minneapolis_6 (RAM 6.66 GB, running 2/3)
+2026-10-25 113939 START full/v7/r5m/building_train_4/minneapolis_3 (RAM 6.59 GB, running 3/3)
+2026-10-25 114603 DONE full/v7/r5m/building_train_2/minneapolis_2 (14.7 min) building_train_2/minneapolis_2/transfer: total=-90.75 steps=8640 sec/step=0.099 (policy 0.64 ms) regret=-3.19 energy=124.47 carbon=319.71
+2026-10-25 114603 START regress/v7/pub30/building_train_1/phoenix_5 (RAM 5.62 GB, running 3/3)
+2026-10-25 114656 DONE regress/v7/pub30/building_train_1/phoenix_5 (0.9 min) building_train_1/phoenix_5/transfer: total=-5.39 steps=576 sec/step=0.063 (policy 0.67 ms) regret=-0.18 energy=21.49 carbon=4.93
+2026-10-25 114656 START regress/v7/pub30/building_train_2/denver_8 (RAM 5.45 GB, running 3/3)
+2026-10-25 114819 DONE regress/v7/pub30/building_train_2/denver_8 (1.4 min) building_train_2/denver_8/transfer: total=-3.67 steps=576 sec/step=0.101 (policy 0.57 ms) regret=-0.15 energy=5.07 carbon=12.85
+2026-10-25 114819 START regress/v7/pub30/building_train_8/fairbanks_8 (RAM 5.09 GB, running 3/3)
+2026-10-25 114852 DONE regress/v7/pub30/building_train_8/fairbanks_8 (0.6 min) building_train_8/fairbanks_8/transfer: total=-6.82 steps=576 sec/step=0.034 (policy 0.65 ms) regret=-0.01 energy=8.86 carbon=25.23
+2026-10-25 114852 START regress/v8def/pub30/building_train_1/phoenix_5 (RAM 5.18 GB, running 3/3)
+2026-10-25 114945 DONE regress/v8def/pub30/building_train_1/phoenix_5 (0.9 min) building_train_1/phoenix_5/transfer: total=-5.39 steps=576 sec/step=0.061 (policy 0.59 ms) regret=-0.18 energy=21.49 carbon=4.93
+2026-10-25 114945 START regress/v8def/pub30/building_train_2/denver_8 (RAM 5.43 GB, running 3/3)
+2026-10-25 115058 DONE regress/v8def/pub30/building_train_2/denver_8 (1.2 min) building_train_2/denver_8/transfer: total=-3.67 steps=576 sec/step=0.099 (policy 0.56 ms) regret=-0.15 energy=5.07 carbon=12.85
+2026-10-25 115059 START regress/v8def/pub30/building_train_8/fairbanks_8 (RAM 5.27 GB, running 3/3)
+2026-10-25 115122 DONE full/v7/r5m/building_train_4/minneapolis_3 (11.7 min) building_train_4/minneapolis_3/transfer: total=-45.44 steps=8640 sec/step=0.079 (policy 0.59 ms) regret=-1.00 energy=80.28 carbon=143.94
+2026-10-25 115122 START full/v7/r5m/building_train_4/minneapolis_7 (RAM 5.48 GB, running 3/3)
+2026-10-25 115135 DONE regress/v8def/pub30/building_train_8/fairbanks_8 (0.6 min) building_train_8/fairbanks_8/transfer: total=-6.82 steps=576 sec/step=0.027 (policy 0.53 ms) regret=-0.01 energy=8.86 carbon=25.23
+2026-10-25 115135 START full/v7/r5m/building_train_5/minneapolis_4 (RAM 5.25 GB, running 3/3)
+2026-10-25 115448 DONE full/v7/r5m/building_train_2/minneapolis_6 (15.2 min) building_train_2/minneapolis_6/transfer: total=-28.94 steps=8640 sec/step=0.103 (policy 0.59 ms) regret=-1.52 energy=110.23 carbon=29.90
+2026-10-25 115448 START full/v7/r5m/building_train_5/minneapolis_8 (RAM 5.54 GB, running 3/3)
+2026-10-25 120122 RAM available 5.55 GB -> worker limit 3; running 3, pending 234
+2026-10-25 120242 DONE full/v7/r5m/building_train_4/minneapolis_7 (11.3 min) building_train_4/minneapolis_7/transfer: total=-26.01 steps=8640 sec/step=0.076 (policy 0.58 ms) regret=-1.61 energy=69.35 carbon=55.83
+2026-10-25 120242 START full/v7/r5m/building_train_7/minneapolis_1 (RAM 6.54 GB, running 3/3)
+2026-10-25 120305 DONE full/v7/r5m/building_train_5/minneapolis_4 (11.5 min) building_train_5/minneapolis_4/transfer: total=-28.68 steps=8640 sec/step=0.078 (policy 0.57 ms) regret=-1.17 energy=88.70 carbon=51.17
+2026-10-25 120305 START full/v7/r5m/building_train_7/minneapolis_5 (RAM 6.39 GB, running 3/3)
+2026-10-25 120618 DONE full/v7/r5m/building_train_5/minneapolis_8 (11.5 min) building_train_5/minneapolis_8/transfer: total=-90.28 steps=8640 sec/step=0.077 (policy 0.58 ms) regret=-0.36 energy=122.45 carbon=327.88
+2026-10-25 120618 START full/v7/r5m/building_train_8/minneapolis_2 (RAM 6.51 GB, running 3/3)
+2026-10-25 120741 DONE full/v7/r5m/building_train_7/minneapolis_1 (5.0 min) building_train_7/minneapolis_1/transfer: total=-354.09 steps=8640 sec/step=0.033 (policy 0.54 ms) regret=-82.39 energy=431.60 carbon=1091.70
+2026-10-25 120741 START full/v7/r5m/building_train_8/minneapolis_6 (RAM 6.89 GB, running 3/3)
+2026-10-25 120804 DONE full/v7/r5m/building_train_7/minneapolis_5 (5.0 min) building_train_7/minneapolis_5/transfer: total=-33.92 steps=8640 sec/step=0.033 (policy 0.53 ms) regret=-4.57 energy=115.43 carbon=40.45
+2026-10-25 120804 START full/v7diag/r5m/building_train_1/minneapolis_1 (RAM 6.50 GB, running 3/3)
+2026-10-25 121048 DONE full/v7/r5m/building_train_8/minneapolis_2 (4.5 min) building_train_8/minneapolis_2/transfer: total=-156.97 steps=8640 sec/step=0.029 (policy 0.54 ms) regret=-1.24 energy=212.83 carbon=568.30
+2026-10-25 121048 START full/v7diag/r5m/building_train_1/minneapolis_5 (RAM 6.83 GB, running 3/3)
+2026-10-25 121211 DONE full/v7/r5m/building_train_8/minneapolis_6 (4.5 min) building_train_8/minneapolis_6/transfer: total=-29.84 steps=8640 sec/step=0.029 (policy 0.52 ms) regret=-1.00 energy=110.56 carbon=35.66
+2026-10-25 121211 START regress/v7_pr2_check/pubfair6/building_train_8/fairbanks_8 (RAM 6.42 GB, running 3/3)
+2026-10-25 121224 DONE regress/v7_pr2_check/pubfair6/building_train_8/fairbanks_8 (0.2 min) building_train_8/fairbanks_8/transfer: total=0.00 steps=36 sec/step=0.051 (policy 0.68 ms) regret=0.00 energy=0.00 carbon=0.00
+2026-10-25 121224 START full/pid_water/r5m/building_train_1/minneapolis_1 (RAM 6.34 GB, running 3/3)
+2026-10-25 121607 DONE full/v7diag/r5m/building_train_1/minneapolis_1 (8.0 min) building_train_1/minneapolis_1/transfer: total=-233.12 steps=8640 sec/step=0.055 (policy 0.54 ms) regret=-5.64 energy=324.03 carbon=824.65
+2026-10-25 121607 START full/pid_water/r5m/building_train_1/minneapolis_5 (RAM 6.28 GB, running 3/3)
+2026-10-25 121900 DONE full/v7diag/r5m/building_train_1/minneapolis_5 (8.2 min) building_train_1/minneapolis_5/transfer: total=-42.31 steps=8640 sec/step=0.055 (policy 0.53 ms) regret=-1.91 energy=160.46 carbon=45.34
+2026-10-25 121900 START full/pid_water/r5m/building_train_2/minneapolis_2 (RAM 6.13 GB, running 3/3)
+2026-10-25 122003 DONE full/pid_water/r5m/building_train_1/minneapolis_1 (7.7 min) building_train_1/minneapolis_1/pid_water: total=-757.44 steps=8640 sec/step=0.051 (policy 0.34 ms) regret=-515.52 energy=825.77 carbon=1414.86
+2026-10-25 122003 START full/v7diag/r5m/building_train_2/minneapolis_2 (RAM 6.08 GB, running 3/3)
+2026-10-25 122347 DONE full/pid_water/r5m/building_train_1/minneapolis_5 (7.7 min) building_train_1/minneapolis_5/pid_water: total=-197.98 steps=8640 sec/step=0.051 (policy 0.26 ms) regret=-228.44 energy=246.39 carbon=58.19
+2026-10-25 122347 START full/pid_water/r5m/building_train_2/minneapolis_6 (RAM 5.78 GB, running 3/3)
+2026-10-25 123131 RAM available 1.37 GB -> worker limit 3; running 3, pending 264
+2026-10-25 123241 DONE full/pid_water/r5m/building_train_2/minneapolis_2 (13.7 min) building_train_2/minneapolis_2/pid_water: total=-636.71 steps=8640 sec/step=0.093 (policy 0.48 ms) regret=-845.10 energy=250.40 carbon=397.82
+2026-10-25 123241 START full/pid_water/r5m/building_train_4/minneapolis_3 (RAM 5.92 GB, running 3/3)
+2026-10-25 123444 DONE full/v7diag/r5m/building_train_2/minneapolis_2 (14.7 min) building_train_2/minneapolis_2/transfer: total=-90.75 steps=8640 sec/step=0.099 (policy 0.58 ms) regret=-3.19 energy=124.47 carbon=319.71
+2026-10-25 123444 START full/pid_water/r5m/building_train_4/minneapolis_7 (RAM 5.89 GB, running 3/3)
+2026-10-25 123727 DONE full/pid_water/r5m/building_train_2/minneapolis_6 (13.7 min) building_train_2/minneapolis_6/pid_water: total=-162.03 steps=8640 sec/step=0.093 (policy 0.42 ms) regret=-201.21 energy=167.31 carbon=39.24
+2026-10-25 123727 START full/pid_water/r5m/building_train_5/minneapolis_4 (RAM 5.66 GB, running 3/3)
+2026-10-25 124301 DONE full/pid_water/r5m/building_train_4/minneapolis_3 (10.3 min) building_train_4/minneapolis_3/pid_water: total=-406.63 steps=8640 sec/step=0.069 (policy 0.30 ms) regret=-599.84 energy=107.73 carbon=125.92
+2026-10-25 124301 START full/pid_water/r5m/building_train_5/minneapolis_8 (RAM 5.67 GB, running 3/3)
+2026-10-25 124454 DONE full/pid_water/r5m/building_train_4/minneapolis_7 (10.2 min) building_train_4/minneapolis_7/pid_water: total=-299.48 steps=8640 sec/step=0.069 (policy 0.30 ms) regret=-463.41 energy=77.16 carbon=30.00
+2026-10-25 124454 START full/pid_water/r5m/building_train_7/minneapolis_1 (RAM 5.79 GB, running 3/3)
+2026-10-25 124748 DONE full/pid_water/r5m/building_train_5/minneapolis_4 (10.3 min) building_train_5/minneapolis_4/pid_water: total=-204.99 steps=8640 sec/step=0.069 (policy 0.39 ms) regret=-278.05 energy=131.11 carbon=59.67
+2026-10-25 124748 START full/pid_water/r5m/building_train_7/minneapolis_5 (RAM 6.22 GB, running 3/3)
+2026-10-25 124931 DONE full/pid_water/r5m/building_train_7/minneapolis_1 (4.6 min) building_train_7/minneapolis_1/pid_water: total=-1004.34 steps=8640 sec/step=0.030 (policy 0.36 ms) regret=-731.29 energy=1097.56 carbon=1730.28
+2026-10-25 124931 START full/pid_water/r5m/building_train_8/minneapolis_2 (RAM 5.94 GB, running 3/3)
+2026-10-25 125224 DONE full/pid_water/r5m/building_train_7/minneapolis_5 (4.6 min) building_train_7/minneapolis_5/pid_water: total=-199.07 steps=8640 sec/step=0.030 (policy 0.24 ms) regret=-245.21 energy=199.30 carbon=60.44
+2026-10-25 125224 START full/pid_water/r5m/building_train_8/minneapolis_6 (RAM 5.71 GB, running 3/3)
+2026-10-25 125317 DONE full/pid_water/r5m/building_train_5/minneapolis_8 (10.3 min) building_train_5/minneapolis_8/pid_water: total=-425.25 steps=8640 sec/step=0.069 (policy 0.42 ms) regret=-441.80 energy=293.01 carbon=507.82
+2026-10-25 125317 START full/v7_pr2/pubfair6/building_train_1/fairbanks_1 (RAM 6.05 GB, running 3/3)
+2026-10-25 125340 DONE full/pid_water/r5m/building_train_8/minneapolis_2 (4.2 min) building_train_8/minneapolis_2/pid_water: total=-540.34 steps=8640 sec/step=0.027 (policy 0.29 ms) regret=-416.51 energy=511.84 carbon=940.35
+2026-10-25 125340 START full/v7_pr2/pubfair6/building_train_2/fairbanks_2 (RAM 6.30 GB, running 3/3)
+2026-10-25 125634 DONE full/pid_water/r5m/building_train_8/minneapolis_6 (4.2 min) building_train_8/minneapolis_6/pid_water: total=-157.49 steps=8640 sec/step=0.027 (policy 0.21 ms) regret=-200.24 energy=150.67 carbon=36.06
+2026-10-25 125634 START full/v7_pr2/pubfair6/building_train_4/fairbanks_4 (RAM 5.73 GB, running 3/3)
+2026-10-25 125647 FAIL full/v7_pr2/pubfair6/building_train_4/fairbanks_4 rc=1 (0.2 min) attempt 1 log=C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\results\round5\queue\logs\full__v7_pr2__pubfair6__building_train_4__fairbanks_4.log
+2026-10-25 125647 START full/v7_pr2/pubfair6/building_train_4/fairbanks_4 (RAM 6.03 GB, running 3/3)
+2026-10-25 130100 DONE full/v7_pr2/pubfair6/building_train_1/fairbanks_1 (7.7 min) building_train_1/fairbanks_1/transfer: total=-398.34 steps=8640 sec/step=0.051 (policy 0.58 ms) regret=-17.11 energy=550.76 carbon=1389.60
+2026-10-25 130100 START full/v7_pr2/pubfair6/building_train_5/fairbanks_5 (RAM 5.32 GB, running 3/3)
+2026-10-25 130133 RAM available 5.18 GB -> worker limit 3; running 3, pending 252
+2026-10-25 130714 DONE full/v7_pr2/pubfair6/building_train_2/fairbanks_2 (13.6 min) building_train_2/fairbanks_2/transfer: total=-105.51 steps=8640 sec/step=0.092 (policy 0.59 ms) regret=-3.26 energy=144.90 carbon=372.87
+2026-10-25 130714 DONE full/v7_pr2/pubfair6/building_train_4/fairbanks_4 (10.5 min) building_train_4/fairbanks_4/transfer: total=-20.46 steps=8640 sec/step=0.070 (policy 0.58 ms) regret=-1.31 energy=51.17 carbon=47.23
+2026-10-25 130714 START full/v7_pr2/pubfair6/building_train_7/fairbanks_7 (RAM 6.69 GB, running 2/3)
+2026-10-25 130717 START full/v7_pr2/pubfair6/building_train_8/fairbanks_8 (RAM 6.56 GB, running 3/3)
+2026-10-25 131120 DONE full/v7_pr2/pubfair6/building_train_5/fairbanks_5 (10.3 min) building_train_5/fairbanks_5/transfer: total=-19.27 steps=8640 sec/step=0.070 (policy 0.59 ms) regret=-0.96 energy=68.76 carbon=24.72
+2026-10-25 131120 START screen/r5_c00_v7/r5ms/building_train_1/minneapolis_7 (RAM 6.38 GB, running 3/3)
+2026-10-25 131133 DONE full/v7_pr2/pubfair6/building_train_8/fairbanks_8 (4.3 min) building_train_8/fairbanks_8/transfer: total=-208.66 steps=8640 sec/step=0.028 (policy 0.56 ms) regret=-1.49 energy=276.84 carbon=761.99
+2026-10-25 131133 START screen/r5_c00_v7/r5ms/building_train_2/minneapolis_8 (RAM 6.24 GB, running 3/3)
+2026-10-25 131146 DONE full/v7_pr2/pubfair6/building_train_7/fairbanks_7 (4.5 min) building_train_7/fairbanks_7/transfer: total=-73.06 steps=8640 sec/step=0.030 (policy 0.56 ms) regret=-0.54 energy=95.82 carbon=267.86
+2026-10-25 131146 START screen/r5_c00_v7/r5ms/building_train_4/minneapolis_1 (RAM 6.30 GB, running 3/3)
+2026-10-25 131409 DONE screen/r5_c00_v7/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 131410 START screen/r5_c00_v7/r5ms/building_train_5/minneapolis_2 (RAM 5.93 GB, running 3/3)
+2026-10-25 131523 DONE screen/r5_c00_v7/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-41.28 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-0.11 energy=59.45 carbon=146.64
+2026-10-25 131523 START screen/r5_c00_v7/r5ms/building_train_7/minneapolis_3 (RAM 5.92 GB, running 3/3)
+2026-10-25 131616 DONE screen/r5_c00_v7/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.093 (policy 0.59 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 131616 START screen/r5_c00_v7/r5ms/building_train_8/minneapolis_4 (RAM 6.22 GB, running 3/3)
+2026-10-25 131709 DONE screen/r5_c00_v7/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.97 steps=2880 sec/step=0.030 (policy 0.57 ms) regret=-1.25 energy=49.59 carbon=131.53
+2026-10-25 131709 START screen/r5_c00_v7/r4s/building_0520/fairbanks_1 (RAM 6.17 GB, running 3/3)
+2026-10-25 131752 DONE screen/r5_c00_v7/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.12 steps=2880 sec/step=0.070 (policy 0.60 ms) regret=-0.27 energy=86.50 carbon=228.29
+2026-10-25 131752 DONE screen/r5_c00_v7/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.027 (policy 0.54 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 131752 START screen/r5_c00_v7/r4s/building_0522/fairbanks_3 (RAM 6.85 GB, running 2/3)
+2026-10-25 131755 START screen/r5_c00_v7/r4s/building_0523/denver_6 (RAM 6.63 GB, running 3/3)
+2026-10-25 132018 DONE screen/r5_c00_v7/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-136.55 steps=2880 sec/step=0.061 (policy 0.58 ms) regret=-10.14 energy=186.67 carbon=465.63
+2026-10-25 132018 START screen/r5_c00_v7/r4s/building_0524/phoenix_8 (RAM 4.69 GB, running 3/3)
+2026-10-25 132251 DONE screen/r5_c00_v7/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.33 steps=2880 sec/step=0.096 (policy 0.58 ms) regret=-52.80 energy=180.02 carbon=453.26
+2026-10-25 132251 START screen/r5_c00_v7/r5x/building_train_7/fairbanks_1 (RAM 5.42 GB, running 3/3)
+2026-10-25 132405 DONE screen/r5_c00_v7/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.074 (policy 0.62 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 132405 START screen/r5_c00_v7/pub30/building_train_1/fairbanks_1 (RAM 5.04 GB, running 3/3)
+2026-10-25 132438 DONE screen/r5_c00_v7/r5x/building_train_7/fairbanks_1 (1.8 min) building_train_7/fairbanks_1/transfer: total=-243.85 steps=2880 sec/step=0.032 (policy 0.59 ms) regret=-125.21 energy=240.03 carbon=603.58
+2026-10-25 132438 START screen/r5_c00_v7/pub30/building_train_8/fairbanks_8 (RAM 5.38 GB, running 3/3)
+2026-10-25 132611 DONE screen/r5_c00_v7/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-66.58 steps=2880 sec/step=0.028 (policy 0.58 ms) regret=-0.48 energy=85.38 carbon=246.06
+2026-10-25 132611 START screen/r5_c00_v7/pub30/building_train_2/denver_8 (RAM 5.00 GB, running 3/3)
+2026-10-25 132654 DONE screen/r5_c00_v7/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.51 steps=2880 sec/step=0.053 (policy 0.57 ms) regret=-7.14 energy=212.76 carbon=538.38
+2026-10-25 132654 START screen/r5_c00_v7/pub30/building_train_1/phoenix_5 (RAM 4.66 GB, running 3/3)
+2026-10-25 132937 DONE screen/r5_c00_v7/pub30/building_train_1/phoenix_5 (2.7 min) building_train_1/phoenix_5/transfer: total=-39.93 steps=2880 sec/step=0.052 (policy 0.54 ms) regret=-1.96 energy=157.56 carbon=36.23
+2026-10-25 132937 START screen/r5_c01_mon15/r5ms/building_train_1/minneapolis_7 (RAM 5.25 GB, running 3/3)
+2026-10-25 132950 DONE screen/r5_c00_v7/r4s/building_0523/denver_6 (11.9 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.240 (policy 0.63 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 132950 START screen/r5_c01_mon15/r5ms/building_train_2/minneapolis_8 (RAM 6.32 GB, running 3/3)
+2026-10-25 133053 DONE screen/r5_c00_v7/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.092 (policy 0.61 ms) regret=-0.52 energy=23.73 carbon=52.36
+2026-10-25 133053 START screen/r5_c01_mon15/r5ms/building_train_4/minneapolis_1 (RAM 4.45 GB, running 3/3)
+2026-10-25 133136 RAM available 2.47 GB -> worker limit 3; running 3, pending 232
+2026-10-25 133226 DONE screen/r5_c01_mon15/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-8.42 steps=2880 sec/step=0.052 (policy 0.54 ms) regret=-0.39 energy=26.09 carbon=14.84
+2026-10-25 133227 START screen/r5_c01_mon15/r5ms/building_train_5/minneapolis_2 (RAM 6.14 GB, running 3/3)
+2026-10-25 133430 DONE screen/r5_c01_mon15/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-16.04 steps=2880 sec/step=0.092 (policy 0.59 ms) regret=-0.44 energy=23.54 carbon=55.34
+2026-10-25 133430 DONE screen/r5_c01_mon15/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-42.65 steps=2880 sec/step=0.070 (policy 0.58 ms) regret=-0.12 energy=61.53 carbon=151.35
+2026-10-25 133430 START screen/r5_c01_mon15/r5ms/building_train_7/minneapolis_3 (RAM 7.09 GB, running 2/3)
+2026-10-25 133433 START screen/r5_c01_mon15/r5ms/building_train_8/minneapolis_4 (RAM 6.94 GB, running 3/3)
+2026-10-25 133606 DONE screen/r5_c01_mon15/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-64.52 steps=2880 sec/step=0.070 (policy 0.60 ms) regret=-0.26 energy=88.57 carbon=233.27
+2026-10-25 133606 DONE screen/r5_c01_mon15/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.96 steps=2880 sec/step=0.028 (policy 0.55 ms) regret=-0.61 energy=25.64 carbon=37.32
+2026-10-25 133606 START screen/r5_c01_mon15/r4s/building_0520/fairbanks_1 (RAM 6.95 GB, running 2/3)
+2026-10-25 133609 START screen/r5_c01_mon15/r4s/building_0522/fairbanks_3 (RAM 7.19 GB, running 3/3)
+2026-10-25 133622 DONE screen/r5_c01_mon15/r5ms/building_train_7/minneapolis_3 (1.9 min) building_train_7/minneapolis_3/transfer: total=-37.78 steps=2880 sec/step=0.030 (policy 0.54 ms) regret=-0.62 energy=51.32 carbon=135.72
+2026-10-25 133622 START screen/r5_c01_mon15/r4s/building_0523/denver_6 (RAM 5.88 GB, running 3/3)
+2026-10-25 133915 DONE screen/r5_c01_mon15/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-138.05 steps=2880 sec/step=0.062 (policy 0.59 ms) regret=-9.07 energy=189.75 carbon=473.31
+2026-10-25 133915 START screen/r5_c01_mon15/r4s/building_0524/phoenix_8 (RAM 4.98 GB, running 3/3)
+2026-10-25 134108 DONE screen/r5_c01_mon15/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.69 steps=2880 sec/step=0.097 (policy 0.61 ms) regret=-48.48 energy=183.38 carbon=464.62
+2026-10-25 134108 START screen/r5_c01_mon15/r5x/building_train_7/fairbanks_1 (RAM 5.15 GB, running 3/3)
+2026-10-25 134252 DONE screen/r5_c01_mon15/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-244.88 steps=2880 sec/step=0.031 (policy 0.58 ms) regret=-121.34 energy=245.00 carbon=615.39
+2026-10-25 134252 START screen/r5_c01_mon15/pub30/building_train_1/fairbanks_1 (RAM 5.51 GB, running 3/3)
+2026-10-25 134305 DONE screen/r5_c01_mon15/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.08 steps=2880 sec/step=0.072 (policy 0.58 ms) regret=-0.18 energy=16.30 carbon=8.54
+2026-10-25 134305 START screen/r5_c01_mon15/pub30/building_train_8/fairbanks_8 (RAM 5.20 GB, running 3/3)
+2026-10-25 134438 DONE screen/r5_c01_mon15/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-67.79 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.55 energy=87.00 carbon=250.27
+2026-10-25 134438 START screen/r5_c01_mon15/pub30/building_train_2/denver_8 (RAM 5.49 GB, running 3/3)
+2026-10-25 134531 DONE screen/r5_c01_mon15/pub30/building_train_1/fairbanks_1 (2.7 min) building_train_1/fairbanks_1/transfer: total=-155.08 steps=2880 sec/step=0.052 (policy 0.58 ms) regret=-4.49 energy=215.90 carbon=546.06
+2026-10-25 134531 START screen/r5_c01_mon15/pub30/building_train_1/phoenix_5 (RAM 5.37 GB, running 3/3)
+2026-10-25 134814 DONE screen/r5_c01_mon15/r4s/building_0523/denver_6 (11.9 min) building_0523/denver_6/transfer: total=-16.76 steps=2880 sec/step=0.238 (policy 0.62 ms) regret=-0.91 energy=65.01 carbon=16.06
+2026-10-25 134814 DONE screen/r5_c01_mon15/pub30/building_train_1/phoenix_5 (2.7 min) building_train_1/phoenix_5/transfer: total=-39.71 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-1.31 energy=158.31 carbon=36.32
+2026-10-25 134814 START screen/r5_c02_mon125/r5ms/building_train_1/minneapolis_7 (RAM 6.40 GB, running 2/3)
+2026-10-25 134817 START screen/r5_c02_mon125/r5ms/building_train_2/minneapolis_8 (RAM 6.30 GB, running 3/3)
+2026-10-25 134920 DONE screen/r5_c01_mon15/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-16.39 steps=2880 sec/step=0.092 (policy 0.61 ms) regret=-0.42 energy=25.09 carbon=55.60
+2026-10-25 134920 START screen/r5_c02_mon125/r5ms/building_train_4/minneapolis_1 (RAM 6.05 GB, running 3/3)
+2026-10-25 135053 DONE screen/r5_c02_mon125/r5ms/building_train_1/minneapolis_7 (2.7 min) building_train_1/minneapolis_7/transfer: total=-8.07 steps=2880 sec/step=0.052 (policy 0.53 ms) regret=-0.27 energy=25.19 carbon=14.35
+2026-10-25 135053 START screen/r5_c02_mon125/r5ms/building_train_5/minneapolis_2 (RAM 6.06 GB, running 3/3)
+2026-10-25 135257 DONE screen/r5_c02_mon125/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.91 steps=2880 sec/step=0.092 (policy 0.59 ms) regret=-0.43 energy=23.35 carbon=54.91
+2026-10-25 135257 DONE screen/r5_c02_mon125/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-42.38 steps=2880 sec/step=0.070 (policy 0.58 ms) regret=-0.12 energy=61.13 carbon=150.43
+2026-10-25 135257 START screen/r5_c02_mon125/r5ms/building_train_7/minneapolis_3 (RAM 6.64 GB, running 2/3)
+2026-10-25 135300 START screen/r5_c02_mon125/r5ms/building_train_8/minneapolis_4 (RAM 6.46 GB, running 3/3)
+2026-10-25 135433 DONE screen/r5_c02_mon125/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-64.25 steps=2880 sec/step=0.070 (policy 0.56 ms) regret=-0.23 energy=88.18 carbon=232.34
+2026-10-25 135433 DONE screen/r5_c02_mon125/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.76 steps=2880 sec/step=0.028 (policy 0.55 ms) regret=-0.61 energy=25.37 carbon=36.61
+2026-10-25 135433 START screen/r5_c02_mon125/r4s/building_0520/fairbanks_1 (RAM 7.22 GB, running 2/3)
+2026-10-25 135436 START screen/r5_c02_mon125/r4s/building_0522/fairbanks_3 (RAM 7.40 GB, running 3/3)
+2026-10-25 135449 DONE screen/r5_c02_mon125/r5ms/building_train_7/minneapolis_3 (1.9 min) building_train_7/minneapolis_3/transfer: total=-37.48 steps=2880 sec/step=0.030 (policy 0.58 ms) regret=-0.59 energy=50.91 carbon=134.71
+2026-10-25 135449 START screen/r5_c02_mon125/r4s/building_0523/denver_6 (RAM 6.39 GB, running 3/3)
+2026-10-25 135742 DONE screen/r5_c02_mon125/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-137.48 steps=2880 sec/step=0.062 (policy 0.60 ms) regret=-9.13 energy=188.87 carbon=471.17
+2026-10-25 135742 START screen/r5_c02_mon125/r4s/building_0524/phoenix_8 (RAM 5.26 GB, running 3/3)
+2026-10-25 135935 DONE screen/r5_c02_mon125/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.17 steps=2880 sec/step=0.098 (policy 0.61 ms) regret=-48.72 energy=182.54 carbon=462.16
+2026-10-25 135935 START screen/r5_c02_mon125/r5x/building_train_7/fairbanks_1 (RAM 5.50 GB, running 3/3)
+2026-10-25 140118 DONE screen/r5_c02_mon125/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-244.03 steps=2880 sec/step=0.031 (policy 0.57 ms) regret=-121.14 energy=243.92 carbon=612.79
+2026-10-25 140119 START screen/r5_c02_mon125/pub30/building_train_1/fairbanks_1 (RAM 4.88 GB, running 3/3)
+2026-10-25 140132 DONE screen/r5_c02_mon125/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.02 steps=2880 sec/step=0.073 (policy 0.58 ms) regret=-0.17 energy=16.22 carbon=8.36
+2026-10-25 140132 START screen/r5_c02_mon125/pub30/building_train_8/fairbanks_8 (RAM 4.36 GB, running 3/3)
+2026-10-25 140145 RAM available 2.24 GB -> worker limit 3; running 3, pending 207
+2026-10-25 140315 DONE screen/r5_c02_mon125/pub30/building_train_8/fairbanks_8 (1.7 min) building_train_8/fairbanks_8/transfer: total=-67.43 steps=2880 sec/step=0.029 (policy 0.61 ms) regret=-0.57 energy=86.52 carbon=248.94
+2026-10-25 140315 START screen/r5_c02_mon125/pub30/building_train_2/denver_8 (RAM 5.69 GB, running 3/3)
+2026-10-25 140408 DONE screen/r5_c02_mon125/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.84 steps=2880 sec/step=0.052 (policy 0.58 ms) regret=-5.21 energy=214.93 carbon=543.66
+2026-10-25 140408 START screen/r5_c02_mon125/pub30/building_train_1/phoenix_5 (RAM 5.35 GB, running 3/3)
+2026-10-25 140651 DONE screen/r5_c02_mon125/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.74 steps=2880 sec/step=0.240 (policy 0.63 ms) regret=-0.92 energy=64.90 carbon=16.03
+2026-10-25 140651 DONE screen/r5_c02_mon125/pub30/building_train_1/phoenix_5 (2.7 min) building_train_1/phoenix_5/transfer: total=-39.67 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-1.33 energy=158.06 carbon=36.28
+2026-10-25 140651 START screen/r5_c03_wk3/r5ms/building_train_1/minneapolis_7 (RAM 7.25 GB, running 2/3)
+2026-10-25 140654 START screen/r5_c03_wk3/r5ms/building_train_2/minneapolis_8 (RAM 6.89 GB, running 3/3)
+2026-10-25 140757 DONE screen/r5_c02_mon125/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-16.12 steps=2880 sec/step=0.092 (policy 0.60 ms) regret=-0.42 energy=24.69 carbon=54.66
+2026-10-25 140757 START screen/r5_c03_wk3/r5ms/building_train_4/minneapolis_1 (RAM 6.47 GB, running 3/3)
+2026-10-25 140930 DONE screen/r5_c03_wk3/r5ms/building_train_1/minneapolis_7 (2.7 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.051 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 140930 START screen/r5_c03_wk3/r5ms/building_train_5/minneapolis_2 (RAM 6.24 GB, running 3/3)
+2026-10-25 141134 DONE screen/r5_c03_wk3/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.092 (policy 0.61 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 141134 START screen/r5_c03_wk3/r5ms/building_train_7/minneapolis_3 (RAM 6.66 GB, running 3/3)
+2026-10-25 141147 DONE screen/r5_c03_wk3/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-40.48 steps=2880 sec/step=0.071 (policy 0.59 ms) regret=-0.11 energy=58.24 carbon=143.80
+2026-10-25 141147 START screen/r5_c03_wk3/r5ms/building_train_8/minneapolis_4 (RAM 6.86 GB, running 3/3)
+2026-10-25 141310 DONE screen/r5_c03_wk3/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-62.27 steps=2880 sec/step=0.071 (policy 0.62 ms) regret=-0.31 energy=85.20 carbon=225.22
+2026-10-25 141310 START screen/r5_c03_wk3/r4s/building_0520/fairbanks_1 (RAM 6.85 GB, running 3/3)
+2026-10-25 141323 DONE screen/r5_c03_wk3/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.97 steps=2880 sec/step=0.031 (policy 0.56 ms) regret=-1.25 energy=49.59 carbon=131.53
+2026-10-25 141323 DONE screen/r5_c03_wk3/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 141323 START screen/r5_c03_wk3/r4s/building_0522/fairbanks_3 (RAM 7.05 GB, running 2/3)
+2026-10-25 141326 START screen/r5_c03_wk3/r4s/building_0523/denver_6 (RAM 6.95 GB, running 3/3)
+2026-10-25 141629 DONE screen/r5_c03_wk3/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-135.12 steps=2880 sec/step=0.062 (policy 0.60 ms) regret=-10.23 energy=184.50 carbon=460.44
+2026-10-25 141629 START screen/r5_c03_wk3/r4s/building_0524/phoenix_8 (RAM 5.25 GB, running 3/3)
+2026-10-25 141822 DONE screen/r5_c03_wk3/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-157.44 steps=2880 sec/step=0.098 (policy 0.61 ms) regret=-53.29 energy=178.41 carbon=448.91
+2026-10-25 141822 START screen/r5_c03_wk3/r5x/building_train_7/fairbanks_1 (RAM 5.45 GB, running 3/3)
+2026-10-25 142005 DONE screen/r5_c03_wk3/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-242.85 steps=2880 sec/step=0.031 (policy 0.57 ms) regret=-125.82 energy=238.05 carbon=598.74
+2026-10-25 142005 START screen/r5_c03_wk3/pub30/building_train_1/fairbanks_1 (RAM 5.38 GB, running 3/3)
+2026-10-25 142018 DONE screen/r5_c03_wk3/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.073 (policy 0.59 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 142018 START screen/r5_c03_wk3/pub30/building_train_8/fairbanks_8 (RAM 5.43 GB, running 3/3)
+2026-10-25 142152 DONE screen/r5_c03_wk3/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-65.55 steps=2880 sec/step=0.028 (policy 0.56 ms) regret=-0.55 energy=83.95 carbon=242.17
+2026-10-25 142152 START screen/r5_c03_wk3/pub30/building_train_2/denver_8 (RAM 5.77 GB, running 3/3)
+2026-10-25 142255 DONE screen/r5_c03_wk3/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-152.94 steps=2880 sec/step=0.052 (policy 0.60 ms) regret=-7.50 energy=210.13 carbon=532.05
+2026-10-25 142255 START screen/r5_c03_wk3/pub30/building_train_1/phoenix_5 (RAM 5.43 GB, running 3/3)
+2026-10-25 142528 DONE screen/r5_c03_wk3/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.241 (policy 0.66 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 142528 START screen/r5_c04_wk6/r5ms/building_train_1/minneapolis_7 (RAM 6.24 GB, running 3/3)
+2026-10-25 142541 DONE screen/r5_c03_wk3/pub30/building_train_1/phoenix_5 (2.8 min) building_train_1/phoenix_5/transfer: total=-39.90 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-1.95 energy=157.47 carbon=36.20
+2026-10-25 142541 START screen/r5_c04_wk6/r5ms/building_train_2/minneapolis_8 (RAM 6.68 GB, running 3/3)
+2026-10-25 142634 DONE screen/r5_c03_wk3/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.093 (policy 0.59 ms) regret=-0.52 energy=23.72 carbon=52.35
+2026-10-25 142634 START screen/r5_c04_wk6/r5ms/building_train_4/minneapolis_1 (RAM 6.68 GB, running 3/3)
+2026-10-25 142817 DONE screen/r5_c04_wk6/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 142817 START screen/r5_c04_wk6/r5ms/building_train_5/minneapolis_2 (RAM 6.29 GB, running 3/3)
+2026-10-25 143010 DONE screen/r5_c04_wk6/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-39.97 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-0.12 energy=57.45 carbon=142.02
+2026-10-25 143010 START screen/r5_c04_wk6/r5ms/building_train_7/minneapolis_3 (RAM 6.28 GB, running 3/3)
+2026-10-25 143023 DONE screen/r5_c04_wk6/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.092 (policy 0.58 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 143023 START screen/r5_c04_wk6/r5ms/building_train_8/minneapolis_4 (RAM 6.52 GB, running 3/3)
+2026-10-25 143146 RAM available 5.04 GB -> worker limit 3; running 3, pending 184
+2026-10-25 143156 DONE screen/r5_c04_wk6/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.97 steps=2880 sec/step=0.032 (policy 0.60 ms) regret=-1.25 energy=49.59 carbon=131.53
+2026-10-25 143156 DONE screen/r5_c04_wk6/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.029 (policy 0.58 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 143156 START screen/r5_c04_wk6/r4s/building_0520/fairbanks_1 (RAM 6.73 GB, running 2/3)
+2026-10-25 143159 START screen/r5_c04_wk6/r4s/building_0522/fairbanks_3 (RAM 7.33 GB, running 3/3)
+2026-10-25 143212 DONE screen/r5_c04_wk6/r5ms/building_train_5/minneapolis_2 (3.9 min) building_train_5/minneapolis_2/transfer: total=-61.84 steps=2880 sec/step=0.072 (policy 0.60 ms) regret=-0.30 energy=84.58 carbon=223.75
+2026-10-25 143213 START screen/r5_c04_wk6/r4s/building_0523/denver_6 (RAM 5.96 GB, running 3/3)
+2026-10-25 143516 DONE screen/r5_c04_wk6/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-134.01 steps=2880 sec/step=0.063 (policy 0.61 ms) regret=-10.38 energy=182.74 carbon=456.19
+2026-10-25 143516 START screen/r5_c04_wk6/r4s/building_0524/phoenix_8 (RAM 5.28 GB, running 3/3)
+2026-10-25 143659 DONE screen/r5_c04_wk6/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-156.58 steps=2880 sec/step=0.097 (policy 0.60 ms) regret=-52.26 energy=178.01 carbon=448.11
+2026-10-25 143659 START screen/r5_c04_wk6/r5x/building_train_7/fairbanks_1 (RAM 5.44 GB, running 3/3)
+2026-10-25 143842 DONE screen/r5_c04_wk6/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-242.09 steps=2880 sec/step=0.031 (policy 0.59 ms) regret=-126.61 energy=236.24 carbon=594.37
+2026-10-25 143842 START screen/r5_c04_wk6/pub30/building_train_1/fairbanks_1 (RAM 5.81 GB, running 3/3)
+2026-10-25 143905 DONE screen/r5_c04_wk6/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.073 (policy 0.60 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 143905 START screen/r5_c04_wk6/pub30/building_train_8/fairbanks_8 (RAM 5.56 GB, running 3/3)
+2026-10-25 144038 DONE screen/r5_c04_wk6/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-64.74 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.49 energy=82.90 carbon=239.34
+2026-10-25 144038 START screen/r5_c04_wk6/pub30/building_train_2/denver_8 (RAM 5.88 GB, running 3/3)
+2026-10-25 144131 DONE screen/r5_c04_wk6/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-152.36 steps=2880 sec/step=0.051 (policy 0.57 ms) regret=-8.80 energy=208.12 carbon=527.26
+2026-10-25 144131 START screen/r5_c04_wk6/pub30/building_train_1/phoenix_5 (RAM 5.43 GB, running 3/3)
+2026-10-25 144415 DONE screen/r5_c04_wk6/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.241 (policy 0.63 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 144415 DONE screen/r5_c04_wk6/pub30/building_train_1/phoenix_5 (2.7 min) building_train_1/phoenix_5/transfer: total=-39.84 steps=2880 sec/step=0.053 (policy 0.56 ms) regret=-1.89 energy=157.38 carbon=36.17
+2026-10-25 144415 START screen/r5_c05_lag10/r5ms/building_train_1/minneapolis_7 (RAM 6.73 GB, running 2/3)
+2026-10-25 144418 START screen/r5_c05_lag10/r5ms/building_train_2/minneapolis_8 (RAM 6.67 GB, running 3/3)
+2026-10-25 144521 DONE screen/r5_c04_wk6/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.093 (policy 0.59 ms) regret=-0.52 energy=23.72 carbon=52.35
+2026-10-25 144521 START screen/r5_c05_lag10/r5ms/building_train_4/minneapolis_1 (RAM 6.22 GB, running 3/3)
+2026-10-25 144704 DONE screen/r5_c05_lag10/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-8.07 steps=2880 sec/step=0.054 (policy 0.57 ms) regret=-0.27 energy=25.66 carbon=13.90
+2026-10-25 144704 START screen/r5_c05_lag10/r5ms/building_train_5/minneapolis_2 (RAM 5.72 GB, running 3/3)
+2026-10-25 144907 DONE screen/r5_c05_lag10/r5ms/building_train_2/minneapolis_8 (4.8 min) building_train_2/minneapolis_8/transfer: total=-15.30 steps=2880 sec/step=0.096 (policy 0.60 ms) regret=-0.53 energy=22.36 carbon=52.53
+2026-10-25 144907 DONE screen/r5_c05_lag10/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-41.35 steps=2880 sec/step=0.074 (policy 0.62 ms) regret=-0.14 energy=59.52 carbon=146.82
+2026-10-25 144907 START screen/r5_c05_lag10/r5ms/building_train_7/minneapolis_3 (RAM 6.55 GB, running 2/3)
+2026-10-25 144910 START screen/r5_c05_lag10/r5ms/building_train_8/minneapolis_4 (RAM 6.47 GB, running 3/3)
+2026-10-25 145043 DONE screen/r5_c05_lag10/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.18 steps=2880 sec/step=0.071 (policy 0.62 ms) regret=-0.32 energy=86.55 carbon=228.39
+2026-10-25 145043 DONE screen/r5_c05_lag10/r5ms/building_train_7/minneapolis_3 (1.6 min) building_train_7/minneapolis_3/transfer: total=-36.65 steps=2880 sec/step=0.030 (policy 0.57 ms) regret=-0.68 energy=49.59 carbon=131.63
+2026-10-25 145043 DONE screen/r5_c05_lag10/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.29 steps=2880 sec/step=0.028 (policy 0.56 ms) regret=-0.48 energy=24.82 carbon=35.19
+2026-10-25 145043 START screen/r5_c05_lag10/r4s/building_0520/fairbanks_1 (RAM 7.56 GB, running 1/3)
+2026-10-25 145046 START screen/r5_c05_lag10/r4s/building_0522/fairbanks_3 (RAM 7.43 GB, running 2/3)
+2026-10-25 145049 START screen/r5_c05_lag10/r4s/building_0523/denver_6 (RAM 7.20 GB, running 3/3)
+2026-10-25 145353 DONE screen/r5_c05_lag10/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-136.54 steps=2880 sec/step=0.062 (policy 0.60 ms) regret=-10.03 energy=186.73 carbon=465.87
+2026-10-25 145353 START screen/r5_c05_lag10/r4s/building_0524/phoenix_8 (RAM 5.10 GB, running 3/3)
+2026-10-25 145546 DONE screen/r5_c05_lag10/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.20 steps=2880 sec/step=0.097 (policy 0.60 ms) regret=-52.45 energy=179.95 carbon=453.73
+2026-10-25 145546 START screen/r5_c05_lag10/r5x/building_train_7/fairbanks_1 (RAM 5.67 GB, running 3/3)
+2026-10-25 145729 DONE screen/r5_c05_lag10/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-243.91 steps=2880 sec/step=0.031 (policy 0.60 ms) regret=-125.53 energy=239.83 carbon=603.16
+2026-10-25 145729 START screen/r5_c05_lag10/pub30/building_train_1/fairbanks_1 (RAM 5.35 GB, running 3/3)
+2026-10-25 145742 DONE screen/r5_c05_lag10/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.02 steps=2880 sec/step=0.074 (policy 0.60 ms) regret=-0.13 energy=16.24 carbon=8.48
+2026-10-25 145742 START screen/r5_c05_lag10/pub30/building_train_8/fairbanks_8 (RAM 5.75 GB, running 3/3)
+2026-10-25 145915 DONE screen/r5_c05_lag10/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-66.70 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.49 energy=85.55 carbon=246.51
+2026-10-25 145915 START screen/r5_c05_lag10/pub30/building_train_2/denver_8 (RAM 5.50 GB, running 3/3)
+2026-10-25 150018 DONE screen/r5_c05_lag10/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.33 steps=2880 sec/step=0.052 (policy 0.57 ms) regret=-6.96 energy=212.58 carbon=538.19
+2026-10-25 150018 START screen/r5_c05_lag10/pub30/building_train_1/phoenix_5 (RAM 5.33 GB, running 3/3)
+2026-10-25 150151 RAM available 1.18 GB -> worker limit 3; running 3, pending 160
+2026-10-25 150252 DONE screen/r5_c05_lag10/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.51 steps=2880 sec/step=0.241 (policy 0.64 ms) regret=-0.60 energy=64.73 carbon=16.02
+2026-10-25 150252 START screen/r5_c06_lag05/r5ms/building_train_1/minneapolis_7 (RAM 6.69 GB, running 3/3)
+2026-10-25 150305 DONE screen/r5_c05_lag10/pub30/building_train_1/phoenix_5 (2.8 min) building_train_1/phoenix_5/transfer: total=-39.67 steps=2880 sec/step=0.054 (policy 0.58 ms) regret=-1.50 energy=157.58 carbon=36.24
+2026-10-25 150305 START screen/r5_c06_lag05/r5ms/building_train_2/minneapolis_8 (RAM 6.54 GB, running 3/3)
+2026-10-25 150408 DONE screen/r5_c05_lag10/pub30/building_train_2/denver_8 (4.9 min) building_train_2/denver_8/transfer: total=-15.43 steps=2880 sec/step=0.094 (policy 0.59 ms) regret=-0.46 energy=23.63 carbon=52.13
+2026-10-25 150408 START screen/r5_c06_lag05/r5ms/building_train_4/minneapolis_1 (RAM 6.67 GB, running 3/3)
+2026-10-25 150541 DONE screen/r5_c06_lag05/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-8.08 steps=2880 sec/step=0.052 (policy 0.54 ms) regret=-0.31 energy=25.64 carbon=13.85
+2026-10-25 150541 START screen/r5_c06_lag05/r5ms/building_train_5/minneapolis_2 (RAM 6.86 GB, running 3/3)
+2026-10-25 150744 DONE screen/r5_c06_lag05/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.34 steps=2880 sec/step=0.092 (policy 0.59 ms) regret=-0.54 energy=22.42 carbon=52.67
+2026-10-25 150744 DONE screen/r5_c06_lag05/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-41.37 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-0.20 energy=59.50 carbon=146.75
+2026-10-25 150744 START screen/r5_c06_lag05/r5ms/building_train_7/minneapolis_3 (RAM 7.49 GB, running 2/3)
+2026-10-25 150747 START screen/r5_c06_lag05/r5ms/building_train_8/minneapolis_4 (RAM 7.49 GB, running 3/3)
+2026-10-25 150920 DONE screen/r5_c06_lag05/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.16 steps=2880 sec/step=0.070 (policy 0.59 ms) regret=-0.26 energy=86.56 carbon=228.43
+2026-10-25 150920 DONE screen/r5_c06_lag05/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.33 steps=2880 sec/step=0.028 (policy 0.55 ms) regret=-0.58 energy=24.80 carbon=35.13
+2026-10-25 150920 START screen/r5_c06_lag05/r4s/building_0520/fairbanks_1 (RAM 7.41 GB, running 2/3)
+2026-10-25 150923 START screen/r5_c06_lag05/r4s/building_0522/fairbanks_3 (RAM 7.73 GB, running 3/3)
+2026-10-25 150936 DONE screen/r5_c06_lag05/r5ms/building_train_7/minneapolis_3 (1.9 min) building_train_7/minneapolis_3/transfer: total=-36.73 steps=2880 sec/step=0.031 (policy 0.55 ms) regret=-0.82 energy=49.60 carbon=131.57
+2026-10-25 150936 START screen/r5_c06_lag05/r4s/building_0523/denver_6 (RAM 6.80 GB, running 3/3)
+2026-10-25 151229 DONE screen/r5_c06_lag05/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-136.65 steps=2880 sec/step=0.062 (policy 0.59 ms) regret=-10.24 energy=186.73 carbon=465.80
+2026-10-25 151230 START screen/r5_c06_lag05/r4s/building_0524/phoenix_8 (RAM 5.83 GB, running 3/3)
+2026-10-25 151423 DONE screen/r5_c06_lag05/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-157.85 steps=2880 sec/step=0.097 (policy 0.61 ms) regret=-51.63 energy=180.22 carbon=454.12
+2026-10-25 151423 START screen/r5_c06_lag05/r5x/building_train_7/fairbanks_1 (RAM 5.79 GB, running 3/3)
+2026-10-25 151606 DONE screen/r5_c06_lag05/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-243.53 steps=2880 sec/step=0.032 (policy 0.60 ms) regret=-124.49 energy=240.19 carbon=603.99
+2026-10-25 151606 START screen/r5_c06_lag05/pub30/building_train_1/fairbanks_1 (RAM 5.47 GB, running 3/3)
+2026-10-25 151619 DONE screen/r5_c06_lag05/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.00 steps=2880 sec/step=0.074 (policy 0.61 ms) regret=-0.16 energy=16.17 carbon=8.36
+2026-10-25 151619 START screen/r5_c06_lag05/pub30/building_train_8/fairbanks_8 (RAM 5.68 GB, running 3/3)
+2026-10-25 151752 DONE screen/r5_c06_lag05/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-66.79 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.50 energy=85.66 carbon=246.79
+2026-10-25 151752 START screen/r5_c06_lag05/pub30/building_train_2/denver_8 (RAM 6.07 GB, running 3/3)
+2026-10-25 151855 DONE screen/r5_c06_lag05/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.34 steps=2880 sec/step=0.053 (policy 0.57 ms) regret=-6.74 energy=212.82 carbon=538.64
+2026-10-25 151855 START screen/r5_c06_lag05/pub30/building_train_1/phoenix_5 (RAM 5.60 GB, running 3/3)
+2026-10-25 152138 DONE screen/r5_c06_lag05/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.61 steps=2880 sec/step=0.241 (policy 0.64 ms) regret=-0.76 energy=64.77 carbon=16.02
+2026-10-25 152138 START screen/r5_c07_fcapc05/r5ms/building_train_1/minneapolis_7 (RAM 6.83 GB, running 3/3)
+2026-10-25 152151 DONE screen/r5_c06_lag05/pub30/building_train_1/phoenix_5 (2.9 min) building_train_1/phoenix_5/transfer: total=-39.69 steps=2880 sec/step=0.053 (policy 0.55 ms) regret=-1.57 energy=157.51 carbon=36.22
+2026-10-25 152151 START screen/r5_c07_fcapc05/r5ms/building_train_2/minneapolis_8 (RAM 6.87 GB, running 3/3)
+2026-10-25 152235 DONE screen/r5_c06_lag05/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.51 steps=2880 sec/step=0.093 (policy 0.61 ms) regret=-0.48 energy=23.73 carbon=52.39
+2026-10-25 152235 START screen/r5_c07_fcapc05/r5ms/building_train_4/minneapolis_1 (RAM 6.82 GB, running 3/3)
+2026-10-25 152418 DONE screen/r5_c07_fcapc05/r5ms/building_train_1/minneapolis_7 (2.7 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.052 (policy 0.57 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 152418 START screen/r5_c07_fcapc05/r5ms/building_train_5/minneapolis_2 (RAM 6.24 GB, running 3/3)
+2026-10-25 152611 DONE screen/r5_c07_fcapc05/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-41.28 steps=2880 sec/step=0.071 (policy 0.59 ms) regret=-0.11 energy=59.45 carbon=146.64
+2026-10-25 152611 START screen/r5_c07_fcapc05/r5ms/building_train_7/minneapolis_3 (RAM 6.43 GB, running 3/3)
+2026-10-25 152634 DONE screen/r5_c07_fcapc05/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.092 (policy 0.58 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 152634 START screen/r5_c07_fcapc05/r5ms/building_train_8/minneapolis_4 (RAM 6.75 GB, running 3/3)
+2026-10-25 152757 DONE screen/r5_c07_fcapc05/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.12 steps=2880 sec/step=0.070 (policy 0.58 ms) regret=-0.27 energy=86.50 carbon=228.29
+2026-10-25 152757 DONE screen/r5_c07_fcapc05/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.97 steps=2880 sec/step=0.031 (policy 0.55 ms) regret=-1.25 energy=49.59 carbon=131.53
+2026-10-25 152757 START screen/r5_c07_fcapc05/r4s/building_0520/fairbanks_1 (RAM 7.18 GB, running 2/3)
+2026-10-25 152800 START screen/r5_c07_fcapc05/r4s/building_0522/fairbanks_3 (RAM 7.07 GB, running 3/3)
+2026-10-25 152813 DONE screen/r5_c07_fcapc05/r5ms/building_train_8/minneapolis_4 (1.7 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.027 (policy 0.55 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 152813 START screen/r5_c07_fcapc05/r4s/building_0523/denver_6 (RAM 6.23 GB, running 3/3)
+2026-10-25 153106 DONE screen/r5_c07_fcapc05/r4s/building_0520/fairbanks_1 (3.2 min) building_0520/fairbanks_1/transfer: total=-136.55 steps=2880 sec/step=0.062 (policy 0.60 ms) regret=-10.14 energy=186.67 carbon=465.63
+2026-10-25 153106 START screen/r5_c07_fcapc05/r4s/building_0524/phoenix_8 (RAM 4.28 GB, running 3/3)
+2026-10-25 153159 RAM available 1.48 GB -> worker limit 3; running 3, pending 135
+2026-10-25 153259 DONE screen/r5_c07_fcapc05/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.33 steps=2880 sec/step=0.098 (policy 0.60 ms) regret=-52.80 energy=180.02 carbon=453.26
+2026-10-25 153259 START screen/r5_c07_fcapc05/r5x/building_train_7/fairbanks_1 (RAM 5.91 GB, running 3/3)
+2026-10-25 153442 DONE screen/r5_c07_fcapc05/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-243.85 steps=2880 sec/step=0.031 (policy 0.61 ms) regret=-125.21 energy=240.03 carbon=603.58
+2026-10-25 153442 START screen/r5_c07_fcapc05/pub30/building_train_1/fairbanks_1 (RAM 6.06 GB, running 3/3)
+2026-10-25 153506 DONE screen/r5_c07_fcapc05/r4s/building_0524/phoenix_8 (4.0 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.076 (policy 0.59 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 153506 START screen/r5_c07_fcapc05/pub30/building_train_8/fairbanks_8 (RAM 5.80 GB, running 3/3)
+2026-10-25 153639 DONE screen/r5_c07_fcapc05/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-66.58 steps=2880 sec/step=0.029 (policy 0.59 ms) regret=-0.48 energy=85.38 carbon=246.06
+2026-10-25 153639 START screen/r5_c07_fcapc05/pub30/building_train_2/denver_8 (RAM 6.07 GB, running 3/3)
+2026-10-25 153732 DONE screen/r5_c07_fcapc05/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.51 steps=2880 sec/step=0.052 (policy 0.60 ms) regret=-7.14 energy=212.76 carbon=538.38
+2026-10-25 153732 START screen/r5_c07_fcapc05/pub30/building_train_1/phoenix_5 (RAM 5.65 GB, running 3/3)
+2026-10-25 154025 DONE screen/r5_c07_fcapc05/r4s/building_0523/denver_6 (12.2 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.243 (policy 0.64 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 154025 DONE screen/r5_c07_fcapc05/pub30/building_train_1/phoenix_5 (2.9 min) building_train_1/phoenix_5/transfer: total=-39.84 steps=2880 sec/step=0.053 (policy 0.57 ms) regret=-1.78 energy=157.60 carbon=36.24
+2026-10-25 154025 START screen/r5_c08_qsb8k/r5ms/building_train_1/minneapolis_7 (RAM 7.06 GB, running 2/3)
+2026-10-25 154028 START screen/r5_c08_qsb8k/r5ms/building_train_2/minneapolis_8 (RAM 7.03 GB, running 3/3)
+2026-10-25 154121 DONE screen/r5_c07_fcapc05/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.093 (policy 0.61 ms) regret=-0.52 energy=23.73 carbon=52.37
+2026-10-25 154121 START screen/r5_c08_qsb8k/r5ms/building_train_4/minneapolis_1 (RAM 6.51 GB, running 3/3)
+2026-10-25 154314 DONE screen/r5_c08_qsb8k/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 154314 START screen/r5_c08_qsb8k/r5ms/building_train_5/minneapolis_2 (RAM 6.36 GB, running 3/3)
+2026-10-25 154507 DONE screen/r5_c08_qsb8k/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-41.40 steps=2880 sec/step=0.072 (policy 0.57 ms) regret=-0.13 energy=59.58 carbon=147.00
+2026-10-25 154507 START screen/r5_c08_qsb8k/r5ms/building_train_7/minneapolis_3 (RAM 6.48 GB, running 3/3)
+2026-10-25 154520 DONE screen/r5_c08_qsb8k/r5ms/building_train_2/minneapolis_8 (4.9 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.094 (policy 0.59 ms) regret=-0.59 energy=22.52 carbon=52.93
+2026-10-25 154520 START screen/r5_c08_qsb8k/r5ms/building_train_8/minneapolis_4 (RAM 6.77 GB, running 3/3)
+2026-10-25 154654 DONE screen/r5_c08_qsb8k/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.39 steps=2880 sec/step=0.070 (policy 0.59 ms) regret=-0.24 energy=86.90 carbon=229.33
+2026-10-25 154654 DONE screen/r5_c08_qsb8k/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.84 steps=2880 sec/step=0.031 (policy 0.54 ms) regret=-0.98 energy=49.64 carbon=131.62
+2026-10-25 154654 DONE screen/r5_c08_qsb8k/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.028 (policy 0.56 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 154654 START screen/r5_c08_qsb8k/r4s/building_0520/fairbanks_1 (RAM 7.84 GB, running 1/3)
+2026-10-25 154657 START screen/r5_c08_qsb8k/r4s/building_0522/fairbanks_3 (RAM 7.56 GB, running 2/3)
+2026-10-25 154700 START screen/r5_c08_qsb8k/r4s/building_0523/denver_6 (RAM 7.34 GB, running 3/3)
+2026-10-25 155013 DONE screen/r5_c08_qsb8k/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-137.20 steps=2880 sec/step=0.063 (policy 0.61 ms) regret=-10.02 energy=187.83 carbon=468.10
+2026-10-25 155013 START screen/r5_c08_qsb8k/r4s/building_0524/phoenix_8 (RAM 5.37 GB, running 3/3)
+2026-10-25 155156 DONE screen/r5_c08_qsb8k/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-158.47 steps=2880 sec/step=0.098 (policy 0.61 ms) regret=-52.29 energy=180.56 carbon=454.90
+2026-10-25 155156 START screen/r5_c08_qsb8k/r5x/building_train_7/fairbanks_1 (RAM 5.69 GB, running 3/3)
+2026-10-25 155339 DONE screen/r5_c08_qsb8k/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-236.43 steps=2880 sec/step=0.031 (policy 0.58 ms) regret=-98.29 energy=252.98 carbon=634.31
+2026-10-25 155339 START screen/r5_c08_qsb8k/pub30/building_train_1/fairbanks_1 (RAM 5.96 GB, running 3/3)
+2026-10-25 155402 DONE screen/r5_c08_qsb8k/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.073 (policy 0.59 ms) regret=-0.18 energy=16.17 carbon=8.31
+2026-10-25 155402 START screen/r5_c08_qsb8k/pub30/building_train_8/fairbanks_8 (RAM 5.78 GB, running 3/3)
+2026-10-25 155535 DONE screen/r5_c08_qsb8k/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-67.04 steps=2880 sec/step=0.029 (policy 0.57 ms) regret=-0.48 energy=86.01 carbon=247.77
+2026-10-25 155535 START screen/r5_c08_qsb8k/pub30/building_train_2/denver_8 (RAM 6.09 GB, running 3/3)
+2026-10-25 155628 DONE screen/r5_c08_qsb8k/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-154.90 steps=2880 sec/step=0.052 (policy 0.58 ms) regret=-6.08 energy=214.34 carbon=541.90
+2026-10-25 155628 START screen/r5_c08_qsb8k/pub30/building_train_1/phoenix_5 (RAM 5.89 GB, running 3/3)
+2026-10-25 155852 DONE screen/r5_c08_qsb8k/r4s/building_0523/denver_6 (11.9 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.239 (policy 0.62 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 155852 START screen/r5_c09_preburst/r5ms/building_train_1/minneapolis_7 (RAM 6.84 GB, running 3/3)
+2026-10-25 155915 DONE screen/r5_c08_qsb8k/pub30/building_train_1/phoenix_5 (2.8 min) building_train_1/phoenix_5/transfer: total=-39.96 steps=2880 sec/step=0.052 (policy 0.55 ms) regret=-1.90 energy=157.82 carbon=36.29
+2026-10-25 155915 START screen/r5_c09_preburst/r5ms/building_train_2/minneapolis_8 (RAM 6.63 GB, running 3/3)
+2026-10-25 160018 DONE screen/r5_c08_qsb8k/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.093 (policy 0.58 ms) regret=-0.52 energy=23.73 carbon=52.37
+2026-10-25 160018 START screen/r5_c09_preburst/r5ms/building_train_4/minneapolis_1 (RAM 6.67 GB, running 3/3)
+2026-10-25 160141 DONE screen/r5_c09_preburst/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-9.59 steps=2880 sec/step=0.052 (policy 0.54 ms) regret=-0.73 energy=26.97 carbon=18.80
+2026-10-25 160141 START screen/r5_c09_preburst/r5ms/building_train_5/minneapolis_2 (RAM 2.09 GB, running 3/3)
+2026-10-25 160204 RAM available 6.15 GB -> worker limit 3; running 3, pending 111
+2026-10-25 160404 DONE screen/r5_c09_preburst/r5ms/building_train_2/minneapolis_8 (4.8 min) building_train_2/minneapolis_8/transfer: total=-19.38 steps=2880 sec/step=0.094 (policy 0.60 ms) regret=-4.64 energy=24.73 carbon=58.24
+2026-10-25 160404 DONE screen/r5_c09_preburst/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-46.56 steps=2880 sec/step=0.072 (policy 0.60 ms) regret=-6.09 energy=62.05 carbon=152.47
+2026-10-25 160404 START screen/r5_c09_preburst/r5ms/building_train_7/minneapolis_3 (RAM 7.33 GB, running 2/3)
+2026-10-25 160407 START screen/r5_c09_preburst/r5ms/building_train_8/minneapolis_4 (RAM 7.23 GB, running 3/3)
+2026-10-25 160520 DONE screen/r5_c09_preburst/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-73.34 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-14.01 energy=89.46 carbon=235.19
+2026-10-25 160520 START screen/r5_c09_preburst/r4s/building_0520/fairbanks_1 (RAM 7.11 GB, running 3/3)
+2026-10-25 160543 DONE screen/r5_c09_preburst/r5ms/building_train_7/minneapolis_3 (1.7 min) building_train_7/minneapolis_3/transfer: total=-44.47 steps=2880 sec/step=0.031 (policy 0.56 ms) regret=-11.87 energy=51.36 carbon=135.38
+2026-10-25 160543 DONE screen/r5_c09_preburst/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-15.99 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-2.92 energy=28.08 carbon=43.13
+2026-10-25 160543 START screen/r5_c09_preburst/r4s/building_0522/fairbanks_3 (RAM 7.64 GB, running 2/3)
+2026-10-25 160546 START screen/r5_c09_preburst/r4s/building_0523/denver_6 (RAM 7.53 GB, running 3/3)
+2026-10-25 160839 DONE screen/r5_c09_preburst/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-142.10 steps=2880 sec/step=0.063 (policy 0.61 ms) regret=-16.93 energy=188.84 carbon=470.87
+2026-10-25 160839 START screen/r5_c09_preburst/r4s/building_0524/phoenix_8 (RAM 5.87 GB, running 3/3)
+2026-10-25 161053 DONE screen/r5_c09_preburst/r4s/building_0522/fairbanks_3 (5.2 min) building_0522/fairbanks_3/transfer: total=-159.00 steps=2880 sec/step=0.099 (policy 0.60 ms) regret=-54.00 energy=179.80 carbon=453.18
+2026-10-25 161053 START screen/r5_c09_preburst/r5x/building_train_7/fairbanks_1 (RAM 5.94 GB, running 3/3)
+2026-10-25 161236 DONE screen/r5_c09_preburst/r4s/building_0524/phoenix_8 (3.9 min) building_0524/phoenix_8/transfer: total=-6.65 steps=2880 sec/step=0.075 (policy 0.60 ms) regret=-0.75 energy=18.16 carbon=12.82
+2026-10-25 161236 DONE screen/r5_c09_preburst/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-250.29 steps=2880 sec/step=0.031 (policy 0.58 ms) regret=-132.61 energy=243.07 carbon=610.55
+2026-10-25 161236 START screen/r5_c09_preburst/pub30/building_train_1/fairbanks_1 (RAM 6.61 GB, running 2/3)
+2026-10-25 161239 START screen/r5_c09_preburst/pub30/building_train_8/fairbanks_8 (RAM 6.52 GB, running 3/3)
+2026-10-25 161412 DONE screen/r5_c09_preburst/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-74.08 steps=2880 sec/step=0.029 (policy 0.59 ms) regret=-9.10 energy=88.74 carbon=254.37
+2026-10-25 161412 START screen/r5_c09_preburst/pub30/building_train_2/denver_8 (RAM 5.85 GB, running 3/3)
+2026-10-25 161525 DONE screen/r5_c09_preburst/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-161.44 steps=2880 sec/step=0.053 (policy 0.59 ms) regret=-16.11 energy=215.14 carbon=543.70
+2026-10-25 161525 START screen/r5_c09_preburst/pub30/building_train_1/phoenix_5 (RAM 5.56 GB, running 3/3)
+2026-10-25 161748 DONE screen/r5_c09_preburst/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.76 steps=2880 sec/step=0.241 (policy 0.62 ms) regret=-0.94 energy=64.82 carbon=16.16
+2026-10-25 161748 START screen/r5_c10_qcap20k/r5ms/building_train_1/minneapolis_7 (RAM 6.86 GB, running 3/3)
+2026-10-25 161811 DONE screen/r5_c09_preburst/pub30/building_train_1/phoenix_5 (2.8 min) building_train_1/phoenix_5/transfer: total=-39.93 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-1.96 energy=157.56 carbon=36.23
+2026-10-25 161811 START screen/r5_c10_qcap20k/r5ms/building_train_2/minneapolis_8 (RAM 6.65 GB, running 3/3)
+2026-10-25 161854 DONE screen/r5_c09_preburst/pub30/building_train_2/denver_8 (4.7 min) building_train_2/denver_8/transfer: total=-19.24 steps=2880 sec/step=0.093 (policy 0.59 ms) regret=-4.45 energy=25.72 carbon=57.11
+2026-10-25 161854 START screen/r5_c10_qcap20k/r5ms/building_train_4/minneapolis_1 (RAM 6.66 GB, running 3/3)
+2026-10-25 162037 DONE screen/r5_c10_qcap20k/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.052 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 162037 START screen/r5_c10_qcap20k/r5ms/building_train_5/minneapolis_2 (RAM 6.87 GB, running 3/3)
+2026-10-25 162241 DONE screen/r5_c10_qcap20k/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-41.29 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-0.11 energy=59.47 carbon=146.68
+2026-10-25 162241 START screen/r5_c10_qcap20k/r5ms/building_train_7/minneapolis_3 (RAM 6.84 GB, running 3/3)
+2026-10-25 162254 DONE screen/r5_c10_qcap20k/r5ms/building_train_2/minneapolis_8 (4.7 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.092 (policy 0.60 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 162254 START screen/r5_c10_qcap20k/r5ms/building_train_8/minneapolis_4 (RAM 6.96 GB, running 3/3)
+2026-10-25 162417 DONE screen/r5_c10_qcap20k/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.11 steps=2880 sec/step=0.070 (policy 0.58 ms) regret=-0.25 energy=86.50 carbon=228.29
+2026-10-25 162417 START screen/r5_c10_qcap20k/r4s/building_0520/fairbanks_1 (RAM 6.93 GB, running 3/3)
+2026-10-25 162430 DONE screen/r5_c10_qcap20k/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.90 steps=2880 sec/step=0.031 (policy 0.56 ms) regret=-1.13 energy=49.61 carbon=131.53
+2026-10-25 162430 DONE screen/r5_c10_qcap20k/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.028 (policy 0.55 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 162430 START screen/r5_c10_qcap20k/r4s/building_0522/fairbanks_3 (RAM 7.08 GB, running 2/3)
+2026-10-25 162433 START screen/r5_c10_qcap20k/r4s/building_0523/denver_6 (RAM 7.34 GB, running 3/3)
+2026-10-25 162736 DONE screen/r5_c10_qcap20k/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-135.95 steps=2880 sec/step=0.063 (policy 0.60 ms) regret=-8.72 energy=187.04 carbon=466.55
+2026-10-25 162736 START screen/r5_c10_qcap20k/r4s/building_0524/phoenix_8 (RAM 5.72 GB, running 3/3)
+2026-10-25 162929 DONE screen/r5_c10_qcap20k/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-150.18 steps=2880 sec/step=0.098 (policy 0.62 ms) regret=-37.04 energy=182.00 carbon=457.76
+2026-10-25 162929 START screen/r5_c10_qcap20k/r5x/building_train_7/fairbanks_1 (RAM 5.72 GB, running 3/3)
+2026-10-25 163112 DONE screen/r5_c10_qcap20k/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-196.93 steps=2880 sec/step=0.031 (policy 0.59 ms) regret=-26.58 energy=262.16 carbon=642.75
+2026-10-25 163112 START screen/r5_c10_qcap20k/pub30/building_train_1/fairbanks_1 (RAM 5.20 GB, running 3/3)
+2026-10-25 163125 DONE screen/r5_c10_qcap20k/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.075 (policy 0.59 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 163125 START screen/r5_c10_qcap20k/pub30/building_train_8/fairbanks_8 (RAM 3.26 GB, running 3/3)
+2026-10-25 163208 RAM available 4.40 GB -> worker limit 3; running 3, pending 87
+2026-10-25 163308 DONE screen/r5_c10_qcap20k/pub30/building_train_8/fairbanks_8 (1.7 min) building_train_8/fairbanks_8/transfer: total=-66.58 steps=2880 sec/step=0.029 (policy 0.58 ms) regret=-0.48 energy=85.38 carbon=246.07
+2026-10-25 163308 START screen/r5_c10_qcap20k/pub30/building_train_2/denver_8 (RAM 5.85 GB, running 3/3)
+2026-10-25 163401 DONE screen/r5_c10_qcap20k/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-153.03 steps=2880 sec/step=0.054 (policy 0.57 ms) regret=-4.03 energy=213.44 carbon=539.63
+2026-10-25 163401 START screen/r5_c10_qcap20k/pub30/building_train_1/phoenix_5 (RAM 5.65 GB, running 3/3)
+2026-10-25 163635 DONE screen/r5_c10_qcap20k/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.242 (policy 0.64 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 163635 START screen/r5_c11_qcap30k/r5ms/building_train_1/minneapolis_7 (RAM 6.88 GB, running 3/3)
+2026-10-25 163648 DONE screen/r5_c10_qcap20k/pub30/building_train_1/phoenix_5 (2.8 min) building_train_1/phoenix_5/transfer: total=-39.93 steps=2880 sec/step=0.053 (policy 0.57 ms) regret=-1.96 energy=157.56 carbon=36.23
+2026-10-25 163648 START screen/r5_c11_qcap30k/r5ms/building_train_2/minneapolis_8 (RAM 6.96 GB, running 3/3)
+2026-10-25 163801 DONE screen/r5_c10_qcap20k/pub30/building_train_2/denver_8 (4.9 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.094 (policy 0.62 ms) regret=-0.52 energy=23.73 carbon=52.36
+2026-10-25 163801 START screen/r5_c11_qcap30k/r5ms/building_train_4/minneapolis_1 (RAM 6.57 GB, running 3/3)
+2026-10-25 163924 DONE screen/r5_c11_qcap30k/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.053 (policy 0.58 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 163924 START screen/r5_c11_qcap30k/r5ms/building_train_5/minneapolis_2 (RAM 6.61 GB, running 3/3)
+2026-10-25 164137 DONE screen/r5_c11_qcap30k/r5ms/building_train_2/minneapolis_8 (4.8 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.093 (policy 0.59 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 164137 DONE screen/r5_c11_qcap30k/r5ms/building_train_4/minneapolis_1 (3.6 min) building_train_4/minneapolis_1/transfer: total=-41.29 steps=2880 sec/step=0.070 (policy 0.58 ms) regret=-0.11 energy=59.47 carbon=146.68
+2026-10-25 164137 START screen/r5_c11_qcap30k/r5ms/building_train_7/minneapolis_3 (RAM 7.48 GB, running 2/3)
+2026-10-25 164140 START screen/r5_c11_qcap30k/r5ms/building_train_8/minneapolis_4 (RAM 7.42 GB, running 3/3)
+2026-10-25 164303 DONE screen/r5_c11_qcap30k/r5ms/building_train_5/minneapolis_2 (3.7 min) building_train_5/minneapolis_2/transfer: total=-63.11 steps=2880 sec/step=0.071 (policy 0.60 ms) regret=-0.25 energy=86.50 carbon=228.29
+2026-10-25 164303 START screen/r5_c11_qcap30k/r4s/building_0520/fairbanks_1 (RAM 6.97 GB, running 3/3)
+2026-10-25 164316 DONE screen/r5_c11_qcap30k/r5ms/building_train_8/minneapolis_4 (1.6 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.029 (policy 0.55 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 164316 START screen/r5_c11_qcap30k/r4s/building_0522/fairbanks_3 (RAM 6.84 GB, running 3/3)
+2026-10-25 164329 DONE screen/r5_c11_qcap30k/r5ms/building_train_7/minneapolis_3 (1.9 min) building_train_7/minneapolis_3/transfer: total=-36.90 steps=2880 sec/step=0.032 (policy 0.57 ms) regret=-1.13 energy=49.61 carbon=131.53
+2026-10-25 164329 START screen/r5_c11_qcap30k/r4s/building_0523/denver_6 (RAM 6.59 GB, running 3/3)
+2026-10-25 164622 DONE screen/r5_c11_qcap30k/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-135.95 steps=2880 sec/step=0.062 (policy 0.58 ms) regret=-8.72 energy=187.04 carbon=466.55
+2026-10-25 164622 START screen/r5_c11_qcap30k/r4s/building_0524/phoenix_8 (RAM 5.47 GB, running 3/3)
+2026-10-25 164815 DONE screen/r5_c11_qcap30k/r4s/building_0522/fairbanks_3 (5.0 min) building_0522/fairbanks_3/transfer: total=-150.37 steps=2880 sec/step=0.098 (policy 0.60 ms) regret=-37.60 energy=181.84 carbon=457.18
+2026-10-25 164815 START screen/r5_c11_qcap30k/r5x/building_train_7/fairbanks_1 (RAM 5.66 GB, running 3/3)
+2026-10-25 164959 DONE screen/r5_c11_qcap30k/r5x/building_train_7/fairbanks_1 (1.7 min) building_train_7/fairbanks_1/transfer: total=-196.80 steps=2880 sec/step=0.031 (policy 0.58 ms) regret=-26.23 energy=262.29 carbon=643.00
+2026-10-25 164959 START screen/r5_c11_qcap30k/pub30/building_train_1/fairbanks_1 (RAM 5.63 GB, running 3/3)
+2026-10-25 165012 DONE screen/r5_c11_qcap30k/r4s/building_0524/phoenix_8 (3.8 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.074 (policy 0.59 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 165012 START screen/r5_c11_qcap30k/pub30/building_train_8/fairbanks_8 (RAM 5.77 GB, running 3/3)
+2026-10-25 165145 DONE screen/r5_c11_qcap30k/pub30/building_train_8/fairbanks_8 (1.6 min) building_train_8/fairbanks_8/transfer: total=-66.58 steps=2880 sec/step=0.029 (policy 0.57 ms) regret=-0.48 energy=85.38 carbon=246.07
+2026-10-25 165145 START screen/r5_c11_qcap30k/pub30/building_train_2/denver_8 (RAM 6.01 GB, running 3/3)
+2026-10-25 165248 DONE screen/r5_c11_qcap30k/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-153.03 steps=2880 sec/step=0.053 (policy 0.59 ms) regret=-4.03 energy=213.44 carbon=539.63
+2026-10-25 165248 START screen/r5_c11_qcap30k/pub30/building_train_1/phoenix_5 (RAM 5.87 GB, running 3/3)
+2026-10-25 165531 DONE screen/r5_c11_qcap30k/r4s/building_0523/denver_6 (12.0 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.242 (policy 0.62 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 165531 START full/v6/r5m/building_train_1/minneapolis_1 (RAM 6.56 GB, running 3/3)
+2026-10-25 165544 DONE screen/r5_c11_qcap30k/pub30/building_train_1/phoenix_5 (2.9 min) building_train_1/phoenix_5/transfer: total=-39.93 steps=2880 sec/step=0.054 (policy 0.57 ms) regret=-1.96 energy=157.56 carbon=36.23
+2026-10-25 165544 START full/v6/r5m/building_train_1/minneapolis_5 (RAM 6.90 GB, running 3/3)
+2026-10-25 165637 DONE screen/r5_c11_qcap30k/pub30/building_train_2/denver_8 (4.9 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.094 (policy 0.62 ms) regret=-0.52 energy=23.73 carbon=52.36
+2026-10-25 165637 START full/v6/r5m/building_train_2/minneapolis_2 (RAM 7.05 GB, running 3/3)
+2026-10-25 170210 RAM available 5.45 GB -> worker limit 3; running 3, pending 82
+2026-10-25 170321 DONE full/v6/r5m/building_train_1/minneapolis_1 (7.8 min) building_train_1/minneapolis_1/transfer: total=-241.96 steps=8640 sec/step=0.052 (policy 0.54 ms) regret=-4.23 energy=340.56 carbon=856.57
+2026-10-25 170321 START screen/r5_c12_comp/r5ms/building_train_1/minneapolis_7 (RAM 6.93 GB, running 3/3)
+2026-10-25 170334 DONE full/v6/r5m/building_train_1/minneapolis_5 (7.8 min) building_train_1/minneapolis_5/transfer: total=-43.56 steps=8640 sec/step=0.053 (policy 0.53 ms) regret=-1.92 energy=168.46 carbon=43.56
+2026-10-25 170334 START screen/r5_c12_comp/r5ms/building_train_2/minneapolis_8 (RAM 7.29 GB, running 3/3)
+2026-10-25 170607 DONE screen/r5_c12_comp/r5ms/building_train_1/minneapolis_7 (2.8 min) building_train_1/minneapolis_7/transfer: total=-7.85 steps=2880 sec/step=0.053 (policy 0.56 ms) regret=-0.27 energy=24.83 carbon=13.60
+2026-10-25 170607 START screen/r5_c12_comp/r5ms/building_train_4/minneapolis_1 (RAM 6.62 GB, running 3/3)
+2026-10-25 170830 DONE screen/r5_c12_comp/r5ms/building_train_2/minneapolis_8 (4.9 min) building_train_2/minneapolis_8/transfer: total=-15.44 steps=2880 sec/step=0.096 (policy 0.62 ms) regret=-0.63 energy=22.49 carbon=52.83
+2026-10-25 170830 START screen/r5_c12_comp/r5ms/building_train_5/minneapolis_2 (RAM 6.47 GB, running 3/3)
+2026-10-25 170953 DONE screen/r5_c12_comp/r5ms/building_train_4/minneapolis_1 (3.8 min) building_train_4/minneapolis_1/transfer: total=-39.97 steps=2880 sec/step=0.073 (policy 0.63 ms) regret=-0.12 energy=57.46 carbon=142.04
+2026-10-25 170953 START screen/r5_c12_comp/r5ms/building_train_7/minneapolis_3 (RAM 6.79 GB, running 3/3)
+2026-10-25 171026 DONE full/v6/r5m/building_train_2/minneapolis_2 (13.8 min) building_train_2/minneapolis_2/transfer: total=-94.23 steps=8640 sec/step=0.094 (policy 0.57 ms) regret=-2.48 energy=131.13 carbon=332.57
+2026-10-25 171026 START screen/r5_c12_comp/r5ms/building_train_8/minneapolis_4 (RAM 6.91 GB, running 3/3)
+2026-10-25 171139 DONE screen/r5_c12_comp/r5ms/building_train_7/minneapolis_3 (1.8 min) building_train_7/minneapolis_3/transfer: total=-36.90 steps=2880 sec/step=0.033 (policy 0.61 ms) regret=-1.13 energy=49.61 carbon=131.53
+2026-10-25 171139 START screen/r5_c12_comp/r4s/building_0520/fairbanks_1 (RAM 7.11 GB, running 3/3)
+2026-10-25 171212 DONE screen/r5_c12_comp/r5ms/building_train_8/minneapolis_4 (1.8 min) building_train_8/minneapolis_4/transfer: total=-12.34 steps=2880 sec/step=0.030 (policy 0.64 ms) regret=-0.61 energy=24.76 carbon=35.07
+2026-10-25 171212 START screen/r5_c12_comp/r4s/building_0522/fairbanks_3 (RAM 6.72 GB, running 3/3)
+2026-10-25 171225 DONE screen/r5_c12_comp/r5ms/building_train_5/minneapolis_2 (3.9 min) building_train_5/minneapolis_2/transfer: total=-61.85 steps=2880 sec/step=0.073 (policy 0.64 ms) regret=-0.28 energy=84.59 carbon=223.79
+2026-10-25 171225 START screen/r5_c12_comp/r4s/building_0523/denver_6 (RAM 6.71 GB, running 3/3)
+2026-10-25 171458 DONE screen/r5_c12_comp/r4s/building_0520/fairbanks_1 (3.3 min) building_0520/fairbanks_1/transfer: total=-133.34 steps=2880 sec/step=0.063 (policy 0.62 ms) regret=-9.09 energy=182.89 carbon=456.54
+2026-10-25 171458 START screen/r5_c12_comp/r4s/building_0524/phoenix_8 (RAM 5.59 GB, running 3/3)
+2026-10-25 171722 DONE screen/r5_c12_comp/r4s/building_0522/fairbanks_3 (5.2 min) building_0522/fairbanks_3/transfer: total=-148.65 steps=2880 sec/step=0.100 (policy 0.60 ms) regret=-37.36 energy=179.68 carbon=451.48
+2026-10-25 171722 START screen/r5_c12_comp/r5x/building_train_7/fairbanks_1 (RAM 5.59 GB, running 3/3)
+2026-10-25 171855 DONE screen/r5_c12_comp/r4s/building_0524/phoenix_8 (3.9 min) building_0524/phoenix_8/transfer: total=-5.01 steps=2880 sec/step=0.076 (policy 0.62 ms) regret=-0.18 energy=16.17 carbon=8.32
+2026-10-25 171855 START screen/r5_c12_comp/pub30/building_train_1/fairbanks_1 (RAM 5.85 GB, running 3/3)
+2026-10-25 171908 DONE screen/r5_c12_comp/r5x/building_train_7/fairbanks_1 (1.8 min) building_train_7/fairbanks_1/transfer: total=-194.43 steps=2880 sec/step=0.032 (policy 0.62 ms) regret=-26.93 energy=258.20 carbon=633.17
+2026-10-25 171908 START screen/r5_c12_comp/pub30/building_train_8/fairbanks_8 (RAM 5.64 GB, running 3/3)
+2026-10-25 172051 DONE screen/r5_c12_comp/pub30/building_train_8/fairbanks_8 (1.7 min) building_train_8/fairbanks_8/transfer: total=-64.75 steps=2880 sec/step=0.030 (policy 0.63 ms) regret=-0.49 energy=82.91 carbon=239.35
+2026-10-25 172051 START screen/r5_c12_comp/pub30/building_train_2/denver_8 (RAM 6.16 GB, running 3/3)
+2026-10-25 172144 DONE screen/r5_c12_comp/pub30/building_train_1/fairbanks_1 (2.8 min) building_train_1/fairbanks_1/transfer: total=-150.08 steps=2880 sec/step=0.054 (policy 0.59 ms) regret=-4.60 energy=208.62 carbon=527.96
+2026-10-25 172144 START screen/r5_c12_comp/pub30/building_train_1/phoenix_5 (RAM 6.04 GB, running 3/3)
+2026-10-25 172437 DONE screen/r5_c12_comp/pub30/building_train_1/phoenix_5 (2.9 min) building_train_1/phoenix_5/transfer: total=-39.84 steps=2880 sec/step=0.056 (policy 0.59 ms) regret=-1.89 energy=157.38 carbon=36.17
+2026-10-25 172437 START full/v6/r5m/building_train_2/minneapolis_6 (RAM 5.93 GB, running 3/3)
+2026-10-25 172450 DONE screen/r5_c12_comp/r4s/building_0523/denver_6 (12.4 min) building_0523/denver_6/transfer: total=-16.71 steps=2880 sec/step=0.248 (policy 0.65 ms) regret=-0.93 energy=64.76 carbon=16.01
+2026-10-25 172450 START full/v6/r5m/building_train_4/minneapolis_3 (RAM 6.83 GB, running 3/3)
+2026-10-25 172553 DONE screen/r5_c12_comp/pub30/building_train_2/denver_8 (5.0 min) building_train_2/denver_8/transfer: total=-15.53 steps=2880 sec/step=0.097 (policy 0.63 ms) regret=-0.52 energy=23.72 carbon=52.35
+2026-10-25 172553 START full/v6/r5m/building_train_4/minneapolis_7 (RAM 6.73 GB, running 3/3)
+2026-10-25 173217 RAM available 3.58 GB -> worker limit 3; running 3, pending 107
+2026-10-25 173557 DONE full/v6/r5m/building_train_4/minneapolis_3 (11.1 min) building_train_4/minneapolis_3/transfer: total=-45.94 steps=8640 sec/step=0.075 (policy 0.58 ms) regret=-1.00 energy=81.05 carbon=145.65
+2026-10-25 173557 START full/r5_c12_comp/pub30/building_train_1/atlanta_2 (RAM 6.41 GB, running 3/3)
+2026-10-25 173700 DONE full/v6/r5m/building_train_4/minneapolis_7 (11.1 min) building_train_4/minneapolis_7/transfer: total=-25.91 steps=8640 sec/step=0.075 (policy 0.59 ms) regret=-1.45 energy=69.99 carbon=55.18
+2026-10-25 173700 START full/v6/r5m/building_train_5/minneapolis_4 (RAM 6.57 GB, running 3/3)
+2026-10-25 173853 DONE full/v6/r5m/building_train_2/minneapolis_6 (14.3 min) building_train_2/minneapolis_6/transfer: total=-29.31 steps=8640 sec/step=0.097 (policy 0.57 ms) regret=-1.44 energy=112.23 carbon=29.98
+2026-10-25 173853 START full/v6/r5m/building_train_5/minneapolis_8 (RAM 6.77 GB, running 3/3)
+2026-10-25 174357 DONE full/r5_c12_comp/pub30/building_train_1/atlanta_2 (8.0 min) building_train_1/atlanta_2/transfer: total=-33.89 steps=8640 sec/step=0.053 (policy 0.58 ms) regret=-0.53 energy=80.69 carbon=87.16
+2026-10-25 174357 START full/v6/r5m/building_train_7/minneapolis_1 (RAM 6.65 GB, running 3/3)
+2026-10-25 174750 DONE full/v6/r5m/building_train_5/minneapolis_4 (10.8 min) building_train_5/minneapolis_4/transfer: total=-29.28 steps=8640 sec/step=0.073 (policy 0.57 ms) regret=-1.21 energy=91.16 carbon=51.63
+2026-10-25 174750 START regress/v8_baked_xcheck/r5x/building_train_7/fairbanks_1 (RAM 6.93 GB, running 3/3)
+2026-10-25 174853 DONE full/v6/r5m/building_train_7/minneapolis_1 (4.9 min) building_train_7/minneapolis_1/transfer: total=-367.42 steps=8640 sec/step=0.033 (policy 0.56 ms) regret=-79.73 energy=458.45 carbon=1139.44
+2026-10-25 174853 START regress/v8_baked_xcheck/pub30/building_train_8/fairbanks_8 (RAM 6.86 GB, running 3/3)
+2026-10-25 174936 DONE regress/v8_baked_xcheck/r5x/building_train_7/fairbanks_1 (1.8 min) building_train_7/fairbanks_1/transfer: total=-194.43 steps=2880 sec/step=0.032 (policy 0.60 ms) regret=-26.93 energy=258.20 carbon=633.17
+2026-10-25 174936 START full/v6/r5m/building_train_7/minneapolis_5 (RAM 6.90 GB, running 3/3)
+2026-10-25 174949 DONE full/v6/r5m/building_train_5/minneapolis_8 (10.9 min) building_train_5/minneapolis_8/transfer: total=-92.48 steps=8640 sec/step=0.073 (policy 0.58 ms) regret=-0.36 energy=125.94 carbon=335.38
+2026-10-25 174949 START full/v6/r5m/building_train_8/minneapolis_2 (RAM 7.23 GB, running 3/3)
+2026-10-25 175032 DONE regress/v8_baked_xcheck/pub30/building_train_8/fairbanks_8 (1.7 min) building_train_8/fairbanks_8/transfer: total=-64.75 steps=2880 sec/step=0.028 (policy 0.57 ms) regret=-0.49 energy=82.91 carbon=239.35
+2026-10-25 175032 START full/v6/r5m/building_train_8/minneapolis_6 (RAM 6.93 GB, running 3/3)
+2026-10-25 175405 DONE full/v6/r5m/building_train_8/minneapolis_2 (4.3 min) building_train_8/minneapolis_2/transfer: total=-162.77 steps=8640 sec/step=0.028 (policy 0.54 ms) regret=-0.93 energy=222.68 carbon=588.37
+2026-10-25 175405 START full/pid_water_pr2/pubfair6/building_train_1/fairbanks_1 (RAM 6.76 GB, running 3/3)
+2026-10-25 175418 DONE full/v6/r5m/building_train_7/minneapolis_5 (4.7 min) building_train_7/minneapolis_5/transfer: total=-34.39 steps=8640 sec/step=0.031 (policy 0.53 ms) regret=-4.50 energy=117.71 carbon=40.75
+2026-10-25 175418 START full/pid_water_pr2/pubfair6/building_train_2/fairbanks_2 (RAM 6.78 GB, running 3/3)
+2026-10-25 175451 DONE full/v6/r5m/building_train_8/minneapolis_6 (4.3 min) building_train_8/minneapolis_6/transfer: total=-29.86 steps=8640 sec/step=0.029 (policy 0.54 ms) regret=-0.99 energy=111.09 carbon=35.25
+2026-10-25 175451 START full/pid_water_pr2/pubfair6/building_train_4/fairbanks_4 (RAM 6.76 GB, running 3/3)
+2026-10-25 180205 DONE full/pid_water_pr2/pubfair6/building_train_1/fairbanks_1 (8.0 min) building_train_1/fairbanks_1/pid_water: total=-2468.40 steps=8640 sec/step=0.054 (policy 0.40 ms) regret=-1276.78 energy=3351.06 carbon=5160.61
+2026-10-25 180205 START full/pid_water_pr2/pubfair6/building_train_5/fairbanks_5 (RAM 6.41 GB, running 3/3)
+2026-10-25 180218 RAM available 5.90 GB -> worker limit 3; running 3, pending 95
+2026-10-25 180538 DONE full/pid_water_pr2/pubfair6/building_train_4/fairbanks_4 (10.8 min) building_train_4/fairbanks_4/pid_water: total=-283.08 steps=8640 sec/step=0.073 (policy 0.30 ms) regret=-452.00 energy=41.09 carbon=18.29
+2026-10-25 180538 START full/pid_water_pr2/pubfair6/building_train_7/fairbanks_7 (RAM 6.70 GB, running 3/3)
+2026-10-25 180811 DONE full/pid_water_pr2/pubfair6/building_train_2/fairbanks_2 (13.9 min) building_train_2/fairbanks_2/pid_water: total=-776.39 steps=8640 sec/step=0.095 (policy 0.53 ms) regret=-896.18 energy=472.97 carbon=720.44
+2026-10-25 180811 START full/pid_water_pr2/pubfair6/building_train_8/fairbanks_8 (RAM 6.54 GB, running 3/3)
+2026-10-25 181025 DONE full/pid_water_pr2/pubfair6/building_train_7/fairbanks_7 (4.8 min) building_train_7/fairbanks_7/pid_water: total=-461.29 steps=8640 sec/step=0.031 (policy 0.27 ms) regret=-608.15 energy=179.70 carbon=302.29
+2026-10-25 181025 START full/v5/r5m/building_train_1/minneapolis_1 (RAM 6.62 GB, running 3/3)
+2026-10-25 181540 DONE full/pid_water_pr2/pubfair6/building_train_8/fairbanks_8 (7.5 min) building_train_8/fairbanks_8/pid_water: total=-925.04 steps=8640 sec/step=0.050 (policy 0.59 ms) regret=-564.22 energy=1102.99 carbon=1829.53
+2026-10-25 181540 START full/v5/r5m/building_train_1/minneapolis_5 (RAM 4.28 GB, running 3/3)
+2026-10-25 181624 DONE full/pid_water_pr2/pubfair6/building_train_5/fairbanks_5 (14.3 min) building_train_5/fairbanks_5/pid_water: total=-145.79 steps=8640 sec/step=0.098 (policy 0.51 ms) regret=-213.92 energy=70.17 carbon=17.02
+2026-10-25 181624 START full/v5/r5m/building_train_2/minneapolis_2 (RAM 3.80 GB, running 3/3)
+2026-10-25 183227 RAM available 5.13 GB -> worker limit 3; running 3, pending 120
+2026-10-25 183417 DONE full/v5/r5m/building_train_1/minneapolis_1 (23.9 min) building_train_1/minneapolis_1/transfer: total=-248.59 steps=8640 sec/step=0.164 (policy 1.51 ms) regret=-13.58 energy=340.48 carbon=861.75
+2026-10-25 183418 START full/v5/r5m/building_train_2/minneapolis_6 (RAM 6.87 GB, running 3/3)
+2026-10-25 183933 DONE full/v5/r5m/building_train_1/minneapolis_5 (23.9 min) building_train_1/minneapolis_5/transfer: total=-44.50 steps=8640 sec/step=0.161 (policy 1.46 ms) regret=-3.25 energy=168.79 carbon=43.96
+2026-10-25 183933 START full/v5/r5m/building_train_4/minneapolis_3 (RAM 6.52 GB, running 3/3)
+2026-10-25 185705 DONE full/v5/r5m/building_train_2/minneapolis_2 (40.7 min) building_train_2/minneapolis_2/transfer: total=-103.04 steps=8640 sec/step=0.279 (policy 1.43 ms) regret=-7.55 energy=138.90 carbon=353.66
+2026-10-25 185705 START full/r5_c12_comp/pub30/building_train_1/denver_7 (RAM 6.38 GB, running 3/3)
+2026-10-25 190230 RAM available 6.03 GB -> worker limit 3; running 3, pending 112
+2026-10-25 190702 DONE full/v5/r5m/building_train_4/minneapolis_3 (27.5 min) building_train_4/minneapolis_3/transfer: total=-47.45 steps=8640 sec/step=0.187 (policy 1.39 ms) regret=-2.32 energy=82.00 carbon=148.30
+2026-10-25 190702 START full/r5_c12_comp/pub30/building_train_1/fairbanks_1 (RAM 6.96 GB, running 3/3)
+2026-10-25 191057 DONE full/v5/r5m/building_train_2/minneapolis_6 (36.7 min) building_train_2/minneapolis_6/transfer: total=-30.49 steps=8640 sec/step=0.249 (policy 1.30 ms) regret=-3.28 energy=112.85 carbon=29.75
+2026-10-25 191057 START full/r5_c12_comp/pub30/building_train_1/phoenix_5 (RAM 6.82 GB, running 3/3)
+2026-10-25 191804 DONE full/r5_c12_comp/pub30/building_train_1/denver_7 (21.0 min) building_train_1/denver_7/transfer: total=-24.73 steps=8640 sec/step=0.141 (policy 1.77 ms) regret=-0.42 energy=51.62 carbon=70.77
+2026-10-25 191804 START full/r5_c12_comp/pub30/building_train_1/singapore_8 (RAM 6.87 GB, running 3/3)
+2026-10-25 192731 DONE full/r5_c12_comp/pub30/building_train_1/fairbanks_1 (20.5 min) building_train_1/fairbanks_1/transfer: total=-389.88 steps=8640 sec/step=0.138 (policy 1.74 ms) regret=-13.65 energy=541.60 carbon=1366.87
+2026-10-25 192731 START full/r5_c12_comp/pub30/building_train_2/atlanta_3 (RAM 6.94 GB, running 3/3)
+2026-10-25 193136 DONE full/r5_c12_comp/pub30/building_train_1/phoenix_5 (20.6 min) building_train_1/phoenix_5/transfer: total=-128.19 steps=8640 sec/step=0.139 (policy 1.72 ms) regret=-5.02 energy=508.96 carbon=116.94
+2026-10-25 193136 START full/r5_c12_comp/pub30/building_train_2/denver_8 (RAM 2.01 GB, running 3/3)
+2026-10-25 193240 RAM available 6.26 GB -> worker limit 3; running 3, pending 107
+2026-10-25 193842 DONE full/r5_c12_comp/pub30/building_train_1/singapore_8 (20.6 min) building_train_1/singapore_8/transfer: total=-57.53 steps=8640 sec/step=0.139 (policy 1.77 ms) regret=-3.29 energy=222.45 carbon=55.34
+2026-10-25 193842 START full/r5_c12_comp/pub30/building_train_2/fairbanks_2 (RAM 6.70 GB, running 3/3)
+2026-10-25 200247 RAM available 4.88 GB -> worker limit 3; running 3, pending 106
+2026-10-25 200427 DONE full/r5_c12_comp/pub30/building_train_2/atlanta_3 (36.9 min) building_train_2/atlanta_3/transfer: total=-29.03 steps=8640 sec/step=0.251 (policy 1.79 ms) regret=-1.81 energy=107.13 carbon=32.58
+2026-10-25 200427 START full/r5_c12_comp/r5m/building_train_1/minneapolis_1 (RAM 6.02 GB, running 3/3)
+2026-10-25 200822 DONE full/r5_c12_comp/pub30/building_train_2/denver_8 (36.8 min) building_train_2/denver_8/transfer: total=-42.40 steps=8640 sec/step=0.249 (policy 1.85 ms) regret=-1.52 energy=69.53 carbon=137.89
+2026-10-25 200822 START full/r5_c12_comp/r5m/building_train_1/minneapolis_5 (RAM 6.89 GB, running 3/3)
+2026-10-25 201559 DONE full/r5_c12_comp/pub30/building_train_2/fairbanks_2 (37.3 min) building_train_2/fairbanks_2/transfer: total=-102.39 steps=8640 sec/step=0.254 (policy 1.93 ms) regret=-3.25 energy=140.38 carbon=361.81
+2026-10-25 201559 START full/r5_c12_comp/r5m/building_train_2/minneapolis_2 (RAM 6.32 GB, running 3/3)
+2026-10-25 202617 DONE full/r5_c12_comp/r5m/building_train_1/minneapolis_1 (21.8 min) building_train_1/minneapolis_1/transfer: total=-229.18 steps=8640 sec/step=0.147 (policy 1.91 ms) regret=-5.53 energy=318.21 carbon=811.12
+2026-10-25 202617 START full/r5_c12_comp/r5m/building_train_2/minneapolis_6 (RAM 6.78 GB, running 3/3)
+2026-10-25 203123 DONE full/r5_c12_comp/r5m/building_train_1/minneapolis_5 (23.0 min) building_train_1/minneapolis_5/transfer: total=-42.31 steps=8640 sec/step=0.155 (policy 1.87 ms) regret=-1.91 energy=160.46 carbon=45.34
+2026-10-25 203123 START full/r5_c12_comp/r5m/building_train_4/minneapolis_3 (RAM 4.16 GB, running 3/3)
+2026-10-25 203247 RAM available 4.40 GB -> worker limit 3; running 3, pending 101
+2026-10-25 210020 DONE full/r5_c12_comp/r5m/building_train_2/minneapolis_2 (44.3 min) building_train_2/minneapolis_2/transfer: total=-88.34 steps=8640 sec/step=0.304 (policy 2.16 ms) regret=-3.20 energy=120.96 carbon=311.16
+2026-10-25 210020 START full/r5_c12_comp/r5m/building_train_4/minneapolis_7 (RAM 6.17 GB, running 3/3)
+2026-10-25 210254 RAM available 4.05 GB -> worker limit 3; running 3, pending 100
+2026-10-25 210716 DONE full/r5_c12_comp/r5m/building_train_4/minneapolis_3 (35.9 min) building_train_4/minneapolis_3/transfer: total=-45.21 steps=8640 sec/step=0.241 (policy 2.28 ms) regret=-1.01 energy=79.91 carbon=143.09
+2026-10-25 210716 START full/r5_c12_comp/r5m/building_train_5/minneapolis_4 (RAM 6.52 GB, running 3/3)
+2026-10-25 211302 DONE full/r5_c12_comp/r5m/building_train_2/minneapolis_6 (46.8 min) building_train_2/minneapolis_6/transfer: total=-28.94 steps=8640 sec/step=0.319 (policy 2.24 ms) regret=-1.52 energy=110.23 carbon=29.90
+2026-10-25 211302 START full/r5_c12_comp/r5m/building_train_5/minneapolis_8 (RAM 6.52 GB, running 3/3)
+2026-10-25 213255 RAM available 5.86 GB -> worker limit 3; running 3, pending 98
+2026-10-25 213547 DONE full/r5_c12_comp/r5m/building_train_4/minneapolis_7 (35.5 min) building_train_4/minneapolis_7/transfer: total=-26.01 steps=8640 sec/step=0.241 (policy 2.29 ms) regret=-1.61 energy=69.35 carbon=55.83
+2026-10-25 213547 START full/r5_c12_comp/r5m/building_train_7/minneapolis_1 (RAM 6.63 GB, running 3/3)
+2026-10-25 214323 DONE full/r5_c12_comp/r5m/building_train_5/minneapolis_4 (36.1 min) building_train_5/minneapolis_4/transfer: total=-28.68 steps=8640 sec/step=0.247 (policy 2.13 ms) regret=-1.17 energy=88.70 carbon=51.17
+2026-10-25 214323 START full/r5_c12_comp/r5m/building_train_7/minneapolis_5 (RAM 6.73 GB, running 3/3)
+2026-10-25 214839 DONE full/r5_c12_comp/r5m/building_train_5/minneapolis_8 (35.6 min) building_train_5/minneapolis_8/transfer: total=-89.17 steps=8640 sec/step=0.243 (policy 2.15 ms) regret=-0.43 energy=120.73 carbon=323.87
+2026-10-25 214839 START full/r5_c12_comp/r5m/building_train_8/minneapolis_2 (RAM 6.94 GB, running 3/3)
+2026-10-25 215223 DONE full/r5_c12_comp/r5m/building_train_7/minneapolis_1 (16.6 min) building_train_7/minneapolis_1/transfer: total=-318.02 steps=8640 sec/step=0.111 (policy 2.09 ms) regret=-27.36 energy=430.02 carbon=1077.98
+2026-10-25 215223 START full/r5_c12_comp/r5m/building_train_8/minneapolis_6 (RAM 6.74 GB, running 3/3)
+2026-10-25 215930 DONE full/r5_c12_comp/r5m/building_train_7/minneapolis_5 (16.1 min) building_train_7/minneapolis_5/transfer: total=-33.92 steps=8640 sec/step=0.108 (policy 1.91 ms) regret=-4.57 energy=115.43 carbon=40.45
+2026-10-25 215930 START full/r5_c12_comp/pub30/building_train_2/phoenix_6 (RAM 6.68 GB, running 3/3)
+2026-10-25 220305 RAM available 4.66 GB -> worker limit 3; running 3, pending 93
+2026-10-25 220405 DONE full/r5_c12_comp/r5m/building_train_8/minneapolis_2 (15.4 min) building_train_8/minneapolis_2/transfer: total=-153.16 steps=8640 sec/step=0.104 (policy 2.13 ms) regret=-1.27 energy=207.31 carbon=554.70
+2026-10-25 220406 START full/r5_c12_comp/pub30/building_train_2/singapore_1 (RAM 5.71 GB, running 3/3)
+2026-10-25 220842 DONE full/r5_c12_comp/r5m/building_train_8/minneapolis_6 (16.3 min) building_train_8/minneapolis_6/transfer: total=-29.84 steps=8640 sec/step=0.109 (policy 2.15 ms) regret=-1.00 energy=110.56 carbon=35.66
+2026-10-25 220842 START full/r5_c12_comp/pub30/building_train_4/atlanta_5 (RAM 5.27 GB, running 3/3)
+2026-10-25 223141 DONE full/r5_c12_comp/pub30/building_train_4/atlanta_5 (23.0 min) building_train_4/atlanta_5/transfer: total=-57.87 steps=8640 sec/step=0.154 (policy 1.29 ms) regret=-3.78 energy=224.52 carbon=53.48
+2026-10-25 223141 START full/r5_c12_comp/pub30/building_train_4/denver_2 (RAM 5.68 GB, running 3/3)
+2026-10-25 223306 RAM available 4.80 GB -> worker limit 3; running 3, pending 90
+2026-10-25 223316 DONE full/r5_c12_comp/pub30/building_train_2/singapore_1 (29.2 min) building_train_2/singapore_1/transfer: total=-41.38 steps=8640 sec/step=0.198 (policy 1.42 ms) regret=-0.63 energy=164.92 carbon=40.07
+2026-10-25 223317 START full/r5_c12_comp/pub30/building_train_4/fairbanks_4 (RAM 5.77 GB, running 3/3)
+2026-10-25 224014 DONE full/r5_c12_comp/pub30/building_train_2/phoenix_6 (40.7 min) building_train_2/phoenix_6/transfer: total=-63.62 steps=8640 sec/step=0.279 (policy 1.88 ms) regret=-0.46 energy=257.26 carbon=59.48
+2026-10-25 224014 START full/r5_c12_comp/pub30/building_train_4/phoenix_8 (RAM 7.45 GB, running 3/3)
+2026-10-25 224644 DONE full/r5_c12_comp/pub30/building_train_4/fairbanks_4 (13.5 min) building_train_4/fairbanks_4/transfer: total=-21.00 steps=8640 sec/step=0.089 (policy 0.77 ms) regret=-1.31 energy=51.81 carbon=49.25
+2026-10-25 224644 START full/r5_c12_comp/pub30/building_train_4/singapore_3 (RAM 7.49 GB, running 3/3)
+2026-10-25 224837 DONE full/r5_c12_comp/pub30/building_train_4/denver_2 (16.9 min) building_train_4/denver_2/transfer: total=-52.59 steps=8640 sec/step=0.111 (policy 0.98 ms) regret=-0.91 energy=78.54 carbon=181.69
+2026-10-25 224837 START full/r5_c12_comp/pub30/building_train_5/atlanta_6 (RAM 7.55 GB, running 3/3)
+2026-10-25 225450 DONE full/r5_c12_comp/pub30/building_train_4/phoenix_8 (14.6 min) building_train_4/phoenix_8/transfer: total=-20.80 steps=8640 sec/step=0.095 (policy 0.82 ms) regret=-1.11 energy=57.15 carbon=43.54
+2026-10-25 225450 START full/r5_c12_comp/pub30/building_train_5/denver_3 (RAM 7.57 GB, running 3/3)
+2026-10-25 230024 DONE full/r5_c12_comp/pub30/building_train_4/singapore_3 (13.7 min) building_train_4/singapore_3/transfer: total=-60.82 steps=8640 sec/step=0.093 (policy 0.80 ms) regret=-3.20 energy=239.35 carbon=55.13
+2026-10-25 230024 START full/r5_c12_comp/pub30/building_train_5/fairbanks_5 (RAM 7.77 GB, running 3/3)
+2026-10-25 230117 DONE full/r5_c12_comp/pub30/building_train_5/atlanta_6 (12.7 min) building_train_5/atlanta_6/transfer: total=-37.60 steps=8640 sec/step=0.085 (policy 0.74 ms) regret=-1.37 energy=147.19 carbon=36.70
+2026-10-25 230117 START full/r5_c12_comp/pub30/building_train_5/phoenix_1 (RAM 3.84 GB, running 3/3)
+2026-10-25 230310 RAM available 7.27 GB -> worker limit 3; running 3, pending 31
+2026-10-25 230940 DONE full/r5_c12_comp/pub30/building_train_5/denver_3 (14.8 min) building_train_5/denver_3/transfer: total=-40.24 steps=8640 sec/step=0.100 (policy 0.89 ms) regret=-0.72 energy=64.83 carbon=134.20
+2026-10-25 230941 START full/r5_c12_comp/pub30/building_train_5/singapore_4 (RAM 8.01 GB, running 3/3)
+2026-10-25 231334 DONE full/r5_c12_comp/pub30/building_train_5/fairbanks_5 (13.2 min) building_train_5/fairbanks_5/transfer: total=-19.83 steps=8640 sec/step=0.089 (policy 0.78 ms) regret=-0.96 energy=69.44 carbon=26.83
+2026-10-25 231334 DONE full/r5_c12_comp/pub30/building_train_5/phoenix_1 (12.3 min) building_train_5/phoenix_1/transfer: total=-27.96 steps=8640 sec/step=0.083 (policy 0.73 ms) regret=-1.00 energy=57.11 carbon=79.68
+2026-10-25 231334 START full/r5_c12_comp/pub30/building_train_7/atlanta_8 (RAM 8.59 GB, running 2/3)
+2026-10-25 231337 START full/r5_c12_comp/pub30/building_train_7/denver_5 (RAM 8.55 GB, running 3/3)
+2026-10-25 231910 DONE full/r5_c12_comp/pub30/building_train_7/atlanta_8 (5.6 min) building_train_7/atlanta_8/transfer: total=-65.14 steps=8640 sec/step=0.037 (policy 0.71 ms) regret=-0.50 energy=97.27 carbon=226.92
+2026-10-25 231910 START full/r5_c12_comp/pub30/building_train_7/fairbanks_7 (RAM 7.89 GB, running 3/3)
+2026-10-25 231923 DONE full/r5_c12_comp/pub30/building_train_7/denver_5 (5.8 min) building_train_7/denver_5/transfer: total=-49.99 steps=8640 sec/step=0.037 (policy 0.69 ms) regret=-16.33 energy=153.27 carbon=47.68
+2026-10-25 231923 START full/r5_c12_comp/pub30/building_train_7/phoenix_3 (RAM 7.68 GB, running 3/3)
+2026-10-25 232437 DONE full/r5_c12_comp/pub30/building_train_7/fairbanks_7 (5.4 min) building_train_7/fairbanks_7/transfer: total=-74.21 steps=8640 sec/step=0.036 (policy 0.69 ms) regret=-0.54 energy=97.25 carbon=272.17
+2026-10-25 232437 START full/r5_c12_comp/pub30/building_train_7/singapore_6 (RAM 7.97 GB, running 3/3)
+2026-10-25 232450 DONE full/r5_c12_comp/pub30/building_train_7/phoenix_3 (5.4 min) building_train_7/phoenix_3/transfer: total=-55.39 steps=8640 sec/step=0.036 (policy 0.67 ms) regret=-8.85 energy=197.60 carbon=52.77
+2026-10-25 232450 START full/r5_c12_comp/pub30/building_train_8/atlanta_1 (RAM 8.09 GB, running 3/3)
+2026-10-25 232543 DONE full/r5_c12_comp/pub30/building_train_5/singapore_4 (16.0 min) building_train_5/singapore_4/transfer: total=-48.45 steps=8640 sec/step=0.108 (policy 0.94 ms) regret=-1.99 energy=191.57 carbon=44.72
+2026-10-25 232543 START full/r5_c12_comp/pub30/building_train_8/denver_6 (RAM 8.29 GB, running 3/3)
+2026-10-25 232946 DONE full/r5_c12_comp/pub30/building_train_8/atlanta_1 (4.9 min) building_train_8/atlanta_1/transfer: total=-47.52 steps=8640 sec/step=0.033 (policy 0.69 ms) regret=-1.01 energy=76.78 carbon=157.82
+2026-10-25 232946 START full/r5_c12_comp/pub30/building_train_8/fairbanks_8 (RAM 8.21 GB, running 3/3)
+2026-10-25 233039 DONE full/r5_c12_comp/pub30/building_train_8/denver_6 (4.9 min) building_train_8/denver_6/transfer: total=-33.68 steps=8640 sec/step=0.033 (policy 0.68 ms) regret=-3.98 energy=116.39 carbon=40.06
+2026-10-25 233040 START full/r5_c12_comp/pub30/building_train_8/phoenix_4 (RAM 7.79 GB, running 3/3)
+2026-10-25 233213 DONE full/r5_c12_comp/pub30/building_train_7/singapore_6 (7.6 min) building_train_7/singapore_6/transfer: total=-50.65 steps=8640 sec/step=0.050 (policy 0.90 ms) regret=-1.70 energy=200.35 carbon=47.79
+2026-10-25 233213 START full/r5_c12_comp/pub30/building_train_8/singapore_7 (RAM 7.99 GB, running 3/3)
+2026-10-25 233316 RAM available 7.53 GB -> worker limit 3; running 3, pending 20
+2026-10-25 233536 DONE full/r5_c12_comp/pub30/building_train_8/phoenix_4 (4.9 min) building_train_8/phoenix_4/transfer: total=-85.95 steps=8640 sec/step=0.033 (policy 0.67 ms) regret=-0.27 energy=347.70 carbon=81.23
+2026-10-25 233536 START full/r5_c12_comp/r4c/building_0604/atlanta_5 (RAM 8.27 GB, running 3/3)
+2026-10-25 233609 DONE full/r5_c12_comp/pub30/building_train_8/fairbanks_8 (6.4 min) building_train_8/fairbanks_8/transfer: total=-202.08 steps=8640 sec/step=0.042 (policy 0.88 ms) regret=-1.46 energy=267.56 carbon=738.49
+2026-10-25 233609 START full/r5_c12_comp/r4c/building_0604/denver_3 (RAM 7.33 GB, running 3/3)
+2026-10-25 233732 DONE full/r5_c12_comp/pub30/building_train_8/singapore_7 (5.3 min) building_train_8/singapore_7/transfer: total=-48.77 steps=8640 sec/step=0.035 (policy 0.70 ms) regret=-0.87 energy=192.08 carbon=49.17
+2026-10-25 233732 START full/r5_c12_comp/r4c/building_0604/fairbanks_1 (RAM 7.08 GB, running 3/3)
+2026-10-26 000017 DONE full/r5_c12_comp/r4c/building_0604/denver_3 (24.1 min) building_0604/denver_3/transfer: total=-41.01 steps=8640 sec/step=0.164 (policy 0.73 ms) regret=-1.28 energy=118.94 carbon=82.27
+2026-10-26 000017 START full/r5_c12_comp/r4c/building_0604/phoenix_7 (RAM 6.34 GB, running 3/3)
+2026-10-26 000140 DONE full/r5_c12_comp/r4c/building_0604/fairbanks_1 (24.1 min) building_0604/fairbanks_1/transfer: total=-341.05 steps=8640 sec/step=0.165 (policy 0.74 ms) regret=-46.32 energy=455.46 carbon=1110.81
+2026-10-26 000140 START full/r5_c12_comp/r4c/building_0604/singapore_1 (RAM 2.46 GB, running 3/3)
+2026-10-26 000323 RAM available 5.72 GB -> worker limit 3; running 3, pending 15
+2026-10-26 000654 DONE full/r5_c12_comp/r4c/building_0604/atlanta_5 (31.3 min) building_0604/atlanta_5/transfer: total=-132.58 steps=8640 sec/step=0.214 (policy 1.01 ms) regret=-5.29 energy=525.61 carbon=121.44
+2026-10-26 000654 START full/r5_c12_comp/r4c/building_0607/atlanta_6 (RAM 6.79 GB, running 3/3)
+2026-10-26 002558 DONE full/r5_c12_comp/r4c/building_0604/singapore_1 (24.3 min) building_0604/singapore_1/transfer: total=-127.53 steps=8640 sec/step=0.166 (policy 0.70 ms) regret=-5.97 energy=498.75 carbon=121.00
+2026-10-26 002558 START full/r5_c12_comp/r4c/building_0607/denver_4 (RAM 6.58 GB, running 3/3)
+2026-10-26 003001 DONE full/r5_c12_comp/r4c/building_0604/phoenix_7 (29.7 min) building_0604/phoenix_7/transfer: total=-92.29 steps=8640 sec/step=0.204 (policy 0.93 ms) regret=-3.33 energy=361.98 carbon=89.47
+2026-10-26 003001 START full/r5_c12_comp/r4c/building_0607/fairbanks_2 (RAM 6.52 GB, running 3/3)
+2026-10-26 003154 DONE full/r5_c12_comp/r4c/building_0607/atlanta_6 (25.0 min) building_0607/atlanta_6/transfer: total=-64.12 steps=8640 sec/step=0.171 (policy 0.75 ms) regret=-2.89 energy=252.46 carbon=59.48
+2026-10-26 003154 START full/r5_c12_comp/r4c/building_0607/phoenix_8 (RAM 6.62 GB, running 3/3)
+2026-10-26 003327 RAM available 5.64 GB -> worker limit 3; running 3, pending 11
+2026-10-26 005449 DONE full/r5_c12_comp/r4c/building_0607/fairbanks_2 (24.8 min) building_0607/fairbanks_2/transfer: total=-130.36 steps=8640 sec/step=0.169 (policy 0.76 ms) regret=-5.44 energy=179.25 carbon=456.22
+2026-10-26 005449 START full/r5_c12_comp/r4c/building_0607/singapore_2 (RAM 6.60 GB, running 3/3)
+2026-10-26 005622 DONE full/r5_c12_comp/r4c/building_0607/phoenix_8 (24.5 min) building_0607/phoenix_8/transfer: total=-26.99 steps=8640 sec/step=0.167 (policy 0.74 ms) regret=-1.79 energy=80.99 carbon=48.60
+2026-10-26 005622 START full/r5_c12_comp/r4c/building_0610/atlanta_7 (RAM 6.33 GB, running 3/3)
+2026-10-26 005705 DONE full/r5_c12_comp/r4c/building_0607/denver_4 (31.1 min) building_0607/denver_4/transfer: total=-40.44 steps=8640 sec/step=0.213 (policy 0.98 ms) regret=-2.57 energy=144.59 carbon=49.88
+2026-10-26 005705 START full/r5_c12_comp/r4c/building_0610/denver_5 (RAM 6.17 GB, running 3/3)
+2026-10-26 010328 RAM available 5.51 GB -> worker limit 3; running 3, pending 8
+2026-10-26 012250 DONE full/r5_c12_comp/r4c/building_0610/atlanta_7 (26.5 min) building_0610/atlanta_7/transfer: total=-68.59 steps=8640 sec/step=0.180 (policy 0.74 ms) regret=-5.07 energy=252.72 carbon=75.05
+2026-10-26 012250 START full/r5_c12_comp/r4c/building_0610/fairbanks_3 (RAM 6.49 GB, running 3/3)
+2026-10-26 012333 DONE full/r5_c12_comp/r4c/building_0610/denver_5 (26.5 min) building_0610/denver_5/transfer: total=-102.49 steps=8640 sec/step=0.181 (policy 0.72 ms) regret=-8.32 energy=392.08 carbon=95.42
+2026-10-26 012333 START full/r5_c12_comp/r4c/building_0610/phoenix_1 (RAM 6.02 GB, running 3/3)
+2026-10-26 012726 DONE full/r5_c12_comp/r4c/building_0607/singapore_2 (32.6 min) building_0607/singapore_2/transfer: total=-76.32 steps=8640 sec/step=0.223 (policy 1.04 ms) regret=-2.59 energy=302.32 carbon=71.52
+2026-10-26 012726 START full/r5_c12_comp/r4c/building_0610/singapore_3 (RAM 5.98 GB, running 3/3)
+2026-10-26 013330 RAM available 5.59 GB -> worker limit 3; running 3, pending 5
+2026-10-26 015011 DONE full/r5_c12_comp/r4c/building_0610/phoenix_1 (26.6 min) building_0610/phoenix_1/transfer: total=-47.28 steps=8640 sec/step=0.181 (policy 0.74 ms) regret=-3.67 energy=164.52 carbon=60.87
+2026-10-26 015011 START full/r5_c12_comp/r4c/building_0639/atlanta_8 (RAM 6.25 GB, running 3/3)
+2026-10-26 015404 DONE full/r5_c12_comp/r4c/building_0610/singapore_3 (26.6 min) building_0610/singapore_3/transfer: total=-122.20 steps=8640 sec/step=0.181 (policy 0.72 ms) regret=-8.37 energy=476.54 carbon=109.35
+2026-10-26 015404 START full/r5_c12_comp/r4c/building_0639/denver_6 (RAM 5.67 GB, running 3/3)
+2026-10-26 015637 DONE full/r5_c12_comp/r4c/building_0610/fairbanks_3 (33.8 min) building_0610/fairbanks_3/transfer: total=-79.63 steps=8640 sec/step=0.231 (policy 1.02 ms) regret=-6.23 energy=119.74 carbon=259.75
+2026-10-26 015637 START full/r5_c12_comp/r4c/building_0639/fairbanks_4 (RAM 5.33 GB, running 3/3)
+2026-10-26 020331 RAM available 5.90 GB -> worker limit 3; running 3, pending 2
+2026-10-26 023332 RAM available 5.54 GB -> worker limit 3; running 3, pending 2
+2026-10-26 024143 DONE full/r5_c12_comp/r4c/building_0639/denver_6 (47.6 min) building_0639/denver_6/transfer: total=-47.64 steps=8640 sec/step=0.326 (policy 0.77 ms) regret=-3.09 energy=182.77 carbon=46.18
+2026-10-26 024143 START full/r5_c12_comp/r4c/building_0639/phoenix_2 (RAM 7.27 GB, running 3/3)
+2026-10-26 024456 DONE full/r5_c12_comp/r4c/building_0639/fairbanks_4 (48.3 min) building_0639/fairbanks_4/transfer: total=-31.53 steps=8640 sec/step=0.331 (policy 0.77 ms) regret=-1.57 energy=82.72 carbon=70.23
+2026-10-26 024456 START full/r5_c12_comp/r4c/building_0639/singapore_4 (RAM 7.17 GB, running 3/3)
+2026-10-26 025159 DONE full/r5_c12_comp/r4c/building_0639/atlanta_8 (61.8 min) building_0639/atlanta_8/transfer: total=-47.46 steps=8640 sec/step=0.424 (policy 1.03 ms) regret=-2.31 energy=90.48 carbon=139.87
+2026-10-26 030340 RAM available 6.80 GB -> worker limit 3; running 2, pending 0
+2026-10-26 032811 DONE full/r5_c12_comp/r4c/building_0639/singapore_4 (43.2 min) building_0639/singapore_4/transfer: total=-80.59 steps=8640 sec/step=0.296 (policy 0.67 ms) regret=-3.10 energy=319.78 carbon=73.87
+2026-10-26 033341 RAM available 8.69 GB -> worker limit 3; running 1, pending 0
+2026-10-26 033611 DONE full/r5_c12_comp/r4c/building_0639/phoenix_2 (54.5 min) building_0639/phoenix_2/transfer: total=-39.67 steps=8640 sec/step=0.374 (policy 0.89 ms) regret=-2.20 energy=150.96 carbon=40.75
+2026-10-26 035032 runner exit (stop=True, pending=0)

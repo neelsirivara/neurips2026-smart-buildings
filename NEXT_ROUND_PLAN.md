@@ -30,3 +30,8 @@ submission limit.
 
 The Mac (`ssh mac`) is idle and ready; the round-4 scripts (`experiments/src/`, Mac tree `~/neurips/sb/`) rerun any of
 these within hours.
+
+**Round 5 outcome (2026-10-26, laptop):** done as planned except the plant-perturbation robustness runs (the probes made
+them unnecessary): Kaggle probes v6 0.01116, v5 0.01161, pid_water 0.06404 show the hidden buildings behave like the
+shipped six and the gap is weather (public + Minneapolis reproduces the ratios; the hidden stations are harsher still);
+v8 (weekend setback, request cap 20 kW) shipped under the pre-registered rule, Kaggle 0.01074. See STATUS.md "Round 5".

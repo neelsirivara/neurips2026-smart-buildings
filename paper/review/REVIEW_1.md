@@ -212,3 +212,62 @@ per handler) and that the kit's default generator ranges do not reproduce the sh
 Items 1-5 applied in the 19:30 PDT draft; build: 0 errors, 0 undefined references, 0 `??`, 0 TODO,
 0 overfull boxes, 13 pages. Not applied: full-length ablation of the v7 switches, pid_water on the fresh
 buildings (compute), the Kaggle submission (user).
+
+# Self-review 1, pass 4 -- round-5 draft (2026-10-25 ~20:00 PDT, updated 2026-10-26 ~04:00 PDT after the confirmation)
+
+Same form. Draft reviewed: `paper/main.pdf` built from the round-5 macros (Kaggle probes, local-set comparison,
+round-5 screen, full-length confirmation; v8 shipped).
+
+## Summary
+Round 5 uses the Kaggle leaderboard as an oracle. v7 scores 0.01088 on Kaggle, 1.39x its public-set number although
+Kaggle reproduces a public scenario to 0.01%. Submissions of fixed earlier files (v6 0.01116, v5 0.01161,
+pid_water 0.06404) are compared with every local set on a pre-registered level + shape criterion: v5's ratio to v7
+matches the public buildings (1.067 vs 1.058; default-size buildings 1.169), pid_water's ratio (5.89) lies between
+the public stations (7.00) and the unused Minneapolis station (4.30) and is reproduced by public + Minneapolis (6.02),
+so the gap points to weather, not buildings. A starter-kit PR that fixes a gas-billing gap leaves v7 unchanged (-0.4%)
+but raises pid_water's loss by 23% in Fairbanks. An 11-candidate screen finds two helpful families (a deeper weekend
+setback; lifting a v5-era request cap that binds in deep cold, found by decomposing v7 on the Minneapolis set).
+
+## Strengths (new in round 5)
+- The local-vs-Kaggle gap is analysed with a probe design rather than guessed: four fixed policy files, ratios that
+  separate building size (v5) from climate (pid_water), and a criterion written down before the scores existed.
+- The third-party calibration (a public notebook's controllers show the same 1.17-1.37 gap; its baseline scores
+  0.0644 vs our pid_water 0.0640) makes the gap a property of the hidden set, not of SADR.
+- The PR #2 check is a clean, useful negative: the organizers' baseline benefits from the billing gap, SADR does not.
+- Failures are reported (Monday lead, preconditioning at the cap, faster bursts all worse; lag compensation n.s.).
+
+## Weaknesses
+- The pre-registered shape rule, read literally, names FD because FD's E rests on the one ratio (v6) that every set
+  matches; the draft discloses this and requires the candidate to win on both FD and P+M, but the rule should have
+  required a common policy set. FD could not be completed on the laptop.
+- The two discriminating probes are single numbers on about ten hidden scenarios; v5/v7 1.067 vs 1.058 is a match
+  within noise, not a measurement, and the Kaggle pid_water ratio could move with the private split.
+- The q_cap gain is concentrated in one deep-cold building (-19% on building_train_7 x fairbanks_1, 6 of 11 held
+  scenarios changed); the screen CI is wide. Its value on Kaggle depends on how often hidden buildings hit the cap.
+- The weekend setback floor reaches about 275 K, below real frost-protection settings; disclosed in Limitations.
+- The round-5 composite was submitted to Kaggle before its full-length confirmation finished (as a probe; the local
+  rule decides shipping).
+- The shipped v8 passes the FD condition of the ship rule only with the pre-registered bootstrap seed (1 of 10 seeds
+  puts the CI's upper end below zero); on FD it is a tie, and a few hot-strip scenarios are up to 0.7% worse. The
+  paper says so; the clear gains are on public-30 (-1.1%), M (-4.1%) and P+M (-2.2%), robust across seeds.
+- No full-length ablation of the two v8 switches (which of them costs the hot strips is not known).
+
+## Scores
+| criterion | score | justification |
+|---|---|---|
+| Clarity | 4 | Table 2 states the Kaggle comparison at a glance; dense prose; main text kept to six pages by moving Table 3 (round 4) to the appendix. |
+| Soundness | 4 | Pre-registered probe reading and screen; the FD loophole and the partial confirmation are disclosed. |
+| Reproducibility | 5 | Every number scripted (AUDIT), Kaggle notebooks rebuilt byte for byte, baked candidate bit-identical to its screen runs. |
+| Significance | 4 | First account of why local proxies under-predict the SB26 leaderboard; useful to other entrants. |
+| Overall | 7 | Better grounded on Kaggle; controller gains small (v8 -1.1% public, -2.2% public + Minneapolis; Kaggle 0.01074 vs 0.01088, within noise). |
+| Confidence | 4 | |
+
+## Must-fix before upload (pass 4)
+1. Unsigned changes in prose for the round-5 results. -- applied (`...Abs` macros).
+2. "Capacity, not control" in Where it loses contradicted the deep-cold finding. -- applied.
+3. State that FD is named by the literal rule and how it is handled. -- applied (Section 4, Kaggle).
+4. Say that the FD condition is met only for the pre-registered seed (a tie), not hide it behind "the rule is met". --
+   applied (Section 4, Round 5; README; STATUS).
+5. Main text within six pages after the additions. -- applied (round-4 table to Appendix A, Table 1 without the v4
+   and pid rows, Sections 2-5 compressed; references start on page 7).
+6. Fill the author block. -- user.

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{Which local set predicts Kaggle? Leaderboard metric of v7 and the ratio of each other policy to v7 on the same scenarios (paired), against the Kaggle public scores of the same four policy files. $E$ = mean over the policies with a Kaggle score of $|\ln r_{\text{set}} - \ln r_{\text{Kaggle}}|$ (pre-registered shape error; smaller matches better). Kaggle runs the identical files: its interactive run of \texttt{building\_train\_1/atlanta\_2} matches the local total within 0.02\% for all four.}
+\label{tab:kaggle}
+\centering\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+set & v7 & v7 / Kaggle & v6 / v7 & v5 / v7 & \texttt{pid\_water} / v7 & $E$ \\
+\midrule
+Kaggle public LB (about 10 hidden scenarios) & 0.01088 & 1 & 1.026 & 1.067 & 5.89 & -- \\
+\midrule
+P: public 30 (shipped six, 5 stations) & 0.00786 & 0.72 & 1.022 & 1.058 & 7.00 & 0.062 \\
+M: shipped six $\times$ Minneapolis (12) & 0.01119 & 1.03 & 1.032 & 1.076 & 4.30 & 0.109 \\
+P+M (42) & 0.00881 & 0.81 & 1.025 & 1.061 & 6.02 & 0.010 \\
+FS: fresh shipped-range buildings (20) & 0.00725 & 0.67 & 1.014 & -- & -- & 0.011 \\
+FD: fresh default-range buildings (20) & 0.01012 & 0.93 & 1.031 & -- & -- & 0.005 \\
+O: old held-out, default ranges (40) & 0.01173 & 1.08 & 1.029 & 1.169 & 4.35 & 0.132 \\
+\bottomrule
+\end{tabular}
+\end{table}

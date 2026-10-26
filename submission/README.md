@@ -9,9 +9,35 @@ Files:
 |---|---|
 | `transfer_policy.py` | The policy. Drop-in replacement for `smart_buildings/baselines/transfer_policy.py` in the starter kit. Class `TransferPolicy(building_meta_data, action_spec)` with `get_action(obs)`; pure numpy + stdlib; deterministic; shape-agnostic. |
 | `kaggle_notebook_template.py` | A self-contained script mirroring the kit's evaluation loop, with the policy inlined, for adapting to the official Kaggle notebook template. |
-| `best_params.json` | The final parameter set (v7: the v6 set + the round-4 overrides of `r4_c14_comp_a`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round4.py` / `bake_params.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v6 file is `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, the shipped v5 file `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
+| `best_params.json` | The final parameter set (v8: the v7 set + the round-5 overrides of `r5_c12_comp`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round5.py` / `bake_params.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v6 file is `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, the shipped v5 file `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
 
-Version: **SADR v7 (final, round 4)**, baked 2026-10-23 from
+Version: **SADR v8 (final, round 5)**, baked 2026-10-26 from
+`../experiments/src/policy_candidates/transfer_policy_v8.py` + `r5_c12_comp.json`
+(`../experiments/src/ship_round5.py`; the shipped v7 file is kept as
+`../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, its parameters as
+`../experiments/results/tune/best_params_v7.json`). v8 keeps every v7 rule (the v8 code with all round-5 switches
+off reproduces v7 bit for bit) and turns on two: (1) `wk_ext_lo` 6 K / `wk_ext_hi` 4 K: far from the next workday
+start (more than 22 h ahead, i.e. weekends) the setback floor drops by 6 K and the ceiling rises by 4 K, ramped back
+linearly over the 12 h that end 10 h before the start, so the Monday recovery starts from the usual floor (in a real
+building the floor, near 2 C, would conflict with frost protection); (2) `q_cap_w` 20,000 W per 100 m2 (v7: 12,000):
+the per-zone request cap no longer binds below what the box and coil deliver in deep cold.
+
+Selection (`../experiments/results/round5/PREREG.md`, `screen_summary.json`, `decision.json`,
+`confirm_r5_c12_comp.json`, `fd_seed_sensitivity.json`): 11 single changes screened at 2,880 steps on 11 held-out +
+4 public scenarios against v7; the composite of the two helpful families was confirmed at full length (8,640 steps,
+laptop): public-30 0.00777 vs 0.00786 (-1.1%, CI -2.3% to -0.2%, 17/30 wins); the shipped six under the unused
+Minneapolis station (12) -4.1% (CI -10.4% to -0.4%; 6 changed winter scenarios, all wins); public + Minneapolis -2.2%
+(CI -4.8% to -0.6%); fresh default-range buildings (20) -0.6% with a CI whose upper end is below zero only for the
+pre-registered bootstrap seed (1 of 10 seeds) -- a tie; worst single scenarios +0.5% (public) and +0.7% (FD), hot
+strips. The rule (public not worse, better on both P+M and FD) is met as written. Kaggle public: 0.01074 (v7 0.01088;
+within noise). The submitted Kaggle notebook (`kaggle/sadr-v8-smart-buildings/`) was built from
+`../experiments/results/round5/policies/v8_r5_c12_comp.py`, which differs from `transfer_policy.py` only in two
+docstring lines (`../experiments/results/round5/regress/shipped_vs_kaggle_scored.diff`); both reproduce the screened
+configuration bit for bit (`regress/xcheck_v8_baked.json`, `regress/xcheck_shipped_v8.json`).
+
+### Previous version (v7, round 4), kept for reference
+
+v7 baked 2026-10-23 from
 `../experiments/src/policy_candidates/transfer_policy_v7.py` + `r4_c14_comp_a.json`. v7 keeps every
 v6 rule (the v7 code with all round-4 switches off reproduces v6 bit for bit) and turns on five:
 (1) `disch_margin_k` 0 (v6: 1 K): flows and valves are sized for the simulator's own 308.15 K
@@ -113,6 +139,27 @@ kaggle kernels status neelsiri/sadr-v7-smart-buildings
 kaggle competitions submit neurips-2026-smart-buildings -k neelsiri/sadr-v7-smart-buildings -v <version> -f submission.parquet -m "SADR v7"
 ```
 The CLI (2.2.5) lives in `%USERPROFILE%\.kaggle-cli-venv`; credentials in `%USERPROFILE%\.kaggle\access_token`.
+
+## Round 5 (2026-10-25/26): Kaggle probes and the v8 candidate
+
+Notebooks are now built by `../experiments/src/kaggle_build.py` (it rebuilds the v7 cell above byte for byte,
+`--check-v7`): `python kaggle_build.py --source <policy.py> --slug <slug> --title "<Title>" --label "<label>"` writes
+`kaggle/<slug>/push/` (one-cell notebook + `kernel-metadata.json`, private, internet off, competition source) and
+`kaggle/<slug>/<slug>_localtest.py` (the same policy for `run_scenario.py --policy-file`). `--pid-water` builds the
+organizers' baseline. `../experiments/src/kaggle_wait_kernels.sh <version> <slug>...` waits for the interactive run and
+downloads its log; `kaggle_poll_submissions.sh <ref>...` polls the scores. Submitted (log and scores:
+`../experiments/results/kaggle_feedback.json`):
+
+| ref | kernel | policy file | public score |
+|---|---|---|---|
+| 57580485 | sadr-v7-smart-buildings v1 | v7 (shipped) | 0.01088 |
+| 57639894 | sadr-v6-smart-buildings v1 | v6 (`results/round5/policies/v6.py`) | 0.01116 |
+| 57639897 | sadr-v5-smart-buildings v1 | v5 (`results/round5/policies/v5.py`) | 0.01161 |
+| 57639900 | pid-water-baseline-smart-buildings v1 | kit `pid.py` + `pid_plus.py` | 0.06404 |
+| 57647928 | sadr-v8-smart-buildings v1 | v8 (`results/round5/policies/v8_r5_c12_comp.py`; same code as the shipped file) | 0.01074 |
+
+The v8 candidate (`../experiments/src/policy_candidates/transfer_policy_v8.py` + `r5_c12_comp.json`) met the
+pre-registered rule at full length on 2026-10-26 03:36 PDT and is shipped (see the version paragraph above).
 
 ## Paste-in instructions for the official Kaggle notebook (manual alternative)
 

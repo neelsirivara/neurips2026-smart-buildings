@@ -8,14 +8,142 @@
       "public_rank": 75,
       "teams": 315,
       "read_at": "2026-10-24T09:00Z"
+    },
+    {
+      "ref": 57639894,
+      "submitted_utc": "2026-10-25T18:40:48Z",
+      "policy": "SADR v6 (results/round5/policies/v6.py = round-3 shipped file), kernel neelsiri/sadr-v6-smart-buildings v1",
+      "purpose": "probe: v6 vs v7 (round-4 switches on the hidden set)",
+      "kaggle_interactive_atlanta_2_total": -34.27862905001348,
+      "local_atlanta_2_total": -34.27432735858565,
+      "public_score": 0.01116,
+      "submitted_utc_day": "2026-10-25",
+      "push": "experiments/src/kaggle_build.py (one-cell notebook, private, internet off, competition source; builder reproduces the v7 cell byte for byte)",
+      "read_at": "2026-10-26T01:20Z"
+    },
+    {
+      "ref": 57639897,
+      "submitted_utc": "2026-10-25T18:40:52Z",
+      "policy": "SADR v5 (results/round5/policies/v5.py = round-2 shipped file), kernel neelsiri/sadr-v5-smart-buildings v1",
+      "purpose": "probe: building-size sensitivity (local v5/v7: public 1.058, default-size held-out 1.169)",
+      "kaggle_interactive_atlanta_2_total": -35.4723589197074,
+      "local_atlanta_2_total": -35.467502814977706,
+      "public_score": 0.01161,
+      "submitted_utc_day": "2026-10-25",
+      "push": "experiments/src/kaggle_build.py (one-cell notebook, private, internet off, competition source; builder reproduces the v7 cell byte for byte)",
+      "read_at": "2026-10-26T00:44Z"
+    },
+    {
+      "ref": 57639900,
+      "submitted_utc": "2026-10-25T18:40:56Z",
+      "policy": "organizers' pid_water baseline (kit pid.py + pid_plus.py inlined), kernel neelsiri/pid-water-baseline-smart-buildings v1",
+      "purpose": "calibration probe: v7/pid_water ratio on the hidden set (local public 0.143, default-size held-out 0.230)",
+      "kaggle_interactive_atlanta_2_total": -215.2204509578005,
+      "local_atlanta_2_total": -215.19452624910627,
+      "public_score": 0.06404,
+      "submitted_utc_day": "2026-10-25",
+      "push": "experiments/src/kaggle_build.py (one-cell notebook, private, internet off, competition source; builder reproduces the v7 cell byte for byte)",
+      "read_at": "2026-10-26T00:44Z"
+    },
+    {
+      "ref": 57647928,
+      "submitted_utc": "2026-10-26T00:44:22Z",
+      "submitted_utc_day": "2026-10-26",
+      "policy": "SADR v8 candidate r5_c12_comp (results/round5/policies/v8_r5_c12_comp.py = transfer_policy_v8.py + r5_c12_comp.json baked), kernel neelsiri/sadr-v8-smart-buildings v1",
+      "purpose": "round-5 chosen candidate C* (screened: held-11 -8.8%, public-4 -2.3% vs v7); submitted before its full-length confirmation",
+      "kaggle_interactive_atlanta_2_total": -33.894203934423786,
+      "local_atlanta_2_total": -33.88997932484017,
+      "public_score": 0.01074,
+      "push": "experiments/src/kaggle_build.py",
+      "read_at": "2026-10-26T07:07Z"
     }
   ],
-  "leaderboard_at_read": {"#1": 0.00572, "#8": 0.00624, "#10": 0.00648, "#20": 0.00775, "#30": 0.00971, "#50": 0.01040},
-  "local_proxies_v7": {"public_30": 0.00786, "fresh_shipped_size_20": 0.00725, "untouched_heldout_74": 0.00971, "old_heldout_40_default_size": 0.01173},
+  "scores_by_policy": {
+    "v7": 0.01088,
+    "v6": 0.01116,
+    "v5": 0.01161,
+    "pid_water": 0.06404,
+    "v8_r5_c12_comp": 0.01074
+  },
+  "leaderboard_at_read": {
+    "#1": 0.00572,
+    "#8": 0.00624,
+    "#10": 0.00648,
+    "#20": 0.00775,
+    "#30": 0.00971,
+    "#50": 0.0104
+  },
+  "local_proxies_v7": {
+    "public_30": 0.00786,
+    "fresh_shipped_size_20": 0.00725,
+    "untouched_heldout_74": 0.00971,
+    "old_heldout_40_default_size": 0.01173
+  },
   "kaggle_run_check": "Kaggle's interactive run of building_train_1/atlanta_2 gave total -33.8546 vs local -33.8504 (0.01%), so the wiring is not the cause",
+  "third_party_calibration": {
+    "source": "public notebook malyshevdanil/smart-buildings-probe-zt-best (downloaded 2026-10-24, _downloads/kaggle_sb_public)",
+    "note": "local public-30 means computed from the notebook's own per-scenario tables (pre-PR #1 tracker); Kaggle public scores from its version table",
+    "rows": [
+      {
+        "controller": "transfer baseline (organizers' PIDWaterResetPolicy; = their 'v3' only if that row is the baseline)",
+        "local_public30": 0.05493,
+        "kaggle_public": 0.06439,
+        "ratio": 1.172
+      },
+      {
+        "controller": "min_on_cool_6 (their v4)",
+        "local_public30": 0.04703,
+        "kaggle_public": 0.05882,
+        "ratio": 1.251
+      },
+      {
+        "controller": "min_on_cool_288 (their v5)",
+        "local_public30": 0.03791,
+        "kaggle_public": 0.05195,
+        "ratio": 1.37
+      }
+    ]
+  },
   "notes": [
     "Public LB uses ~33% of the 30 hidden scenarios (about 10), so it is noisy.",
     "0.01088 is worse than the public-30 and shipped-size proxies but inside the range of our default-size held-out sets (0.0097-0.0117): the hidden buildings may be larger than the shipped six and/or the hidden weather colder (the unused Minneapolis station).",
-    "Per NEXT_ROUND_PLAN.md (score > 0.0090): robustness round when the Mac returns."
-  ]
+    "Per NEXT_ROUND_PLAN.md (score > 0.0090): robustness round when the Mac returns.",
+    "Round 5 (2026-10-25/26): probes v6/v5/pid_water and the v8 candidate scored; the hidden buildings behave like the shipped six (v5/v7 1.067 vs public 1.058, default-size 1.169) and the gap is weather (pid_water/v7 5.89 vs public 7.00, Minneapolis 4.30, public+Minneapolis 6.02); v8 (0.01074) shipped after meeting the pre-registered rule (results/round5/)."
+  ],
+  "daily_count_utc": {
+    "2026-10-24": 1,
+    "2026-10-25": 3,
+    "2026-10-26": 1
+  },
+  "submission_rule": "at most 4 per UTC day (Kaggle allows 5; keep 1 spare)",
+  "leaderboard_2026-10-25T2040Z": {
+    "teams": 347,
+    "better_than_v7": 85,
+    "equal_to_v7_incl_ours": 2,
+    "#1": 0.00521,
+    "#8": 0.00603,
+    "#10": 0.00611,
+    "#20": 0.0072,
+    "#30": 0.00895,
+    "#50": 0.01023,
+    "#100": 0.01143,
+    "median": 0.0142,
+    "source": "kaggle competitions leaderboard -s --page-size 200 (two pages), results/round5/leaderboard/lb_page{1,2}_2026-10-25T2040Z.csv"
+  },
+  "probe_readings": {
+    "v6_vs_v7": "K(v6)-K(v7)=+0.00028 (<0.0005): no detectable effect of the round-4 switches on the public split; direction agrees with every local set (v6/v7 1.026 Kaggle vs 1.022 public, 1.029 old held-out)",
+    "v5_vs_v6": "K(v5)-K(v6)=+0.00045 (<0.0008, <0.0005): consistent with shipped-range (not default-range) hidden buildings; v5/v7 1.067 vs public 1.058 and default-size held-out 1.169",
+    "pid_water": "K(v7)/K(pid)=0.170 (pid/v7 5.89): between public (7.00, ratio 0.143) and Minneapolis (4.30) / default-size held-out (4.35); public+Minneapolis 6.02",
+    "v8_vs_v7": "K(v8 candidate)-K(v7)=-0.00014 (-1.3%; below 0.0005): no detectable difference on the ten-scenario public split; direction agrees with the local confirmation (public-30 -1.1%, P+M -2.2%)"
+  },
+  "leaderboard_2026-10-26T0710Z": {
+    "teams": 358,
+    "better_than_best_own_0.01074": 82,
+    "rank_of_best_own": 83,
+    "#1": 0.00521,
+    "#8": 0.00603,
+    "#20": 0.00696,
+    "median": 0.0142,
+    "source": "kaggle competitions leaderboard -s --page-size 200 (two pages), results/round5/leaderboard/lb_page{1,2}_2026-10-26T0710Z.csv"
+  }
 }
