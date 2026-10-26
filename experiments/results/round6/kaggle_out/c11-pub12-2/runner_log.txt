@@ -1,0 +1,16 @@
+[    23.7s] env: {'python': '3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.103', 'mem_total_gb': 33.658155008, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 7, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'c11-pub12-2', 'pushed_utc': '2026-10-26T14:42:24Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v9_screen2_054cad0ab2.py': '054cad0ab2a1961c6b7dd36f5aca1572'}}
+[    23.7s] start r6_c11_boost8cold/pub30/building_train_2/denver_8 (1 running, 6 pending)
+[    23.7s] start r6_c11_boost8cold/pub30/building_train_1/denver_7 (2 running, 5 pending)
+[    23.7s] start r6_c11_boost8cold/pub30/building_train_1/atlanta_2 (3 running, 4 pending)
+[    23.7s] start r6_c11_boost8cold/pub30/building_train_5/fairbanks_5 (4 running, 3 pending)
+[  1548.8s] done r6_c11_boost8cold/pub30/building_train_1/denver_7 rc=0 -24.948870131006515 (1 done)
+[  1548.8s] start r6_c11_boost8cold/pub30/building_train_7/fairbanks_7 (4 running, 2 pending)
+[  1553.8s] done r6_c11_boost8cold/pub30/building_train_1/atlanta_2 rc=0 -33.87451276006141 (2 done)
+[  1553.8s] start r6_c11_boost8cold/pub30/building_train_7/singapore_6 (4 running, 1 pending)
+[  2078.8s] done r6_c11_boost8cold/pub30/building_train_5/fairbanks_5 rc=0 -19.77017690427465 (3 done)
+[  2078.8s] start r6_c11_boost8cold/pub30/building_train_8/atlanta_1 (4 running, 0 pending)
+[  2448.9s] done r6_c11_boost8cold/pub30/building_train_7/singapore_6 rc=0 -50.65155220299721 (4 done)
+[  2453.9s] done r6_c11_boost8cold/pub30/building_train_7/fairbanks_7 rc=0 -74.57043996443099 (5 done)
+[  2583.9s] done r6_c11_boost8cold/pub30/building_train_2/denver_8 rc=0 -42.540017225594056 (6 done)
+[  2713.9s] done r6_c11_boost8cold/pub30/building_train_8/atlanta_1 rc=0 -47.53254208082217 (7 done)
+[  2713.9s] all done: 7 jobs in 2714s

@@ -1,0 +1,25 @@
+Topic #752324: Code and results: tuning the public K07 controller's constants on generated buildings, tested on held-out weather
+  Author: Alejandro Pacheco Bobillo
+  Posted: 2026-10-24 12:32:18.248000
+  Votes: 0  Comments: 0
+
+We have published the code and results behind our paper-track submission, "One Set of Constants for Unseen Buildings: Distribution Tuning of Rule-Based HVAC Controllers", as a public dataset:
+
+https://www.kaggle.com/datasets/alepacheco/smart-buildings-distribution-tuning
+
+What it holds:
+
+
+
+15 constants of the public probe DS K07 notebook's controller (https://www.kaggle.com/code/malyshevdanil/smart-buildings-probe-ds-k07, Apache 2.0, credited in the code), tuned by CMA-ES over buildings from the starter kit's own generator under 2023 NOAA weather from twelve airports. No shipped scenario is used for tuning.
+
+An evaluation over full 30-day episodes on new buildings under five held-out US weather stations, in both of the building-size ranges the kit's documents allow, and on the 30 shipped scenarios: the tuned constants lower the loss on all 18 buildings, by 13.5% and 16.9% on the two sets of new buildings. On the public leaderboard they score 0.01500 against 0.01788 for the published constants run through the same notebook (16.1% lower).
+
+The scripts that generate the held-out buildings and weather, the tuner, per-episode summaries and scores of every evaluation, the notebook writer and the paper's LaTeX source. README.md lists every command; NUMBERS.md maps each number in the paper to the file and the command it comes from.
+
+
+If you reuse the constants: setting the tuned damper floor of zero back to its published value gives back about a tenth of the gain on our validation windows (the zero floor opens zone dampers less at partial demand; the simulator still keeps every damper at least 10% open), and the cold supply-air setpoint sits at the bottom of its range (285 K).
+
+The code is under the Apache License 2.0. Questions and corrections are welcome here.
+
+No comments

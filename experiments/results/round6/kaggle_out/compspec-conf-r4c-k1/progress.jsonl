@@ -1,0 +1,3 @@
+{"id": "r6_compspec/r4c/building_0604/denver_3", "rc": 0, "wall_s": 3015.2, "ok": true, "total_reward": -40.13744732227042, "steps": 8640, "sec_per_step": 0.3415006751815478}
+{"id": "r6_compspec/r4c/building_0607/phoenix_8", "rc": 0, "wall_s": 3045.2, "ok": true, "total_reward": -27.266636860133985, "steps": 8640, "sec_per_step": 0.34527513522792747}
+{"id": "r6_compspec/r4c/building_0607/singapore_2", "rc": 0, "wall_s": 3075.2, "ok": true, "total_reward": -78.10842312779619, "steps": 8640, "sec_per_step": 0.3484785495256936}

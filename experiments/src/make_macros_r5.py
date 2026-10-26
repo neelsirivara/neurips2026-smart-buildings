@@ -371,12 +371,12 @@ def write_round5_kaggle_table():
     def cell(x, nd):
         return "--" if x is None else f"{x:.{nd}f}"
 
-    L = ["\\begin{table}[t]\n\\caption{Which local set predicts Kaggle? Leaderboard metric of v7 and the ratio of each "
+    L = ["\\begin{table}[h]\n\\caption{Round 5: which local set predicts Kaggle? Leaderboard metric of v7 and the ratio of each "
          "other policy to v7 on the same scenarios (paired), against the Kaggle public scores of the same four policy "
          "files. $E$ = mean over the policies with a Kaggle score of $|\\ln r_{\\text{set}} - \\ln r_{\\text{Kaggle}}|$ "
          "(pre-registered shape error; smaller matches better). Kaggle runs the identical files: its interactive run of "
          "\\texttt{building\\_train\\_1/atlanta\\_2} matches the local total within 0.02\\% for all four.}\n"
-         "\\label{tab:kaggle}\n\\centering\\scriptsize\n\\setlength{\\tabcolsep}{3.5pt}\n"
+         "\\label{tab:kaggle_r5}\n\\centering\\scriptsize\n\\setlength{\\tabcolsep}{3.5pt}\n"
          "\\begin{tabular}{lrrrrrr}\n\\toprule\n"
          "set & v7 & v7 / Kaggle & v6 / v7 & v5 / v7 & \\texttt{pid\\_water} / v7 & $E$ \\\\\n\\midrule\n"]
     for label, key in rows:

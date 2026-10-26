@@ -1,4 +1,18 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v8, final; round 5, r5_c12_comp).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v9, final; round 6, r6_comp).
+
+v9 turns on the overrides of r6_comp in DEFAULT_PARAMS (sb_boost 1, sb_boost_h 8, sb_boost_cold 1, sb_boost_floor_k 2, margin_pre 0.5, night_low_ext 10). The round-6 switches (all off reproduces v8 bit for bit): ``frost_floor_k`` (absolute lower bound
+of the setback floor, a frost-protection variant), ``sb_boost`` / ``sb_boost_h`` / ``sb_boost_gap`` (in heating
+season, the forced minimum flow of a set-back zone on a running handler within ``sb_boost_h`` hours of a workday
+start is reheated to the discharge limit instead of to the zone temperature: the outside-air share of that flow is
+paid anyway, so the extra heat costs 1 J of gas per J, against about 1.9 J per J in the zone's own ventilated
+recovery), ``sb_sync_k`` (a set-back zone within ``sb_sync_k`` of its floor joins a heating burst already running
+on its handler, so the handler's zones share run time instead of each starting it), ``rate_oat_slope`` (optimum
+start: the learned recovery rate is shifted by slope x (today's lift - the lift it was learned at), lift = target -
+outside air), ``margin_occ_heat`` (occupied heating margin used while the outside air is below
+``margin_occ_heat_oat``), ``sb_boost_floor_k`` (the same boost, at any time, for a set-back zone within this many K
+of its setback floor: it would need a burst of its own soon).
+
+v8 (round 5, r5_c12_comp):
 
 v8 turns on the overrides of r5_c12_comp in DEFAULT_PARAMS (wk_ext_lo 6, wk_ext_hi 4, q_cap_w 20000); the round-5 switches (with them off the code reproduces v7 bit for bit) are:
 ``mon_lead_mult`` / ``mon_lead_max_h`` / ``mon_no_learn`` (longer optimum-start lead into a workday that follows a
@@ -137,8 +151,8 @@ F_MIN = DAMPER_FLOOR * F_FLOOR100               # flow fraction, 10% damper at f
 DEFAULT_PARAMS: dict[str, float] = {
     # --- band handling (K) ---
     "margin_occ": 0.3,        # inside the sensor band at which control starts (occupied)
-    "margin_pre": 0.8,        # same, while preconditioning (target comfort band)
-    "night_low_ext": 8.0,     # drift allowed below the eco heating setpoint while set back
+    "margin_pre": 0.5,        # same, while preconditioning (target comfort band)
+    "night_low_ext": 10.0,     # drift allowed below the eco heating setpoint while set back
     "night_high_ext": 6.0,    # drift allowed above the eco cooling setpoint while set back
     "sb_hyst_k": 1.0,         # setback burst: heat/cool a zone from the floor until this far inside
     "q_sb_w": 4000.0,         # net heat (W) requested per 100 m2 zone during a setback burst
@@ -216,6 +230,18 @@ DEFAULT_PARAMS: dict[str, float] = {
     "f_cap_pre_c": -1.0,      # >= 0: separate request flow-fraction cap for cooling while preconditioning
     "pre_burst_h": 0.0,       # 1 = a preconditioning zone more than pre_burst_e0 below target requests its full cap
     "pre_burst_e0": 0.3,
+    # --- round-6 candidate switches (defaults = v8) ---
+    "frost_floor_k": 0.0,     # > 0: the setback floor never goes below this temperature (K)
+    "sb_boost": 1.0,          # 1 = reheat set-back zones' forced air to the discharge limit before a workday
+    "sb_boost_h": 8.0,        # ... within this many hours of the workday start
+    "sb_boost_gap": 0.5,      # ... while the zone is at least this far below its preconditioning target (K)
+    "sb_boost_cold": 1.0,     # 1 = boost only while the outside air is at or below the zone's setback floor
+    "sb_sync_k": 0.0,         # > 0: set-back zones this close to their floor join a heating burst on their handler
+    "sb_boost_floor_k": 2.0,  # > 0: in heating season, a set-back zone on a running handler within this many K of
+                              #      its floor gets its forced air reheated to the discharge limit (any time)
+    "rate_oat_slope": 0.0,    # K/h of recovery rate per K of lift (target - outside air) vs the learned lift
+    "margin_occ_heat": -1.0,  # >= 0: occupied heating margin while the outside air is below margin_occ_heat_oat
+    "margin_occ_heat_oat": 273.15,
 }
 
 
@@ -489,6 +515,9 @@ class TransferPolicy:
         self.zpre_kind = np.zeros(Vn, dtype=int)
         self.zpre_reached = np.full(Vn, -1, dtype=int)
         self.pre_latch = np.zeros(Vn, dtype=bool)   # zone stays in PRECONDITION until comfort hours
+        self.lift_h_z = np.full(Vn, np.nan)          # round 6: lift (target - outside air) the heating rate was learned at
+        self.lift_c_z = np.full(Vn, np.nan)
+        self.zpre_lift0 = np.zeros(Vn)
         self._lead_dbg = -1.0
 
     @staticmethod
@@ -609,6 +638,19 @@ class TransferPolicy:
             def_h_z = def_c_z = np.zeros(0)
             deficit_h = deficit_c = 0.0
         prev_zone_mode = self.zone_mode
+        # round 6: recovery rates shifted by how much harder today's lift is than the one they were learned at
+        rate_h_eff, rate_c_eff = self.rate_h_z, self.rate_c_z
+        slope = float(p.get("rate_oat_slope", 0.0))
+        lift_h_now = lift_c_now = None
+        if V:
+            oat_zone = oat_f[self.z_a]
+            lift_h_now = lo_pre - oat_zone
+            lift_c_now = oat_zone - hi_pre
+            if slope != 0.0:
+                dh = np.where(np.isfinite(self.lift_h_z), lift_h_now - self.lift_h_z, 0.0)
+                dc = np.where(np.isfinite(self.lift_c_z), lift_c_now - self.lift_c_z, 0.0)
+                rate_h_eff = np.clip(self.rate_h_z - slope * dh, p["rate_min_kph"], p["rate_max_kph"])
+                rate_c_eff = np.clip(self.rate_c_z - slope * dc, p["rate_min_kph"], p["rate_max_kph"])
         workday_ahead = False
         hours_to_start = 24.0
         hours_to_workday = 24.0
@@ -637,8 +679,8 @@ class TransferPolicy:
                 self.after_off = (dn - 1) % 7 >= 5
             if per_zone_start:
                 lead_z = p["lead_base_h"] + np.maximum(
-                    def_h_z / np.maximum(self.rate_h_z / safety, 1e-3),
-                    def_c_z / np.maximum(self.rate_c_z / safety, 1e-3))
+                    def_h_z / np.maximum(rate_h_eff / safety, 1e-3),
+                    def_c_z / np.maximum(rate_c_eff / safety, 1e-3))
                 lead_z = np.clip(lead_z, p["lead_min_h"], p["lead_max_h"])
                 m_lead = float(p.get("mon_lead_mult", 1.0))
                 if m_lead != 1.0 and self.after_off:
@@ -682,6 +724,8 @@ class TransferPolicy:
                 self.zpre_def0[start] = np.maximum(def_h_z, def_c_z)[start]
                 self.zpre_kind[start] = np.where(def_h_z >= def_c_z, 1, -1)[start]
                 self.zpre_reached[start] = -1
+                if lift_h_now is not None:
+                    self.zpre_lift0[start] = np.where(self.zpre_kind > 0, lift_h_now, lift_c_now)[start]
             act = self.zpre_active
             if act.any():
                 cur = np.where(self.zpre_kind > 0, def_h_z, def_c_z)
@@ -703,6 +747,13 @@ class TransferPolicy:
                     upd_c = good & (self.zpre_kind < 0)
                     self.rate_h_z = np.where(upd_h, (1 - a) * self.rate_h_z + a * r_obs, self.rate_h_z)
                     self.rate_c_z = np.where(upd_c, (1 - a) * self.rate_c_z + a * r_obs, self.rate_c_z)
+                    # round 6: remember the lift the rates were learned at (EMA with the same weight)
+                    self.lift_h_z = np.where(upd_h, np.where(np.isfinite(self.lift_h_z),
+                                                             (1 - a) * self.lift_h_z + a * self.zpre_lift0,
+                                                             self.zpre_lift0), self.lift_h_z)
+                    self.lift_c_z = np.where(upd_c, np.where(np.isfinite(self.lift_c_z),
+                                                             (1 - a) * self.lift_c_z + a * self.zpre_lift0,
+                                                             self.zpre_lift0), self.lift_c_z)
                     # did not recover at all before comfort hours: assume a much slower zone
                     fail = valid & ~good & (zone_mode == self.OCCUPIED)
                     self.rate_h_z = np.where(fail & (self.zpre_kind > 0),
@@ -752,8 +803,8 @@ class TransferPolicy:
             ceil_z = np.full(V, self.eco_hi + p["night_high_ext"])
             if per_zone_start and float(p.get("adaptive_floor", 1.0)) > 0.5:
                 recover_h = max(p["lead_max_h"] - p["lead_base_h"], 0.5)
-                floor_z = np.maximum(floor_z, lo_pre - (self.rate_h_z / safety) * recover_h)
-                ceil_z = np.minimum(ceil_z, hi_pre + (self.rate_c_z / safety) * recover_h)
+                floor_z = np.maximum(floor_z, lo_pre - (rate_h_eff / safety) * recover_h)
+                ceil_z = np.minimum(ceil_z, hi_pre + (rate_c_eff / safety) * recover_h)
             wk_lo, wk_hi = float(p.get("wk_ext_lo", 0.0)), float(p.get("wk_ext_hi", 0.0))
             if (wk_lo > 0.0 or wk_hi > 0.0) and not now:
                 # round 5: far from the next workday start (weekends) the setback band widens; the extra
@@ -762,7 +813,15 @@ class TransferPolicy:
                                / max(float(p.get("wk_ramp_h", 12.0)), 1e-3), 0.0, 1.0)
                 floor_z = floor_z - wk_lo * ramp
                 ceil_z = ceil_z + wk_hi * ramp
-            lo = np.where(is_occ, lo_s + p["margin_occ"], np.where(is_pre, lo_pre, floor_z))
+            frost = float(p.get("frost_floor_k", 0.0))
+            if frost > 0.0:
+                # round 6: frost protection (sensible practice; the simulator does not charge for cold zones)
+                floor_z = np.maximum(floor_z, frost)
+            m_occ_h = p["margin_occ"]
+            if float(p.get("margin_occ_heat", -1.0)) >= 0.0:
+                cold = np.isfinite(oat[self.z_a]) & (oat[self.z_a] < float(p.get("margin_occ_heat_oat", 273.15)))
+                m_occ_h = np.where(cold, float(p["margin_occ_heat"]), p["margin_occ"])
+            lo = np.where(is_occ, lo_s + m_occ_h, np.where(is_pre, lo_pre, floor_z))
             hi = np.where(is_occ, hi_s - p["margin_occ"], np.where(is_pre, hi_pre, ceil_z))
             mid = 0.5 * (lo + hi)
             lo = np.minimum(lo, mid - 0.1)
@@ -846,6 +905,14 @@ class TransferPolicy:
             hyst = max(p["sb_hyst_k"], 0.1)
             self.sb_latch_h = is_sb & (self.sb_latch_h | (e_h > 0.0)) & (e_h > -hyst)
             self.sb_latch_c = is_sb & (self.sb_latch_c | (e_c > 0.0)) & (e_c > -hyst)
+            sync = float(p.get("sb_sync_k", 0.0))
+            if sync > 0.0:
+                # round 6: a set-back zone close to its floor joins a heating burst on its handler (the handler
+                # and the ventilation of all its zones are paid for that burst anyway)
+                burst_ahu = np.zeros(K, dtype=bool)
+                np.logical_or.at(burst_ahu, self.z_a, self.sb_latch_h & ~self.sb_latch_c)
+                join = is_sb & burst_ahu[self.z_a] & (e_h > -min(sync, hyst)) & ~self.sb_latch_c
+                self.sb_latch_h = self.sb_latch_h | join
             q_sb_h = np.minimum(max(p["q_sb_w"], 100.0) * self.scale[:V], q_cap_h)
             q_sb_c = np.minimum(max(p["q_sb_w"], 100.0) * self.scale[:V], q_cap_c)
             heat_sb = self.sb_latch_h & ~self.sb_latch_c
@@ -990,9 +1057,23 @@ class TransferPolicy:
                     # only when the outside air is below the zone's setback floor, i.e. the zone will
                     # certainly need heat before the workday (in mild weather it warms by itself)
                     neutral &= np.isfinite(oat[self.z_a]) & (oat[self.z_a] <= floor_z)
+            boost = np.zeros(V, dtype=bool)
+            if (float(p.get("sb_boost", 0.0)) > 0.5 and neutral.any() and not now and workday_ahead
+                    and hours_to_start <= float(p.get("sb_boost_h", 8.0))):
+                boost = neutral & (T < lo_pre - float(p.get("sb_boost_gap", 0.5)))
+                if float(p.get("sb_boost_cold", 0.0)) > 0.5:
+                    # round 6 (added after c01's first screen shard): in mild weather a set-back zone may not
+                    # need much recovery heat, and heat stored early leaks before 06:00
+                    boost &= np.isfinite(oat[self.z_a]) & (oat[self.z_a] <= floor_z)
+            bfk = float(p.get("sb_boost_floor_k", 0.0))
+            if bfk > 0.0 and neutral.any():
+                # round 6: a zone near its setback floor will need a burst soon; heat it now through the forced
+                # air that this handler run already ventilates it with (1 J of gas per J delivered)
+                boost = boost | (neutral & (T < floor_z + bfk))
             if any_heat_now or neutral.any():
                 t_disch = np.clip(T + q_h / np.maximum(F_act, 1.0), t_sa_z, t_disch_max)
                 t_disch = np.where(neutral, np.minimum(T, t_disch_max), t_disch)
+                t_disch = np.where(boost, t_disch_max, t_disch)
                 gap = np.maximum(tw_obs - t_sa_z, 1.0)
                 w_need = np.where((heat_zone | neutral) & zone_on,
                                   F_act * np.clip((t_disch - t_sa_z) / gap, 0.0, 1.0), 0.0)

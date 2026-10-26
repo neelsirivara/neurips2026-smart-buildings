@@ -1,0 +1,19 @@
+Topic #752678: Clarification request: occupancy RNG seed in the held-out scenarios
+  Author: Elias T.-H. Shieh
+  Posted: 2026-10-25 22:18:37.565000
+  Votes: 4  Comments: 0
+
+The occupancy model (RandomizedArrivalDepartureOccupancy) uses a fixed default seed (17321), and none of the shipped configs override it. A policy could therefore replay the public occupancy model and know in advance when each zone is occupied, even though only building-level occupancy is observed.
+
+Two questions for the hosts:
+
+
+
+Do the held-out scenarios use the same default occupancy seed as the shipped ones?
+
+Is replaying the public occupancy model inside a policy (to predict per-zone arrivals) allowed, or would it count as using held-out configuration?
+
+
+We have not used this in any submission and would like to know the intended rule before the final re-run.
+
+No comments

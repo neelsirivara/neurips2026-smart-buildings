@@ -1,0 +1,93 @@
+[
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_2/denver_8",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_2",
+  "weather": "denver_8",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_1/denver_7",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_1",
+  "weather": "denver_7",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_1/atlanta_2",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_1",
+  "weather": "atlanta_2",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_5/fairbanks_5",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_5",
+  "weather": "fairbanks_5",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_7/fairbanks_7",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_7",
+  "weather": "fairbanks_7",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_7/singapore_6",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_7",
+  "weather": "singapore_6",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_c11_boost8cold/pub30/building_train_8/atlanta_1",
+  "tag": "r6_c11_boost8cold/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_8",
+  "weather": "atlanta_1",
+  "steps": 8640,
+  "params": "{\"sb_boost\": 1.0, \"sb_boost_h\": 8.0, \"sb_boost_cold\": 1.0}\n",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ }
+]

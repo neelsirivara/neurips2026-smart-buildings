@@ -82,6 +82,15 @@ if [ ! -f "$R/round5/loss_decomposition_r5m_v7.json" ]; then
   "$PY" decompose_loss.py --dirs $R/round5/full/v7/r5m $R/round5/full/v7diag/r5m --policy transfer \
       --out "$R/round5/loss_decomposition_r5m_v7.json" --label r5m_v7 > /dev/null 2>&1 || true
 fi
+echo "== round 6: Kaggle/Mac reproduction, harsh sets vs Kaggle, screen summary, confirmation (decision.json is a record, not re-run)"
+"$PY" compare_r6.py repro > ../results/round6/repro.txt 2>&1 || true
+"$PY" compare_r6.py match > ../results/round6/set_match.txt 2>&1 || true
+"$PY" compare_r6.py screen --all > ../results/round6/screen_ranking.txt 2>&1 || true
+R6CAND=$("$PY" -c "import json; print(json.load(open('../results/round6/decision.json')).get('chosen') or '')" 2>/dev/null || true)
+if [ -n "$R6CAND" ]; then
+  "$PY" compare_r6.py confirm --cand "$R6CAND" > ../results/round6/confirm_ranking.txt 2>&1 || true
+  tail -n 1 ../results/round6/confirm_ranking.txt
+fi
 echo "== macros + figures"
 "$PY" make_macros.py
 "$PY" make_audit.py

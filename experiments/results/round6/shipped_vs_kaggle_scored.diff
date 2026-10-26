@@ -1,0 +1,8 @@
+1c1
+< """SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v9 candidate r6_comp baked, round 6).
+---
+> """SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v9, final; round 6, r6_comp).
+3c3
+< Round-6 switches (all off by default, which reproduces v8 bit for bit): ``frost_floor_k`` (absolute lower bound
+---
+> v9 turns on the overrides of r6_comp in DEFAULT_PARAMS (sb_boost 1, sb_boost_h 8, sb_boost_cold 1, sb_boost_floor_k 2, margin_pre 0.5, night_low_ext 10). The round-6 switches (all off reproduces v8 bit for bit): ``frost_floor_k`` (absolute lower bound

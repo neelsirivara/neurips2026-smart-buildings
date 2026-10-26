@@ -1,0 +1,3 @@
+{"id": "r6_compspec/r4c/building_0610/atlanta_7", "rc": 0, "wall_s": 1911.3, "ok": true, "total_reward": -70.0017885743473, "steps": 8640, "sec_per_step": 0.21924174201709254}
+{"id": "r6_compspec/r4c/building_0610/phoenix_1", "rc": 0, "wall_s": 1911.2, "ok": true, "total_reward": -48.094950099235575, "steps": 8640, "sec_per_step": 0.21866127812752018}
+{"id": "r6_compspec/r4c/building_0610/fairbanks_3", "rc": 0, "wall_s": 1991.5, "ok": true, "total_reward": -78.10697176110625, "steps": 8640, "sec_per_step": 0.22802357279040195}

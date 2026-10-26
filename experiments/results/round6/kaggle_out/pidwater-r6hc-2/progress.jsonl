@@ -1,0 +1,12 @@
+{"id": "pid_water/r6hc/building_train_1/minneapolis_6", "rc": 0, "wall_s": 1290.1, "ok": true, "total_reward": -181.44380322751294, "steps": 8640, "sec_per_step": 0.14553846162226464}
+{"id": "pid_water/r6hc/building_train_1/fairbanks_8", "rc": 0, "wall_s": 1295.1, "ok": true, "total_reward": -730.688210237673, "steps": 8640, "sec_per_step": 0.14633959266874524}
+{"id": "pid_water/r6hc/building_train_2/fairbanks_1", "rc": 0, "wall_s": 2400.1, "ok": true, "total_reward": -1381.742861532326, "steps": 8640, "sec_per_step": 0.2734848047848101}
+{"id": "pid_water/r6hc/building_train_2/minneapolis_5", "rc": 0, "wall_s": 2420.1, "ok": true, "total_reward": -171.24349401315885, "steps": 8640, "sec_per_step": 0.27575200923063137}
+{"id": "pid_water/r6hc/building_train_4/minneapolis_6", "rc": 0, "wall_s": 1790.1, "ok": true, "total_reward": -189.78231470939863, "steps": 8640, "sec_per_step": 0.2040633384000372}
+{"id": "pid_water/r6hc/building_train_4/fairbanks_2", "rc": 0, "wall_s": 1800.1, "ok": true, "total_reward": -569.3797872581872, "steps": 8640, "sec_per_step": 0.20520565360784532}
+{"id": "pid_water/r6hc/building_train_7/fairbanks_2", "rc": 0, "wall_s": 905.0, "ok": true, "total_reward": -820.571780090213, "steps": 8640, "sec_per_step": 0.1025907482262011}
+{"id": "pid_water/r6hc/building_train_7/minneapolis_6", "rc": 0, "wall_s": 900.0, "ok": true, "total_reward": -154.04758034719907, "steps": 8640, "sec_per_step": 0.10235378869153836}
+{"id": "pid_water/r6hc/building_train_5/fairbanks_8", "rc": 0, "wall_s": 1875.1, "ok": true, "total_reward": -779.1987971421449, "steps": 8640, "sec_per_step": 0.2140150942184307}
+{"id": "pid_water/r6hc/building_train_5/minneapolis_5", "rc": 0, "wall_s": 1880.1, "ok": true, "total_reward": -175.86070896145634, "steps": 8640, "sec_per_step": 0.2144496815348113}
+{"id": "pid_water/r6hc/building_train_8/fairbanks_1", "rc": 0, "wall_s": 635.0, "ok": true, "total_reward": -1669.2099278478781, "steps": 8640, "sec_per_step": 0.07148672218124072}
+{"id": "pid_water/r6hc/building_train_8/minneapolis_5", "rc": 0, "wall_s": 635.0, "ok": true, "total_reward": -167.9909467071543, "steps": 8640, "sec_per_step": 0.07147669403089417}

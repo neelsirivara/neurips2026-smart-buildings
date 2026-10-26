@@ -1,0 +1,22 @@
+Topic #749531: Energy-accounting issue in the boiler / hot-water tank model (reported to the hosts)
+  Author: Seong-Min Park
+  Posted: 2026-10-15 08:59:59.974000
+  Votes: 18  Comments: 4
+
+Hi hosts
+
+While checking our controller's energy balance, we found a case where the boiler's billed gas and the  heat the reheat coils receive do not match. A policy could use it to obtain heating that is not billed.  That would make some leaderboard scores reflect the accounting rather than control quality.
+
+We have sent the details through the Kaggle contact form instead of posting them here. Could you confirm you received them, and let participants know whether the simulator will be patched before the final re-run?
+
+Comments:
+├─ Kozzen (2026-10-23 06:53:25.843000) [+1]
+│  A violation of the first law of thermodynamics!
+  ├─ Kozzen (2026-10-23 15:39:34.397000) [+0]
+  │  We opened a PR with a fix: github.com/smart-buildings-2026/starter-kit/pull/2
+├─ Vlas Veles (2026-10-19 18:29:15.580000) [+2]
+│  @ayushrai1114  Could you give an official ruling here: will the boiler accounting be patched before the private re-run, and if not, are submissions relying on unbilled heating valid? Thanks!
+├─ Ankiy (2026-10-18 05:28:37.547000) [+4]
+│  Hi hosts, following up on this report.
+│  
+│  Will the boiler / hot-water tank accounting be patched before the final private re-run? If so, could you say roughly when, and whether the public leaderboard...

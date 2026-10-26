@@ -1,0 +1,29 @@
+{
+ "pid_water/r6hc/building_train_8/denver_1": {
+  "mac_total": -482.9271288561831,
+  "ref_total": -482.9271288561831,
+  "ref_machine": "kaggle",
+  "rel_diff": 0.0,
+  "identical": true,
+  "mac_sec_per_step": 0.0295147393864614,
+  "ref_sec_per_step": 0.06443324089050292
+ },
+ "r6_c06_mpre05/r6hs/building_train_8/fairbanks_c2": {
+  "mac_total": -358.97964480250084,
+  "ref_total": -358.9796448099514,
+  "ref_machine": "kaggle",
+  "rel_diff": 2.0754883193636966e-11,
+  "identical": false,
+  "mac_sec_per_step": 0.0306870070596536,
+  "ref_sec_per_step": 0.07850860967128365
+ },
+ "v8/pub30/building_train_8/fairbanks_8": {
+  "mac_total": -202.08351883578143,
+  "ref_total": -202.08351883578143,
+  "ref_machine": "kaggle",
+  "rel_diff": 0.0,
+  "identical": true,
+  "mac_sec_per_step": 0.029706265142670385,
+  "ref_sec_per_step": 0.08851629757770786
+ }
+}

@@ -1,0 +1,1 @@
+building_train_8/minneapolis_3/transfer: total=-65.31 steps=8640 sec/step=0.083 (policy 1.60 ms) regret=-0.65 energy=101.26 carbon=223.30

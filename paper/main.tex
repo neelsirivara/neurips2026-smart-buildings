@@ -24,9 +24,9 @@
 \title{Schedule-Aware Demand-Based Reset: A Structured Rule-Based Controller for Cross-Building HVAC Transfer in the Smart Buildings Challenge}
 
 \author{%
-  {[Author Name]}\\
-  {[Affiliation]}\\
-  \texttt{neelsirivara@outlook.com}
+  Neel Sirivara\\
+  University of Washington\\
+  \texttt{nsiriv@cs.washington.edu}
 }
 
 \begin{document}
@@ -42,31 +42,24 @@ plant topology from the building metadata and is otherwise built from facts shar
 generated building: comfort is charged only while zones are occupied, fan power grows as
 static pressure to the three-halves, the chiller has a constant coefficient of performance,
 and all heat reaches a zone through a reheat coil whose discharge is capped at 308.15\,K.
-SADR gates its mode on the occupancy count and schedule flags (with a self-tuning optimum
-start), regulates each zone with a PI loop on \emph{net heat} translated into damper and
-valve commands through the supply-air and discharge physics, and resets static pressure,
-loop differential pressure and hot-water temperature from zone demand. On the 30 public
-scenarios the round-4 version (v7) scores \RFConfPubCand{} on the leaderboard metric (mean absolute
-per-step reward, lower is better) against \MetricPidWater{} for the strongest organizer
-baseline (\texttt{pid\_water}) under identical conditions, a paired-bootstrap ratio of
-\RFPwPubRatio{} (95\% CI \RFPwPubRatioLo--\RFPwPubRatioHi; \RFPwPubWins{} wins); on \NHeldAll{}
-scenarios from \NHeldAllBuild{} generated buildings and unseen strips the ratio is
-\RFPwOldRatio{} (CI \RFPwOldRatioLo--\RFPwOldRatioHi). Loss decompositions drove three
-revisions: coldest supply air and a deeper setback (\CandWinnerRelRed{} on the public set);
-zone loops scaled with floor area and box capacity for large zones (\HeldAllVFiveRelRed{} on
-the held-out buildings, CI \HeldAllVFiveRelRedLo{} to \HeldAllVFiveRelRedHi); and, after
-tracing the generated buildings' larger chiller term to the per-handler energy normalization
-rather than to control, a pre-registered screen of discharge headroom, pressure-aware
-requests, night air and set-back ventilation whose composite lowers the loss by
-\RFConfPoolRed{} (CI \RFConfPoolRedLo{} to \RFConfPoolRedHi) on \RFConfPoolN{} held-out
-scenarios no decision touched, by \RFConfFreshShipRed{} on fresh buildings in the shipped
-buildings' size range and by \RFConfPubRed{} on the public set. On Kaggle's hidden scenarios v7
-scores \RFiveKagVSeven, \RFiveKagGapPub{} times its public value; submissions of fixed earlier versions
-and of the organizers' baseline show that the hidden buildings behave like the public ones and point to
-harsher weather: the public scenarios plus the kit's unused Minneapolis station reproduce the probes'
-ratios to v7. A fifth round adds a deeper weekend setback and lifts a request cap that bound in deep cold:
-v8 lowers the loss by \RFiveConfPubRelAbs{} on the public set and \RFiveConfPubMinnRelAbs{} with Minneapolis
-added (Kaggle: \RFiveKagVEight). We release the controller and report where it still loses.
+SADR gates its mode on occupancy and schedule (with a self-tuning optimum start), regulates each zone with a PI
+loop on \emph{net heat} translated into damper and valve commands through the supply-air and discharge physics,
+and resets pressures and hot-water temperature from zone demand. On the 30 public scenarios the round-4 version
+(v7) scores \RFConfPubCand{} on the leaderboard metric (mean absolute per-step reward, lower is better) against
+\MetricPidWater{} for the strongest organizer baseline (\texttt{pid\_water}), a paired-bootstrap ratio of
+\RFPwPubRatio{} (95\% CI \RFPwPubRatioLo--\RFPwPubRatioHi); on \NHeldAll{} scenarios from \NHeldAllBuild{}
+generated buildings the ratio is \RFPwOldRatio. Loss decompositions drove the revisions: coldest supply air and a
+deeper setback (\CandWinnerRelRed{} on the public set); zone loops scaled with floor area for large zones
+(\HeldAllVFiveRelRed{} on held-out buildings); and a pre-registered screen of discharge headroom, pressure-aware
+requests, night air and set-back ventilation (\RFConfPoolRed{}, CI \RFConfPoolRedLo{} to \RFConfPoolRedHi, on
+\RFConfPoolN{} held-out scenarios no decision touched). On Kaggle's hidden scenarios v7 scores \RFiveKagVSeven,
+\RFiveKagGapPub{} times its public value; submissions of fixed earlier versions and of the baseline show that the
+hidden buildings behave like the public ones and the hidden weather is harsher. A fifth round's deeper weekend
+setback and lifted request cap (v8) lower the loss by \RFiveConfPubRelAbs{} on the public set (Kaggle:
+\RFiveKagVEight). A sixth round on new harsh-weather strips, which together with the public ones reproduce the Kaggle
+scores, ships v9 (cheaper heat for set-back zones through air the handlers move anyway, a deeper weeknight setback):
+\RSixConfHarshCRelAbs{} lower on \RSixConfHarshCN{} unseen harsh scenarios (CI \RSixConfHarshCRelHiAbs{} to
+\RSixConfHarshCRelLoAbs), a tie on the public set. We release the controller and report where it still loses.
 \end{abstract}
 
 \section{Introduction}
@@ -89,12 +82,10 @@ construction and shows which part of the score is reachable without learning.
 \paragraph{Contributions.}
 (i) An analysis of the SB26 reward and plant that yields the design facts above
 (Section~\ref{sec:env}). (ii) SADR, a deterministic numpy controller (\PolicyMsOurs{}\,ms per
-step) built from them (Section~\ref{sec:method}). (iii) A protocol of screens, ablation and
-full-length loss decompositions that motivated three revisions, the last pre-registered and
-confirmed on \RFFreshNBuild{} freshly generated buildings (Section~\ref{sec:results}). (iv) An
-account of where the loss sits, why the controller lost on large zones, why the generated
-buildings cost more, and where it still loses (Section~\ref{sec:analysis}), every number
-generated from the result files.
+step) built from them (Section~\ref{sec:method}). (iii) A protocol of screens, loss decompositions and
+pre-registered full-length confirmations on scenarios no decision touched, with Kaggle submissions used to find
+which local set predicts the hidden scenarios (Section~\ref{sec:results}). (iv) An account of where the loss sits
+and where it still loses (Section~\ref{sec:analysis}), every number generated from the result files.
 
 \section{Environment and metric}
 \label{sec:env}
@@ -211,33 +202,27 @@ these off the code reproduces v5 bit for bit.
 
 \paragraph{Round 4 (v7).}
 \label{sec:v7}
-The round-4 composite turns on five switches of the v6 code (all off reproduces v6 bit for bit),
-each from a diagnosis in Section~\ref{sec:analysis}: (i) discharge margin $\delta$ from \VSixDischMargin{} to
-\ParRFDischMargin\,K: the simulator caps the discharge itself, and at the cap the gas per joule of
-net heat is $1 + 0.3\,(T - T_{\text{out}})/(308.15 - \delta - T)$, so headroom means less outside
-air heated; (ii) an occupied zone may ask for flow above what its box delivers at the 200\,Pa
-floor only in proportion to how far it is past its target (from \ParRFOccEzero\,K, full flow
-\ParRFOccSpan\,K later): pressure above the floor costs fan power and enlarges every other zone's
-forced minimum flow, while comfort is charged per occupant and a zone holds one or two whatever
-its area; (iii) before a workday and outside heating season, set-back zones warmer than the
-preconditioning target are flushed with outside air (floor pressure, coil off) while it is at
-least \ParRFFlushDt\,K colder than the zone; (iv) in heating season the forced minimum flow of set-back
-zones on a running handler is reheated to the zone temperature, at 1\,J of gas per joule instead of
-the ventilated recovery's 1.9 later; (v) the preconditioning cap sits at the floor-pressure flow.
+Five switches of the v6 code (all off reproduces v6 bit for bit): (i) discharge margin $\delta$ from
+\VSixDischMargin{} to \ParRFDischMargin\,K (at the cap the gas per joule of net heat is
+$1 + 0.3\,(T - T_{\text{out}})/(308.15 - \delta - T)$); (ii) occupied flow above the 200\,Pa floor only in
+proportion to the zone's error (from \ParRFOccEzero\,K, full \ParRFOccSpan\,K later); (iii) a night flush with
+outside air at least \ParRFFlushDt\,K colder, outside heating season; (iv) in heating season the forced minimum
+flow of set-back zones on a running handler is reheated to the zone temperature (1\,J of gas per joule instead
+of the ventilated recovery's 1.9 later); (v) the preconditioning cap at the floor-pressure flow.
 
 \paragraph{Tuning protocol.}
 v4 came from a seeded random search (\NTuneConfigs{} configurations on six public scenarios at 1,440 steps:
 defaults \TuneDefaultScreen, best \TuneBestScreen, \texttt{pid\_water} \TunePidWaterScreen; a one-at-a-time
 ablation shows that doubling the integral gain to \ParKiWPerKStep\,W/K per step is the whole gain,
 \AblRelDefAddKi), v5 from \NCandV{} physics-motivated candidates run at full length on the public set
-(Appendix~\ref{app:tuning}). Rounds 3--5 screened single changes at 2,880 steps on public and
-generated-building scenarios, combined the helpful ones and shipped only under a rule fixed beforehand (not
-worse on the public set, better on held-out scenarios at full length); rounds 4 and 5 wrote the protocol down
+(Appendix~\ref{app:tuning}). Rounds 3--6 screened single changes on public and held-out scenarios (2,880
+steps; round 6 at full length), combined the helpful ones and shipped only under a rule fixed beforehand (not
+worse on the public set, better on held-out scenarios at full length); rounds 4--6 wrote the protocol down
 before running anything (\texttt{PREREG.md}) and confirm on scenarios no decision touched: round 3 on
 \NHeldAll{} scenarios of \NHeldAllBuild{} default-range buildings (\NHeldUnscr{} never screened), round 4 on
-\RFFreshNBuild{} freshly generated buildings (three of its candidates were added after a first look at the
-screen), round 5 on the shipped six under the one
-weather station the kit ships but no public scenario uses (Minneapolis).
+\RFFreshNBuild{} freshly generated buildings (three candidates added after a first look at the screen), round 5
+on the shipped six under the one station the kit ships but no public scenario uses (Minneapolis), round 6 on the
+shipped six under the harshest strips available (Section~\ref{sec:results}).
 
 \section{Results}
 \label{sec:results}
@@ -245,17 +230,19 @@ weather station the kit ships but no public scenario uses (Minneapolis).
 \paragraph{Setup.}
 All runs use the kit's environment loader and \texttt{SimulationTracker}, 8,640 steps per scenario,
 and the kit's \texttt{score\_leaderboard.py} formula with paired bootstrap CIs over scenarios. Rounds 1--4
-ran on an Apple M5 Pro and a Windows laptop, round 5 on the laptop; the seeds are fixed and runs reproduce
-across machines (SADR bit for bit, \texttt{pid\_water} within \MachineGapPidWater). Local \texttt{pid\_water} returns differ
+ran on an Apple M5 Pro and a Windows laptop, round 5 on the laptop, round 6 on private Kaggle CPU kernels and the
+M5 Pro; the seeds are fixed and runs reproduce across machines (SADR bit for bit between laptop and Kaggle,
+\RSixReproIdentical{} of \RSixReproN{} checks; within \RSixMacReproMaxRel{} on the M5 Pro in round 6; \texttt{pid\_water}
+within \MachineGapPidWater). Local \texttt{pid\_water} returns differ
 from the shipped \texttt{baseline\_returns.json} by \GapMeanPidWater{} on average, so all comparisons use
 local runs.
 
 \begin{table}[t]
 \caption{Leaderboard metric (mean over the \NScen{} public scenarios of $|$mean per-step
 reward$|$; lower is better) and per-station means. Paired bootstrap 95\% CIs (\NBoot{}
-resamples) are for SADR v6 minus the row (v7 against v6: Table~\ref{tab:r4}; v8 against v7: Section~\ref{sec:results}).
-v8 ran on the laptop, the other rows on one machine (bit-identical across machines); the last row is the
-organizers' shipped returns. Per-scenario numbers: Appendix~\ref{app:per_scenario}.}
+resamples) are for SADR v6 minus the row (v7 against v6: Table~\ref{tab:r4}; v8 against v7 and v9 against v8:
+Section~\ref{sec:results}). v9 ran on the M5 Pro, v8 on the laptop, the other rows on one machine (reproducible across
+machines); the last row is the organizers' shipped returns. Per-scenario numbers: Appendix~\ref{app:per_scenario}.}
 \label{tab:main}
 \centering\scriptsize
 \setlength{\tabcolsep}{3pt}
@@ -263,7 +250,8 @@ organizers' shipped returns. Per-scenario numbers: Appendix~\ref{app:per_scenari
 \toprule
 policy & all & Fairbanks & Denver & Atlanta & Phoenix & Singapore & $\Delta$ vs v6 [95\% CI] \\
 \midrule
-SADR v8 (final, round 5) & \textbf{\RFiveConfPubCand} & \RFiveConfPubCandFairbanks & \RFiveConfPubCandDenver & \RFiveConfPubCandAtlanta & \RFiveConfPubCandPhoenix & \RFiveConfPubCandSingapore & Sec.~\ref{sec:results} \\
+SADR v9 (final, round 6) & \textbf{\RSixConfPubCand} & \RSixConfPubCandFairbanks & \RSixConfPubCandDenver & \RSixConfPubCandAtlanta & \RSixConfPubCandPhoenix & \RSixConfPubCandSingapore & Sec.~\ref{sec:results} \\
+SADR v8 (round 5) & \RFiveConfPubCand & \RFiveConfPubCandFairbanks & \RFiveConfPubCandDenver & \RFiveConfPubCandAtlanta & \RFiveConfPubCandPhoenix & \RFiveConfPubCandSingapore & Sec.~\ref{sec:results} \\
 SADR v7 (round 4) & \RFConfPubCand &\RFConfPubCandFairbanks & \RFConfPubCandDenver & \RFConfPubCandAtlanta & \RFConfPubCandPhoenix & \RFConfPubCandSingapore & Table~\ref{tab:r4} \\
 SADR v6 (round 3) & \MetricOurs & \MetricOursFairbanks & \MetricOursDenver & \MetricOursAtlanta & \MetricOursPhoenix & \MetricOursSingapore & -- \\
 SADR v5 & \MetricOursVFive & \MetricOursVFiveFairbanks & \MetricOursVFiveDenver & \MetricOursVFiveAtlanta & \MetricOursVFivePhoenix & \MetricOursVFiveSingapore & \DiffOursVFive{} [\DiffLoOursVFive, \DiffHiOursVFive] \\
@@ -276,86 +264,86 @@ pid\_water (organizer values) & \MetricPidWaterOff & \MetricPidWaterOffFairbanks
 \end{table}
 
 \paragraph{Main result.}
-SADR v8 (round 5, below) reaches \RFiveConfPubCand{} on the public set; v7 reaches \RFConfPubCand{} against
-\MetricPidWater{} for \texttt{pid\_water}
-(Table~\ref{tab:main}), a ratio of \RFPwPubRatio{} (95\% CI \RFPwPubRatioLo{} to
-\RFPwPubRatioHi; wins \RFPwPubWins); v6 reached \MetricOurs{} (reduction \RelRedPidWater, CI
-\RelRedLoPidWater{} to \RelRedHiPidWater; Wilcoxon $p\PWilcoxonPidWater$; per scenario in
-Appendix~\ref{app:per_scenario}). On the public set v4 to v5 cut the metric by \CandWinnerRelRed{}
-and v5 to v6 by \RelRedOursVFive{} (CI \RelRedLoOursVFive{} to \RelRedHiOursVFive), small because the
-public zones are small.
+SADR v9 reaches \RSixConfPubCand{} on the public set, v8 \RFiveConfPubCand{} and v7 \RFConfPubCand, against \MetricPidWater{} for
+\texttt{pid\_water} (Table~\ref{tab:main}; v7's ratio \RFPwPubRatio, 95\% CI \RFPwPubRatioLo{} to \RFPwPubRatioHi, wins
+\RFPwPubWins). On the public set v4 to v5 cut the metric by \CandWinnerRelRed{} and v5 to v6 by \RelRedOursVFive{} (CI
+\RelRedLoOursVFive{} to \RelRedHiOursVFive), small because the public zones are small.
 
 \paragraph{Where the loss goes.}
-Logging the plant energy rates every step splits the loss into comfort and the fan, chiller,
-pump and boiler shares (Figure~\ref{fig:decomp}): on the public set v5 pays \DecPubVFiveGasShare{} for
-gas, \DecPubVFiveCoolingShare{} for the chiller, \DecPubVFiveFanShare{} for fans and
-\DecPubVFiveComfortShare{} for comfort (Fairbanks: gas \DecPubVFiveGasShareFairbanks), and
-\texttt{pid\_water} \RegretSharePidWater{} for comfort.
+Per-step plant energy logs split the loss (Figure~\ref{fig:decomp}): on the public set v5 pays
+\DecPubVFiveGasShare{} for gas, \DecPubVFiveCoolingShare{} for the chiller, \DecPubVFiveFanShare{} for fans and
+\DecPubVFiveComfortShare{} for comfort (Fairbanks: gas \DecPubVFiveGasShareFairbanks); \texttt{pid\_water} pays
+\RegretSharePidWater{} for comfort.
 
 \paragraph{Held-out buildings.}
-Pooled over the \NHeldAll{} scenarios of the \NHeldAllBuild{} default-range generated buildings, run
-once after the choice (Figure~\ref{fig:heldout}, Appendix~\ref{app:per_scenario}), v6 scores
-\HeldAllMetricOurs{} against \HeldAllMetricOursVFive{} for v5 (difference \HeldAllVFiveDiff, CI
-[\HeldAllVFiveDiffLo, \HeldAllVFiveDiffHi]; wins \HeldAllVFiveWins/\NHeldAll) and
-\HeldAllMetricPidWater{} for \texttt{pid\_water} (ratio \HeldAllPidWaterRatio, CI
-\HeldAllPidWaterRatioLo--\HeldAllPidWaterRatioHi); on the \NHeldUnscr{} never screened the reduction from
-v5 is \HeldUnscrVFiveRelRed{} (CI \HeldUnscrVFiveRelRedLo{} to \HeldUnscrVFiveRelRedHi). The round-3 ledger
-(Table~\ref{tab:candidates_r3}) keeps the failures (\NRThreeWorse{} of \NRThreeVariants{} variants worse,
-among them v6 without the area scaling).
+On \NHeldAll{} scenarios of \NHeldAllBuild{} default-range generated buildings (Figure~\ref{fig:heldout}) v6 scores
+\HeldAllMetricOurs{} against \HeldAllMetricOursVFive{} for v5 and \HeldAllMetricPidWater{} for \texttt{pid\_water}
+(\HeldUnscrVFiveRelRed{} below v5 on the \NHeldUnscr{} never screened; Table~\ref{tab:candidates_r3}).
 
 \paragraph{Round 4.}
-Of the \RFNSingles{} single changes (Table~\ref{tab:candidates_r4}), \RFNHelps{} helped on the held-out
-screen without hurting the public one, \RFNPubOnly{} on the public screen only, \RFNNs{} were not significant
-and \RFNWorse{} were worse (caps below the floor-pressure flow; the night flush in heating season). At full
-length (Table~\ref{tab:r4}) the composite v7 beats v6 on every set, by \RFConfPubRed{} on the public set (CI
-\RFConfPubRedLo{} to \RFConfPubRedHi), \RFConfOldCleanRed{} on the clean old held-out scenarios and
-\RFConfFreshRed{} on the fresh ones (\RFConfFreshShipRed{} in the shipped six's ranges), mostly gas
-(Fairbanks \RFDecPubFairbanksRel), while comfort rises slightly: a few per cent, not a new regime.
+Of \RFNSingles{} single changes (Table~\ref{tab:candidates_r4}) \RFNHelps{} helped and \RFNWorse{} were worse (caps
+below the floor-pressure flow; the night flush in heating season). The composite v7 beats v6 at full length on every
+set (Table~\ref{tab:r4}): \RFConfPubRed{} on the public set (CI \RFConfPubRedLo{} to \RFConfPubRedHi),
+\RFConfOldCleanRed{} and \RFConfFreshRed{} on the clean old and fresh held-out sets, mostly gas.
 
-\input{round5_kaggle_table}
+\input{round6_kaggle_table}
 
 \paragraph{Kaggle.}
-On the Kaggle public leaderboard v7 scores \RFiveKagVSeven{} (rank \RFiveKagRankVSeven/\RFiveKagTeamsVSeven{}
-when scored), \RFiveKagGapPub{} times its public-set number, although Kaggle's own run of a public scenario
-matches the local total to 0.02\%: the gap is in the hidden scenarios (six buildings from the same generator
-under five weather stations absent from the public set; about ten of them form the public split). Round 5
-used Kaggle as an oracle: \RFiveNProbes{} submissions of fixed earlier files (v6, v5 and the organizers'
-\texttt{pid\_water}) and a pre-registered comparison of every local set on the level of v7 and on the
-shape $E$, how well a set reproduces each policy's ratio to v7 (Table~\ref{tab:kaggle}). Two probes
-discriminate. v5's ratio to v7 on Kaggle (\RFiveKagRatioVFive) is the public set's (\RFivePubRatioVFive),
-not that of the larger default-range buildings (\RFiveOldRatioVFive), whose large zones v6 fixed: the
-hidden buildings behave like the shipped six. \texttt{pid\_water}'s ratio (\RFiveKagRatioPid) falls in cold
-weather, where both controllers pay the same ventilation physics (public stations \RFivePubRatioPid,
-Minneapolis \RFiveMinnRatioPid), and is reproduced by the public set with the Minneapolis scenarios added
-(\RFivePubMinnRatioPid; $E=\RFivePubMinnShapeErr$ against \RFivePubShapeErr{} for the public set alone):
-the gap points to weather, not buildings. Even on that set v7 reaches only \RFivePubMinnLevel{} of its Kaggle
-score, so the hidden stations are harsher still. A public notebook shows the same gap for three controllers built on
-\texttt{pid\_water} ($\times$\RFiveThirdARatio--\RFiveThirdCRatio), and its baseline's Kaggle score
-(\RFiveThirdAKag) is close to our \texttt{pid\_water} submission (\RFiveKagPid). v6 scores \RFiveKagVSix{}
-(\RFiveKagRatioVSix{} of v7, as on the local sets), a difference below the noise of a ten-scenario split.
-Read literally, the rule names the fresh default-range set FD, whose $E$ rests on the v6 ratio alone, the one
-that every set matches; round 5 therefore required its candidate to win on both FD and P+M.
+On the Kaggle public leaderboard (about ten of 30 hidden scenarios: six buildings from the same generator under
+five stations absent from the public set) v7 scores \RFiveKagVSeven{} (rank \RFiveKagRankVSeven/\RFiveKagTeamsVSeven),
+\RFiveKagGapPub{} times its public-set number, although Kaggle's run of a public scenario matches the local total to
+0.02\%. Round 5 used Kaggle as an oracle: \RFiveNProbes{} submissions of fixed files (v6, v5, \texttt{pid\_water})
+and a pre-registered comparison of each local set's level and shape $E$, how well it reproduces each policy's ratio
+to v7 (Table~\ref{tab:kaggle_r5}). v5's ratio to v7 on Kaggle (\RFiveKagRatioVFive) is the public set's
+(\RFivePubRatioVFive), not that of the larger default-range buildings (\RFiveOldRatioVFive): the hidden buildings
+behave like the shipped six. \texttt{pid\_water}'s ratio (\RFiveKagRatioPid) falls in cold weather, where both
+controllers pay the same ventilation physics (public \RFivePubRatioPid, Minneapolis \RFiveMinnRatioPid), and the
+public set plus Minneapolis reproduces it (\RFivePubMinnRatioPid; $E=\RFivePubMinnShapeErr$ against
+\RFivePubShapeErr): the gap is weather, and as v7 reaches only \RFivePubMinnLevel{} of its Kaggle score there, the
+hidden stations are harsher still. A public notebook's \texttt{pid\_water} scores \RFiveThirdAKag{} on Kaggle (ours
+\RFiveKagPid). Round 5's rule required its candidate to win on P+M and on the fresh default-range set FD.
 
 \paragraph{Round 5.}
-Round 5 screened \RFiveNSingles{} single changes to v7 at \RFiveScreenSteps{} steps on eleven held-out
-scenarios (six of them the shipped buildings under Minneapolis strips outside set M, one the public
-building~7 in the January Fairbanks strip) and four public ones (Table~\ref{tab:candidates_r5}):
-\RFiveNHelps{} helped, \RFiveNNs{} were not significant and \RFiveNWorse{} were worse (a longer lead before
-Mondays, \RFiveMonHeldRelAbs; recovering at the flow cap from the start, \RFivePreburstHeldRelAbs; faster
-setback bursts); sensor-lag compensation did nothing measurable. Two families helped: a deeper
-setback far from the next workday (floor 6\,K lower and ceiling 4\,K higher, ramped out 10--22\,h before the
-start; \RFiveWkHeldRelAbs{} lower on the held-out screen, \RFiveWkPubRelAbs{} on the public one) and a request
-cap of 20\,kW per 100\,m$^2$, which changed \RFiveQcapNChanged{} of the eleven held-out scenarios and lowered
-building~7's January loss by \RFiveQcapBSevenRelAbs. Their composite beat v7 by \RFiveChosenHeldD{} (CI [\RFiveChosenHeldLo,
-\RFiveChosenHeldHi], wins \RFiveChosenHeldWins) and \RFiveChosenPubD{} (CI [\RFiveChosenPubLo,
-\RFiveChosenPubHi]) $\times10^{-5}$ per step on the two screens. At full length it lowers the loss by \RFiveConfPubRelAbs{} on the public set (CI
-\RFiveConfPubRelHiAbs{} to \RFiveConfPubRelLoAbs; wins \RFiveConfPubWins), by \RFiveConfMinnRelAbs{} on M (CI
-\RFiveConfMinnRelHiAbs{} to \RFiveConfMinnRelLoAbs; it changes \RFiveConfMinnNChanged{} winter scenarios and wins all of
-them) and by \RFiveConfPubMinnRelAbs{} on P+M (CI \RFiveConfPubMinnRelHiAbs{} to \RFiveConfPubMinnRelLoAbs), but on FD
-only by \RFiveConfFreshDefRelAbs{}: the CI's upper end is below zero for the pre-registered bootstrap seed and for
-\RFiveSeedsFreshDefBelow{} of 10 seeds in all, so FD is a tie (a few hot-strip scenarios are up to
-\RFiveConfFreshDefWorstRelAbs{} worse; the gain is in the cold strips). The rule is met as written and v8 is the
-submission. On Kaggle it scores \RFiveKagVEight{} against v7's \RFiveKagVSeven, within the noise of the public split.
+Of \RFiveNSingles{} single changes to v7 screened at \RFiveScreenSteps{} steps (Table~\ref{tab:candidates_r5}),
+\RFiveNHelps{} helped, \RFiveNNs{} were not significant and \RFiveNWorse{} were worse (a longer lead before Mondays,
+\RFiveMonHeldRelAbs; recovering at the flow cap from the start, \RFivePreburstHeldRelAbs). The composite v8 of a deeper
+setback far from the next workday (floor 6\,K lower, ceiling 4\,K higher, ramped out 10--22\,h before the start) and a
+request cap of 20\,kW per 100\,m$^2$ (it bound at half of what box and coil deliver in deep cold) lowers the loss at
+full length by \RFiveConfPubRelAbs{} on the public set (CI \RFiveConfPubRelHiAbs{} to \RFiveConfPubRelLoAbs; wins
+\RFiveConfPubWins), \RFiveConfMinnRelAbs{} on M and \RFiveConfPubMinnRelAbs{} on P+M (CI \RFiveConfPubMinnRelHiAbs{} to
+\RFiveConfPubMinnRelLoAbs) and ties on FD (\RFiveConfFreshDefRelAbs; the CI's upper end is below zero for
+\RFiveSeedsFreshDefBelow{} of 10 bootstrap seeds). It met the rule as written; Kaggle: \RFiveKagVEight{} against v7's
+\RFiveKagVSeven, within the noise of the public split.
+
+\paragraph{Round 6.}
+Round 6 followed the probes to harsh weather with two new sets of the shipped six: a confirmation set HC
+(\RSixHarshCN{} scenarios: the Minneapolis strips not used before, the coldest Fairbanks and Denver strips and new
+30-day strips cut from the coldest months of the shipped weather files) and a screening set HS (\RSixHarshSN). v8
+scores \RSixHarshCVEight{} on HC, \RSixHarshCLevel{} times its Kaggle score (public set \RSixPubLevel;
+Table~\ref{tab:kaggle}); a mixture of \RSixMixWPct{} HC and the rest public, fitted to v8's Kaggle score, predicts
+\texttt{pid\_water}'s Kaggle ratio (\RSixMixPid{} against \RSixKagRatioPid). The v8 diagnosis
+(Section~\ref{sec:analysis}) dropped six planned changes before any ran: an outdoor-temperature term in the optimum
+start (two settings) and four whose whole target is under 1\% of the HS loss or out of the controller's reach
+(supply-air reset under heating load, hot-water reset, no simultaneous reheat and cooling, a lower occupied heating
+margin). Of \RSixNSingles{} single changes screened at full length on HS and twelve public scenarios
+(Table~\ref{tab:candidates_r6}; one added after a first look), \RSixNHelps{} helped and one did nothing. The largest gains came from
+reheating the forced minimum air of set-back zones on running handlers to the discharge limit instead of to the zone
+temperature, which buys heat at 1\,J of gas per joule against about 1.9 in the zone's own ventilated recovery (before a
+workday \RSixScrCElevenHsRel{} on HS, CI \RSixScrCElevenHsLo{} to \RSixScrCElevenHsHi; near the setback floor
+\RSixScrCNineHsRel), and from a deeper weeknight setback (\RSixScrCEightHsRel); a nearer preconditioning target
+(\RSixScrCSixHsRel) and shorter leads (\RSixScrCSevenHsRel) helped less; joining another zone's burst did nothing. A
+5$^\circ$C frost floor, run only to price it, raises the HS loss by \RSixScrCTenHsRelAbs. The composite of the best change per
+family (\RSixCompMembers; v9) lowers HS by \RSixScrCompHsRelAbs{} (CI \RSixScrCompHsHiAbs{} to \RSixScrCompHsLoAbs) and the
+public twelve by \RSixScrCompPubRelAbs{} and is chosen. At full length v9 lowers the loss on HC by \RSixConfHarshCRelAbs{} (CI
+\RSixConfHarshCRelHiAbs{} to \RSixConfHarshCRelLoAbs; wins \RSixConfHarshCWins; upper end below zero for
+\RSixSeedsHarshCBelow{} of 10 bootstrap seeds) and on M by \RSixConfMinnRelAbs, and changes the public set by
+\RSixConfPubRel{} (CI \RSixConfPubRelLo{} to \RSixConfPubRelHi): the rule (public not worse, HC better) is met and v9 is
+the submission. It does not help on FD (\RSixConfFreshDefRel, CI \RSixConfFreshDefRelLo{} to \RSixConfFreshDefRelHi; wins
+\RSixConfFreshDefWins; comfort rises by more than the total) and is up to \RSixConfPubWorstRel{} on hot public strips,
+which the two hot screening scenarios under-sampled; the ledger points to the nearer preconditioning target (c06): with the shorter lead in its
+place, a post-hoc composite (ledger only) changes the public set by \RSixCompBPubRel{} (CI \RSixCompBPubRelLo{} to
+\RSixCompBPubRelHi; Table~\ref{tab:candidates_r6}). On Kaggle c01 scores \RSixProbeAScore{} (v8 \RSixKagVEight, within
+noise); the v9 probe was pending.
 
 \section{Analysis}
 \label{sec:analysis}
@@ -370,28 +358,32 @@ fraction at $-20^\circ$C heat costs about $1.9$\,J of gas per joule at the disch
 Singapore are chiller electricity, where the coldest supply at the lowest flow is cheapest.
 
 \paragraph{What rounds 3 and 4 found.}
-v5's 350--430\,m$^2$ zones sat 2--4\,K below the band until noon in the cold strips (fixed cap, single lead);
-v6 cuts the largest-quartile recovery from \DecHeldRVFiveRecoveryBig\,h to \DecHeldROursRecoveryBig\,h. The
-generated buildings' larger chiller term (\DecHeldROursCooling{} against \DecPubOursCooling{} per step) is
-not a control defect: per square metre they cool no more (\RFCoolWmRThree{} against \RFCoolWmPub\,W/m$^2$),
-but energy is normalized per handler and they have \RFAreaPerAhuRThree{} instead of \RFAreaPerAhuPub\,m$^2$
-of zone per handler. In the cold strips outside-air heat is \RFVentGasPub{} of the gas. The kit's default
-generator ranges do not reproduce the shipped six (seed 0: \RFSeedZeroDefaultSize{} ft against
-\RFTrainOneSize).
+v6 cut the largest-quartile recovery of v5's 350--430\,m$^2$ zones from \DecHeldRVFiveRecoveryBig\,h to
+\DecHeldROursRecoveryBig\,h. The generated buildings' larger chiller term is a normalization effect: they cool
+\RFCoolWmRThree{} against \RFCoolWmPub\,W/m$^2$ but have \RFAreaPerAhuRThree{} instead of \RFAreaPerAhuPub\,m$^2$ of zone per handler.
 
 \paragraph{What round 5 found.}
 Under the Minneapolis strips (set M) v7 pays \RFiveDecMinnGasShare{} of its loss for gas and
-\RFiveDecMinnComfortShare{} for comfort, \RFiveCapComfortShareOfMinn{} of it in one scenario
-(\texttt{building\_train\_7} in January): its \RFiveCapNZones{} worst zones sit \RFiveCapDefMin--\RFiveCapDefMax\,K
-below the band on \RFiveCapStepsMin--\RFiveCapStepsMax{} occupied steps with dampers open at
-$\le$\RFiveCapPaMax\,Pa, because the request cap (\RFiveCapReqKwMin--\RFiveCapReqKwMax\,kW, a v5 constant
-scaled by area) binds at about half of what box and coil deliver (\RFiveCapWaterKwMin--\RFiveCapWaterKwMax\,kW).
-On the other sets the 06:00 hour carries \RFiveComfHSixPub--\RFiveComfHSixFresh{} of v7's comfort loss;
-handlers start \RFiveAhuStartsMin--\RFiveAhuStartsMax{} times a day, so cycling is not a lever. Starter-kit
-pull request~\#2 (unmerged) bills boiler gas from a tank energy balance and closes a gap that rewards
-saw-toothing the hot-water setpoint (heat billed at 0.38 of its value); in a patched kit v7's loss falls by
-\RFivePrTwoVSevenRelAbs{} on the \RFivePrTwoVSevenN{} public Fairbanks scenarios while \texttt{pid\_water}'s rises by
-\RFivePrTwoPidRelAbs{}: SADR's score does not rest on that gap; the baseline's partly does.
+\RFiveDecMinnComfortShare{} for comfort, \RFiveCapComfortShareOfMinn{} of it in one January scenario whose
+\RFiveCapNZones{} worst zones sat \RFiveCapDefMin--\RFiveCapDefMax\,K below the band because the request cap
+(\RFiveCapReqKwMin--\RFiveCapReqKwMax\,kW) bound at about half of what box and coil deliver (v8 lifts it). Handlers
+start \RFiveAhuStartsMin--\RFiveAhuStartsMax{} times a day, so cycling is not a lever. Starter-kit pull request~\#2
+(unmerged) bills boiler gas from a tank energy balance and closes a gap that rewards saw-toothing the hot-water
+setpoint (heat billed at 0.38 of its value); in a patched kit v7's loss falls by \RFivePrTwoVSevenRelAbs{} on the
+\RFivePrTwoVSevenN{} public Fairbanks scenarios while \texttt{pid\_water}'s rises by \RFivePrTwoPidRelAbs: SADR's score
+does not rest on that gap.
+
+\paragraph{What round 6 found.}
+On the harsh screening set v8 pays \RSixDecGas{} of its loss for gas: \RSixDecOccWd{} of the gas falls in
+occupied weekday hours, \RSixDecPreWd{} in weekday preconditioning (05:00--06:00 alone \RSixDecHourFive) and
+\RSixDecSbWe{} in weekend setback. The outside-air load of running handlers equals \RSixDecVent{} of the gas,
+\RSixDecVentHeated{} of it through zones that are being heated: the handler cannot heat, the mixed air is at
+least 30\% outside air, and at the discharge cap that overhead is fixed per joule, so in occupied hours it is
+physics, not control. The morning recovery rate does not fall in colder weather (within a zone it rises with the
+lift, \RSixRecSlope{}\,K/h per K, CI \RSixRecSlopeLo{} to \RSixRecSlopeHi, \RSixRecN{} zone-mornings), so an
+outdoor-temperature term in the optimum start had nothing to correct. v8's weekend floor is about 2$^\circ$C, and
+burst cycling at $-38^\circ$C lets the coldest zone reach \RSixDecColdestWe$^\circ$C (\RSixDecBelowFive{} of
+zone-steps below 5$^\circ$C): the simulator does not charge for frost; a real building would.
 
 \paragraph{Where it loses.}
 SADR v7 is worse than \texttt{pid\_water} on \RFNScenWorseCand{} of \NScen{} public scenarios;
@@ -401,9 +393,8 @@ capacity on the largest zones; a learned policy's advantage should be looked for
 
 \section{Limitations}
 SADR encodes simulator constants (discharge limit, valve $k_v$, constant COP) that a real building would
-commission, where cold SAT would be weighed against humidity and a weekend floor near freezing against frost
-protection. Selection used the public set and screens, so the public number is optimistic; Kaggle's hidden
-stations are harsher than any local set. MPC or a learned residual on top of SADR is the next step.
+commission, and its weekend floor near freezing ignores frost protection. Selection used the public set and
+screens, so the public number is optimistic. MPC or a learned residual on top of SADR is the next step.
 
 \section{Reproducibility and disclosure}
 Code: \url{https://github.com/neelsirivara/neurips2026-smart-buildings}; \texttt{submission/transfer\_policy.py} is
@@ -468,9 +459,10 @@ held-out scenarios of buildings 0501 and 0502.}
 \section{Parameters, ablation and candidates}
 \label{app:tuning}
 \begin{table}[h]
-\caption{Final SADR parameters (v8); values that changed from v4 to v5 are marked; the fifth row
+\caption{Final SADR parameters (v9); values that changed from v4 to v5 are marked; the fifth row
 is new in v6 (round 3), the discharge margin (v6: \VSixDischMargin\,K), the preconditioning cap
-(v6: \VSixFCapPre) and the seventh row are round 4, the last row round 5. The full dictionary is in the code.}
+(v6: \VSixFCapPre) and the seventh row are round 4, the eighth row round 5, the last row and the precondition margin
+and setback widening (v8: 0.8\,K and 8\,K) round 6. The full dictionary is in the code.}
 \label{tab:params}
 \centering\footnotesize
 \begin{tabular}{llll}
@@ -483,6 +475,7 @@ heating-season memory & \ParHeatSeasonSteps{} steps & AHU dwell & \ParMinOnSteps
 area scaling (v6) & per \ParAreaRef\,m$^2$, clip $[\ParAreaScaleMin, \ParAreaScaleMax]$ & flow cap $f_{\text{cap}}$ (v6) & \ParFCapPre{} pre/setback, \ParFCapOcc{} occ. \\
 occupied pressure cap (v7) & from \ParRFOccEzero\,K, span \ParRFOccSpan\,K & night flush (v7) & $\ge$\ParRFFlushDt\,K, $\le$\ParRFFlushWindow\,h before work \\
 weekend setback (v8) & $-$\RFiveParWkLo/$+$\RFiveParWkHi\,K, out \RFiveParWkRampEnd--\RFiveParWkRampStart\,h before work & request cap (v8) & \RFiveParQcapKw\,kW/100\,m$^2$ (v7: \RFiveParQcapKwVSeven) \\
+set-back air boost (v9) & $\le$8\,h before work, outside $\le$ floor & near-floor boost (v9) & within 2\,K of the floor \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -492,11 +485,14 @@ the defaults) on the screening set; Table~\ref{tab:candidates} lists every v5 ca
 full length on the 30 public scenarios against v4 on the same machine;
 Table~\ref{tab:candidates_r3} lists every round-3 (v6) variant on both screening sets against
 v5, Table~\ref{tab:candidates_r4} every round-4 candidate against v6 and Table~\ref{tab:candidates_r5}
-every round-5 candidate against v7. The ideas tried and rejected, with their numbers, are in
-\texttt{experiments/results/round3/candidates.json}, \texttt{round4/candidates.json} and
-\texttt{round5/screen\_summary.json}.
+every round-5 candidate against v7, Table~\ref{tab:kaggle_r5} the round-5 comparison of local sets with Kaggle
+(v7 reference) and Table~\ref{tab:candidates_r6} every round-6 candidate against v8. The ideas tried and rejected,
+with their numbers, are in \texttt{experiments/results/round3/candidates.json}, \texttt{round4/candidates.json},
+\texttt{round5/screen\_summary.json} and \texttt{round6/screen\_summary.json}.
 \input{tuning_tables}
 \input{tuning_tables_r5}
+\input{round5_kaggle_table}
+\input{tuning_tables_r6}
 
 \section{Algorithm and additional figures}
 \label{app:figs}

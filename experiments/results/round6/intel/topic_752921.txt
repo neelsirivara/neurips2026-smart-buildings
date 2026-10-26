@@ -1,0 +1,14 @@
+Topic #752921: Meaning of negative values in occupancy_sample.csv
+  Author: BenBartling
+  Posted: 2026-10-26 18:52:58.808000
+  Votes: 0  Comments: 0
+
+The notebook I’m using appears to describe occupancy_sample.csv as an aggregate of three Terabee people counters. Could someone clarify what the occ column represents?
+
+Is it the number of people currently present, or the net change in occupancy during each interval—for example, people entering minus people leaving?
+
+Some values are negative. Do these represent valid departures, sensor errors, counter resets, or another measurement?
+
+I’m using the data to forecast occupancy for HVAC control, so I’d appreciate clarification on how negative values and missing intervals should be handled.
+
+No comments

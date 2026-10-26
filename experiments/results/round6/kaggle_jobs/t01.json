@@ -1,0 +1,50 @@
+[
+ {
+  "id": "v8/pub30/building_train_1/atlanta_2",
+  "tag": "v8/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\submission\\transfer_policy.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_1",
+  "weather": "atlanta_2",
+  "steps": 8640,
+  "params": null,
+  "save_ts": false
+ },
+ {
+  "id": "v8code/pub30/building_train_1/fairbanks_1",
+  "tag": "v8code/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\src\\policy_candidates\\transfer_policy_v8.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_1",
+  "weather": "fairbanks_1",
+  "steps": 8640,
+  "params": "{\n \"wk_ext_lo\": 6.0,\n \"wk_ext_hi\": 4.0,\n \"q_cap_w\": 20000.0\n}",
+  "save_ts": false
+ },
+ {
+  "id": "v8/pub30/building_train_8/fairbanks_8",
+  "tag": "v8/pub30",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\submission\\transfer_policy.py",
+  "set_dir": "training_scenarios",
+  "building": "building_train_8",
+  "weather": "fairbanks_8",
+  "steps": 8640,
+  "params": null,
+  "save_ts": false
+ },
+ {
+  "id": "v7/r5m/building_train_1/minneapolis_1",
+  "tag": "v7/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round5\\policies\\v7.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_1",
+  "weather": "minneapolis_1",
+  "steps": 8640,
+  "params": null,
+  "save_ts": false
+ }
+]

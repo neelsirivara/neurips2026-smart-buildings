@@ -1,0 +1,12 @@
+{"id": "pid_water/r6hc/building_train_1/denver_1", "rc": 0, "wall_s": 1250.1, "ok": true, "total_reward": -462.7976400673058, "steps": 8640, "sec_per_step": 0.14113091969931568}
+{"id": "pid_water/r6hc/building_train_1/minneapolis_4", "rc": 0, "wall_s": 1250.1, "ok": true, "total_reward": -201.60039031818542, "steps": 8640, "sec_per_step": 0.141013503074646}
+{"id": "pid_water/r6hc/building_train_2/denver_1", "rc": 0, "wall_s": 2270.1, "ok": true, "total_reward": -525.9582953422832, "steps": 8640, "sec_per_step": 0.25862552948572015}
+{"id": "pid_water/r6hc/building_train_2/minneapolis_3", "rc": 0, "wall_s": 2300.1, "ok": true, "total_reward": -357.6200054222372, "steps": 8640, "sec_per_step": 0.26187071698131387}
+{"id": "pid_water/r6hc/building_train_4/denver_1", "rc": 0, "wall_s": 1675.1, "ok": true, "total_reward": -481.14068962322744, "steps": 8640, "sec_per_step": 0.1911653701353956}
+{"id": "pid_water/r6hc/building_train_4/minneapolis_4", "rc": 0, "wall_s": 1675.1, "ok": true, "total_reward": -220.04515886955323, "steps": 8640, "sec_per_step": 0.19106054176334983}
+{"id": "pid_water/r6hc/building_train_7/minneapolis_4", "rc": 0, "wall_s": 845.0, "ok": true, "total_reward": -220.83039871180608, "steps": 8640, "sec_per_step": 0.0956303230866238}
+{"id": "pid_water/r6hc/building_train_7/denver_1", "rc": 0, "wall_s": 850.0, "ok": true, "total_reward": -690.4897144335409, "steps": 8640, "sec_per_step": 0.09618349856248608}
+{"id": "pid_water/r6hc/building_train_5/denver_1", "rc": 0, "wall_s": 1745.1, "ok": true, "total_reward": -538.9929488158195, "steps": 8640, "sec_per_step": 0.19924059976582173}
+{"id": "pid_water/r6hc/building_train_5/minneapolis_3", "rc": 0, "wall_s": 1735.1, "ok": true, "total_reward": -366.91127807103203, "steps": 8640, "sec_per_step": 0.19822269788494817}
+{"id": "pid_water/r6hc/building_train_8/denver_1", "rc": 0, "wall_s": 570.0, "ok": true, "total_reward": -482.9271288561831, "steps": 8640, "sec_per_step": 0.06443324089050292}
+{"id": "pid_water/r6hc/building_train_8/minneapolis_3", "rc": 0, "wall_s": 565.0, "ok": true, "total_reward": -328.92605218323297, "steps": 8640, "sec_per_step": 0.06335602184688603}

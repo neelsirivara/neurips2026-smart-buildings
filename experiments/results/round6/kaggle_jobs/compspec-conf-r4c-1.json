@@ -1,0 +1,93 @@
+[
+ {
+  "id": "r6_compspec/r4c/building_0604/atlanta_5",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0604",
+  "weather": "atlanta_5",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0604/phoenix_7",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0604",
+  "weather": "phoenix_7",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0607/denver_4",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0607",
+  "weather": "denver_4",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0607/singapore_2",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0607",
+  "weather": "singapore_2",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0610/fairbanks_3",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0610",
+  "weather": "fairbanks_3",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0639/atlanta_8",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0639",
+  "weather": "atlanta_8",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r6_compspec/r4c/building_0639/phoenix_2",
+  "tag": "r6_compspec/r4c",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v9_screen2.py",
+  "set_dir": "heldout_scenarios_r4c",
+  "building": "building_0639",
+  "weather": "phoenix_2",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"margin_pre\": 0.5,\n \"night_low_ext\": 10.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ }
+]

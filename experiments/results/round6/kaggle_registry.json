@@ -1,0 +1,1374 @@
+{
+ "dataset_versions": [
+  {
+   "utc": "2026-10-26T11:00:31Z",
+   "sets": [
+    "heldout_scenarios_r5m",
+    "heldout_scenarios_r5ms",
+    "heldout_scenarios_r5x",
+    "heldout_scenarios_r4c"
+   ],
+   "message": "v1: kit + public + r5m/r5ms/r5x/r4c",
+   "rc": 0,
+   "tgz_bytes": 4513102,
+   "tgz_md5": "320f587db385c05a8558d42448ba6d32",
+   "n_files": 535,
+   "stdout": "Starting upload for file sb26sim.tar.gz\nUpload successful: sb26sim.tar.gz (4MB)\nYour private Dataset is being created. Please check progress at https://www.kaggle.com/datasets/neelsiri/sb26-sim-r6\n"
+  },
+  {
+   "utc": "2026-10-26T11:05:38Z",
+   "sets": [
+    "heldout_scenarios_r5m",
+    "heldout_scenarios_r5ms",
+    "heldout_scenarios_r5x",
+    "heldout_scenarios_r4c",
+    "heldout_scenarios_r6hc",
+    "heldout_scenarios_r6hs"
+   ],
+   "message": "v2: + r6hc/r6hs, run_diag.py",
+   "rc": 0,
+   "tgz_bytes": 6462728,
+   "tgz_md5": "d97187e6c1d826849e378f570c642998",
+   "n_files": 800,
+   "stdout": "Starting upload for file sb26sim.tar.gz\nUpload successful: sb26sim.tar.gz (6MB)\nDataset version is being created. Please check progress at https://www.kaggle.com/datasets/neelsiri/sb26-sim-r6\n"
+  }
+ ],
+ "kernels": {
+  "t01": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:01:08Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-t01\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-t01",
+   "jobs_file": "..\\..\\results\\round6\\kaggle_jobs\\t01.json",
+   "n_jobs": 4,
+   "internet": true,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "transfer_policy_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025",
+    "transfer_policy_v8_4399297e13.py": "4399297e13831b9543c0c1c87ea98d78",
+    "v7_3d2f928ccf.py": "3d2f928ccf19f9909f965834ac3ce02a"
+   },
+   "run_py_md5": "7d5df601b2cc2861b421ec74a1f0b0a0",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T11:23:02Z",
+   "n_summaries": 4,
+   "n_progress": 4
+  },
+  "v8-r6hs-d-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:29Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hs-d-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hs-d-1",
+   "jobs_file": "..\\..\\results\\round6\\kaggle_jobs\\v8-r6hs-d-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "4139a9da5ebb17c30db9539dfd0eabb7",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T12:07:53Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "v8-r6hs-d-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:32Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hs-d-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hs-d-2",
+   "jobs_file": "..\\..\\results\\round6\\kaggle_jobs\\v8-r6hs-d-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "0a7fa7a27ab04328a5f81191c4107bb6",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T11:51:11Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "v8-r6hc-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:44Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hc-1",
+   "jobs_file": "..\\..\\results\\round6\\kaggle_jobs\\v8-r6hc-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "47cabd8e89bea46f56ad1782982c9d83",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T13:37:10Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "v8-r6hc-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:47Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hc-2",
+   "jobs_file": "..\\..\\results\\round6\\kaggle_jobs\\v8-r6hc-2.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "e27406eaaec171c2389eb375da3ff6a3",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T12:34:07Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "v8-r6hc-3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:49Z",
+     "rc": 0,
+     "out": "Kernel push error: Maximum batch CPU session count of 5 reached.\n"
+    },
+    {
+     "utc": "2026-10-26T11:23:10Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hc-3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\v8-r6hc-3.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "55b27ffd9e71be631c44f5759c16d41e",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T12:34:23Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "v8-r6hc-4": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T11:06:52Z",
+     "rc": 0,
+     "out": "Kernel push error: Maximum batch CPU session count of 5 reached.\n"
+    },
+    {
+     "utc": "2026-10-26T11:51:17Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-4\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v8-r6hc-4",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\v8-r6hc-4.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v8_98036ef218.py": "98036ef2188551a1d4d30c59a7c01025"
+   },
+   "run_py_md5": "18b0e083e1f0c2a9a24d0b00110cf146",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T13:08:55Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "pidwater-r6hc-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T12:08:01Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hc-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hc-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hc-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "787f0473713afb35fcc02be1a5c68d56",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T13:22:08Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c00-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T12:34:29Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c00-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c00-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c00-r6hs-1.json",
+   "n_jobs": 3,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "57731db3744e7fdd182a7d37ded35d68",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T12:47:31Z",
+   "n_summaries": 3,
+   "n_progress": 3
+  },
+  "c01-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T12:34:32Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c01-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c01-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "452d1b548d274c84d7f23502aad7dfb8",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T13:30:26Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c01-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T12:47:35Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c01-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c01-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "2d1dba020b595b68316e9008486aa017",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T13:55:12Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c01-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T13:09:02Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c01-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c01-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "969d9df7e5cef6650218d3ef6b3ff813",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T14:22:56Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c09-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T13:22:15Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c09-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c09-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "97d9e2af11df724355a4716562a06e97",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T14:23:09Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c09-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T13:30:33Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c09-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c09-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "743b4f800f723e5d1d2edb7c408865d3",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T14:30:54Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c09-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T13:37:18Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c09-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c09-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "c3f2ea30c4ab6ba5136cec805f286585",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T14:53:55Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "atl2-probes-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T13:55:20Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-atl2-probes-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-atl2-probes-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\atl2-probes-1.json",
+   "n_jobs": 8,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "f89a27456f21f75dce750dee062c1b04",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T14:40:42Z",
+   "n_summaries": 8,
+   "n_progress": 8
+  },
+  "c11-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T14:24:24Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c11-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c11-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "e0bb0b3c0905b00cff4b3652caf474ef",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T15:32:01Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c11-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T14:31:00Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c11-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c11-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "bdb6b68715854a8f243b8e02291f9b46",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T15:30:07Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c11-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T14:40:49Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c11-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c11-pub12-1.json",
+   "n_jobs": 6,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "6dd71f4dbc5785442f86a1b00433b8c7",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T15:21:34Z",
+   "n_summaries": 6,
+   "n_progress": 6
+  },
+  "c11-pub12-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T14:42:27Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-pub12-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c11-pub12-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c11-pub12-2.json",
+   "n_jobs": 7,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "490215f3d856d0b99dddae1be70e8458",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T15:28:15Z",
+   "n_summaries": 7,
+   "n_progress": 7
+  },
+  "c03-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T14:54:03Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c03-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c03-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "2921a88443e7686d1da26e4b811678eb",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T17:30:35Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c03-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T15:21:40Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c03-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c03-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "7b920efd4dcfefcf483245d1c246fea6",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T17:31:44Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c03-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T15:28:21Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c03-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c03-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "0983b2b74a86d7427c4e8f0f050e5425",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T17:32:31Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c06-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T15:30:14Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c06-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c06-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c06-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "640a811f96685c04eaf6898b02f7f429",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T17:33:44Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c06-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T15:32:09Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c06-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c06-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c06-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "96876cfff09c6329b996be19031fea46",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T17:35:13Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c06-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:35:27Z",
+     "rc": 1,
+     "out": "Expecting value: line 1 column 1 (char 0)\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c06-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c06-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "27622d0380ef53cad340a6d621d628b7",
+   "state": "moved_to_mac",
+   "note": "push failed during the 2026-10-26 network outage (kernel never created on Kaggle); the dispatcher then dropped it from the queue; run on the Mac instead (round-6 resume, ~18:10Z)"
+  },
+  "c07-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:37:05Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c07-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c07-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c07-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "85127dcaa16454abad7eb7198b2d7e94",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T18:53:27Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c07-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:37:24Z",
+     "rc": 1,
+     "out": "Expecting value: line 1 column 1 (char 0)\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c07-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c07-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "88c8fcc6da40a293ea957d0d0dc8ad45",
+   "state": "moved_to_mac",
+   "note": "push failed during the 2026-10-26 network outage (kernel never created on Kaggle); the dispatcher then dropped it from the queue; run on the Mac instead (round-6 resume, ~18:10Z)"
+  },
+  "c07-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:39:15Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c07-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c07-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c07-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "65f7edbfe51016e1ab7c570dba298194",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T18:41:58Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c08-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:40:09Z",
+     "rc": 1,
+     "out": "('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c08-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c08-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "09da4ffa0adc60f40fbc242a278f5d0d",
+   "state": "moved_to_mac",
+   "note": "push failed during the 2026-10-26 network outage (kernel never created on Kaggle); the dispatcher then dropped it from the queue; run on the Mac instead (round-6 resume, ~18:10Z)"
+  },
+  "c08-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:41:59Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c08-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c08-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c08-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "f0011397ef6a72a8b79feb1e97783870",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T18:42:38Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c08-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:42:11Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c08-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c08-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c08-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "69d6520e497772250a8be836e2835187",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T18:44:57Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c02-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T17:42:22Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c02-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c02-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c02-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "09fbe8931a4c039bf4ea7eb464183580",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T18:51:03Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c10-pub12-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T18:42:51Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c10-pub12-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c10-pub12-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c10-pub12-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "720d53f90b01328bb2a0bc1feda86d0f",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T20:06:10Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c10-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T18:42:57Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c10-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c10-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c10-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "f28952411bec2c9c32e5fc078f8bb3ca",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T19:44:30Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "c10-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T18:45:10Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c10-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c10-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c10-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "f1fbfee3eb777d186302be714aaea75d",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T19:52:20Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "pidwater-r6hc-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T18:51:18Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hc-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hc-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hc-2.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "44f1ee56c46eb277fc725609373b0255",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:30:15Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "pidwater-r6hc-3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T18:53:44Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hc-3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hc-3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hc-3.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "7f9cb3a4f504378d82c745a1b81b5ab8",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T20:13:37Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "c02-r6hs-k1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T19:44:46Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c02-r6hs-k1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c02-r6hs-k1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c02-r6hs-k1.json",
+   "n_jobs": 4,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "9fa363dcede4d2fb5404479e03db7b60",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T20:29:09Z",
+   "n_summaries": 4,
+   "n_progress": 4
+  },
+  "c02-r6hs-k2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T19:52:32Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c02-r6hs-k2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c02-r6hs-k2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c02-r6hs-k2.json",
+   "n_jobs": 4,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "61bd116712eac0f969fc91a645dc3e5d",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T20:31:12Z",
+   "n_summaries": 4,
+   "n_progress": 4
+  },
+  "c02-r6hs-k3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:06:20Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c02-r6hs-k3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-c02-r6hs-k3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\c02-r6hs-k3.json",
+   "n_jobs": 4,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen_1129183feb.py": "1129183febb2ac2e985f6e3680608dff"
+   },
+   "run_py_md5": "839fc6ac7193557ec9ea36f96abec253",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T20:43:49Z",
+   "n_summaries": 4,
+   "n_progress": 4
+  },
+  "compspec-conf-r6hc-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:10:03Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-1.json",
+   "n_jobs": 7,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "7fcad47788fae15141cc009d4f4e6050",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T21:04:59Z",
+   "n_summaries": 7,
+   "n_progress": 7
+  },
+  "compspec-conf-r6hc-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:13:48Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-2.json",
+   "n_jobs": 7,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "11a54af83d7b22eb6146cbf6cf201254",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T21:12:38Z",
+   "n_summaries": 7,
+   "n_progress": 7
+  },
+  "compspec-conf-r6hc-3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:29:23Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-3.json",
+   "n_jobs": 8,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "a175ea43d3c9c1eafb0a72305f8f5aa2",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T21:30:37Z",
+   "n_summaries": 8,
+   "n_progress": 8
+  },
+  "compspec-conf-r6hc-4": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:31:27Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-4\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-4",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-4.json",
+   "n_jobs": 8,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "2342c5041f7e63d4f864d6799ce6f9b2",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T21:07:08Z",
+   "n_summaries": 8,
+   "n_progress": 8
+  },
+  "compspec-conf-r6hc-5": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T20:44:09Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-5\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-5",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-5.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "856833b07275e467b76981816360a505",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T21:38:23Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "compspec-conf-r6hc-6": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T21:07:16Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r6hc-6\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r6hc-6",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r6hc-6.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "c79d24af5dbb71058b44f7150a8bf25e",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:00:19Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "pidwater-r6hc-4": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T21:12:52Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hc-4\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hc-4",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hc-4.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "cbc446021d38159ba15f9da63e361d37",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:32:42Z",
+   "n_summaries": 12,
+   "n_progress": 12
+  },
+  "pidwater-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T21:19:43Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "9364bdfa58caf067b61a6156419a29a2",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:15:09Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "pidwater-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T21:30:55Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-pidwater-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\pidwater-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {},
+   "run_py_md5": "638a403e105da64d40cd53090afe416b",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:47:31Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "compb-r6hs-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T21:38:41Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compb-r6hs-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compb-r6hs-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compb-r6hs-1.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "15e920de65ce80503e0723249e76a9a2",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:38:42Z",
+   "n_summaries": 9,
+   "n_progress": 9
+  },
+  "compspec-conf-r4c-k1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:00:40Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r4c-k1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r4c-k1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r4c-k1.json",
+   "n_jobs": 3,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "10561fb0e8cbbcc9ec54e7fe48a9bb8a",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T22:54:21Z",
+   "n_summaries": 3,
+   "n_progress": 3
+  },
+  "compspec-conf-r4c-k2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:15:23Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r4c-k2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r4c-k2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r4c-k2.json",
+   "n_jobs": 3,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "4d2ac224eb8d0ff8c6768ae7d562e2e7",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T23:13:13Z",
+   "n_summaries": 3,
+   "n_progress": 3
+  },
+  "compspec-conf-r4c-k3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:33:00Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compspec-conf-r4c-k3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compspec-conf-r4c-k3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compspec-conf-r4c-k3.json",
+   "n_jobs": 3,
+   "internet": false,
+   "workers": 4,
+   "fetched": true,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "e2828d53b26244b5731f32779e1ea65d",
+   "state": "fetched",
+   "fetched_utc": "2026-10-26T23:04:35Z",
+   "n_summaries": 3,
+   "n_progress": 3
+  },
+  "compb-r6hs-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:38:58Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compb-r6hs-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compb-r6hs-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compb-r6hs-2.json",
+   "n_jobs": 9,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "b3db0975a49dfd1514ac6c01d63f0cf7",
+   "state": "running"
+  },
+  "compb-r4c-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:47:42Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compb-r4c-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compb-r4c-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compb-r4c-1.json",
+   "n_jobs": 7,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "705cfae30d6e0238ba0c3abad1b9eb61",
+   "state": "running"
+  },
+  "compb-r4c-2": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T22:54:32Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compb-r4c-2\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compb-r4c-2",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compb-r4c-2.json",
+   "n_jobs": 7,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "9d12d5a2e927d8455bc1db1e31bacbfb",
+   "state": "running"
+  },
+  "compb-r4c-3": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T23:04:44Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-compb-r4c-3\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-compb-r4c-3",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\compb-r4c-3.json",
+   "n_jobs": 6,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v9_screen2_054cad0ab2.py": "054cad0ab2a1961c6b7dd36f5aca1572"
+   },
+   "run_py_md5": "79b37b15a506cccdb00b80dfc8cf3e93",
+   "state": "running"
+  },
+  "v7-r6hc-1": {
+   "pushes": [
+    {
+     "utc": "2026-10-26T23:13:24Z",
+     "rc": 0,
+     "out": "Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v7-r6hc-1\n"
+    }
+   ],
+   "slug": "neelsiri/sb26-r6-v7-r6hc-1",
+   "jobs_file": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\kaggle_jobs\\v7-r6hc-1.json",
+   "n_jobs": 12,
+   "internet": false,
+   "workers": 4,
+   "fetched": false,
+   "policy_md5": {
+    "v7_3d2f928ccf.py": "3d2f928ccf19f9909f965834ac3ce02a"
+   },
+   "run_py_md5": "12fef4a69755d96ef742ac7ee527fedf",
+   "state": "running"
+  }
+ }
+}

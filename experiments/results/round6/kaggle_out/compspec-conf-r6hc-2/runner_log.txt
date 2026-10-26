@@ -1,0 +1,16 @@
+[    17.9s] env: {'python': '3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.103', 'mem_total_gb': 33.658155008, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 7, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'compspec-conf-r6hc-2', 'pushed_utc': '2026-10-26T20:13:45Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v9_screen2_054cad0ab2.py': '054cad0ab2a1961c6b7dd36f5aca1572'}}
+[    17.9s] start r6_compspec/r6hc/building_train_2/fairbanks_1 (1 running, 6 pending)
+[    17.9s] start r6_compspec/r6hc/building_train_2/minneapolis_c1 (2 running, 5 pending)
+[    18.0s] start r6_compspec/r6hc/building_train_4/fairbanks_2 (3 running, 4 pending)
+[    18.0s] start r6_compspec/r6hc/building_train_4/minneapolis_c1 (4 running, 3 pending)
+[  1983.1s] done r6_compspec/r6hc/building_train_4/minneapolis_c1 rc=0 -116.62852269327414 (1 done)
+[  1983.1s] start r6_compspec/r6hc/building_train_5/minneapolis_5 (4 running, 2 pending)
+[  1988.1s] done r6_compspec/r6hc/building_train_4/fairbanks_2 rc=0 -131.0937975390334 (2 done)
+[  1988.1s] start r6_compspec/r6hc/building_train_7/minneapolis_6 (4 running, 1 pending)
+[  2593.1s] done r6_compspec/r6hc/building_train_2/fairbanks_1 rc=0 -203.3734248687215 (3 done)
+[  2593.1s] start r6_compspec/r6hc/building_train_8/minneapolis_1 (4 running, 0 pending)
+[  2613.1s] done r6_compspec/r6hc/building_train_2/minneapolis_c1 rc=0 -94.01779104314846 (4 done)
+[  2833.1s] done r6_compspec/r6hc/building_train_7/minneapolis_6 rc=0 -28.2247137186323 (5 done)
+[  3153.1s] done r6_compspec/r6hc/building_train_8/minneapolis_1 rc=0 -211.54933906423685 (6 done)
+[  3423.1s] done r6_compspec/r6hc/building_train_5/minneapolis_5 rc=0 -29.508831571550672 (7 done)
+[  3423.1s] all done: 7 jobs in 3423s

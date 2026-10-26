@@ -841,6 +841,12 @@ def main() -> int:
     write_round5_table()
     write_round5_per_scenario()
 
+    # ---- round 6: Kaggle compute, harsh sets vs Kaggle, decomposition, screen, confirmation (make_macros_r6.py) ----
+    from make_macros_r6 import round6_macros, write_round6_kaggle_table, write_round6_table
+    lines += round6_macros()
+    write_round6_kaggle_table()
+    write_round6_table()
+
     # ---- environment ----
     lines.append(macro("SimSecPerStep", fmt(get(ei, "sec_per_step_median"), 3)))
     lines.append(macro("SimMinPerScenario", fmt(get(ei, "min_per_scenario_median"), 1)))

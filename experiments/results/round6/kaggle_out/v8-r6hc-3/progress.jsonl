@@ -1,0 +1,12 @@
+{"id": "v8/r6hc/building_train_1/fairbanks_c1", "rc": 0, "wall_s": 1205.1, "ok": true, "total_reward": -360.5650240886753, "steps": 8640, "sec_per_step": 0.13623584881424905}
+{"id": "v8/r6hc/building_train_1/minneapolis_8", "rc": 0, "wall_s": 1210.1, "ok": true, "total_reward": -90.73073428987846, "steps": 8640, "sec_per_step": 0.13648418389536715}
+{"id": "v8/r6hc/building_train_2/fairbanks_c1", "rc": 0, "wall_s": 2200.1, "ok": true, "total_reward": -200.21739595036343, "steps": 8640, "sec_per_step": 0.2505023412130497}
+{"id": "v8/r6hc/building_train_2/minneapolis_7", "rc": 0, "wall_s": 2200.1, "ok": true, "total_reward": -24.085029703660666, "steps": 8640, "sec_per_step": 0.25057534379539664}
+{"id": "v8/r6hc/building_train_4/fairbanks_c1", "rc": 0, "wall_s": 1610.1, "ok": true, "total_reward": -259.9900814151697, "steps": 8640, "sec_per_step": 0.18354147882373245}
+{"id": "v8/r6hc/building_train_4/minneapolis_8", "rc": 0, "wall_s": 1625.1, "ok": true, "total_reward": -60.10061768919877, "steps": 8640, "sec_per_step": 0.18527683850239823}
+{"id": "v8/r6hc/building_train_7/fairbanks_c1", "rc": 0, "wall_s": 820.0, "ok": true, "total_reward": -448.5542461212317, "steps": 8640, "sec_per_step": 0.09330925820050416}
+{"id": "v8/r6hc/building_train_7/minneapolis_8", "rc": 0, "wall_s": 810.0, "ok": true, "total_reward": -133.9588168373739, "steps": 8640, "sec_per_step": 0.09202144736493076}
+{"id": "v8/r6hc/building_train_5/fairbanks_c1", "rc": 0, "wall_s": 1680.1, "ok": true, "total_reward": -318.7901222480905, "steps": 8640, "sec_per_step": 0.1914562547924342}
+{"id": "v8/r6hc/building_train_5/minneapolis_7", "rc": 0, "wall_s": 1695.1, "ok": true, "total_reward": -29.67668208941882, "steps": 8640, "sec_per_step": 0.19333315204691004}
+{"id": "v8/r6hc/building_train_8/fairbanks_c1", "rc": 0, "wall_s": 555.0, "ok": true, "total_reward": -335.51614651281125, "steps": 8640, "sec_per_step": 0.062483502786468574}
+{"id": "v8/r6hc/building_train_8/minneapolis_7", "rc": 0, "wall_s": 545.0, "ok": true, "total_reward": -33.481663823222334, "steps": 8640, "sec_per_step": 0.061293606874015596}

@@ -1,0 +1,16 @@
+{
+ "building_train_8/minneapolis_3": {
+  "shipped_laptop_total": -65.3053747611848,
+  "r6_comp_kaggle_total": -65.3053747611848,
+  "identical": true,
+  "steps": 8640,
+  "shipped_md5": "866b9023300fbf3555c5f2ca912b4981"
+ },
+ "building_train_8/fairbanks_c1": {
+  "shipped_laptop_total": -323.96867298041616,
+  "r6_comp_kaggle_total": -323.96867298041616,
+  "identical": true,
+  "steps": 8640,
+  "shipped_md5": "866b9023300fbf3555c5f2ca912b4981"
+ }
+}

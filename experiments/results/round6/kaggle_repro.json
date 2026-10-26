@@ -1,0 +1,34 @@
+{
+ "v8/pub30/building_train_1/atlanta_2": {
+  "kaggle_total": -33.88997932484017,
+  "laptop_total": -33.88997932484017,
+  "rel_diff": 0.0,
+  "identical": true,
+  "kaggle_sec_per_step": 0.13428162477082675,
+  "laptop_sec_per_step": 0.0529878562523259
+ },
+ "v8/pub30/building_train_8/fairbanks_8": {
+  "kaggle_total": -202.08351883578143,
+  "laptop_total": -202.08351883578143,
+  "rel_diff": 0.0,
+  "identical": true,
+  "kaggle_sec_per_step": 0.08851629757770786,
+  "laptop_sec_per_step": 0.04224983067424209
+ },
+ "v8code/pub30/building_train_1/fairbanks_1": {
+  "kaggle_total": -389.8816456568893,
+  "laptop_total": -389.8816456568893,
+  "rel_diff": 0.0,
+  "identical": true,
+  "kaggle_sec_per_step": 0.13419815575083097,
+  "laptop_sec_per_step": 0.13823142658781123
+ },
+ "v7/r5m/building_train_1/minneapolis_1": {
+  "kaggle_total": -233.11850220826454,
+  "laptop_total": -233.11850220826454,
+  "rel_diff": 0.0,
+  "identical": true,
+  "kaggle_sec_per_step": 0.1352064741982354,
+  "laptop_sec_per_step": 0.05600615408685472
+ }
+}

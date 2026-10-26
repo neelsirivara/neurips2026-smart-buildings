@@ -1,0 +1,10 @@
+{
+ "cand": "r6_comp",
+ "slug": "sadr-v9-comp-smart-buildings",
+ "status": "neelsiri/sadr-v9-comp-smart-buildings has status \"KernelWorkerStatus.COMPLETE\"",
+ "kaggle_atlanta_2_total": -33.56018439874424,
+ "local_atlanta_2_total": -33.556839820075766,
+ "rel_diff": -9.9669059613719e-05,
+ "parquet": true,
+ "ok": true
+}

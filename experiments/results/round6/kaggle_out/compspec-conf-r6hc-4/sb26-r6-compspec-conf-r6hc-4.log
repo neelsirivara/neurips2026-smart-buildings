@@ -1,0 +1,25 @@
+[{"stream_name":"stdout","time":17.22774291,"data":"[    16.3s] env: {'python': '3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.103', 'mem_total_gb': 33.658159104, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 8, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'compspec-conf-r6hc-4', 'pushed_utc': '2026-10-26T20:31:22Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v9_screen2_054cad0ab2.py': '054cad0ab2a1961c6b7dd36f5aca1572'}}\n"}
+,{"stream_name":"stdout","time":17.22887769,"data":"[    16.3s] start r6_compspec/r6hc/building_train_2/minneapolis_1 (1 running, 7 pending)\n"}
+,{"stream_name":"stdout","time":17.22958457,"data":"[    16.3s] start r6_compspec/r6hc/building_train_1/fairbanks_8 (2 running, 6 pending)\n"}
+,{"stream_name":"stdout","time":17.232993709,"data":"[    16.3s] start r6_compspec/r6hc/building_train_1/minneapolis_6 (3 running, 5 pending)\n"}
+,{"stream_name":"stdout","time":17.233013689,"data":"[    16.3s] start r6_compspec/r6hc/building_train_4/minneapolis_2 (4 running, 4 pending)\n"}
+,{"stream_name":"stdout","time":882.284631213,"data":"[   881.4s] done r6_compspec/r6hc/building_train_1/fairbanks_8 rc=0 -216.43805099452584 (1 done)\n"}
+,{"stream_name":"stdout","time":882.284758403,"data":"[   881.4s] done r6_compspec/r6hc/building_train_1/minneapolis_6 rc=0 -35.95079559311216 (2 done)\n"}
+,{"stream_name":"stdout","time":882.285407503,"data":"[   881.4s] start r6_compspec/r6hc/building_train_5/fairbanks_8 (3 running, 3 pending)\n"}
+,{"stream_name":"stdout","time":882.287113533,"data":"[   881.4s] start r6_compspec/r6hc/building_train_5/minneapolis_c1 (4 running, 2 pending)\n"}
+,{"stream_name":"stdout","time":1187.305532324,"data":"[  1186.4s] done r6_compspec/r6hc/building_train_4/minneapolis_2 rc=0 -104.62350119538678 (3 done)\n"}
+,{"stream_name":"stdout","time":1187.309088934,"data":"[  1186.4s] start r6_compspec/r6hc/building_train_8/fairbanks_1 (4 running, 1 pending)\n"}
+,{"stream_name":"stdout","time":1592.325060985,"data":"[  1591.4s] done r6_compspec/r6hc/building_train_2/minneapolis_1 rc=0 -123.81051872489479 (4 done)\n"}
+,{"stream_name":"stdout","time":1592.328130004,"data":"[  1591.4s] start r6_compspec/r6hc/building_train_8/minneapolis_c1 (4 running, 0 pending)\n"}
+,{"stream_name":"stdout","time":1722.33233575,"data":"[  1721.4s] done r6_compspec/r6hc/building_train_8/fairbanks_1 rc=0 -344.72983670481335 (5 done)\n"}
+,{"stream_name":"stdout","time":2042.348337601,"data":"[  2041.4s] done r6_compspec/r6hc/building_train_5/minneapolis_c1 rc=0 -160.17612266170545 (6 done)\n"}
+,{"stream_name":"stdout","time":2047.349118009,"data":"[  2046.4s] done r6_compspec/r6hc/building_train_8/minneapolis_c1 rc=0 -164.33537441224325 (7 done)\n"}
+,{"stream_name":"stdout","time":2052.350009948,"data":"[  2051.4s] done r6_compspec/r6hc/building_train_5/fairbanks_8 rc=0 -189.7170668246581 (8 done)\n"}
+,{"stream_name":"stdout","time":2052.350042828,"data":"[  2051.4s] all done: 8 jobs in 2051s\n"}
+,{"stream_name":"stderr","time":2054.675631569,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2054.675667199,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2054.980785889,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2054.980811489,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2055.837230845,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2056.331160667,"data":"[NbConvertApp] Writing 416938 bytes to __results__.html\n"}
+]

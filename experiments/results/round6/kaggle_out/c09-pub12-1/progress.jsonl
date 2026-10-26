@@ -1,0 +1,12 @@
+{"id": "r6_c09_bfloor2/pub30/building_train_1/fairbanks_1", "rc": 0, "wall_s": 1380.1, "ok": true, "total_reward": -387.49291503491986, "steps": 8640, "sec_per_step": 0.15603270147133758}
+{"id": "r6_c09_bfloor2/pub30/building_train_1/denver_7", "rc": 0, "wall_s": 1380.1, "ok": true, "total_reward": -24.726283219831203, "steps": 8640, "sec_per_step": 0.15561939061239913}
+{"id": "r6_c09_bfloor2/pub30/building_train_2/denver_8", "rc": 0, "wall_s": 2505.2, "ok": true, "total_reward": -42.407790160819786, "steps": 8640, "sec_per_step": 0.28517179431186784}
+{"id": "r6_c09_bfloor2/pub30/building_train_2/fairbanks_2", "rc": 0, "wall_s": 2525.2, "ok": true, "total_reward": -101.90956005910994, "steps": 8640, "sec_per_step": 0.28740461143078627}
+{"id": "r6_c09_bfloor2/pub30/building_train_1/phoenix_5", "rc": 0, "wall_s": 1375.1, "ok": true, "total_reward": -128.18898708586553, "steps": 8640, "sec_per_step": 0.15651222630231468}
+{"id": "r6_c09_bfloor2/pub30/building_train_4/fairbanks_4", "rc": 0, "wall_s": 1865.2, "ok": true, "total_reward": -21.128070484852287, "steps": 8640, "sec_per_step": 0.21276758395963244}
+{"id": "r6_c09_bfloor2/pub30/building_train_7/fairbanks_7", "rc": 0, "wall_s": 980.1, "ok": true, "total_reward": -74.21178468322614, "steps": 8640, "sec_per_step": 0.11109859432887148}
+{"id": "r6_c09_bfloor2/pub30/building_train_7/atlanta_8", "rc": 0, "wall_s": 985.1, "ok": true, "total_reward": -65.16847873467123, "steps": 8640, "sec_per_step": 0.11214855685830116}
+{"id": "r6_c09_bfloor2/pub30/building_train_7/singapore_6", "rc": 0, "wall_s": 975.1, "ok": true, "total_reward": -50.65155220299721, "steps": 8640, "sec_per_step": 0.11093688295395286}
+{"id": "r6_c09_bfloor2/pub30/building_train_8/fairbanks_8", "rc": 0, "wall_s": 840.0, "ok": true, "total_reward": -200.5970540877097, "steps": 8640, "sec_per_step": 0.09503296674401672}
+{"id": "r6_c09_bfloor2/pub30/building_train_5/fairbanks_5", "rc": 0, "wall_s": 1920.2, "ok": true, "total_reward": -19.83389932897944, "steps": 8640, "sec_per_step": 0.2192130576957155}
+{"id": "r6_c09_bfloor2/pub30/building_train_8/atlanta_1", "rc": 0, "wall_s": 740.0, "ok": true, "total_reward": -47.530660626420286, "steps": 8640, "sec_per_step": 0.08336644978434951}

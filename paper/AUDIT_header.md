@@ -35,7 +35,7 @@ generator seeds (`experiments/src/make_sets_r4.sh`).
 | item | status |
 |---|---|
 | Template | `neurips_2026.sty` with `[sglblindworkshop,final]` + `\workshoptitle{Smart Buildings Challenge (SB26)}`. Deviation from PAPER_CONVENTIONS' literal `[final]`: with the official 2026 style `[final]` alone leaves `\@trackname` undefined and the build fails; a track option is required. Non-anonymous, as the convention intends. |
-| Author block | `[Author Name]`, `[Affiliation]`, neelsirivara@outlook.com -- the user fills the name before upload (STATUS.md to-do). |
+| Author block | Neel Sirivara, University of Washington, nsiriv@cs.washington.edu -- supplied by the user via the coordinator on 2026-10-26 (round 6), replacing the `[Author Name]` / `[Affiliation]` placeholder. |
 | Build | `pdflatex -> bibtex -> pdflatex x2`, `-interaction=nonstopmode -halt-on-error` (`experiments/src/finalize.sh`); hyperref loaded after float/algorithm so caption anchors are not duplicated. |
 | `??` / TODO / undefined refs | checked by `finalize.sh` (pdftotext grep) -- see the last line of its output recorded in STATUS.md. |
 | Length | main text (through "Reproducibility and disclosure") must end on page 6; references and Appendices A-C follow. |
@@ -81,3 +81,20 @@ higher, ramped out 10--22 h before the start" (`r5_c04_wk6.json` + the `wk_ramp_
 (Kaggle's interactive building_train_1/atlanta_2 totals against the local ones, `results/kaggle_feedback.json`:
 0.012-0.014% for v5, v6, pid_water and the v8 candidate, 0.01% for v7); "a weekend floor near freezing" (v8's floor:
 289 K eco band - 8 K - 6 K = 275 K before the adaptive clamp).
+
+Round 6 (2026-10-26) adds these typed constants: "30-day strips cut from the coldest months of the shipped weather
+files" (`experiments/src/make_sets_r6.py`, PREREG round 6 part 1: fairbanks_c1/c2, minneapolis_c1, denver_c1, each
+starting on a Sunday at 06:00 like every shipped strip); "1 J of gas per joule against about 1.9" (the reheat-coil
+energy balance and the -20 C ventilation factor of round 1, restated in `policy_candidates/transfer_policy_v9.py`'s
+docstring); "dropped six planned changes ... (two settings)" and the four named ideas with "under 1% of the HS loss or
+out of the controller's reach" (PREREG round 6 part 2: `r6_c04_oat03`/`r6_c05_oat06` dropped by the recovery fit;
+cooling 0.3% of the HS loss; tank dissipation about 0.6 kW against 100-180 kW of gas; 0.15 K of a ~40 K lift; the
+handler has no heating coil); "about 2 C" weekend floor and "-38 C" (`decomp_v8_r6hs.json` and the fairbanks_c1 minimum
+in PREREG part 1); "twelve public scenarios" (`compare_r6.PUB12`); "one added after a first look" (r6_c11, PREREG
+amendment 13:35 UTC); "a 5 C frost floor" (`r6_c10_frost5.json`: 278.15 K); "private Kaggle CPU kernels"
+(`experiments/src/kaggle_sim/kaggle_sim.py`: `is_private` true, dataset created without `--public`).
+Also round 6: the v9 row of the parameters table and its caption ("<= 8 h before work, outside <= floor",
+"within 2 K of the floor", "v8: 0.8 K and 8 K") are `policy_candidates/r6_comp.json` (sb_boost_h 8,
+sb_boost_cold 1, sb_boost_floor_k 2) and `results/tune/best_params_v8.json` (margin_pre 0.8, night_low_ext 8); "the two
+hot screening scenarios" are building_train_1/phoenix_5 and building_train_7/singapore_6 in `compare_r6.PUB12`; "34% HC
+and the rest public" is macro `RSixMixWPct`; "(c11, c09, c06, c08; v9)" is `RSixCompMembers`.

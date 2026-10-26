@@ -1,0 +1,50 @@
+{
+ "mac-screen-a": {
+  "batch": "mac-screen-a",
+  "fetched_utc": "2026-10-26T19:34:27Z",
+  "n_summaries_merged": 31,
+  "n_progress": 31,
+  "n_failed": 0,
+  "all_done": true
+ },
+ "mac-screen-b2": {
+  "batch": "mac-screen-b2",
+  "fetched_utc": "2026-10-26T19:46:13Z",
+  "n_summaries_merged": 6,
+  "n_progress": 6,
+  "n_failed": 0,
+  "all_done": true
+ },
+ "mac-compspec-screen": {
+  "batch": "mac-compspec-screen",
+  "fetched_utc": "2026-10-26T20:27:02Z",
+  "n_summaries_merged": 33,
+  "n_progress": 33,
+  "n_failed": 0,
+  "all_done": true
+ },
+ "mac-compspec-conf-a": {
+  "batch": "mac-compspec-conf-a",
+  "fetched_utc": "2026-10-26T21:06:22Z",
+  "n_summaries_merged": 29,
+  "n_progress": 29,
+  "n_failed": 0,
+  "all_done": true
+ },
+ "mac-compspec-conf-fd": {
+  "batch": "mac-compspec-conf-fd",
+  "fetched_utc": "2026-10-26T22:21:43Z",
+  "n_summaries_merged": 11,
+  "n_progress": 3,
+  "n_failed": 0,
+  "all_done": false
+ },
+ "mac-compb-pub30": {
+  "batch": "mac-compb-pub30",
+  "fetched_utc": "2026-10-26T23:06:24Z",
+  "n_summaries_merged": 30,
+  "n_progress": 30,
+  "n_failed": 0,
+  "all_done": true
+ }
+}

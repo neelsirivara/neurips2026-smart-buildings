@@ -1,0 +1,25 @@
+Topic #751998: Clarification request: boiler gas billing vs. delivered reheat, and the fixed-commit re-run
+  Author: Houssem Alayet
+  Posted: 2026-10-23 11:22:58.700000
+  Votes: 5  Comments: 1
+
+Hi hosts, thanks for running this competition.
+
+Following up on the earlier thread about the boiler / hot-water tank energy accounting, which still has no host reply: in the shipped simulator, the boiler's flow term is billed at the supply-water setpoint, while the reheat coils draw heat at the actual (ramping) tank temperature. While the tank is above its setpoint, part of the delivered reheat is therefore not billed as gas.
+
+Your paper (arXiv 2610.18511) says the top submissions are re-run "at a fixed simulator commit". Could you clarify:
+
+
+
+Will the final re-run use the simulator exactly as shipped, or a version with this billing corrected?
+
+Are policies whose score depends on this unbilled heat considered valid submissions?
+
+If the billing is corrected, will public LB scores be recomputed, so participants can see the impact before the deadline?
+
+
+A ruling either way would help everyone allocate their remaining effort. Thank you!
+
+Comments:
+├─ Kozzen (2026-10-23 16:52:22.247000) [+0]
+│  A violation of the first law of thermodynamics. We opened a PR with a fix: github.com/smart-buildings-2026/starter-kit/pull/2

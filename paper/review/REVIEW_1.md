@@ -271,3 +271,57 @@ setback; lifting a v5-era request cap that binds in deep cold, found by decompos
 5. Main text within six pages after the additions. -- applied (round-4 table to Appendix A, Table 1 without the v4
    and pid rows, Sections 2-5 compressed; references start on page 7).
 6. Fill the author block. -- user.
+
+# Self-review 1, pass 5 -- round-6 draft (2026-10-26 ~22:30 UTC / 15:30 PDT)
+
+Reviewer stance as before: a workshop PC member who reads the main text (6 pages) and spot-checks the appendix.
+
+## Summary
+Round 6 asks where Kaggle's hidden weather sits and whether harsh-weather control can still be improved. It builds two
+new sets of the shipped six under the coldest strips available (HC 48 for confirmation, HS 18 for screening), shows that
+a 34/66 mixture of HC and the public set reproduces both v8's Kaggle score (by construction) and pid_water's Kaggle ratio
+(a prediction), decomposes v8's harsh-weather loss (95% gas; ventilation of running handlers about half of it), drops
+six planned ideas on that evidence before running them, screens nine single changes at full length, and ships the
+composite v9 under a rule written beforehand: -2.0% on HC (CI 1.4-2.7%), a tie on the public 30.
+
+## Strengths (new in round 6)
+- The Kaggle-match argument now has an out-of-sample element: the mixture weight is fitted on one policy and predicts
+  another policy's Kaggle ratio.
+- Ideas are dropped with numbers, not taste (recovery fit, tank loss, cooling share), and the paper says so.
+- The confirmation set was never used before; the ship rule and its outcome are stated with CIs and seed stability;
+  the regression on FD and on hot strips is reported in the same paragraph as the win.
+- Compute moved to private Kaggle kernels with a reproduction check (bit for bit vs the laptop; the Mac within 2e-11).
+
+## Weaknesses
+1. The public-set effect of v9 is a tie (-0.3%, CI -1.4% to +0.6%), FD (large default-range buildings) shows no gain
+   (+0.6%, CI -0.4% to +1.4%, 4/20 wins, comfort up), and the hot-strip cost of the preconditioning-margin change was
+   missed by a screen with two hot scenarios of twelve. The attribution to c06 rests on the screen ledger and on the
+   post-hoc r6_compb (c07 instead of c06: public -0.9%, CI -1.8% to -0.2%), which is ledger only, not a confirmation.
+2. The v9 Kaggle probe (and the c01 probe) were pending when the paper was built; the Kaggle effect of v9 is unknown and
+   would be below the public split's noise (~0.0005) anyway.
+3. Table 2's HC/HS rows lack the v7/v6/v5 ratios (reference runs not finished), so their shape error rests on
+   pid_water alone; the superscripts state the coverage.
+4. The composite's runs were started speculatively before the composite was formally formed (identical parameters;
+   disclosed in PREREG.md and STATUS.md, not in the paper for space).
+5. c11 (one of the four composite members) was added after a first look at c01's screen; the HC confirmation is
+   independent of that look, and the paper says "one added after a first look".
+6. The main text is exactly six pages and dense; Sections 4-5 now read as a log of rounds.
+
+## Scores
+| criterion | score | justification |
+|---|---|---|
+| Clarity | 4 | Table 2 now carries the Kaggle-match argument in one place; prose is dense. |
+| Soundness | 4 | Pre-registered sets, rule and drops; regressions reported; attribution of the hot-strip cost untested. |
+| Reproducibility | 5 | Every number scripted (AUDIT: 62 claims, every macro in main.tex covered), private Kaggle runner, bit-for-bit checks. |
+| Significance | 4 | The weather mixture is a useful finding for other entrants; controller gains remain small. |
+| Overall | 7 | |
+| Confidence | 4 | |
+
+## Must-fix before upload (pass 5)
+1. Report the FD regression and the hot-strip cost next to the HC win, not only in the appendix. -- applied (Section 4).
+2. Remove double negatives ("lowers HS by -2.3%"). -- applied (`...Abs` screen macros).
+3. Overfull box in the parameters table after the v9 row. -- applied.
+4. Every macro used in main.tex is covered by an AUDIT claim. -- applied (62 claims; 0 uncovered, 0 missing).
+5. Fill in the v9 Kaggle probe score when it arrives (`kaggle_feedback.json`, macro `RSixProbeBScore`; c01 scored
+   0.01071 and is in the text); FD (20) and pid_water on HC (48) finished and are in. -- v9 score open (see STATUS.md).
+6. Do not call FD "worse": its CI spans zero. -- applied ("does not help on FD").

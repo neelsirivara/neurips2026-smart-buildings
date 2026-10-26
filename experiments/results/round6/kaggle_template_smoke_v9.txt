@@ -1,0 +1,1 @@
+smoke test (288 steps, not comparable to full-length numbers): -2.2480572538552224

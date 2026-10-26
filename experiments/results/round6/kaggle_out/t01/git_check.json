@@ -1,0 +1,5 @@
+{
+ "attempted": true,
+ "clone_rc": 128,
+ "clone_err": "Cloning into '/tmp/sb/gh'...\nfatal: unable to access 'https://github.com/smart-buildings-2026/starter-kit/': Could not resolve host: github.com\n"
+}

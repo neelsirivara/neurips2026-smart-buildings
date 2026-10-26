@@ -1,0 +1,15 @@
+[2026-10-26T19:17:47Z +      0s] batch mac-screen-b2: 6 jobs, 6 to run, 8 workers, mem guard 30%
+[2026-10-26T19:23:36Z +      0s] batch mac-screen-b2: 6 jobs, 6 to run, 8 workers, mem guard 30%
+[2026-10-26T19:24:37Z +     60s] start r6_c02_boost4/r6hs/building_train_7/denver_c1 (mem free 59%, 1 running, 5 pending)
+[2026-10-26T19:25:13Z +     97s] start r6_c02_boost4/r6hs/building_train_7/fairbanks_8 (mem free 56%, 2 running, 4 pending)
+[2026-10-26T19:25:23Z +    107s] start r6_c02_boost4/r6hs/building_train_7/minneapolis_3 (mem free 56%, 3 running, 3 pending)
+[2026-10-26T19:26:05Z +    149s] start r6_c02_boost4/r6hs/building_train_8/fairbanks_c2 (mem free 57%, 4 running, 2 pending)
+[2026-10-26T19:33:32Z +    596s] start r6_c02_boost4/r6hs/building_train_8/fairbanks_2 (mem free 59%, 5 running, 1 pending)
+[2026-10-26T19:33:42Z +    606s] start r6_c02_boost4/r6hs/building_train_8/minneapolis_8 (mem free 57%, 6 running, 0 pending)
+[2026-10-26T19:36:32Z +    776s] done r6_c02_boost4/r6hs/building_train_7/denver_c1 rc=0 -213.29004252342565 (1 done, 0 pending)
+[2026-10-26T19:36:52Z +    796s] done r6_c02_boost4/r6hs/building_train_8/fairbanks_c2 rc=0 -356.44863150613673 (2 done, 0 pending)
+[2026-10-26T19:37:12Z +    816s] done r6_c02_boost4/r6hs/building_train_7/fairbanks_8 rc=0 -267.01564989451435 (3 done, 0 pending)
+[2026-10-26T19:37:22Z +    826s] done r6_c02_boost4/r6hs/building_train_7/minneapolis_3 rc=0 -96.00738252112205 (4 done, 0 pending)
+[2026-10-26T19:43:43Z +   1206s] done r6_c02_boost4/r6hs/building_train_8/fairbanks_2 rc=0 -180.28119818076811 (5 done, 0 pending)
+[2026-10-26T19:43:53Z +   1216s] done r6_c02_boost4/r6hs/building_train_8/minneapolis_8 rc=0 -91.5843677164994 (6 done, 0 pending)
+[2026-10-26T19:43:53Z +   1216s] all done: 6 jobs in 1216s

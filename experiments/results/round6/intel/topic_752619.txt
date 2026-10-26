@@ -1,0 +1,18 @@
+Topic #752619: Pressure dependent Vs pressure independent VAV system
+  Author: BenBartling
+  Posted: 2026-10-25 16:05:59.029000
+  Votes: 3  Comments: 0
+
+Has anyone else noticed that the simulators appear to model pressure-dependent VAV HVAC systems?
+
+In other words, these seem to represent older HVAC designs, perhaps dating back to the 1980s, when VAV boxes often operated without airflow measurement and air volume control? … IE., its just air damper control direct for a Zone PID.
+
+From what I can tell, the simulator has no airflow measurements, airflow setpoints, or VAV discharge air temperature sensors.
+
+As a result, implementing a realistic True version of ASHRAE Guideline 36 trim-and-respond control sequences doesn't seem feasible, at least not in the way these strategies would operate in a modern pressure-independent VAV system.
+
+Essentially, we're working with a legacy-style HVAC system simulator that doesn't appear to reflect modern ASHRAE 90.1 energy efficiency requirements or ASHRAE 62.1 ventilation requirements.
+
+Is anyone else interpreting the simulator this way, or am I missing something in the available observations and control inputs?
+
+No comments

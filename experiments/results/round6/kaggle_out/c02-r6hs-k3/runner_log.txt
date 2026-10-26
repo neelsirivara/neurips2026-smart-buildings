@@ -1,0 +1,10 @@
+[    65.5s] env: {'python': '3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.103', 'mem_total_gb': 33.658159104, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 4, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'c02-r6hs-k3', 'pushed_utc': '2026-10-26T20:06:17Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v9_screen_1129183feb.py': '1129183febb2ac2e985f6e3680608dff'}}
+[    65.6s] start r6_c02_boost4/r6hs/building_train_2/fairbanks_8 (1 running, 3 pending)
+[    65.6s] start r6_c02_boost4/r6hs/building_train_1/fairbanks_c2 (2 running, 2 pending)
+[    65.6s] start r6_c02_boost4/r6hs/building_train_4/fairbanks_1 (3 running, 1 pending)
+[    65.6s] start r6_c02_boost4/r6hs/building_train_5/minneapolis_2 (4 running, 0 pending)
+[  1395.6s] done r6_c02_boost4/r6hs/building_train_1/fairbanks_c2 rc=0 -393.5791065625599 (1 done)
+[  1760.6s] done r6_c02_boost4/r6hs/building_train_4/fairbanks_1 rc=0 -278.29236173934623 (2 done)
+[  1815.6s] done r6_c02_boost4/r6hs/building_train_5/minneapolis_2 rc=0 -147.29155060299126 (3 done)
+[  2145.6s] done r6_c02_boost4/r6hs/building_train_2/fairbanks_8 rc=0 -113.12037968136974 (4 done)
+[  2145.6s] all done: 4 jobs in 2146s

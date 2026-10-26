@@ -1,0 +1,1 @@
+building_train_8/fairbanks_2/transfer: total=-181.08 steps=8640 sec/step=0.092 (policy 1.77 ms) regret=-2.08 energy=245.84 carbon=653.31

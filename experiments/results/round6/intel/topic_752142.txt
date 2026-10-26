@@ -1,0 +1,75 @@
+Topic #752142: [Bug report] Boiler gas is not billed while the hot-water setpoint is below the return water temperature (free reheat via a setpoint sawtooth)
+  Author: Shamroze Nasir
+  Posted: 2026-10-23 19:38:09.573000
+  Votes: 6  Comments: 4
+
+Hi organizers,
+While testing our policy locally we found what looks like an energy-accounting bug in the boiler model. It lets a policy get reheat without paying for most of the gas. We have not used it in any submission, and we're reporting it so it can be fixed for everyone.
+What happens
+In smart_control/simulator/boiler.py, compute_thermal_energy_rate() (around line 215):
+
+if self._supply_water_temperature_setpoint &gt; return_water_temp:
+    supply_water_temp = self._supply_water_temperature_setpoint
+else:
+    supply_water_temp = return_water_temp
+flow_heating_energy_rate = c_w * rho_w * total_flow_rate * (supply_water_temp - return_water_temp)
+
+
+When a policy sets the hot-water setpoint below the return water temperature, flow_heating_energy_rate becomes 0.
+But the VAV reheat coils (vav.py, output()) use hot_water_system.supply_water_temperature_sensor, which is the tank's current temperature. When the setpoint drops, _adjust_temperature() lowers that temperature only at the fixed cooling_rate (0.1 K/min in the training configs). That rate doesn't depend on how much heat the coils draw.
+So the coils keep receiving water at roughly 340–345 K and keep heating the zones, while the boiler bills only:
+the tank term (credited as negative while the tank cools), and
+the small dissipation term.
+A policy that repeatedly raises the setpoint to the maximum and drops it to the minimum (a sawtooth) therefore gets most of its reheat for free.
+Reproduction (stock pid_water baseline, only the water setpoint changed)
+Run from the competition data folder:
+
+import sys; sys.path.insert(0, ".")
+from pathlib import Path
+import numpy as np
+from smart_buildings import evaluate as ev
+from smart_buildings.baselines.pid_plus import PIDWaterResetPolicy
+
+d = Path("smart_buildings/training_scenarios/building_train_8/fairbanks_8")
+
+def run(sawtooth, steps=1152):
+    env = ev.load_hybrid_environment(d / "config.gin"); env.metrics_path = None
+    env._occupancy_normalization_constant = 125.0
+    tr = ev.SimulationTracker(env, vmin=280, vmax=310, capture_snapshots=False)
+    md = ev.create_building_meta_data(env, d)
+    tank = md["observation_field_names"].index("hws_supply_water_temperature_sensor")
+    pol = PIDWaterResetPolicy(md, env.action_spec())
+    tr.reset(); obs = tr.last_obs
+    for _ in range(steps):
+        a = pol.get_action(obs)
+        if sawtooth and a["discrete_action"][-1] == 1:
+            a["continuous_action"][md["water_indices"]] = -1.0 if obs[tank] &gt;= 345.0 else 1.0
+        obs, *_ = tr.step(ev.validate_action(a, env.action_spec()))
+    rc = tr.reward_components
+    return [np.mean([r[k] for r in rc]) for k in ("normalized_productivity_regret",
+            "normalized_energy_cost", "normalized_carbon_emission", "agent_reward")]
+
+print("as shipped:", run(False))
+print("sawtooth:  ", run(True))
+
+
+Results on building_train_8/fairbanks_8, first 1152 steps (4 days):
+Policy    Regret  Energy  Carbon  Reward
+pid_water as shipped    -0.0513 0.0447  0.0851  -0.0567
+pid_water + setpoint sawtooth    -0.0485 0.0330  0.0620  -0.0481
+Comfort is the same or slightly better, while energy and carbon drop by about 26–27%. With a well-tuned controller in cold weather, the same trick roughly halves carbon (in our test, carbon went from 0.073 to 0.035 with no change in comfort).
+Possible fix
+Bill the flow term against the water the coils actually receive, i.e. use the tank's current temperature (supply_water_temperature_sensor) instead of the setpoint when computing flow_heating_energy_rate. A more complete option: let the tank temperature fall according to the heat actually drawn by the coils, (Q_coils − Q_burner)/(ρ·c·V), instead of a fixed cooling_rate.
+If this is fixed, could you consider re-scoring existing submissions, so that teams relying on it don't keep an advantage?
+Happy to share more details or test a patch. Thanks for organizing the challenge!
+— Shamroze Nasir (Mimar AI)
+
+Comments:
+├─ Kozzen (2026-10-24 08:44:43.727000) [+0]
+│  We opened a PR with a fix here: github.com/smart-buildings-2026/starter-kit/pull/2
+  ├─ Houssem Alayet (2026-10-24 23:46:22.817000) [+0]
+  │  @Kozzen thanks for the PR. Quick question on the table: is "fairbanks_1, 7 days" building_train_1/fairbanks_1 from the shipped training scenarios, starting at its default start date? We'd like to c...
+    ├─ Kozzen (2026-10-26 08:16:25.877000) [+0]
+    │  Yes: building_train_1/fairbanks_1 from the shipped training scenarios, default start date, first 2016 steps (7 days), same controller on the shipped and on the patched simulator.
+    ├─ Houssem Alayet (2026-10-26 09:36:54.107000) [+0]
+    │  Thanks, that settles it. On the same scenario and window our plant-inversion baseline (the one on the LB) gets −102.4, and our newer twin-based LP planner gets −85.4 on the shipped simulator (−84.5...

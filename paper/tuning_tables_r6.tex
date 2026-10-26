@@ -1,0 +1,22 @@
+\begin{table}[h]
+\caption{Round-6 screen (8,640 steps; relative change of the mean against v8, paired bootstrap 95\% CI, 5,000 resamples, seed 0) on the harsh screening set HS (18) and twelve public scenarios. Classes as pre-registered (helps = HS CI below zero and public CI not above zero); $^\dagger$ added after a first look at c01's screen (post hoc, labelled in \texttt{PREREG.md}); $^\ddagger$ defined after reading the public part of v9's confirmation, so not eligible this round (its HS column may cover part of HS).}
+\label{tab:candidates_r6}
+\centering\scriptsize
+\begin{tabular}{llccl}
+\toprule
+id & change & HS & public-12 & class \\
+\midrule
+r6{\_}c01{\_}boost8 & boost set-back zones' forced air, 8\,h before start & -0.9\% [-1.4, -0.5] & -0.4\% [-1.1, +0.2] & helps \\
+r6{\_}c02{\_}boost4 & same, 4\,h before start & -0.6\% [-0.8, -0.3] & -0.3\% [-0.8, +0.1] & helps \\
+r6{\_}c11{\_}boost8cold & c01 only while outside air $\le$ setback floor$^\dagger$ & -1.0\% [-1.4, -0.5] & -0.5\% [-1.2, +0.1] & helps \\
+r6{\_}c03{\_}sync08 & join a burst on the handler within 0.8\,K of the floor & -0.0\% [-0.1, +0.0] & -0.0\% [-0.1, +0.0] & n.s. \\
+r6{\_}c09{\_}bfloor2 & boost forced air within 2\,K of the floor & -0.5\% [-0.7, -0.3] & -0.4\% [-0.8, +0.0] & helps \\
+r6{\_}c06{\_}mpre05 & preconditioning target 0.5\,K inside the band & -0.4\% [-0.4, -0.3] & -0.3\% [-0.7, +0.3] & helps \\
+r6{\_}c07{\_}safe115 & lead safety 1.15 & -0.3\% [-0.4, -0.3] & -0.4\% [-0.6, -0.2] & helps \\
+r6{\_}c08{\_}night10 & weeknight setback 10\,K & -0.8\% [-1.1, -0.5] & -0.3\% [-0.7, -0.0] & helps \\
+r6{\_}c10{\_}frost5 & frost floor 5$^\circ$C (sensible practice) & +0.9\% [+0.6, +1.2] & +0.5\% [+0.0, +1.1] & worse \\
+r6{\_}comp & composite c11 + c09 + c06 + c08 (v9) & -2.3\% [-3.1, -1.6] & -1.4\% [-2.8, -0.1] & helps \\
+r6{\_}compb & c11 + c09 + c07 + c08 (post hoc, ledger only)$^\ddagger$ & -2.5\% [-3.9, -1.3] & -1.4\% [-2.7, -0.3] & helps \\
+\bottomrule
+\end{tabular}
+\end{table}

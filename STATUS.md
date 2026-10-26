@@ -1,19 +1,123 @@
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-26 04:00 PDT. State: ROUND 5 COMPLETE -- Kaggle used as an oracle (v7 0.01088,
+Last updated: 2026-10-26 ~16:00 PDT. State: ROUND 6 COMPLETE -- harsh-weather sets built on private Kaggle CPU
+kernels and the Mac: a 34/66 mixture of the new harsh confirmation set HC and the public set reproduces v8's Kaggle
+score and predicts pid_water's Kaggle ratio (5.81 vs 5.96, 2.6% low); 9 single changes screened at full length; the composite
+r6_comp (set-back air boost before workdays and near the floor, preconditioning margin 0.5 K, weeknight setback 10 K)
+met the pre-registered rule (HC -2.05% [-2.70, -1.43], 40/48; public-30 -0.27% [-1.35, +0.65], a tie) and is
+**shipped as v9** in `submission/transfer_policy.py` (v8 kept as `submission/transfer_policy_v8_shipped_before_round6.py`);
+no gain on FD (large default-range buildings: +0.60% [-0.37, +1.36], 4/20 wins, comfort up) and up to +4% on hot public
+strips -- see Round 6 item 5.
+Kaggle probes: c01 0.01071 (noise vs v8 0.01074), v9 pending (ref 57678857). Paper rebuilt (15 pages, main text through
+page 6; 0 errors / undefined / `??` / overfull), author block filled, AUDIT 63 claims (0 missing), review pass 5,
+`DEEP_DIVE.md` written. The Kaggle dispatcher keeps running reference shards (PID 49940). Round 5 header kept below.
+
+Round 5 header (2026-10-26 04:00 PDT): ROUND 5 COMPLETE -- Kaggle used as an oracle (v7 0.01088,
 v6 0.01116, v5 0.01161, pid_water 0.06404, v8 0.01074): the hidden buildings behave like the shipped six
 and the local-vs-Kaggle gap is weather (public + Minneapolis reproduces the probes' ratios); SADR v8
 (round-5 composite `r5_c12_comp`: weekend setback, request cap 20 kW per 100 m2) met the pre-registered
 rule at full length (public -1.1%, M -4.1%, P+M -2.2%; FD a tie) and is baked into
-`submission/transfer_policy.py` (v7 kept for provenance); paper rebuilt (14 pages, main text ends on
-page 6; 0 errors, 0 undefined refs, 0 `??`, 0 overfull boxes), audit 51 claims (0 missing), self-review
-pass 4. Laptop jobs finished; the Mac was offline. Open items are the user's (OpenReview upload with
-name; choosing the two final Kaggle submissions). Round 4 header kept below for reference.
+`submission/transfer_policy.py` (v7 kept for provenance).
 
 Repository: https://github.com/neelsirivara/neurips2026-smart-buildings (private; `kit/` and the
 per-scenario time series are git-ignored; `.git`, `.gitignore`, `LICENSE`, `.github` and the
 top-level `README.md` are managed by `make_repos.py` and were not edited here). Nothing was
 committed or pushed from this session.
+
+## Round 6 (2026-10-26 04:00-16:00 PDT; private Kaggle CPU kernels + the Mac, laptop <= 1 thread): harsh weather
+
+State: ROUND 6 COMPLETE. Harsh-weather sets built and matched to Kaggle; 9-candidate pre-registered screen at full
+length; composite r6_comp confirmed at full length and **shipped as v9** under the pre-registered rule; v9 probe
+submitted to Kaggle (pending); paper, AUDIT, review pass 5, `DEEP_DIVE.md`. Nothing committed or pushed.
+
+1. **Pre-registration** `experiments/results/round6/PREREG.md`: part 1 (11:05 UTC, before any round-6 run) = sets HC
+   (48, confirmation, never used before) / HS (18, screening), Kaggle-match criteria, ship rule (public-30 not worse AND
+   HC better, paired bootstrap 5,000 resamples seed 0); part 2 (12:10 UTC, after the v8 decomposition, before any
+   candidate) = 8 candidates in 4 families, 6 planned ideas dropped with reasons (recovery fit contradicts an outdoor-
+   temperature optimum start; SAT reset under heating load, hot-water reset, no simultaneous reheat/cooling and a lower
+   occupied heating margin target < 1% of the HS loss or are out of reach); amendment 13:35 UTC = c11 (post hoc, labelled);
+   resume notes (18:07-21:10 UTC) = dispatcher fix, Mac runs, speculative composite runs, post-hoc ledger item r6_compb.
+2. **Compute**: private Kaggle CPU script kernels (`experiments/src/kaggle_sim/kaggle_sim.py`: private dataset
+   `neelsiri/sb26-sim-r6` = laptop kit + scenario sets + runner; kernels `sb26-r6-*`, all private) and, after the Mac
+   came back, `kaggle_sim/mac_shard_runner_r6.py` on the Mac (same tarball, <= 8 simulator workers machine-wide,
+   `memory_pressure` >= 30% checked before every job launch; `mac_batch_r6.py`, `fetch_mac_r6.py`, `mac_registry.json`).
+   Reproduction: Kaggle = laptop bit for bit (4/4, `kaggle_repro.json`); Mac = Kaggle bit for bit on v8 and pid_water,
+   2e-11 relative on one v9-code run (`mac_repro.json`).
+   **Dispatcher found at resume** (`kaggle_sim.py dispatch --loop --forever`, PID 43176, started 07:24 PDT): alive, 5
+   kernels running, 16 queued; but 3 shards (c06-r6hs-2, c07-r6hs-1, c08-pub12-1) had failed to push after the 09:24-10:30 PDT network outage (pushes at
+   10:35-10:40 PDT) and the dispatcher had **dropped them from the queue** (registry `push_failed`; the kernels did
+   not exist on Kaggle). Stopped it at 18:07 UTC during its sleep, patched `dispatch()` (a failed push goes back to the
+   front of the queue and is parked after 3 failures), restarted it (one instance, PID 5136, stdout
+   `kaggle_dispatch_stdout_2.txt`); the 3 lost shards ran on the Mac. Second fix at 22:30 UTC: a failed output download
+   ("a problem on Kaggle's side") had marked pidwater-r6hc-2 fetched with 0 summaries; `fetch()` now keeps such a kernel
+   'running' so the dispatcher retries; re-fetched with `--force` (12 summaries) and restarted (PID 49940,
+   `kaggle_dispatch_stdout_3.txt`). Queue edits during the round are logged with
+   `[resume]` in `kaggle_dispatch_log.txt`. **The dispatcher is still running** (it idles when the queue is empty; it is
+   working through the v7 reference and r6_compb ledger shards); stop it with `taskkill /PID 49940 /F` when those are fetched.
+   Machine notes: the kit venv's `python.exe` was blocked by Windows Application Control from ~18:20 UTC; laptop
+   scripts ran with the uv base interpreter (3.12.15) + `PYTHONPATH=kit/.venv/Lib/site-packages` (same packages). The Mac
+   ran at load 100-130 (other users' processes) from ~19:00 to 19:30 UTC; FD was moved back to Kaggle for time.
+3. **Kaggle match** (`set_match.json`, paper Table 2): v8 on P 0.00777 (level 0.72 of Kaggle), M 0.01073 (1.00), HC
+   0.01657 (1.54), HS 0.02243 (2.09). A mixture of 34% HC + 66% P fitted to v8's Kaggle score predicts pid_water's
+   Kaggle ratio: 5.81 against 5.96, 2.6% low (pid_water on all 48 HC scenarios; P+M: 6.15). Reading: the hidden split is about two thirds
+   public-like weather and one third deep cold.
+4. **Screen** (8,640 steps, HS 18 + pub12, vs v8; `screen_summary.json`, paper Table B6): helps c01 boost 8 h -0.94%
+   [-1.42, -0.50] HS / -0.43% pub12, c02 boost 4 h -0.58%, c11 boost 8 h cold-only -0.95% [-1.43, -0.52] / -0.46%, c09
+   floor boost -0.49%, c06 preconditioning margin 0.5 K -0.36%, c07 lead safety 1.15 -0.34%, c08 weeknight setback 10 K
+   -0.81% [-1.14, -0.50] / -0.32%; n.s. c03 burst sync -0.04%; frost floor 5 C (reporting only) **+0.91% [+0.60, +1.22]**
+   HS, +0.51% pub12. Composite (one per family, lowest HS): c11 + c09 + c06 + c08 = `r6_comp`: HS **-2.32% [-3.07,
+   -1.60]** (17/18), pub12 -1.36% [-2.76, -0.09]; C* = r6_comp (`decision_composite.json` 20:44 UTC, `decision.json`).
+5. **Confirmation** (8,640 steps; `confirm_r6_comp.json`), v8 -> v9:
+   HC (48): 0.01657 -> 0.01623, **-2.05% [-2.70, -1.43]** (-33.9 [-44.7, -23.8] x1e-5), wins 40/48, CI below zero for
+   10/10 bootstrap seeds; public-30: 0.00777 -> 0.00775, -0.27% [-1.35, +0.65] (-2.1 [-10.5, +5.0] x1e-5), wins 16/30;
+   **rule MET** (public not worse for all 10 seeds, HC better). Secondary: HS -2.32%, H (66) -2.14% [-2.63, -1.66], M (12)
+   -1.28% [-2.45, -0.31], P+M -0.63% [-1.43, +0.13], FD (20) 0.01007 -> 0.01013, +0.60% [-0.37, +1.36], wins 4/20 (n.s.; the comfort term rises
+   by 2.3 times the net change, energy falls). Worst single scenarios: public
+   building_train_1/singapore_8 +3.98% (five of six Singapore strips +2.6% to +4.0%, Atlanta 5/6 +3.7%/+3.1%), HC
+   building_train_4/minneapolis_6 +3.36%. The screen ledger puts the hot-strip cost on c06 (+2.6% singapore_6, +1.5%
+   phoenix_5; c07 -0.6% there): the pub12 screen had two hot strips of twelve. Post hoc, ledger only: `r6_compb` (c07
+   instead of c06): public-30 -0.92% [-1.80, -0.24] vs v8 (25/30 wins) and -0.65% [-1.13, -0.20] vs
+   v9; HS (9 of 18 when written) -2.52% vs v8 (v9 -2.44% on the same 9); FD runs queued on Kaggle (`compb-r4c-*`).
+   Not eligible this round (defined after reading the confirmation); the natural round-7 candidate.
+6. **Shipped** (`python experiments/src/ship_round6.py r6_comp`, ~22:00 UTC): `submission/transfer_policy.py` = v9
+   (`results/round6/policies/v9_screen2.py` + r6_comp overrides baked; md5 866b9023...), v8 kept as
+   `submission/transfer_policy_v8_shipped_before_round6.py` (md5 98036ef2..., = `results/round6/policies/v8.py`),
+   `submission/best_params.json` = `results/tune/best_params.json` = `best_params_v9.json` (v8: `best_params_v8.json`).
+   Checks: bake (DEFAULT_PARAMS = v9 defaults + overrides), robustness test 35/35, 36-step smoke run, Kaggle template
+   smoke test (`results/round6/kaggle_template_smoke_v9.txt`: 288 steps, building_train_1/fairbanks_1, -2.2481), shipped file vs the confirmation's Kaggle runs at
+   8,640 steps on building_train_8/{minneapolis_3, fairbanks_c1} (HC): identical totals on both (-65.3053747611848, -323.96867298041616) (`results/round6/regress/
+   xcheck_shipped_v9.json`); the Kaggle-scored notebook (`submission/kaggle/sadr-v9-comp-smart-buildings`, from
+   `results/round6/policies/v9_r6_comp.py`) differs from the shipped file only in two docstring lines
+   (`results/round6/shipped_vs_kaggle_scored.diff`). README updated (v9 section, v8 kept).
+7. **Kaggle probes** (`results/kaggle_feedback.json`): c01 (ref 57669693, 14:41 UTC) and v9 = r6_comp (ref 57678857,
+   21:19 UTC; Kaggle's interactive building_train_1/atlanta_2 -33.5602 vs local -33.5568, 0.010%); c01 scored **0.01071** at 22:27 UTC (v8 0.01074;
+   -0.00003, noise); v9 **PENDING**. Daily count 2026-10-26 UTC: 3 of 4 (1 spare kept). Leaderboard 19:05 UTC: v8 0.01074 rank 87 (86 ahead), #1
+   0.00521, #8 0.00603, #20 0.00685 (`results/round6/intel/lb_page1_2026-10-26T1905Z.csv`).
+8. **Paper** (`paper/main.tex`): author block filled (Neel Sirivara, University of Washington,
+   nsiriv@cs.washington.edu; supplied by the user via the coordinator); abstract adds round 6; Section 3 protocol covers
+   rounds 3-6; Setup states the round-6 machines; Table 1 gains a v9 row; Section 4: Kaggle paragraph compressed
+   (round-5 table to the appendix), Table 2 = local sets incl. HC/HS and the 66/34 mixture, new "Round 6" paragraph;
+   Section 5 "What round 6 found" (HS decomposition, recovery fit, frost); round-4/5 paragraphs and Limitations
+   compressed to keep six pages; Appendix: params table v9 row, round-6 ledger (Table B6). Build: 15 pages, main
+   text through page 6, references from page 7; 0 errors, 0 undefined references, 0 `??`, 0 overfull boxes.
+   `paper/AUDIT.md` (63 claims, 0 missing; every macro used in main.tex is covered), `paper/review/REVIEW_1.md` pass 5.
+9. **Deep dive** `DEEP_DIVE.md` (coordinator request): public notebooks/threads vs SADR, loss by component and weather
+   (Kaggle-weighted: gas 75%, chiller 19%, fan 3.6%, comfort 2%), a ranked change list with gains/costs/fit, literature;
+   numbers from `experiments/src/deep_dive_r6.py` -> `results/round6/deep_dive_numbers.json`, Kaggle reads in
+   `results/round6/intel/`, v8 7-day fairbanks_1 run in `results/round6/deep_dive_7day/`.
+
+### Round 6 -- what remains
+- Running at hand-off (all ledger/reference, none decision-relevant): the Kaggle dispatcher (PID 49940; v7 on HC
+  `v7-r6hc-1..4`, r6_compb on HS `compb-r6hs-2` and FD `compb-r4c-1..3`); Mac batch `mac-v7-r6hs` (v7 on HS, 18 jobs).
+  To finish: `python experiments/src/kaggle_sim/fetch_mac_r6.py mac-v7-r6hs`; the dispatcher fetches Kaggle shards
+  itself (stop it with `taskkill /PID 49940 /F` once `kaggle_queue.json` is empty and `kaggle_registry.json` shows no
+  `running`); then `compare_r6.py match`, `compare_r6.py screen --all`, `make_macros.py`, `make_audit.py` and the three
+  pdflatex passes (Table 2 gains the v7 column; the ledger row of r6_compb gains the full HS). On this laptop run Python
+  through the uv base interpreter with `PYTHONPATH=kit/.venv/Lib/site-packages` (the venv's python.exe is blocked by
+  Windows Application Control; `finalize.sh` assumes the venv python and has a new round-6 block).
+- Kaggle: the v9 probe score (c01 is in: 0.01071); final selection by 2027-01-15 (v9 and v8 are the natural pair).
+- Next round (see `DEEP_DIVE.md`): fix c06's cooling cost (heating-only margin or c07), CMA-ES distribution tuning on
+  more stations, model-based morning recovery.
 
 ## Round 5 (2026-10-25 11:25 PDT - 2026-10-26 04:00 PDT, laptop only, <= 3 simulator workers): Kaggle as an oracle
 
@@ -342,7 +446,14 @@ Machines in round 3:
 - The 6 held-out screening scenarios (first 10 days) informed the choice; the 34 never screened are
   the clean held-out estimate (-10.8%, CI 8.3-13.5%, 34/34).
 
-## Final policy (`submission/transfer_policy.py`, SADR v8 since round 5)
+## Final policy (`submission/transfer_policy.py`, SADR v9 since round 6)
+v9 = the v8 rules below + four round-6 switches: in heating season the forced minimum air of a set-back zone on a
+running handler is reheated to the discharge limit instead of to the zone temperature (within 8 h of a workday start
+while the outside air is at or below the zone's setback floor, and at any time within 2 K of the floor); the
+preconditioning target sits 0.5 K inside the band (v8 0.8 K); the weeknight setback floor is 10 K below the eco
+heating setpoint (v8 8 K). With every round-6 switch off the v9 code reproduces v8 bit for bit. The v8 description
+follows.
+
 v8 = the v7 rules below + two round-5 switches: far from the next workday start (weekends) the setback floor drops
 by 6 K and the ceiling rises by 4 K, ramped back over the 12 h that end 10 h before the start; and the per-zone
 request cap is 20 kW per 100 m2 (v7: 12 kW), so in deep cold the box and coil bound the heat. With every round-5
@@ -420,6 +531,10 @@ figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-rev
 (`paper/review/REVIEW_1.md`): must-fixes 1-5 applied.
 
 ## To do (user)
+- Round 6: v9 is shipped; its Kaggle probe (ref 57678857) was pending at hand-off. Choose the two final Kaggle
+  submissions before 2027-01-15: v9 and v8 are the natural pair (v9 is better on the harsh sets, a tie on the
+  public set and worse on large default-range buildings and hot strips; v8 hedges that). The author block is filled
+  (round 6); the OpenReview upload by 2026-11-13 remains.
 - Round 5: v8 is shipped and was scored on Kaggle (0.01074; v7 0.01088). Choose the two final Kaggle submissions
   before 2027-01-15 (v8 and v7 are the natural pair). The older Kaggle instructions below are kept for reference.
 - Kaggle (joined): follow `submission/README.md` -- open the official notebook template, replace

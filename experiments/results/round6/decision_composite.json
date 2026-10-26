@@ -1,0 +1,29 @@
+{
+ "utc": "2026-10-26T20:44:20Z",
+ "stage": "composite",
+ "classes": {
+  "r6_c01_boost8": "helps",
+  "r6_c02_boost4": "helps",
+  "r6_c11_boost8cold": "helps",
+  "r6_c03_sync08": "n.s.",
+  "r6_c09_bfloor2": "helps",
+  "r6_c06_mpre05": "helps",
+  "r6_c07_safe115": "helps",
+  "r6_c08_night10": "helps",
+  "r6_c10_frost5": "worse"
+ },
+ "composite_members": {
+  "boost": "r6_c11_boost8cold",
+  "burst": "r6_c09_bfloor2",
+  "recovery": "r6_c06_mpre05",
+  "depth": "r6_c08_night10"
+ },
+ "composite_params": {
+  "sb_boost": 1.0,
+  "sb_boost_h": 8.0,
+  "sb_boost_cold": 1.0,
+  "sb_boost_floor_k": 2.0,
+  "margin_pre": 0.5,
+  "night_low_ext": 10.0
+ }
+}

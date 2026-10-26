@@ -1,7 +1,7 @@
 {
  "margin_occ": 0.3,
- "margin_pre": 0.8,
- "night_low_ext": 8.0,
+ "margin_pre": 0.5,
+ "night_low_ext": 10.0,
  "night_high_ext": 6.0,
  "sb_hyst_k": 1.0,
  "q_sb_w": 4000.0,
@@ -70,5 +70,15 @@
  "lag_comp": 0.0,
  "f_cap_pre_c": -1.0,
  "pre_burst_h": 0.0,
- "pre_burst_e0": 0.3
+ "pre_burst_e0": 0.3,
+ "frost_floor_k": 0.0,
+ "sb_boost": 1.0,
+ "sb_boost_h": 8.0,
+ "sb_boost_gap": 0.5,
+ "sb_boost_cold": 1.0,
+ "sb_sync_k": 0.0,
+ "sb_boost_floor_k": 2.0,
+ "rate_oat_slope": 0.0,
+ "margin_occ_heat": -1.0,
+ "margin_occ_heat_oat": 273.15
 }

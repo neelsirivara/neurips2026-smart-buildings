@@ -9,9 +9,40 @@ Files:
 |---|---|
 | `transfer_policy.py` | The policy. Drop-in replacement for `smart_buildings/baselines/transfer_policy.py` in the starter kit. Class `TransferPolicy(building_meta_data, action_spec)` with `get_action(obs)`; pure numpy + stdlib; deterministic; shape-agnostic. |
 | `kaggle_notebook_template.py` | A self-contained script mirroring the kit's evaluation loop, with the policy inlined, for adapting to the official Kaggle notebook template. |
-| `best_params.json` | The final parameter set (v8: the v7 set + the round-5 overrides of `r5_c12_comp`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round5.py` / `bake_params.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v6 file is `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, the shipped v5 file `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
+| `best_params.json` | The final parameter set (v9: the v8 set + the round-6 overrides of `r6_comp`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round6.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v8.json`, `best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v8 file is `transfer_policy_v8_shipped_before_round6.py` (here), the shipped v7 file `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, v6 `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, v5 `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
+| `transfer_policy_v8_shipped_before_round6.py` | The v8 file as shipped in round 5 (md5 98036ef2...), kept for provenance and as the natural second Kaggle selection. |
 
-Version: **SADR v8 (final, round 5)**, baked 2026-10-26 from
+Version: **SADR v9 (final, round 6)**, baked 2026-10-26 from
+`../experiments/results/round6/policies/v9_screen2.py` (the frozen copy of
+`../experiments/src/policy_candidates/transfer_policy_v9.py` every round-6 run used) + `r6_comp.json`
+(`../experiments/src/ship_round6.py`). v9 keeps every v8 rule (the v9 code with all round-6 switches off reproduces v8
+bit for bit) and turns on four, one per family of the pre-registered screen: (1) `sb_boost` 1, `sb_boost_h` 8,
+`sb_boost_cold` 1: in heating season, within 8 h of a workday start and while the outside air is at or below the zone's
+setback floor, the forced minimum air of a set-back zone on a running handler is reheated to the discharge limit
+instead of to the zone temperature (1 J of gas per J, against about 1.9 in the zone's own ventilated recovery);
+(2) `sb_boost_floor_k` 2: the same at any time for a set-back zone within 2 K of its floor; (3) `margin_pre` 0.5: the
+preconditioning target sits 0.5 K (v8: 0.8 K) inside the comfort band; (4) `night_low_ext` 10: weeknight setback floor
+10 K (v8: 8 K) below the eco heating setpoint where the adaptive floor does not bind.
+
+Selection (`../experiments/results/round6/PREREG.md`, `screen_summary.json`, `decision_composite.json`,
+`decision.json`, `confirm_r6_comp.json`): 9 single changes screened at full length (8,640 steps) on the harsh
+screening set HS (18 scenarios: the shipped six under the coldest strips) and 12 public scenarios against v8; 7 helped,
+1 was not significant, the frost-floor variant (reported only) was worse; the composite of the best change per family
+was chosen and confirmed at full length: harsh confirmation set HC (48 never-used scenarios) 0.01657 -> 0.01623
+(-2.05%, CI -2.70% to -1.43%, 40/48 wins); public-30 0.00777 -> 0.00775 (-0.27%, CI -1.35% to +0.65%, 16/30): the
+pre-registered rule (public not worse AND HC better) is met, for all 10 bootstrap seeds. Secondary: M -1.28%
+(CI -2.45% to -0.31%), HS -2.32%; FD (20 large default-range scenarios) +0.60% (CI -0.37% to +1.36%; n.s.,
+comfort up). Cost: v9 is up to +4% on hot public strips (Singapore, two Atlanta strips), which the
+screen ledger attributes to `margin_pre` (a post-hoc composite with `lead_safety` 1.15 instead is -0.9% on the
+public 30, CI -1.8% to -0.2%; ledger only, not shipped); v8 is the natural second Kaggle selection. Kaggle: probe submitted
+2026-10-26 21:19 UTC (ref 57678857, notebook `kaggle/sadr-v9-comp-smart-buildings/`, built from
+`../experiments/results/round6/policies/v9_r6_comp.py`, which differs from `transfer_policy.py` only in two docstring
+lines, `../experiments/results/round6/shipped_vs_kaggle_scored.diff`); its Kaggle run of building_train_1/atlanta_2
+matches the local total to 0.010%.
+
+### Previous version (v8, round 5), kept for reference
+
+v8 baked 2026-10-26 from
 `../experiments/src/policy_candidates/transfer_policy_v8.py` + `r5_c12_comp.json`
 (`../experiments/src/ship_round5.py`; the shipped v7 file is kept as
 `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, its parameters as

@@ -1,0 +1,12 @@
+{"id": "pid_water/r6hc/building_train_1/minneapolis_2", "rc": 0, "wall_s": 1330.1, "ok": true, "total_reward": -535.5521435218361, "steps": 8640, "sec_per_step": 0.150308272573683}
+{"id": "pid_water/r6hc/building_train_1/minneapolis_c1", "rc": 0, "wall_s": 1335.1, "ok": true, "total_reward": -593.9709945818722, "steps": 8640, "sec_per_step": 0.15070756511003883}
+{"id": "pid_water/r6hc/building_train_2/minneapolis_1", "rc": 0, "wall_s": 2405.1, "ok": true, "total_reward": -846.418410392731, "steps": 8640, "sec_per_step": 0.27361594085340146}
+{"id": "pid_water/r6hc/building_train_2/minneapolis_c1", "rc": 0, "wall_s": 2405.1, "ok": true, "total_reward": -657.1336257610083, "steps": 8640, "sec_per_step": 0.2737535802302537}
+{"id": "pid_water/r6hc/building_train_4/minneapolis_2", "rc": 0, "wall_s": 1775.1, "ok": true, "total_reward": -486.4027939209118, "steps": 8640, "sec_per_step": 0.20208622200621498}
+{"id": "pid_water/r6hc/building_train_4/minneapolis_c1", "rc": 0, "wall_s": 1775.1, "ok": true, "total_reward": -544.1506014760234, "steps": 8640, "sec_per_step": 0.20236386137980003}
+{"id": "pid_water/r6hc/building_train_7/minneapolis_2", "rc": 0, "wall_s": 905.0, "ok": true, "total_reward": -762.558007482512, "steps": 8640, "sec_per_step": 0.10283079047997792}
+{"id": "pid_water/r6hc/building_train_7/minneapolis_c1", "rc": 0, "wall_s": 900.0, "ok": true, "total_reward": -823.6832201388534, "steps": 8640, "sec_per_step": 0.1023103364639812}
+{"id": "pid_water/r6hc/building_train_5/minneapolis_c1", "rc": 0, "wall_s": 1880.1, "ok": true, "total_reward": -663.086341280863, "steps": 8640, "sec_per_step": 0.2142013047580366}
+{"id": "pid_water/r6hc/building_train_5/minneapolis_1", "rc": 0, "wall_s": 1885.1, "ok": true, "total_reward": -845.3942308086753, "steps": 8640, "sec_per_step": 0.21481112352123968}
+{"id": "pid_water/r6hc/building_train_8/minneapolis_1", "rc": 0, "wall_s": 595.0, "ok": true, "total_reward": -715.1853085300463, "steps": 8640, "sec_per_step": 0.06683621566604685}
+{"id": "pid_water/r6hc/building_train_8/minneapolis_c1", "rc": 0, "wall_s": 595.0, "ok": true, "total_reward": -584.0757376975816, "steps": 8640, "sec_per_step": 0.06669036701873497}

@@ -1,0 +1,631 @@
+2026-10-26T11:08:28Z running 5, queued 14
+2026-10-26T11:10:05Z running 5, queued 14
+2026-10-26T11:11:42Z running 5, queued 14
+2026-10-26T11:13:19Z running 5, queued 14
+2026-10-26T11:14:55Z running 5, queued 14
+2026-10-26T11:16:32Z running 5, queued 14
+2026-10-26T11:18:08Z running 5, queued 14
+2026-10-26T11:19:46Z running 5, queued 14
+2026-10-26T11:21:23Z running 5, queued 14
+2026-10-26T11:22:54Z complete t01
+t01 0 , 2.18MB/s]
+
+  0%|          | 0.00/978 [00:00<?, ?B/s]
+100%|##########| 978/978 [00:00<00:00, 2.00MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.88MB/s]
+
+  0%|          | 0.00/1.54k [00:00<?, ?B/s]
+100%|##########| 1.54k/1.54k [00:00<00:00, 3.12MB/s]
+
+t01: merged 4 summaries (4 progress lines, 4 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-3
+ 
+2026-10-26T11:23:10Z pushed v8-r6hc-3 rc=0
+2026-10-26T11:23:10Z running 5, queued 13
+2026-10-26T11:24:47Z running 5, queued 13
+2026-10-26T11:26:24Z running 5, queued 13
+2026-10-26T11:28:01Z running 5, queued 13
+2026-10-26T11:29:37Z running 5, queued 13
+2026-10-26T11:31:14Z running 5, queued 13
+2026-10-26T11:32:51Z running 5, queued 13
+2026-10-26T11:34:28Z running 5, queued 13
+2026-10-26T11:36:05Z running 5, queued 13
+2026-10-26T11:37:42Z running 5, queued 13
+2026-10-26T11:39:18Z running 5, queued 13
+2026-10-26T11:40:55Z running 5, queued 13
+2026-10-26T11:42:32Z running 5, queued 13
+2026-10-26T11:44:09Z running 5, queued 13
+2026-10-26T11:45:45Z running 5, queued 13
+2026-10-26T11:47:24Z running 5, queued 13
+2026-10-26T11:49:00Z running 5, queued 13
+2026-10-26T11:50:33Z complete v8-r6hs-d-2
+v8-r6hs-d-2 0 100%|##########| 712k/712k [00:00<00:00, 2.51MB/s]
+
+  0%|          | 0.00/1.26M [00:00<?, ?B/s]
+ 80%|#######9  | 1.00M/1.26M [00:00<00:00, 2.93MB/s]
+100%|##########| 1.26M/1.26M [00:00<00:00, 3.47MB/s]
+
+  0%|          | 0.00/2.17k [00:00<?, ?B/s]
+100%|##########| 2.17k/2.17k [00:00<00:00, 4.82MB/s]
+
+v8-r6hs-d-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-v8-r6hc-4
+ 
+2026-10-26T11:51:17Z pushed v8-r6hc-4 rc=0
+2026-10-26T11:51:17Z running 5, queued 12
+2026-10-26T11:52:55Z running 5, queued 12
+2026-10-26T11:54:31Z running 5, queued 12
+2026-10-26T11:56:08Z running 5, queued 12
+2026-10-26T11:57:44Z running 5, queued 12
+2026-10-26T11:59:21Z running 5, queued 12
+2026-10-26T12:00:57Z running 5, queued 12
+2026-10-26T12:02:34Z running 5, queued 12
+2026-10-26T12:04:11Z running 5, queued 12
+2026-10-26T12:05:47Z running 5, queued 12
+2026-10-26T12:07:19Z complete v8-r6hs-d-1
+v8-r6hs-d-1 0 100%|##########| 754k/754k [00:00<00:00, 3.87MB/s]
+
+  0%|          | 0.00/1.70M [00:00<?, ?B/s]
+ 59%|#####8    | 1.00M/1.70M [00:00<00:00, 3.09MB/s]
+100%|##########| 1.70M/1.70M [00:00<00:00, 4.25MB/s]
+
+  0%|          | 0.00/2.17k [00:00<?, ?B/s]
+100%|##########| 2.17k/2.17k [00:00<00:00, 4.48MB/s]
+
+v8-r6hs-d-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-pidwater-r6hc-1
+ 
+2026-10-26T12:08:01Z pushed pidwater-r6hc-1 rc=0
+2026-10-26T12:08:01Z running 5, queued 11
+2026-10-26T12:09:39Z running 5, queued 36
+2026-10-26T12:11:16Z running 5, queued 36
+2026-10-26T12:12:54Z running 5, queued 36
+2026-10-26T12:14:31Z running 5, queued 36
+2026-10-26T12:16:08Z running 5, queued 36
+2026-10-26T12:17:44Z running 5, queued 36
+2026-10-26T12:19:21Z running 5, queued 36
+2026-10-26T12:20:58Z running 5, queued 36
+2026-10-26T12:22:35Z running 5, queued 36
+2026-10-26T12:24:12Z running 5, queued 36
+2026-10-26T12:25:49Z running 5, queued 36
+2026-10-26T12:27:26Z running 5, queued 36
+2026-10-26T12:29:03Z running 5, queued 36
+2026-10-26T12:30:40Z running 5, queued 36
+2026-10-26T12:32:17Z running 5, queued 36
+2026-10-26T12:33:49Z complete v8-r6hc-2
+v8-r6hc-2 0 <00:00, 1.35MB/s]
+
+  0%|          | 0.00/974 [00:00<?, ?B/s]
+100%|##########| 974/974 [00:00<00:00, 2.22MB/s]
+
+  0%|          | 0.00/980 [00:00<?, ?B/s]
+100%|##########| 980/980 [00:00<00:00, 1.50MB/s]
+
+  0%|          | 0.00/2.68k [00:00<?, ?B/s]
+100%|##########| 2.68k/2.68k [00:00<00:00, 2.44MB/s]
+
+v8-r6hc-2: merged 12 summaries (12 progress lines, 12 jobs)
+2026-10-26T12:34:08Z complete v8-r6hc-3
+v8-r6hc-3 0 00<00:00, 296kB/s]
+
+  0%|          | 0.00/976 [00:00<?, ?B/s]
+100%|##########| 976/976 [00:00<00:00, 2.04MB/s]
+
+  0%|          | 0.00/982 [00:00<?, ?B/s]
+100%|##########| 982/982 [00:00<00:00, 836kB/s]
+
+  0%|          | 0.00/2.67k [00:00<?, ?B/s]
+100%|##########| 2.67k/2.67k [00:00<00:00, 4.92MB/s]
+
+v8-r6hc-3: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c00-r6hs-1
+ 
+2026-10-26T12:34:29Z pushed c00-r6hs-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-r6hs-1
+ 
+2026-10-26T12:34:32Z pushed c01-r6hs-1 rc=0
+2026-10-26T12:34:32Z running 5, queued 31
+2026-10-26T12:36:08Z running 5, queued 31
+2026-10-26T12:37:45Z running 5, queued 31
+2026-10-26T12:39:22Z running 5, queued 31
+2026-10-26T12:40:58Z running 5, queued 31
+2026-10-26T12:42:35Z running 5, queued 31
+2026-10-26T12:44:11Z running 5, queued 31
+2026-10-26T12:45:48Z running 5, queued 31
+2026-10-26T12:47:24Z complete c00-r6hs-1
+c00-r6hs-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.37MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.22MB/s]
+
+  0%|          | 0.00/1.24k [00:00<?, ?B/s]
+100%|##########| 1.24k/1.24k [00:00<00:00, 2.70MB/s]
+
+c00-r6hs-1: merged 3 summaries (3 progress lines, 3 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-r6hs-2
+ 
+2026-10-26T12:47:35Z pushed c01-r6hs-2 rc=0
+2026-10-26T12:47:35Z running 5, queued 30
+2026-10-26T12:47:47Z running 5, queued 30
+2026-10-26T12:49:23Z running 5, queued 31
+2026-10-26T12:51:00Z running 5, queued 34
+2026-10-26T12:52:36Z running 5, queued 34
+2026-10-26T12:54:13Z running 5, queued 34
+2026-10-26T12:55:49Z running 5, queued 34
+2026-10-26T12:57:26Z running 5, queued 34
+2026-10-26T12:59:03Z running 5, queued 34
+2026-10-26T13:00:39Z running 5, queued 34
+2026-10-26T13:02:16Z running 5, queued 34
+2026-10-26T13:03:53Z running 5, queued 34
+2026-10-26T13:05:30Z running 5, queued 34
+2026-10-26T13:07:08Z running 5, queued 34
+2026-10-26T13:08:40Z complete v8-r6hc-4
+v8-r6hc-4 0 0<00:00, 1.49MB/s]
+
+  0%|          | 0.00/978 [00:00<?, ?B/s]
+100%|##########| 978/978 [00:00<00:00, 736kB/s]
+
+  0%|          | 0.00/978 [00:00<?, ?B/s]
+100%|##########| 978/978 [00:00<00:00, 2.18MB/s]
+
+  0%|          | 0.00/2.70k [00:00<?, ?B/s]
+100%|##########| 2.70k/2.70k [00:00<00:00, 1.72MB/s]
+
+v8-r6hc-4: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c01-pub12-1
+ 
+2026-10-26T13:09:02Z pushed c01-pub12-1 rc=0
+2026-10-26T13:09:02Z running 5, queued 33
+2026-10-26T13:10:38Z running 5, queued 33
+2026-10-26T13:12:17Z running 5, queued 33
+2026-10-26T13:13:53Z running 5, queued 33
+2026-10-26T13:15:29Z running 5, queued 33
+2026-10-26T13:17:06Z running 5, queued 33
+2026-10-26T13:18:43Z running 5, queued 33
+2026-10-26T13:20:21Z running 5, queued 33
+2026-10-26T13:21:54Z complete pidwater-r6hc-1
+pidwater-r6hc-1 0 00<00:00, 1.13MB/s]
+
+  0%|          | 0.00/965 [00:00<?, ?B/s]
+100%|##########| 965/965 [00:00<00:00, 313kB/s]
+
+  0%|          | 0.00/977 [00:00<?, ?B/s]
+100%|##########| 977/977 [00:00<00:00, 2.32MB/s]
+
+  0%|          | 0.00/2.76k [00:00<?, ?B/s]
+100%|##########| 2.76k/2.76k [00:00<00:00, 864kB/s]
+
+pidwater-r6hc-1: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-r6hs-1
+ 
+2026-10-26T13:22:15Z pushed c09-r6hs-1 rc=0
+2026-10-26T13:22:15Z running 5, queued 32
+2026-10-26T13:23:52Z running 5, queued 32
+2026-10-26T13:25:29Z running 5, queued 32
+2026-10-26T13:27:05Z running 5, queued 32
+2026-10-26T13:28:41Z running 5, queued 32
+2026-10-26T13:30:14Z complete c01-r6hs-1
+c01-r6hs-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.48MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.90MB/s]
+
+  0%|          | 0.00/2.38k [00:00<?, ?B/s]
+100%|##########| 2.38k/2.38k [00:00<00:00, 3.59MB/s]
+
+c01-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-r6hs-2
+ 
+2026-10-26T13:30:33Z pushed c09-r6hs-2 rc=0
+2026-10-26T13:30:33Z running 5, queued 31
+2026-10-26T13:32:10Z running 5, queued 35
+2026-10-26T13:33:47Z running 5, queued 35
+2026-10-26T13:35:23Z running 5, queued 35
+2026-10-26T13:36:54Z complete v8-r6hc-1
+v8-r6hc-1 0 00<00:00, 842kB/s]
+
+  0%|          | 0.00/971 [00:00<?, ?B/s]
+100%|##########| 971/971 [00:00<00:00, 851kB/s]
+
+  0%|          | 0.00/980 [00:00<?, ?B/s]
+100%|##########| 980/980 [00:00<00:00, 1.46MB/s]
+
+  0%|          | 0.00/2.64k [00:00<?, ?B/s]
+100%|##########| 2.64k/2.64k [00:00<00:00, 5.89MB/s]
+
+v8-r6hc-1: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c09-pub12-1
+ 
+2026-10-26T13:37:18Z pushed c09-pub12-1 rc=0
+2026-10-26T13:37:18Z running 5, queued 34
+2026-10-26T13:38:56Z running 5, queued 34
+2026-10-26T13:40:32Z running 5, queued 34
+2026-10-26T13:42:09Z running 5, queued 34
+2026-10-26T13:43:46Z running 5, queued 34
+2026-10-26T13:45:22Z running 5, queued 34
+2026-10-26T13:46:59Z running 5, queued 34
+2026-10-26T13:48:36Z running 5, queued 34
+2026-10-26T13:50:14Z running 5, queued 34
+2026-10-26T13:51:50Z running 5, queued 34
+2026-10-26T13:53:26Z running 5, queued 34
+2026-10-26T13:54:57Z complete c01-r6hs-2
+c01-r6hs-2 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.10MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 1.51MB/s]
+
+  0%|          | 0.00/2.37k [00:00<?, ?B/s]
+100%|##########| 2.37k/2.37k [00:00<00:00, 4.81MB/s]
+
+c01-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-atl2-probes-1
+ 
+2026-10-26T13:55:20Z pushed atl2-probes-1 rc=0
+2026-10-26T13:55:20Z running 5, queued 33
+2026-10-26T13:56:56Z running 5, queued 33
+2026-10-26T13:58:33Z running 5, queued 33
+2026-10-26T14:00:09Z running 5, queued 33
+2026-10-26T14:01:46Z running 5, queued 33
+2026-10-26T14:03:22Z running 5, queued 33
+2026-10-26T14:04:59Z running 5, queued 33
+2026-10-26T14:06:36Z running 5, queued 33
+2026-10-26T14:08:12Z running 5, queued 33
+2026-10-26T14:09:49Z running 5, queued 33
+2026-10-26T14:11:26Z running 5, queued 33
+2026-10-26T14:13:03Z running 5, queued 33
+2026-10-26T14:14:41Z running 5, queued 33
+2026-10-26T14:16:18Z running 5, queued 33
+2026-10-26T14:17:55Z running 5, queued 33
+2026-10-26T14:19:32Z running 5, queued 33
+2026-10-26T14:21:09Z running 5, queued 33
+2026-10-26T14:22:40Z complete c01-pub12-1
+c01-pub12-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.48MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.27MB/s]
+
+  0%|          | 0.00/2.92k [00:00<?, ?B/s]
+100%|##########| 2.92k/2.92k [00:00<00:00, 5.68MB/s]
+
+c01-pub12-1: merged 12 summaries (12 progress lines, 12 jobs)
+2026-10-26T14:22:57Z complete c09-r6hs-1
+c09-r6hs-1 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.62MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.55MB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|##########| 2.39k/2.39k [00:00<00:00, 2.69MB/s]
+
+c09-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Traceback (most recent call last):
+  File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\src\kaggle_sim\kaggle_sim.py", line 348, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\src\kaggle_sim\kaggle_sim.py", line 334, in main
+    return dispatch(a.loop, a.max, a.interval, a.forever)
+  File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\src\kaggle_sim\kaggle_sim.py", line 288, in dispatch
+    rc = push(item["name"], Path(item["jobs"]), False, 4, 11.0)
+  File "C:\Users\neels\Downloads\gen_papers_2\neurips_challenges\smart_buildings\experiments\src\kaggle_sim\kaggle_sim.py", line 131, in push
+    data = src.read_bytes()
+  File "C:\Users\neels\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neels\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '..\\results\\round6\\policies\\v9_screen2.py'
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-r6hs-1
+ 
+2026-10-26T14:24:24Z pushed c11-r6hs-1 rc=0
+2026-10-26T14:24:24Z running 4, queued 32
+2026-10-26T14:25:59Z running 4, queued 32
+2026-10-26T14:27:35Z running 4, queued 32
+2026-10-26T14:29:10Z running 4, queued 32
+2026-10-26T14:30:41Z complete c09-r6hs-2
+c09-r6hs-2 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.46MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 1.23MB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|##########| 2.39k/2.39k [00:00<00:00, 4.02MB/s]
+
+c09-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-r6hs-2
+ 
+2026-10-26T14:31:00Z pushed c11-r6hs-2 rc=0
+2026-10-26T14:31:00Z running 4, queued 31
+2026-10-26T14:32:35Z running 4, queued 31
+2026-10-26T14:34:11Z running 4, queued 31
+2026-10-26T14:35:47Z running 4, queued 31
+2026-10-26T14:37:22Z running 4, queued 31
+2026-10-26T14:38:58Z running 4, queued 31
+2026-10-26T14:40:32Z complete atl2-probes-1
+atl2-probes-1 0 8MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.33MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.23MB/s]
+
+  0%|          | 0.00/2.17k [00:00<?, ?B/s]
+100%|##########| 2.17k/2.17k [00:00<00:00, 696kB/s]
+
+atl2-probes-1: merged 8 summaries (8 progress lines, 8 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-pub12-1
+ 
+2026-10-26T14:40:49Z pushed c11-pub12-1 rc=0
+2026-10-26T14:40:49Z running 4, queued 30
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c11-pub12-2
+ 
+2026-10-26T14:42:27Z pushed c11-pub12-2 rc=0
+2026-10-26T14:42:27Z running 5, queued 29
+2026-10-26T14:44:04Z running 5, queued 29
+2026-10-26T14:45:42Z running 5, queued 29
+2026-10-26T14:47:18Z running 5, queued 29
+2026-10-26T14:48:55Z running 5, queued 29
+2026-10-26T14:50:32Z running 5, queued 29
+2026-10-26T14:52:09Z running 5, queued 29
+2026-10-26T14:53:40Z complete c09-pub12-1
+c09-pub12-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.74MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.17MB/s]
+
+  0%|          | 0.00/2.94k [00:00<?, ?B/s]
+100%|##########| 2.94k/2.94k [00:00<00:00, 4.75MB/s]
+
+c09-pub12-1: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-pub12-1
+ 
+2026-10-26T14:54:03Z pushed c03-pub12-1 rc=0
+2026-10-26T14:54:03Z running 5, queued 28
+2026-10-26T14:55:40Z running 5, queued 28
+2026-10-26T14:57:17Z running 5, queued 28
+2026-10-26T14:58:54Z running 5, queued 28
+2026-10-26T15:00:30Z running 5, queued 28
+2026-10-26T15:02:07Z running 5, queued 28
+2026-10-26T15:03:44Z running 5, queued 28
+2026-10-26T15:05:21Z running 5, queued 28
+2026-10-26T15:06:57Z running 5, queued 28
+2026-10-26T15:08:34Z running 5, queued 28
+2026-10-26T15:10:10Z running 5, queued 28
+2026-10-26T15:11:47Z running 5, queued 28
+2026-10-26T15:13:23Z running 5, queued 28
+2026-10-26T15:15:00Z running 5, queued 28
+2026-10-26T15:16:37Z running 5, queued 28
+2026-10-26T15:18:13Z running 5, queued 28
+2026-10-26T15:19:50Z running 5, queued 28
+2026-10-26T15:21:24Z complete c11-pub12-1
+c11-pub12-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.11MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 1.64MB/s]
+
+  0%|          | 0.00/1.86k [00:00<?, ?B/s]
+100%|##########| 1.86k/1.86k [00:00<00:00, 3.74MB/s]
+
+c11-pub12-1: merged 6 summaries (6 progress lines, 6 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-r6hs-1
+ 
+2026-10-26T15:21:40Z pushed c03-r6hs-1 rc=0
+2026-10-26T15:21:40Z running 5, queued 27
+2026-10-26T15:23:18Z running 5, queued 27
+2026-10-26T15:24:54Z running 5, queued 27
+2026-10-26T15:26:31Z running 5, queued 27
+2026-10-26T15:28:05Z complete c11-pub12-2
+c11-pub12-2 0 MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 2.02MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.95MB/s]
+
+  0%|          | 0.00/2.04k [00:00<?, ?B/s]
+100%|##########| 2.04k/2.04k [00:00<00:00, 3.87MB/s]
+
+c11-pub12-2: merged 7 summaries (7 progress lines, 7 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c03-r6hs-2
+ 
+2026-10-26T15:28:21Z pushed c03-r6hs-2 rc=0
+2026-10-26T15:28:21Z running 5, queued 26
+2026-10-26T15:29:54Z complete c11-r6hs-2
+c11-r6hs-2 0 MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 1.64MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 2.49MB/s]
+
+  0%|          | 0.00/2.44k [00:00<?, ?B/s]
+100%|##########| 2.44k/2.44k [00:00<00:00, 4.12MB/s]
+
+c11-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c06-pub12-1
+ 
+2026-10-26T15:30:14Z pushed c06-pub12-1 rc=0
+2026-10-26T15:30:14Z running 5, queued 25
+2026-10-26T15:31:45Z complete c11-r6hs-1
+c11-r6hs-1 0 kB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 2.04MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|##########| 1.04k/1.04k [00:00<00:00, 2.06MB/s]
+
+  0%|          | 0.00/2.44k [00:00<?, ?B/s]
+100%|##########| 2.44k/2.44k [00:00<00:00, 4.93MB/s]
+
+c11-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c06-r6hs-1
+ 
+2026-10-26T15:32:09Z pushed c06-r6hs-1 rc=0
+2026-10-26T15:32:09Z running 5, queued 24
+2026-10-26T15:33:46Z running 5, queued 24
+2026-10-26T15:35:23Z running 5, queued 24
+2026-10-26T15:37:00Z running 5, queued 24
+2026-10-26T15:38:36Z running 5, queued 24
+2026-10-26T15:40:13Z running 5, queued 24
+2026-10-26T15:41:50Z running 5, queued 24
+2026-10-26T15:43:27Z running 5, queued 24
+2026-10-26T15:45:03Z running 5, queued 24
+2026-10-26T15:46:40Z running 5, queued 24
+2026-10-26T15:48:17Z running 5, queued 24
+2026-10-26T15:49:54Z running 5, queued 24
+2026-10-26T15:51:32Z running 5, queued 24
+2026-10-26T15:53:09Z running 5, queued 24
+2026-10-26T15:54:46Z running 5, queued 24
+2026-10-26T15:56:23Z running 5, queued 24
+2026-10-26T15:57:59Z running 5, queued 24
+2026-10-26T15:59:36Z running 5, queued 24
+2026-10-26T16:01:12Z running 5, queued 24
+2026-10-26T16:02:49Z running 5, queued 24
+2026-10-26T16:04:25Z running 5, queued 24
+2026-10-26T16:06:05Z running 5, queued 24
+2026-10-26T16:08:12Z running 5, queued 24
+2026-10-26T16:09:48Z running 5, queued 24
+2026-10-26T16:11:25Z running 5, queued 24
+2026-10-26T16:13:00Z running 5, queued 24
+2026-10-26T16:14:36Z running 5, queued 24
+2026-10-26T16:16:13Z running 5, queued 24
+2026-10-26T16:17:50Z running 5, queued 24
+2026-10-26T16:19:27Z running 5, queued 24
+2026-10-26T16:21:04Z running 5, queued 24
+2026-10-26T16:22:42Z running 5, queued 24
+2026-10-26T16:24:18Z running 5, queued 24
+2026-10-26T17:30:08Z complete c03-pub12-1
+c03-pub12-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.36MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.26MB/s]
+
+  0%|          | 0.00/2.92k [00:00<?, ?B/s]
+100%|##########| 2.92k/2.92k [00:00<00:00, 2.09MB/s]
+
+c03-pub12-1: merged 12 summaries (12 progress lines, 12 jobs)
+2026-10-26T17:30:37Z complete c03-r6hs-1
+c03-r6hs-1 0 6MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 598kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.22MB/s]
+
+  0%|          | 0.00/2.37k [00:00<?, ?B/s]
+100%|##########| 2.37k/2.37k [00:00<00:00, 1.87MB/s]
+
+c03-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-10-26T17:31:47Z complete c03-r6hs-2
+c03-r6hs-2 0 01kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 751kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 765kB/s]
+
+  0%|          | 0.00/2.37k [00:00<?, ?B/s]
+100%|##########| 2.37k/2.37k [00:00<00:00, 2.25MB/s]
+
+c03-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+2026-10-26T17:32:36Z complete c06-pub12-1
+c06-pub12-1 0 36kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 807kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 493kB/s]
+
+  0%|          | 0.00/2.92k [00:00<?, ?B/s]
+100%|##########| 2.92k/2.92k [00:00<00:00, 2.03MB/s]
+
+c06-pub12-1: merged 12 summaries (12 progress lines, 12 jobs)
+2026-10-26T17:33:52Z complete c06-r6hs-1
+c06-r6hs-1 0 38kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 554kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 707kB/s]
+
+  0%|          | 0.00/2.37k [00:00<?, ?B/s]
+100%|##########| 2.37k/2.37k [00:00<00:00, 2.47MB/s]
+
+c06-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+ Expecting value: line 1 column 1 (char 0)
+
+2026-10-26T17:35:27Z pushed c06-r6hs-2 rc=1
+2026-10-26T17:35:27Z running 0, queued 23
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c07-pub12-1
+ 
+2026-10-26T17:37:05Z pushed c07-pub12-1 rc=0
+ Expecting value: line 1 column 1 (char 0)
+
+2026-10-26T17:37:24Z pushed c07-r6hs-1 rc=1
+2026-10-26T17:37:24Z running 1, queued 21
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c07-r6hs-2
+ 
+2026-10-26T17:39:15Z pushed c07-r6hs-2 rc=0
+ ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))
+
+2026-10-26T17:40:09Z pushed c08-pub12-1 rc=1
+2026-10-26T17:40:09Z running 2, queued 19
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c08-r6hs-1
+ 
+2026-10-26T17:41:59Z pushed c08-r6hs-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c08-r6hs-2
+ 
+2026-10-26T17:42:11Z pushed c08-r6hs-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-c02-pub12-1
+ 
+2026-10-26T17:42:22Z pushed c02-pub12-1 rc=0
+2026-10-26T17:42:22Z running 5, queued 16
+2026-10-26T17:44:35Z running 5, queued 16
+2026-10-26T17:48:54Z running 5, queued 16
+2026-10-26T17:50:41Z running 5, queued 16
+2026-10-26T17:52:28Z running 5, queued 16
+2026-10-26T17:54:14Z running 5, queued 16
+2026-10-26T17:56:00Z running 5, queued 16
+2026-10-26T17:58:02Z running 5, queued 16
+2026-10-26T17:59:51Z running 5, queued 16
+2026-10-26T18:01:44Z running 5, queued 16
+2026-10-26T18:03:38Z running 5, queued 16
+2026-10-26T18:05:26Z running 5, queued 16
+2026-10-26T18:07:12Z running 5, queued 16
