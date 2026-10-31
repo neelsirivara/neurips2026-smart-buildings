@@ -678,3 +678,20 @@ figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-rev
   kit version may differ slightly from the clone used here.
 - v6/v7 depend on the metadata `zone_map` for the area scaling; if the grader's harness omitted it,
   the policy would fall back to unscaled gains (the round-4 switches do not need it).
+
+## 2026-10-31 ~03:45 PDT: reviewer-friendly restructure of the paper (same numbers)
+- At the user's request for PAIEC (denoise; more authoritative; bullets, separation, diagrams), the same pass was
+  applied here.
+  - Shorter abstract.
+  - Contributions, environment, method, results, analysis and limitations as bold-lead lists.
+  - New Figure 1: one SADR control step.
+  - New Table 2: the eight development rounds (change, confirmation set, loss reduction with CI, Kaggle score). It
+    replaces eight chronological round paragraphs, which moved verbatim to Appendix D ("Round-by-round results").
+  - The v6/v7 version-change paragraphs moved verbatim to Appendix C.
+  - The new "Kaggle" paragraph states the weather-not-buildings finding first.
+- Main text ends on p.6 (15 pp).
+- Build checks: 0 undefined, 0 overfull, 0 `??`.
+- AUDIT: 75 claims, 0 missing.
+- Hash: main.pdf c3706aa49f234812…
+- Build logs: `paper/build_r9_*`.
+- The pre-restructure tex and PDF are kept in the session scratchpad.
