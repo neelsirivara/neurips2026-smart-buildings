@@ -29,7 +29,7 @@ R6 = jobs_r6.R6
 MJ = R6 / "mac_jobs"
 
 
-def spec_jobs(spec: str, skip_done: bool) -> list[dict]:
+def spec_jobs(spec: str, skip_done: bool, policy_file: str | None = None) -> list[dict]:
     parts = spec.split(":")
     variant, set_name = parts[0], parts[1]
     only = None
@@ -38,15 +38,20 @@ def spec_jobs(spec: str, skip_done: bool) -> list[dict]:
         for x in parts[2].split("+"):
             only += PUB12 if x == "PUB12" else [x]
     params = None
-    if variant.startswith("r6_"):
-        params = str(SRC / "policy_candidates" / f"{variant}.json")
+    if variant not in jobs_r6.VARIANTS:
+        # every candidate (r6_*, r7_*, ...) carries its parameter file; round 7 fix: this used to test the "r6_" prefix
+        # only, so the first r7_* Mac batch ran with no parameters (quarantined in results/round6/runs_invalid_r7)
+        pf = SRC / "policy_candidates" / f"{variant}.json"
+        if not pf.exists():
+            raise SystemExit(f"no parameter file for {variant}: {pf}")
+        params = str(pf)
     keys = only or jobs_r6.scenarios(set_name)
     if skip_done:
         have = set(runs(variant, set_name))
         keys = [k for k in keys if k not in have]
     if not keys:
         return []
-    files = jobs_r6.make(variant, set_name, params, False, 10_000, f"_mac_{variant}_{set_name}", keys, None)
+    files = jobs_r6.make(variant, set_name, params, False, 10_000, f"_mac_{variant}_{set_name}", keys, policy_file)
     out = []
     for f in files:
         out += json.loads(f.read_text())
@@ -61,10 +66,11 @@ def main() -> int:
     ap.add_argument("--repro", action="append", default=[])
     ap.add_argument("--skip-done", action="store_true")
     ap.add_argument("--no-launch", action="store_true")
+    ap.add_argument("--policy-file", default=None, help="policy for r6_*/r7_* variants (default: jobs_r6.V9)")
     a = ap.parse_args()
     jobs = []
     for s in a.spec:
-        jobs += spec_jobs(s, a.skip_done)
+        jobs += spec_jobs(s, a.skip_done, a.policy_file)
     rep = []
     for s in a.repro:
         for j in spec_jobs(s, False):

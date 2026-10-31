@@ -1,0 +1,50 @@
+{
+ "r7_base": [
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only"
+ ],
+ "r7_mbr": [
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only"
+ ],
+ "r7_mbf": [
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only"
+ ],
+ "r7_mb": [
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only",
+  "public only"
+ ]
+}

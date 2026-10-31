@@ -1,6 +1,15 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v9, final; round 6, r6_comp).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v10, final; round 8, r7L_mbr2).
 
-v9 turns on the overrides of r6_comp in DEFAULT_PARAMS (sb_boost 1, sb_boost_h 8, sb_boost_cold 1, sb_boost_floor_k 2, margin_pre 0.5, night_low_ext 10). The round-6 switches (all off reproduces v8 bit for bit): ``frost_floor_k`` (absolute lower bound
+v10 turns on the overrides of r7L_mbr2 in DEFAULT_PARAMS (sb_boost 1, sb_boost_h 8, sb_boost_cold 1, sb_boost_floor_k 2, lead_safety 1.15, night_low_ext 10, mbr_on 1, mbr_lead_cap 1); with ``mbr_lead_cap`` the model may only shorten the learned-rate lead and is ignored where it predicts the target is unreachable at the cap. Round-7 switches (all off reproduces the v9 code bit for bit): ``mbr_on`` (model-based
+optimum start: a per-zone first-order thermal model dT/dt = a Q - k (T - Tout) + c fitted online by recursive
+least squares on the zone's own unoccupied history; the lead is the model's recovery time at the request cap
+times ``mbr_safety``) and ``mbr_floor`` (model-based setback depth: the floor that minimises the model's
+predicted gas for holding it plus recovering from it, among floors reached in time and recoverable within the
+lead limit, down to ``mbr_floor_ext_max`` below the eco heating setpoint).
+
+v9 candidate code (round 6):
+
+Round-6 switches (all off by default, which reproduces v8 bit for bit): ``frost_floor_k`` (absolute lower bound
 of the setback floor, a frost-protection variant), ``sb_boost`` / ``sb_boost_h`` / ``sb_boost_gap`` (in heating
 season, the forced minimum flow of a set-back zone on a running handler within ``sb_boost_h`` hours of a workday
 start is reheated to the discharge limit instead of to the zone temperature: the outside-air share of that flow is
@@ -151,7 +160,7 @@ F_MIN = DAMPER_FLOOR * F_FLOOR100               # flow fraction, 10% damper at f
 DEFAULT_PARAMS: dict[str, float] = {
     # --- band handling (K) ---
     "margin_occ": 0.3,        # inside the sensor band at which control starts (occupied)
-    "margin_pre": 0.5,        # same, while preconditioning (target comfort band)
+    "margin_pre": 0.8,        # same, while preconditioning (target comfort band)
     "night_low_ext": 10.0,     # drift allowed below the eco heating setpoint while set back
     "night_high_ext": 6.0,    # drift allowed above the eco cooling setpoint while set back
     "sb_hyst_k": 1.0,         # setback burst: heat/cool a zone from the floor until this far inside
@@ -166,7 +175,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     "rate_min_kph": 0.4,
     "rate_max_kph": 8.0,
     "rate_ema": 0.5,          # weight of the newest observed recovery rate
-    "lead_safety": 1.3,       # lead uses rate / safety
+    "lead_safety": 1.15,       # lead uses rate / safety
     "holiday_check_h": 7.0,   # weekday hour by which somebody must have arrived
     "per_zone_start": 1.0,    # v6: 1 = each zone learns its own rate and has its own lead
     "adaptive_floor": 1.0,    # v6: 1 = setback floor/ceiling limited to what the zone can recover
@@ -242,6 +251,14 @@ DEFAULT_PARAMS: dict[str, float] = {
     "rate_oat_slope": 0.0,    # K/h of recovery rate per K of lift (target - outside air) vs the learned lift
     "margin_occ_heat": -1.0,  # >= 0: occupied heating margin while the outside air is below margin_occ_heat_oat
     "margin_occ_heat_oat": 273.15,
+    # --- round-7 candidate switches (defaults = the v9 code) ---
+    "mbr_on": 1.0,            # 1 = model-based optimum start (per-zone first-order model, RLS)
+    "mbr_floor": 0.0,         # 1 = model-based setback depth (min predicted hold + recovery gas)
+    "mbr_safety": 1.1,        # multiplier on the model-predicted recovery time
+    "mbr_min_n": 36.0,        # heated 30-min windows a zone needs before its model is used
+    "mbr_lambda": 0.998,      # RLS forgetting factor per update
+    "mbr_floor_ext_max": 16.0,  # deepest floor considered, K below the eco heating setpoint
+    "mbr_lead_cap": 1.0,      # 1 = (post hoc, ledger) the model may only shorten the learned-rate lead
 }
 
 
@@ -519,6 +536,77 @@ class TransferPolicy:
         self.lift_c_z = np.full(Vn, np.nan)
         self.zpre_lift0 = np.zeros(Vn)
         self._lead_dbg = -1.0
+        # round 7: per-zone first-order model dT/dt [K/h] = a Q[kW] - k (T - Tout) + c, RLS state
+        self.mbr_W = 6                                   # steps per window (30 min)
+        self.mbr_th = np.tile(np.array([0.5, 0.1, 0.0]), (Vn, 1))
+        self.mbr_P = np.tile(np.diag([10.0, 1.0, 1.0]), (Vn, 1, 1))
+        self.mbr_n = np.zeros(Vn)                        # heated windows seen
+        self.mbr_hT = np.full((self.mbr_W + 1, Vn), np.nan)
+        self.mbr_hX = np.full((self.mbr_W + 1, Vn), np.nan)   # T - Tout
+        self.mbr_hQ = np.full((self.mbr_W + 1, Vn), np.nan)   # kW delivered in the step that follows
+        self.mbr_hU = np.zeros((self.mbr_W + 1, Vn), dtype=bool)  # unoccupied mode in that step
+        self.mbr_q_prev = np.zeros(Vn)
+        self.mbr_floor_cache = np.full(Vn, np.nan)
+        self.mbr_floor_age = 10 ** 6
+
+    # ---------------- round 7: first-order model helpers ----------------
+    def _mbr_A(self, F_design, p):
+        """kW/K: capacity rate of the preconditioning request cap (flow fraction f_cap_pre at the discharge limit)."""
+        f = float(np.clip(p.get("f_cap_pre", F_FLOOR100), max(float(p.get("f_cap_min", F_FLOOR100)), 0.0), 1.0))
+        return F_design * f / 1000.0
+
+    def _mbr_trec(self, T0, T1, Tout, F_design, p):
+        """Hours to heat from T0 to T1 at the cap, first-order model (inf where the cap cannot get there)."""
+        a, k, c = self.mbr_th[:, 0], self.mbr_th[:, 1], self.mbr_th[:, 2]
+        A = self._mbr_A(F_design, p)
+        td = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
+        beta = np.maximum(a * A + k, 1e-6)
+        tinf = (a * A * td + k * Tout + c) / beta
+        T1 = np.broadcast_to(T1, np.shape(T0))
+        ok = tinf > T1 + 0.05
+        num = np.where(ok, tinf - T0, 1.0)
+        den = np.where(ok, tinf - T1, 1.0)
+        t = np.where(T0 >= T1, 0.0, np.log(np.maximum(num, 1e-6) / np.maximum(den, 1e-6)) / beta)
+        return np.where(ok | (T0 >= T1), np.maximum(t, 0.0), np.inf)
+
+    def _mbr_floor(self, T, base, lo_pre, Tout, F_design, hours_to_workday, p):
+        """Per zone, the setback floor with the least predicted gas until the next workday start."""
+        a, k, c = self.mbr_th[:, 0], self.mbr_th[:, 1], self.mbr_th[:, 2]
+        A = self._mbr_A(F_design, p)
+        td = DISCHARGE_MAX_K - max(p["disch_margin_k"], 0.0)
+        safety = float(p.get("mbr_safety", 1.1))
+        lowest = self.eco_lo - float(p.get("mbr_floor_ext_max", 16.0))
+        H = max(hours_to_workday - p["lead_base_h"], 0.0)
+        rec_max = max(p["lead_max_h"] - p["lead_base_h"], 0.5)
+        best = np.array(base, dtype=float).copy()
+        best_cost = np.full(len(best), np.inf)
+        beta = np.maximum(a * A + k, 1e-6)
+        tinf = (a * A * td + k * Tout + c) / beta
+        teq = Tout + c / np.maximum(k, 1e-6)                # unheated equilibrium
+        for j in range(0, 33):
+            F = base - 0.5 * j
+            if j > 0 and np.all(F < lowest):
+                break
+            t_rec = self._mbr_trec(F, lo_pre, Tout, F_design, p)
+            ok = np.isfinite(t_rec) & (safety * t_rec <= min(rec_max, H)) & (F >= lowest - 1e-9)
+            tr = np.where(ok, t_rec, 0.0)
+            # recovery gas: integral of A (Td - 0.3 Tout - 0.7 T(t)) along T(t) = tinf - (tinf - F) e^(-beta t)
+            g_rec = A * ((td - 0.3 * Tout - 0.7 * tinf) * tr
+                         + 0.7 * (tinf - F) * (1.0 - np.exp(-beta * tr)) / beta)
+            # free float from T down to F, then hold F until the recovery must start
+            reach = (F > teq + 0.05) & (T > F)
+            t_ff = np.where(reach, np.log(np.maximum(T - teq, 1e-6) / np.maximum(F - teq, 1e-6))
+                            / np.maximum(k, 1e-6), np.where(T <= F, 0.0, np.inf))
+            t_hold = np.clip(H - safety * tr - t_ff, 0.0, H)
+            q_hold = np.maximum((k * (F - Tout) - c) / np.maximum(a, 1e-6), 0.0)
+            g_hold = 1.0 + 0.3 * (F - Tout) / np.maximum(td - F, 0.5)
+            cost = g_hold * q_hold * t_hold + g_rec
+            if j > 0:
+                ok &= t_hold > 0.0                           # a floor never reached changes nothing
+            better = ok & (cost < best_cost - 1e-9)
+            best = np.where(better, F, best)
+            best_cost = np.where(better, cost, best_cost)
+        return best
 
     @staticmethod
     def _norm(x, lo, hi):
@@ -625,6 +713,41 @@ class TransferPolicy:
         kv = max(p["kv_valve"], 1e-4)
         cap1 = WATER_RHO_CP * kv / 3600.0            # W/K of water capacity rate per unit valve per sqrt(bar)
 
+        # ---------------- round 7: per-zone first-order model (RLS) ----------------
+        mbr_active = bool(V) and (float(p.get("mbr_on", 0.0)) > 0.5 or float(p.get("mbr_floor", 0.0)) > 0.5)
+        mbr_ok = np.zeros(V, dtype=bool)
+        if mbr_active:
+            Wn = self.mbr_W
+            oat_zone0 = oat_f[self.z_a]
+            # shift the history: row 0 oldest; the row appended now pairs this step's T with the heat and the
+            # mode of the step that just ended (stored at the end of the previous call)
+            self.mbr_hT = np.roll(self.mbr_hT, -1, axis=0)
+            self.mbr_hX = np.roll(self.mbr_hX, -1, axis=0)
+            self.mbr_hQ = np.roll(self.mbr_hQ, -1, axis=0)
+            self.mbr_hU = np.roll(self.mbr_hU, -1, axis=0)
+            self.mbr_hT[-1] = T
+            self.mbr_hX[-1] = T - oat_zone0
+            self.mbr_hQ[-2] = self.mbr_q_prev / 1000.0
+            self.mbr_hU[-2] = self.zone_mode != self.OCCUPIED
+            okw = (np.isfinite(self.mbr_hT).all(axis=0) & np.isfinite(self.mbr_hQ[:-1]).all(axis=0)
+                   & self.mbr_hU[:-1].all(axis=0))
+            if okw.any():
+                y = (self.mbr_hT[-1] - self.mbr_hT[0]) / (Wn * 300.0 / 3600.0)
+                x = np.stack([self.mbr_hQ[:-1].mean(axis=0), -self.mbr_hX[:-1].mean(axis=0), np.ones(V)], axis=1)
+                lam = float(p.get("mbr_lambda", 0.998))
+                Px = np.einsum("vij,vj->vi", self.mbr_P, x)
+                den = lam + np.einsum("vi,vi->v", x, Px)
+                Kg = Px / den[:, None]
+                err = y - np.einsum("vi,vi->v", x, self.mbr_th)
+                th_new = self.mbr_th + Kg * err[:, None]
+                P_new = (self.mbr_P - np.einsum("vi,vj->vij", Kg, Px)) / lam
+                upd = okw & np.isfinite(err) & (np.abs(err) < 20.0)
+                self.mbr_th = np.where(upd[:, None], th_new, self.mbr_th)
+                self.mbr_P = np.where(upd[:, None, None], P_new, self.mbr_P)
+                self.mbr_n = self.mbr_n + (upd & (x[:, 0] > 0.2))
+            a_m, k_m = self.mbr_th[:, 0], self.mbr_th[:, 1]
+            mbr_ok = (self.mbr_n >= float(p.get("mbr_min_n", 36.0))) & (a_m > 1e-3) & (k_m > 1e-3) & (k_m < 3.0)
+
         # ---------------- mode ----------------
         lo_pre = self.comfort_lo + p["margin_pre"]
         hi_pre = self.comfort_hi - p["margin_pre"]
@@ -682,6 +805,18 @@ class TransferPolicy:
                     def_h_z / np.maximum(rate_h_eff / safety, 1e-3),
                     def_c_z / np.maximum(rate_c_eff / safety, 1e-3))
                 lead_z = np.clip(lead_z, p["lead_min_h"], p["lead_max_h"])
+                if mbr_active and float(p.get("mbr_on", 0.0)) > 0.5 and mbr_ok.any():
+                    # round 7: the model's recovery time to lo_pre at the preconditioning request cap
+                    t_rec = self._mbr_trec(T, lo_pre, oat_f[self.z_a], F_design, p)
+                    lead_m = np.clip(p["lead_base_h"] + float(p.get("mbr_safety", 1.1)) * t_rec,
+                                     p["lead_min_h"], p["lead_max_h"])
+                    use = mbr_ok & (def_h_z > 0.0) & (def_h_z >= def_c_z)
+                    if float(p.get("mbr_lead_cap", 0.0)) > 0.5:
+                        # post hoc (round 7 ledger): the latest feasible start -- the model may delay the start,
+                        # never advance it past the learned-rate lead; an unreachable model target changes nothing
+                        use = use & np.isfinite(t_rec)
+                        lead_m = np.minimum(lead_m, lead_z)
+                    lead_z = np.where(use, lead_m, lead_z)
                 m_lead = float(p.get("mon_lead_mult", 1.0))
                 if m_lead != 1.0 and self.after_off:
                     lead_z = np.clip(lead_z * m_lead, p["lead_min_h"],
@@ -813,6 +948,15 @@ class TransferPolicy:
                                / max(float(p.get("wk_ramp_h", 12.0)), 1e-3), 0.0, 1.0)
                 floor_z = floor_z - wk_lo * ramp
                 ceil_z = ceil_z + wk_hi * ramp
+            if (mbr_active and float(p.get("mbr_floor", 0.0)) > 0.5 and not now and workday_ahead
+                    and mbr_ok.any()):
+                self.mbr_floor_age += 1
+                if self.mbr_floor_age >= self.mbr_W or not np.isfinite(self.mbr_floor_cache).any():
+                    self.mbr_floor_cache = self._mbr_floor(T, floor_z, lo_pre, oat_f[self.z_a], F_design,
+                                                           hours_to_workday, p)
+                    self.mbr_floor_age = 0
+                fc = self.mbr_floor_cache
+                floor_z = np.where(mbr_ok & is_sb & np.isfinite(fc), np.minimum(floor_z, fc), floor_z)
             frost = float(p.get("frost_floor_k", 0.0))
             if frost > 0.0:
                 # round 6: frost protection (sensible practice; the simulator does not charge for cold zones)
@@ -1083,6 +1227,12 @@ class TransferPolicy:
                 dp_bar = float(np.clip(dp_bar, p["dp_lo_bar"], min(p["dp_hi_bar"], self.dp_rng[1])))
                 valve = np.clip(w_need / (cap1 * math.sqrt(dp_bar)), 0.0, 1.0)
                 pump_on = bool(valve.max() > 0.0)
+            if mbr_active:
+                # round 7: the policy's own estimate of the net heat each zone receives this step
+                td_eff = t_sa_z
+                if any_heat_now or neutral.any():
+                    td_eff = np.where((heat_zone | neutral | boost) & zone_on, t_disch, t_sa_z)
+                self.mbr_q_prev = np.where(zone_on, F_act * (td_eff - T), 0.0)
         else:
             damper = np.zeros(0)
             p_cmd = np.full(K, P_FLOOR_PA)

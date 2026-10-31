@@ -46,5 +46,13 @@
   "n_progress": 30,
   "n_failed": 0,
   "all_done": true
+ },
+ "mac-v7-r6hs": {
+  "batch": "mac-v7-r6hs",
+  "fetched_utc": "2026-10-29T17:03:54Z",
+  "n_summaries_merged": 18,
+  "n_progress": 18,
+  "n_failed": 0,
+  "all_done": true
  }
 }

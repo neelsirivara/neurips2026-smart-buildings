@@ -1,0 +1,9 @@
+{
+ "sb_boost": 1.0,
+ "sb_boost_h": 8.0,
+ "sb_boost_cold": 1.0,
+ "sb_boost_floor_k": 2.0,
+ "margin_pre": 0.5,
+ "night_low_ext": 10.0,
+ "lead_safety": 1.0
+}

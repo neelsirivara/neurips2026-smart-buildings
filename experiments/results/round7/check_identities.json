@@ -1,0 +1,39 @@
+{
+ "scenario": "heldout_scenarios_r6hs/building_train_8/fairbanks_c2",
+ "steps": 576,
+ "policy_file": "transfer_policy.py",
+ "sa_identity_max_abs_err_k": 0.0,
+ "recirc_share_at_cap_0p7": 1.0,
+ "heated_vav_steps": 8474,
+ "discharge_max_k": 308.15,
+ "discharge_at_cap_share": 0.5339863110691527,
+ "reheat_identity_max_rel_err": 5.6574752957805146e-15,
+ "g_n": 6443,
+ "g_meas_mean": 3.0884674825898113,
+ "g_formula_max_abs_err": 1.7905676941154525e-12,
+ "g_by_oat_bin": {
+  "-35..-25C": {
+   "n": 4155,
+   "g_meas_mean": 2.3215400384989078,
+   "g_energy_weighted": 1.6795852276501968,
+   "g_energy_weighted_at_cap": 1.6690813330890668,
+   "g_meas_p10": 1.342389065506036,
+   "g_meas_p90": 2.1507849529092082
+  },
+  "-25..-15C": {
+   "n": 2288,
+   "g_meas_mean": 4.481205039494404,
+   "g_energy_weighted": 1.3771279918987087,
+   "g_energy_weighted_at_cap": 1.3116322611941738,
+   "g_meas_p10": 1.1577055047728038,
+   "g_meas_p90": 15.255259608622621
+  }
+ },
+ "boiler_over_reheat_sum": 1.0299951379385393,
+ "boiler_minus_reheat_mean_w": 2307.5460669912513,
+ "g_energy_weighted": 1.6127916005656848,
+ "g_energy_weighted_at_cap": 1.5868480200307242,
+ "g_energy_weighted_below_cap": 1.7320401389091702,
+ "net_heat_share_at_cap": 0.8213155043444171,
+ "mean_tz_minus_tsa_at_cap_k": 10.646317116468724
+}

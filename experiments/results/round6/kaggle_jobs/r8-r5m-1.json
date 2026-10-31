@@ -1,0 +1,80 @@
+[
+ {
+  "id": "r7L_mbr2/r5m/building_train_2/minneapolis_2",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_2",
+  "weather": "minneapolis_2",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r7L_mbr2/r5m/building_train_1/minneapolis_1",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_1",
+  "weather": "minneapolis_1",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r7L_mbr2/r5m/building_train_4/minneapolis_3",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_4",
+  "weather": "minneapolis_3",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r7L_mbr2/r5m/building_train_5/minneapolis_4",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_5",
+  "weather": "minneapolis_4",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r7L_mbr2/r5m/building_train_7/minneapolis_1",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_7",
+  "weather": "minneapolis_1",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ },
+ {
+  "id": "r7L_mbr2/r5m/building_train_8/minneapolis_2",
+  "tag": "r7L_mbr2/r5m",
+  "policy": "transfer",
+  "policy_path": "C:\\Users\\neels\\Downloads\\gen_papers_2\\neurips_challenges\\smart_buildings\\experiments\\results\\round6\\policies\\v10b_screen.py",
+  "set_dir": "heldout_scenarios_r5m",
+  "building": "building_train_8",
+  "weather": "minneapolis_2",
+  "steps": 8640,
+  "params": "{\n \"sb_boost\": 1.0,\n \"sb_boost_h\": 8.0,\n \"sb_boost_cold\": 1.0,\n \"sb_boost_floor_k\": 2.0,\n \"lead_safety\": 1.15,\n \"night_low_ext\": 10.0,\n \"mbr_on\": 1.0,\n \"mbr_lead_cap\": 1.0\n}",
+  "save_ts": false,
+  "script": "run_scenario.py"
+ }
+]

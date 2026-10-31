@@ -1,6 +1,8 @@
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-26 ~16:00 PDT. State: ROUND 6 COMPLETE -- harsh-weather sets built on private Kaggle CPU
+Last updated: 2026-10-30 ~21:50 UTC. State: ROUND 8 COMPLETE -- **v10 shipped** in `submission/transfer_policy.py` under the pre-registered rule: the round-7 fix r7L_mbr2 (per-zone model start that may only shorten the learned lead; c07 lead safety instead of c06), registered before its only clean test, lowers the loss on HC2 (44 never-used cold-window scenarios) by 0.88% [0.77, 0.98] (43/44) and on the public 30 by 1.62% [1.26, 2.02] (30/30); M -1.09% (12/12); FD -1.30% (17/20). Round 7 (analysis + four pre-registered candidates) shipped nothing: all four were "public only". v9 kept as `submission/transfer_policy_v9_shipped_before_round8.py`; final Kaggle selections v10 + v9 (replacing v8). One private Kaggle probe of v10 submitted (ref 57816757), score pending. Paper rebuilt (15 pages, main text through page 6, 0 errors / undefined / `??` / overfull), AUDIT 75 claims, review pass 6, `DEEP_DIVE.md` updated. Mac not used since its 13:08 PDT crash on 10-29 (coordinator: off-limits for simulator work). Kaggle dispatcher stopped (2026-10-30 ~22:50 UTC; queue empty). Nothing committed or pushed.
+
+Round 6 header (2026-10-26 ~16:00 PDT): State: ROUND 6 COMPLETE -- harsh-weather sets built on private Kaggle CPU
 kernels and the Mac: a 34/66 mixture of the new harsh confirmation set HC and the public set reproduces v8's Kaggle
 score and predicts pid_water's Kaggle ratio (5.81 vs 5.96, 2.6% low); 9 single changes screened at full length; the composite
 r6_comp (set-back air boost before workdays and near the floor, preconditioning margin 0.5 K, weeknight setback 10 K)
@@ -23,6 +25,109 @@ Repository: https://github.com/neelsirivara/neurips2026-smart-buildings (private
 per-scenario time series are git-ignored; `.git`, `.gitignore`, `LICENSE`, `.github` and the
 top-level `README.md` are managed by `make_repos.py` and were not edited here). Nothing was
 committed or pushed from this session.
+
+## Round 8 (2026-10-29 22:45 UTC - 2026-10-30; private Kaggle CPU kernels only): confirmation of the round-7 fix, v10 shipped
+
+State: ROUND 8 COMPLETE -- r7L_mbr2 registered before any HC2 run, confirmed at full length, **rule met, shipped as
+v10**; one private Kaggle probe submitted (ref 57816757, 2026-10-30 20:48 UTC), score PENDING at writing. Nothing committed or pushed.
+
+1. **Pre-registration** `experiments/results/round8/PREREG.md` (2026-10-29 22:45-22:49 UTC, coordinator's go-ahead;
+   before the first HC2 shard was pushed at 22:49:30 UTC): one candidate, r7L_mbr2 exactly as frozen (code
+   `results/round6/policies/v10b_screen.py` sha256 2827a88a...f931, params `policy_candidates/r7L_mbr2.json` sha256
+   79857dd1...7bbe), reference v9, rule as rounds 6-7 (public-30 CI not entirely above zero AND HC2 CI entirely below
+   zero). States that HS and public-30 were seen before registration, so HC2 is the one clean test; HC2 had only v9
+   runs (checked across runs/, Kaggle job files, Mac jobs and registry).
+2. **Runs** (private Kaggle CPU kernels; no Mac): `r8-r7hc-1..4` (HC2, 44), `r8-r5m-1..2` (M, 12), `r8-r4c-1..3` (FD,
+   20), job files from `jobs_r6.py make --variant r7L_mbr2 --policy-file .../v10b_screen.py --params r7L_mbr2.json`
+   (every job checked to carry that code and those parameters). The dispatcher (PID 9880) wrote no log lines from
+   2026-10-29 23:52 UTC to 2026-10-30 20:21 UTC (the coordinator saw a network error, ENOTFOUND); the kernels had
+   finished on Kaggle and were fetched at 20:21-20:23 UTC (44 HC2 summaries, code md5 296f75d3..., params hash
+   d449045d9a, 8,640 steps). One push failed on a dropped connection (22:59 UTC) and was retried by the dispatcher.
+3. **Decision** (`compare_r8.py` -> `results/round8/confirm_r7L_mbr2.json`; paired bootstrap 5,000 resamples, seed 0):
+   HC2 (44) 0.02171 -> 0.02152, **-0.88% [-0.98, -0.77]**, wins 43/44, CI below zero for seeds 0-9 (worst
+   building_train_4/fairbanks_c2 +0.06%); public-30 0.00775 -> 0.00762, -1.62% [-2.02, -1.26], 30/30, not worse for
+   seeds 0-9 (worst building_train_8/phoenix_4 -0.09%); **rule MET**. Secondaries: HS (18, seen) -0.80% [-0.93, -0.64],
+   17/18; M (12) -1.09% [-1.51, -0.67], 12/12; FD (20, fresh default-range buildings, where v9 did not help) 0.01013 -> 0.01000, -1.30% [-1.66, -0.90], 17/20 (fetched 22:47 UTC; secondaries cannot change the decision).
+4. **Shipped** (`python experiments/src/ship_round8.py`, refuses unless the rule is met and the sha256s match):
+   `submission/transfer_policy.py` = v10 (v10b code + r7L_mbr2 overrides baked; md5 7d7f6899..., sha256 dc606dbc...),
+   v9 kept as `submission/transfer_policy_v9_shipped_before_round8.py` (md5 866b9023...), `results/tune/best_params.json`
+   = `best_params_v10.json` (v9: `best_params_v9.json`), `submission/best_params.json`, notebook template header v10.
+   Checks: bake check, robustness test 35/35 (1.1-1.5 ms per step), 36-step smoke run, shipped file vs the Kaggle
+   confirmation runs at 8,640 steps on two HC2 scenarios (`results/round8/xcheck_shipped_v10.json`): identical totals on both (building_train_8/minneapolis_c2 -189.44745624391362, building_train_8/denver_c1 -143.5173071897516).
+   `submission/README.md` has a v10 section (v9 kept as previous version).
+5. **Kaggle probe** (one, private notebook `neelsiri/sadr-v10-smart-buildings`, internet off, built from the shipped
+   file by `experiments/src/kaggle_probe_r8.py`): the notebook's interactive building_train_1/atlanta_2 total -33.10639 against the local -33.10215 (0.013%); submitted 2026-10-30 20:48:56 UTC, ref 57816757 (`results/kaggle_feedback.json`; 1 submission on 2026-10-30 UTC). **Score PENDING** at writing (poll: `bash experiments/src/kaggle_poll_submissions.sh 57816757`, log `results/round5/kaggle_poll.log`). When it arrives: set `scores_by_policy.v10_r7L_mbr2` and that submission's `public_score` in `kaggle_feedback.json`, then run `make_macros.py`, `make_audit.py` and the pdflatex passes; until then the paper prints "Kaggle pending".
+6. **Final Kaggle selections** (user, on Kaggle): v10 and v9, replacing v8 (coordinator's instruction, conditional on
+   the ship).
+7. **Paper**: abstract (rounds 7-8 sentence), Section 3 protocol and Setup (rounds 4-8, Kaggle kernels), Table 1 gains
+   a v10 row (per-station public means), new "Round 8" paragraph (HC2, public, M and FD), parameters table = v10 (model-start row, v9 lead
+   safety / margin in the caption), Limitations and disclosure merged into one section (with "Reproducibility and
+   disclosure" as a paragraph) to keep six pages. Build: 15 pages, main text through page 6, references from page 7; 0 errors, 0 undefined references, 0 `??`, 0 overfull boxes; author block unchanged (Neel Sirivara, University of Washington, nsiriv@cs.washington.edu). `paper/AUDIT.md` 75 claims, 0 missing values, all 359 result macros used in main.tex covered; `AUDIT_header.md` gains the round-7 and round-8 typed constants;
+   `paper/review/REVIEW_1.md` pass 6.
+
+## Round 7 (2026-10-29 ~09:00-15:20 PDT; private Kaggle CPU kernels, the Mac until its 13:08 PDT crash, laptop light): heating-lever analysis and a model-based recovery
+
+State: ROUND 7 COMPLETE -- analysis done and checked in the simulator; four pre-registered candidates screened at
+full length on HS (18) and the full public-30; **all four "public only", none helps, v9 stays shipped**; HC2 (44 new
+cold-window scenarios) left unused; no Kaggle probe. Nothing committed or pushed.
+
+1. **Analysis** (coordinator item 1; written into the paper, Section 5 "What each heating lever is worth (round 7)",
+   and the final report -- the harness refuses a subagent-written `round7/ANALYSIS.md`, so there is no such file):
+   heating cost identity g = (T_d - T_sa)/(T_d - T) = 1 + (T - T_sa)/(T_d - T), T_sa = min(SAT, r T_ret + (1-r) T_out),
+   r <= 0.7, checked with the kit's own methods wrapped (`check_identities_r7.py`, 576 steps of v9 on
+   building_train_8/fairbanks_c2): max error 1.8e-12; billed gas 1.030 x coil duty; recirculation at its 0.7 cap on 100%
+   of steps; 82% of net heat at the 308.15 K discharge cap (53% of heated box-steps); energy-weighted g 1.61 (Minneapolis
+   check 1.44). So outside-air fraction and discharge temperature are spent levers (g for a 294 K zone 1.45 at 0 C, 2.31
+   at -40 C; 1.09 / 1.53 at 281 K). First-order zone models (`zone_log_r7.py` 14-day v9 logs of six HS scenarios on the
+   Mac, `fit_zone_model_r7.py`, `zone_model_fit.json`): 306 zones, tau p10/50/90 9/33/192 h, C median 1.35 kWh/K,
+   R^2 median 0.41 on 30-min windows, recovery duration error median 27%, recovery rate at the cap falls 0.60 K/h per K
+   of zone temperature. Consequences (`analysis_r7.py`, `analysis_r7.json`): a deeper floor never costs gas in the model
+   if reached and recoverable, so depth pays only where the floor binds (1-47% of unoccupied zone periods under v9);
+   with capped heat the latest feasible start is optimal, so a start rule can save at most the hold at the target
+   before 06:00 (0.36 h per recovery over 2,599 recoveries, 2.6% of the gas). 7-day checks (Kaggle shard r7chk-1,
+   `compare_r7.py checks`, `checks_r7.json`): floor -2 K measured vs predicted gas -1.14/-1.00% (train_8),
+   -0.90/-0.87% (train_7), +0.05/-0.43% (train_1, wrong sign: slowest zones); lead safety 1.0: -1.44/-2.03,
+   -2.17/-1.98, -0.96/-2.51% gas with part returned as comfort (loss -1.26, -1.16, -0.32%).
+2. **Pre-registration** `experiments/results/round7/PREREG.md`: part 1 (~17:45 UTC, before any candidate) = HC2 (44,
+   `heldout_scenarios_r7hc`, `make_sets_r7.py`, `sets_r7.json`; no building x strip pair run before) as the
+   confirmation set, ship rule as round 6 (public-30 not worse AND HC2 better); part 2 (~18:10 UTC, after the checks,
+   before any candidate) = four candidates and the screen rule; notes: 18:59 UTC post-hoc ledger switch
+   `mbr_lead_cap` (v10b), 22:17 UTC decision. Coordinator messaged at the PREREG point and at the decision.
+3. **Code**: v10 = `policy_candidates/transfer_policy_v10.py`, generated by `make_v10_r7.py` from the frozen v9 code
+   (`results/round6/policies/v9_screen2.py`): per-zone RLS model (`mbr_on` start = model recovery time at the cap x
+   `mbr_safety` 1.1; `mbr_floor` = least predicted hold + recovery gas among floors reached and recoverable, down to
+   eco - 16 K); all switches off = v9 bit for bit (576 steps, `results/round7/regress/`); policy 2.1 ms/step on
+   building_train_5. Frozen for the screen: `results/round6/policies/v10_screen.py` (md5 c21e1c65...); ledger code with
+   `mbr_lead_cap` (the model may only shorten the learned-rate lead, ignored where the target is unreachable at the
+   cap): `v10b_screen.py` (md5 296f75d3..., sha256 2827a88a...; = current `transfer_policy_v10.py`).
+4. **Screen** (8,640 steps vs v9 = r6_comp runs; `compare_r7.py screen`, `screen_summary.json`, paper Table B7;
+   classes identical for bootstrap seeds 0-9, `screen_seed_classes.json`):
+
+   | id | change | HS (18) | wins | public-30 | wins | class |
+   |---|---|---|---|---|---|---|
+   | r7_base (= round 6's r6_compb runs) | v9 with c07 lead safety 1.15 instead of c06 margin 0.5 | +0.04% [-0.04, +0.13] | 9/18 | -0.65% [-1.13, -0.20] | 17/30 | public only |
+   | r7_mbr | base + model-based start | +0.37% [-0.42, +1.39] | 12/18 | -1.42% [-1.82, -1.04] | 29/30 | public only |
+   | r7_mbf | base + model-chosen floor | +0.01% [-0.08, +0.12] | 10/18 | -0.66% [-1.14, -0.22] | 16/30 | public only |
+   | r7_mb | base + both | +0.33% [-0.45, +1.34] | 12/18 | -1.43% [-1.82, -1.06] | 29/30 | public only |
+
+   Against the base: floor HS -0.03% [-0.07, +0.02] (the analysis's size); start HS +0.32% [-0.48, +1.39], public
+   -0.78% [-1.16, -0.42]. The start wins 12/18 HS scenarios (best -3.1% train_1/minneapolis_3) but loses +5.4% and
+   +4.0% on building_train_7 denver_c1 / fairbanks_8 (model lead longer than the learned one, used also where the cap
+   cannot reach the target). Decision (`decision.json`, 22:17 UTC): chosen = none; v9 stays; no Kaggle probe.
+5. **Post-hoc ledger** r7L_mbr2 (base + start with `mbr_lead_cap`; not eligible in round 7): HS -0.80% [-0.93, -0.64],
+   17/18 wins; public-30 -1.62% [-2.02, -1.26], 30/30. It became the round-8 candidate (below).
+6. **Compute**: 25 private Kaggle CPU kernels (`sb26-r6-r7chk-1`, `v9-r7hc-1..4`, `r7{mb,mbr,mbf}-r6hs-1..2`,
+   `r7{mb,mbr,mbf}-pub30-1..3`, `r7Lmbr2-*` x5; dataset `neelsiri/sb26-sim-r6` version 3 adds r7hc). The Mac ran the
+   six zone-log runs (10:16-10:40 PDT) and two batches: `mac-r7-pub30` ran r7 candidates *without their parameters*
+   (`mac_batch_r6.py` attached parameters only to `r6_` names; fixed) -> quarantined in
+   `results/round6/runs_invalid_r7/`, rerun on Kaggle; `mac-r7-mbf-pub30` (8 workers) was running when the Mac
+   panicked and rebooted at 13:08 PDT together with PAIEC's MLX job; all my Mac jobs killed, nothing of the screen
+   comes from the Mac; Mac use stopped on the coordinator's instruction. The coordinator's laptop memory guard stopped
+   the dispatcher at 13:50:55 PDT (no push or download interrupted); restarted as PID 9880
+   (`kaggle_dispatch_stdout_4.txt`).
+7. **Paper**: abstract adds rounds 7/8; Section 4 "Round 7" paragraph; Section 5 "What each heating lever is worth
+   (round 7)" (Eq. 1, levers, zone model, bounds, checks); rounds 3-5 diagnoses in Appendix C; Table B7 (round-7
+   screen + ledger row); compressions in Rounds 5/6, "Where it loses" and Section 5 to keep six pages.
 
 ## Round 6 (2026-10-26 04:00-16:00 PDT; private Kaggle CPU kernels + the Mac, laptop <= 1 thread): harsh weather
 
@@ -446,7 +551,9 @@ Machines in round 3:
 - The 6 held-out screening scenarios (first 10 days) informed the choice; the 34 never screened are
   the clean held-out estimate (-10.8%, CI 8.3-13.5%, 34/34).
 
-## Final policy (`submission/transfer_policy.py`, SADR v9 since round 6)
+## Final policy (`submission/transfer_policy.py`, SADR v10 since round 8)
+v10 = the v9 rules below with two changes: the optimum-start lead safety is 1.15 (v9 1.3) and the preconditioning target is back at 0.8 K inside the band (v9 0.5 K); and each zone carries a first-order thermal model (dT/dt = a Q - k (T - Tout) + c, fitted online by recursive least squares on its unoccupied history) whose recovery time at the request cap (x 1.1) may only shorten the learned-rate start lead, and is ignored where it predicts the target is unreachable at the cap (`mbr_on` 1, `mbr_lead_cap` 1). With the round-7 switches off the v10 code reproduces v9 bit for bit. The v9 description follows.
+
 v9 = the v8 rules below + four round-6 switches: in heating season the forced minimum air of a set-back zone on a
 running handler is reheated to the discharge limit instead of to the zone temperature (within 8 h of a workday start
 while the outside air is at or below the zone's setback floor, and at any time within 2 K of the floor); the
@@ -531,6 +638,8 @@ figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-rev
 (`paper/review/REVIEW_1.md`): must-fixes 1-5 applied.
 
 ## To do (user)
+- Round 8: v10 is shipped; its Kaggle probe (ref 57816757) scored **0.01055** public (v9 0.01070), read 2026-10-31
+  02:58Z and entered in `kaggle_feedback.json`, macros, AUDIT and the PDF by the coordinator. Choose the two final Kaggle submissions before 2027-01-15: **v10 and v9** (the coordinator's instruction after the ship; v8 is dropped from the pair). OpenReview upload of `paper/main.pdf` by 2026-11-13. All round-8 Kaggle shards are fetched and the dispatcher is stopped.
 - Round 6: v9 is shipped; its Kaggle probe (ref 57678857) was pending at hand-off. Choose the two final Kaggle
   submissions before 2027-01-15: v9 and v8 are the natural pair (v9 is better on the harsh sets, a tie on the
   public set and worse on large default-range buildings and hot strips; v8 hedges that). The author block is filled

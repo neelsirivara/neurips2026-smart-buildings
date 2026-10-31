@@ -1,0 +1,17 @@
+{
+ "utc": "2026-10-29T22:17:16Z",
+ "classes": {
+  "r7_base": "public only",
+  "r7_mbr": "public only",
+  "r7_mbf": "public only",
+  "r7_mb": "public only"
+ },
+ "complete": [
+  "r7_base",
+  "r7_mb",
+  "r7_mbf",
+  "r7_mbr"
+ ],
+ "pool_hs_metric": {},
+ "chosen": null
+}

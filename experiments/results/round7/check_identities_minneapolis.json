@@ -1,0 +1,31 @@
+{
+ "scenario": "heldout_scenarios_r6hs/building_train_2/minneapolis_8",
+ "steps": 576,
+ "policy_file": "transfer_policy.py",
+ "sa_identity_max_abs_err_k": 0.0,
+ "recirc_share_at_cap_0p7": 1.0,
+ "heated_vav_steps": 10779,
+ "discharge_max_k": 308.15,
+ "discharge_at_cap_share": 0.46163837090639204,
+ "reheat_identity_max_rel_err": 3.597068033311377e-14,
+ "g_n": 10130,
+ "g_meas_mean": 2.1230871794611343,
+ "g_formula_max_abs_err": 8.526512829121202e-13,
+ "g_by_oat_bin": {
+  "-5..5C": {
+   "n": 10130,
+   "g_meas_mean": 2.1230871794611343,
+   "g_energy_weighted": 1.442706033664821,
+   "g_energy_weighted_at_cap": 1.4009271677171318,
+   "g_meas_p10": 1.240361843243373,
+   "g_meas_p90": 3.804174025751081
+  }
+ },
+ "boiler_over_reheat_sum": 1.034215291675001,
+ "boiler_minus_reheat_mean_w": 1974.7182111056302,
+ "g_energy_weighted": 1.442706033664821,
+ "g_energy_weighted_at_cap": 1.4009271677171318,
+ "g_energy_weighted_below_cap": 1.5474462148351442,
+ "net_heat_share_at_cap": 0.7148571003602081,
+ "mean_tz_minus_tsa_at_cap_k": 5.847146543038187
+}

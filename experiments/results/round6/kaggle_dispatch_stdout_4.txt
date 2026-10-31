@@ -1,0 +1,504 @@
+2026-10-29T20:56:54Z running 5, queued 7
+2026-10-29T20:58:34Z running 5, queued 7
+2026-10-29T21:00:15Z running 5, queued 7
+2026-10-29T21:01:55Z running 5, queued 7
+2026-10-29T21:03:32Z running 5, queued 7
+2026-10-29T21:05:04Z complete r7mbr-pub30-1
+r7mbr-pub30-1 0 7MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.31MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 464kB/s]
+
+  0%|          | 0.00/2.23k [00:00<?, ?B/s]
+100%|██████████| 2.23k/2.23k [00:00<00:00, 2.30MB/s]
+
+r7mbr-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7mbf-pub30-3
+ 
+2026-10-29T21:05:32Z pushed r7mbf-pub30-3 rc=0
+2026-10-29T21:05:32Z running 5, queued 6
+2026-10-29T21:07:05Z complete r7mbr-pub30-2
+r7mbr-pub30-2 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.33MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 51.8kB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|██████████| 2.41k/2.41k [00:00<00:00, 6.16MB/s]
+
+r7mbr-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7mb-pub30-3
+ 
+2026-10-29T21:07:36Z pushed r7mb-pub30-3 rc=0
+2026-10-29T21:07:36Z running 5, queued 5
+2026-10-29T21:09:15Z running 5, queued 5
+2026-10-29T21:10:54Z running 5, queued 5
+2026-10-29T21:12:32Z running 5, queued 5
+2026-10-29T21:14:12Z running 5, queued 5
+2026-10-29T21:15:49Z running 5, queued 5
+2026-10-29T21:17:30Z running 5, queued 5
+2026-10-29T21:19:07Z running 5, queued 5
+2026-10-29T21:20:45Z running 5, queued 5
+2026-10-29T21:22:24Z running 5, queued 5
+2026-10-29T21:24:03Z running 5, queued 5
+2026-10-29T21:25:41Z running 5, queued 5
+2026-10-29T21:27:20Z running 5, queued 5
+2026-10-29T21:28:58Z running 5, queued 5
+2026-10-29T21:30:38Z running 5, queued 5
+2026-10-29T21:32:16Z running 5, queued 5
+2026-10-29T21:33:54Z running 5, queued 5
+2026-10-29T21:35:32Z running 5, queued 5
+2026-10-29T21:37:04Z complete r7mbr-pub30-3
+r7mbr-pub30-3 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.21MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.44MB/s]
+
+  0%|          | 0.00/2.57k [00:00<?, ?B/s]
+100%|██████████| 2.57k/2.57k [00:00<00:00, 5.48MB/s]
+
+r7mbr-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7lmbr2-r6hs-1
+ 
+2026-10-29T21:37:32Z pushed r7Lmbr2-r6hs-1 rc=0
+2026-10-29T21:37:32Z running 5, queued 4
+2026-10-29T21:39:10Z running 5, queued 4
+2026-10-29T21:40:48Z running 5, queued 4
+2026-10-29T21:42:25Z running 5, queued 4
+2026-10-29T21:44:03Z running 5, queued 4
+2026-10-29T21:45:39Z running 5, queued 4
+2026-10-29T21:47:17Z running 5, queued 4
+2026-10-29T21:48:54Z running 5, queued 4
+2026-10-29T21:50:25Z complete r7mbf-pub30-1
+r7mbf-pub30-1 0 .08MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 961kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 788kB/s]
+
+  0%|          | 0.00/2.23k [00:00<?, ?B/s]
+100%|██████████| 2.23k/2.23k [00:00<00:00, 656kB/s]
+
+r7mbf-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7lmbr2-r6hs-2
+ 
+2026-10-29T21:50:47Z pushed r7Lmbr2-r6hs-2 rc=0
+2026-10-29T21:50:47Z running 5, queued 3
+2026-10-29T21:52:19Z complete r7mbf-pub30-2
+r7mbf-pub30-2 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.21MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.08MB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|██████████| 2.41k/2.41k [00:00<00:00, 2.89MB/s]
+
+r7mbf-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7lmbr2-pub30-1
+ 
+2026-10-29T21:52:41Z pushed r7Lmbr2-pub30-1 rc=0
+2026-10-29T21:52:41Z running 5, queued 2
+2026-10-29T21:54:19Z running 5, queued 2
+2026-10-29T21:55:56Z running 5, queued 2
+2026-10-29T21:57:34Z running 5, queued 2
+2026-10-29T21:59:11Z running 5, queued 2
+2026-10-29T22:00:47Z running 5, queued 2
+2026-10-29T22:02:32Z running 5, queued 2
+2026-10-29T22:04:22Z running 5, queued 2
+2026-10-29T22:06:24Z running 5, queued 2
+2026-10-29T22:08:16Z running 5, queued 2
+2026-10-29T22:10:09Z running 5, queued 2
+2026-10-29T22:11:47Z complete r7mbf-pub30-3
+r7mbf-pub30-3 0 5kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 448kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 46.3kB/s]
+
+  0%|          | 0.00/2.57k [00:00<?, ?B/s]
+100%|██████████| 2.57k/2.57k [00:00<00:00, 1.55MB/s]
+
+r7mbf-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7lmbr2-pub30-2
+ 
+2026-10-29T22:13:52Z pushed r7Lmbr2-pub30-2 rc=0
+2026-10-29T22:13:52Z running 5, queued 1
+2026-10-29T22:15:32Z complete r7mb-pub30-3
+r7mb-pub30-3 0 kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 1.11MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.25MB/s]
+
+  0%|          | 0.00/2.55k [00:00<?, ?B/s]
+100%|██████████| 2.55k/2.55k [00:00<00:00, 2.85MB/s]
+
+r7mb-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r7lmbr2-pub30-3
+ 
+2026-10-29T22:17:14Z pushed r7Lmbr2-pub30-3 rc=0
+2026-10-29T22:17:14Z running 5, queued 0
+2026-10-29T22:19:19Z running 5, queued 0
+2026-10-29T22:21:23Z running 5, queued 0
+2026-10-29T22:23:30Z running 5, queued 0
+2026-10-29T22:25:26Z running 5, queued 0
+2026-10-29T22:27:18Z running 5, queued 0
+2026-10-29T22:29:11Z running 5, queued 0
+2026-10-29T22:31:12Z running 5, queued 0
+2026-10-29T22:33:15Z running 5, queued 0
+2026-10-29T22:34:51Z complete r7Lmbr2-r6hs-1
+r7Lmbr2-r6hs-1 0 38kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 870kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 555kB/s]
+
+  0%|          | 0.00/2.29k [00:00<?, ?B/s]
+100%|██████████| 2.29k/2.29k [00:00<00:00, 1.25MB/s]
+
+r7Lmbr2-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-10-29T22:36:13Z running 4, queued 0
+2026-10-29T22:38:11Z running 4, queued 0
+2026-10-29T22:40:02Z running 4, queued 0
+2026-10-29T22:41:58Z running 4, queued 0
+2026-10-29T22:43:49Z running 4, queued 0
+2026-10-29T22:45:42Z running 4, queued 0
+2026-10-29T22:47:38Z running 4, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r7hc-1
+ 
+2026-10-29T22:49:30Z pushed r8-r7hc-1 rc=0
+2026-10-29T22:49:30Z running 5, queued 8
+2026-10-29T22:51:18Z running 5, queued 8
+2026-10-29T22:53:01Z complete r7Lmbr2-r6hs-2
+r7Lmbr2-r6hs-2 0 04MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 808kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 702kB/s]
+
+  0%|          | 0.00/2.28k [00:00<?, ?B/s]
+100%|██████████| 2.28k/2.28k [00:00<00:00, 2.15MB/s]
+
+r7Lmbr2-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r7hc-2
+ 
+2026-10-29T22:54:43Z pushed r8-r7hc-2 rc=0
+2026-10-29T22:54:43Z running 5, queued 7
+2026-10-29T22:56:19Z complete r7Lmbr2-pub30-1
+r7Lmbr2-pub30-1 0 4MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 643kB/s]
+
+  0%|          | 0.00/2.27k [00:00<?, ?B/s]
+100%|██████████| 2.27k/2.27k [00:00<00:00, 1.05MB/s]
+
+r7Lmbr2-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+ ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))
+
+2026-10-29T22:59:37Z pushed r8-r7hc-3 rc=1
+2026-10-29T22:59:37Z requeued r8-r7hc-3 (failure 1)
+2026-10-29T22:59:37Z running 4, queued 7
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r7hc-3
+ 
+2026-10-29T23:01:32Z pushed r8-r7hc-3 rc=0
+2026-10-29T23:01:32Z running 5, queued 6
+2026-10-29T23:03:24Z running 5, queued 6
+2026-10-29T23:05:13Z running 5, queued 6
+2026-10-29T23:07:00Z running 5, queued 6
+2026-10-29T23:08:50Z running 5, queued 6
+2026-10-29T23:10:40Z running 5, queued 6
+2026-10-29T23:12:28Z running 5, queued 6
+2026-10-29T23:14:16Z running 5, queued 6
+2026-10-29T23:16:03Z running 5, queued 6
+2026-10-29T23:17:52Z running 5, queued 6
+2026-10-29T23:19:39Z running 5, queued 6
+2026-10-29T23:21:16Z complete r7Lmbr2-pub30-3
+r7Lmbr2-pub30-3 0 2kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 40.7kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 741kB/s]
+
+  0%|          | 0.00/2.62k [00:00<?, ?B/s]
+100%|██████████| 2.62k/2.62k [00:00<00:00, 2.01MB/s]
+
+r7Lmbr2-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r7hc-4
+ 
+2026-10-29T23:21:59Z pushed r8-r7hc-4 rc=0
+2026-10-29T23:21:59Z running 5, queued 5
+2026-10-29T23:23:47Z running 5, queued 5
+2026-10-29T23:25:20Z complete r7Lmbr2-pub30-2
+r7Lmbr2-pub30-2 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.90MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.27MB/s]
+
+  0%|          | 0.00/2.46k [00:00<?, ?B/s]
+100%|██████████| 2.46k/2.46k [00:00<00:00, 1.72MB/s]
+
+r7Lmbr2-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r5m-1
+ 
+2026-10-29T23:26:15Z pushed r8-r5m-1 rc=0
+2026-10-29T23:26:15Z running 5, queued 4
+2026-10-29T23:29:01Z running 5, queued 4
+2026-10-29T23:31:12Z running 5, queued 4
+2026-10-29T23:32:50Z running 5, queued 4
+2026-10-29T23:34:28Z running 5, queued 4
+2026-10-29T23:36:05Z running 5, queued 4
+2026-10-29T23:37:43Z running 5, queued 4
+2026-10-29T23:39:21Z running 5, queued 4
+2026-10-29T23:40:58Z running 5, queued 4
+2026-10-29T23:42:35Z running 5, queued 4
+2026-10-29T23:44:13Z running 5, queued 4
+2026-10-29T23:45:50Z running 5, queued 4
+2026-10-29T23:47:28Z running 5, queued 4
+2026-10-29T23:49:05Z running 5, queued 4
+2026-10-29T23:50:44Z running 5, queued 4
+2026-10-29T23:52:22Z running 5, queued 4
+2026-10-30T20:21:45Z complete r8-r7hc-1
+r8-r7hc-1 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.22MB/s]
+
+  0%|          | 0.00/1.04k [00:00<?, ?B/s]
+100%|██████████| 1.04k/1.04k [00:00<00:00, 2.26MB/s]
+
+  0%|          | 0.00/2.65k [00:00<?, ?B/s]
+100%|██████████| 2.65k/2.65k [00:00<00:00, 5.39MB/s]
+
+r8-r7hc-1: merged 11 summaries (11 progress lines, 11 jobs)
+2026-10-30T20:22:07Z complete r8-r7hc-2
+r8-r7hc-2 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.68MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.48MB/s]
+
+  0%|          | 0.00/2.64k [00:00<?, ?B/s]
+100%|██████████| 2.64k/2.64k [00:00<00:00, 4.51MB/s]
+
+r8-r7hc-2: merged 11 summaries (11 progress lines, 11 jobs)
+2026-10-30T20:22:31Z complete r8-r7hc-3
+r8-r7hc-3 0 .9kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 582kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 773kB/s]
+
+  0%|          | 0.00/2.46k [00:00<?, ?B/s]
+100%|██████████| 2.46k/2.46k [00:00<00:00, 1.69MB/s]
+
+r8-r7hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+2026-10-30T20:22:55Z complete r8-r7hc-4
+r8-r7hc-4 0 04kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 547kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 846kB/s]
+
+  0%|          | 0.00/2.80k [00:00<?, ?B/s]
+100%|██████████| 2.80k/2.80k [00:00<00:00, 3.17MB/s]
+
+r8-r7hc-4: merged 12 summaries (12 progress lines, 12 jobs)
+2026-10-30T20:23:41Z complete r8-r5m-1
+r8-r5m-1 0 76kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 803kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 15.9kB/s]
+
+  0%|          | 0.00/1.76k [00:00<?, ?B/s]
+100%|██████████| 1.76k/1.76k [00:00<00:00, 830kB/s]
+
+r8-r5m-1: merged 6 summaries (6 progress lines, 6 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r5m-2
+ 
+2026-10-30T20:24:07Z pushed r8-r5m-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r4c-1
+ 
+2026-10-30T20:24:12Z pushed r8-r4c-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r4c-2
+ 
+2026-10-30T20:24:16Z pushed r8-r4c-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r8-r4c-3
+ 
+2026-10-30T20:24:20Z pushed r8-r4c-3 rc=0
+2026-10-30T20:24:20Z running 4, queued 0
+2026-10-30T20:26:02Z running 4, queued 0
+2026-10-30T20:27:47Z running 4, queued 0
+2026-10-30T20:29:29Z running 4, queued 0
+2026-10-30T20:31:11Z running 4, queued 0
+2026-10-30T20:32:54Z running 4, queued 0
+2026-10-30T20:34:36Z running 4, queued 0
+2026-10-30T20:36:19Z running 4, queued 0
+2026-10-30T20:38:02Z running 4, queued 0
+2026-10-30T20:39:46Z running 4, queued 0
+2026-10-30T20:41:29Z running 4, queued 0
+2026-10-30T20:43:11Z running 4, queued 0
+2026-10-30T20:44:54Z running 4, queued 0
+2026-10-30T20:46:37Z running 4, queued 0
+2026-10-30T20:48:22Z running 4, queued 0
+2026-10-30T20:50:05Z running 4, queued 0
+2026-10-30T20:51:48Z running 4, queued 0
+2026-10-30T20:53:32Z running 4, queued 0
+2026-10-30T20:55:15Z running 4, queued 0
+2026-10-30T20:56:59Z running 4, queued 0
+2026-10-30T20:58:43Z running 4, queued 0
+2026-10-30T21:00:27Z running 4, queued 0
+2026-10-30T21:02:10Z running 4, queued 0
+2026-10-30T21:03:44Z complete r8-r5m-2
+r8-r5m-2 0 68kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 520kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 606kB/s]
+
+  0%|          | 0.00/1.77k [00:00<?, ?B/s]
+100%|██████████| 1.77k/1.77k [00:00<00:00, 1.89MB/s]
+
+r8-r5m-2: merged 6 summaries (6 progress lines, 6 jobs)
+2026-10-30T21:04:22Z running 3, queued 0
+2026-10-30T21:06:04Z running 3, queued 0
+2026-10-30T21:07:45Z running 3, queued 0
+2026-10-30T21:09:27Z running 3, queued 0
+2026-10-30T21:11:05Z running 3, queued 0
+2026-10-30T21:12:42Z running 3, queued 0
+2026-10-30T21:14:21Z running 3, queued 0
+2026-10-30T21:16:01Z running 3, queued 0
+2026-10-30T21:17:42Z running 3, queued 0
+2026-10-30T21:19:22Z running 3, queued 0
+2026-10-30T21:21:02Z running 3, queued 0
+2026-10-30T21:22:39Z running 3, queued 0
+2026-10-30T21:24:16Z running 3, queued 0
+2026-10-30T21:25:55Z running 3, queued 0
+2026-10-30T21:27:36Z running 3, queued 0
+2026-10-30T21:29:16Z running 3, queued 0
+2026-10-30T21:30:57Z running 3, queued 0
+2026-10-30T21:32:39Z running 3, queued 0
+2026-10-30T21:34:20Z running 3, queued 0
+2026-10-30T21:36:00Z running 3, queued 0
+2026-10-30T21:37:40Z running 3, queued 0
+2026-10-30T21:39:18Z running 3, queued 0
+2026-10-30T21:40:56Z running 3, queued 0
+2026-10-30T21:42:37Z running 3, queued 0
+2026-10-30T21:44:18Z running 3, queued 0
+2026-10-30T21:46:00Z running 3, queued 0
+2026-10-30T21:47:40Z running 3, queued 0
+2026-10-30T21:49:22Z running 3, queued 0
+2026-10-30T21:51:03Z running 3, queued 0
+2026-10-30T21:52:42Z running 3, queued 0
+2026-10-30T21:54:24Z running 3, queued 0
+2026-10-30T21:56:05Z running 3, queued 0
+2026-10-30T21:57:48Z running 3, queued 0
+2026-10-30T21:59:32Z running 3, queued 0
+2026-10-30T22:01:13Z running 3, queued 0
+2026-10-30T22:02:55Z running 3, queued 0
+2026-10-30T22:04:36Z running 3, queued 0
+2026-10-30T22:06:16Z running 3, queued 0
+2026-10-30T22:07:57Z running 3, queued 0
+2026-10-30T22:09:40Z running 3, queued 0
+2026-10-30T22:11:22Z running 3, queued 0
+2026-10-30T22:13:04Z running 3, queued 0
+2026-10-30T22:14:45Z running 3, queued 0
+2026-10-30T22:16:27Z running 3, queued 0
+2026-10-30T22:18:09Z running 3, queued 0
+2026-10-30T22:19:50Z running 3, queued 0
+2026-10-30T22:21:34Z running 3, queued 0
+2026-10-30T22:23:16Z running 3, queued 0
+2026-10-30T22:24:56Z running 3, queued 0
+2026-10-30T22:26:38Z running 3, queued 0
+2026-10-30T22:28:18Z running 3, queued 0
+2026-10-30T22:29:57Z running 3, queued 0
+2026-10-30T22:31:38Z complete r8-r4c-3
+r8-r4c-3 0 35kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 712kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 831kB/s]
+
+  0%|          | 0.00/1.69k [00:00<?, ?B/s]
+100%|██████████| 1.69k/1.69k [00:00<00:00, 1.47MB/s]
+
+r8-r4c-3: merged 6 summaries (6 progress lines, 6 jobs)
+2026-10-30T22:32:09Z running 2, queued 0
+2026-10-30T22:33:44Z running 2, queued 0
+2026-10-30T22:35:19Z running 2, queued 0
+2026-10-30T22:36:54Z running 2, queued 0
+2026-10-30T22:38:29Z running 2, queued 0
+2026-10-30T22:40:04Z running 2, queued 0
+2026-10-30T22:41:44Z running 2, queued 0
+2026-10-30T22:43:17Z complete r8-r4c-1
+r8-r4c-1 0 MB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.12MB/s]
+
+  0%|          | 0.00/1.85k [00:00<?, ?B/s]
+100%|██████████| 1.85k/1.85k [00:00<00:00, 1.14MB/s]
+
+r8-r4c-1: merged 7 summaries (7 progress lines, 7 jobs)
+2026-10-30T22:43:46Z running 1, queued 0
+2026-10-30T22:45:20Z running 1, queued 0
+2026-10-30T22:46:54Z complete r8-r4c-2
+r8-r4c-2 0 1kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 374kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.32MB/s]
+
+  0%|          | 0.00/1.85k [00:00<?, ?B/s]
+100%|██████████| 1.85k/1.85k [00:00<00:00, 1.14MB/s]
+
+r8-r4c-2: merged 7 summaries (7 progress lines, 7 jobs)
+2026-10-30T22:47:26Z running 0, queued 0

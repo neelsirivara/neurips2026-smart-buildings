@@ -1,0 +1,12 @@
+{"id": "v7/r6hc/building_train_1/fairbanks_8", "rc": 0, "wall_s": 1290.1, "ok": true, "total_reward": -221.40369572378404, "steps": 8640, "sec_per_step": 0.1459832110338741}
+{"id": "v7/r6hc/building_train_1/minneapolis_6", "rc": 0, "wall_s": 1290.1, "ok": true, "total_reward": -35.7583582382822, "steps": 8640, "sec_per_step": 0.14572352330993724}
+{"id": "v7/r6hc/building_train_2/fairbanks_1", "rc": 0, "wall_s": 2330.1, "ok": true, "total_reward": -219.01520906786027, "steps": 8640, "sec_per_step": 0.26557156051750536}
+{"id": "v7/r6hc/building_train_2/minneapolis_5", "rc": 0, "wall_s": 2345.1, "ok": true, "total_reward": -31.92889202946003, "steps": 8640, "sec_per_step": 0.2675299356657046}
+{"id": "v7/r6hc/building_train_4/fairbanks_2", "rc": 0, "wall_s": 1720.1, "ok": true, "total_reward": -137.09065585574353, "steps": 8640, "sec_per_step": 0.1961004348816695}
+{"id": "v7/r6hc/building_train_4/minneapolis_6", "rc": 0, "wall_s": 1730.1, "ok": true, "total_reward": -35.123871824598154, "steps": 8640, "sec_per_step": 0.19727497001489003}
+{"id": "v7/r6hc/building_train_7/fairbanks_2", "rc": 0, "wall_s": 875.0, "ok": true, "total_reward": -253.16473608184606, "steps": 8640, "sec_per_step": 0.0994137426217397}
+{"id": "v7/r6hc/building_train_7/minneapolis_6", "rc": 0, "wall_s": 870.0, "ok": true, "total_reward": -28.21458251842614, "steps": 8640, "sec_per_step": 0.09863092471603994}
+{"id": "v7/r6hc/building_train_5/fairbanks_8", "rc": 0, "wall_s": 1785.1, "ok": true, "total_reward": -198.07669859140515, "steps": 8640, "sec_per_step": 0.20383577407510192}
+{"id": "v7/r6hc/building_train_5/minneapolis_5", "rc": 0, "wall_s": 1770.1, "ok": true, "total_reward": -29.158378778673523, "steps": 8640, "sec_per_step": 0.201647274941206}
+{"id": "v7/r6hc/building_train_8/minneapolis_5", "rc": 0, "wall_s": 565.0, "ok": true, "total_reward": -35.182760852536376, "steps": 8640, "sec_per_step": 0.06357762137496913}
+{"id": "v7/r6hc/building_train_8/fairbanks_1", "rc": 0, "wall_s": 575.0, "ok": true, "total_reward": -368.30550738672173, "steps": 8640, "sec_per_step": 0.06454353222140559}

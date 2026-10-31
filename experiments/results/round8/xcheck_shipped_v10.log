@@ -1,0 +1,4 @@
+building_train_8/minneapolis_c2/transfer: total=-189.45 steps=8640 sec/step=0.054 (policy 1.59 ms) regret=-4.39 energy=260.45 carbon=673.62
+building_train_8/denver_c1/transfer: total=-143.52 steps=8640 sec/step=0.054 (policy 1.68 ms) regret=-1.93 energy=201.48 carbon=510.33
+building_train_8 minneapolis_c2 {'shipped_laptop_total': -189.44745624391362, 'r7L_mbr2_kaggle_total': -189.44745624391362, 'identical': True, 'rel_diff': 0.0, 'steps': 8640, 'shipped_md5': '7d7f68991d7dae1c3abe7ac72ca835e2'}
+building_train_8 denver_c1 {'shipped_laptop_total': -143.5173071897516, 'r7L_mbr2_kaggle_total': -143.5173071897516, 'identical': True, 'rel_diff': 0.0, 'steps': 8640, 'shipped_md5': '7d7f68991d7dae1c3abe7ac72ca835e2'}

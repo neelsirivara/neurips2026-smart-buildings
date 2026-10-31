@@ -1,4 +1,4 @@
-# SB26 improvement deep dive (round 6, 2026-10-26)
+# SB26 improvement deep dive (round 6, 2026-10-26; updated after rounds 7-8, 2026-10-30)
 
 Scope: how to lower SADR's Kaggle score before the poster deadline (Nov 13, 2026) and the final deadline (Jan 15,
 2027) without the gas-billing quirk. Every number below comes from a result file named next to it; third-party numbers
@@ -22,12 +22,41 @@ Numbers file: `experiments/results/round6/deep_dive_numbers.json` (`experiments/
 5. Public notebooks (best 0.0142) offer nothing SADR lacks except distribution tuning; never use the billing quirk or
    the occupancy-seed replay.
 
+## 0. Update after rounds 7-8 (2026-10-30)
+
+**Five-line summary (rounds 7-8)**
+1. Analysis (paper Sec. 5): heat costs g = 1 + (T - T_sa)/(T_d - T) J of gas per J (checked in the kit to 1e-11);
+   recirculation sits at its 0.7 cap and 82% of the heat enters at the 308.15 K discharge cap, so outside air and
+   discharge temperature are spent levers; only *when* and *at which zone temperature* heat goes in remain.
+2. Bounds: a deeper floor pays only where it binds (1-47% of unoccupied zone periods under v9); a start rule saves at
+   most the hold before 06:00 (2.6% of the gas). First-order zone models are weak (R^2 0.41), right-sized where the
+   floor binds, wrong-signed in slow buildings.
+3. Round 7: base (c07 for c06), model start, model floor and both were all "public only" against v9 (model start
+   public -1.4%, 29/30, but HS +0.4%, n.s.: it lengthened leads on building_train_7); nothing shipped.
+4. Round 8: the fix (the model may only shorten the learned lead), registered before its only clean test, met the
+   rule: HC2 (44) -0.88% [-0.98, -0.77], 43/44; public-30 -1.62% [-2.02, -1.26], 30/30; FD -1.30% (17/20), M -1.09% (12/12); **shipped as v10**.
+5. Ranked items 2 (c06's cost) and 4 (model-based recovery) are done; 5 (deeper setback) is answered by the analysis
+   (depth pays only where the floor binds; the 7-day checks give -1% gas there, ~0 elsewhere); the remaining large
+   item is 3 (distribution tuning, Jan 15).
+
+| ranked item (section 4) | status after rounds 7-8 |
+|---|---|
+| 1 ship v9 | done (round 6); v9 is now the second final selection |
+| 2 fix c06's cost | done: v10 uses c07 (lead safety 1.15) instead of c06 |
+| 3 CMA-ES distribution tuning | open (Jan 15); the lever analysis narrows it to timing constants (lead, boosts, floor depth where it binds) |
+| 4 model-based morning recovery | done in its bounded form (v10); a full planner can gain at most the hold (2.6% of gas) and the zone models are too weak for it |
+| 5 deeper setback / boost sweep | answered: the model floor is a tie (HS -0.03% vs the base); depth only helps light zones that reach the floor |
+| 6 selection hygiene | applied (HC2 built before any round-7 candidate; seen vs clean sets stated) |
+| 7 chiller side | open |
+| 8 learned residual | open, low priority |
+
 ## 1. Where we stand
 
 | | score | source |
 |---|---|---|
 | SADR v8 (round 5; best scored file) | 0.01074, rank 87 (86 teams ahead; 82 on 10-26 07:10 UTC) | `results/kaggle_feedback.json`, `round6/intel/lb_page1_2026-10-26T1905Z.csv` |
-| SADR v9 (shipped in round 6) | probe 57678857 pending | `results/kaggle_feedback.json` |
+| SADR v9 (shipped in round 6) | 0.01070 (probe 57678857) | `results/kaggle_feedback.json` |
+| SADR v10 (shipped in round 8) | probe 57816757 pending | `results/kaggle_feedback.json` |
 | round-6 single c01 (probe) | 0.01071 (v8 0.01074: noise) | same |
 | #1-#2 (Joe Penn, Pardheev Krishna) | 0.00521 | same CSV |
 | #8 (last leaderboard prize) | 0.00603 | same CSV |

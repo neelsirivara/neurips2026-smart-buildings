@@ -1,0 +1,6 @@
+{"id": "r6_compb/r4c/building_0604/fairbanks_1", "rc": 0, "wall_s": 3445.2, "ok": true, "total_reward": -337.3361229494767, "steps": 8640, "sec_per_step": 0.39256766766861634}
+{"id": "r6_compb/r4c/building_0607/atlanta_6", "rc": 0, "wall_s": 3620.2, "ok": true, "total_reward": -63.85812028181908, "steps": 8640, "sec_per_step": 0.4129283972912364}
+{"id": "r6_compb/r4c/building_0607/phoenix_8", "rc": 0, "wall_s": 3680.2, "ok": true, "total_reward": -27.031421332041646, "steps": 8640, "sec_per_step": 0.42012053046513487}
+{"id": "r6_compb/r4c/building_0610/denver_5", "rc": 0, "wall_s": 3760.2, "ok": true, "total_reward": -102.98167082079294, "steps": 8640, "sec_per_step": 0.4275380007094807}
+{"id": "r6_compb/r4c/building_0610/singapore_3", "rc": 0, "wall_s": 2475.1, "ok": true, "total_reward": -122.83197471630501, "steps": 8640, "sec_per_step": 0.2798441703396815}
+{"id": "r6_compb/r4c/building_0639/fairbanks_4", "rc": 0, "wall_s": 4530.2, "ok": true, "total_reward": -31.472881210377636, "steps": 8640, "sec_per_step": 0.5148110459800119}

@@ -325,3 +325,61 @@ composite v9 under a rule written beforehand: -2.0% on HC (CI 1.4-2.7%), a tie o
 5. Fill in the v9 Kaggle probe score when it arrives (`kaggle_feedback.json`, macro `RSixProbeBScore`; c01 scored
    0.01071 and is in the text); FD (20) and pid_water on HC (48) finished and are in. -- v9 score open (see STATUS.md).
 6. Do not call FD "worse": its CI spans zero. -- applied ("does not help on FD").
+
+
+# Self-review 1, pass 6 -- rounds 7-8 draft (2026-10-30 ~21:00 UTC)
+
+Reviewer stance as before: a workshop PC member who reads the main text (6 pages) and spot-checks the appendix.
+
+## Summary
+Round 7 replaces search by analysis. From the kit's equations it derives the gas cost of a joule of net heat,
+g = 1 + (T - T_sa)/(T_d - T), checks it in the simulator to 1e-11, and shows that the outside-air fraction (at its
+0.7 recirculation cap) and the discharge temperature (82% of net heat at the 308.15 K cap) are spent levers. It fits
+first-order models to 306 zones (tau median 33 h, R^2 0.41) and derives two bounds: a deeper floor pays only where it
+binds, and a start rule can save at most the hold before 06:00 (2.6% of the gas). Seven-day checks confirm the
+predicted sizes where the model fits, and show the wrong sign in the building with the slowest zones. Four
+pre-registered candidates then all come out "public only"; nothing ships. Round 8 registers a fix found during round
+7 (the model may only shorten the learned lead) before its only clean test and ships it as v10: HC2 -0.9% (CI 0.8% to
+1.0%, 43/44), public -1.6% (CI 1.3% to 2.0%, 30/30).
+
+## Strengths (new in rounds 7-8)
+- An analytic account of which levers remain, with the identity checked in the simulator and the predictions
+  checked against short runs, including where the model fails.
+- A negative screen is reported under the rule: the model start's large public gain (-1.4%, 29/30) did not ship
+  because HS did not move.
+- The shipped change is the one the analysis argued for ("latest feasible start"), and its confirmation set HC2 was
+  built before round 7's candidates ran and touched by nothing but v9.
+- The paper says which sets were seen before registration (HS, public) and which was not (HC2).
+
+## Weaknesses
+1. The v10 candidate was found by looking at round-7 HS data (building_train_7); only HC2 (44 scenarios of the same
+   six buildings, cold windows overlapping earlier ones by 9-16 days) is independent. The effect is small (-0.9%)
+   though very consistent (43/44); the secondaries agree: FD (20 fresh default-range buildings, where v9 did not help)
+   -1.3% (CI 0.9% to 1.7%, 17/20) and M (12) -1.1% (12/12), but neither was a pre-registered decision set.
+2. The zone model is weak (R^2 0.41, recovery error 27%); the start works because the cap keeps the model from
+   lengthening the lead, so v10's gain is a bounded correction to the learned rate rather than model-based control.
+3. The public gain (-1.6%) is larger than the harsh one: in mild weather the hold before 06:00 is longer. The public
+   set has been used for selection in every round, so the public number is optimistic.
+4. The Kaggle effect is below the public split's resolution (~0.0005); the v10 probe (ref 57816757) was pending at writing.
+5. The main text is again exactly six pages; Limitations and the disclosure share one section, and Sections 4-5
+   still read as a log of rounds.
+
+## Scores
+| criterion | score | justification |
+|---|---|---|
+| Clarity | 4 | The analysis paragraph is dense but self-contained; Table B7 and the round-8 paragraph carry the decision. |
+| Soundness | 4 | Pre-registered rules held in both rounds; the shipped variant is post hoc with respect to HS and public, disclosed, with one clean confirmation. |
+| Reproducibility | 5 | Every number scripted (AUDIT 75 claims, every macro in main.tex covered); frozen code with sha256 in the PREREG; shipped file reproduces the Kaggle runs bit for bit. |
+| Significance | 4 | The lever analysis is useful to other entrants (what not to tune); the controller gain is small. |
+| Overall | 7 | |
+| Confidence | 4 | |
+
+## Must-fix before upload (pass 6)
+1. "light building 8" / "heavy building 1" were not supported by the fitted time constants (building 7 is the
+   fastest) -- applied: "building 8, where the floor binds most" and "building 1, whose zones cool slowest".
+2. Overfull Table B7 and the new parameters row -- applied (narrower columns, shorter row).
+3. Do not present the round-7 public-only gains or the post-hoc ledger as wins -- applied ("public only", "not
+   eligible there"; HC2 named as the one clean test).
+4. Every macro used in main.tex is covered by an AUDIT claim -- applied (75 claims, 0 uncovered).
+5. Main text within six pages, 0 errors / undefined / overfull -- applied (Limitations and disclosure merged).
+6. Fill the v10 Kaggle score -- open: probe ref 57816757 pending at writing; the macro prints "pending" until `kaggle_feedback.json` has the score.

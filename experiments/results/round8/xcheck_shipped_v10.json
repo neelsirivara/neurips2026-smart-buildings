@@ -1,0 +1,18 @@
+{
+ "building_train_8/minneapolis_c2": {
+  "shipped_laptop_total": -189.44745624391362,
+  "r7L_mbr2_kaggle_total": -189.44745624391362,
+  "identical": true,
+  "rel_diff": 0.0,
+  "steps": 8640,
+  "shipped_md5": "7d7f68991d7dae1c3abe7ac72ca835e2"
+ },
+ "building_train_8/denver_c1": {
+  "shipped_laptop_total": -143.5173071897516,
+  "r7L_mbr2_kaggle_total": -143.5173071897516,
+  "identical": true,
+  "rel_diff": 0.0,
+  "steps": 8640,
+  "shipped_md5": "7d7f68991d7dae1c3abe7ac72ca835e2"
+ }
+}

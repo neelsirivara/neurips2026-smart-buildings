@@ -38,7 +38,7 @@ generator seeds (`experiments/src/make_sets_r4.sh`).
 | Author block | Neel Sirivara, University of Washington, nsiriv@cs.washington.edu -- supplied by the user via the coordinator on 2026-10-26 (round 6), replacing the `[Author Name]` / `[Affiliation]` placeholder. |
 | Build | `pdflatex -> bibtex -> pdflatex x2`, `-interaction=nonstopmode -halt-on-error` (`experiments/src/finalize.sh`); hyperref loaded after float/algorithm so caption anchors are not duplicated. |
 | `??` / TODO / undefined refs | checked by `finalize.sh` (pdftotext grep) -- see the last line of its output recorded in STATUS.md. |
-| Length | main text (through "Reproducibility and disclosure") must end on page 6; references and Appendices A-C follow. |
+| Length | main text (through the "Reproducibility and disclosure" paragraph of Section 6, a section of its own until round 8) must end on page 6; references and Appendices A-C follow. |
 | Bibliography | every entry verified in `paper/bib_verification_log.json`; Taylor 2007 (ASHRAE Journal) could not be verified and is not cited. |
 
 ## Provenance of the qualitative development claims (no number in the text)
@@ -98,3 +98,37 @@ Also round 6: the v9 row of the parameters table and its caption ("<= 8 h before
 sb_boost_cold 1, sb_boost_floor_k 2) and `results/tune/best_params_v8.json` (margin_pre 0.8, night_low_ext 8); "the two
 hot screening scenarios" are building_train_1/phoenix_5 and building_train_7/singapore_6 in `compare_r6.PUB12`; "34% HC
 and the rest public" is macro `RSixMixWPct`; "(c11, c09, c06, c08; v9)" is `RSixCompMembers`.
+
+Round 7 (2026-10-29) adds these typed constants: Eq. (1) and $T_{sa}=\min(\text{SAT}, r T_{ret} + (1-r) T_{out})$ with
+$r \le 0.7$ (the kit's `AirHandler` mixing and `VAV` reheat code, wrapped by `experiments/src/check_identities_r7.py`);
+"a zone at 294 K" and "281 K", "0 C" and "-40 C" (the rows of `analysis_r7.json -> L1_L2_table_T294` that the text
+quotes); "building 8 in January" (the identity check runs 576 steps on
+`heldout_scenarios_r6hs/building_train_8/fairbanks_c2`, which starts 2023-01-15 06:00, `make_sets_r6.py`;
+`check_identities.json -> scenario`); "six harsh scenarios" and "30-minute" (the six HS scenarios of
+`zone_log_r7.py` and the 30-minute windows of `fit_zone_model_r7.py`); "06:00" (the shipped occupancy start);
+"a 2 K deeper floor" and "a lead safety of 1.0" (the `r7chk_nle12` = night_low_ext 12 vs v9's 10 and `r7chk_ls100`
+variants of the r7chk-1 shard); "building 8, where the floor binds most" (`analysis_r7.json -> predictions_7d.*.share_periods_floor_reached`:
+building_train_8 0.47, the largest of the six) and "building 1, whose zones cool slowest" (`zone_model_fit.json`:
+median tau 61 h for building_train_1, the longest of the six; 12-46 h for the others); "times 1.1" (`mbr_safety` 1.1, a
+v10 default that no round-7 candidate overrides; `policy_candidates/transfer_policy_v10.py`); "the shorter lead (c07) ... the nearer target (c06)" (round 6's
+c07 lead_safety 1.15 and c06 margin_pre 0.5; `policy_candidates/r7_base.json`); "every candidate lowers the public
+loss" (all four public-30 CIs below zero in `screen_summary.json`); "none has an HS interval below zero", "all four are
+public only" and "none was confirmed, v9 stays" (`screen_summary.json` classes, `decision.json -> chosen` = null,
+`screen_seed_classes.json` for seeds 0-9); "building 7 under Denver cold" is macro `RSevMbrHsWorstScen`
+(building_train_7/denver_c1, a cold Denver strip); "where the model's lead exceeded the learned one" (PREREG round 7,
+note 18:59 UTC, from the per-zone lead trace of the first r7_mb shard on building_train_7); "about what the analysis
+allows" (`RSevMbfVsBaseHsRel` against the 0.0-1.7% of gas per cold week predicted for the model floor,
+`analysis_r7.json -> predictions_7d.*.pred_rel_mbf16`).
+
+Round 8 (2026-10-29/30) adds these typed constants: "a fix found after round 7's first shard and so not eligible
+there" (PREREG round 7, note 18:59 UTC; `mbr_lead_cap` exists only in v10b_screen.py); "registered before any run on
+HC2, the one set it had not seen" (results/round8/PREREG.md, written 22:45-22:49 UTC 2026-10-29; the first HC2 shard of
+the candidate was pushed at 22:49:30 UTC, `round6/kaggle_dispatch_log.txt`; only v9 had run on HC2 before); "the rule
+was met and it shipped as v10" (`confirm_r7L_mbr2.json -> rule.met` true; `experiments/src/ship_round8.py`;
+`submission/transfer_policy.py` sha256 dc606dbc..., md5 7d7f6899...); "v10 ran on Kaggle CPU kernels" (Table 1: the
+public-30 runs of r7L_mbr2 are Kaggle shards r7Lmbr2-pub30-1..3); "rounds 7-8 on the kernels (round 7's zone logs on
+the M5 Pro)" (round 7's six 14-day zone-log runs, `zone_log_r7.py`, ran on the Mac; every screen, ledger and
+confirmation run is a Kaggle shard, `round6/kaggle_registry.json`); "(no gain on harsh weather)" in the abstract (all
+four round-7 HS CIs contain zero, `round7/screen_summary.json`); "whose model may only shorten the learned start"
+(`mbr_lead_cap` 1 in `policy_candidates/r7L_mbr2.json`); the v10 parameter row ("RLS zone model", "model lead <=
+learned lead") is `mbr_on` 1 and `mbr_lead_cap` 1 of `results/tune/best_params_v10.json`.

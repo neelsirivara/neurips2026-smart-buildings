@@ -9,10 +9,39 @@ Files:
 |---|---|
 | `transfer_policy.py` | The policy. Drop-in replacement for `smart_buildings/baselines/transfer_policy.py` in the starter kit. Class `TransferPolicy(building_meta_data, action_spec)` with `get_action(obs)`; pure numpy + stdlib; deterministic; shape-agnostic. |
 | `kaggle_notebook_template.py` | A self-contained script mirroring the kit's evaluation loop, with the policy inlined, for adapting to the official Kaggle notebook template. |
-| `best_params.json` | The final parameter set (v9: the v8 set + the round-6 overrides of `r6_comp`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round6.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v8.json`, `best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v8 file is `transfer_policy_v8_shipped_before_round6.py` (here), the shipped v7 file `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, v6 `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, v5 `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
-| `transfer_policy_v8_shipped_before_round6.py` | The v8 file as shipped in round 5 (md5 98036ef2...), kept for provenance and as the natural second Kaggle selection. |
+| `best_params.json` | The final parameter set (v10: the v10 code's defaults + the overrides of `r7L_mbr2`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round8.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v9.json`, `best_params_v8.json`, `best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v9 file is `transfer_policy_v9_shipped_before_round8.py` (here), v8 `transfer_policy_v8_shipped_before_round6.py` (here), the shipped v7 file `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, v6 `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, v5 `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
+| `transfer_policy_v9_shipped_before_round8.py` | The v9 file as shipped in round 6 (md5 866b9023..., sha256 02c1c2c6...), kept for provenance and as the second Kaggle selection. |
+| `transfer_policy_v8_shipped_before_round6.py` | The v8 file as shipped in round 5 (md5 98036ef2...), kept for provenance. |
 
-Version: **SADR v9 (final, round 6)**, baked 2026-10-26 from
+Version: **SADR v10 (final, round 8)**, baked 2026-10-30 from
+`../experiments/results/round6/policies/v10b_screen.py` (sha256 2827a88a...; the frozen code every round-7 ledger and
+round-8 run used; = `../experiments/src/policy_candidates/transfer_policy_v10.py`) + `r7L_mbr2.json`
+(`../experiments/src/ship_round8.py`). `transfer_policy.py`: md5 7d7f6899..., sha256 dc606dbc.... v10 keeps v9's
+set-back air boosts and deeper weeknight setback, uses the shorter optimum-start lead (`lead_safety` 1.15; v9 1.3) in
+place of v9's nearer preconditioning target (`margin_pre` back to 0.8 K; v9 0.5 K), and adds a per-zone first-order
+thermal model (dT/dt = a Q - k (T - Tout) + c, fitted online by recursive least squares on the zone's unoccupied
+history; `mbr_on` 1) whose recovery time at the request cap (x `mbr_safety` 1.1) may only *shorten* the learned-rate
+start lead and is ignored where the model predicts the target is unreachable at the cap (`mbr_lead_cap` 1). With the
+round-7 switches off the code reproduces v9 bit for bit. Policy time 1-2 ms per step (robustness test, smoke and cross-check runs).
+
+Selection (`../experiments/results/round7/PREREG.md`, `screen_summary.json`, `decision.json`;
+`../experiments/results/round8/PREREG.md`, `confirm_r7L_mbr2.json`): round 7 screened four pre-registered candidates
+(base, model start, model floor, both) at full length on HS (18) and the public 30 against v9; all four were "public
+only" (no HS gain), so none was confirmed. The model start lost on building_train_7 because its lead could exceed the
+learned one; the fix (`mbr_lead_cap`) was found after round 7's first shard and so was ledger only there (HS -0.80%,
+CI -0.93% to -0.64%; public-30 -1.62%, CI -2.02% to -1.26%). Round 8 registered it, code frozen, before any run on HC2
+(44 scenarios of the shipped six under six new cold-month windows; only v9 had run there) and confirmed it at full
+length: HC2 0.02171 -> 0.02152 (-0.88%, CI -0.98% to -0.77%, 43/44 wins); public-30 0.00775 -> 0.00762 (-1.62%,
+CI -2.02% to -1.26%, 30/30): the pre-registered rule (public not worse AND HC2 better) is met, for all 10 bootstrap
+seeds. HS and the public set were seen before registration; HC2 is the clean test. Secondary: M (12) -1.09% (CI -1.51% to -0.67%, 12/12), FD (20 large default-range scenarios, where v9 did not help) -1.30% (CI -1.66% to -0.90%, 17/20), HS -0.80%. Checks: bake, robustness test
+35/35, 36-step smoke run, the shipped file against the Kaggle confirmation runs at 8,640 steps on two HC2 scenarios
+(`../experiments/results/round8/xcheck_shipped_v10.json`). Kaggle probe: notebook `kaggle/sadr-v10-smart-buildings/`
+(built from this file by `../experiments/src/kaggle_probe_r8.py`); see `../experiments/results/kaggle_feedback.json`.
+v10 and v9 are the natural two final Kaggle selections.
+
+### Previous version (v9, round 6), kept for reference
+
+SADR v9 (round 6), baked 2026-10-26 from
 `../experiments/results/round6/policies/v9_screen2.py` (the frozen copy of
 `../experiments/src/policy_candidates/transfer_policy_v9.py` every round-6 run used) + `r6_comp.json`
 (`../experiments/src/ship_round6.py`). v9 keeps every v8 rule (the v9 code with all round-6 switches off reproduces v8

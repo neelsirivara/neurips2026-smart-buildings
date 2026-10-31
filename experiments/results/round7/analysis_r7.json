@@ -1,0 +1,154 @@
+{
+ "L1_L2_table_T294": [
+  {
+   "tout_c": 0,
+   "g": 1.4500000000000008,
+   "dg_d_oa_frac": 1.5,
+   "dg_dTd_per_k": -0.0321428571428572,
+   "g_at_zone_281K": 1.0888888888888881
+  },
+  {
+   "tout_c": -10,
+   "g": 1.664285714285715,
+   "dg_d_oa_frac": 2.2142857142857144,
+   "dg_dTd_per_k": -0.04744897959183679,
+   "g_at_zone_281K": 1.199999999999999
+  },
+  {
+   "tout_c": -20,
+   "g": 1.8785714285714294,
+   "dg_d_oa_frac": 2.9285714285714284,
+   "dg_dTd_per_k": -0.06275510204081639,
+   "g_at_zone_281K": 1.3111111111111102
+  },
+  {
+   "tout_c": -30,
+   "g": 2.0928571428571434,
+   "dg_d_oa_frac": 3.642857142857143,
+   "dg_dTd_per_k": -0.07806122448979598,
+   "g_at_zone_281K": 1.4222222222222214
+  },
+  {
+   "tout_c": -40,
+   "g": 2.307142857142858,
+   "dg_d_oa_frac": 4.357142857142857,
+   "dg_dTd_per_k": -0.09336734693877558,
+   "g_at_zone_281K": 1.5333333333333323
+  }
+ ],
+ "identity_checks": {
+  "sa_identity_max_abs_err_k": 0.0,
+  "recirc_share_at_cap_0p7": 1.0,
+  "discharge_max_k": 308.15,
+  "discharge_at_cap_share": 0.5339863110691527,
+  "reheat_identity_max_rel_err": 5.6574752957805146e-15,
+  "g_formula_max_abs_err": 1.7905676941154525e-12,
+  "g_energy_weighted": 1.6127916005656848,
+  "g_energy_weighted_at_cap": 1.5868480200307242,
+  "net_heat_share_at_cap": 0.8213155043444171,
+  "boiler_over_reheat_sum": 1.0299951379385393,
+  "mean_tz_minus_tsa_at_cap_k": 10.646317116468724,
+  "heated_vav_steps": 8474
+ },
+ "identity_checks_minneapolis": {
+  "g_energy_weighted": 1.442706033664821,
+  "g_energy_weighted_at_cap": 1.4009271677171318,
+  "boiler_over_reheat_sum": 1.034215291675001,
+  "net_heat_share_at_cap": 0.7148571003602081
+ },
+ "zone_params": {
+  "n": 306,
+  "tau_h_p10_p50_p90": [
+   9.21694588674535,
+   32.885378026119014,
+   192.2666871272708
+  ],
+  "C_kwh_per_k_p10_p50_p90": [
+   0.8071354548982439,
+   1.3537470075051397,
+   2.227399286543251
+  ],
+  "U_kw_per_k_p10_p50_p90": [
+   0.006107666558278684,
+   0.041162545883664234,
+   0.14259019020757469
+  ],
+  "recovery_rate_slope_kph_per_k_median": -0.60056607287081
+ },
+ "predictions_7d": {
+  "building_train_1__fairbanks_c2": {
+   "days": 7,
+   "gas_kwh": 20926.835678888958,
+   "periods": 175,
+   "share_periods_floor_reached": 0.14285714285714285,
+   "pred_rel_nle12": -0.004312046195913928,
+   "pred_rel_nle14": -0.007986848527161718,
+   "pred_rel_mbf16": -0.0005959886725268078,
+   "pred_rel_ls115": -0.015213626158950272,
+   "pred_rel_ls100": -0.025116914304724004
+  },
+  "building_train_2__denver_c1": {
+   "days": 7,
+   "gas_kwh": 11667.471154817264,
+   "periods": 425,
+   "share_periods_floor_reached": 0.03058823529411765,
+   "pred_rel_nle12": -0.004601299445492613,
+   "pred_rel_nle14": -0.007078657080472844,
+   "pred_rel_mbf16": -0.00315514576590418,
+   "pred_rel_ls115": -0.01730725000291044,
+   "pred_rel_ls100": -0.026591402580855687
+  },
+  "building_train_4__minneapolis_1": {
+   "days": 7,
+   "gas_kwh": 10105.951334693273,
+   "periods": 270,
+   "share_periods_floor_reached": 0.011111111111111112,
+   "pred_rel_nle12": -0.0029814603307102227,
+   "pred_rel_nle14": -0.005738230271614342,
+   "pred_rel_mbf16": -0.00033028537916133296,
+   "pred_rel_ls115": -0.013101347382098638,
+   "pred_rel_ls100": -0.023857750816773098
+  },
+  "building_train_5__fairbanks_c2": {
+   "days": 7,
+   "gas_kwh": 39198.60073592568,
+   "periods": 350,
+   "share_periods_floor_reached": 0.26285714285714284,
+   "pred_rel_nle12": -0.006745143459796892,
+   "pred_rel_nle14": -0.012052660981756587,
+   "pred_rel_mbf16": -0.009620326428634505,
+   "pred_rel_ls115": -0.014970876380515497,
+   "pred_rel_ls100": -0.02235918886350346
+  },
+  "building_train_7__denver_c1": {
+   "days": 7,
+   "gas_kwh": 13591.725603749912,
+   "periods": 178,
+   "share_periods_floor_reached": 0.12359550561797752,
+   "pred_rel_nle12": -0.008744366933200525,
+   "pred_rel_nle14": -0.013170087956478178,
+   "pred_rel_mbf16": -0.010646525600629843,
+   "pred_rel_ls115": -0.01430204282528499,
+   "pred_rel_ls100": -0.019812953248054262
+  },
+  "building_train_8__fairbanks_c2": {
+   "days": 7,
+   "gas_kwh": 15564.746064670562,
+   "periods": 130,
+   "share_periods_floor_reached": 0.46923076923076923,
+   "pred_rel_nle12": -0.010018449601425231,
+   "pred_rel_nle14": -0.017844444820118564,
+   "pred_rel_mbf16": -0.016623973713529284,
+   "pred_rel_ls115": -0.016200204202599724,
+   "pred_rel_ls100": -0.020320714562988503
+  }
+ },
+ "L4_start": {
+  "n_recoveries": 2599,
+  "recovery_dur_h_mean": 1.1493202513787355,
+  "hold_h_mean": 0.3648606811145511,
+  "hold_gas_share_of_all_gas": 0.025611045867279383,
+  "model_recovery_rel_err_median": 0.2666666666666663,
+  "model_r2_median": 0.4066414989482279
+ }
+}

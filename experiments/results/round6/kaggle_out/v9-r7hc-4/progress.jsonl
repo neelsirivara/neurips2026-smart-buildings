@@ -1,0 +1,12 @@
+{"id": "r6_comp/r7hc/building_train_1/minneapolis_c2", "rc": 0, "wall_s": 1345.1, "ok": true, "total_reward": -196.34228857964263, "steps": 8640, "sec_per_step": 0.15183905550727136}
+{"id": "r6_comp/r7hc/building_train_1/denver_c2", "rc": 0, "wall_s": 1350.1, "ok": true, "total_reward": -121.60286236192769, "steps": 8640, "sec_per_step": 0.1520865006579293}
+{"id": "r6_comp/r7hc/building_train_1/denver_c1", "rc": 0, "wall_s": 1360.1, "ok": true, "total_reward": -146.45786323034554, "steps": 8640, "sec_per_step": 0.15324868984796383}
+{"id": "r6_comp/r7hc/building_train_2/fairbanks_c3", "rc": 0, "wall_s": 2445.1, "ok": true, "total_reward": -177.40077719554756, "steps": 8640, "sec_per_step": 0.27858481156053366}
+{"id": "r6_comp/r7hc/building_train_4/fairbanks_8", "rc": 0, "wall_s": 1780.1, "ok": true, "total_reward": -149.34980453377284, "steps": 8640, "sec_per_step": 0.20320732256880514}
+{"id": "r6_comp/r7hc/building_train_4/fairbanks_c4", "rc": 0, "wall_s": 1805.1, "ok": true, "total_reward": -193.35259098216193, "steps": 8640, "sec_per_step": 0.20581245367173795}
+{"id": "r6_comp/r7hc/building_train_5/denver_c2", "rc": 0, "wall_s": 1885.1, "ok": true, "total_reward": -116.2479936491618, "steps": 8640, "sec_per_step": 0.21497719287872313}
+{"id": "r6_comp/r7hc/building_train_7/denver_c3", "rc": 0, "wall_s": 920.0, "ok": true, "total_reward": -176.95310662521297, "steps": 8640, "sec_per_step": 0.1045552394732281}
+{"id": "r6_comp/r7hc/building_train_7/fairbanks_c4", "rc": 0, "wall_s": 920.0, "ok": true, "total_reward": -340.86998700834374, "steps": 8640, "sec_per_step": 0.10455647050230592}
+{"id": "r6_comp/r7hc/building_train_8/denver_c2", "rc": 0, "wall_s": 830.0, "ok": true, "total_reward": -119.19587643627892, "steps": 8640, "sec_per_step": 0.0937951325542397}
+{"id": "r6_comp/r7hc/building_train_5/fairbanks_c4", "rc": 0, "wall_s": 1785.1, "ok": true, "total_reward": -242.6687096186797, "steps": 8640, "sec_per_step": 0.20343632609755904}
+{"id": "r6_comp/r7hc/building_train_8/minneapolis_c2", "rc": 0, "wall_s": 500.0, "ok": true, "total_reward": -191.77311831579573, "steps": 8640, "sec_per_step": 0.05608786797081983}

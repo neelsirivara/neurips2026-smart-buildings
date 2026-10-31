@@ -1,0 +1,7 @@
+{"id": "r6_compb/r4c/building_0604/phoenix_7", "rc": 0, "wall_s": 3240.1, "ok": true, "total_reward": -92.33155776039541, "steps": 8640, "sec_per_step": 0.3690971481303374}
+{"id": "r6_compb/r4c/building_0604/atlanta_5", "rc": 0, "wall_s": 3255.2, "ok": true, "total_reward": -132.66402410600722, "steps": 8640, "sec_per_step": 0.3706789912448989}
+{"id": "r6_compb/r4c/building_0607/denver_4", "rc": 0, "wall_s": 3405.2, "ok": true, "total_reward": -40.347920364292804, "steps": 8640, "sec_per_step": 0.38810997586007473}
+{"id": "r6_compb/r4c/building_0607/singapore_2", "rc": 0, "wall_s": 3470.2, "ok": true, "total_reward": -76.1653596591284, "steps": 8640, "sec_per_step": 0.3956732161619045}
+{"id": "r6_compb/r4c/building_0610/fairbanks_3", "rc": 0, "wall_s": 3010.2, "ok": true, "total_reward": -78.49845182734862, "steps": 8640, "sec_per_step": 0.34215059774341405}
+{"id": "r6_compb/r4c/building_0639/atlanta_8", "rc": 0, "wall_s": 4970.2, "ok": true, "total_reward": -47.373862456182906, "steps": 8640, "sec_per_step": 0.566430452355632}
+{"id": "r6_compb/r4c/building_0639/phoenix_2", "rc": 0, "wall_s": 4915.2, "ok": true, "total_reward": -39.65888517603912, "steps": 8640, "sec_per_step": 0.5600189408770314}

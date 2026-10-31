@@ -1,0 +1,1 @@
+building_train_8/denver_c3/transfer: total=-122.54 steps=8640 sec/step=0.066 (policy 1.32 ms) regret=-1.18 energy=172.55 carbon=436.61

@@ -1,0 +1,12 @@
+{"id": "v7/r6hc/building_train_1/denver_1", "rc": 0, "wall_s": 1615.1, "ok": true, "total_reward": -134.53880316120194, "steps": 8640, "sec_per_step": 0.18266713464701617}
+{"id": "v7/r6hc/building_train_1/minneapolis_4", "rc": 0, "wall_s": 1615.1, "ok": true, "total_reward": -36.425322567621606, "steps": 8640, "sec_per_step": 0.18246512156393793}
+{"id": "v7/r6hc/building_train_2/denver_1", "rc": 0, "wall_s": 2855.2, "ok": true, "total_reward": -78.41129039308544, "steps": 8640, "sec_per_step": 0.32544720092857327}
+{"id": "v7/r6hc/building_train_2/minneapolis_3", "rc": 0, "wall_s": 2900.2, "ok": true, "total_reward": -40.16281987441198, "steps": 8640, "sec_per_step": 0.33056490098436675}
+{"id": "v7/r6hc/building_train_4/denver_1", "rc": 0, "wall_s": 2080.1, "ok": true, "total_reward": -92.81497548572224, "steps": 8640, "sec_per_step": 0.23731743431201688}
+{"id": "v7/r6hc/building_train_4/minneapolis_4", "rc": 0, "wall_s": 2080.1, "ok": true, "total_reward": -34.969096064705354, "steps": 8640, "sec_per_step": 0.237076817728855}
+{"id": "v7/r6hc/building_train_7/denver_1", "rc": 0, "wall_s": 1080.1, "ok": true, "total_reward": -195.7166914934569, "steps": 8640, "sec_per_step": 0.12226876478504252}
+{"id": "v7/r6hc/building_train_7/minneapolis_4", "rc": 0, "wall_s": 1090.1, "ok": true, "total_reward": -37.440858265026236, "steps": 8640, "sec_per_step": 0.12374596394322536}
+{"id": "v7/r6hc/building_train_5/denver_1", "rc": 0, "wall_s": 2175.1, "ok": true, "total_reward": -129.01012872956562, "steps": 8640, "sec_per_step": 0.248078804904664}
+{"id": "v7/r6hc/building_train_5/minneapolis_3", "rc": 0, "wall_s": 2170.1, "ok": true, "total_reward": -62.860318183918935, "steps": 8640, "sec_per_step": 0.24782523314158122}
+{"id": "v7/r6hc/building_train_8/minneapolis_3", "rc": 0, "wall_s": 655.0, "ok": true, "total_reward": -66.69386406102785, "steps": 8640, "sec_per_step": 0.0738566341775435}
+{"id": "v7/r6hc/building_train_8/denver_1", "rc": 0, "wall_s": 670.0, "ok": true, "total_reward": -135.39060966403486, "steps": 8640, "sec_per_step": 0.07546059188467485}

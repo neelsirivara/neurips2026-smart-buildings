@@ -1,0 +1,21 @@
+[{"stream_name":"stderr","time":11.159393098,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.159522424,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.159529874,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.159533242,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.052605476,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.052675307,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.052685596,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.052691313,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":35.145804664,"data":"SADR v10 controlling 4 AHUs\n"}
+,{"stream_name":"stdout","time":822.594359058,"data":"Episode finished! Total reward: {'agent_0': -33.106390176073546}\n"}
+,{"stream_name":"stdout","time":822.59439916,"data":"[gateway] building_train_1/atlanta_2: mean reward=-0.0038 over 8641 steps in 805s\n"}
+,{"stream_name":"stdout","time":822.813606378,"data":"[gateway] mean scenario reward total, for logs only: -0.0038\n"}
+,{"stream_name":"stderr","time":828.954071442,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":828.954131649,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":829.225828779,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":829.225863102,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":830.354350934,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":830.447155346,"data":"[NbConvertApp] Writing 90739 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":833.941619176,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":834.979831251,"data":"[NbConvertApp] Writing 619047 bytes to __results__.html\n"}
+]

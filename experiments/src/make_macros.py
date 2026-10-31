@@ -847,6 +847,15 @@ def main() -> int:
     write_round6_kaggle_table()
     write_round6_table()
 
+    # ---- round 7: heating-lever analysis, screen, confirmation (make_macros_r7.py) ----
+    from make_macros_r7 import round7_macros, write_round7_table
+    lines += round7_macros()
+    write_round7_table()
+
+    # ---- round 8: confirmation of the round-7 ledger variant on HC2 (make_macros_r8.py) ----
+    from make_macros_r8 import round8_macros
+    lines += round8_macros()
+
     # ---- environment ----
     lines.append(macro("SimSecPerStep", fmt(get(ei, "sec_per_step_median"), 3)))
     lines.append(macro("SimMinPerScenario", fmt(get(ei, "min_per_scenario_median"), 1)))

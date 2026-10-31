@@ -1,0 +1,12 @@
+{"id": "r7L_mbr2/r7hc/building_train_1/denver_c1", "rc": 0, "wall_s": 1250.1, "ok": true, "total_reward": -144.67559593811893, "steps": 8640, "sec_per_step": 0.14148302216220784}
+{"id": "r7L_mbr2/r7hc/building_train_1/denver_c2", "rc": 0, "wall_s": 1250.1, "ok": true, "total_reward": -120.02822841021407, "steps": 8640, "sec_per_step": 0.1415008366383888}
+{"id": "r7L_mbr2/r7hc/building_train_1/minneapolis_c2", "rc": 0, "wall_s": 1255.1, "ok": true, "total_reward": -194.23991282126008, "steps": 8640, "sec_per_step": 0.1416965645496492}
+{"id": "r7L_mbr2/r7hc/building_train_2/fairbanks_c3", "rc": 0, "wall_s": 2255.1, "ok": true, "total_reward": -175.79959570762003, "steps": 8640, "sec_per_step": 0.2571455843194767}
+{"id": "r7L_mbr2/r7hc/building_train_4/fairbanks_8", "rc": 0, "wall_s": 1685.1, "ok": true, "total_reward": -148.1824105523665, "steps": 8640, "sec_per_step": 0.19192773995024187}
+{"id": "r7L_mbr2/r7hc/building_train_4/fairbanks_c4", "rc": 0, "wall_s": 1695.1, "ok": true, "total_reward": -192.40728930363548, "steps": 8640, "sec_per_step": 0.19309458172431698}
+{"id": "r7L_mbr2/r7hc/building_train_5/denver_c2", "rc": 0, "wall_s": 1755.1, "ok": true, "total_reward": -114.01581942498706, "steps": 8640, "sec_per_step": 0.1999139611919721}
+{"id": "r7L_mbr2/r7hc/building_train_8/denver_c2", "rc": 0, "wall_s": 770.0, "ok": true, "total_reward": -117.19564671342232, "steps": 8640, "sec_per_step": 0.08731330216482834}
+{"id": "r7L_mbr2/r7hc/building_train_7/fairbanks_c4", "rc": 0, "wall_s": 855.0, "ok": true, "total_reward": -339.200220548526, "steps": 8640, "sec_per_step": 0.097167967784184}
+{"id": "r7L_mbr2/r7hc/building_train_7/denver_c3", "rc": 0, "wall_s": 870.1, "ok": true, "total_reward": -174.74189841699626, "steps": 8640, "sec_per_step": 0.0987282222619763}
+{"id": "r7L_mbr2/r7hc/building_train_5/fairbanks_c4", "rc": 0, "wall_s": 1670.1, "ok": true, "total_reward": -240.92376102753042, "steps": 8640, "sec_per_step": 0.19058329890723583}
+{"id": "r7L_mbr2/r7hc/building_train_8/minneapolis_c2", "rc": 0, "wall_s": 480.0, "ok": true, "total_reward": -189.44745624391362, "steps": 8640, "sec_per_step": 0.05377852798060134}

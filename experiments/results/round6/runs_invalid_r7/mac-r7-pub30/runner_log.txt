@@ -1,0 +1,9 @@
+[2026-10-29T18:08:38Z +      0s] batch mac-r7-pub30: 60 jobs, 60 to run, 8 workers, mem guard 30%
+[2026-10-29T18:08:38Z +      0s] start r7_mbr/pub30/building_train_2/atlanta_3 (mem free 47%, 1 running, 59 pending)
+[2026-10-29T18:08:38Z +      1s] start r7_mbr/pub30/building_train_2/denver_8 (mem free 47%, 2 running, 58 pending)
+[2026-10-29T18:08:39Z +      2s] start r7_mbr/pub30/building_train_2/fairbanks_2 (mem free 46%, 3 running, 57 pending)
+[2026-10-29T18:08:40Z +      2s] start r7_mbr/pub30/building_train_2/phoenix_6 (mem free 46%, 4 running, 56 pending)
+[2026-10-29T18:08:40Z +      3s] start r7_mbr/pub30/building_train_2/singapore_1 (mem free 47%, 5 running, 55 pending)
+[2026-10-29T18:08:41Z +      3s] start r7_mbf/pub30/building_train_2/atlanta_3 (mem free 48%, 6 running, 54 pending)
+[2026-10-29T18:08:41Z +      3s] start r7_mbf/pub30/building_train_2/denver_8 (mem free 47%, 7 running, 53 pending)
+[2026-10-29T18:08:41Z +      4s] start r7_mbf/pub30/building_train_2/fairbanks_2 (mem free 47%, 8 running, 52 pending)
