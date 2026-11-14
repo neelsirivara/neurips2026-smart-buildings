@@ -3,7 +3,7 @@
 \caption{Tuning the constants: full-length confirmation against the base controller. Free search: the CMA mean over all \RTwNParams{} constants; re-tuned: a second search with the setback depths fixed at the base values; tuned (shipped): the free search's constants with the base setback depths restored. Depths: weeknight floor/ceiling widening in K. Mixture: the pre-registered $\tfrac13$\,cold $+$ $\tfrac23$\,hot mean ratio to the base minus one, with its paired bootstrap 95\% CI (stratified by set); cold, hot and public: mean change of the loss (wins). Harsh (\RTwNHS{} harsh screening scenarios with time series): loss change, coldest zone temperature ($^\circ$C) and share of zone-steps below 5\,$^\circ$C. Guard: the frost guard (fixed in the second search's plan): below-5\,$^\circ$C share at most \RTwGuardBelowFiveLim{} and coldest zone at least \RTwGuardColdestLim\,$^\circ$C. All three candidates pass the primary rule and the public guard; only the shipped tuned controller passes the frost guard.}
 \label{tab:tuning13}
 \centering\scriptsize
-\setlength{\tabcolsep}{2pt}
+\setlength{\tabcolsep}{1.5pt}
 \begin{tabular}{@{}llcccccccc@{}}
 \toprule
 controller & depths & mixture [95\% CI] & cold & hot & public & harsh & coldest & $<$5\,$^\circ$C & guard \\

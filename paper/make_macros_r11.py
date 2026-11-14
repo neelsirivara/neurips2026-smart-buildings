@@ -306,6 +306,8 @@ def figure_hours(prof: dict) -> bool:
     try:
         import matplotlib
         matplotlib.use("Agg")
+        matplotlib.rcParams["pdf.fonttype"] = 42  # TrueType, not Type 3 (NeurIPS font rule)
+        matplotlib.rcParams["ps.fonttype"] = 42
         import matplotlib.pyplot as plt
     except ImportError:
         return False
