@@ -1,0 +1,18 @@
+{
+ "sb_boost": 0.0,
+ "sb_boost_floor_k": 0.0,
+ "sb_neutral": 0.0,
+ "flush_on": 0.0,
+ "occ_press_dyn": 0.0,
+ "wk_ext_lo": 0.0,
+ "wk_ext_hi": 0.0,
+ "mbr_on": 0.0,
+ "mpr_on": 0.0,
+ "season_ext_steps": 0.0,
+ "q_cap_w": 12000.0,
+ "st_hand_c_h": 0.0,
+ "gain_area_scaling": 0.0,
+ "water_cap": 0.0,
+ "per_zone_start": 0.0,
+ "adaptive_floor": 0.0
+}

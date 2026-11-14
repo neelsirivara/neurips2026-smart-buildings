@@ -1,3 +1,21 @@
+# Round-one paper submitted; plan for the final round (2026-11-14 07:30 UTC)
+
+- Round one: the user uploaded on OpenReview before Nov 13 AoE (= Nov 14 11:59 UTC) and swapped in the 8-page, template-compliant
+  version: the organizers' style, numbered citations, the contest paper cited, no Type 3 fonts. A Kaggle forum post shares the
+  now-public repo (rule 6.b). The latest PDF is paper/main.pdf (sha 096aa50b, reorganized appendix); its main text equals the swapped one.
+- Organizers: round 2 brings a fixed simulator (PR #2/#3) and clears the Kaggle leaderboard; details after Nov 15.
+  Re-run v14 (and v13) on it before anything else.
+- Final-round paper (Jan 15), from the prize-judge review (5.5/10; fixes 1-4 applied):
+  (a) a cumulative build-up from pid_water to SADR (idle when empty -> net-heat loops -> coldest supply air -> rest), the only way
+      to support "the margin comes from two design facts";
+  (b) one learned or MPC baseline (even weak);
+  (c) a gap analysis to the leaders (LP bound 12%);
+  (d) widen related works (leaderboard overfitting: Blum & Hardt Ladder; Roelofs et al. 2019; Guideline 36/optimum start);
+  (e) Table 2 as a forest plot grouped by design fact;
+  (f) plain names for the raw parameter identifiers in the screening tables.
+  Run (a)-(b) on the round-2 simulator only. Compute: Kaggle private kernels (dispatcher) or the Lenovo (take work\LOCK first);
+  the Mac is the user's work machine again.
+
 # Resumed by the main session (2026-11-12 ~01:00 UTC)
 
 - v14 (cooling handover ramp, HA) is in the paper: `paper/make_macros_r14.py` -> `results_macros_r14.tex`, a v14
