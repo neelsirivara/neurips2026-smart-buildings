@@ -1,3 +1,39 @@
+# Build-up ladder DONE on the current kit (2026-11-14 ~23:55 UTC): experiments/results/buildup/RESULTS.md
+
+- Idling + coldest supply air explain only ~7-9% of the v14 -> pid_water gap; ~87-92% lies between bu4 (zone net-heat PI
+  loops, per-zone VAV/reheat, pressure from the most demanding damper) and pid_water. bu4 idling check OK (energy +32-44%).
+- CONSEQUENCE for the main paper (final round): the conclusion's "We attribute much of its margin to two design facts" is
+  not supported; rewrite around the zone-level net-heat structure, add the ladder table, and consider one more ladder step
+  that replaces the zone loops. Rerun all of it on the round-2 kit. The PGAI4E workshop draft is being updated now.
+- MPC baseline (11 jobs) still running on Kaggle; then `python experiments/src/baseline_mpc_launch.py table`.
+
+# Ramp-up pass (2026-11-14 ~20:15 UTC; user via laptop logistics: pick up dropped items, research + outreach drafts)
+
+- Picked back up from the final-round plan: (f) DONE, the raw parameter identifiers in the screening tables now have plain
+  names (generators make_macros.py / make_macros_r6.py / make_macros_r7.py and the .tex outputs edited together);
+  (e) DONE as an appendix figure, paper/make_forest.py -> figures/fig_ablation_forest.pdf (Table 2 grouped by design
+  fact). Swap it into the main text for the final round if space allows. Commit ff805d51b (pushed). PDF 22 pp, 0 Type 3, 0 overfull.
+- (b) learned/MPC baseline: a subagent is prototyping it as new files only (experiments/src/policies_baseline/,
+  results/baseline_mpc/); local smoke test only, enqueue after the build-up finishes.
+- (b) result: online-RC short-horizon MPC (experiments/src/policies_baseline/mpc_rc.py, frozen 3rd version; PLAN.md logs
+  the two model-defect amendments, all on one dev scenario). 7-day dev smoke: loss 0.0525 vs pid_water 0.0241 vs v14 0.0032
+  (comfort near pid_water, 8.6x energy: no AHU fan/ventilation cost in its model). Weak but honest. 11 Kaggle jobs
+  (pub30, r10hc, r10hh) enqueued 20:35 UTC behind the build-up; then `python experiments/src/baseline_mpc_launch.py table`.
+  Note: kit venv python.exe is blocked by Application Control on the HP; use the uv base interpreter + PYTHONPATH.
+- Workshop version for AAAI-27 PGAI4E (Nov 20 AoE, non-archival, double-blind): paper_pgai4e/ (6 pp, SUBMIT.md); user decides.
+- Outreach drafts (nothing sent): ../OUTREACH_DRAFTS.md items 1 (organizer: round-one confirmation, final-round rules) and 3 (social post).
+
+# Overnight 2026-11-14 (user away; "continue auton")
+
+- Build-up dry run on the CURRENT kit: arms B1-B4 x public 30 (12 shards) on private Kaggle kernels, pushed from 07:42 UTC.
+  Launcher: experiments/src/buildup_launch.py (make/enqueue/table); results land in results/round6/runs/bu*/; the table goes to
+  results/buildup/table.json. B0 = struct_HA (v14) and P = pid_water reuse existing runs. Rerun the same command on the round-2 kit.
+- Widened per the user's overnight note: the same arms plus pid_water on the cold (r10hc, 40) and hot (r10hh, 40) sets, 40 more
+  shards enqueued 08:12 UTC (pid_water and the design-fact arms first). About 8 h on 5 Kaggle slots. If the laptop slept and the
+  dispatcher stopped, restart it with `cd experiments/src/kaggle_sim && python kaggle_sim.py dispatch --loop --max 5 --interval 180`
+  (the queue and registry are on disk), then `python ../buildup_launch.py table`.
+- SimulacraBench: _ops/sim_final_upload.py uploads V49 once at 12:03 UTC Nov 15 (user-approved).
+
 # Round-one paper submitted; plan for the final round (2026-11-14 07:30 UTC)
 
 - Round one: the user uploaded on OpenReview before Nov 13 AoE (= Nov 14 11:59 UTC) and swapped in the 8-page, template-compliant
@@ -6,11 +42,11 @@
 - Organizers: round 2 brings a fixed simulator (PR #2/#3) and clears the Kaggle leaderboard; details after Nov 15.
   Re-run v14 (and v13) on it before anything else.
 - Final-round paper (Jan 15), from the prize-judge review (5.5/10; fixes 1-4 applied):
-  (a) a cumulative build-up from pid_water to SADR (idle when empty -> net-heat loops -> coldest supply air -> rest), the only way
+  (a) [plan + override files ready: experiments/results/buildup/PLAN.md, params/bu1..bu4] a cumulative build-up from pid_water to SADR (idle when empty -> net-heat loops -> coldest supply air -> rest), the only way
       to support "the margin comes from two design facts";
   (b) one learned or MPC baseline (even weak);
   (c) a gap analysis to the leaders (LP bound 12%);
-  (d) widen related works (leaderboard overfitting: Blum & Hardt Ladder; Roelofs et al. 2019; Guideline 36/optimum start);
+  (d) DONE 2026-11-14: related works now cites leaderboard overfitting (Blum & Hardt 2015; Roelofs et al. 2019);
   (e) Table 2 as a forest plot grouped by design fact;
   (f) plain names for the raw parameter identifiers in the screening tables.
   Run (a)-(b) on the round-2 simulator only. Compute: Kaggle private kernels (dispatcher) or the Lenovo (take work\LOCK first);
