@@ -166,7 +166,7 @@ def write_round7_table() -> None:
             return "--"
         return (f"{100 * r['rel']:+.2f}\\% [{100 * r['rel_ci_lo']:+.2f}, {100 * r['rel_ci_hi']:+.2f}] "
                 f"{r['wins']}/{r['n']}")
-    rows = [f"{c.replace('_', '{\\_}')} & {NAMES[c]} & {cell(v.get('HS'))} & {cell(v.get('P'))} & {v.get('class', '--')} \\\\"
+    rows = [f"{c.replace('r7_', '')} & {NAMES[c]} & {cell(v.get('HS'))} & {cell(v.get('P'))} & {v.get('class', '--')} \\\\"
             for c, v in sc.items()]
     # post-hoc ledger row (not eligible this round): r7L_mbr2 = base + model start that may only shorten the learned lead
     try:
@@ -175,7 +175,7 @@ def write_round7_table() -> None:
         hs = c6.paired(c7.ref("r6hs"), c7.runs("r7L_mbr2", "r6hs"))
         pu = c6.paired(c7.ref("pub30"), c7.runs("r7L_mbr2", "pub30"))
         if hs and pu and hs["n"] == 18 and pu["n"] == 30:
-            rows.append("\\midrule\nr7L{\\_}mbr2$^\\dagger$ & base + model start, may only shorten the learned lead & "
+            rows.append("\\midrule\nmbr2$^\\dagger$ & base + model start, may only shorten the learned lead & "
                         f"{cell(hs)} & {cell(pu)} & ({c6.classify(hs, pu)}) \\\\")
     except Exception as e:  # noqa: BLE001
         print("ledger row:", e)

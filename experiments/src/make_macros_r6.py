@@ -13,6 +13,7 @@ Inputs (missing -> \\textbf{??}):
 from __future__ import annotations
 
 import json
+import re
 import math
 from pathlib import Path
 
@@ -282,7 +283,7 @@ def write_round6_table() -> None:
             if not r:
                 return "--"
             return f"{100 * r['rel']:+.1f}\\% [{100 * r['rel_ci_lo']:+.1f}, {100 * r['rel_ci_hi']:+.1f}]"
-        rows.append(f"{k.replace('_', '{\\_}')} & {short(k)} & {cell(hs)} & {cell(pub)} & {v.get('class', '--')} \\\\")
+        rows.append(f"{re.sub(r'^r6_(c\d\d|compb?)(_.*)?$', r'\1', k)} & {short(k)} & {cell(hs)} & {cell(pub)} & {v.get('class', '--')} \\\\")
     body = "\n".join(rows) if rows else "\\multicolumn{5}{c}{\\textbf{??}} \\\\"
     tex = ("\\begin{table}[h]\n\\caption{Round-6 screen (8,640 steps; relative change of the mean against v8, paired "
            "bootstrap 95\\% CI, 5,000 resamples, seed 0) on the harsh screening set HS (18) and twelve public scenarios. "

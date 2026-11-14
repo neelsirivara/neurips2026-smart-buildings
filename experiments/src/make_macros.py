@@ -156,6 +156,9 @@ def _tex(s: str) -> str:
     return s.replace("_", r"\_")
 
 
+PLAIN = {'ki_w_per_k_step': 'integral gain $k_i$ (W/K per step)', 'margin_pre': 'precondition margin (K)', 'sat_mix_floor': 'mixed-handler SAT floor (K)', 'sb_hyst_k': 'setback hysteresis (K)'}
+
+
 def write_tuning_tables(ab, cs) -> None:
     """paper/tuning_tables.tex: the v4 ablation on the screening set and the v5 candidates at full length."""
     out = ROOT / "paper" / "tuning_tables.tex"
@@ -168,7 +171,7 @@ def write_tuning_tables(ab, cs) -> None:
                  "\\begin{tabular}{llrrr}\n\\toprule\nparameter & change & score & vs best & vs defaults \\\\\n\\midrule\n")
         for r in ab["rows"]:
             kind = "Rev" if r["macro"].startswith("Rev") else "Add"
-            L.append(f"\\texttt{{{_tex(r['param'])}}} & {kind} ({r['value']:g}) & {r['score']:.5f} & "
+            L.append(f"{PLAIN.get(r['param'], _tex(r['param']))} & {kind} ({r['value']:g}) & {r['score']:.5f} & "
                      f"{100 * r['rel_vs_best']:+.1f}\\% & {100 * r['rel_vs_default']:+.1f}\\% \\\\\n")
         L.append("\\bottomrule\n\\end{tabular}\n\\end{table}\n\n")
     cands = (get(cs, "full", "candidates") or [])
@@ -178,8 +181,8 @@ def write_tuning_tables(ab, cs) -> None:
                  "lead_max_h": "lead"}
         L.append("\\begin{table}[h]\n\\caption{v5 candidates at full length (8,640 steps) on the 30 public scenarios, "
                  "run on the same machine as v4 (metric " + fmt(v4.get("metric"), 5) + "). Overrides are applied to the v4 "
-                 "values (SAT = \\texttt{sat\\_cool\\_hi} in K; nlo/nhi = \\texttt{night\\_low/high\\_ext} in K; occ = "
-                 "\\texttt{margin\\_occ}; lead = \\texttt{lead\\_max\\_h}); CI = paired bootstrap 95\\% CI of the "
+                 "values (SAT = cooling supply-air temperature in K; nlo/nhi = low/high setback widening in K; occ = "
+                 "occupied margin in K; lead = longest preconditioning lead in h); CI = paired bootstrap 95\\% CI of the "
                  "per-scenario difference vs v4 (negative favours the candidate); the last five columns are station "
                  "means.}\n\\label{tab:candidates}\n\\centering\\scriptsize\n\\setlength{\\tabcolsep}{3pt}\n"
                  "\\begin{tabular}{lrrcrrrrrr}\n\\toprule\noverrides & metric & ratio & CI & wins & Fai. & Den. & "

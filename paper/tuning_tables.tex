@@ -7,20 +7,20 @@
 \toprule
 parameter & change & score & vs best & vs defaults \\
 \midrule
-\texttt{ki\_w\_per\_k\_step} & Rev (60) & 0.00905 & +6.7\% & -4.4\% \\
-\texttt{ki\_w\_per\_k\_step} & Add (120) & 0.00855 & +0.7\% & -9.8\% \\
-\texttt{margin\_pre} & Rev (0.5) & 0.00846 & -0.3\% & -10.7\% \\
-\texttt{margin\_pre} & Add (0.8) & 0.00910 & +7.2\% & -4.0\% \\
-\texttt{sat\_mix\_floor} & Rev (290) & 0.00849 & +0.0\% & -10.4\% \\
-\texttt{sat\_mix\_floor} & Add (292) & 0.00947 & +11.6\% & +0.0\% \\
-\texttt{sb\_hyst\_k} & Rev (1.5) & 0.00850 & +0.2\% & -10.2\% \\
-\texttt{sb\_hyst\_k} & Add (1) & 0.00944 & +11.2\% & -0.3\% \\
+integral gain $k_i$ (W/K per step) & Rev (60) & 0.00905 & +6.7\% & -4.4\% \\
+integral gain $k_i$ (W/K per step) & Add (120) & 0.00855 & +0.7\% & -9.8\% \\
+precondition margin (K) & Rev (0.5) & 0.00846 & -0.3\% & -10.7\% \\
+precondition margin (K) & Add (0.8) & 0.00910 & +7.2\% & -4.0\% \\
+mixed-handler SAT floor (K) & Rev (290) & 0.00849 & +0.0\% & -10.4\% \\
+mixed-handler SAT floor (K) & Add (292) & 0.00947 & +11.6\% & +0.0\% \\
+setback hysteresis (K) & Rev (1.5) & 0.00850 & +0.2\% & -10.2\% \\
+setback hysteresis (K) & Add (1) & 0.00944 & +11.2\% & -0.3\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
-\caption{v5 candidates at full length (8,640 steps) on the 30 public scenarios, run on the same machine as v4 (metric 0.00920). Overrides are applied to the v4 values (SAT = \texttt{sat\_cool\_hi} in K; nlo/nhi = \texttt{night\_low/high\_ext} in K; occ = \texttt{margin\_occ}; lead = \texttt{lead\_max\_h}); CI = paired bootstrap 95\% CI of the per-scenario difference vs v4 (negative favours the candidate); the last five columns are station means.}
+\caption{v5 candidates at full length (8,640 steps) on the 30 public scenarios, run on the same machine as v4 (metric 0.00920). Overrides are applied to the v4 values (SAT = cooling supply-air temperature in K; nlo/nhi = low/high setback widening in K; occ = occupied margin in K; lead = longest preconditioning lead in h); CI = paired bootstrap 95\% CI of the per-scenario difference vs v4 (negative favours the candidate); the last five columns are station means.}
 \label{tab:candidates}
 \centering\scriptsize
 \setlength{\tabcolsep}{3pt}
