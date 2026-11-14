@@ -95,6 +95,50 @@
    "push": "experiments/src/kaggle_probe_r8.py",
    "public_score": 0.01055,
    "read_at": "2026-10-31T02:58Z"
+  },
+  {
+   "ref": 58050462,
+   "round": 9,
+   "submitted_utc": "2026-11-06T07:49:49Z",
+   "submitted_utc_day": "2026-11-06",
+   "label": "v12_r10_K",
+   "policy": "SADR v12 = shipped submission/transfer_policy.py (sha256 44ebbb3b582f8e067c6e0e060d9da68db7f0cd3a2e337c9d0c1cbc879d4538d6), kernel neelsiri/sadr-v12-smart-buildings v1",
+   "kaggle_interactive_atlanta_2_total": -31.947525902700363,
+   "local_atlanta_2_total": -31.943593379741287,
+   "push": "experiments/src/kaggle_probe_r12.py",
+   "public_score": 0.0103,
+   "public_rank": 153,
+   "teams": 589,
+   "read_at": "2026-11-06T13:22Z",
+   "leaderboard_file": "../_downloads/sb26_lb_2026-11-06/neurips-2026-smart-buildings-publicleaderboard-2026-11-06T13_22_10.csv",
+   "field": {
+    "best": 0.0047,
+    "median": 0.01192
+   }
+  },
+  {
+   "ref": 58147185,
+   "round": 13,
+   "submitted_utc": "2026-11-09T01:34:33Z",
+   "submitted_utc_day": "2026-11-09",
+   "label": "v13_r12var",
+   "policy": "SADR v13 = r12var, submission/candidates/transfer_policy_v13.py (sha256 4cf9e40b12a14489c8a8682c82e295b80e3d01934f4da05c3c9efb5ed3c6f516), kernel neelsiri/sadr-v13-smart-buildings v1",
+   "kaggle_interactive_atlanta_2_total": -31.376361299040582,
+   "local_atlanta_2_total": -31.37316089353044,
+   "push": "experiments/src/kaggle_probe_r13.py",
+   "public_score": 0.01021
+  },
+  {
+   "ref": 58256839,
+   "round": "struct_r1",
+   "submitted_utc": "2026-11-12T01:36:42Z",
+   "submitted_utc_day": "2026-11-12",
+   "label": "v14_HA",
+   "policy": "SADR v14 = v13 + st_hand_c_h 1.0 (struct_r1 HA), submission/candidates/transfer_policy_v14.py (sha256 1f2944e55bd38512e824d4b19293f63bd4b9032174eaff586d61fa42c6761a80), kernel neelsiri/sadr-v13-smart-buildings v1",
+   "kaggle_interactive_atlanta_2_total": -30.852973242084772,
+   "local_atlanta_2_total": -30.849723828052447,
+   "push": "experiments/src/kaggle_probe_r14b.py (pushed as version 3 of the v13 kernel)",
+   "public_score": 0.01018
   }
  ],
  "scores_by_policy": {
@@ -105,7 +149,8 @@
   "v8_r5_c12_comp": 0.01074,
   "v9_r6_c01_boost8": 0.01071,
   "v9_r6_comp": 0.0107,
-  "v10_r7L_mbr2": 0.01055
+  "v10_r7L_mbr2": 0.01055,
+  "v14_HA": 0.01018
  },
  "leaderboard_at_read": {
   "#1": 0.00572,
@@ -156,7 +201,10 @@
   "2026-10-24": 1,
   "2026-10-25": 3,
   "2026-10-26": 3,
-  "2026-10-30": 1
+  "2026-10-30": 1,
+  "2026-11-06": 1,
+  "2026-11-09": 1,
+  "2026-11-12": 1
  },
  "submission_rule": "at most 4 per UTC day (Kaggle allows 5; keep 1 spare)",
  "leaderboard_2026-10-25T2040Z": {

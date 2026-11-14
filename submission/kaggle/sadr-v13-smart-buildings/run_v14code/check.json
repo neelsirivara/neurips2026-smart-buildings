@@ -1,0 +1,10 @@
+{
+ "slug": "sadr-v13-smart-buildings",
+ "status": "neelsiri/sadr-v13-smart-buildings has status \"KernelWorkerStatus.COMPLETE\"",
+ "kaggle_atlanta_2_total": -30.852973242084772,
+ "local_atlanta_2_total": -30.849723828052447,
+ "rel_diff": -0.00010533040912899106,
+ "parquet": true,
+ "shipped_sha256": "1f2944e55bd38512e824d4b19293f63bd4b9032174eaff586d61fa42c6761a80",
+ "ok": true
+}

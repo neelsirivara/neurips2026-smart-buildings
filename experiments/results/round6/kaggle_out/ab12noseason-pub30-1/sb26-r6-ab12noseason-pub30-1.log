@@ -1,0 +1,27 @@
+[{"stream_name":"stdout","time":45.851976624,"data":"[    45.0s] env: {'python': '3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.107', 'mem_total_gb': 33.658159104, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 9, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'ab12noseason-pub30-1', 'pushed_utc': '2026-11-05T20:24:43Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'transfer_policy_57bc72cbe0.py': '57bc72cbe0e859a361f379a240435a10'}}\n"}
+,{"stream_name":"stdout","time":45.852852284,"data":"[    45.0s] start ab12_noseason/pub30/building_train_2/atlanta_3 (1 running, 8 pending)\n"}
+,{"stream_name":"stdout","time":45.853737224,"data":"[    45.0s] start ab12_noseason/pub30/building_train_2/phoenix_6 (2 running, 7 pending)\n"}
+,{"stream_name":"stdout","time":45.856571563,"data":"[    45.0s] start ab12_noseason/pub30/building_train_1/fairbanks_1 (3 running, 6 pending)\n"}
+,{"stream_name":"stdout","time":45.856594783,"data":"[    45.0s] start ab12_noseason/pub30/building_train_4/atlanta_5 (4 running, 5 pending)\n"}
+,{"stream_name":"stdout","time":950.892053239,"data":"[   950.0s] done ab12_noseason/pub30/building_train_1/fairbanks_1 rc=0 -378.2410297722745 (1 done)\n"}
+,{"stream_name":"stdout","time":950.893601829,"data":"[   950.0s] start ab12_noseason/pub30/building_train_4/phoenix_8 (4 running, 4 pending)\n"}
+,{"stream_name":"stdout","time":1240.911606394,"data":"[  1240.0s] done ab12_noseason/pub30/building_train_4/atlanta_5 rc=0 -57.611612715240426 (2 done)\n"}
+,{"stream_name":"stdout","time":1240.911650694,"data":"[  1240.0s] start ab12_noseason/pub30/building_train_5/denver_3 (4 running, 3 pending)\n"}
+,{"stream_name":"stdout","time":1630.926633282,"data":"[  1630.1s] done ab12_noseason/pub30/building_train_2/phoenix_6 rc=0 -63.06012682748676 (3 done)\n"}
+,{"stream_name":"stdout","time":1630.929570411,"data":"[  1630.1s] start ab12_noseason/pub30/building_train_5/singapore_4 (4 running, 2 pending)\n"}
+,{"stream_name":"stdout","time":1650.93391011,"data":"[  1650.1s] done ab12_noseason/pub30/building_train_2/atlanta_3 rc=0 -28.567962350384732 (4 done)\n"}
+,{"stream_name":"stdout","time":1650.93537021,"data":"[  1650.1s] start ab12_noseason/pub30/building_train_8/atlanta_1 (4 running, 1 pending)\n"}
+,{"stream_name":"stdout","time":2105.960090838,"data":"[  2105.1s] done ab12_noseason/pub30/building_train_4/phoenix_8 rc=0 -19.78561962302956 (5 done)\n"}
+,{"stream_name":"stdout","time":2105.963492537,"data":"[  2105.1s] start ab12_noseason/pub30/building_train_8/phoenix_4 (4 running, 0 pending)\n"}
+,{"stream_name":"stdout","time":2180.966393811,"data":"[  2180.1s] done ab12_noseason/pub30/building_train_8/atlanta_1 rc=0 -45.441796560320654 (6 done)\n"}
+,{"stream_name":"stdout","time":2410.976670025,"data":"[  2410.1s] done ab12_noseason/pub30/building_train_5/denver_3 rc=0 -37.71556145415434 (7 done)\n"}
+,{"stream_name":"stdout","time":2520.980946644,"data":"[  2520.1s] done ab12_noseason/pub30/building_train_8/phoenix_4 rc=0 -85.30799972892058 (8 done)\n"}
+,{"stream_name":"stdout","time":2640.985710117,"data":"[  2640.1s] done ab12_noseason/pub30/building_train_5/singapore_4 rc=0 -48.07660843804479 (9 done)\n"}
+,{"stream_name":"stdout","time":2640.985827507,"data":"[  2640.1s] all done: 9 jobs in 2640s\n"}
+,{"stream_name":"stderr","time":2643.127085577,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2643.127125217,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2643.365437018,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2643.365459928,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2644.082551952,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2644.534682187,"data":"[NbConvertApp] Writing 447584 bytes to __results__.html\n"}
+]

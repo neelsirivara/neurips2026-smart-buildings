@@ -1,0 +1,14 @@
+{
+ "building": "building_train_1",
+ "weather": "fairbanks_1",
+ "mode": "quirk",
+ "total_reward": -224.69690217487368,
+ "total_steps": 8640,
+ "avg_reward": -0.02600658589986964,
+ "total_normalized_productivity_regret": -18.13120548681428,
+ "total_normalized_energy_cost": 315.11703013573424,
+ "total_normalized_carbon_emission": 753.9738658202114,
+ "steps_overridden": 5034,
+ "wall_s": 253.91197395324707,
+ "policy_file": "/Users/neel.sirivara/neurips/sb/r9/policies/v10.py"
+}

@@ -1,0 +1,518 @@
+{
+ "building": "building_train_8",
+ "weather": "fairbanks_8",
+ "steps": 8640,
+ "qmax": "floor",
+ "v10_total_loss_per_step": 0.021943759997511567,
+ "v10_gas_kwh": 42341.4266947848,
+ "v10_coil_kwh": 41767.200340534146,
+ "validation_rmse_k": 0.3741407928822468,
+ "validation_max_abs_k": 9.406879932799995,
+ "validation_rmse_by_zone_k": [
+  0.417,
+  0.251,
+  0.162,
+  0.445,
+  0.502,
+  0.32,
+  0.344,
+  0.614,
+  0.244,
+  0.247,
+  0.195,
+  0.274,
+  0.209,
+  0.442,
+  0.357,
+  0.267,
+  0.2,
+  0.507,
+  0.231,
+  0.44,
+  0.805,
+  0.303,
+  0.219,
+  0.259,
+  0.296,
+  0.595,
+  0.372,
+  0.303,
+  0.166,
+  0.345
+ ],
+ "lp_window_steps": 8640,
+ "lp_gas_in_windows_kwh": 42341.4266947848,
+ "lp_save_heat_kwh": 2184.021774998827,
+ "lp_save_gas_kwh": 5.569184864698225e-06,
+ "lp_save_gas_share": null,
+ "lp_save_loss_per_step": 0.00232049369362426,
+ "lp_save_loss_share": 0.10574731467567113,
+ "gs": [
+  {
+   "w0": 0,
+   "sweep": 0,
+   "gas_term": -11.996328193609793,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 82.83408759773206,
+   "save": -68.30034672773245
+  },
+  {
+   "w0": 0,
+   "sweep": 1,
+   "gas_term": -15.22111391424962,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 57.78018955585444,
+   "save": -40.021662965215
+  },
+  {
+   "w0": 0,
+   "sweep": 2,
+   "gas_term": -16.47597329913376,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 30.318736996275597,
+   "save": -11.305351020752015
+  },
+  {
+   "w0": 0,
+   "sweep": 3,
+   "gas_term": -17.075408446028582,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 15.871568083602375,
+   "save": 3.7412530388160294
+  },
+  {
+   "w0": 0,
+   "sweep": 4,
+   "gas_term": -17.378964635681484,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 8.924908013876635,
+   "save": 10.991469298194671
+  },
+  {
+   "w0": 0,
+   "sweep": 5,
+   "gas_term": -17.530872125760315,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 5.439793947892489,
+   "save": 14.628490854257647
+  },
+  {
+   "w0": 0,
+   "sweep": 6,
+   "gas_term": -17.60442875216109,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 3.528845614279984,
+   "save": 16.612995814270928
+  },
+  {
+   "w0": 0,
+   "sweep": 7,
+   "gas_term": -17.639058748034987,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 2.3665996242792193,
+   "save": 17.80987180014559
+  },
+  {
+   "w0": 0,
+   "sweep": 8,
+   "gas_term": -17.65409857117929,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 1.6249662976859944,
+   "save": 18.566544949883117
+  },
+  {
+   "w0": 0,
+   "sweep": 9,
+   "gas_term": -17.658811314850578,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 1.1306357222367993,
+   "save": 19.065588269003598
+  },
+  {
+   "w0": 0,
+   "sweep": 10,
+   "gas_term": -17.658831253221006,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.7919903132836685,
+   "save": 19.404253616327157
+  },
+  {
+   "w0": 0,
+   "sweep": 11,
+   "gas_term": -17.65706423387648,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.5571495772439691,
+   "save": 19.63732733302233
+  },
+  {
+   "w0": 0,
+   "sweep": 12,
+   "gas_term": -17.65487924287154,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.3924648810797899,
+   "save": 19.799827038181572
+  },
+  {
+   "w0": 0,
+   "sweep": 13,
+   "gas_term": -17.652850576519313,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.2766317358983528,
+   "save": 19.91363151701078
+  },
+  {
+   "w0": 0,
+   "sweep": 14,
+   "gas_term": -17.651166883022135,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.1952524904986581,
+   "save": 19.9933270689133
+  },
+  {
+   "w0": 0,
+   "sweep": 15,
+   "gas_term": -17.649846991555098,
+   "comfort_base": 2.5374126763898217,
+   "comfort_final": 0.13819415503131133,
+   "save": 20.049065512913607
+  }
+ ],
+ "zones": [
+  {
+   "zone": "VAV_1",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 74.51303534025725,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.749615055936464,
+   "base_comfort_loss_sum": 4.985910728296061,
+   "dq_unocc_kwh": 3.247392154855261,
+   "dq_occ_kwh": -77.7604274951125
+  },
+  {
+   "zone": "VAV_10",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 25.846993140214405,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.295865692931692,
+   "base_comfort_loss_sum": 3.148043488198227,
+   "dq_unocc_kwh": -81.47002368000206,
+   "dq_occ_kwh": 55.62303053978764
+  },
+  {
+   "zone": "VAV_11",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 30.812961930384752,
+   "save_gas_kwh": null,
+   "save_loss_sum": 0.6559351727466769,
+   "base_comfort_loss_sum": 0.4420074033066508,
+   "dq_unocc_kwh": -28.75656849817037,
+   "dq_occ_kwh": -2.056393432214376
+  },
+  {
+   "zone": "VAV_12",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 70.26390839530654,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.8492190662669663,
+   "base_comfort_loss_sum": 3.0869475515909865,
+   "dq_unocc_kwh": 93.11964903118567,
+   "dq_occ_kwh": -163.38355742649222
+  },
+  {
+   "zone": "VAV_13",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 125.83776230730821,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.87025639165636,
+   "base_comfort_loss_sum": 2.976988384122048,
+   "dq_unocc_kwh": -104.72437101278359,
+   "dq_occ_kwh": -21.113391294524614
+  },
+  {
+   "zone": "VAV_14",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 78.60574789189931,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.5663114847375605,
+   "base_comfort_loss_sum": 3.0171721963426092,
+   "dq_unocc_kwh": -101.78884780401438,
+   "dq_occ_kwh": 23.183099912115054
+  },
+  {
+   "zone": "VAV_15",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 55.788443266415314,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.5359621774313994,
+   "base_comfort_loss_sum": 2.924454733504988,
+   "dq_unocc_kwh": -44.294690203945834,
+   "dq_occ_kwh": -11.493753062469485
+  },
+  {
+   "zone": "VAV_16",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 139.54790725146935,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.3541485085645752,
+   "base_comfort_loss_sum": 2.401994568129128,
+   "dq_unocc_kwh": -133.37270347578044,
+   "dq_occ_kwh": -6.175203775688928
+  },
+  {
+   "zone": "VAV_17",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 33.96926231267641,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.4040796679471566,
+   "base_comfort_loss_sum": 5.04318546812987,
+   "dq_unocc_kwh": -75.70806087558798,
+   "dq_occ_kwh": 41.738798562911576
+  },
+  {
+   "zone": "VAV_18",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 26.949657056814125,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.1412028602801385,
+   "base_comfort_loss_sum": 4.732512173854749,
+   "dq_unocc_kwh": -91.36409009348243,
+   "dq_occ_kwh": 64.41443303666833
+  },
+  {
+   "zone": "VAV_19",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": -6.505299333274632,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.657734664848752,
+   "base_comfort_loss_sum": 5.456397360187649,
+   "dq_unocc_kwh": -43.99197079159628,
+   "dq_occ_kwh": 50.4972701248709
+  },
+  {
+   "zone": "VAV_2",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 56.22856268963042,
+   "save_gas_kwh": null,
+   "save_loss_sum": 4.174731786524005,
+   "base_comfort_loss_sum": 3.6507384469567414,
+   "dq_unocc_kwh": -81.04048827661887,
+   "dq_occ_kwh": 24.811925586988462
+  },
+  {
+   "zone": "VAV_20",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 38.005712004023096,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.591306531037596,
+   "base_comfort_loss_sum": 2.1618117259230205,
+   "dq_unocc_kwh": -65.07371977105086,
+   "dq_occ_kwh": 27.06800776702776
+  },
+  {
+   "zone": "VAV_21",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 133.95549212511875,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.796233678877773,
+   "base_comfort_loss_sum": 1.6280750132371082,
+   "dq_unocc_kwh": -42.66776496746688,
+   "dq_occ_kwh": -91.28772715765184
+  },
+  {
+   "zone": "VAV_22",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 86.0291380882774,
+   "save_gas_kwh": null,
+   "save_loss_sum": 4.138043581076388,
+   "base_comfort_loss_sum": 3.544328641459764,
+   "dq_unocc_kwh": -160.2831688991789,
+   "dq_occ_kwh": 74.25403081090145
+  },
+  {
+   "zone": "VAV_23",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 141.5678444885035,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.112523208889,
+   "base_comfort_loss_sum": 0.9791741587525453,
+   "dq_unocc_kwh": -163.22299870455498,
+   "dq_occ_kwh": 21.655154216051464
+  },
+  {
+   "zone": "VAV_24",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 38.2390285364336,
+   "save_gas_kwh": null,
+   "save_loss_sum": 1.5071145534738122,
+   "base_comfort_loss_sum": 1.2331888889664815,
+   "dq_unocc_kwh": -54.309775108259544,
+   "dq_occ_kwh": 16.070746571825943
+  },
+  {
+   "zone": "VAV_25",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 124.07517807219537,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.090598465776846,
+   "base_comfort_loss_sum": 4.260829845120676,
+   "dq_unocc_kwh": -118.70312849595275,
+   "dq_occ_kwh": -5.372049576242637
+  },
+  {
+   "zone": "VAV_26",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 66.99473111707505,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.4391393968068638,
+   "base_comfort_loss_sum": 1.8460636007325277,
+   "dq_unocc_kwh": -95.78564915165381,
+   "dq_occ_kwh": 28.790918034578752
+  },
+  {
+   "zone": "VAV_27",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 91.33338628136393,
+   "save_gas_kwh": null,
+   "save_loss_sum": 4.169791688279819,
+   "base_comfort_loss_sum": 3.3147152742110912,
+   "dq_unocc_kwh": 28.65174387688674,
+   "dq_occ_kwh": -119.98513015825063
+  },
+  {
+   "zone": "VAV_28",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 132.6904793333288,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.798234334169959,
+   "base_comfort_loss_sum": 2.1015234004255396,
+   "dq_unocc_kwh": -201.52281181407022,
+   "dq_occ_kwh": 68.83233248074139
+  },
+  {
+   "zone": "VAV_29",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 44.8676045863621,
+   "save_gas_kwh": null,
+   "save_loss_sum": 6.2362690782188555,
+   "base_comfort_loss_sum": 5.935324249145992,
+   "dq_unocc_kwh": -110.17888764301392,
+   "dq_occ_kwh": 65.31128305665185
+  },
+  {
+   "zone": "VAV_3",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 32.6448650797083,
+   "save_gas_kwh": null,
+   "save_loss_sum": 4.336209972870919,
+   "base_comfort_loss_sum": 3.968350324435033,
+   "dq_unocc_kwh": -79.29095279263974,
+   "dq_occ_kwh": 46.646087712931454
+  },
+  {
+   "zone": "VAV_30",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 39.95539692866461,
+   "save_gas_kwh": null,
+   "save_loss_sum": 4.973438888465208,
+   "base_comfort_loss_sum": 4.62228173918548,
+   "dq_unocc_kwh": -88.87937496422538,
+   "dq_occ_kwh": 48.923978035560744
+  },
+  {
+   "zone": "VAV_4",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 130.85773378020312,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.5488380956173238,
+   "base_comfort_loss_sum": 1.494343203853528,
+   "dq_unocc_kwh": -149.3399774289239,
+   "dq_occ_kwh": 18.482243648720797
+  },
+  {
+   "zone": "VAV_5",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 153.4645869918129,
+   "save_gas_kwh": null,
+   "save_loss_sum": 1.609752310129212,
+   "base_comfort_loss_sum": 0.4329691712602307,
+   "dq_unocc_kwh": -71.78994869910832,
+   "dq_occ_kwh": -81.67463829270456
+  },
+  {
+   "zone": "VAV_6",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 78.53668587662104,
+   "save_gas_kwh": null,
+   "save_loss_sum": 3.402475582225168,
+   "base_comfort_loss_sum": 2.9290708078237473,
+   "dq_unocc_kwh": -131.48308049666718,
+   "dq_occ_kwh": 52.94639462004613
+  },
+  {
+   "zone": "VAV_7",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 66.24349245923892,
+   "save_gas_kwh": null,
+   "save_loss_sum": 2.065383823933961,
+   "base_comfort_loss_sum": 1.5821121767226711,
+   "dq_unocc_kwh": -118.38642951085686,
+   "dq_occ_kwh": 52.14293705161793
+  },
+  {
+   "zone": "VAV_8",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 18.509092811715544,
+   "save_gas_kwh": null,
+   "save_loss_sum": 1.5827938908750783,
+   "base_comfort_loss_sum": 1.4739543625971276,
+   "dq_unocc_kwh": -53.95415392461953,
+   "dq_occ_kwh": 35.44506111290398
+  },
+  {
+   "zone": "VAV_9",
+   "w0": 0,
+   "status": 0,
+   "save_heat_kwh": 54.19238418907878,
+   "save_gas_kwh": null,
+   "save_loss_sum": 5.476476418949588,
+   "base_comfort_loss_sum": 5.111761820587856,
+   "dq_unocc_kwh": -116.24663638472141,
+   "dq_occ_kwh": 62.05425219564264
+  }
+ ],
+ "seconds": {
+  "run": 162.28304195404053,
+  "validate": 38.69582986831665,
+  "impulse": 1023.3415906429291,
+  "lp": 295.0110309123993
+ }
+}

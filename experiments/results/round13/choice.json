@@ -1,0 +1,31 @@
+{
+ "r12var": {
+  "mixture": -0.00385807729773302,
+  "mixture_ci": [
+   -0.00648971931333619,
+   -0.0012309871015018963
+  ],
+  "pub30": -0.02536524839603682,
+  "primary": true,
+  "guard1": true,
+  "guard2_frost": true,
+  "below5": 0.04239431640102435,
+  "coldest_c": -9.951999999999998,
+  "eligible": true
+ },
+ "r13cand": {
+  "mixture": -0.007398284057349547,
+  "mixture_ci": [
+   -0.009330616437874745,
+   -0.005446620523926316
+  ],
+  "pub30": -0.029521666737512997,
+  "primary": true,
+  "guard1": true,
+  "guard2_frost": false,
+  "below5": 0.046580810686847836,
+  "coldest_c": -11.045999999999992,
+  "eligible": false
+ },
+ "choice": "r12var"
+}

@@ -1,0 +1,1193 @@
+Schedule-Aware Demand-Based Reset: A Structured
+   Rule-Based Controller for Cross-Building HVAC
+       Transfer in the Smart Buildings Challenge
+
+                                                   Neel Sirivara
+                                            University of Washington
+                                       nsiriv@cs.washington.edu
+
+                                            Abstract
+
+          The NeurIPS 2026 Smart Buildings Challenge asks for one HVAC control policy
+           that operates procedurally generated commercial buildings it has never seen, under
+           30-day weather strips from five climates, trading occupant comfort against energy
+           cost and carbon. We present SADR (Schedule-Aware Demand-based Reset), a
+           pure-numpy rule-based controller that reads the plant topology from the building
+           metadata and is otherwise built from physics shared by every generated building.
+           SADR gates its mode on occupancy and schedule with a self-tuning optimum start,
+           regulates each zone with a PI loop on net heat, translates heat into damper and
+          valve commands through the supply-air and discharge physics, and resets pressures
+           and hot-water temperature from zone demand. On the 30 public scenarios the final
+          version (v10) scores 0.00762 on the leaderboard metric (lower is better), against
+           0.0550 for the strongest organizer baseline. Eight development rounds each shipped
+           only under a rule fixed in advance and confirmed on scenarios no decision touched;
+           the last lowers the loss by 0.9% on 44 unseen harsh-weather scenarios (43/44 wins).
+           Submissions of fixed versions to Kaggle show that the hidden buildings behave like
+           the public ones and that the hidden weather is harsher. We release the controller
+           and report where it still loses: deep cold, where gas dominates.
+
+1 Introduction
+
+Learned building controllers have been studied for two decades, yet few run in real buildings;
+the recurring obstacles are data-hungry training, fragile robustness and poor generalization across
+buildings [Wang and Hong, 2020]. The Smart Buildings Challenge (SB26) isolates the last of
+these. A submission is a single policy class, instantiated on held-out buildings drawn from the same
+procedural generator as six public ones and scored on 30-day episodes under weather strips it has not
+seen [Goldfeder and Rai, 2026]. The observation and action vectors change shape with the building
+(K air handlers and V zones expose K+1 on/off commands and 3K+2+2V continuous setpoints),
+and the simulator is Google's open-source Smart Buildings simulator [Goldfeder and Sipple, 2023,
+Goldfeder et al., 2025].
+We take the position that the right first entry in such a benchmark is a structure-aware rule-based
+controller: one that reads the plant topology from the metadata and otherwise encodes physics every
+generated building shares. It transfers by construction and shows which part of the score is reachable
+without learning.
+
+Contributions.
+ ท Design facts from an analysis of the SB26 reward and plant (Section 2).
+ ท SADR, a deterministic numpy controller built from them (0.35 ms per step; Section 3, Figure 1).
+
+40th Conference on Neural Information Processing Systems (NeurIPS 2026). Workshop: Smart Buildings Challenge (SB26).
+                  occupancy count, schedule flags  zone temperatures
+
+     Topology                Mode                     Zone loops        Heat  actuators
+  from metadata:  occupied / precondition           PI on net heat     SAT, static pressure,
+AHU/VAV indices,                                     qh, qc (W);      dampers, reheat valves,
+                          / setback;               bursts in setback     hot-water setpoint
+     zone areas         optimum start
+
+                                                                                                                           building simulator (5-min step)
+
+Figure 1: One SADR control step. The topology is read once from the metadata; the mode, zone loops and
+actuator translation run every step. Every gain scales with the zone's floor area (v6), so nothing depends on the
+size of the building.
+
+ ท A shipping protocol: screens, loss decompositions and pre-registered full-length confirmations
+   on scenarios no decision touched, with Kaggle submissions used to find which local set predicts
+   the hidden scenarios (Section 4, Table 2).
+
+ ท An account of where the loss sits and where SADR still loses (Section 5); every number is
+   generated from the result files.
+
+2 Environment and metric
+
+ ท Plant. Air handlers (AHUs) serve up to ten zones each through one VAV box per zone, mix
+   return with outside air (recirculation r  0.7) and can only cool: the supply is min(mixed, SAT).
+   Zone flow is d Fmax P/Pdesign for damper d  [0.1, 1] and static pressure P  [200, 2000] Pa.
+   Fan power is flow ื P/, so it grows as P 3/2 once dampers are open, and the chiller's COP
+   is a constant 3.5. Heat comes only from the VAV reheat coils on one gas boiler loop (supply
+   310ญ350 K, 0ญ20 bar), whose effectiveness min(1, Cw/Ca, (308.15 - Tsa)/(Tw - Tsa)) caps the
+   discharge at 308.15 K. Gas is billed as heat delivered plus a tank loss.
+
+ ท Reward. Each 5-minute step pays 0.6 (comfort shortfall) + 0.2 (normalized energy cost) +
+   0.2 (normalized carbon). The comfort shortfall is the occupancy-weighted productivity loss:
+   a deviation of  K from the band costs /5 up to 5 K and 1 + (( - 5)/5)2 beyond, normalized
+   by total occupancy. It is therefore zero whenever nobody is in the building. Occupants are present
+   only on weekday comfort hours (arrivals 06ญ12, departures 13ญ19, none on US holidays), and
+   only the building-wide count is observed. The band is 294ญ297 K in comfort hours and 289ญ298 K
+   otherwise.
+
+ ท Energy prices. Energy is normalized by a plant maximum that scales with K. In metric units one
+   kW of electricity costs about 2.1ื one kW of gas, and one kW of chiller cooling about 0.6ื.
+
+ ท Metric. The leaderboard metric is the mean over scenarios of |mean per-step reward|; lower
+   is better. It is dominated by the extreme climates: the organizers' pid_water loses 2.1ื its
+   mild-climate mean in Fairbanks.
+
+ ท Baselines. The kit ships bang_bang, fixed_setpoint, pid (per-AHU PID on the mean served-
+   zone temperature, plant idle outside work hours) and pid_water (pid plus worst-zone tracking,
+   a proportional economizer, proportional reheat and a hot-water reset). pid_water is the strongest
+   and our main comparison; there is no learned baseline.
+
+3 Method: SADR
+
+SADR is a single TransferPolicy class. Its only state is per-zone integrals, per-AHU dwell
+counters and the optimum-start statistics, and all gains live in one parameter dictionary (Table 10,
+Appendix B). Figure 1 shows one control step; Algorithm 1 (Appendix F) gives it in full.
+
+ ท Topology from metadata. Index tables come from the observation field names, the positional
+   AHU action lists, the per-VAV action indices and the AHU-to-zone assignments; ranges and
+   statistics come from the normalization metadata. Every action slot is written and clipped on every
+   step. Nothing depends on the number of zones or handlers, the floor plan or the strip; non-finite
+   inputs fall back to schedule values; there are no files, no network and no randomness.
+
+                                                           2
+ท Modes. OCCUPIED when the comfort_mode_now flag is set and the building is not detected
+  as closed; PRECONDITION when unoccupied but comfort hours start within a lead time (or
+  comfort_mode_soon); SETBACK otherwise.
+  ญ "Somebody is here" is detected relative to the running minimum of the affinely normalized
+     occupancy count. A weekday on which nobody has arrived by 7:00 is a holiday in the kit's
+     occupancy model and is treated as unoccupied until the count rises.
+  ญ The optimum-start lead is  = 0 + deficit/(r^/s): the worst zone's distance from the com-
+     fort band over a recovery-rate estimate r^ (K/h), re-estimated from each morning's recovery
+     (exponential average, weight 0.5), with safety factor s = 1.15, clipped to [0.75, 8] h.
+
+ท Zone loops on net heat. Each zone has heating and cooling targets: the sensor band shrunk
+  by 0.3 K (occupied) or 0.8 K (preconditioning). Two PI loops compute requested net heat qh =
+  kq(Th - T )+ + Ih and cooling qc = kq(T - Tc)+ + Ic in watts (kq = 400 W/K, integral gain
+  120 W/K per step). The integrals unwind past the target, so a zone inside the band free-floats, and
+  the larger request wins.
+  ญ Why net heat, not flow. The zone-air node responds within minutes. A flow-proportional
+     controller with a 5-minute step oscillates, whereas a net-heat gain of the order of the air node's
+     conductance to the slab is stable, and the integral carries the steady load.
+  ญ Setback bursts. A running handler pays the ventilation load of every zone it serves. The floor
+     (eco band widened by 10/6 K) is therefore held by requesting 4000 W from any zone that
+     crosses it until it is 1 K inside, and the handler is off otherwise. Holding the floor with the PI
+     loops instead kept a handler running for 84.9% of the unoccupied steps on the coldest scenario.
+
+ท From heat to actuators. A cooling zone needs capacity rate F = qc/(T - Tsa), Tsa being
+  the AHU's estimated supply temperature; a heating zone is bounded by the discharge limit,
+  F = qh/(308.15 -  - T ).
+  ญ SAT. A cooling handler commands the coldest value, 285 K. The coil load is qc + F (Tmixed - T )
+     at a constant COP, so the ventilation term and fan power fall with flow; a Guideline-36 upward
+     reset [ASHRAE, 2021, Taylor, 2018] is right in a real building but wrong here. A handler that
+     also heats is floored at 292 K, so its cooling zones are not overcooled into reheat; a heating-only
+     handler commands 305 K, so the coil idles.
+  ญ Static pressure is trim-and-respond in closed form: P = Pdesign maxz fz2 clipped to
+     [200, 2000] Pa, with fz each zone's requested fraction of design flow, so the most demanding
+     damper is fully open. Dampers are fz/ P/Pdesign.
+  ญ Reheat. The discharge temperature that delivers qh at the delivered flow gives the water capacity
+     rate Wz = Fz (Tdisch - Tsa)/(Tw - Tsa). The loop differential pressure is reset so the largest
+     Wz sits at 0.9 of valve travel, and each valve is Wz/(kv p).
+  ญ On/off and air side. An AHU runs iff a served zone requests more than q_on (dwell 3 steps);
+     the pump runs iff a valve is open. Recirculation is at the 0.7 cap, except when a cooling-
+     only handler sees outside air colder than return air by more than the exhaust-fan break-even
+     (0.00322 K/PaืP ); then the outside-air fraction is solved so the mixed air lands on the SAT
+     target.
+  ญ Hot water. The setpoint is 350 K whenever heating was requested in the last 288 steps and
+     310 K otherwise. Gas is billed as heat delivered, so hotter water is strictly more useful at a tank
+     dissipation of 0.25 kW.
+
+ท Version changes. v6 scales every zone's gains, request cap, setback burst and optimum start
+  with its floor area, read from the metadata zone map, and bounds each request by what the box
+  can deliver. v7ญv10 add switches that each reproduce the previous version bit for bit when off
+  (Table 2). Appendix C gives the details.
+
+ท Tuning protocol. v4 came from a seeded random search (16 configurations; doubling the integral
+  gain to 120 W/K per step is the whole gain, -9.8%), and v5 from 13 physics-motivated candidates
+  (Appendix B). Rounds 3ญ7 screened single changes on public and held-out scenarios, combined
+  the helpful ones, and shipped only under a rule fixed beforehand: not worse on the public set, and
+  better on held-out scenarios at full length. Rounds 4ญ8 wrote the protocol down before running
+  anything (PREREG.md) and confirm on scenarios no decision touched: generated buildings (rounds
+  3ญ4), the kit's unused Minneapolis station (round 5) and the harshest strips available (rounds 6ญ8).
+
+                                                          3
+Table 1: Leaderboard metric (mean over the 30 public scenarios of |mean per-step reward|; lower is better) and
+per-station means. Paired bootstrap 95% CIs (5000 resamples) are for SADR v6 minus the row; later versions
+against their predecessors are in Table 2. v10 ran on Kaggle CPU kernels, v9 on the M5 Pro, v8 on the laptop,
+the other rows on one machine (reproducible across machines); the last row is the organizers' shipped returns.
+Per-scenario numbers: Appendix A.
+
+policy                        all Fairbanks Denver Atlanta Phoenix Singapore  vs v6 [95% CI]
+
+SADR v10 (final, round 8)     0.00762  0.01516  0.00456  0.00512  0.00733  0.00593             Table 2
+SADR v9 (round 6)             0.00775  0.01531  0.00467  0.00525  0.00741  0.00610             Table 2
+SADR v8 (round 5)             0.00777  0.0156   0.0047   0.0052   0.0074   0.0059              Table 2
+SADR v7 (round 4)             0.00786  0.0160   0.0047   0.0052   0.0074   0.0059              Table 4
+SADR v6 (round 3)             0.0080   0.0167   0.0047   0.0053   0.0074   0.0059
+SADR v5                       0.0083   0.0175   0.0050   0.0055   0.0075   0.0060                  ญ
+pid_water                     0.0550   0.0791   0.0379   0.0306   0.0801   0.0471   -0.0003 [-0.0005, -0.0002]
+fixed_setpoint                0.0655   0.0759   0.0772   0.0330   0.1161   0.0253   -0.0470 [-0.0620, -0.0344]
+bang_bang                     0.2245   0.1996   0.1830   0.2315   0.2367   0.2718   -0.0575 [-0.0751, -0.0405]
+pid_water (organizer values)  0.0541   0.0785   0.0374   0.0301   0.0781   0.0466   -0.2165 [-0.2358, -0.1963]
+                                                                                    -0.0461 [-0.0609, -0.0338]
+
+Table 2: Development rounds. Each version shipped only if it met a rule fixed beforehand on scenarios no
+earlier decision touched (rounds 4ญ8 pre-registered in PREREG.md). Loss reductions are relative to the previous
+version at full length, with paired bootstrap 95% CIs. P: the 30 public scenarios; HO: never-screened generated
+buildings; M: Minneapolis; HC, HC2: unseen harsh-weather sets of the shipped six buildings. Kaggle: public
+hidden-scenario score. Details in Appendix D.
+
+Round Version Change                                     Loss reduction [95% CI]               Kaggle
+
+1ญ2 v4, v5 random search (16 configs), then 13           P: 9.7% (v4  v5)                      ญ
+
+        physics-motivated candidates
+
+3 v6    gains, request cap, setback burst and start      HO (34): 10.8%; P: 3.4% [2.5%, 4.3%]  ญ
+
+        scaled with zone floor area
+
+4 v7    discharge margin, error-proportional occupied P: 2.1% [0.4%, 4.7%]; HO: 2.6% (old), 2.3% 0.01088
+
+        flow, night flush, reheated set-back minimum (fresh)
+
+        air, preconditioning cap
+
+5 v8    deeper weekend setback; request cap 20 kW P: 1.1% [0.2%, 2.3%]; M: 4.1%                0.01074
+        per 100 m2
+
+6 v9    heat set-back zones through the handlers'        HC (48): 2.0% [1.4%, 2.7%]; P: tie (-0.3% 0.01070
+
+        forced air; deeper weeknight setback             change)
+
+7ญ      per-zone model for start and setback floor       public only: none confirmed, nothing shipped ญ
+
+8 v10 the zone model may only shorten the learned HC2 (44): 0.9% [0.8%, 1.0%], 43/44 wins; P: 0.01055
+
+        start                                            1.6%
+
+4 Results
+
+Setup. All runs use the kit's environment loader and SimulationTracker, 8,640 steps per sce-
+nario, and the kit's score_leaderboard.py formula, with paired bootstrap CIs over scenarios.
+
+ ท Machines. Rounds 1ญ4 ran on an Apple M5 Pro and a Windows laptop, round 5 on the laptop,
+   round 6 on private Kaggle CPU kernels and the M5 Pro, and rounds 7ญ8 on the kernels (round 7's
+   zone logs on the M5 Pro).
+
+ ท Reproducibility. The seeds are fixed and runs reproduce across machines: SADR bit for bit
+   between laptop and Kaggle (4 of 4 checks), within 10-10 on the M5 Pro in round 6, and pid_water
+   within 0.017%.
+
+ ท Baseline returns. Local pid_water returns differ from the shipped baseline_returns.json
+   by -1.7% on average, so all comparisons use local runs.
+
+Main result. SADR v10 reaches 0.00762 on the public set, against 0.0550 for pid_water (Table 1;
+v7's ratio to pid_water is 0.143, 95% CI 0.113 to 0.176, wins 30/30). Table 2 traces the eight rounds
+that produced it.
+
+ ท Every shipped round was confirmed out of sample. Each version from v6 on lowered the loss
+   on its confirmation set, which no decision touched (Table 2). On fresh default-range buildings, v8
+   ties and v9 does not help (Appendix D).
+
+ ท Gains shrank as the controller matured. The public-set reductions fall from 9.7% (v4  v5) to
+   1.6% (v9  v10), and round 7 shipped nothing.
+
+                                                           4
+Table 3: Which local set predicts Kaggle? Leaderboard metric of v8 and the ratio of each other policy to v8 on
+the same scenarios, against the Kaggle public scores of the same policy files. E = mean over the policies run on
+the set of | ln rset - ln rKaggle| (pre-registered shape error; smaller matches better). HC and HS: the shipped six
+under the Minneapolis strips not used before, the coldest Fairbanks and Denver strips and new 30-day strips
+cut from the coldest months of the shipped weather files. A superscript is the number of scenarios when a ratio
+covers only part of the set; the mixture's weight is fitted to v8's Kaggle score, its pid_water ratio is a prediction
+(HC part on the superscripted scenarios).
+
+set                                         v8 v8 / Kaggle v7 / v8 v6 / v8 v5 / v8 pid_water / v8 E
+
+Kaggle public LB (about 10 hidden scenarios) 0.01074     1 1.013 1.039 1.081                 5.96     ญ
+
+P: public 30 (shipped six, 5 stations)      0.00777        0.72   1.011   1.033      1.070      7.08  0.047
+M: shipped six ื Minneapolis (12, round 5)  0.01073        1.00   1.043   1.076    1.0925             0.090
+P+M (42)                                    0.00862        0.80   1.022   1.048   1.07435       4.49  0.014
+HC: harsh confirmation set (48)             0.01657        1.54   1.042                               0.139
+HS: harsh screening set (18)                0.02243        2.09   1.030        ญ          ญ     6.15  0.143
+mixture 34% HC + 66% P                      0.01074   1 (fitted)               ญ          ญ     4.64
+                                                                       ญ       ญ                4.55       ญ
+                                                                                          ญ  5.8148
+
+ ท Where the loss goes. Per-step plant energy logs split the loss (Figure 4). On the public set, v5
+   pays 52.4% for gas, 38.5% for the chiller, 4.6% for fans and 4.3% for comfort (Fairbanks: gas
+   89.9%); pid_water pays 71.5% for comfort.
+
+ ท Held-out buildings. On 40 scenarios of 8 default-range generated buildings (Figure 5), v6 scores
+   0.0121, against 0.0137 for v5 and 0.0510 for pid_water.
+
+Kaggle: the hidden gap is weather, not buildings. On the Kaggle public leaderboard (about ten
+of 30 hidden scenarios: six buildings from the same generator under five stations absent from the
+public set), v7 scores 0.01088, 1.39 times its public-set number, although Kaggle's run of a public
+scenario matches the local total to 0.02%. Round 5 submitted fixed files (v6, v5, pid_water) and
+compared each local set's ratios to v7 with Kaggle's (Table 16).
+
+ ท Buildings: v5's Kaggle ratio (1.067) equals the public set's (1.058), not the larger default-range
+   buildings' (1.169), so the hidden buildings behave like the shipped six.
+
+ ท Weather: pid_water's ratio (5.89) falls in cold weather, and the public set plus Minneapolis
+   reproduces it (6.02).
+
+ ท Consequence: rounds 6ญ8 confirmed on harsh-weather strips of the shipped six buildings. A
+   mixture of 34% harsh and the rest public, fitted to v8's Kaggle score, predicts pid_water's
+   Kaggle ratio (5.81 against 5.96; Table 3).
+
+5 Analysis
+
+Why it wins, and where the loss sits.
+
+ ท pid_water keeps 61.5% of occupied zone-steps outside the band (one loop per handler, a step
+   start at 06:00; Figure 6).
+
+ ท SADR v6 keeps 2.3% and uses far less energy: floor pressure with wide dampers, least reheat flow
+   at the discharge cap, and no conditioning while nobody is charged for comfort.
+
+ ท For v6, 23.5% of the loss is incurred on unoccupied steps, most at hour 5, the warm-up before
+   06:00. Fairbanks is gas (Eq. 1); Phoenix and Singapore are chiller electricity, where the coldest
+   supply at the lowest flow is cheapest.
+
+What round 6 found. On HS, v8 pays 95.3% of its loss for gas: 63.9% of it in occupied weekday
+
+hours, 24.3% in weekday preconditioning and 7.0% in weekend setback. The outside-air load of
+
+running handlers equals 0.49 of the gas, 0.43 of it through zones being heated. v8's weekend floor is
+about 2C, and the coldest zone reaches -2.9C (2.4% of zone-steps below 5C; the simulator does
+
+not charge for frost). Rounds 3ญ5: Appendix E.
+
+What each heating lever is worth (round 7). From the kit's equations, a box delivers the net
+heat Q = cpF (Td - T ) while its coil, which the boiler bills, supplies cpF (Td - Tsa), with
+Tsa = min(SAT, r Tret + (1 - r) Tout) and r  0.7. One joule of net heat therefore costs
+
+            g = Td - Tsa = 1 + T - Tsa                                                                        (1)
+                                            Td - T                Td - T
+
+                                                      5
+joules of gas, which holds in the simulator to within 10-11 (the kit's methods wrapped; billed gas is
+1.030 times the coil duty).
+
+ ท Two levers are spent. In the check on building 8 in January, the handlers sit at the recirculation
+   cap on 100% of their steps, and 82% of the net heat enters at the 308.15 K discharge cap. For
+   a zone at 294 K, g is 1.45 at 0C and 2.31 at -40C (1.09 and 1.53 for a zone at 281 K). What
+   control still chooses is when, and at which zone temperature, heat goes in.
+
+ ท A zone model. Fitted on 306 zones of six harsh scenarios, a first-order model T = aQ - k(T -
+   Tout) + c has a median time constant of 33 h (9ญ192 h). It explains only 0.41 of the 30-minute
+   variance (median) and predicts a recovery's duration with a median error of 27%. At the cap, the
+   recovery rate falls by 0.60 K/h for each K the zone is warmer.
+
+ ท Setback depth. In this model a deeper setback floor never costs gas if the zone reaches it and
+   recovers in time (its trajectory lies below the shallower one, and both the losses and g grow with
+   T ). Depth therefore pays only where the floor binds, on 1%ญ47% of unoccupied zone periods
+   under v9.
+
+ ท Start time. With capped heat the latest feasible start is optimal, so a start rule can save at most the
+   time zones hold at the target before 06:00: 0.36 h per recovery, 2.6% of the gas.
+
+ ท Checks. Seven-day checks on three harsh scenarios confirm this where the model fits. A 2 K
+   deeper floor changes the gas by -1.1% (predicted -1.0%) in building 8, where the floor binds most,
+   and -0.9% (-0.9%) in building 7, but +0.1% (-0.4%) in building 1, whose zones cool slowest. A
+   lead safety of 1.0 changes the gas by -2.2% in building 7 (predicted -2.0%), but the loss only by
+   -1.2%: part returns as comfort.
+
+6 Limitations and disclosure
+
+ ท Deep cold. SADR loses most in deep cold: v7's worst public scenario scores 0.0461, almost all
+   gas, about half of it outside-air overhead.
+
+ ท Simulator constants. SADR encodes simulator constants (discharge limit, valve kv, constant
+   COP) that a real building would commission. Its weekend floor ignores frost protection; a 5C
+   floor costs 0.9% on HS.
+
+ ท Selection. Selection used the public set and screens, so the public number is optimistic; the
+   out-of-sample confirmations in Table 2 are the honest estimates.
+
+ ท Next step. MPC or a learned residual on top of SADR.
+ ท Reproducibility and disclosure. experiments/src/ generates every number (seeds fixed,
+
+   CPU only), and paper/AUDIT.md checks each. An LLM coding assistant (Claude) wrote
+   code and drafted this text. Code and policy: https://github.com/neelsirivara/
+   neurips2026-smart-buildings.
+
+References
+
+ASHRAE. ASHRAE guideline 36-2021: High-performance sequences of operation for HVAC
+   systems. ASHRAE, Peachtree Corners, GA, 2021. URL https://webstore.ansi.org/
+   standards/ashrae/ashraeguideline362021.
+
+Judah Goldfeder and Ayush Rai. Smart buildings challenge starter kit (NeurIPS 2026 competition).
+   https://github.com/smart-buildings-2026/starter-kit; competition page https://
+   smart-buildings-2026.github.io/competition/index.html, 2026.
+
+Judah Goldfeder and John Sipple. A lightweight calibrated simulation enabling efficient offline
+   learning for optimal control of real buildings, 2023. URL https://arxiv.org/abs/2310.
+   08569.
+
+Judah Goldfeder, Victoria Dean, Zixin Jiang, Xuezheng Wang, Bing Dong, Hod Lipson, and John
+   Sipple. The smart buildings control suite: A diverse open source benchmark to evaluate and scale
+   HVAC control policies for sustainability, 2025. URL https://arxiv.org/abs/2410.03756.
+
+Steven T. Taylor. VAV design tips. AMCA presentation, 2018. URL https://www.amca.org/
+   resources/Taylor%20VAV%20Design%20Tips-mgi(1).pdf.
+
+Zhe Wang and Tianzhen Hong. Reinforcement learning for building controls: The opportunities and
+   challenges. Applied Energy, 269:115036, 2020. doi: 10.1016/j.apenergy.2020.115036.
+
+                                                           6
+A Per-scenario results
+
+Tables 5, 6 and 7 list every scenario's total return and leaderboard score (SADR v6), and Table 8 the
+round-4 confirmation set, Table 4 round 4 at full length and Table 9 the round-5 Minneapolis set; all
+values are generated from the result files by make_macros.py.
+
+Table 4: Round 4 at full length (8,640 steps): the composite v7 (r4_c14_comp_a) against the shipped v6 on
+the same scenarios;  = paired mean difference in 10-5 per step with its bootstrap 95% CI (5000 resamples;
+
+negative favours v7). Old clean = the round-2/3 held-out scenarios no screen touched; fresh = 8 buildings
+
+generated for round 4 and run only for this table, half in the shipped six's parameter ranges, half in the kit's
+
+default ranges.
+
+                                   set                    n              v6          v7         [95% CI]               relative [95% CI] wins
+
+                                   public                 30 0.00803 0.00786 -17.1 [-37.8, -3.2] -2.1% [-4.7%, -0.4%] 24/30
+
+                                   old held-out, clean 34 0.01119 0.01090 -28.5 [-48.8, -14.8] -2.6% [-4.4%, -1.3%] 33/34
+
+                                   fresh, shipped ranges 20 0.00736 0.00725 -10.3 [-21.0, -3.0] -1.4% [-2.9%, -0.4%] 18/20
+
+                                   fresh, default ranges 20 0.01044 0.01012 -31.5 [-56.6, -14.8] -3.0% [-5.4%, -1.4%] 20/20
+
+                                   fresh, all             40 0.00890 0.00869 -20.9 [-35.1, -10.8] -2.3% [-3.9%, -1.2%] 38/40
+
+                                   clean held-out, pooled 74 0.00995 0.00971 -24.4 [-35.7, -15.3] -2.5% [-3.6%, -1.5%] 71/74
+
+                                                          old held-out (rounds 2-3)            fresh, shipped ranges   fresh, default ranges
+
+v7 vs v6 (% change of          0
+   the metric; < 0 is better)
+                               -2
+
+                               -4
+
+                               -6
+
+                               -8
+
+                                        b0502 b0501 b0509 b0505 b0507 b0511 b0508 b0500 b0606 b0602 b0601 b0603 b0610 b0604 b0607 b0639
+                                        (28 z) (29 z) (32 z) (63 z) (68 z) (71 z) (89 z) (120 z) (52 z) (54 z) (64 z) (81 z) (40 z) (41 z) (82 z) (179 z)
+
+                                                                                     scenario           building mean
+
+Figure 2: Round 4: change of the metric from v6 to v7 on every generated held-out building (diamonds: the
+building's five strips pooled; dots: single scenarios; negative is better), each run once at full length; buildings
+grouped by set and ordered by zone count.
+
+                                               pid_water (local re-run)      SADR (ours)                               held-out (generated)
+                                                                                 Atlanta
+                                               Fairbanks  Denver                               Phoenix  Singapore        Fai. Den. Atl. Pho. Sin.
+|mean per-step reward|
+   (log scale, lower is better)10-1
+
+                         b1    10-2
+                              b2
+                                   b4
+                                       b5
+                                            b7
+                                                 b8
+                                                      b1
+                                                          b2
+                                                               b4
+                                                                    b5
+                                                                        b7
+                                                                             b8
+                                                                                  b1
+                                                                                       b2
+                                                                                           b4
+                                                                                                b5
+                                                                                                     b7
+                                                                                                          b8
+                                                                                                              b1
+                                                                                                                   b2
+                                                                                                                        b4
+                                                                                                                            b5
+                                                                                                                                 b7
+                                                                                                                                      b8
+                                                                                                                                           b1
+                                                                                                                                               b2
+                                                                                                                                                    b4
+                                                                                                                                                         b5
+                                                                                                                                                              b7
+                                                                                                                                                                  b8
+                                                                                                                                                                               g501
+                                                                                                                                                                                   g502
+                                                                                                                                                                                        g501
+                                                                                                                                                                                            g502
+                                                                                                                                                                                                 g501
+                                                                                                                                                                                                      g502
+                                                                                                                                                                                                          g501
+                                                                                                                                                                                                               g502
+                                                                                                                                                                                                                   g501
+                                                                                                                                                                                                                        g502
+
+Figure 3: Per-scenario leaderboard score (log scale, lower is better), SADR v6 vs pid_water on the same
+machine, grouped by station and labelled by building (b = public, g = generated held-out). Left: the 30 public
+scenarios; right: the 10 held-out scenarios of buildings 0501 and 0502.
+
+                                                           7
+Table 5: Per-scenario results on the 30 public scenarios (8,640 steps). Score is |total/8640|, lower is better; bold
+
+marks scenarios where SADR beats the locally re-run pid_water; organizer = the pid_water score from the
+kit's baseline_returns.json.
+
+scenario  zones/AHUs SADR v6 return v6 score v5 score v4 score pid_water return pid_water score organizer
+
+building_train_1/atlanta_2 39/4     -34.3  0.0040  0.0041  0.0037   -215.2  0.0249  0.0241
+building_train_2/atlanta_3 85/9     -29.2  0.0034  0.0036  0.0036   -172.6  0.0200  0.0200
+building_train_4/atlanta_5 54/6     -58.3  0.0067  0.0069  0.0085   -250.0  0.0289  0.0285
+building_train_5/atlanta_6 79/8     -38.0  0.0044  0.0044  0.0055   -265.8  0.0308  0.0273
+building_train_7/atlanta_8 36/4     -66.6  0.0077  0.0080  0.0080   -417.3  0.0483  0.0483
+building_train_8/atlanta_1 30/3     -48.3  0.0056  0.0059  0.0055   -267.4  0.0309  0.0325
+building_train_1/denver_7 39/4      -24.6  0.0028  0.0029  0.0025   -267.9  0.0310  0.0299
+building_train_2/denver_8 85/9      -43.0  0.0050  0.0055  0.0055   -351.1  0.0406  0.0398
+building_train_4/denver_2 54/6      -53.8  0.0062  0.0064  0.0063   -471.4  0.0546  0.0545
+building_train_5/denver_3 79/8      -40.5  0.0047  0.0047  0.0044   -381.0  0.0441  0.0437
+building_train_7/denver_5 36/4      -50.5  0.0058  0.0061  0.0068   -318.6  0.0369  0.0361
+building_train_8/denver_6 30/3      -33.8  0.0039  0.0041  0.0046   -176.9  0.0205  0.0202
+building_train_1/fairbanks_1 39/4  -420.3  0.0487  0.0506  0.0514  -1849.7  0.2141  0.2117
+building_train_2/fairbanks_2 85/9  -111.4  0.0129  0.0141  0.0150   -684.6  0.0792  0.0798
+building_train_4/fairbanks_4 54/6   -21.0  0.0024  0.0026  0.0019   -283.4  0.0328  0.0316
+building_train_5/fairbanks_5 79/8   -20.0  0.0023  0.0023  0.0019   -145.9  0.0169  0.0168
+building_train_7/fairbanks_7 36/4   -75.6  0.0087  0.0091  0.0091   -467.1  0.0541  0.0537
+building_train_8/fairbanks_8 30/3  -218.8  0.0253  0.0264  0.0278   -668.7  0.0774  0.0772
+building_train_1/phoenix_5 39/4    -129.2  0.0150  0.0153  0.0198  -1183.8  0.1370  0.1335
+building_train_2/phoenix_6 85/9     -64.2  0.0074  0.0075  0.0105   -647.9  0.0750  0.0708
+building_train_4/phoenix_8 54/6     -20.8  0.0024  0.0025  0.0020   -261.5  0.0303  0.0288
+building_train_5/phoenix_1 79/8     -27.9  0.0032  0.0033  0.0027   -287.4  0.0333  0.0333
+building_train_7/phoenix_3 36/4     -55.2  0.0064  0.0065  0.0078   -387.3  0.0448  0.0444
+building_train_8/phoenix_4 30/3     -87.3  0.0101  0.0102  0.0145  -1384.2  0.1602  0.1580
+building_train_1/singapore_8 39/4   -57.5  0.0067  0.0068  0.0085   -244.9  0.0284  0.0282
+building_train_2/singapore_1 85/9   -41.5  0.0048  0.0049  0.0063   -223.8  0.0259  0.0256
+building_train_4/singapore_3 54/6   -60.9  0.0071  0.0075  0.0095   -296.3  0.0343  0.0325
+building_train_5/singapore_4 79/8   -48.5  0.0056  0.0056  0.0076   -949.6  0.1099  0.1085
+building_train_7/singapore_6 36/4   -50.7  0.0059  0.0058  0.0077   -260.9  0.0302  0.0311
+building_train_8/singapore_7 30/3   -48.8  0.0057  0.0057  0.0074   -468.2  0.0542  0.0541
+
+Table 6: Per-scenario results on the generated held-out buildings 0501 and 0502 (8,640 steps), SADR vs locally
+run pid_water.
+
+scenario                           zones/AHUs SADR v6 return v6 score v5 score v4 score pid_water return pid_water score
+
+building_0501/atlanta_7 29/5        -32.8  0.0038  0.0043  0.0042  -241.6   0.0280
+building_0502/atlanta_4 28/4        -77.2  0.0089  0.0099  0.0107  -305.1   0.0353
+building_0501/denver_4 29/5         -32.8  0.0038  0.0044  0.0044  -226.4   0.0262
+building_0502/denver_1 28/4        -228.8  0.0265  0.0325  0.0325  -616.1   0.0713
+building_0501/fairbanks_6 29/5      -24.2  0.0028  0.0030  0.0027  -291.8   0.0338
+building_0502/fairbanks_3 28/4     -202.6  0.0234  0.0285  0.0280  -598.6   0.0693
+building_0501/phoenix_7 29/5        -31.5  0.0036  0.0040  0.0044  -232.0   0.0269
+building_0502/phoenix_2 28/4        -44.3  0.0051  0.0071  0.0069  -240.0   0.0278
+building_0501/singapore_5 29/5      -50.0  0.0058  0.0064  0.0075  -345.7   0.0400
+building_0502/singapore_2 28/4      -91.2  0.0106  0.0107  0.0123  -348.7   0.0404
+
+B Parameters, ablation and candidates
+
+Table 11 reverts each tuned v4 value on its own (and adds each on its own to the defaults) on
+the screening set; Table 12 lists every v5 candidate at full length on the 30 public scenarios
+against v4 on the same machine; Table 13 lists every round-3 (v6) variant on both screening
+sets against v5, Table 14 every round-4 candidate against v6 and Table 15 every round-5 can-
+didate against v7, Table 16 the round-5 comparison of local sets with Kaggle (v7 reference)
+and Table 17 every round-6 candidate against v8. The ideas tried and rejected, with their num-
+bers, are in experiments/results/round3/candidates.json, round4/candidates.json,
+round5/screen_summary.json and round6/screen_summary.json.
+
+C Version changes v6 and v7 in detail
+
+Scaling with the building (v6). Every VAV box in the generator has the same design flow (2 m3/s)
+and hot-water kv, so a 450 m2 zone has a fifth of the heating authority per square metre of a 100 m2
+zone and several times its thermal mass; v5's fixed 12 kW cap, gains and building-wide lead were
+tuned on the public zones (median 99 m2). v6 (i) reads each zone's floor area from the metadata zone
+
+                                                           8
+Table 7: Per-scenario results on the six generated held-out buildings of round 3 (8,640 steps), SADR vs locally
+run pid_water.
+
+scenario            zones/AHUs SADR v6 return v6 score v5 score v4 score pid_water return pid_water score
+
+building_0500/atlanta_4 120/12    -104.2 0.0121 0.0130               ญ   -344.0                   0.0398
+building_0505/atlanta_1 63/7                                             -525.2                   0.0608
+building_0507/atlanta_2 68/7      -51.2 0.0059 0.0069                ญ   -409.9                   0.0474
+building_0508/atlanta_7 89/9                                             -334.3                   0.0387
+building_0509/atlanta_3 32/5      -83.2 0.0096 0.0113                ญ   -302.2                   0.0350
+building_0511/atlanta_5 71/8                                             -279.4                   0.0323
+building_0500/denver_1 120/12     -66.2 0.0077 0.0090                ญ   -828.1                   0.0958
+building_0505/denver_2 63/7                                              -755.0                   0.0874
+building_0507/denver_3 68/7       -62.3 0.0072 0.0084                ญ   -392.7                   0.0455
+building_0508/denver_4 89/9                                              -310.3                   0.0359
+building_0509/denver_5 32/5       -64.2 0.0074 0.0075                ญ   -330.7                   0.0383
+building_0511/denver_6 71/8                                              -219.4                   0.0254
+building_0500/fairbanks_3 120/12  -197.5 0.0229 0.0274               ญ   -843.3                   0.0976
+building_0505/fairbanks_1 63/7                                          -1763.8                   0.2041
+building_0507/fairbanks_2 68/7    -87.3 0.0101 0.0114                ญ  -1064.4                   0.1232
+building_0508/fairbanks_6 89/9                                           -313.7                   0.0363
+building_0509/fairbanks_4 32/5    -76.4 0.0088 0.0097                ญ   -256.1                   0.0296
+building_0511/fairbanks_5 71/8                                           -203.2                   0.0235
+building_0500/phoenix_2 120/12    -69.3 0.0080 0.0097                ญ   -311.2                   0.0360
+building_0505/phoenix_3 63/7                                             -323.4                   0.0374
+building_0507/phoenix_4 68/7      -82.5 0.0095 0.0107                ญ   -625.3                   0.0724
+building_0508/phoenix_7 89/9                                             -318.8                   0.0369
+building_0509/phoenix_5 32/5      -40.7 0.0047 0.0049                ญ   -477.0                   0.0552
+building_0511/phoenix_6 71/8                                             -452.7                   0.0524
+building_0500/singapore_2 120/12  -175.8 0.0203 0.0242               ญ   -383.9                   0.0444
+building_0505/singapore_4 63/7                                           -312.4                   0.0362
+building_0507/singapore_6 68/7    -435.6 0.0504 0.0568               ญ   -500.3                   0.0579
+building_0508/singapore_5 89/9                                           -386.5                   0.0447
+building_0509/singapore_7 32/5    -213.1 0.0247 0.0304               ญ   -348.7                   0.0404
+building_0511/singapore_8 71/8                                           -253.9                   0.0294
+                                  -44.7 0.0052 0.0062                ญ
+
+                                  -27.9 0.0032 0.0044                ญ
+
+                                  -29.6 0.0034 0.0035                ญ
+
+                                  -66.3 0.0077 0.0089                ญ
+
+                                  -85.7 0.0099 0.0105                ญ
+
+                                  -272.7 0.0316 0.0326               ญ
+
+                                  -84.3 0.0098 0.0106                ญ
+
+                                  -161.2 0.0187 0.0246               ญ
+
+                                  -100.0 0.0116 0.0119               ญ
+
+                                  -116.9 0.0135 0.0151               ญ
+
+                                  -89.0 0.0103 0.0110                ญ
+
+                                  -191.0 0.0221 0.0229               ญ
+
+                                  -123.0 0.0142 0.0152               ญ
+
+                                  -95.2 0.0110 0.0122                ญ
+
+                                  -56.6 0.0066 0.0067                ญ
+
+Table 8: Fresh confirmation set (round 4, never screened; 8,640 steps): score (|total/8640|, lower is better) of
+the shipped v6 and of the round-4 candidate r4_c14_comp_a; z/A = zones/AHUs; buildings 0601, 0602, 0603
+and 0606 are drawn in the shipped six's parameter ranges, 0604, 0607, 0610 and 0639 in the kit's default ranges
+(0610: largest rooms, 0639: largest floor area of seeds 606ญ699).
+
+          scenario  z/A v6 cand.  scenario                           z/A v6 cand. 
+
+          0601/atlanta_1 64/7 0.0074 0.0073 -1.2%    0604/atlanta_5  41/5 0.0156 0.0153 -1.8%
+          0601/denver_7 64/7 0.0055 0.0055 -0.5%
+          0601/fairbanks_5 64/7 0.0034 0.0033 -1.3%  0604/denver_3   41/5 0.0048 0.0047 -1.7%
+          0601/phoenix_3 64/7 0.0080 0.0080 -0.5%
+          0601/singapore_5 64/7 0.0086 0.0085 -0.2%  0604/fairbanks_1 41/5 0.0425 0.0402 -5.4%
+          0602/atlanta_2 54/6 0.0032 0.0032 -0.4%
+          0602/denver_8 54/6 0.0053 0.0052 -1.6%     0604/phoenix_7 41/5 0.0112 0.0107 -4.5%
+          0602/fairbanks_6 54/6 0.0021 0.0021 -0.4%
+          0602/phoenix_4 54/6 0.0090 0.0090 -0.0%    0604/singapore_1 41/5 0.0148 0.0148 -0.6%
+          0602/singapore_6 54/6 0.0057 0.0057 -0.1%
+          0603/atlanta_3 81/9 0.0031 0.0031 -1.7%    0607/atlanta_6  82/9 0.0076 0.0074 -2.3%
+          0603/denver_1 81/9 0.0126 0.0121 -3.4%
+          0603/fairbanks_7 81/9 0.0045 0.0045 -1.1%  0607/denver_4   82/9 0.0048 0.0047 -2.3%
+          0603/phoenix_5 81/9 0.0107 0.0107 -0.1%
+          0603/singapore_7 81/9 0.0054 0.0054 +0.1%  0607/fairbanks_2 82/9 0.0160 0.0153 -4.1%
+          0606/atlanta_4 52/6 0.0057 0.0056 -1.8%
+          0606/denver_2 52/6 0.0089 0.0088 -1.9%     0607/phoenix_8 82/9 0.0031 0.0031 -0.5%
+          0606/fairbanks_8 52/6 0.0231 0.0222 -4.1%
+          0606/phoenix_6 52/6 0.0096 0.0096 +0.1%    0607/singapore_2 82/9 0.0088 0.0088 -0.1%
+          0606/singapore_8 52/6 0.0053 0.0053 -0.0%
+                                                     0610/atlanta_7  40/7 0.0082 0.0080 -3.1%
+
+                                                     0610/denver_5   40/7 0.0124 0.0118 -5.3%
+
+                                                     0610/fairbanks_3 40/7 0.0098 0.0094 -4.2%
+
+                                                     0610/phoenix_1 40/7 0.0057 0.0055 -3.8%
+
+                                                     0610/singapore_3 40/7 0.0143 0.0142 -1.0%
+
+                                                     0639/atlanta_8 179/18 0.0056 0.0055 -0.9%
+
+                                                     0639/denver_6 179/18 0.0057 0.0055 -3.0%
+
+                                                     0639/fairbanks_4 179/18 0.0037 0.0036 -0.5%
+
+                                                     0639/phoenix_2 179/18 0.0047 0.0046 -3.2%
+
+                                                     0639/singapore_4 179/18 0.0093 0.0093 -0.1%
+
+map (4-connected free cells in raster order reproduce the simulator's room numbering) and scales kq,
+ki, the request cap and the setback burst with area/100 m2, clipped to [1, 6]; (ii) bounds each request
+by what the box delivers at a flow fraction fcap (0.35 while preconditioning or set back, 1 occupied)
+at the discharge limit, at 285 K supply, and on the water side (valve fully open at 20 bar: asking for
+more raises the airflow, cools the discharge and delivers less); (iii) runs the optimum start per zone;
+(iv) raises the setback floor of a zone whose learned rate could not recover it within the maximum
+lead. With these off the code reproduces v5 bit for bit.
+
+                                                           9
+Table 9: Set M (round 5): the six shipped buildings under the Minneapolis strips (start dates: strip 1 January, 2
+February, 3 April, 4 May, 5 June, 6 August, 7 September, 8 October), leaderboard score |total|/8,640 per scenario
+(lower is better). v8 cand. = the round-5 composite (weekend setback and 20 kW request cap); ญ = not run in the
+session.
+
+scenario                        v7 v8 cand.                    v6       v5 pid_water
+
+building_train_1/minneapolis_1  0.02698  0.02653               0.02800  0.02877       0.08767
+building_train_1/minneapolis_5  0.00490  0.00490               0.00504  0.00515       0.02291
+building_train_2/minneapolis_2  0.01050  0.01022               0.01091  0.01193       0.07369
+building_train_2/minneapolis_6  0.00335  0.00335               0.00339  0.00353       0.01875
+building_train_4/minneapolis_3  0.00526  0.00523               0.00532  0.00549       0.04706
+building_train_4/minneapolis_7  0.00301  0.00301               0.00300                0.03466
+building_train_5/minneapolis_4  0.00332  0.00332               0.00339          ญ     0.02373
+building_train_5/minneapolis_8  0.01045  0.01032               0.01070          ญ     0.04922
+building_train_7/minneapolis_1  0.04098  0.03681               0.04253          ญ     0.11624
+building_train_7/minneapolis_5  0.00393  0.00393               0.00398          ญ     0.02304
+building_train_8/minneapolis_2  0.01817  0.01773               0.01884          ญ     0.06254
+building_train_8/minneapolis_6  0.00345  0.00345               0.00346          ญ     0.01823
+                                                                                ญ
+
+Table 10: Final SADR parameters (v10); values that changed from v4 to v5 are marked; the fifth row is new in
+v6 (round 3), the discharge margin (v6: 1 K), the preconditioning cap (v6: 0.35) and the seventh row are round
+4, the eighth row round 5, the ninth row and the setback widening (v8: 8 K) round 6, the last row and the lead
+safety (v9: 1.3, with precondition margin 0.5 K) round 8. The full dictionary is in the code.
+
+occupied margin              0.3 K                             precondition margin    0.8 K
+setback widening (low/high)  10/6 K (v4: 4/2)                  kq, ki                 400, 120 W/K
+cooling SAT / mixed floor    285/292 K (v4 ceiling: 293)       discharge margin       0K
+lead safety / rate0          1.15 / 2 K/h                      lead range             0.75ญ8 h
+heating-season memory        288 steps                         AHU dwell              3 steps
+area scaling (v6)            per 100 m2, clip [1, 6]           flow cap fcap (v6)     0.316 pre/setback, 1 occ.
+occupied pressure cap (v7)   from 0.1 K, span 0.5 K            night flush (v7)       3 K, 8 h before work
+weekend setback (v8)         -6/+4 K, out 10ญ22 h before work  request cap (v8)       20 kW/100 m2 (v7: 12)
+set-back air boost (v9)      8 h before work, outside  floor   near-floor boost (v9)  within 2 K of the floor
+model start (v10)            RLS zone model, ื1.1              model lead              learned lead
+
+Round 4 (v7). Five switches of the v6 code (all off reproduces v6 bit for bit): (i) discharge margin
+ from 1 to 0 K (at the cap the gas per joule of net heat is 1 + 0.3 (T - Tout)/(308.15 -  - T )); (ii)
+occupied flow above the 200 Pa floor only in proportion to the zone's error (from 0.1 K, full 0.5 K
+later); (iii) a night flush with outside air at least 3 K colder, outside heating season; (iv) in heating
+season the forced minimum flow of set-back zones on a running handler is reheated to the zone
+temperature (1 J of gas per joule instead of the ventilated recovery's 1.9 later); (v) the preconditioning
+cap at the floor-pressure flow.
+
+D Round-by-round results
+
+The rounds summarised in Table 2, in full.
+
+Held-out buildings. On 40 scenarios of 8 default-range generated buildings (Figure 5) v6 scores
+0.0121 against 0.0137 for v5 and 0.0510 for pid_water (10.8% below v5 on the 34 never screened;
+Table 13).
+
+Round 4. Of 13 single changes (Table 14) 5 helped and 4 were worse (caps below the floor-pressure
+flow; the night flush in heating season). The composite v7 beats v6 at full length on every set (Table 4):
+2.1% on the public set (CI 0.4% to 4.7%), 2.6% and 2.3% on the clean old and fresh held-out sets,
+mostly gas.
+
+Round 5. Of 11 single changes to v7 (Table 15) 4 helped. Their composite v8, a deeper setback far
+from the next workday (floor 6 K lower, ceiling 4 K higher) and a request cap of 20 kW per 100 m2,
+lowers the loss at full length by 1.1% on the public set (CI 0.2% to 2.3%), 4.1% on M and 2.2% on
+P+M, and ties on the fresh default-range buildings FD; Kaggle: 0.01074.
+
+                                                          10
+Table 11: Ablation of the four tuned v4 values on the screening set (six scenarios, 1,440 steps; leaderboard
+metric, lower is better). Rev: the best configuration with one value reverted to its default; Add: the defaults with
+one tuned value added. Best 0.00849, defaults 0.00947.
+
+           parameter                      change         score vs best vs defaults
+
+           ki_w_per_k_step                Rev (60)       0.00905        +6.7%          -4.4%
+           ki_w_per_k_step                Add (120)      0.00855        +0.7%          -9.8%
+           margin_pre                     Rev (0.5)      0.00846         -0.3%        -10.7%
+           margin_pre                     Add (0.8)      0.00910        +7.2%          -4.0%
+           sat_mix_floor                  Rev (290)      0.00849        +0.0%         -10.4%
+           sat_mix_floor                  Add (292)      0.00947       +11.6%         +0.0%
+           sb_hyst_k                      Rev (1.5)      0.00850        +0.2%         -10.2%
+           sb_hyst_k                      Add (1)        0.00944       +11.2%          -0.3%
+
+Table 12: v5 candidates at full length (8,640 steps) on the 30 public scenarios, run on the same machine
+as v4 (metric 0.00920). Overrides are applied to the v4 values (SAT = sat_cool_hi in K; nlo/nhi =
+night_low/high_ext in K; occ = margin_occ; lead = lead_max_h); CI = paired bootstrap 95% CI of
+
+the per-scenario difference vs v4 (negative favours the candidate); the last five columns are station means.
+
+overrides                        metric ratio        CI                wins Fai. Den. Atl. Pho. Sin.
+
+SAT 285, nlo 8, nhi 6            0.00831  0.903  [-0.00139, -0.00044]  19/30  0.0175  0.0050  0.0055  0.0075  0.0060
+SAT 285, nlo 12, nhi 4, lead 10  0.00832  0.904  [-0.00137, -0.00042]  19/30  0.0175  0.0050  0.0055  0.0076  0.0060
+SAT 285, nlo 8, nhi 4            0.00833  0.905  [-0.00136, -0.00043]  19/30  0.0175  0.0050  0.0055  0.0076  0.0060
+SAT 285, nlo 8, nhi 4, occ 0.2   0.00840  0.913  [-0.00132, -0.00034]  18/30  0.0175  0.0051  0.0056  0.0077  0.0061
+SAT 285, nlo 8                   0.00843  0.916  [-0.00121, -0.00038]  19/30  0.0175  0.0050  0.0055  0.0079  0.0062
+SAT 285, nhi 4                   0.00846  0.919  [-0.00127, -0.00029]  16/30  0.0180  0.0050  0.0055  0.0076  0.0060
+SAT 285, nlo 8, occ 0.2          0.00851  0.924  [-0.00115, -0.00028]  18/30  0.0175  0.0052  0.0056  0.0080  0.0062
+SAT 285                          0.00856  0.930  [-0.00113, -0.00023]  15/30  0.0181  0.0051  0.0055  0.0079  0.0062
+SAT 288                          0.00866  0.941  [-0.00088, -0.00023]  15/30  0.0180  0.0050  0.0055  0.0083  0.0065
+nlo 12                           0.00907  0.986  [-0.00031, -0.00002]         0.0173  0.0050  0.0058  0.0096  0.0078
+nlo 8                            0.00908  0.987  [-0.00024, -0.00002]   7/30  0.0173  0.0049  0.0058  0.0096  0.0078
+nlo 8, lead 10                   0.00908  0.987  [-0.00024, -0.00002]   7/30  0.0173  0.0049  0.0058  0.0096  0.0078
+none (v5 code, v4 values)        0.00920  1.000  [+0.00000, +0.00000]   7/30  0.0178  0.0050  0.0058  0.0096  0.0078
+                                                                        0/30
+
+Round 6. Round 6 followed the probes to harsh weather: a confirmation set HC (48 scenarios
+of the shipped six) and a screening set HS (18). v8 scores 0.01657 on HC, 1.54 times its Kaggle
+score (public set 0.72; Table 3); a mixture of 34% HC and the rest public, fitted to v8's Kaggle score,
+predicts pid_water's Kaggle ratio (5.81 against 5.96). Of 9 single changes screened at full length
+(Table 17) 7 helped; the largest gains came from reheating the forced minimum air of set-back zones
+on running handlers to the discharge limit, which buys heat at 1 J of gas per joule (before a workday
+-1.0% on HS; near the setback floor -0.5%), and from a deeper weeknight setback (-0.8%). The
+composite (c11, c09, c06, c08; v9) lowers the loss on HC by 2.0% (CI 1.4% to 2.7%; wins 40/48) and
+ties on the public set (-0.3%, CI -1.4% to +0.6%): the rule was met and v9 shipped (Kaggle 0.01070
+against v8's 0.01074, within noise). It does not help on FD (+0.6%, CI -0.4% to +1.4%; comfort rises
+by more than the total) and costs up to +4.0% on hot public strips through its nearer preconditioning
+target (c06).
+
+Round 7. Round 7 acted on the analysis of Section 5. Its base is v9 with the shorter lead (c07) in
+place of the nearer target (c06); v10 adds a first-order model of each zone, fitted online (recursive
+least squares on unoccupied steps), that sets the start (its recovery time at the cap, times 1.1) and
+the setback floor (least predicted gas among floors the zone reaches and recovers from). Against v9
+(Table 18) every candidate lowers the public loss, the model-based start most (-1.4%, CI -1.8% to
+-1.0%, 29/30 wins), but none has an HS interval below zero (start +0.4%, CI -0.4% to +1.4%): all
+four are public only, so as pre-registered none was confirmed and the new confirmation set HC2 (44
+scenarios) was left unused. The floor moves HS by -0.03% against the base, about what the analysis
+allows. The start wins on 12/18 HS scenarios but costs +5.4% in building 7 under Denver cold, where
+the model's lead exceeded the learned one.
+
+Round 8. Letting the model only shorten the learned lead, a fix found after round 7's first shard
+and so not eligible there, gives -0.8% on HS and -1.6% on the public 30. With its code frozen and
+registered before any run on HC2, the one set it had not seen, it lowers the HC2 loss by 0.9% (CI
+
+                                                           11
+Table 13: Round-3 candidates (v6 code) on the two screening sets at 2,880 steps: six public scenarios and six
+
+held-out scenarios (building 0502 twice, buildings 0500, 0505, 0507 and 0509 once). Metric = leaderboard
+metric on the set; ratio = against the shipped v5 on the same scenarios;  = paired mean difference against the
+v6 defaults (c00) in units of 10-5 with its bootstrap 95% CI (negative favours the candidate). Verdict under the
+
+shipping rule against c00: rule met = held-out CI below zero and public CI not above it; public only = only
+
+the public CI below zero; worse = a CI above zero; n.s. = neither. c01ญc13 change one or two values of the
+v6 defaults (c03ญc05 are ablations); c14ญc16 combine the changes that helped;  marks the shipped variant.
+Parameter files: experiments/src/policy_candidates/.
+
+                                         public screen                     held-out screen
+
+id change vs v6 defaults                 metric ratio        vs c00 [CI] metric ratio           vs c00 [CI] verdict
+
+v5 shipped v5 (reference)                0.00863 ญ +16.2 [+2.0, +38.9] 0.02164 ญ +318.1 [+163.9, +470.3] ญ
+
+c00 v6 defaults                          0.00847 0.981                     ญ 0.01846 0.853                ญ base
+c01 fcparpe 1                            0.00847 0.981
+c02 fcparpe 0.5                          0.00846 0.981      +0.0 [+0.0, +0.0] 0.01846 0.853    +0.8 [+0.0, +2.3] worse
+                                         0.00856 0.993
+c03 area scaling 0                                          -0.4 [-1.3, +0.0] 0.01832 0.847    -13.6 [-25.2, -3.7] rule met
+
+                                                            +9.8 [+2.8, +16.6] 0.02178 1.007 +332.5 [+174.3, +519.8] worse
+
+c04 per-zone start 0, adaptive floor 0 0.00848 0.983 +1.7 [-7.4, +11.7] 0.01902 0.879 +56.5 [+13.8, +102.2] worse
+
+c05 adaptive floor 0                     0.00847 0.981 +0.0 [+0.0, +0.0] 0.01848 0.854         +2.1 [-0.1, +4.5] n.s.
+
+c06 scale min 1                          0.00843 0.977      -3.6 [-6.7, -1.1] 0.01844 0.852    -1.5 [-4.2, +0.0] public only
+
+c07 q cap (W) 20000                      0.00848 0.983 +1.6 [+0.0, +4.8] 0.01845 0.853         -0.9 [-3.7, +1.0] n.s.
+
+c08 pre margin 0.5                       0.00848 0.982 +1.0 [-7.0, +10.6] 0.01837 0.849        -9.1 [-24.1, +4.2] n.s.
+
+c09 rate0 1                              0.00850 0.985 +3.6 [-1.3, +11.4] 0.01865 0.862 +19.1 [+6.3, +32.8] worse
+c10 fcoacpc 0.7
+c11 latch 1                              0.00847 0.981 +0.0 [+0.0, +0.0] 0.01846 0.853         +0.2 [-0.9, +1.6] n.s.
+
+                                         0.00918 1.064 +71.4 [+9.0, +162.0] 0.02100 0.971 +254.9 [+69.6, +458.7] worse
+
+c12 lead safety 1.6                      0.00851 0.987 +4.9 [+0.3, +10.6] 0.01864 0.861 +18.2 [+4.5, +32.7] worse
+
+c13 pre margin 0.5, lead safety 1.6      0.00854 0.990      +7.5 [-0.0, +15.6] 0.01856 0.858   +10.1 [+4.9, +15.4] worse
+                                                              -3.4 [-6.6, -1.1] 0.01832 0.847    -14.0 [-25.6, -3.5] rule met
+c14 fcparpe 0.5, scale min 1             0.00843 0.977                                          -18.3 [-39.9, +2.3] n.s.
+                                                            -4.4 [-12.2, +2.6] 0.01827 0.845     -21.5 [-44.9, -4.5] rule met
+c15 fcparpe 0.5, scale min 1, pre margin 0.5 0.00842 0.976    -5.0 [-8.9, -1.4] 0.01824 0.843
+c16 fcparpe 0.35, scale min 1
+                                         0.00841 0.975
+
+Table 14: Round-4 candidates (v7 code, every switch off = the shipped v6) on the two screening sets at 2,880 steps:
+
+public-10 (the six earlier public screening scenarios and the other four Fairbanks strips) and held-26 (the six round-
+
+3 held-out screening scenarios and 20 scenarios of four new screening buildings).  = paired mean difference
+against the shipped v6 in units of 10-5 per step with its bootstrap 95% CI (negative favours the candidate); verdict
+
+as in Table 13 (helps = held-out CI below zero and public CI not above it).  marks the candidate chosen for
+full-length confirmation. Pre-registration and parameter files: experiments/results/round4/PREREG.md,
+experiments/src/policy_candidates/r4_*.json.
+
+                                                            public screen                held-out screen
+
+id change vs shipped v6                  metric                             [CI] metric                    [CI] verdict
+
+c00 shipped v6 (reference)               0.01332                           ญ 0.01315                      ญ base
+c01 fcparpe 0.316 (floor-pressure flow)
+c02 fcparpe 0.25, no clip                0.01332            -0.3 [-0.6, -0.1] 0.01316          +1.7 [-0.3, +4.1] public only
+c03 fcparpe 0.15, no clip
+c04 fcparpe 0.05, no clip                0.01333            +1.3 [-0.3, +3.6] 0.01328 +13.2 [+4.1, +24.8] worse
+
+c05 discharge margin 0.25 K              0.01364 +31.8 [+7.6, +59.2] 0.01364 +49.4 [+19.4, +85.2] worse
+
+                                         0.01541 +208.4 [+73.9, +357.9] 0.01505 +190.5 [+98.1, +297.2] worse
+
+                                         0.01306            -25.7 [-57.5, -3.0] 0.01294        -20.7 [-38.0, -6.4] helps
+
+c06 mixed-handler SAT relief             0.01332            -0.0 [-0.0, +0.0] 0.01318          +3.7 [-1.0, +10.9] n.s.
+
+c07 occupied pressure cap (e0 0.3, span 1 K) 0.01328        -4.4 [-9.3, -0.2] 0.01312          -2.4 [-7.7, +2.0] public only
+
+c08 occupied pressure cap (e0 0.1, span 0.5 K) 0.01328      -4.7 [-10.2, -0.2] 0.01307         -7.4 [-13.3, -2.4] helps
+
+c09 night flush (outside air)            0.01349 +16.5 [+0.3, +34.3] 0.01311 -3.3 [-24.6, +18.7] worse
+
+c10 reheat set-back zones' forced air    0.01316 -15.7 [-35.8, +1.2] 0.01309                   -5.8 [-13.0, -0.3] helps
+
+c11 night flush, not in heating season   0.01331            -0.8 [-1.7, -0.0] 0.01305          -9.6 [-16.6, -3.7] helps
+
+c12 discharge margin 0 K                 0.01301            -31.5 [-70.8, -3.6] 0.01290        -25.1 [-46.0, -8.1] helps
+
+c13 c10, only below the setback floor    0.01316 -15.8 [-35.8, +1.0] 0.01309                   -5.5 [-12.8, +0.0] n.s.
+
+c14 composite c12+c08+c11+c01+c10        0.01280 -51.7 [-113.7, -2.9] 0.01269 -45.7 [-72.6, -22.7] helps
+
+c15 composite c12+c08+c11+c01+c13        0.01280 -51.8 [-113.6, -3.1] 0.01269 -46.2 [-73.1, -22.9] helps
+
+0.8% to 1.0%; wins 43/44) and the public loss by 1.6% (CI 1.3% to 2.0%; wins 30/30): the rule was
+met and it shipped as v10 (M -1.1%, wins 12/12; FD -1.3%, wins 17/20; Kaggle 0.01055).
+
+E Diagnoses of rounds 3ญ5
+
+What rounds 3 and 4 found. v6 cut the largest-quartile recovery of v5's 350ญ430 m2 zones from
+0.65 h to 0.12 h. The generated buildings' larger chiller term is a normalization effect: they cool 2.05
+against 2.31 W/m2 but have 2643 instead of 1088 m2 of zone per handler.
+
+                                                          12
+Table 15: Round-5 candidates (v8 code, every switch off = v7) on the two screening sets at 2,880 steps: held-11
+
+(six scenarios of the shipped buildings under Minneapolis strips not in the confirmation set, and four round-4
+screening scenarios) and public-4.  = paired mean difference against v7 in 10-5 per step with its bootstrap
+
+95% CI (negative favours the candidate); verdicts as in Table 14. : chosen for full-length confirmation.
+Pre-registration: experiments/results/round5/PREREG.md.
+
+                                                                                                                                                                                public screen                                        held-out screen
+
+                              id change vs v7                                              metric                                                                                                               [CI] metric                               [CI] verdict
+
+                              c00 v7 (reference)                                           0.02401                                                                                                                   ญ 0.02328                                   ญญ
+
+                              c01 Monday lead ื1.5, no Monday learning 0.02422 +21.0 [+1.6, +36.5] 0.02354 +26.4 [+16.9, +36.6] worse
+
+                              c02 Monday lead ื1.25, no Monday learning 0.02414 +13.1 [-1.9, +25.2] 0.02343 +15.3 [+7.0, +24.3] worse
+
+                              c03 weekend setback -3/+2 K                                  0.02378                                                                                  -22.9 [-45.1, -0.6] 0.02312                                 -15.7 [-26.6, -5.5] helps
+
+                              c04 weekend setback -6/+4 K                                  0.02365                                                                                  -35.4 [-69.2, -1.6] 0.02301                                 -27.3 [-46.5, -9.6] helps
+
+                              c05 one-step lag compensation 1.0                            0.02397                                                                                  -3.7 [-7.9, +1.8] 0.02326                                   -1.3 [-4.3, +1.6] n.s.
+
+                              c06 one-step lag compensation 0.5                            0.02399                                                                                  -1.9 [-7.3, +4.1] 0.02325                                   -2.5 [-6.7, +1.3] n.s.
+
+                              c07 cooling preconditioning cap 0.5                          0.02400                                                                                  -0.8 [-2.6, +0.1] 0.02328                                   +0.0 [+0.0, +0.0] n.s.
+
+                              c08 setback burst 8 kW per 100 m2                            0.02408 +7.6 [+0.5, +14.8] 0.02308 -20.1 [-69.4, +7.0] worse
+
+                              c09 preconditioning at the cap from the start 0.02558 +157.4 [+60.1, +250.5] 0.02475 +147.3 [+88.5, +209.1] worse
+
+                              c10 request cap 20 kW per 100 m2                             0.02388 -12.8 [-38.5, +0.1] 0.02152 -176.0 [-475.8, -0.5] helps
+
+                              c11 request cap 30 kW per 100 m2                             0.02388 -12.8 [-38.5, +0.1] 0.02152 -175.8 [-476.5, -0.5] helps
+
+                              c12 composite c04+c10                                        0.02345 -55.2 [-116.2, -1.6] 0.02123 -205.1 [-529.1, -14.3] helps
+
+Table 16: Round 5: which local set predicts Kaggle? Leaderboard metric of v7 and the ratio of each other policy
+to v7 on the same scenarios (paired), against the Kaggle public scores of the same four policy files. E = mean
+over the policies with a Kaggle score of | ln rset - ln rKaggle| (pre-registered shape error; smaller matches better).
+Kaggle runs the identical files: its interactive run of building_train_1/atlanta_2 matches the local total
+within 0.02% for all four.
+
+                                     set                                                                                                                                        v7 v7 / Kaggle v6 / v7 v5 / v7 pid_water / v7 E
+
+                                     Kaggle public LB (about 10 hidden scenarios) 0.01088                                                                                                      1 1.026 1.067                                             5.89            ญ
+
+                                     P: public 30 (shipped six, 5 stations)                0.00786                                                                                  0.72 1.022 1.058                                                     7.00 0.062
+                                     M: shipped six ื Minneapolis (12)                     0.01119                                                                                                                                                       4.30 0.109
+                                     P+M (42)                                              0.00881                                                                                  1.03 1.032 1.076                                                     6.02 0.010
+                                     FS: fresh shipped-range buildings (20)                0.00725
+                                     FD: fresh default-range buildings (20)                0.01012                                                                                  0.81 1.025 1.061                                                        ญ 0.011
+                                     O: old held-out, default ranges (40)                  0.01173                                                                                                                                                          ญ 0.005
+                                                                                                                                                                                    0.67 1.014                                       ญ                   4.35 0.132
+
+                                                                                                                                                                                    0.93 1.031                                       ญ
+
+                                                                                                                                                                                    1.08 1.029 1.169
+
+What round 5 found. Under the Minneapolis strips (set M) v7 pays 78.3% of its loss for gas and
+5.5% for comfort, 78.0% of it in one January scenario whose 4 worst zones sat 0.5ญ3.3 K below the
+band because the request cap (12ญ18 kW) bound at about half of what box and coil deliver (v8 lifts
+it). Handlers start 2.4ญ4.8 times a day, so cycling is not a lever. Starter-kit pull request #2 (unmerged)
+bills boiler gas from a tank energy balance and closes a gap that rewards saw-toothing the hot-water
+setpoint (heat billed at 0.38 of its value); in a patched kit v7's loss falls by 0.4% on the 6 public
+Fairbanks scenarios while pid_water's rises by 23.4%: SADR's score does not rest on that gap.
+
+F Algorithm and additional figures
+
+per-step loss (metric units)                          comfort  fan  cooling  pump     gas
+
+                              0.020                                                                                                                                                                                                  pid_water  SADR v5          SADR v6 (round 3)
+
+                                     v5                                                                                                                                             |mean per-step reward|
+                                                  v6                                                                                                                                   (log, lower is better)
+
+                              0.015
+
+                              0.010
+
+                              0.005                   v5                                                                                                                                                       10-2
+                                                                   v6
+
+                                                                                        v5
+                                                                                                      v6
+
+                                                                                                                           v5
+                                                                                                                                         v6
+                                                                                                                                                              v5
+                                                                                                                                                                            v6
+
+                              0.000                                                                                                                                                                                  b0502   b0501      b0509   b0505    b0507   b0511      b0508   b0500
+                                                                                                                                                                                                                     (28 z)  (29 z)     (32 z)  (63 z)   (68 z)  (71 z)     (89 z)  (120 z)
+                                     Fairbanks        Denver        Atlanta  Phoenix       Singapore
+
+Figure 4: Per-station decomposition of the per-step loss                                                                                                                            Figure 5: Metric per generated held-out building
+(metric units) into comfort, fan, chiller, pump and gas
+on the 30 public scenarios, SADR v5 and v6.                                                                                                                                         (log scale, lower is better; ordered by zone count):
+                                                                                                                                                                                    pid_water, SADR v5 and v6, each run once at
+                                                                                                                                                                                    full length on the building's five strips.
+
+                                                                                                                                                                                13
+Table 17: Round-6 screen (8,640 steps; relative change of the mean against v8, paired bootstrap 95% CI, 5,000
+
+resamples, seed 0) on the harsh screening set HS (18) and twelve public scenarios. Classes as pre-registered
+(helps = HS CI below zero and public CI not above zero);  added after a first look at c01's screen (post hoc,
+labelled in PREREG.md);  defined after reading the public part of v9's confirmation, so not eligible this round
+
+(its HS column may cover part of HS).
+
+    id                                 change                                                 HS                       public-12             class
+
+    r6_c01_boost8                      boost set-back zones' forced air, 8 h before start      -0.9% [-1.4, -0.5]  -0.4% [-1.1, +0.2]        helps
+    r6_c02_boost4                      same, 4 h before start                                  -0.6% [-0.8, -0.3]  -0.3% [-0.8, +0.1]        helps
+                                       c01 only while outside air  setback floor
+    r6_c11_boost8cold                  join a burst on the handler within 0.8 K of the floor   -1.0% [-1.4, -0.5]  -0.5% [-1.2, +0.1]        helps
+    r6_c03_sync08                      boost forced air within 2 K of the floor               -0.0% [-0.1, +0.0]   -0.0% [-0.1, +0.0]        n.s.
+    r6_c09_bfloor2                     preconditioning target 0.5 K inside the band            -0.5% [-0.7, -0.3]  -0.4% [-0.8, +0.0]        helps
+    r6_c06_mpre05                      lead safety 1.15                                        -0.4% [-0.4, -0.3]  -0.3% [-0.7, +0.3]        helps
+    r6_c07_safe115                     weeknight setback 10 K                                  -0.3% [-0.4, -0.3]   -0.4% [-0.6, -0.2]       helps
+    r6_c08_night10                     frost floor 5C (sensible practice)                      -0.8% [-1.1, -0.5]   -0.3% [-0.7, -0.0]       helps
+    r6_c10_frost5                      composite c11 + c09 + c06 + c08 (v9)                   +0.9% [+0.6, +1.2]   +0.5% [+0.0, +1.1]        worse
+    r6_comp                            c11 + c09 + c07 + c08 (post hoc, ledger only)           -2.3% [-3.1, -1.6]   -1.4% [-2.8, -0.1]       helps
+
+    r6_compb                                                                                   -2.3% [-3.0, -1.6]   -1.4% [-2.7, -0.3]       helps
+
+Table 18: Round-7 screen (8,640 steps): relative change of the mean against v9 with the paired-bootstrap
+
+95% CI (5,000 resamples, seed 0) and wins, on the harsh screening set HS (18) and the public 30; classes as
+
+pre-registered (the same for bootstrap seeds 0ญ9). No candidate helps, so none was confirmed and v9 stays.
+Post hoc, after the first r7_mb shard (ledger only, not eligible).
+
+    id                         change                                      HS                                      public-30          class
+
+    r7_base                    base: v9 with the shorter lead (c07) instead +0.04% [-0.04, +0.13] 9/18 -0.65% [-1.13, -0.20] 17/30 public only
+
+    r7_mbr                     of the nearer target (c06)
+    r7_mbf
+    r7_mb                      base + model-based start                +0.37% [-0.42, +1.39] 12/18 -1.42% [-1.82, -1.04] 29/30 public only
+
+                               base + model-chosen setback floor       +0.01% [-0.08, +0.12] 10/18 -0.66% [-1.14, -0.22] 16/30 public only
+
+                               base + model-based start and floor      +0.33% [-0.45, +1.34] 12/18 -1.43% [-1.82, -1.06] 29/30 public only
+
+    r7L_mbr2 base + model start, may only shorten the -0.80% [-0.93, -0.64] 17/18 -1.62% [-2.02, -1.26] 30/30 (helps)
+                      learned lead
+
+Algorithm 1 SADR, one step (vectorized over zones z and handlers k)
+
+1: mode  OCCUPIED / PRECONDITION / SETBACK from flags, time, occupancy count, lead 
+
+2: (Th, Tc)z  band for the mode; update Ih, Ic; qh, qc  PI requests (W), or setback bursts
+3: runk  hysteresis on maxzk(qh, qc)
+
+4: SATk  285 K if cooling (292 K if also heating), 305 K otherwise; recirck  economizer
+5: Fz  qc/(Tz - Tsa,k) or qh/(308.15 -  - Tz); Pk  Pdesign maxz fz2; damperz 
+
+6:  fz/ Pk/Pdesign                                         - Tsa); p  (maxz Wz/(0.9kv))2; valvez                                           
+    Wz  Fz(Tdisch,z - Tsa)/(Tw                                                                                                 Wz/(kv p)
+7: Twsp  350 K if heating season else 310 K; pump  any valve open
+
+8: scatter all setpoints into the normalized action vectors; clip
+
+                          SADR (ours) (n=30 scenarios)                                        pid_water (n=30 scenarios)
+
+mean loss per step  0.10       energy + carbon
+   (metric units)              comfort regret
+                               total
+
+                    0.05
+
+                    0.00               6        12                 18      24 0               6                    12             18                24
+                            0
+
+                                               hour of day                                        hour of day
+
+Figure 6: Mean per-step loss by hour of day over the 30 public scenarios, split into comfort regret and
+energy + carbon; comfort hours (06ญ19) shaded. Left: SADR v6; right: pid_water.
+
+                                                                       14
+                           SADR (ours), Mon 2023-10-30                                              pid_water, Mon 2023-10-30
+
+zone temperature (K)  300     comfort band
+                      295     zone min-max
+                              zone median
+
+                      290
+
+                      285
+
+                      280
+
+                           0  6             12                              18  24                  0  6                 12           18  24
+
+                                 hour of day                                                                             hour of day
+
+Figure 7: One weekday on building_train_8/fairbanks_8: zone-temperature envelope (minญmax shaded,
+
+median line) against the comfort band (green wash), with the building occupancy count shaded in grey. Left:
+SADR v6; right: pid_water.
+
+                                            screening score           0.06  searched configuration     pid_water 0.0490
+                                               (6 scenarios, 5 days)  0.05  default parameters
+                                                                      0.04  pid_water, same runs
+                                                                      0.03
+                                                                      0.02  configuration (sorted by screening score)
+                                                                      0.01
+                                                                      0.00
+
+Figure 8: Screening score (six scenarios, five days) of every random-search configuration, sorted, with the design
+defaults highlighted and pid_water on the same runs.
+
+                                                                                15
+G Note added after the poster version: v11 and v12 (rounds 9ญ10, November
+     2026)
+
+This appendix was added after the rest of the paper was frozen; no other part of the paper was
+changed, and the numbers elsewhere refer to v10. A round-9 loss decomposition of v10 on all
+74 HC2 and public scenarios, together with a perfect-foresight linear programme on the kit's own
+(linear) building model, showed that v10 ran a full morning recovery every Saturday. The day-of-week
+observation is an integer day sent as float32 sine and cosine; v10 decoded it with atan2 and compared
+the result with 5, and Saturday decodes to 4.999999999, so Saturday counted as a workday (and the
+day after Sunday, 6.99999998, did not, so Monday's recovery could not start before midnight). The
+Saturday-morning preconditioning carried 2.9% of v10's HC2 loss (1.96ญ4.3% in every scenario)
+and 1.7% of its public-30 loss. v11 rounds the decoded day; nothing else changes and no parameter
+was tuned. It was registered before any run on the screening or confirmation sets and tested under the
+rule of rounds 6ญ8 (public-30 not worse and HC2 better, paired bootstrap, 5,000 resamples): HC2
+(44) 0.02152  0.02120, -1.50% (95% CI -1.71% to -1.30%), 44/44 wins; public 30 0.00762 
+0.00753, -1.23% (-1.88% to -0.69%), 28/30; HS (18) -1.59%, 18/18; M (12) -1.70%, 11/12;
+FD (20 scenarios of four larger generated buildings, a stress test outside the rule) -0.59% (-1.33%
+to +0.07%), 13/20, with its losses on the two buildings with the largest rooms (at most +2.8%). v11
+was not submitted to Kaggle at the time of this note.
+v12 (round 10, 2 November 2026) adds three changes to v11: a deeper weekend setback (12 K instead
+of 6 K); a second-order online zone model that may only shorten the preconditioning lead; and a
+heating season of seven days after the last heating demand instead of one (hot-water loop kept hot,
+night-flush guard, set-back reheat), applied only while the outside air was below 15 C at some step
+of the last 24 hours. A hot-water setpoint ramp that lowered billed gas was left out, because its saving
+comes from the billing gap that starter-kit pull request #2 closes (Appendix E). The components and
+the 15 C gate were chosen on development scenarios, so the numbers from those runs are selected;
+the candidate was then registered before any run on two fresh sets of eight new buildings from the
+shipped family. Against v11 (same rule form as above, with wins  60% on the primary set and no
+material regression on the guards): HC3 (40 cold scenarios, primary) 0.02398  0.02364, -1.41%
+(95% CI -1.75% to -1.11%), 40/40 wins; public 30 0.00753  0.00745, -0.97% (-1.40% to
+-0.59%), 21/30; HH (40 hot scenarios, guard) +0.04% (-0.02% to +0.11%), 4/40, worst +1.19%
+on an April Phoenix window; HS -1.36%, 18/18; M -1.21%, 12/12; FD -0.47% (-0.95% to
+-0.14%), 11/20. Comfort regret rises by 20% on HC3 and 14% on the public 30 (from 3.7% to 4.5%
+and from 2.8% to 3.2% of the loss); lower energy cost and carbon more than pay for it. HC3's cold
+windows do not exercise the gate, which is therefore supported only by the development runs and
+the guards. v12 is the shipped policy (submission/transfer_policy.py); v11 and v10 are kept
+beside it. Neither v11 nor v12 had been submitted to Kaggle at the time of this note.
+
+                                                          16
+

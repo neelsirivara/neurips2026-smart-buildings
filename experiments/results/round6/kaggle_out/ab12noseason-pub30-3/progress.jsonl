@@ -1,0 +1,11 @@
+{"id": "ab12_noseason/pub30/building_train_1/atlanta_2", "rc": 0, "wall_s": 1365.1, "ok": true, "total_reward": -32.69377350247123, "steps": 8640, "sec_per_step": 0.15407566803473013}
+{"id": "ab12_noseason/pub30/building_train_1/denver_7", "rc": 0, "wall_s": 1365.1, "ok": true, "total_reward": -22.7079295264557, "steps": 8640, "sec_per_step": 0.1539654505473596}
+{"id": "ab12_noseason/pub30/building_train_1/singapore_8", "rc": 0, "wall_s": 1365.1, "ok": true, "total_reward": -57.487150628556265, "steps": 8640, "sec_per_step": 0.15396219022847987}
+{"id": "ab12_noseason/pub30/building_train_2/fairbanks_2", "rc": 0, "wall_s": 2510.1, "ok": true, "total_reward": -94.79758718614539, "steps": 8640, "sec_per_step": 0.28557766096459497}
+{"id": "ab12_noseason/pub30/building_train_4/fairbanks_4", "rc": 0, "wall_s": 1845.1, "ok": true, "total_reward": -19.906327665999925, "steps": 8640, "sec_per_step": 0.20986105791396564}
+{"id": "ab12_noseason/pub30/building_train_5/atlanta_6", "rc": 0, "wall_s": 1940.1, "ok": true, "total_reward": -37.471883965622055, "steps": 8640, "sec_per_step": 0.22067169083489313}
+{"id": "ab12_noseason/pub30/building_train_5/phoenix_1", "rc": 0, "wall_s": 1940.1, "ok": true, "total_reward": -26.616538561593188, "steps": 8640, "sec_per_step": 0.22125959274945436}
+{"id": "ab12_noseason/pub30/building_train_7/denver_5", "rc": 0, "wall_s": 910.0, "ok": true, "total_reward": -49.664116938508414, "steps": 8640, "sec_per_step": 0.10338915683053158}
+{"id": "ab12_noseason/pub30/building_train_7/phoenix_3", "rc": 0, "wall_s": 765.0, "ok": true, "total_reward": -55.22265627797424, "steps": 8640, "sec_per_step": 0.08643379426664777}
+{"id": "ab12_noseason/pub30/building_train_8/singapore_7", "rc": 0, "wall_s": 680.0, "ok": true, "total_reward": -48.04869771396261, "steps": 8640, "sec_per_step": 0.07682356111429356}
+{"id": "ab12_noseason/pub30/building_train_8/denver_6", "rc": 0, "wall_s": 695.0, "ok": true, "total_reward": -33.188405700642534, "steps": 8640, "sec_per_step": 0.0783014570121412}

@@ -1,0 +1,2523 @@
+2026-11-08T14:48:31Z complete r13g03c00
+r13g03c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.76MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.26MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.70MB/s]
+
+r13g03c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T14:48:58Z complete r13g03c01
+r13g03c01 0 76kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 982kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 363kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.20MB/s]
+
+r13g03c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T14:49:24Z complete r13g03c02
+r13g03c02 0 77kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 388kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.10MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 623kB/s]
+
+r13g03c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T14:49:54Z complete r13g03c03
+r13g03c03 0 9kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 780kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.87MB/s]
+
+r13g03c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T14:50:22Z complete r13g03c04
+r13g03c04 0 5MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 414kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.15MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.27MB/s]
+
+r13g03c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T14:50:51Z running 0, queued 0
+2026-11-08T14:52:51Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g04c00
+ 
+2026-11-08T14:54:53Z pushed r13g04c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g04c01
+ 
+2026-11-08T14:54:56Z pushed r13g04c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g04c02
+ 
+2026-11-08T14:54:59Z pushed r13g04c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g04c03
+ 
+2026-11-08T14:55:02Z pushed r13g04c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g04c04
+ 
+2026-11-08T14:55:05Z pushed r13g04c04 rc=0
+2026-11-08T14:55:05Z running 5, queued 0
+2026-11-08T14:57:10Z running 5, queued 0
+2026-11-08T14:59:17Z running 5, queued 0
+2026-11-08T15:01:23Z running 5, queued 0
+2026-11-08T15:03:30Z running 5, queued 0
+2026-11-08T15:05:36Z running 5, queued 0
+2026-11-08T15:07:41Z running 5, queued 0
+2026-11-08T15:09:47Z running 5, queued 0
+2026-11-08T15:11:53Z running 5, queued 0
+2026-11-08T15:13:59Z running 5, queued 0
+2026-11-08T15:16:05Z running 5, queued 0
+2026-11-08T15:18:11Z running 5, queued 0
+2026-11-08T15:20:18Z running 5, queued 0
+2026-11-08T15:22:24Z running 5, queued 0
+2026-11-08T15:24:30Z running 5, queued 0
+2026-11-08T15:26:35Z running 5, queued 0
+2026-11-08T15:28:41Z running 5, queued 0
+2026-11-08T15:30:47Z running 5, queued 0
+2026-11-08T15:32:53Z running 5, queued 0
+2026-11-08T15:34:58Z running 5, queued 0
+2026-11-08T15:37:04Z running 5, queued 0
+2026-11-08T15:39:10Z running 5, queued 0
+2026-11-08T15:41:16Z running 5, queued 0
+2026-11-08T15:43:22Z running 5, queued 0
+2026-11-08T15:45:28Z running 5, queued 0
+2026-11-08T15:47:34Z running 5, queued 0
+2026-11-08T15:49:40Z running 5, queued 0
+2026-11-08T15:51:45Z running 5, queued 0
+2026-11-08T15:53:47Z complete r13g04c00
+r13g04c00 0 3MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 794kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.58MB/s]
+
+r13g04c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T15:54:15Z complete r13g04c01
+r13g04c01 0 16kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 218kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 801kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.14MB/s]
+
+r13g04c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T15:54:42Z complete r13g04c02
+r13g04c02 0 2kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 857kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 1.47MB/s]
+
+r13g04c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T15:55:06Z complete r13g04c03
+r13g04c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.56MB/s]
+
+r13g04c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T15:55:32Z complete r13g04c04
+r13g04c04 0 42kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 492kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 410kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 9.64MB/s]
+
+r13g04c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T15:55:58Z running 0, queued 0
+2026-11-08T15:57:58Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g05c00
+ 
+2026-11-08T16:00:01Z pushed r13g05c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g05c01
+ 
+2026-11-08T16:00:04Z pushed r13g05c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g05c02
+ 
+2026-11-08T16:00:07Z pushed r13g05c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g05c03
+ 
+2026-11-08T16:00:10Z pushed r13g05c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g05c04
+ 
+2026-11-08T16:00:13Z pushed r13g05c04 rc=0
+2026-11-08T16:00:13Z running 5, queued 0
+2026-11-08T16:02:18Z running 5, queued 0
+2026-11-08T16:04:24Z running 5, queued 0
+2026-11-08T16:06:31Z running 5, queued 0
+2026-11-08T16:08:37Z running 5, queued 0
+2026-11-08T16:10:43Z running 5, queued 0
+2026-11-08T16:12:49Z running 5, queued 0
+2026-11-08T16:14:55Z running 5, queued 0
+2026-11-08T16:17:00Z running 5, queued 0
+2026-11-08T16:19:06Z running 5, queued 0
+2026-11-08T16:21:13Z running 5, queued 0
+2026-11-08T16:23:19Z running 5, queued 0
+2026-11-08T16:25:25Z running 5, queued 0
+2026-11-08T16:27:31Z running 5, queued 0
+2026-11-08T16:29:37Z running 5, queued 0
+2026-11-08T16:31:43Z running 5, queued 0
+2026-11-08T16:33:49Z running 5, queued 0
+2026-11-08T16:35:54Z running 5, queued 0
+2026-11-08T16:37:58Z complete r13g05c02
+r13g05c02 0 9MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 544kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 2.72MB/s]
+
+r13g05c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T16:38:23Z complete r13g05c03
+r13g05c03 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.12MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 2.24MB/s]
+
+r13g05c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T16:38:49Z running 3, queued 0
+2026-11-08T16:40:50Z complete r13g05c00
+r13g05c00 0 4kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 392kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 1.69MB/s]
+
+r13g05c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T16:41:18Z complete r13g05c01
+r13g05c01 0 04MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 537kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 385kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 10.8MB/s]
+
+r13g05c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T16:41:48Z complete r13g05c04
+r13g05c04 0 3kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 468kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 1.96MB/s]
+
+r13g05c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T16:42:18Z running 0, queued 0
+2026-11-08T16:44:18Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g06c00
+ 
+2026-11-08T16:46:21Z pushed r13g06c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g06c01
+ 
+2026-11-08T16:46:24Z pushed r13g06c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g06c02
+ 
+2026-11-08T16:46:27Z pushed r13g06c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g06c03
+ 
+2026-11-08T16:46:30Z pushed r13g06c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g06c04
+ 
+2026-11-08T16:46:33Z pushed r13g06c04 rc=0
+2026-11-08T16:46:33Z running 5, queued 0
+2026-11-08T16:48:40Z running 5, queued 0
+2026-11-08T16:50:45Z running 5, queued 0
+2026-11-08T16:52:51Z running 5, queued 0
+2026-11-08T16:54:57Z running 5, queued 0
+2026-11-08T16:57:03Z running 5, queued 0
+2026-11-08T16:59:09Z running 5, queued 0
+2026-11-08T17:01:16Z running 5, queued 0
+2026-11-08T17:03:22Z running 5, queued 0
+2026-11-08T17:05:27Z running 5, queued 0
+2026-11-08T17:07:33Z running 5, queued 0
+2026-11-08T17:09:39Z running 5, queued 0
+2026-11-08T17:11:45Z running 5, queued 0
+2026-11-08T17:13:51Z running 5, queued 0
+2026-11-08T17:15:57Z running 5, queued 0
+2026-11-08T17:18:03Z running 5, queued 0
+2026-11-08T17:20:08Z running 5, queued 0
+2026-11-08T17:22:15Z running 5, queued 0
+2026-11-08T17:24:25Z running 5, queued 0
+2026-11-08T17:26:30Z complete r13g06c03
+r13g06c03 0 7MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.18MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 483kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 1.89MB/s]
+
+r13g06c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T17:26:55Z complete r13g06c04
+r13g06c04 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.20MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.37MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.09MB/s]
+
+r13g06c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T17:27:21Z running 3, queued 0
+2026-11-08T17:29:22Z complete r13g06c00
+r13g06c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.61MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.07MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.53MB/s]
+
+r13g06c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T17:29:54Z complete r13g06c01
+r13g06c01 0 15MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 444kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 423kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.30MB/s]
+
+r13g06c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T17:30:21Z running 1, queued 0
+2026-11-08T17:32:23Z complete r13g06c02
+r13g06c02 0 6MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 983kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 1.90MB/s]
+
+r13g06c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T17:32:51Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g07c00
+ 
+2026-11-08T17:34:54Z pushed r13g07c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g07c01
+ 
+2026-11-08T17:34:57Z pushed r13g07c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g07c02
+ 
+2026-11-08T17:34:59Z pushed r13g07c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g07c03
+ 
+2026-11-08T17:35:02Z pushed r13g07c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g07c04
+ 
+2026-11-08T17:35:05Z pushed r13g07c04 rc=0
+2026-11-08T17:35:05Z running 5, queued 0
+2026-11-08T17:37:11Z running 5, queued 0
+2026-11-08T17:39:17Z running 5, queued 0
+2026-11-08T17:41:23Z running 5, queued 0
+2026-11-08T17:43:28Z running 5, queued 0
+2026-11-08T17:45:34Z running 5, queued 0
+2026-11-08T17:47:40Z running 5, queued 0
+2026-11-08T17:49:47Z running 5, queued 0
+2026-11-08T17:51:54Z running 5, queued 0
+2026-11-08T17:54:01Z running 5, queued 0
+2026-11-08T17:56:07Z running 5, queued 0
+2026-11-08T17:58:13Z running 5, queued 0
+2026-11-08T18:00:27Z running 5, queued 0
+2026-11-08T18:02:33Z running 5, queued 0
+2026-11-08T18:04:37Z complete r13g07c02
+r13g07c02 0 78kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 447kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 525kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.94MB/s]
+
+r13g07c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T18:05:06Z running 4, queued 0
+2026-11-08T18:07:15Z running 4, queued 0
+2026-11-08T18:09:19Z running 4, queued 0
+2026-11-08T18:11:24Z running 4, queued 0
+2026-11-08T18:13:27Z complete r13g07c01
+r13g07c01 0 2MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.01MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 480kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.59MB/s]
+
+r13g07c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T18:13:57Z complete r13g07c03
+r13g07c03 1 _train_1__atlanta_4.log
+
+  0%|          | 0.00/710 [00:00<?, ?B/s]
+100%|██████████| 710/710 [00:00<00:00, 380kB/s]
+
+  0%|          | 0.00/130 [00:00<?, ?B/s]
+100%|██████████| 130/130 [00:00<00:00, 63.1kB/s]
+('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+r13g07c03: output download failed (rc=1, 0 summaries); will retry
+r13g07c03: merged 0 summaries (0 progress lines, 24 jobs)
+2026-11-08T18:15:32Z running 2, queued 0
+2026-11-08T18:17:34Z complete r13g07c00
+r13g07c00 0 30kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 463kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 609kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 4.11MB/s]
+
+r13g07c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T18:18:00Z complete r13g07c03
+r13g07c03 1 [00:00<00:00, 59.0kB/s]
+
+  0%|          | 0.00/136 [00:00<?, ?B/s]
+100%|██████████| 136/136 [00:00<00:00, 76.9kB/s]
+
+  0%|          | 0.00/136 [00:00<?, ?B/s]
+100%|██████████| 136/136 [00:00<00:00, 137kB/s]
+('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+r13g07c03: output download failed (rc=1, 0 summaries); will retry
+r13g07c03: merged 0 summaries (0 progress lines, 24 jobs)
+2026-11-08T18:19:17Z complete r13g07c04
+r13g07c04 1 onnectionPool(host='api.kaggle.com', port=443): Max retries exceeded with url: /v1/kernels.KernelsApiService/ListKernelSessionOutput (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.kaggle.com', port=443) at 0x1cbdc830050>, 'Connection to api.kaggle.com timed out. (connect timeout=None)'))
+
+r13g07c04: output download failed (rc=1, 0 summaries); will retry
+r13g07c04: merged 0 summaries (0 progress lines, 24 jobs)
+2026-11-08T18:20:03Z running 0, queued 0
+2026-11-08T18:22:44Z complete r13g07c03
+r13g07c03 1 00:00, 62.2kB/s]
+
+  0%|          | 0.00/132 [00:00<?, ?B/s]
+100%|██████████| 132/132 [00:00<00:00, 92.8kB/s]
+
+  0%|          | 0.00/130 [00:00<?, ?B/s]
+100%|██████████| 130/130 [00:00<00:00, 173kB/s]
+HTTPSConnectionPool(host='www.kaggleusercontent.com', port=443): Read timed out. (read timeout=300)
+
+r13g07c03: output download failed (rc=1, 0 summaries); will retry
+r13g07c03: merged 0 summaries (0 progress lines, 24 jobs)
+2026-11-08T18:28:21Z complete r13g07c04
+2026-11-08T18:49:51Z complete r13g07c03
+r13g07c03 0 8kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 497kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.27MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 3.70MB/s]
+
+r13g07c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T18:50:17Z complete r13g07c04
+r13g07c04 0 8kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 337kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 4.12MB/s]
+
+r13g07c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T18:50:44Z running 0, queued 0
+2026-11-08T18:52:44Z running 0, queued 0
+2026-11-08T18:54:44Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g08c00
+ 
+2026-11-08T18:56:47Z pushed r13g08c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g08c01
+ 
+2026-11-08T18:56:49Z pushed r13g08c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g08c02
+ 
+2026-11-08T18:56:52Z pushed r13g08c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g08c03
+ 
+2026-11-08T18:56:55Z pushed r13g08c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g08c04
+ 
+2026-11-08T18:56:58Z pushed r13g08c04 rc=0
+2026-11-08T18:56:58Z running 5, queued 0
+2026-11-08T18:59:04Z running 5, queued 0
+2026-11-08T19:01:09Z running 5, queued 0
+2026-11-08T19:03:15Z running 5, queued 0
+2026-11-08T19:05:21Z running 5, queued 0
+2026-11-08T19:07:26Z running 5, queued 0
+2026-11-08T19:09:33Z running 5, queued 0
+2026-11-08T19:11:39Z running 5, queued 0
+2026-11-08T19:13:44Z running 5, queued 0
+2026-11-08T19:15:49Z running 5, queued 0
+2026-11-08T19:17:56Z running 5, queued 0
+2026-11-08T19:20:17Z running 5, queued 0
+2026-11-08T19:22:23Z running 5, queued 0
+2026-11-08T19:24:29Z running 5, queued 0
+2026-11-08T19:26:34Z running 5, queued 0
+2026-11-08T19:28:40Z running 5, queued 0
+2026-11-08T19:30:46Z running 5, queued 0
+2026-11-08T19:32:51Z running 5, queued 0
+2026-11-08T19:34:57Z running 5, queued 0
+2026-11-08T19:36:58Z complete r13g08c00
+r13g08c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.33MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.28MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 4.05MB/s]
+
+r13g08c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T19:37:27Z complete r13g08c01
+r13g08c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.60MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.99MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 11.0MB/s]
+
+r13g08c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T19:37:53Z complete r13g08c02
+r13g08c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.83MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.83MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 12.2MB/s]
+
+r13g08c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T19:38:20Z complete r13g08c04
+r13g08c04 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.88MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.18MB/s]
+
+r13g08c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T19:38:44Z running 1, queued 0
+2026-11-08T19:40:45Z complete r13g08c03
+r13g08c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.54MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.02MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 11.8MB/s]
+
+r13g08c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T19:41:12Z running 0, queued 0
+2026-11-08T19:43:12Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g09c00
+ 
+2026-11-08T19:45:14Z pushed r13g09c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g09c01
+ 
+2026-11-08T19:45:17Z pushed r13g09c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g09c02
+ 
+2026-11-08T19:45:20Z pushed r13g09c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g09c03
+ 
+2026-11-08T19:45:22Z pushed r13g09c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g09c04
+ 
+2026-11-08T19:45:25Z pushed r13g09c04 rc=0
+2026-11-08T19:45:25Z running 5, queued 0
+2026-11-08T19:47:30Z running 5, queued 0
+2026-11-08T19:49:36Z running 5, queued 0
+2026-11-08T19:51:42Z running 5, queued 0
+2026-11-08T19:53:48Z running 5, queued 0
+2026-11-08T19:55:55Z running 5, queued 0
+2026-11-08T19:58:00Z running 5, queued 0
+2026-11-08T20:00:06Z running 5, queued 0
+2026-11-08T20:02:11Z running 5, queued 0
+2026-11-08T20:04:17Z running 5, queued 0
+2026-11-08T20:06:23Z running 5, queued 0
+2026-11-08T20:08:28Z running 5, queued 0
+2026-11-08T20:10:34Z running 5, queued 0
+2026-11-08T20:12:40Z running 5, queued 0
+2026-11-08T20:14:45Z running 5, queued 0
+2026-11-08T20:16:51Z running 5, queued 0
+2026-11-08T20:18:56Z running 5, queued 0
+2026-11-08T20:21:02Z running 5, queued 0
+2026-11-08T20:23:04Z complete r13g09c01
+r13g09c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.25MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.11MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 5.28MB/s]
+
+r13g09c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T20:23:31Z running 4, queued 0
+2026-11-08T20:25:32Z complete r13g09c00
+r13g09c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.96MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.30MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 11.5MB/s]
+
+r13g09c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T20:25:59Z complete r13g09c02
+r13g09c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.45MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.20MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 4.61MB/s]
+
+r13g09c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T20:26:27Z complete r13g09c03
+r13g09c03 0 2MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 347kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.28MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 5.25MB/s]
+
+r13g09c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T20:26:53Z complete r13g09c04
+r13g09c04 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.25MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.23MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.05MB/s]
+
+r13g09c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T20:27:18Z running 0, queued 0
+2026-11-08T20:29:18Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g10c00
+ 
+2026-11-08T20:31:21Z pushed r13g10c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g10c01
+ 
+2026-11-08T20:31:24Z pushed r13g10c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g10c02
+ 
+2026-11-08T20:31:27Z pushed r13g10c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g10c03
+ 
+2026-11-08T20:31:29Z pushed r13g10c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g10c04
+ 
+2026-11-08T20:31:32Z pushed r13g10c04 rc=0
+2026-11-08T20:31:32Z running 5, queued 0
+2026-11-08T20:33:37Z running 5, queued 0
+2026-11-08T20:35:43Z running 5, queued 0
+2026-11-08T20:37:49Z running 5, queued 0
+2026-11-08T20:39:54Z running 5, queued 0
+2026-11-08T20:42:00Z running 5, queued 0
+2026-11-08T20:44:05Z running 5, queued 0
+2026-11-08T20:46:11Z running 5, queued 0
+2026-11-08T20:48:17Z running 5, queued 0
+2026-11-08T20:50:23Z running 5, queued 0
+2026-11-08T20:52:28Z running 5, queued 0
+2026-11-08T20:54:34Z running 5, queued 0
+2026-11-08T20:56:39Z running 5, queued 0
+2026-11-08T20:58:45Z running 5, queued 0
+2026-11-08T21:00:51Z running 5, queued 0
+2026-11-08T21:02:57Z running 5, queued 0
+2026-11-08T21:05:02Z running 5, queued 0
+2026-11-08T21:07:07Z complete r13g10c03
+r13g10c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.51MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.44MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 11.4MB/s]
+
+r13g10c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:07:32Z complete r13g10c04
+r13g10c04 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.13MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 9.35MB/s]
+
+r13g10c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:08:01Z running 3, queued 0
+2026-11-08T21:10:02Z complete r13g10c00
+r13g10c00 0 4MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.00MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 816kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 6.68MB/s]
+
+r13g10c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:10:35Z complete r13g10c02
+r13g10c02 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.15MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.87MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 10.2MB/s]
+
+r13g10c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:11:01Z running 1, queued 0
+2026-11-08T21:13:02Z running 1, queued 0
+2026-11-08T21:15:03Z complete r13g10c01
+r13g10c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.08MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.64MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 5.09MB/s]
+
+r13g10c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:15:30Z running 0, queued 0
+2026-11-08T21:17:30Z running 0, queued 0
+2026-11-08T21:19:30Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g11c00
+ 
+2026-11-08T21:21:33Z pushed r13g11c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g11c01
+ 
+2026-11-08T21:21:36Z pushed r13g11c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g11c02
+ 
+2026-11-08T21:21:38Z pushed r13g11c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g11c03
+ 
+2026-11-08T21:21:41Z pushed r13g11c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g11c04
+ 
+2026-11-08T21:21:44Z pushed r13g11c04 rc=0
+2026-11-08T21:21:44Z running 5, queued 0
+2026-11-08T21:23:50Z running 5, queued 0
+2026-11-08T21:25:55Z running 5, queued 0
+2026-11-08T21:28:01Z running 5, queued 0
+2026-11-08T21:30:07Z running 5, queued 0
+2026-11-08T21:32:12Z running 5, queued 0
+2026-11-08T21:34:18Z running 5, queued 0
+2026-11-08T21:36:24Z running 5, queued 0
+2026-11-08T21:38:29Z running 5, queued 0
+2026-11-08T21:40:34Z running 5, queued 0
+2026-11-08T21:42:40Z running 5, queued 0
+2026-11-08T21:44:45Z running 5, queued 0
+2026-11-08T21:46:51Z running 5, queued 0
+2026-11-08T21:48:56Z running 5, queued 0
+2026-11-08T21:51:02Z running 5, queued 0
+2026-11-08T21:53:08Z running 5, queued 0
+2026-11-08T21:55:13Z running 5, queued 0
+2026-11-08T21:57:19Z running 5, queued 0
+2026-11-08T21:59:22Z complete r13g11c02
+r13g11c02 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.06MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.26MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 12.4MB/s]
+
+r13g11c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T21:59:48Z running 4, queued 0
+2026-11-08T22:01:50Z complete r13g11c00
+r13g11c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.95MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 2.27MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 7.06MB/s]
+
+r13g11c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T22:02:19Z complete r13g11c04
+r13g11c04 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.76MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.59MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 11.9MB/s]
+
+r13g11c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T22:02:46Z running 2, queued 0
+2026-11-08T22:04:47Z complete r13g11c01
+r13g11c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.52MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.31MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.05MB/s]
+
+r13g11c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T22:05:16Z complete r13g11c03
+r13g11c03 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.37MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 3.02MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.55MB/s]
+
+r13g11c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T22:05:45Z running 0, queued 0
+2026-11-08T22:07:45Z running 0, queued 0
+2026-11-08T22:09:45Z running 0, queued 0
+2026-11-08T22:11:45Z running 0, queued 0
+2026-11-08T22:13:45Z running 0, queued 0
+2026-11-08T22:15:45Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-pub30-1
+ 
+2026-11-08T22:17:47Z pushed r13cand-pub30-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-pub30-2
+ 
+2026-11-08T22:17:50Z pushed r13cand-pub30-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-pub30-3
+ 
+2026-11-08T22:17:52Z pushed r13cand-pub30-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-r10hc-1
+ 
+2026-11-08T22:17:55Z pushed r13cand-r10hc-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-r10hc-2
+ 
+2026-11-08T22:17:58Z pushed r13cand-r10hc-2 rc=0
+2026-11-08T22:17:58Z running 5, queued 2
+2026-11-08T22:20:03Z running 5, queued 2
+2026-11-08T22:22:09Z running 5, queued 2
+2026-11-08T22:24:14Z running 5, queued 2
+2026-11-08T22:26:20Z running 5, queued 2
+2026-11-08T22:28:26Z running 5, queued 2
+2026-11-08T22:30:31Z running 5, queued 2
+2026-11-08T22:32:36Z running 5, queued 2
+2026-11-08T22:34:43Z running 5, queued 2
+2026-11-08T22:36:48Z running 5, queued 2
+2026-11-08T22:38:54Z running 5, queued 2
+2026-11-08T22:40:59Z running 5, queued 2
+2026-11-08T22:43:04Z running 5, queued 2
+2026-11-08T22:45:10Z running 5, queued 2
+2026-11-08T22:47:16Z running 5, queued 2
+2026-11-08T22:49:22Z running 5, queued 2
+2026-11-08T22:51:27Z running 5, queued 2
+2026-11-08T22:53:33Z running 5, queued 2
+2026-11-08T22:55:39Z running 5, queued 2
+2026-11-08T22:57:44Z running 5, queued 2
+2026-11-08T22:59:51Z running 5, queued 2
+2026-11-08T23:01:57Z running 5, queued 2
+2026-11-08T23:04:02Z running 5, queued 2
+2026-11-08T23:06:08Z running 5, queued 2
+2026-11-08T23:08:13Z running 5, queued 2
+2026-11-08T23:10:20Z running 5, queued 2
+2026-11-08T23:12:25Z running 5, queued 2
+2026-11-08T23:14:31Z running 5, queued 2
+2026-11-08T23:16:36Z running 5, queued 2
+2026-11-08T23:18:42Z running 5, queued 2
+2026-11-08T23:20:48Z running 5, queued 2
+2026-11-08T23:22:53Z running 5, queued 2
+2026-11-08T23:24:55Z complete r13cand-pub30-2
+r13cand-pub30-2 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.28MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.89MB/s]
+
+  0%|          | 0.00/2.43k [00:00<?, ?B/s]
+100%|██████████| 2.43k/2.43k [00:00<00:00, 2.67MB/s]
+
+r13cand-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-r10hc-3
+ 
+2026-11-08T23:25:14Z pushed r13cand-r10hc-3 rc=0
+2026-11-08T23:25:14Z running 5, queued 1
+2026-11-08T23:27:16Z complete r13cand-pub30-3
+r13cand-pub30-3 0 9MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 946kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.81MB/s]
+
+  0%|          | 0.00/2.59k [00:00<?, ?B/s]
+100%|██████████| 2.59k/2.59k [00:00<00:00, 1.61MB/s]
+
+r13cand-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13cand-r10hc-4
+ 
+2026-11-08T23:27:35Z pushed r13cand-r10hc-4 rc=0
+2026-11-08T23:27:35Z running 5, queued 0
+2026-11-08T23:29:37Z complete r13cand-pub30-1
+r13cand-pub30-1 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 2.36MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.30MB/s]
+
+  0%|          | 0.00/2.24k [00:00<?, ?B/s]
+100%|██████████| 2.24k/2.24k [00:00<00:00, 2.52MB/s]
+
+r13cand-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-11-08T23:29:54Z running 4, queued 0
+2026-11-08T23:31:58Z running 4, queued 0
+2026-11-08T23:34:03Z running 4, queued 0
+2026-11-08T23:36:04Z complete r13cand-r10hc-1
+r13cand-r10hc-1 0 3MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.87MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.15MB/s]
+
+  0%|          | 0.00/2.42k [00:00<?, ?B/s]
+100%|██████████| 2.42k/2.42k [00:00<00:00, 794kB/s]
+
+r13cand-r10hc-1: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T23:36:17Z complete r13cand-r10hc-2
+r13cand-r10hc-2 0 1kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 543kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.96MB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|██████████| 2.39k/2.39k [00:00<00:00, 1.07MB/s]
+
+r13cand-r10hc-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T23:36:32Z running 2, queued 0
+2026-11-08T23:38:35Z running 2, queued 0
+2026-11-08T23:40:37Z running 2, queued 0
+2026-11-08T23:42:39Z running 2, queued 0
+2026-11-08T23:44:41Z running 2, queued 0
+2026-11-08T23:46:44Z running 2, queued 0
+2026-11-08T23:48:46Z running 2, queued 0
+2026-11-08T23:50:49Z running 2, queued 0
+2026-11-08T23:52:51Z running 2, queued 0
+2026-11-08T23:54:53Z running 2, queued 0
+2026-11-08T23:56:55Z running 2, queued 0
+2026-11-08T23:58:59Z running 2, queued 0
+2026-11-09T00:01:01Z running 2, queued 0
+2026-11-09T00:03:03Z running 2, queued 0
+2026-11-09T00:05:06Z running 2, queued 0
+2026-11-09T00:07:08Z running 2, queued 0
+2026-11-09T00:09:12Z running 2, queued 0
+2026-11-09T00:11:15Z running 2, queued 0
+2026-11-09T00:13:17Z running 2, queued 0
+2026-11-09T00:15:19Z running 2, queued 0
+2026-11-09T00:17:22Z running 2, queued 0
+2026-11-09T00:19:24Z running 2, queued 0
+2026-11-09T00:21:26Z running 2, queued 0
+2026-11-09T00:23:28Z running 2, queued 0
+2026-11-09T00:25:31Z running 2, queued 0
+2026-11-09T00:27:33Z running 2, queued 0
+2026-11-09T00:29:35Z running 2, queued 0
+2026-11-09T00:31:44Z running 2, queued 0
+2026-11-09T00:33:49Z running 2, queued 0
+2026-11-09T00:35:53Z running 2, queued 0
+2026-11-09T00:37:58Z running 2, queued 0
+2026-11-09T00:40:02Z running 2, queued 0
+2026-11-09T00:42:08Z running 2, queued 0
+2026-11-09T00:44:15Z running 2, queued 0
+2026-11-09T00:46:20Z complete r13cand-r10hc-4
+r13cand-r10hc-4 0 64kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 456kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 548kB/s]
+
+  0%|          | 0.00/2.40k [00:00<?, ?B/s]
+100%|██████████| 2.40k/2.40k [00:00<00:00, 1.46MB/s]
+
+r13cand-r10hc-4: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-09T00:46:51Z running 1, queued 0
+2026-11-09T00:48:55Z complete r13cand-r10hc-3
+r13cand-r10hc-3 0 15kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 603kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 566kB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|██████████| 2.41k/2.41k [00:00<00:00, 1.59MB/s]
+
+r13cand-r10hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-09T00:49:25Z running 0, queued 0
+2026-11-09T00:51:25Z running 0, queued 0
+2026-11-09T00:53:25Z running 0, queued 0
+2026-11-09T00:55:25Z running 0, queued 0
+2026-11-09T00:57:25Z running 0, queued 0
+2026-11-09T00:59:25Z running 0, queued 0
+2026-11-09T01:01:25Z running 0, queued 0
+2026-11-09T01:03:25Z running 0, queued 0
+2026-11-09T01:05:25Z running 0, queued 0
+2026-11-09T01:07:25Z running 0, queued 0
+2026-11-09T01:09:25Z running 0, queued 0
+2026-11-09T01:11:25Z running 0, queued 0
+2026-11-09T01:13:25Z running 0, queued 0
+2026-11-09T01:15:25Z running 0, queued 0
+2026-11-09T01:17:25Z running 0, queued 0
+2026-11-09T01:19:25Z running 0, queued 0
+2026-11-09T01:21:25Z running 0, queued 0
+2026-11-09T01:23:25Z running 0, queued 0
+2026-11-09T01:25:25Z running 0, queued 0
+2026-11-09T01:27:25Z running 0, queued 0
+2026-11-09T01:29:25Z running 0, queued 0
+2026-11-09T01:31:25Z running 0, queued 0
+2026-11-09T01:33:25Z running 0, queued 0
+2026-11-09T01:35:25Z running 0, queued 0
+2026-11-09T01:37:25Z running 0, queued 0
+2026-11-09T01:39:25Z running 0, queued 0
+2026-11-09T01:41:25Z running 0, queued 0
+2026-11-09T01:43:25Z running 0, queued 0
+2026-11-09T01:45:25Z running 0, queued 0
+2026-11-09T01:47:25Z running 0, queued 0
+2026-11-09T01:49:25Z running 0, queued 0
+2026-11-09T01:51:25Z running 0, queued 0
+2026-11-09T01:53:26Z running 0, queued 0
+2026-11-09T01:55:26Z running 0, queued 0
+2026-11-09T01:57:26Z running 0, queued 0
+2026-11-09T01:59:26Z running 0, queued 0
+2026-11-09T02:01:26Z running 0, queued 0
+2026-11-09T02:03:26Z running 0, queued 0
+2026-11-09T02:05:26Z running 0, queued 0
+2026-11-09T02:07:26Z running 0, queued 0
+2026-11-09T02:09:26Z running 0, queued 0
+2026-11-09T02:11:26Z running 0, queued 0
+2026-11-09T02:13:26Z running 0, queued 0
+2026-11-09T02:15:26Z running 0, queued 0
+2026-11-09T02:17:26Z running 0, queued 0
+2026-11-09T02:19:26Z running 0, queued 0
+2026-11-09T02:21:26Z running 0, queued 0
+2026-11-09T02:23:26Z running 0, queued 0
+2026-11-09T02:25:26Z running 0, queued 0
+2026-11-09T02:27:26Z running 0, queued 0
+2026-11-09T02:29:26Z running 0, queued 0
+2026-11-09T02:31:26Z running 0, queued 0
+2026-11-09T02:33:26Z running 0, queued 0
+2026-11-09T02:35:26Z running 0, queued 0
+2026-11-09T02:37:26Z running 0, queued 0
+2026-11-09T02:39:26Z running 0, queued 0
+2026-11-09T02:41:26Z running 0, queued 0
+2026-11-09T02:43:26Z running 0, queued 0
+2026-11-09T02:45:26Z running 0, queued 0
+2026-11-09T02:47:26Z running 0, queued 0
+2026-11-09T02:49:26Z running 0, queued 0
+2026-11-09T02:51:26Z running 0, queued 0
+2026-11-09T02:53:26Z running 0, queued 0
+2026-11-09T02:55:26Z running 0, queued 0
+2026-11-09T02:57:26Z running 0, queued 0
+2026-11-09T02:59:26Z running 0, queued 0
+2026-11-09T03:01:26Z running 0, queued 0
+2026-11-09T03:03:26Z running 0, queued 0
+2026-11-09T03:05:26Z running 0, queued 0
+2026-11-09T03:07:26Z running 0, queued 0
+2026-11-09T03:09:26Z running 0, queued 0
+2026-11-09T03:11:26Z running 0, queued 0
+2026-11-09T03:13:26Z running 0, queued 0
+2026-11-09T03:15:26Z running 0, queued 0
+2026-11-09T03:17:26Z running 0, queued 0
+2026-11-09T03:19:26Z running 0, queued 0
+2026-11-09T03:21:26Z running 0, queued 0
+2026-11-09T03:23:26Z running 0, queued 0
+2026-11-09T03:25:26Z running 0, queued 0
+2026-11-09T03:27:26Z running 0, queued 0
+2026-11-09T03:29:26Z running 0, queued 0
+2026-11-09T03:31:26Z running 0, queued 0
+2026-11-09T03:33:26Z running 0, queued 0
+2026-11-09T03:35:26Z running 0, queued 0
+2026-11-09T03:37:26Z running 0, queued 0
+2026-11-09T03:39:26Z running 0, queued 0
+2026-11-09T03:41:26Z running 0, queued 0
+2026-11-09T03:43:26Z running 0, queued 0
+2026-11-09T03:45:26Z running 0, queued 0
+2026-11-09T03:47:26Z running 0, queued 0
+2026-11-09T03:49:26Z running 0, queued 0
+2026-11-09T03:51:26Z running 0, queued 0
+2026-11-09T03:53:26Z running 0, queued 0
+2026-11-09T03:55:26Z running 0, queued 0
+2026-11-09T03:57:26Z running 0, queued 0
+2026-11-09T03:59:26Z running 0, queued 0
+2026-11-09T04:01:26Z running 0, queued 0
+2026-11-09T04:03:26Z running 0, queued 0
+2026-11-09T04:05:26Z running 0, queued 0
+2026-11-09T04:07:27Z running 0, queued 0
+2026-11-09T04:09:27Z running 0, queued 0
+2026-11-09T04:11:27Z running 0, queued 0
+2026-11-09T04:13:27Z running 0, queued 0
+2026-11-09T04:15:27Z running 0, queued 0
+2026-11-09T04:17:27Z running 0, queued 0
+2026-11-09T04:19:27Z running 0, queued 0
+2026-11-09T04:21:27Z running 0, queued 0
+2026-11-09T04:23:27Z running 0, queued 0
+2026-11-09T04:25:27Z running 0, queued 0
+2026-11-09T04:27:27Z running 0, queued 0
+2026-11-09T04:29:27Z running 0, queued 0
+2026-11-09T04:31:27Z running 0, queued 0
+2026-11-09T04:33:27Z running 0, queued 0
+2026-11-09T04:35:27Z running 0, queued 0
+2026-11-09T04:37:27Z running 0, queued 0
+2026-11-09T04:39:27Z running 0, queued 0
+2026-11-09T04:41:27Z running 0, queued 0
+2026-11-09T04:43:27Z running 0, queued 0
+2026-11-09T04:45:27Z running 0, queued 0
+2026-11-09T04:47:27Z running 0, queued 0
+2026-11-09T04:49:27Z running 0, queued 0
+2026-11-09T04:51:27Z running 0, queued 0
+2026-11-09T04:53:27Z running 0, queued 0
+2026-11-09T04:55:27Z running 0, queued 0
+2026-11-09T04:57:27Z running 0, queued 0
+2026-11-09T04:59:27Z running 0, queued 0
+2026-11-09T05:01:27Z running 0, queued 0
+2026-11-09T05:03:27Z running 0, queued 0
+2026-11-09T05:05:27Z running 0, queued 0
+2026-11-09T05:07:27Z running 0, queued 0
+2026-11-09T05:09:27Z running 0, queued 0
+2026-11-09T05:11:27Z running 0, queued 0
+2026-11-09T05:13:27Z running 0, queued 0
+2026-11-09T05:15:27Z running 0, queued 0
+2026-11-09T05:17:27Z running 0, queued 0
+2026-11-09T05:19:27Z running 0, queued 0
+2026-11-09T05:21:27Z running 0, queued 0
+2026-11-09T05:23:27Z running 0, queued 0
+2026-11-09T05:25:27Z running 0, queued 0
+2026-11-09T05:27:27Z running 0, queued 0
+2026-11-09T05:29:27Z running 0, queued 0
+2026-11-09T05:31:27Z running 0, queued 0
+2026-11-09T05:33:27Z running 0, queued 0
+2026-11-09T05:35:27Z running 0, queued 0
+2026-11-09T05:37:27Z running 0, queued 0
+2026-11-09T05:39:27Z running 0, queued 0
+2026-11-09T05:41:27Z running 0, queued 0
+2026-11-09T05:43:27Z running 0, queued 0
+2026-11-09T05:45:27Z running 0, queued 0
+2026-11-09T05:47:27Z running 0, queued 0
+2026-11-09T05:49:27Z running 0, queued 0
+2026-11-09T05:51:27Z running 0, queued 0
+2026-11-09T05:53:27Z running 0, queued 0
+2026-11-09T05:55:27Z running 0, queued 0
+2026-11-09T05:57:27Z running 0, queued 0
+2026-11-09T05:59:27Z running 0, queued 0
+2026-11-09T06:01:27Z running 0, queued 0
+2026-11-09T06:03:27Z running 0, queued 0
+2026-11-09T06:05:27Z running 0, queued 0
+2026-11-09T06:07:27Z running 0, queued 0
+2026-11-09T06:09:27Z running 0, queued 0
+2026-11-09T06:11:27Z running 0, queued 0
+2026-11-09T06:13:27Z running 0, queued 0
+2026-11-09T06:15:27Z running 0, queued 0
+2026-11-09T06:17:27Z running 0, queued 0
+2026-11-09T06:19:27Z running 0, queued 0
+2026-11-09T06:21:27Z running 0, queued 0
+2026-11-09T06:23:27Z running 0, queued 0
+2026-11-09T06:25:27Z running 0, queued 0
+2026-11-09T06:27:27Z running 0, queued 0
+2026-11-09T06:29:27Z running 0, queued 0
+2026-11-09T06:31:27Z running 0, queued 0
+2026-11-09T06:33:27Z running 0, queued 0
+2026-11-09T06:35:27Z running 0, queued 0
+2026-11-09T06:37:27Z running 0, queued 0
+2026-11-09T06:39:27Z running 0, queued 0
+2026-11-09T06:41:27Z running 0, queued 0
+2026-11-09T06:43:27Z running 0, queued 0
+2026-11-09T06:45:27Z running 0, queued 0
+2026-11-09T06:47:28Z running 0, queued 0
+2026-11-09T06:49:28Z running 0, queued 0
+2026-11-09T06:51:28Z running 0, queued 0
+2026-11-09T06:53:28Z running 0, queued 0
+2026-11-09T06:55:28Z running 0, queued 0
+2026-11-09T06:57:28Z running 0, queued 0
+2026-11-09T06:59:28Z running 0, queued 0
+2026-11-09T07:01:28Z running 0, queued 0
+2026-11-09T07:03:28Z running 0, queued 0
+2026-11-09T07:05:28Z running 0, queued 0
+2026-11-09T07:07:28Z running 0, queued 0
+2026-11-09T07:09:28Z running 0, queued 0
+2026-11-09T07:11:28Z running 0, queued 0
+2026-11-09T07:13:28Z running 0, queued 0
+2026-11-09T07:15:28Z running 0, queued 0
+2026-11-09T07:17:28Z running 0, queued 0
+2026-11-09T07:19:28Z running 0, queued 0
+2026-11-09T07:21:28Z running 0, queued 0
+2026-11-09T07:23:28Z running 0, queued 0
+2026-11-09T07:25:28Z running 0, queued 0
+2026-11-09T07:27:28Z running 0, queued 0
+2026-11-09T07:29:28Z running 0, queued 0
+2026-11-09T07:31:28Z running 0, queued 0
+2026-11-09T07:33:28Z running 0, queued 0
+2026-11-09T07:35:28Z running 0, queued 0
+2026-11-09T07:37:28Z running 0, queued 0
+2026-11-09T07:39:28Z running 0, queued 0
+2026-11-09T07:41:28Z running 0, queued 0
+2026-11-09T07:43:28Z running 0, queued 0
+2026-11-09T07:45:28Z running 0, queued 0
+2026-11-09T07:47:28Z running 0, queued 0
+2026-11-09T07:49:28Z running 0, queued 0
+2026-11-09T07:51:28Z running 0, queued 0
+2026-11-09T07:53:28Z running 0, queued 0
+2026-11-09T07:55:28Z running 0, queued 0
+2026-11-09T07:57:28Z running 0, queued 0
+2026-11-09T07:59:28Z running 0, queued 0
+2026-11-09T08:01:28Z running 0, queued 0
+2026-11-09T08:03:28Z running 0, queued 0
+2026-11-09T08:05:28Z running 0, queued 0
+2026-11-09T08:07:28Z running 0, queued 0
+2026-11-09T08:09:28Z running 0, queued 0
+2026-11-09T08:11:28Z running 0, queued 0
+2026-11-09T08:13:28Z running 0, queued 0
+2026-11-09T08:15:28Z running 0, queued 0
+2026-11-09T08:17:28Z running 0, queued 0
+2026-11-09T08:19:28Z running 0, queued 0
+2026-11-09T08:21:28Z running 0, queued 0
+2026-11-09T08:23:28Z running 0, queued 0
+2026-11-09T08:25:28Z running 0, queued 0
+2026-11-09T08:27:28Z running 0, queued 0
+2026-11-09T08:29:28Z running 0, queued 0
+2026-11-09T08:31:28Z running 0, queued 0
+2026-11-09T08:33:28Z running 0, queued 0
+2026-11-09T08:35:28Z running 0, queued 0
+2026-11-09T08:37:28Z running 0, queued 0
+2026-11-09T08:39:28Z running 0, queued 0
+2026-11-09T08:41:28Z running 0, queued 0
+2026-11-09T08:43:28Z running 0, queued 0
+2026-11-09T08:45:28Z running 0, queued 0
+2026-11-09T08:47:28Z running 0, queued 0
+2026-11-09T08:49:28Z running 0, queued 0
+2026-11-09T08:51:28Z running 0, queued 0
+2026-11-09T08:53:28Z running 0, queued 0
+2026-11-09T08:55:28Z running 0, queued 0
+2026-11-09T08:57:28Z running 0, queued 0
+2026-11-09T08:59:28Z running 0, queued 0
+2026-11-09T09:01:28Z running 0, queued 0
+2026-11-09T09:03:28Z running 0, queued 0
+2026-11-09T09:05:28Z running 0, queued 0
+2026-11-09T09:07:28Z running 0, queued 0
+2026-11-09T09:09:28Z running 0, queued 0
+2026-11-09T09:11:28Z running 0, queued 0
+2026-11-09T09:13:28Z running 0, queued 0
+2026-11-09T09:15:28Z running 0, queued 0
+2026-11-09T09:17:29Z running 0, queued 0
+2026-11-09T09:19:29Z running 0, queued 0
+2026-11-09T09:21:29Z running 0, queued 0
+2026-11-09T09:23:29Z running 0, queued 0
+2026-11-09T09:25:29Z running 0, queued 0
+2026-11-09T09:27:29Z running 0, queued 0
+2026-11-09T09:29:29Z running 0, queued 0
+2026-11-09T09:31:29Z running 0, queued 0
+2026-11-09T09:33:29Z running 0, queued 0
+2026-11-09T09:35:29Z running 0, queued 0
+2026-11-09T09:37:29Z running 0, queued 0
+2026-11-09T09:39:29Z running 0, queued 0
+2026-11-09T09:41:29Z running 0, queued 0
+2026-11-09T09:43:29Z running 0, queued 0
+2026-11-09T09:45:29Z running 0, queued 0
+2026-11-09T09:47:29Z running 0, queued 0
+2026-11-09T09:49:29Z running 0, queued 0
+2026-11-09T09:51:29Z running 0, queued 0
+2026-11-09T09:53:29Z running 0, queued 0
+2026-11-09T09:55:29Z running 0, queued 0
+2026-11-09T09:57:29Z running 0, queued 0
+2026-11-09T09:59:29Z running 0, queued 0
+2026-11-09T10:01:29Z running 0, queued 0
+2026-11-09T10:03:29Z running 0, queued 0
+2026-11-09T10:05:29Z running 0, queued 0
+2026-11-09T10:07:29Z running 0, queued 0
+2026-11-09T10:09:29Z running 0, queued 0
+2026-11-09T10:11:29Z running 0, queued 0
+2026-11-09T10:13:29Z running 0, queued 0
+2026-11-09T10:15:29Z running 0, queued 0
+2026-11-09T10:17:29Z running 0, queued 0
+2026-11-09T10:19:29Z running 0, queued 0
+2026-11-09T10:21:29Z running 0, queued 0
+2026-11-09T10:23:29Z running 0, queued 0
+2026-11-09T10:25:29Z running 0, queued 0
+2026-11-09T10:27:29Z running 0, queued 0
+2026-11-09T10:29:29Z running 0, queued 0
+2026-11-09T10:31:29Z running 0, queued 0
+2026-11-09T10:33:29Z running 0, queued 0
+2026-11-09T10:35:29Z running 0, queued 0
+2026-11-09T10:37:29Z running 0, queued 0
+2026-11-09T10:39:29Z running 0, queued 0
+2026-11-09T10:41:29Z running 0, queued 0
+2026-11-09T10:43:29Z running 0, queued 0
+2026-11-09T10:45:29Z running 0, queued 0
+2026-11-09T10:47:29Z running 0, queued 0
+2026-11-09T10:49:29Z running 0, queued 0
+2026-11-09T10:51:29Z running 0, queued 0
+2026-11-09T10:53:29Z running 0, queued 0
+2026-11-09T10:55:29Z running 0, queued 0
+2026-11-09T10:57:29Z running 0, queued 0
+2026-11-09T10:59:29Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-pub30-1
+ 
+2026-11-09T11:01:33Z pushed structHA-pub30-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-pub30-2
+ 
+2026-11-09T11:01:35Z pushed structHA-pub30-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-pub30-3
+ 
+2026-11-09T11:01:38Z pushed structHA-pub30-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-r10hc-1
+ 
+2026-11-09T11:01:41Z pushed structHA-r10hc-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-r10hc-2
+ 
+2026-11-09T11:01:44Z pushed structHA-r10hc-2 rc=0
+2026-11-09T11:01:44Z running 5, queued 2
+2026-11-09T11:03:50Z running 5, queued 2
+2026-11-09T11:05:58Z running 5, queued 2
+2026-11-09T11:08:04Z running 5, queued 2
+2026-11-09T11:10:12Z running 5, queued 2
+2026-11-09T11:12:18Z running 5, queued 2
+2026-11-09T11:14:27Z running 5, queued 2
+2026-11-09T11:16:34Z running 5, queued 2
+2026-11-09T11:18:39Z running 5, queued 2
+2026-11-09T11:20:45Z running 5, queued 2
+2026-11-09T11:22:51Z running 5, queued 2
+2026-11-09T11:24:57Z running 5, queued 2
+2026-11-09T11:27:03Z running 5, queued 2
+2026-11-09T11:29:09Z running 5, queued 2
+2026-11-09T11:31:16Z running 5, queued 2
+2026-11-09T11:33:22Z running 5, queued 2
+2026-11-09T11:35:28Z running 5, queued 2
+2026-11-09T11:37:34Z running 5, queued 2
+2026-11-09T11:39:40Z running 5, queued 2
+2026-11-09T11:41:47Z running 5, queued 2
+2026-11-09T11:43:52Z running 5, queued 2
+2026-11-09T11:45:59Z running 5, queued 2
+2026-11-09T11:48:11Z running 5, queued 2
+2026-11-09T11:50:20Z running 5, queued 7
+2026-11-09T11:52:27Z running 5, queued 7
+2026-11-09T11:54:45Z running 5, queued 7
+2026-11-09T11:56:52Z running 5, queued 7
+2026-11-09T11:58:58Z running 5, queued 7
+2026-11-09T12:01:05Z running 5, queued 7
+2026-11-09T12:03:12Z running 5, queued 7
+2026-11-09T12:05:19Z running 5, queued 7
+2026-11-09T12:29:17Z complete structHA-pub30-1
+2026-11-09T12:54:21Z complete structHA-pub30-1
+structHA-pub30-1 0 0kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 1.01MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 332kB/s]
+
+  0%|          | 0.00/2.29k [00:00<?, ?B/s]
+100%|██████████| 2.29k/2.29k [00:00<00:00, 1.82MB/s]
+
+structHA-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-11-09T12:54:55Z complete structHA-pub30-2
+structHA-pub30-2 0 .04MB/s]
+
+  0%|          | 0.00/0.99k [00:00<?, ?B/s]
+100%|██████████| 0.99k/0.99k [00:00<00:00, 281kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 806kB/s]
+
+  0%|          | 0.00/2.47k [00:00<?, ?B/s]
+100%|██████████| 2.47k/2.47k [00:00<00:00, 898kB/s]
+
+structHA-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-09T12:55:19Z complete structHA-pub30-3
+structHA-pub30-3 0 61kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 195kB/s]
+
+  0%|          | 0.00/1.00k [00:00<?, ?B/s]
+100%|██████████| 1.00k/1.00k [00:00<00:00, 977kB/s]
+
+  0%|          | 0.00/2.64k [00:00<?, ?B/s]
+100%|██████████| 2.64k/2.64k [00:00<00:00, 30.2kB/s]
+
+structHA-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+2026-11-09T12:55:56Z complete structHA-r10hc-1
+2026-11-09T13:19:28Z complete structHA-r10hc-1
+structHA-r10hc-1 0 990kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 619kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 984kB/s]
+
+  0%|          | 0.00/2.46k [00:00<?, ?B/s]
+100%|██████████| 2.46k/2.46k [00:00<00:00, 845kB/s]
+
+structHA-r10hc-1: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-09T13:19:48Z complete structHA-r10hc-2
+structHA-r10hc-2 0 78kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 419kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 107kB/s]
+
+  0%|          | 0.00/2.44k [00:00<?, ?B/s]
+100%|██████████| 2.44k/2.44k [00:00<00:00, 2.25MB/s]
+
+structHA-r10hc-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-r10hc-3
+ 
+2026-11-09T13:20:29Z pushed structHA-r10hc-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-structha-r10hc-4
+ 
+2026-11-09T13:20:45Z pushed structHA-r10hc-4 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g00c00
+ 
+2026-11-09T13:20:49Z pushed r14g00c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g00c01
+ 
+2026-11-09T13:20:54Z pushed r14g00c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g00c02
+ 
+2026-11-09T13:20:57Z pushed r14g00c02 rc=0
+2026-11-09T13:20:57Z running 5, queued 2
+2026-11-09T13:23:13Z running 5, queued 2
+2026-11-09T13:44:45Z running 5, queued 2
+2026-11-09T13:46:51Z running 5, queued 2
+2026-11-09T13:48:56Z running 5, queued 2
+2026-11-09T13:51:03Z running 5, queued 2
+2026-11-09T13:53:08Z complete r14g00c01
+r14g00c01 0 01MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 435kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 581kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 5.68MB/s]
+
+r14g00c01: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g00c03
+ 
+2026-11-09T13:53:46Z pushed r14g00c03 rc=0
+2026-11-09T13:53:46Z running 5, queued 1
+2026-11-09T13:55:52Z running 5, queued 1
+2026-11-09T13:57:58Z running 5, queued 1
+2026-11-09T14:00:04Z running 5, queued 1
+2026-11-09T14:02:07Z complete r14g00c00
+r14g00c00 0 0kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.10MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 861kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|██████████| 4.93k/4.93k [00:00<00:00, 1.50MB/s]
+
+r14g00c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-09T14:02:40Z complete r14g00c02
+r14g00c02 0 57kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 849kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 389kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 2.25MB/s]
+
+r14g00c02: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g00c04
+ 
+2026-11-09T14:03:16Z pushed r14g00c04 rc=0
+2026-11-09T14:03:16Z running 4, queued 0
+2026-11-09T14:05:21Z running 4, queued 0
+2026-11-09T14:07:26Z running 4, queued 0
+2026-11-09T14:09:31Z running 4, queued 0
+2026-11-09T14:11:36Z running 4, queued 0
+2026-11-09T14:13:41Z running 4, queued 0
+2026-11-09T14:15:45Z running 4, queued 0
+2026-11-09T14:17:50Z running 4, queued 0
+2026-11-09T14:19:54Z running 4, queued 0
+2026-11-09T14:21:59Z running 4, queued 0
+2026-11-09T14:24:03Z running 4, queued 0
+2026-11-09T14:26:08Z running 4, queued 0
+2026-11-09T14:28:12Z running 4, queued 0
+2026-11-09T14:30:17Z complete r14g00c04
+r14g00c04 0 40kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 441kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 890kB/s]
+
+r14g00c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-09T14:30:50Z running 3, queued 0
+2026-11-09T14:32:53Z running 3, queued 0
+2026-11-09T14:34:57Z running 3, queued 0
+2026-11-09T14:37:01Z complete r14g00c03
+r14g00c03 0 90kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 916kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|██████████| 1.02k/1.02k [00:00<00:00, 426kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|██████████| 4.94k/4.94k [00:00<00:00, 1.45MB/s]
+
+r14g00c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-09T14:37:33Z running 2, queued 0
+2026-11-09T14:39:34Z complete structHA-r10hc-3
+structHA-r10hc-3 0 231kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 841kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 904kB/s]
+
+  0%|          | 0.00/2.46k [00:00<?, ?B/s]
+100%|██████████| 2.46k/2.46k [00:00<00:00, 886kB/s]
+
+structHA-r10hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-09T14:39:50Z running 1, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g01c00
+ 
+2026-11-09T14:42:03Z pushed r14g01c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g01c01
+ 
+2026-11-09T14:42:15Z pushed r14g01c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g01c02
+ 
+2026-11-09T14:42:27Z pushed r14g01c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g01c03
+ 
+2026-11-09T14:42:34Z pushed r14g01c03 rc=0
+2026-11-09T14:42:34Z running 5, queued 1
+2026-11-09T14:44:35Z complete structHA-r10hc-4
+structHA-r10hc-4 0 258kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 391kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 840kB/s]
+
+  0%|          | 0.00/2.44k [00:00<?, ?B/s]
+100%|██████████| 2.44k/2.44k [00:00<00:00, 920kB/s]
+
+structHA-r10hc-4: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r14g01c04
+ 
+2026-11-09T14:44:58Z pushed r14g01c04 rc=0
+2026-11-09T14:44:58Z running 5, queued 0
+2026-11-09T14:47:05Z running 5, queued 0
+2026-11-09T14:49:11Z running 5, queued 0
+2026-11-09T14:51:17Z running 5, queued 0
+2026-11-09T14:53:22Z running 5, queued 7
+2026-11-09T14:55:28Z running 5, queued 7
+2026-11-09T14:57:34Z running 5, queued 7
+2026-11-09T14:59:40Z running 5, queued 7
+2026-11-09T15:01:46Z running 5, queued 7
+2026-11-09T15:03:52Z running 5, queued 7
+2026-11-09T15:05:58Z running 5, queued 7
+2026-11-09T15:08:03Z running 5, queued 7
+2026-11-09T15:10:09Z running 5, queued 7
+2026-11-09T15:12:16Z running 5, queued 7
+2026-11-09T15:14:22Z running 5, queued 7
+2026-11-09T15:16:28Z running 5, queued 7
+2026-11-09T15:18:34Z running 5, queued 7
+2026-11-09T15:20:39Z running 5, queued 7
+2026-11-09T15:22:45Z running 5, queued 7
+2026-11-09T15:24:52Z running 5, queued 7
+2026-11-09T15:26:58Z running 5, queued 7
+2026-11-09T15:29:03Z running 5, queued 7
+2026-11-09T15:31:09Z running 5, queued 7
+2026-11-09T15:33:15Z running 5, queued 7
+2026-11-09T15:35:21Z running 5, queued 7
+2026-11-09T15:37:26Z running 5, queued 7
+2026-11-09T15:39:32Z running 5, queued 7
+2026-11-09T15:41:38Z running 5, queued 7
+2026-11-09T15:43:43Z running 5, queued 7
+2026-11-09T15:45:50Z running 5, queued 7
+2026-11-09T15:47:56Z running 5, queued 7
+2026-11-09T15:50:03Z running 5, queued 7
+2026-11-09T15:52:09Z running 5, queued 7
+2026-11-09T15:54:15Z running 5, queued 7
+2026-11-09T15:56:21Z running 5, queued 7
+2026-11-09T15:58:26Z running 5, queued 7
+2026-11-09T16:00:32Z running 5, queued 7
+2026-11-09T16:02:37Z running 5, queued 7
+2026-11-09T16:04:43Z running 5, queued 7
+2026-11-09T16:06:49Z running 5, queued 7
+2026-11-09T16:08:54Z running 5, queued 7
+2026-11-09T16:11:00Z running 5, queued 7
+2026-11-09T16:13:05Z running 5, queued 7
+2026-11-09T16:15:11Z running 5, queued 7
+2026-11-09T16:17:17Z running 5, queued 7
+2026-11-09T16:19:23Z running 5, queued 7
+2026-11-09T16:21:28Z running 5, queued 7
+2026-11-09T16:23:34Z running 5, queued 7
+2026-11-09T16:25:40Z running 5, queued 7
+2026-11-09T16:27:46Z running 5, queued 7
+2026-11-09T16:29:52Z running 5, queued 7
+2026-11-09T16:31:58Z running 5, queued 7
+2026-11-09T16:34:03Z running 5, queued 7
+2026-11-09T16:36:10Z running 5, queued 7
+2026-11-09T16:38:15Z running 5, queued 7
+2026-11-09T16:40:21Z running 5, queued 7
+2026-11-09T16:42:27Z running 5, queued 7
+2026-11-09T16:44:33Z running 5, queued 7
+2026-11-09T16:46:38Z running 5, queued 7
+2026-11-09T16:48:44Z running 5, queued 7
+2026-11-09T16:50:50Z running 5, queued 7
+2026-11-09T16:52:56Z running 5, queued 7
+2026-11-09T16:55:02Z running 5, queued 7
+2026-11-09T16:57:07Z running 5, queued 7
+2026-11-09T16:59:13Z running 5, queued 7
+2026-11-09T17:01:18Z running 5, queued 7
+2026-11-09T17:03:24Z running 5, queued 7
+2026-11-09T17:05:30Z running 5, queued 7
+2026-11-09T17:07:36Z running 5, queued 7
+2026-11-09T17:09:42Z running 5, queued 7
+2026-11-09T17:11:47Z running 5, queued 7
+2026-11-09T17:13:53Z running 5, queued 7
+2026-11-09T17:15:58Z running 5, queued 7
+2026-11-09T17:18:04Z running 5, queued 7
+2026-11-09T17:20:09Z running 5, queued 7
+2026-11-09T17:22:15Z running 5, queued 7
+2026-11-09T17:24:21Z running 5, queued 7
+2026-11-09T17:26:27Z running 5, queued 7
+2026-11-09T17:28:32Z running 5, queued 7
+2026-11-09T17:30:38Z running 5, queued 7
+2026-11-09T17:32:44Z running 5, queued 7
+2026-11-09T17:34:50Z running 5, queued 7
+2026-11-09T17:36:56Z running 5, queued 7
+2026-11-09T17:39:01Z running 5, queued 7
+2026-11-09T17:41:07Z running 5, queued 7
+2026-11-09T17:43:13Z running 5, queued 7
+2026-11-09T17:45:18Z running 5, queued 7
+2026-11-09T17:47:24Z running 5, queued 7
+2026-11-09T17:49:30Z running 5, queued 7
+2026-11-09T17:51:36Z running 5, queued 7
+2026-11-09T17:53:42Z running 5, queued 7
+2026-11-09T17:55:48Z running 5, queued 7
+2026-11-09T17:57:54Z running 5, queued 7
+2026-11-09T17:59:59Z running 5, queued 7
+2026-11-09T18:02:05Z running 5, queued 7
+2026-11-09T18:04:10Z running 5, queued 7
+2026-11-09T18:06:16Z running 5, queued 7
+2026-11-09T18:08:22Z running 5, queued 7
+2026-11-09T18:10:28Z running 5, queued 7
+2026-11-09T18:12:33Z running 5, queued 7
+2026-11-09T18:14:50Z running 5, queued 7
+2026-11-09T18:16:50Z running 5, queued 7
+2026-11-09T18:18:50Z running 5, queued 7
+2026-11-09T18:20:50Z running 5, queued 7
+2026-11-09T18:22:50Z running 5, queued 7
+2026-11-09T18:24:51Z running 5, queued 7
+2026-11-09T18:26:51Z running 5, queued 7
+2026-11-09T18:28:51Z running 5, queued 7
+2026-11-09T18:30:51Z running 5, queued 7
+2026-11-09T18:32:51Z running 5, queued 7
+2026-11-09T18:34:51Z running 5, queued 7
+2026-11-09T18:36:51Z running 5, queued 7
+2026-11-09T18:38:51Z running 5, queued 7
+2026-11-09T18:40:51Z running 5, queued 7
+2026-11-09T18:42:51Z running 5, queued 7
+2026-11-09T18:44:52Z running 5, queued 7
+2026-11-09T18:46:52Z running 5, queued 7
+2026-11-09T18:48:52Z running 5, queued 7
+2026-11-09T18:50:52Z running 5, queued 7
+2026-11-09T18:52:52Z running 5, queued 7
+2026-11-09T18:54:52Z running 5, queued 7
+2026-11-09T18:56:52Z running 5, queued 7
+2026-11-09T18:58:52Z running 5, queued 7
+2026-11-09T19:00:52Z running 5, queued 7
+2026-11-09T19:02:52Z running 5, queued 7
+2026-11-09T19:04:52Z running 5, queued 7
+2026-11-09T19:06:52Z running 5, queued 7
+2026-11-09T19:08:53Z running 5, queued 7
+2026-11-09T19:10:53Z running 5, queued 7
+2026-11-09T19:12:53Z running 5, queued 7
+2026-11-09T19:14:53Z running 5, queued 7
+2026-11-09T19:16:53Z running 5, queued 7
+2026-11-09T19:18:53Z running 5, queued 7
+2026-11-09T19:20:53Z running 5, queued 7
+2026-11-09T19:22:53Z running 5, queued 7
+2026-11-09T19:24:53Z running 5, queued 7
+2026-11-09T19:26:53Z running 5, queued 7
+2026-11-09T19:28:53Z running 5, queued 7
+2026-11-09T19:30:54Z running 5, queued 7
+2026-11-09T19:32:54Z running 5, queued 7
+2026-11-09T19:34:54Z running 5, queued 7
+2026-11-09T19:36:54Z running 5, queued 7
+2026-11-09T19:38:54Z running 5, queued 7
+2026-11-09T19:40:54Z running 5, queued 7
+2026-11-09T19:42:54Z running 5, queued 7
+2026-11-09T19:44:54Z running 5, queued 7
+2026-11-09T19:46:54Z running 5, queued 7
+2026-11-09T19:48:54Z running 5, queued 7
+2026-11-09T19:50:55Z running 5, queued 7
+2026-11-09T19:52:55Z running 5, queued 7
+2026-11-09T19:54:55Z running 5, queued 7
+2026-11-09T19:56:55Z running 5, queued 7
+2026-11-09T19:58:55Z running 5, queued 7
+2026-11-09T20:00:55Z running 5, queued 7
+2026-11-09T20:02:55Z running 5, queued 7
+2026-11-09T20:04:55Z running 5, queued 7
+2026-11-09T20:06:55Z running 5, queued 7
+2026-11-09T20:08:56Z running 5, queued 7
+2026-11-09T20:10:56Z running 5, queued 7
+2026-11-09T20:12:56Z running 5, queued 7
+2026-11-09T20:14:56Z running 5, queued 7
+2026-11-09T20:16:56Z running 5, queued 7
+2026-11-09T20:18:56Z running 5, queued 7
+2026-11-09T20:20:56Z running 5, queued 7
+2026-11-09T20:22:56Z running 5, queued 7
+2026-11-09T20:24:56Z running 5, queued 7
+2026-11-09T20:26:56Z running 5, queued 7
+2026-11-09T20:28:56Z running 5, queued 7
+2026-11-09T20:30:56Z running 5, queued 7
+2026-11-09T20:32:56Z running 5, queued 7
+2026-11-09T20:34:57Z running 5, queued 7
+2026-11-09T20:36:57Z running 5, queued 7
+2026-11-09T20:38:57Z running 5, queued 7
+2026-11-09T20:40:57Z running 5, queued 7
+2026-11-09T20:42:57Z running 5, queued 7
+2026-11-09T20:44:57Z running 5, queued 7
+2026-11-09T20:46:57Z running 5, queued 7
+2026-11-09T20:48:57Z running 5, queued 7
+2026-11-09T20:50:57Z running 5, queued 7
+2026-11-09T20:52:57Z running 5, queued 7
+2026-11-09T20:54:58Z running 5, queued 0
+2026-11-09T20:56:58Z running 5, queued 0
+2026-11-09T20:58:58Z running 5, queued 0
+2026-11-09T21:00:58Z running 5, queued 0
+2026-11-09T21:02:58Z running 5, queued 0
+2026-11-09T21:04:58Z running 5, queued 0
+2026-11-09T21:06:58Z running 5, queued 0
+2026-11-09T21:08:58Z running 5, queued 0
+2026-11-09T21:10:58Z running 5, queued 0
+2026-11-09T21:12:59Z running 5, queued 0
+2026-11-09T21:14:59Z running 5, queued 0
+2026-11-09T21:16:59Z running 5, queued 0
+2026-11-09T21:18:59Z running 5, queued 0
+2026-11-09T21:20:59Z running 5, queued 0
+2026-11-09T21:22:59Z running 5, queued 0
+2026-11-09T21:24:59Z running 5, queued 0
+2026-11-09T21:26:59Z running 5, queued 0
+2026-11-09T21:28:59Z running 5, queued 0
+2026-11-09T21:31:00Z running 5, queued 0
+2026-11-09T21:33:00Z running 5, queued 0
+2026-11-09T21:35:00Z running 5, queued 0
+2026-11-09T21:37:00Z running 5, queued 0
+2026-11-09T21:39:00Z running 5, queued 0
+2026-11-09T21:41:00Z running 5, queued 0
+2026-11-09T21:43:00Z running 5, queued 0
+2026-11-09T21:45:00Z running 5, queued 0
+2026-11-09T21:47:00Z running 5, queued 0
+2026-11-09T21:49:00Z running 5, queued 0
+2026-11-09T21:51:00Z running 5, queued 0
+2026-11-09T21:53:00Z running 5, queued 0
+2026-11-09T21:55:00Z running 5, queued 0
+2026-11-09T21:57:01Z running 5, queued 0
+2026-11-09T21:59:01Z running 5, queued 0
+2026-11-09T22:01:01Z running 5, queued 0
+2026-11-09T22:03:01Z running 5, queued 0
+2026-11-09T22:05:01Z running 5, queued 0
+2026-11-09T22:07:01Z running 5, queued 0
+2026-11-09T22:09:01Z running 5, queued 0
+2026-11-09T22:11:01Z running 5, queued 0
+2026-11-09T22:13:01Z running 5, queued 0
+2026-11-09T22:15:01Z running 5, queued 0
+2026-11-09T22:17:02Z running 5, queued 0
+2026-11-09T22:19:02Z running 5, queued 0
+2026-11-09T22:21:02Z running 5, queued 0
+2026-11-09T22:23:02Z running 5, queued 0
+2026-11-09T22:25:02Z running 5, queued 0
+2026-11-09T22:27:02Z running 5, queued 0
+2026-11-09T22:29:02Z running 5, queued 0
+2026-11-09T22:31:02Z running 5, queued 0
+2026-11-09T22:33:02Z running 5, queued 0
+2026-11-09T22:35:02Z running 5, queued 0
+2026-11-09T22:37:02Z running 5, queued 0
+2026-11-09T22:39:03Z running 5, queued 0
+2026-11-09T22:41:03Z running 5, queued 0
+2026-11-09T22:43:03Z running 5, queued 0
+2026-11-09T22:45:03Z running 5, queued 0
+2026-11-09T22:47:03Z running 5, queued 0
+2026-11-09T22:49:03Z running 5, queued 0
+2026-11-09T22:51:03Z running 5, queued 0
+2026-11-09T22:53:03Z running 5, queued 0
+2026-11-09T22:55:03Z running 5, queued 0
+2026-11-09T22:57:03Z running 5, queued 0
+2026-11-09T22:59:03Z running 5, queued 0
+2026-11-09T23:01:03Z running 5, queued 0
+2026-11-09T23:03:04Z running 5, queued 0
+2026-11-09T23:05:04Z running 5, queued 0
+2026-11-09T23:07:04Z running 5, queued 0
+2026-11-09T23:09:04Z running 5, queued 0
+2026-11-09T23:11:04Z running 5, queued 0
+2026-11-09T23:13:04Z running 5, queued 0
+2026-11-09T23:15:04Z running 5, queued 0
+2026-11-09T23:17:04Z running 5, queued 0
+2026-11-09T23:19:04Z running 5, queued 0
+2026-11-09T23:21:04Z running 5, queued 0
+2026-11-09T23:23:04Z running 5, queued 0
+2026-11-09T23:25:04Z running 5, queued 0
+2026-11-09T23:27:04Z running 5, queued 0
+2026-11-09T23:29:04Z running 5, queued 0
+2026-11-09T23:31:04Z running 5, queued 0
+2026-11-09T23:33:05Z running 5, queued 0
+2026-11-09T23:35:05Z running 5, queued 0
+2026-11-09T23:37:05Z running 5, queued 0
+2026-11-09T23:39:05Z running 5, queued 0
+2026-11-09T23:41:05Z running 5, queued 0
+2026-11-09T23:43:05Z running 5, queued 0
+2026-11-09T23:45:05Z running 5, queued 0
+2026-11-09T23:47:05Z running 5, queued 0
+2026-11-09T23:49:05Z running 5, queued 0
+2026-11-09T23:51:05Z running 5, queued 0
+2026-11-09T23:53:05Z running 5, queued 0
+2026-11-09T23:55:05Z running 5, queued 0
+2026-11-09T23:57:05Z running 5, queued 0
+2026-11-09T23:59:05Z running 5, queued 0
+2026-11-10T00:01:05Z running 5, queued 0
+2026-11-10T00:03:07Z running 0, queued 0
+2026-11-10T00:05:07Z running 0, queued 0
+2026-11-10T00:07:07Z running 0, queued 0
+2026-11-10T00:09:07Z running 0, queued 0
+2026-11-10T00:11:07Z running 0, queued 0
+2026-11-10T00:13:07Z running 0, queued 0
+2026-11-10T00:15:07Z running 0, queued 0
+2026-11-10T00:17:07Z running 0, queued 0
+2026-11-10T00:19:07Z running 0, queued 0
+2026-11-10T00:21:07Z running 0, queued 0
+2026-11-10T00:23:07Z running 0, queued 0
+2026-11-10T00:25:07Z running 0, queued 0
+2026-11-10T00:27:07Z running 0, queued 0
+2026-11-10T00:29:07Z running 0, queued 0
+2026-11-10T00:31:07Z running 0, queued 0
+2026-11-10T00:33:07Z running 0, queued 0
+2026-11-10T00:35:07Z running 0, queued 0
+2026-11-10T00:37:07Z running 0, queued 0
+2026-11-10T00:39:07Z running 0, queued 0
+2026-11-10T00:41:07Z running 0, queued 0
+2026-11-10T00:43:08Z running 0, queued 0
+2026-11-10T00:45:08Z running 0, queued 0
+2026-11-10T00:47:08Z running 0, queued 0
+2026-11-10T00:49:08Z running 0, queued 0
+2026-11-10T00:51:08Z running 0, queued 0
+2026-11-10T00:53:08Z running 0, queued 0
+2026-11-10T00:55:08Z running 0, queued 0
+2026-11-10T00:57:08Z running 0, queued 0
+2026-11-10T00:59:08Z running 0, queued 0
+2026-11-10T01:01:08Z running 0, queued 0
+2026-11-10T01:03:08Z running 0, queued 0
+2026-11-10T01:05:08Z running 0, queued 0
+2026-11-10T01:07:08Z running 0, queued 0
+2026-11-10T01:09:08Z running 0, queued 0
+2026-11-10T01:11:08Z running 0, queued 0
+2026-11-10T01:13:08Z running 0, queued 0
+2026-11-10T01:15:08Z running 0, queued 0
+2026-11-10T01:17:08Z running 0, queued 0
+2026-11-10T01:19:08Z running 0, queued 0
+2026-11-10T01:21:08Z running 0, queued 0
+2026-11-10T01:23:08Z running 0, queued 0
+2026-11-10T01:25:08Z running 0, queued 0
+2026-11-10T01:27:08Z running 0, queued 0
+2026-11-10T01:29:08Z running 0, queued 0
+2026-11-10T01:31:08Z running 0, queued 0
+2026-11-10T01:33:08Z running 0, queued 0
+2026-11-10T01:35:08Z running 0, queued 0
+2026-11-10T01:37:08Z running 0, queued 0
+2026-11-10T01:39:08Z running 0, queued 0
+2026-11-10T01:41:08Z running 0, queued 0
+2026-11-10T01:43:08Z running 0, queued 0
+2026-11-10T01:45:08Z running 0, queued 0
+2026-11-10T01:47:08Z running 0, queued 0
+2026-11-10T01:49:08Z running 0, queued 0
+2026-11-10T01:51:08Z running 0, queued 0
+2026-11-10T01:53:08Z running 0, queued 0
+2026-11-10T01:55:08Z running 0, queued 0
+2026-11-10T01:57:08Z running 0, queued 0
+2026-11-10T01:59:08Z running 0, queued 0
+2026-11-10T02:01:08Z running 0, queued 0
+2026-11-10T02:03:08Z running 0, queued 0
+2026-11-10T02:05:08Z running 0, queued 0
+2026-11-10T02:07:08Z running 0, queued 0
+2026-11-10T02:09:08Z running 0, queued 0
+2026-11-10T02:11:08Z running 0, queued 0
+2026-11-10T02:13:08Z running 0, queued 0
+2026-11-10T02:15:08Z running 0, queued 0
+2026-11-10T02:17:08Z running 0, queued 0
+2026-11-10T02:19:08Z running 0, queued 0
+2026-11-10T02:21:08Z running 0, queued 0
+2026-11-10T02:23:08Z running 0, queued 0
+2026-11-10T02:25:08Z running 0, queued 0
+2026-11-10T02:27:08Z running 0, queued 0
+2026-11-10T02:29:08Z running 0, queued 0
+2026-11-10T02:31:08Z running 0, queued 0
+2026-11-10T02:33:08Z running 0, queued 0
+2026-11-10T02:35:08Z running 0, queued 0
+2026-11-10T02:37:09Z running 0, queued 0
+2026-11-10T02:39:09Z running 0, queued 0
+2026-11-10T02:41:09Z running 0, queued 0
+2026-11-10T02:43:09Z running 0, queued 0
+2026-11-10T02:45:09Z running 0, queued 0
+2026-11-10T02:47:09Z running 0, queued 0
+2026-11-10T02:49:09Z running 0, queued 0
+2026-11-10T02:51:09Z running 0, queued 0
+2026-11-10T02:53:09Z running 0, queued 0
+2026-11-10T02:55:09Z running 0, queued 0
+2026-11-10T02:57:09Z running 0, queued 0
+2026-11-10T02:59:09Z running 0, queued 0
+2026-11-10T03:01:09Z running 0, queued 0
+2026-11-10T03:03:09Z running 0, queued 0
+2026-11-10T03:05:09Z running 0, queued 0
+2026-11-10T03:07:09Z running 0, queued 0
+2026-11-10T03:09:09Z running 0, queued 0
+2026-11-10T03:11:09Z running 0, queued 0
+2026-11-10T03:13:09Z running 0, queued 0
+2026-11-10T03:15:09Z running 0, queued 0
+2026-11-10T03:17:09Z running 0, queued 0
+2026-11-10T03:19:09Z running 0, queued 0
+2026-11-10T03:21:09Z running 0, queued 0
+2026-11-10T03:23:09Z running 0, queued 0
+2026-11-10T03:25:09Z running 0, queued 0
+2026-11-10T03:27:09Z running 0, queued 0
+2026-11-10T03:29:09Z running 0, queued 0
+2026-11-10T03:31:09Z running 0, queued 0
+2026-11-10T03:33:09Z running 0, queued 0
+2026-11-10T03:35:09Z running 0, queued 0
+2026-11-10T03:37:09Z running 0, queued 0
+2026-11-10T03:39:09Z running 0, queued 0
+2026-11-10T03:41:09Z running 0, queued 0
+2026-11-10T03:43:09Z running 0, queued 0
+2026-11-10T03:45:09Z running 0, queued 0
+2026-11-10T03:47:09Z running 0, queued 0
+2026-11-10T03:49:09Z running 0, queued 0
+2026-11-10T03:51:09Z running 0, queued 0
+2026-11-10T03:53:09Z running 0, queued 0
+2026-11-10T03:55:09Z running 0, queued 0
+2026-11-10T03:57:09Z running 0, queued 0
+2026-11-10T03:59:09Z running 0, queued 0
+2026-11-10T04:01:09Z running 0, queued 0
+2026-11-10T04:03:09Z running 0, queued 0
+2026-11-10T04:05:09Z running 0, queued 0
+2026-11-10T04:07:09Z running 0, queued 0
+2026-11-10T04:09:09Z running 0, queued 0
+2026-11-10T04:11:09Z running 0, queued 0
+2026-11-10T04:13:09Z running 0, queued 0
+2026-11-10T04:15:09Z running 0, queued 0
+2026-11-10T04:17:09Z running 0, queued 0
+2026-11-10T04:19:09Z running 0, queued 0
+2026-11-10T04:21:09Z running 0, queued 0
+2026-11-10T04:23:09Z running 0, queued 0
+2026-11-10T04:25:09Z running 0, queued 0
+2026-11-10T04:27:09Z running 0, queued 0
+2026-11-10T04:29:09Z running 0, queued 0
+2026-11-10T04:31:09Z running 0, queued 0
+2026-11-10T04:33:09Z running 0, queued 0
+2026-11-10T04:35:09Z running 0, queued 0
+2026-11-10T04:37:09Z running 0, queued 0
+2026-11-10T04:39:09Z running 0, queued 0
+2026-11-10T04:41:10Z running 0, queued 0
+2026-11-10T04:43:10Z running 0, queued 0
+2026-11-10T04:45:10Z running 0, queued 0
+2026-11-10T04:47:10Z running 0, queued 0
+2026-11-10T04:49:10Z running 0, queued 0
+2026-11-10T04:51:10Z running 0, queued 0
+2026-11-10T04:53:10Z running 0, queued 0
+2026-11-10T04:55:10Z running 0, queued 0
+2026-11-10T04:57:10Z running 0, queued 0
+2026-11-10T04:59:10Z running 0, queued 0
+2026-11-10T05:01:10Z running 0, queued 0
+2026-11-10T05:03:10Z running 0, queued 0
+2026-11-10T05:05:10Z running 0, queued 0
+2026-11-10T05:07:10Z running 0, queued 0
+2026-11-10T05:09:10Z running 0, queued 0
+2026-11-10T05:11:10Z running 0, queued 0
+2026-11-10T05:13:10Z running 0, queued 0
+2026-11-10T05:15:10Z running 0, queued 0
+2026-11-10T05:17:10Z running 0, queued 0
+2026-11-10T05:19:10Z running 0, queued 0
+2026-11-10T05:21:10Z running 0, queued 0
+2026-11-10T05:23:10Z running 0, queued 0
+2026-11-10T05:25:10Z running 0, queued 0
+2026-11-10T05:27:10Z running 0, queued 0
+2026-11-10T05:29:10Z running 0, queued 0
+2026-11-10T05:31:10Z running 0, queued 0
+2026-11-10T05:33:10Z running 0, queued 0
+2026-11-10T05:35:10Z running 0, queued 0
+2026-11-10T05:37:10Z running 0, queued 0
+2026-11-10T05:39:10Z running 0, queued 0
+2026-11-10T05:41:10Z running 0, queued 0
+2026-11-10T05:43:10Z running 0, queued 0
+2026-11-10T05:45:10Z running 0, queued 0
+2026-11-10T05:47:10Z running 0, queued 0
+2026-11-10T05:49:10Z running 0, queued 0
+2026-11-10T05:51:10Z running 0, queued 0
+2026-11-10T05:53:10Z running 0, queued 0
+2026-11-10T05:55:10Z running 0, queued 0
+2026-11-10T05:57:10Z running 0, queued 0
+2026-11-10T05:59:10Z running 0, queued 0
+2026-11-10T06:01:10Z running 0, queued 0
+2026-11-10T06:03:10Z running 0, queued 0
+2026-11-10T06:05:10Z running 0, queued 0
+2026-11-10T06:07:10Z running 0, queued 0
+2026-11-10T06:09:10Z running 0, queued 0
+2026-11-10T06:11:10Z running 0, queued 0
+2026-11-10T06:13:10Z running 0, queued 0
+2026-11-10T06:15:10Z running 0, queued 0
+2026-11-10T06:17:10Z running 0, queued 0
+2026-11-10T06:19:10Z running 0, queued 0
+2026-11-10T06:21:10Z running 0, queued 0
+2026-11-10T06:23:10Z running 0, queued 0
+2026-11-10T06:25:10Z running 0, queued 0
+2026-11-10T06:27:10Z running 0, queued 0
+2026-11-10T06:29:10Z running 0, queued 0
+2026-11-10T06:31:10Z running 0, queued 0
+2026-11-10T06:33:10Z running 0, queued 0
+2026-11-10T06:35:10Z running 0, queued 0
+2026-11-10T06:37:10Z running 0, queued 0
+2026-11-10T06:39:10Z running 0, queued 0
+2026-11-10T06:41:10Z running 0, queued 0
+2026-11-10T06:43:10Z running 0, queued 0
+2026-11-10T06:45:10Z running 0, queued 0
+2026-11-10T06:47:10Z running 0, queued 0
+2026-11-10T06:49:10Z running 0, queued 0
+2026-11-10T06:51:11Z running 0, queued 0
+2026-11-10T06:53:11Z running 0, queued 0
+2026-11-10T06:55:11Z running 0, queued 0
+2026-11-10T06:57:11Z running 0, queued 0
+2026-11-10T06:59:11Z running 0, queued 0
+2026-11-10T07:01:11Z running 0, queued 0
+2026-11-10T07:03:11Z running 0, queued 0
+2026-11-10T07:05:11Z running 0, queued 0
+2026-11-10T07:07:11Z running 0, queued 0
+2026-11-10T07:09:11Z running 0, queued 0
+2026-11-10T07:11:11Z running 0, queued 0
+2026-11-10T07:13:11Z running 0, queued 0
+2026-11-10T07:15:11Z running 0, queued 0
+2026-11-10T07:17:11Z running 0, queued 0
+2026-11-10T07:19:11Z running 0, queued 0
+2026-11-10T07:21:11Z running 0, queued 0
+2026-11-10T07:23:11Z running 0, queued 0
+2026-11-10T07:25:11Z running 0, queued 0
+2026-11-10T07:27:11Z running 0, queued 0
+2026-11-10T07:29:11Z running 0, queued 0
+2026-11-10T07:31:11Z running 0, queued 0
+2026-11-10T07:33:11Z running 0, queued 0
+2026-11-10T07:35:11Z running 0, queued 0
+2026-11-10T07:37:11Z running 0, queued 0
+2026-11-10T07:39:11Z running 0, queued 0
+2026-11-10T07:41:11Z running 0, queued 0
+2026-11-10T07:43:11Z running 0, queued 0
+2026-11-10T07:45:11Z running 0, queued 0
+2026-11-10T07:47:11Z running 0, queued 0
+2026-11-10T07:49:11Z running 0, queued 0
+2026-11-10T07:51:11Z running 0, queued 0
+2026-11-10T07:53:11Z running 0, queued 0
+2026-11-10T07:55:11Z running 0, queued 0
+2026-11-10T07:57:11Z running 0, queued 0
+2026-11-10T07:59:11Z running 0, queued 0
+2026-11-10T08:01:11Z running 0, queued 0
+2026-11-10T08:03:11Z running 0, queued 0
+2026-11-10T08:05:11Z running 0, queued 0
+2026-11-10T08:07:11Z running 0, queued 0
+2026-11-10T08:09:11Z running 0, queued 0
+2026-11-10T08:11:11Z running 0, queued 0
+2026-11-10T08:13:11Z running 0, queued 0
+2026-11-10T08:15:11Z running 0, queued 0
+2026-11-10T08:17:11Z running 0, queued 0
+2026-11-10T08:19:11Z running 0, queued 0
+2026-11-10T08:21:11Z running 0, queued 0
+2026-11-10T08:23:11Z running 0, queued 0
+2026-11-10T08:25:11Z running 0, queued 0
+2026-11-10T08:27:11Z running 0, queued 0
+2026-11-10T08:29:11Z running 0, queued 0
+2026-11-10T08:31:11Z running 0, queued 0
+2026-11-10T08:33:11Z running 0, queued 0
+2026-11-10T08:35:11Z running 0, queued 0
+2026-11-10T08:37:11Z running 0, queued 0
+2026-11-10T08:39:11Z running 0, queued 0
+2026-11-10T08:41:11Z running 0, queued 0
+2026-11-10T08:43:11Z running 0, queued 0
+2026-11-10T08:45:11Z running 0, queued 0
+2026-11-10T08:47:11Z running 0, queued 0
+2026-11-10T08:49:11Z running 0, queued 0
+2026-11-10T08:51:11Z running 0, queued 0
+2026-11-10T08:53:11Z running 0, queued 0
+2026-11-10T08:55:11Z running 0, queued 0
+2026-11-10T08:57:11Z running 0, queued 0
+2026-11-10T08:59:11Z running 0, queued 0
+2026-11-10T09:01:11Z running 0, queued 0
+2026-11-10T09:03:11Z running 0, queued 0
+2026-11-10T09:05:11Z running 0, queued 0
+2026-11-10T09:07:11Z running 0, queued 0
+2026-11-10T09:09:11Z running 0, queued 0
+2026-11-10T09:11:11Z running 0, queued 0
+2026-11-10T09:13:11Z running 0, queued 0
+2026-11-10T09:15:11Z running 0, queued 0
+2026-11-10T09:17:11Z running 0, queued 0
+2026-11-10T09:19:11Z running 0, queued 0
+2026-11-10T09:21:11Z running 0, queued 0
+2026-11-10T09:23:12Z running 0, queued 0
+2026-11-10T09:25:12Z running 0, queued 0
+2026-11-10T09:27:12Z running 0, queued 0
+2026-11-10T09:29:12Z running 0, queued 0
+2026-11-10T09:31:12Z running 0, queued 0
+2026-11-10T09:33:12Z running 0, queued 0
+2026-11-10T09:35:12Z running 0, queued 0
+2026-11-10T09:37:12Z running 0, queued 0
+2026-11-10T09:39:12Z running 0, queued 0
+2026-11-10T09:41:12Z running 0, queued 0
+2026-11-10T09:43:12Z running 0, queued 0
+2026-11-10T09:45:12Z running 0, queued 0
+2026-11-10T09:47:12Z running 0, queued 0
+2026-11-10T09:49:12Z running 0, queued 0
+2026-11-10T09:51:12Z running 0, queued 0
+2026-11-10T09:53:12Z running 0, queued 0
+2026-11-10T09:55:12Z running 0, queued 0
+2026-11-10T09:57:12Z running 0, queued 0
+2026-11-10T09:59:12Z running 0, queued 0
+2026-11-10T10:01:12Z running 0, queued 0
+2026-11-10T10:03:12Z running 0, queued 0
+2026-11-10T10:05:12Z running 0, queued 0
+2026-11-10T10:07:12Z running 0, queued 0
+2026-11-10T10:09:12Z running 0, queued 0
+2026-11-10T10:11:12Z running 0, queued 0
+2026-11-10T10:13:12Z running 0, queued 0
+2026-11-10T10:15:12Z running 0, queued 0
+2026-11-10T10:17:12Z running 0, queued 0
+2026-11-10T10:19:12Z running 0, queued 0
+2026-11-10T10:21:12Z running 0, queued 0
+2026-11-10T10:23:12Z running 0, queued 0
+2026-11-10T10:25:12Z running 0, queued 0
+2026-11-10T10:27:12Z running 0, queued 0
+2026-11-10T10:29:12Z running 0, queued 0
+2026-11-10T10:31:12Z running 0, queued 0
+2026-11-10T10:33:12Z running 0, queued 0
+2026-11-10T10:35:12Z running 0, queued 0
+2026-11-10T10:37:12Z running 0, queued 0
+2026-11-10T10:39:12Z running 0, queued 0
+2026-11-10T10:41:12Z running 0, queued 0
+2026-11-10T10:43:12Z running 0, queued 0
+2026-11-10T10:45:12Z running 0, queued 0
+2026-11-10T10:47:12Z running 0, queued 0
+2026-11-10T10:49:12Z running 0, queued 0
+2026-11-10T10:51:12Z running 0, queued 0
+2026-11-10T10:53:12Z running 0, queued 0
+2026-11-10T10:55:12Z running 0, queued 0
+2026-11-10T10:57:12Z running 0, queued 0
+2026-11-10T10:59:12Z running 0, queued 0
+2026-11-10T11:01:12Z running 0, queued 0
+2026-11-10T11:03:12Z running 0, queued 0
+2026-11-10T11:05:12Z running 0, queued 0
+2026-11-10T11:07:12Z running 0, queued 0
+2026-11-10T11:09:12Z running 0, queued 0
+2026-11-10T11:11:12Z running 0, queued 0
+2026-11-10T11:13:12Z running 0, queued 0
+2026-11-10T11:15:12Z running 0, queued 0
+2026-11-10T11:17:12Z running 0, queued 0
+2026-11-10T11:19:12Z running 0, queued 0
+2026-11-10T11:21:12Z running 0, queued 0
+2026-11-10T11:23:12Z running 0, queued 0
+2026-11-10T11:25:12Z running 0, queued 0
+2026-11-10T11:27:12Z running 0, queued 0
+2026-11-10T11:29:12Z running 0, queued 0
+2026-11-10T11:31:12Z running 0, queued 0
+2026-11-10T11:33:12Z running 0, queued 0
+2026-11-10T11:35:12Z running 0, queued 0
+2026-11-10T11:37:12Z running 0, queued 0
+2026-11-10T11:39:12Z running 0, queued 0
+2026-11-10T11:41:12Z running 0, queued 0
+2026-11-10T11:43:12Z running 0, queued 0
+2026-11-10T11:45:12Z running 0, queued 0
+2026-11-10T11:47:12Z running 0, queued 0
+2026-11-10T11:49:12Z running 0, queued 0
+2026-11-10T11:51:12Z running 0, queued 0
+2026-11-10T11:53:12Z running 0, queued 0
+2026-11-10T11:55:12Z running 0, queued 0
+2026-11-10T11:57:12Z running 0, queued 0
+2026-11-10T11:59:12Z running 0, queued 0
+2026-11-10T12:01:12Z running 0, queued 0
+2026-11-10T12:03:12Z running 0, queued 0
+2026-11-10T12:05:12Z running 0, queued 0
+2026-11-10T12:07:12Z running 0, queued 0
+2026-11-10T12:09:12Z running 0, queued 0
+2026-11-10T12:11:12Z running 0, queued 0
+2026-11-10T12:13:12Z running 0, queued 0
+2026-11-10T12:15:12Z running 0, queued 0
+2026-11-10T12:17:12Z running 0, queued 0
+2026-11-10T12:19:12Z running 0, queued 0
+2026-11-10T12:21:13Z running 0, queued 0
+2026-11-10T12:23:13Z running 0, queued 0
+2026-11-10T12:25:13Z running 0, queued 0
+2026-11-10T12:27:13Z running 0, queued 0
+2026-11-10T12:29:13Z running 0, queued 0
+2026-11-10T12:31:13Z running 0, queued 0
+2026-11-10T12:33:13Z running 0, queued 0
+2026-11-10T12:35:13Z running 0, queued 0
+2026-11-10T12:37:13Z running 0, queued 0
+2026-11-10T12:39:13Z running 0, queued 0
+2026-11-10T12:41:13Z running 0, queued 0
+2026-11-10T12:43:13Z running 0, queued 0
+2026-11-10T12:45:13Z running 0, queued 0
+2026-11-10T12:47:13Z running 0, queued 0
+2026-11-10T12:49:13Z running 0, queued 0
+2026-11-10T12:51:13Z running 0, queued 0
+2026-11-10T12:53:13Z running 0, queued 0
+2026-11-10T12:55:13Z running 0, queued 0
+2026-11-10T12:57:13Z running 0, queued 0
+2026-11-10T12:59:13Z running 0, queued 0
+2026-11-10T13:01:13Z running 0, queued 0
+2026-11-10T13:03:13Z running 0, queued 0
+2026-11-10T13:05:13Z running 0, queued 0
+2026-11-10T13:07:13Z running 0, queued 0
+2026-11-10T13:09:13Z running 0, queued 0
+2026-11-10T13:11:13Z running 0, queued 0
+2026-11-10T13:13:13Z running 0, queued 0
+2026-11-10T13:15:13Z running 0, queued 0
+2026-11-10T13:17:13Z running 0, queued 0
+2026-11-10T13:19:13Z running 0, queued 0
+2026-11-10T13:21:13Z running 0, queued 0
+2026-11-10T13:23:13Z running 0, queued 0
+2026-11-10T13:25:13Z running 0, queued 0
+2026-11-10T13:27:13Z running 0, queued 0
+2026-11-10T13:29:13Z running 0, queued 0
+2026-11-10T13:31:13Z running 0, queued 0
+2026-11-10T13:33:13Z running 0, queued 0
+2026-11-10T13:35:13Z running 0, queued 0
+2026-11-10T13:37:13Z running 0, queued 0
+2026-11-10T13:39:13Z running 0, queued 0
+2026-11-10T13:41:13Z running 0, queued 0
+2026-11-10T13:43:13Z running 0, queued 0
+2026-11-10T13:45:13Z running 0, queued 0
+2026-11-10T13:47:13Z running 0, queued 0
+2026-11-10T13:49:13Z running 0, queued 0
+2026-11-10T13:51:13Z running 0, queued 0
+2026-11-10T13:53:13Z running 0, queued 0
+2026-11-10T13:55:13Z running 0, queued 0
+2026-11-10T13:57:13Z running 0, queued 0
+2026-11-10T13:59:13Z running 0, queued 0
+2026-11-10T14:01:13Z running 0, queued 0
+2026-11-10T14:03:13Z running 0, queued 0
+2026-11-10T14:05:13Z running 0, queued 0
+2026-11-10T14:07:13Z running 0, queued 0
+2026-11-10T14:09:13Z running 0, queued 0
+2026-11-10T14:11:13Z running 0, queued 0
+2026-11-10T14:13:13Z running 0, queued 0
+2026-11-10T14:15:13Z running 0, queued 0
+2026-11-10T14:17:13Z running 0, queued 0
+2026-11-10T14:19:13Z running 0, queued 0
+2026-11-10T14:21:13Z running 0, queued 0
+2026-11-10T14:23:13Z running 0, queued 0
+2026-11-10T14:25:13Z running 0, queued 0
+2026-11-10T14:27:13Z running 0, queued 0
+2026-11-10T14:29:13Z running 0, queued 0
+2026-11-10T14:31:13Z running 0, queued 0
+2026-11-10T14:33:13Z running 0, queued 0
+2026-11-10T14:35:13Z running 0, queued 0
+2026-11-10T14:37:13Z running 0, queued 0
+2026-11-10T14:39:13Z running 0, queued 0
+2026-11-10T14:41:13Z running 0, queued 0
+2026-11-10T14:43:13Z running 0, queued 0
+2026-11-10T14:45:14Z running 0, queued 0
+2026-11-10T14:47:14Z running 0, queued 0
+2026-11-10T14:49:14Z running 0, queued 0
+2026-11-10T14:51:14Z running 0, queued 0
+2026-11-10T14:53:14Z running 0, queued 0
+2026-11-10T14:55:14Z running 0, queued 0
+2026-11-10T14:57:14Z running 0, queued 0
+2026-11-10T14:59:14Z running 0, queued 0
+2026-11-10T15:01:14Z running 0, queued 0
+2026-11-10T15:03:14Z running 0, queued 0
+2026-11-10T15:05:14Z running 0, queued 0
+2026-11-10T15:07:14Z running 0, queued 0
+2026-11-10T15:09:14Z running 0, queued 0
+2026-11-10T15:11:14Z running 0, queued 0
+2026-11-10T15:13:14Z running 0, queued 0
+2026-11-10T15:15:14Z running 0, queued 0
+2026-11-10T15:17:14Z running 0, queued 0
+2026-11-10T15:19:14Z running 0, queued 0
+2026-11-10T15:21:14Z running 0, queued 0
+2026-11-10T15:23:14Z running 0, queued 0
+2026-11-10T15:25:14Z running 0, queued 0
+2026-11-10T15:27:14Z running 0, queued 0
+2026-11-10T15:29:14Z running 0, queued 0
+2026-11-10T15:31:14Z running 0, queued 0
+2026-11-10T15:33:14Z running 0, queued 0
+2026-11-10T15:35:14Z running 0, queued 0
+2026-11-10T15:37:14Z running 0, queued 0
+2026-11-10T15:39:14Z running 0, queued 0
+2026-11-10T15:41:14Z running 0, queued 0
+2026-11-10T15:43:14Z running 0, queued 0
+2026-11-10T15:45:14Z running 0, queued 0
+2026-11-10T15:47:14Z running 0, queued 0
+2026-11-10T15:49:14Z running 0, queued 0
+2026-11-10T15:51:14Z running 0, queued 0
+2026-11-10T15:53:14Z running 0, queued 0
+2026-11-10T15:55:14Z running 0, queued 0
+2026-11-10T15:57:14Z running 0, queued 0
+2026-11-10T15:59:14Z running 0, queued 0
+2026-11-10T16:01:14Z running 0, queued 0
+2026-11-10T16:03:14Z running 0, queued 0
+2026-11-10T16:05:14Z running 0, queued 0
+2026-11-10T16:07:14Z running 0, queued 0
+2026-11-10T16:09:14Z running 0, queued 0
+2026-11-10T16:11:14Z running 0, queued 0
+2026-11-10T16:13:14Z running 0, queued 0
+2026-11-10T16:15:14Z running 0, queued 0
+2026-11-10T16:17:14Z running 0, queued 0
+2026-11-10T16:19:14Z running 0, queued 0
+2026-11-10T16:21:14Z running 0, queued 0
+2026-11-10T16:23:14Z running 0, queued 0
+2026-11-10T16:25:14Z running 0, queued 0
+2026-11-10T16:27:14Z running 0, queued 0
+2026-11-10T16:29:14Z running 0, queued 0
+2026-11-10T16:31:14Z running 0, queued 0
+2026-11-10T16:33:14Z running 0, queued 0
+2026-11-10T16:35:14Z running 0, queued 0
+2026-11-10T16:37:14Z running 0, queued 0
+2026-11-10T16:39:14Z running 0, queued 0
+2026-11-10T16:41:14Z running 0, queued 0
+2026-11-10T16:43:14Z running 0, queued 0
+2026-11-10T16:45:14Z running 0, queued 0
+2026-11-10T16:47:14Z running 0, queued 0
+2026-11-10T16:49:14Z running 0, queued 0
+2026-11-10T16:51:14Z running 0, queued 0
+2026-11-10T16:53:14Z running 0, queued 0
+2026-11-10T16:55:14Z running 0, queued 0
+2026-11-10T16:57:14Z running 0, queued 0
+2026-11-10T16:59:14Z running 0, queued 0
+2026-11-10T17:01:14Z running 0, queued 0
+2026-11-10T17:03:14Z running 0, queued 0
+2026-11-10T17:05:14Z running 0, queued 0
+2026-11-10T17:07:14Z running 0, queued 0
+2026-11-10T17:09:14Z running 0, queued 0
+2026-11-10T17:11:14Z running 0, queued 0
+2026-11-10T17:13:14Z running 0, queued 0
+2026-11-10T17:15:14Z running 0, queued 0
+2026-11-10T17:17:14Z running 0, queued 0
+2026-11-10T17:19:14Z running 0, queued 0
+2026-11-10T17:21:14Z running 0, queued 0
+2026-11-10T17:23:14Z running 0, queued 0
+2026-11-10T17:25:14Z running 0, queued 0
+2026-11-10T17:27:14Z running 0, queued 0
+2026-11-10T17:29:14Z running 0, queued 0
+2026-11-10T17:31:15Z running 0, queued 0
+2026-11-10T17:33:15Z running 0, queued 0
+2026-11-10T17:35:15Z running 0, queued 0
+2026-11-10T17:37:15Z running 0, queued 0
+2026-11-10T17:39:15Z running 0, queued 0
+2026-11-10T17:41:15Z running 0, queued 0
+2026-11-10T17:43:15Z running 0, queued 0
+2026-11-10T17:45:15Z running 0, queued 0
+2026-11-10T17:47:15Z running 0, queued 0
+2026-11-10T17:49:15Z running 0, queued 0
+2026-11-10T17:51:15Z running 0, queued 0
+2026-11-10T17:53:15Z running 0, queued 0
+2026-11-10T17:55:15Z running 0, queued 0
+2026-11-10T17:57:15Z running 0, queued 0
+2026-11-10T17:59:15Z running 0, queued 0
+2026-11-10T18:01:15Z running 0, queued 0
+2026-11-10T18:03:15Z running 0, queued 0
+2026-11-10T18:05:15Z running 0, queued 0
+2026-11-10T18:07:15Z running 0, queued 0
+2026-11-10T18:09:15Z running 0, queued 0
+2026-11-10T18:11:15Z running 0, queued 0
+2026-11-10T18:13:15Z running 0, queued 0
+2026-11-10T18:15:15Z running 0, queued 0
+2026-11-10T18:17:15Z running 0, queued 0
+2026-11-10T18:19:15Z running 0, queued 0
+2026-11-10T18:21:15Z running 0, queued 0
+2026-11-10T18:23:15Z running 0, queued 0
+2026-11-10T18:25:15Z running 0, queued 0
+2026-11-10T18:27:15Z running 0, queued 0

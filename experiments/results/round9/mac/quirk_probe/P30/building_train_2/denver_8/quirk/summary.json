@@ -1,0 +1,14 @@
+{
+ "building": "building_train_2",
+ "weather": "denver_8",
+ "mode": "quirk",
+ "total_reward": -24.978599367444986,
+ "total_steps": 8640,
+ "avg_reward": -0.0028910415934542805,
+ "total_normalized_productivity_regret": -1.583794654290955,
+ "total_normalized_energy_cost": 46.34006589119781,
+ "total_normalized_carbon_emission": 73.8015469708298,
+ "steps_overridden": 3671,
+ "wall_s": 462.30715918540955,
+ "policy_file": "/Users/neel.sirivara/neurips/sb/r9/policies/v10.py"
+}

@@ -1,0 +1,9 @@
+{"id": "r9_mprs/r6hs/building_train_1/fairbanks_c2", "rc": 0, "wall_s": 1255.1, "ok": true, "total_reward": -389.67873465060256, "steps": 8640, "sec_per_step": 0.14166048240882378}
+{"id": "r9_mprs/r6hs/building_train_1/fairbanks_2", "rc": 0, "wall_s": 1260.1, "ok": true, "total_reward": -188.0495982595603, "steps": 8640, "sec_per_step": 0.14222600357951942}
+{"id": "r9_mprs/r6hs/building_train_4/denver_c1", "rc": 0, "wall_s": 1705.1, "ok": true, "total_reward": -97.69377999021526, "steps": 8640, "sec_per_step": 0.19350961849645332}
+{"id": "r9_mprs/r6hs/building_train_2/fairbanks_8", "rc": 0, "wall_s": 2300.1, "ok": true, "total_reward": -108.15451961865983, "steps": 8640, "sec_per_step": 0.26248456303168227}
+{"id": "r9_mprs/r6hs/building_train_4/fairbanks_1", "rc": 0, "wall_s": 1690.1, "ok": true, "total_reward": -271.4539997091997, "steps": 8640, "sec_per_step": 0.19269681440459357}
+{"id": "r9_mprs/r6hs/building_train_5/fairbanks_1", "rc": 0, "wall_s": 1715.1, "ok": true, "total_reward": -329.1840961731432, "steps": 8640, "sec_per_step": 0.1956222145093812}
+{"id": "r9_mprs/r6hs/building_train_8/fairbanks_2", "rc": 0, "wall_s": 760.0, "ok": true, "total_reward": -172.63589671115187, "steps": 8640, "sec_per_step": 0.08601018171067591}
+{"id": "r9_mprs/r6hs/building_train_5/minneapolis_2", "rc": 0, "wall_s": 1570.1, "ok": true, "total_reward": -143.77872837214454, "steps": 8640, "sec_per_step": 0.1788435164977003}
+{"id": "r9_mprs/r6hs/building_train_8/minneapolis_8", "rc": 0, "wall_s": 510.0, "ok": true, "total_reward": -87.15940664219306, "steps": 8640, "sec_per_step": 0.057188744760221906}

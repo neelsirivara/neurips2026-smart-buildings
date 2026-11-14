@@ -132,3 +132,33 @@ confirmation run is a Kaggle shard, `round6/kaggle_registry.json`); "(no gain on
 four round-7 HS CIs contain zero, `round7/screen_summary.json`); "whose model may only shorten the learned start"
 (`mbr_lead_cap` 1 in `policy_candidates/r7L_mbr2.json`); the v10 parameter row ("RLS zone model", "model lead <=
 learned lead") is `mbr_on` 1 and `mbr_lead_cap` 1 of `results/tune/best_params_v10.json`.
+
+Rounds 9-10 (2026-11-01/02; text brought up to the shipped v12 on 2026-11-04). Generator: the `RNine*` / `RTen*` macros
+come from `paper/make_macros_r9r10.py` (writes `paper/results_macros_r9r10.tex`, input after `results_macros.tex`, and
+the generated "Rounds 9-10" block at the end of AUDIT.md), not from `experiments/src/make_macros.py`: that
+directory was frozen when the paper was updated. Order when regenerating: `make_macros.py`, `make_audit.py` (rewrites
+AUDIT.md), then `python paper/make_macros_r9r10.py` (re-appends its block; exit code 1 on a missing value or a failed
+check). The Appendix G numbers were typed by hand in rounds 9-10; every one now comes from a macro, and none of the
+typed values disagreed with its file at the precision printed (the FD worst case is now printed as +2.76% instead of
++2.8%, the HC2 Saturday range as 1.96-4.34% instead of 1.96-4.3%). Typed constants of these rounds: "compared the result
+with 5" (v10's `workday_ahead = day_next < 5.0`, round-9 PREREG.md amendment 2); "float32 sine and cosine", "atan2" and
+Monday = 0 (the decode, `_cyclic` in `results/round10/policies/v11.py`; the script recomputes the two decoded values and
+checks them against PREREG amendment 2, from `debug_saturday_r9.py`); "1 November 2026", "2 November 2026" (ship
+times in STATUS.md rounds 9-10); "second-order" (`mpr` model dT(k+1) = a dT(k) + b Q(k) - c (T - Tout) + d,
+`experiments/src/make_v11_r9.py`); "may only shorten" the lead (same docstring; `mbr_lead_cap` for v10); "the last 24
+hours" / "within a day" / "in 24 h" (`oat_min_hist = deque(maxlen=288)`, `experiments/src/make_v12_r10.py`; 288
+five-minute steps per day is also the divisor of `RTenSeasonDays`); "(hot-water loop kept hot, night-flush guard,
+set-back reheat)" (the three uses of `season_on` in make_v12_r10.py); "starter-kit pull request #2" (round 5); "the
+largest rooms and the largest floor area of their seed range" (0610 and 0639, `results/round4/PREREG.md` fresh-40
+row); "a perfect-foresight linear programme on the kit's own (linear) building model" (`results/round9/lp_summary.json`,
+STATUS round 9 item 9); "chosen on development scenarios", "registered before any run" on HC3/HH and "HC3's cold
+windows do not exercise the gate" (round-10 PREREG.md Parts 1-2, "Expectation and known limits"); "HC2 was not
+untouched ... v10's runs on it were part of the decomposition that found the bug" and the Table 2 caption's "round 9's
+HC2 had served an earlier decision" (round-10 PREREG.md: HC2 "confirmed v10 in round 8 and v11 in round 9; not clean";
+`results/round9/decomp_v10_hc2.json`); "the M5 Pro alone" for round 10 (job argv paths `/Users/...` in
+`results/round10/jobs/*.json`; the laptop ran only orchestration, compare scripts, the robustness test and pdflatex,
+STATUS round 10 "Compute"); "(6, 7, 9 partly on the M5 Pro)" (round 6 Mac runs `RSixMacNRuns`, round 7 zone logs,
+round 9's 12 plant-internal runs, quirk probes and LP bounds, STATUS round 9). The parameter macros of
+`results_macros.tex` (written 2026-10-30 from v10's `best_params.json`) are checked by the script against
+`best_params_v12.json` and all equal v12's values; the weekend floor, which changed (6 -> 12 K), is printed from
+`RTenWkExtLo`.

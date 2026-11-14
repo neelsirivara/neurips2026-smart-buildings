@@ -1,0 +1,35 @@
+{
+ "smoke_r9/building_train_1/fairbanks_1": {
+  "acct": {
+   "gas_kwh": 2105.656583333333,
+   "coil_kwh": 1984.2798170572914,
+   "tank_heat_kwh": 17.416666666666664,
+   "dissip_kwh": 21.668809452056884,
+   "warmup_overbill_kwh": 82.29129015731812
+  },
+  "delivery": {
+   "coil_kwh_occ": 1119.7026453399658,
+   "coil_kwh_unocc": 864.5771717173258,
+   "need_kwh_occ": 614.4132319348948,
+   "need_kwh_unocc": 543.1840027857113,
+   "lb_kwh_occ": 1101.1019912826914,
+   "lb_kwh_unocc": 817.279363993462,
+   "excess_share_of_gas": 0.031295920855630786,
+   "excess_occ_share_of_gas": 0.008833659868613869,
+   "excess_unocc_share_of_gas": 0.022462260987016994,
+   "g_median": 1.6316314171253503
+  },
+  "trajectory": {
+   "excess_heat_kwh_at_gmed": 10798.023039166355,
+   "excess_share_of_gas": 5.128102618743595,
+   "ua_median": 204.27906881106915,
+   "tau_median_h": 5.8587014491300256,
+   "r2_median": 0.7884961607724474
+  },
+  "steps": 600,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 12.60738675435384
+  }
+ }
+}

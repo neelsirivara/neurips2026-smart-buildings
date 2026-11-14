@@ -1,6 +1,388 @@
+# Resumed by the main session (2026-11-12 ~01:00 UTC)
+
+- v14 (cooling handover ramp, HA) is in the paper: `paper/make_macros_r14.py` -> `results_macros_r14.tex`, a v14
+  paragraph in the tuning section, a versions-table row and an abstract clause. 22 pp, 0 undefined.
+- Round 14 (frost-floor CMA) is DROPPED. Its best (0.998 vs v12) does not beat v13 (about 0.996), and the Mac is the
+  user's work machine again, with an ALERT on weekend_check.
+- v14 Kaggle probe: one retry of `kaggle_probe_r14.py push/check`. If it errors again, push v14's code as a new version
+  of the working v13 kernel.
+
+# v14 packaged; Kaggle probe DEFERRED (2026-11-10 ~01:00 UTC)
+
+- submission/candidates/transfer_policy_v14.py sha256 1f2944e5... = sadr_struct.py + st_hand_c_h 1.0 (class TransferPolicy, as v13). Lenovo pub30 atlanta_2 8640 steps: total -30.849723828052447 = HA exactly (rel diff 0); experiments/results/v14pkg/.
+- Kaggle: 5 kernels r14g01c00..c04 sat QUEUED 10+ h and filled the account's 5 batch-CPU slots (cause of the all-day stall). Their work was already done on the Mac; deleted on Kaggle and marked abandoned in kaggle_registry.json (backup /tmp).
+- kaggle_probe_r14.py push succeeded twice, but both runs ERRORed: FileNotFoundError /kaggle/input/competitions/neurips-2026-smart-buildings (competition source IS in kernel-metadata.json, identical to v13's working one). Likely Kaggle-side. Next: re-run the v13 kernel as a control; if it also fails, wait for Kaggle; then `python experiments/src/kaggle_probe_r14.py push/check/submit`. Nothing submitted for v14 yet.
+
+# struct_r1 HA confirmed vs fresh v13: SHIP as v14 (2026-11-09 ~23:30 UTC)
+
+- experiments/results/struct_r1/decision_HA_v13fresh.json (plan CONFIRM_PLAN.md sha256 8b82778e...): mixture -0.52% [-0.62, -0.41] (HC3 -0.04%, 28/40; HH -0.76%, 38/40), pub30 -0.59% (25/30), HH comfort regret -79%, frost unchanged; all guards pass.
+- The r12var-reuse check missed 1e-9 (pub30 denver_7, 1.6e-9, Mac vs Kaggle), so per the plan v13 was re-run fresh on all three sets (v13fresh). HA HC3/pub30 ran on Kaggle, v13fresh HC3/pub30 on the Mac (Kaggle queue stuck): host difference ~1e-9, negligible vs the effect.
+- v14 = sadr_struct.py + st_hand_c_h 1.0; packaging + Kaggle probe in progress.
+- Round 14 (frost floor CMA) still running; its comparator is v13 by plan. If it passes later, HA is applied on top per CONFIRM_PLAN.
+
+# struct_r1: structural-change screen on top of v13 (2026-11-09, subagent; nothing shipped)
+
+- Plan `experiments/results/struct_r1/PLAN.md` (sha256 06b9cb45..., hashed before any screen run). Policy copy
+  `experiments/src/policies_struct/sadr_struct.py`, all switches off = v13 bit for bit (`identity_check.json`).
+  Mac, ~/neurips/sb/struct, one runner, 6 workers; booked on WEEKEND.md.
+- Screen (24 seven-day windows, ratio vs v13; harsh / public-like / mixture): late-recovery escalation 1.019 / 1.017 /
+  1.018 (fail); **cooling handover ramp 1 h (HA) 0.9997 / 0.9891 (12/12) / 0.9927 (pass)**, 3 h 0.9931 (pass);
+  swing-zone target 1.000 / 0.9995 / 0.9997 (fail); cost-model mixed-handler SAT 1.001 / 0.999 / 0.9997 (fail).
+  Files: `screen_<arm>.json`. HA's mechanism: public-like comfort regret -65%, energy +0.1%.
+- Frost, HA vs v13 on HS-18 at full length: coldest -9.95 C vs -9.95 C, below-5 C 4.240% vs 4.239%
+  (`frost_hs18_HA.json`). HA does not touch setback.
+- Next: the confirmation in `struct_r1/CONFIRM_PLAN.md` (HC3 + HH + pub30 at full length, mixture CI < 0, pub30 and
+  frost guards; comparator v13, or v14 if round 14 ships). Not run. (REPORT.md could not be written by the
+  subagent; the full report is in its handback to the orchestrator.)
+
+# v13 Kaggle public score: 0.01021 (2026-11-09 ~07:30 UTC)
+
+- Ref 58147185 (label v13_r12var): public 0.01021 vs v12 0.01030 (lower is better, about -0.9%). Recorded in
+  experiments/results/kaggle_feedback.json; paper macros regenerated (RTwKagVThirteen) and main.pdf rebuilt (0 undefined).
+- Final Kaggle selections are the user's; candidates are v13 (submission/candidates/transfer_policy_v13.py) and v12.
+
+# v13 packaged + Kaggle probe (2026-11-09 UTC, packaging session)
+
+- File: `submission/candidates/transfer_policy_v13.py`, sha256 4cf9e40b12a14489c8a8682c82e295b80e3d01934f4da05c3c9efb5ed3c6f516.
+  Copy of shipped v12 (44ebbb3b...) with the 14 DEFAULT_PARAMS keys of `round12/candidate_v12setback.json` (12 changed
+  lines; night_low_ext 10.0 / night_high_ext 6.0 unchanged) + docstring note. submission/transfer_policy.py,
+  best_params.json, round12/round13 untouched.
+- Lenovo equivalence (v13, no --params-json, pub30 building_train_1/atlanta_2, 8640 steps): total -31.37316089353044,
+  avg -0.003631152881195653 == round6 r12var reference exactly (rel diff 0). Copy:
+  `experiments/results/round13_v13pkg/lenovo_v13_atlanta_2_summary.json`. LOCK taken and released.
+- Kaggle: `experiments/src/kaggle_probe_r13.py`, kernel neelsiri/sadr-v13-smart-buildings v1 (private) COMPLETE;
+  atlanta_2 total -31.376361 vs local -31.373161 (rel -1.0e-4, 8641 vs 8640 steps), parquet ok -> check ok.
+- Probe submission ref 58147185 (2026-11-09 01:34 UTC, logged in kaggle_feedback.json). Public score: PENDING after
+  ~60 min of polling (v12 = 0.01030, lower is better). Final Kaggle selections not changed.
+
+# Paper updated for rounds 12-13 / v13 (2026-11-08, paper session)
+
+- New `paper/make_macros_r12.py` -> `results_macros_r12.tex`, `table_tuning_r12.tex` (Table 5: v12, r12cand, r13cand,
+  v13 with mixture CI, HC3/HH/P, HS loss, coldest zone, below-5 C share, frost guard) and `table_params_r12.tex`
+  (appendix: the 14 constants); AUDIT.md gains an r12 block (all checks pass; it re-derives the frost guard and the
+  round-13 choice). Backups: `paper/main_pre_r12.{tex,pdf}`.
+- Paper: new Section 4.1 "Tuning the constants" (protocol, the frost lever found twice, v13 with its caveats); one
+  abstract sentence; a round 12-13 row in Table 2; Limitations (tuning exploits the missing frost cost; v13's
+  confirmation reuses sets and its guard was set knowing r12var's interim frost); "shipped v12" wording now says v12
+  is the analysed version and v13 shipped. New citation hansen2016cma (verified on arXiv, logged).
+- Build: 21 pages, 0 undefined, 0 overfull.
+- **TODO:** the v13 Kaggle score prints "pending" (macro `\RTwKagVThirteen`). Once `kaggle_feedback.json` has the
+  `v13_r12var` entry, run `python paper/make_macros_r12.py` and rebuild (pdflatex x2).
+
+# r12var (frost-safe variant) confirmation: PASS (2026-11-08 09:05 UTC, orchestrator)
+
+- r12var = round-12 CMA mean with v12's setback depths (night_low_ext 10, night_high_ext 6); `experiments/src/confirm_r12v.py`,
+  `round12/decision_r12var.json`, `round12/frost_r12var.json`, params `round12/candidate_v12setback.json`.
+- Mixture -0.39%, CI [-0.65%, -0.12%] (HC3 -0.68%, 36/40 better; HH -0.24%, 21/40); public 30 -2.5% (27/30): primary
+  and guard pass.
+- Frost on HS: coldest zone -10.0 C (v12 -9.4 C; r12cand -11.4 C); below-5 C share 4.24% (v12 4.24%; r12cand 4.9%):
+  passes round 13's frost guard (<= v12 + 0.25 pp, coldest >= v12 - 1.0 C).
+- Not shipped yet: round 13 (`results/round13/PLAN.md`) re-tunes with the depths fixed; its PLAN picks mechanically
+  between r12var and r13cand after r13cand's confirmation.
+
+# Round 12 confirmation: PASS (2026-11-07 17:30 UTC)
+
+- The CMA mean (`round12/candidate_mean.json`) at full length against v12 (r10_K):
+  - HC3 -1.0% (39/40 scenarios better);
+  - HH -0.6% (28/40);
+  - pre-registered mixture -0.74%, CI [-0.98%, -0.50%], so the primary passes;
+  - public 30 -2.6% (28/30), so the guard passes.
+  - `round12/decision.json`.
+- **Frost on HS (`round12/frost.json`):** the candidate goes colder than v12.
+  - Coldest zone: -11.4 C (v12: -9.4 C).
+  - Zone-steps below 5 C: 4.9% (v12: 4.2%).
+  - HS loss: -1.0%.
+  - Per the plan this is flagged to the user before shipping. Nothing is shipped or submitted yet.
+
+# Round 12: CMA-ES tuning of v12's constants on Kaggle (started 2026-11-07 01:29 UTC)
+
+- Pre-registered in `experiments/results/round12/PLAN.md` (sha256 b81afdd7...) before any run.
+  - Search: 14 continuous constants, population 10, 15 generations.
+  - Objective: 7-day windows on 12 HS + 12 D10 scenarios, as 1/3 harsh + 2/3 public-like ratio to v12.
+  - Confirmation: the final CMA mean at full length on HC3 and HH (primary, mixture CI below 0) and the public 30
+    (guard: not worse).
+- Driver: `experiments/src/cma_r12.py` (resumable; state in `round12/cma_state.json`, log `round12/cma_log.txt`).
+- Chain: `_ops/sb_r12_chain.sh` (dataset check, init, dispatcher, loop). The private dataset gained r10dev, r10hc and
+  r10hh (version of 01:28 UTC). About 50-60 min per generation on 5 kernel slots.
+- Why not chase the top of the board: the leaders' ~0.005 matches what the gas-billing quirk gives (DEEP_DIVE R6). The
+  realistic headroom without it is the LP bound, 10-15% of the heating loss.
+
+- **Mac share (2026-11-07 02:50 UTC):** with the user's OK for the weekend, `cma_r12.py` sends 5 of each generation's 10
+  candidates to the Mac (`round12/MAC_ON` = 5). Conditions and fallback are as in the booking on `~/neurips/WEEKEND.md`;
+  Mac candidates go back to Kaggle after 4 h. The Mac isn't used while the speech chain is live.
+
+# Paper tone pass (2026-11-06 ~14:30 UTC)
+
+- Softer claims: "We argue that a structure-aware rule-based controller is a useful first entry" (was "the right first
+  entry"); "shape" instead of "fix" for the three design facts. "Takeaways for SB26 entrants" is now "Pitfalls in the
+  kit": only the two kit facts (Saturday decoding, baseline returns) plus our own Kaggle observation, since the best
+  entries score less than half of v12's loss. AI line: "We used Claude (Anthropic) as an AI assistant." Four appendix
+  sections retitled by topic. 20 pages, 0 undefined. The site gives no page limit or AI rule (paper template on Drive);
+  the poster round closes Nov 13. A deeper appendix pass (relevance and display) is still to do before then.
+
+# v12 Kaggle score: 0.01030 public, rank 153 of 589 (read 2026-11-06 13:22 UTC)
+
+- Ref 58050462 (submitted 07:49 UTC) scored 0.01030, 2.4% below v10's 0.01055. The field: best 0.0047, median 0.0119
+  (`../_downloads/sb26_lb_2026-11-06/`). Logged in `experiments/results/kaggle_feedback.json`; macros regenerated
+  (`make_macros_r9r10.py`: RTenKagVTwelve; `make_macros_r11.py`: rank and field macros).
+- Paper: the abstract, the Kaggle paragraph and Limitations now report the score and rank. The Next-step paragraph
+  says the best entries score less than half of v12's loss. 20 pages, 0 undefined. Final Kaggle selections (v12 + v11
+  recommended) remain the user's step.
+
+# Ablation complete; paper rewritten as prose (2026-11-06 ~03:40 UTC)
+
+- **Ablation (Table 3) complete:** 16/16 arms on the 30 public scenarios, with reference runs matching round 10 to within
+  a relative 2e-9. Coldest supply air +7.4% (v12 wins 15, loses 13); zone gains scaled with area +2.2% (wins all 30);
+  weekend setback, coil-delivery cap, day-of-week rounding, per-zone start and set-back reheat about +1% each;
+  economizer, air boost, model start, heating season and the 20 kW cap under 1%; hot water 350 K, recoverable floor,
+  night flush and proportional occupied flow inert (0.0-0.2%).
+- **Paper:** at the user's request there are no bullet lists anywhere (prose with run-in paragraph heads). The ablation
+  paragraph is written and the abstract states its headline. Ablation table narrowed (it overflowed once complete).
+  Builds to 20 pages, 0 undefined, 0 overfull; limitations on p.8, appendix from p.10 (unchanged). Pre-rewrite copies:
+  `paper/main_pre_prose.*`.
+- **Kaggle v12: submitted** 2026-11-06 07:49 UTC as ref 58050462 (the user allowed reversible, non-final
+  submissions). The private notebook check matched local to 0.012%. Score pending; logged in
+  `experiments/results/kaggle_feedback.json`. The final selections stay the user's call (recommended v12 + v11).
+
 # Smart Buildings Challenge (SB26) -- STATUS
 
-Last updated: 2026-10-30 ~21:50 UTC. State: ROUND 8 COMPLETE -- **v10 shipped** in `submission/transfer_policy.py` under the pre-registered rule: the round-7 fix r7L_mbr2 (per-zone model start that may only shorten the learned lead; c07 lead safety instead of c06), registered before its only clean test, lowers the loss on HC2 (44 never-used cold-window scenarios) by 0.88% [0.77, 0.98] (43/44) and on the public 30 by 1.62% [1.26, 2.02] (30/30); M -1.09% (12/12); FD -1.30% (17/20). Round 7 (analysis + four pre-registered candidates) shipped nothing: all four were "public only". v9 kept as `submission/transfer_policy_v9_shipped_before_round8.py`; final Kaggle selections v10 + v9 (replacing v8). One private Kaggle probe of v10 submitted (ref 57816757), score pending. Paper rebuilt (15 pages, main text through page 6, 0 errors / undefined / `??` / overfull), AUDIT 75 claims, review pass 6, `DEEP_DIVE.md` updated. Mac not used since its 13:08 PDT crash on 10-29 (coordinator: off-limits for simulator work). Kaggle dispatcher stopped (2026-10-30 ~22:50 UTC; queue empty). Nothing committed or pushed.
+## Review 2 and round 11 (2026-11-05 from ~07:55 UTC; nothing committed)
+
+A fresh reviewer read the poster paper as a prize judge (`paper/review/REVIEW_2026-11-05.md`). Its verdict was 5.5/10:
+rigour 7 and clarity 4, borderline for a $250 prize. Its main points:
+- P1: the paper reads as a development diary.
+- P2: process claims stronger than the evidence.
+- P3: the shipped v12 is not described in the main text.
+- P4: every analysis is about v5-v9.
+- P5: no Kaggle score for v12.
+- P6: a frost choice next to the billing-gap stance.
+- P7: no ablation.
+- P8: intervals that ignore clustering and selective checks.
+- P9: no related work.
+- P10: thin limitations.
+
+**Writing fixes applied** (`paper/main.tex`; pre-edit copies `paper/main_pre_review2.{tex,pdf}`):
+- New abstract and contributions that lead with the three design facts and the result.
+- A "Related work" paragraph. The two MPC references were added and verified on Crossref: Drgona et al. 2020 and
+  Oldewurtel et al. 2012. BOPTEST, CityLearn and Sinergym were already in `refs.bib`.
+- A "Three design facts" paragraph, and every main-text symbol defined (l0, q_on, delta, C_w/C_a, k_v, eco band).
+- The "Additions after v6" bullet, listing all eight later mechanisms.
+- Process claims corrected: v4 and v5 were selected on P, and round 9 reused HC2.
+- Table 1 is now generated (`paper/table_main_r11.tex`) at 5 decimals. Its new column is each row's ratio to v12 with a
+  paired bootstrap CI; `pid_water` is 7.37 [6.02, 9.29], 30/30.
+- Building-clustered intervals: v12 vs v11 on P [-1.3, -0.7]%, on HC3 [-1.9, -1.0]%.
+- The Kaggle paragraph now names its reference versions, with a caveat.
+- Headings by content.
+- All twelve round-7 checks are in `paper/table_checks_r7.tex`, with the "Checks" text matching them.
+- A takeaways box for entrants.
+- Limitations rewritten: simulator gaps (billing gap and frost together), unconfirmed parts, the trade-off, FD, and
+  the LP bound.
+- Cheap wins 1, 2, 7, 9, 12, 13 and 14.
+
+New numbers come from `paper/make_macros_r11.py`, which writes `results_macros_r11.tex`, the tables and an r11 block
+in `AUDIT.md`. The build has 19 pages, 0 undefined references and 0 overfull boxes, with the main text and references
+on pages 1-8.
+
+**Round 11 = leave-one-out ablation of v12 (P4, P6, P7)**, plan `experiments/results/round11/PLAN.md` (sha256 d55e6b27...,
+written before any run). The 16 arms plus the reference run on the public 30, and the frost pair runs on HS. That is 55
+shards in all, on private Kaggle CPU kernels (`experiments/src/ablation_r11.py`; dispatcher `kaggle_sim.py dispatch
+--loop --max 5`, log `results/round6/kaggle_dispatch_log.txt`). The first 5 kernels were pushed at 08:10 UTC. The Mac
+was not used: the speech session held its GPU lock.
+
+**Open:**
+- The ablation results go into Table 3, its two-sentence summary in Section 4, the frost numbers and the v12
+  loss-by-hour figure. All of these are generated by `make_macros_r11.py`; re-run it, then pdflatex x2.
+- The P8d generator headers for the hand-typed tables.
+- Minus signs in `make_macros.py` output.
+- **A Kaggle score for v12 is the user's call** (the reviewer's top request). `experiments/src/kaggle_probe_r12.py` is
+  a v12 copy of the round-9 probe: slug sadr-v12-smart-buildings, local reference r10_K. Push and check it after the
+  ablation frees the Kaggle slots; submit needs `SB_COORDINATOR_OK=1`.
+
+## Poster paper updated for v12 (2026-11-04 ~19:30 UTC; nothing committed)
+
+`paper/main.tex` now presents v12 as the shipped policy (abstract, Section 3, Table 1 rows v11 and v12, Table 2
+rounds 9-10, parameters table, Appendix G "Rounds 9 and 10"). Appendix G is generated: `paper/make_macros_r9r10.py`
+writes `paper/results_macros_r9r10.tex` (197 macros from the round 9/10 result JSONs, 0 missing) and a block at the
+end of `AUDIT.md` (source file and field per macro, 37 checks, all pass). Re-run it after `make_macros.py` /
+`make_audit.py`. Every hand-typed number matched its file; wording corrected in three places (round-4 losses
+"6 of its 7 on 0610 and 0639", "4 wins, 4 losses, 32 unchanged", HC2 called "unseen" rather than untouched). Compute
+paragraph refreshed (rounds 6-10). Build: MiKTeX, 16 pages, main text and references through page 6, appendix from
+page 7, 0 undefined, 0 overfull, `main.pdf` md5 5d381683...; pre-edit copies `paper/main_pre_v12text.{tex,pdf}`.
+Open: `paper/main_r10.txt` is stale; round-9 compute is described, not counted; the Kaggle column for v11/v12 is
+"--" (neither submitted; the Kaggle selection is the user's call). Poster paper due Nov 13.
+
+## Round 10 (2026-11-01 ~10:00 UTC - 2026-11-02 ~02:00 UTC): **v12 shipped** under the pre-registered rule
+
+**v12 shipped 2026-11-02 ~01:52 UTC** in `submission/transfer_policy.py` (md5 57bc72cb..., sha256 44ebbb3b582f8e06...;
+`experiments/src/ship_round10.py --cand r10_K`). v12 = v11 + E (`wk_ext_lo` 12) + C (`mpr_on` 1, `mpr_burst` 0, `mpr_safety`
+1.3) + a heating season of 7 days instead of 1, only while some step of the last 24 h was below 15 C (`season_ext_steps`
+2016, `season_oat_k` 288.15). v11 kept as `submission/transfer_policy_v11_shipped_before_round10.py`. No Kaggle kernel or
+submission in this round; final selections should become v12 + v11 (the coordinator's call). Nothing committed or pushed.
+
+Pre-registration `experiments/results/round10/PREREG.md`, final sha256 e79c7de4ee464d2a... (Part 1 839e2ed1..., 10:10 UTC;
+Part 2a selection rule 82341df2..., 17:09 UTC; Part 2 candidate ddc86103..., 19:18 UTC, hashed before the first confirmation
+job; copies with hashes on the Mac in `~/neurips/sb/r10/`). The last hash adds only the decision section.
+
+Sets (`src/make_sets_r10.py`, `results/round10/sets/`): HC3 (40 cold, primary), HH (40 hot, guard), both on 8 new
+shipped-family buildings (seeds 700-706, 708; 707 rejected by the kit); D10 (24, shipped six x unused windows, development).
+
+Confirmation, v11 -> v12, 8,640 steps, paired bootstrap 5,000 resamples (`results/round10/confirm_r10_K.json`):
+| set | n | loss | change [95% CI] | wins |
+|---|---|---|---|---|
+| **HC3 (primary)** | 40 | 0.02398 -> 0.02364 | **-1.41% [-1.75, -1.11]** | 40/40 |
+| public-30 | 30 | 0.00753 -> 0.00745 | -0.97% [-1.40, -0.59] | 21/30 |
+| HH (guard) | 40 | 0.00727 -> 0.00728 | +0.04% [-0.02, +0.11] | 4/40 |
+| HS | 18 | 0.02139 -> 0.02110 | -1.36% [-1.75, -1.01] | 18/18 |
+| M | 12 | 0.01030 -> 0.01018 | -1.21% [-2.18, -0.49] | 12/12 |
+| FD | 20 | 0.00994 -> 0.00989 | -0.47% [-0.95, -0.14] | 11/20 |
+Rule met (HC3 CI below 0 and >= 24/40 wins; public CI not entirely above 0; no guard with CI entirely above 0 and mean
+above +0.20%). Stable over bootstrap seeds 0-9. Public by station: Denver -2.21% (6/6), Fairbanks -1.68% (6/6), Atlanta
+-1.58% (4/6), Phoenix -1.05% (3/6), Singapore 0.00% (2/6).
+
+What v12 costs, and limits of the evidence:
+1. Comfort regret rises 20% on HC3 (3.7% -> 4.5% of the loss) and 14% on the public 30 (2.8% -> 3.2%); C causes most of it
+   in development; energy and carbon more than pay for it (HC3: comfort +0.74, energy -0.63, carbon -1.52 points of loss).
+2. HH missed the prediction written in Part 2 (-0.1 to -0.4%): Phoenix +0.07% (4/20 wins), worst building_0702/phoenix_3
+   +1.19%, building_0704/phoenix_3 +0.96% (energy, not comfort). April Phoenix gets a little worse. FD worst
+   building_0639/phoenix_2 +0.60%. All inside the guard.
+3. HC3 cannot test the 15 C gate (always open in cold windows). The gate and the other new switches were chosen after
+   reading rows of the same 30 development scenarios; public-30 and HH guard against harm but E, C and B ran on the public 30 in round 9.
+4. HC3 and HH have now been read; a later candidate needs fresh sets.
+
+Development (`results/round10/dev_summary.json`, D10 + six cold HC2, pooled against v11): E -0.31%; E + C -0.37%; B + E
+-0.79% but Singapore +0.22% (0/6) and building_train_4/atlanta_4 +2.87% (the 7-day season also shuts the night flush); gate 10 C
+-0.89%, gate 15 C -0.97% (chosen by the Part 2a rule; worst scenario 0.00%), no gate -0.85% (disqualified). **Cooling integral x3
+is worse: +0.79%, Singapore +5.31%, comfort up**, so the round-9 diagnosis that the integral is simply too slow did not hold at x3
+(smaller multipliers untested); no hot-weather component.
+
+Decision for the coordinator to review: **`tw_ramp_k` left out**, a departure from round 9's candidate B. From `simulator/boiler.py`
+the loop flow is billed at the setpoint, so the ramp lowers billed gas, from the billing gap the quirk uses on the other side (it never bills below delivered heat, and
+physical gas was not measured separately). With the 7-day season its effect was nil on cold dev rows (bit-identical runs); alone it
+was about -0.26 points cold. It could be re-added in January with its own test.
+
+Checks: v12 code off = v11 bit for bit (6 D10 scenarios); bake check; robustness 35/35; 36-step smoke; shipped file = confirmation
+runs bit for bit at 8,640 steps on building_0700/denver_c1 and building_train_8/denver_6 (`results/round10/xcheck_shipped_v12.json`);
+`results/tune/best_params_v12.json`; README and notebook header. The smoke step inside `ship_round10.py` failed on the laptop
+(its `python` has no `gin`), so smoke and cross-check ran on the Mac with the shipped bytes.
+
+Paper: Appendix G retitled and extended with a v12 paragraph; rebuilt, 16 pages, references on page 6, appendix from page 7, pages 1-15
+text identical to before, 0 undefined, 0 overfull (`paper/main.pdf` md5 10536f26...; pre-v12 copies in `results/round10/`). AUDIT.md not extended (as round 9).
+
+Compute: Mac only, `OMP_NUM_THREADS=1`, no GPU lock, memory 87% free at every check. Batches: `dev_a` 116 jobs, `dev_b` 94 of 122
+(3 workers, beside PAIEC's 1), `dev_c` 112 (3 workers, finished cleanly 18:19 UTC); after the coordinator's 4-worker limit `devcheck_K` 6, `confirm_K` 240
+(19:18-01:51 UTC, rc 0 throughout), `xcheck_v12` 3. I stopped the `dev_b` runner at 15:29 UTC to skip a superseded variant (its 3 running jobs finished, never more than 3 workers);
+`r10_d_bhec` has 5 rows, unused. The laptop rebooted at ~18:57 UTC; nothing was lost. Laptop: orchestration, brief compare scripts, robustness test, pdflatex; before the reboot
+some compare runs lacked `OMP_NUM_THREADS=1`. After the reboot compare and job building ran on the Mac until the laptop's python was idle. Logs `~/neurips/logs/r10_*.log`, copies in `results/round10/jobs/`.
+
+## Round 9 (started 2026-11-01 ~02:00 UTC): where a large gain could come from -- **v11 shipped** (Saturday bug fix)
+
+**v11 shipped 2026-11-01 ~06:35 UTC** in `submission/transfer_policy.py` (md5 6335742f..., sha256 f9c0ad1a...;
+`experiments/src/ship_round9.py --cand r9_dow`): v10 + `dow_snap` (round the decoded day of week). Pre-registered rule
+met (`results/round9/confirm_r9_dow.json`): HC2 (44) 0.02152 -> 0.02120, **-1.50% [-1.71, -1.30], 44/44 wins**;
+public-30 0.00762 -> 0.00753, -1.23% [-1.88, -0.69], 28/30; HS (18) -1.59% [-1.96, -1.24], 18/18; CIs stable over
+bootstrap seeds 0-9. Secondary (outside the rule): M (12) -1.70% [-2.75, -0.76], 11/12; FD (20) -0.59% [-1.33,
++0.07], 13/20 (worst building_0639/denver_6 +2.8%, energy; the losses sit on the two largest-room generated
+buildings). Paper note (Appendix G) updated with FD; rebuilt 16 pages, main text through page 6, 0 undefined, 0
+overfull (main.pdf md5 4aabeb29...). v10 kept as `submission/transfer_policy_v10_shipped_before_round9.py` (md5 7d7f6899...); v9 /
+v8 copies untouched; `results/tune/best_params_v11.json`; README v11 section; notebook template header v11; robustness
+test 35/35; 36-step smoke run. Final Kaggle selections should become v11 + v10 (the coordinator's call). **No Kaggle
+submission made**; `experiments/src/kaggle_probe_r9.py` (build / push / check a private notebook; submit refuses
+without `SB_COORDINATOR_OK=1`). Nothing committed or pushed.
+
+Goal (coordinator): decompose v10's loss on HC2 and the public 30 by component, bound what any controller can reach,
+prototype 2-3 structurally different controllers, ship v11 only under a pre-registered rule. v10 stays shipped.
+Pre-registration: `experiments/results/round9/PREREG.md` (Part 1 sets/rule, Part 2 candidate B).
+
+Findings (2026-11-01, final at ~10:00 UTC):
+1. **Decomposition** (all 74 scenarios, Kaggle `run_diag.py` runs identical to round 8's; `results/round9/
+   decomp_v10_{pub30,hc2}.json`): HC2 0.02152 = gas 94.2%, comfort 2.8%, fan 2.5%, pump 0.5%; public 30 0.00762 = gas
+   51.0%, chiller 41.2%, fan 4.9%, comfort 2.7%; Kaggle mixture ~79% gas, ~17% chiller. Per scenario (12 runs with
+   plant internals, `decomp_mac12.json`): heating scenarios are 89-97% gas, hot strips 91-92% chiller; comfort 1-8% (largest on
+   building_train_7 in deep cold: 8%, its perimeter zones are at the coil's water-side limit, ~20 kW per box at -24 C,
+   damper and discharge cap saturated), fan 2-7%, pump < 1%. HC2 by the score's own terms: carbon 70%, energy cost
+   27%, comfort 2.8%; public 30: energy 51%, carbon 47%, comfort 2.7%.
+2. **Delivery bound** (`bound_r9.py`, `results/round9/bound_r9_v10.json`): occupied coil duty is within 0.2-0.5% of
+   the instantaneous lower bound (net need at the 308.15 K cap, or need + the forced air's outside-air share while a
+   handler runs); unoccupied 0.8-1.8%. The heating cost per joule g = (T_cap - T_sa)/(T_cap - T) (median 1.75) is
+   physics at 30% outside air. Hot strips: chiller energy / net cooling = 1.14 (Singapore) - 1.33 (Phoenix) =
+   the outside-air share, no reheat.
+3. **The zone air is quasi-algebraic**: with the handler off the zone air relaxes to the slab/partitions within one
+   5-minute step (air ~0.1 kWh/K per 100 m2 against a 5 W/m2K slab coupling). So occupied heat must be delivered
+   continuously; band riding (bursts, handler off between) collapses comfort (dev run, building_train_1/fairbanks_1,
+   7 days: -178.56 vs v10 -85.98; `results/round9/dbg/obr`). Prototype A (`obr_on`) dropped.
+4. **Hot-water loop** (tank charging + dissipation + the flow term billed at a setpoint the warming tank has not
+   reached): 0.4-0.7% of the gas in cold scenarios, 1.1-3.6% in mild ones (3-5 loop re-warms a month) -> candidate B.
+5. **Billing quirk, measured (analysis only)**: `quirk_probe_r9.py` overrides v10's hot-water setpoint in the harness
+   with the saw-tooth published in topic 752142 (never in a policy file; nothing submitted; Mac). Harness check: no
+   override = the official v10 run (building_train_1/atlanta_2 -33.1021529 vs -33.1021527). Loss x0.54-0.62 on the
+   Fairbanks / Minneapolis / Denver probes (comfort unchanged), x0.83 Atlanta, x1.00 Phoenix / Singapore; through the
+   66/34 Kaggle mixture: **v10 + simple saw-tooth = 0.0069 (-35%, ~rank 37)** (`results/round9/quirk_summary.json`).
+   PR #2 measured 0.38x billing for a tuned saw-tooth (round 6's estimate ~0.0058, ~rank 10).
+6. **Leaderboard** (read-only CLI, 2026-11-01 ~03:00 UTC, `results/round9/intel/`): #1 0.00470, #10 0.00588, #20
+   0.00612, #50 0.00781, #100 0.01037; v10 0.01055 = #113 of 400 shown (112 ahead).
+
+7. **v10 bug: every Saturday is treated as a workday.** The day-of-week observation is an integer day sent as float32
+   sin/cos; v10 decodes it with atan2 and tests `day_next < 5.0`; Saturday decodes to 4.999999999, so v10 runs a full
+   morning recovery every Saturday (about 02:00-06:00, then setback at 06:15): 1.5-5.1% of the gas in all 12
+   diagnosed runs (`src/debug_saturday_r9.py`). The day after Sunday decodes to 6.99999998, so on Sunday evening the
+   Monday recovery cannot start before midnight. Over all 74 v10 runs the Saturday-morning preconditioning steps carry
+   2.9% of HC2's loss (1.96-4.3%, every scenario) and 1.7% of the public 30's (0.4-4.5%)
+   (`results/round9/saturday_precondition_share.json`). Fix = candidate D `r9_dow` (`dow_snap`, round the day): dev 14 days
+   building_train_8/fairbanks_8 -78.05 vs -81.18 (-3.9%). Registered (PREREG amendment 2) before any screen run.
+8. **Prototypes**: A band riding dropped (comfort collapse); C with burst recovery dropped (-6.8% worse in dev);
+   B `r9_hwl`, C `r9_mprs` (start model only) and D `r9_dow` registered and queued on Kaggle (D first). D met the rule
+   and shipped (header above); B's screen is complete, HS -0.15% [-0.23, -0.07] (18/18), public-30 -0.55% [-0.82,
+   -0.30] (18/30): "helps" but not confirmed (it cannot displace D under amendment 2; January composite with v11);
+   C's screen is complete too, HS -0.42% [-0.59, -0.26] (16/18), public-30 -0.14% [-0.33, +0.02] (14/30): "helps",
+   not confirmed (ledger only).
+9. **Perfect-foresight bound** (`src/lp_bound_r9.py`, `results/round9/lp_summary.json`): the kit's building model is
+   linear (one LU-factorised backward-Euler step); v10's logged net heat replayed through it reproduces the zone
+   temperatures within 0.14-0.51 K RMSE; with 1 kW impulse responses per zone, an LP over 30-minute heat blocks with
+   comfort priced at the score's weight (expected occupancy share 1/V, holiday mornings kept until 06:15), solved per
+   zone and coordinated by 16 damped Gauss-Seidel sweeps over the cross-zone responses, saves **10.5-15.1% of v10's
+   loss (mean 12.2%) on seven heating scenarios**; per-zone independent (optimistic) 13-21%. Where: Saturday mornings
+   (the bug), weekend floor holding, weeknight recovery timing; occupied hours slightly *more* heat. With v11 as the
+   base (3 scenarios, `results/round9/mac/lp_bound_dow`) the LP reaches the same optimum as from v10 and **9.4-13.2%
+   (mean 11%) remains** for a perfect-foresight controller.
+10. **Paper**: one clearly marked appendix note added (`paper/main.tex`, Appendix G "Note added after the poster
+   version: v11"); nothing else changed; rebuilt 16 pages (main text still ends on page 6), 0 undefined references,
+   0 overfull boxes; pre-note copies in `results/round9/paper_before_note/`.
+
+11. **Round-10 dev: is the LP's weekend slack realisable?** (2026-11-01 08:10-08:46 UTC; no registration, nothing
+   shipped.) `experiments/src/make_v12_r10.py` builds `policy_candidates/transfer_policy_v12.py` from the shipped v11
+   (md5 a731f9a1...; all round-10 switches off = v11 bit for bit: building_train_8/fairbanks_c3 30 days, 0.00%
+   against v11's Kaggle run). Switches: `wk_free` (no heating floor from Friday evening to Monday's lead),
+   `wk_lead_max_h` (longer Monday lead cap), `wk_no_mbr` (learned-rate Monday lead only). Mac, 31 runs x 8,640
+   steps on 6 cold HC2 scenarios (HC2 is no longer a clean set), `src/dev_r10.py`, `results/round10/dev/dev_table.json`:
+   free-float with 8 / 12 / 16 h caps -0.33 / -0.34 / -0.34% mean (-0.40 to -0.42% pooled, 5/6; energy + carbon
+   -1.3% of the loss, comfort +0.9%); learned-rate lead only -0.24% (4/6); the round-5 parameter `wk_ext_lo` 12 (deeper
+   weekend setback, v11 code) -0.37% mean / -0.45% pooled, 6/6, comfort-neutral. The LP put 4-9% here: its weekend
+   slack is about a tenth realisable (the Monday recovery costs nearly what the weekend saves). No round 10 run:
+   the remaining levers are below the coordinator's "not another 1-2% round" bar. Ready for January:
+   `src/make_sets_r10.py` (fresh HC3 builder: 8 new shipped-range buildings x 5 cold strips; written, not run).
+
+Running at hand-off: nothing. The Kaggle dispatcher exited by itself at 09:53 UTC with an empty queue (all round-9
+kernels private and complete: B's screen 08:02, D's FD 09:16, C's screen 09:53 UTC); `screen_summary.json` and
+`confirm_r9_dow.json` are final.
+- Mac: idle (all round-9 batches finished 2026-11-01 00:53 PDT, the round-10 dev batch at 01:45 PDT; results fetched without the large `lp_cache.npz`
+  files, which stay on the Mac under `~/neurips/sb/r9/out/lp_bound*/` for `lp_bound_r9.py --reuse`).
+- The 74 v10 diag runs, the 12 plant-internal runs, the quirk probes and the LP bounds are all fetched and summarised
+  (`results/round9/decomp_v10_*.json`, `bound_r9_v10.json`, `quirk_summary.json`, `lp_summary.json`,
+  `summary_r9.json`).
+- Compute note: one 600-step smoke test of `run_diag_r9.py` (1 process, ~20 s) ran on the Mac at ~18:52 PDT just
+  after PAIEC took the GPU lock (my check had run before it); every later Mac job goes through the lock-aware runner,
+  which paused its workers for 10 minutes (19:16-19:26 PDT) while the lock was held. One runner was restarted at
+  19:15 PDT because its jobs had picked up the older `~/neurips/sb/kit` clone (fixed: the runner pins `SB_KIT_DIR`
+  to the r6 kit copy that matches the laptop and Kaggle); those partial runs were deleted.
+- Compute note 2: a chained follow-up batch (`batch3`, one LP job) started at 20:26:52 PDT instead of waiting for
+  `batch2` (my wait loop split on a newline in the pid list), so **5 simulator processes ran on the Mac for about
+  21 minutes** (memory 86-87% free throughout, no GPU lock). Found and stopped at ~20:47 PDT; the chain now waits on
+  the single runner pid.
+- Compute note 3: round-10 dev batch `r10_dev1` on the Mac 01:10-01:45 PDT (31 jobs, 4 workers via the lock-aware
+  runner, no GPU lock held, memory 87% free at start); log `~/neurips/logs/r10_dev1.log`, outputs
+  `~/neurips/sb/r10/out/dev` (fetched to `results/round10/dev`).
+
+Last updated: 2026-10-30 ~21:50 UTC. State: ROUND 8 COMPLETE -- **v10 shipped** in `submission/transfer_policy.py` under the pre-registered rule: the round-7 fix r7L_mbr2 (per-zone model start that may only shorten the learned lead; c07 lead safety instead of c06), registered before its only clean test, lowers the loss on HC2 (44 never-used cold-window scenarios) by 0.88% [0.77, 0.98] (43/44) and on the public 30 by 1.62% [1.26, 2.02] (30/30); M -1.09% (12/12); FD -1.30% (17/20). Round 7 (analysis + four pre-registered candidates) shipped nothing: all four were "public only". v9 kept as `submission/transfer_policy_v9_shipped_before_round8.py`; final Kaggle selections v10 + v9 (replacing v8). One private Kaggle probe of v10 (ref 57816757) scored 0.01055 public (v9 0.01070), read 2026-10-31 16:20 UTC. Paper rebuilt (15 pages, main text through page 6, 0 errors / undefined / `??` / overfull), AUDIT 75 claims, review pass 6, `DEEP_DIVE.md` updated. Mac not used since its 13:08 PDT crash on 10-29 (coordinator: off-limits for simulator work). Kaggle dispatcher stopped (2026-10-30 ~22:50 UTC; queue empty). Nothing committed or pushed.
 
 Round 6 header (2026-10-26 ~16:00 PDT): State: ROUND 6 COMPLETE -- harsh-weather sets built on private Kaggle CPU
 kernels and the Mac: a 34/66 mixture of the new harsh confirmation set HC and the public set reproduces v8's Kaggle
@@ -638,6 +1020,11 @@ figures moved to Appendix C; Sections 3-5 compressed to keep six pages. Self-rev
 (`paper/review/REVIEW_1.md`): must-fixes 1-5 applied.
 
 ## To do (user)
+- Round 9: **v11 is shipped** (v10 + the Saturday day-of-week fix; HC2 -1.50%, public -1.23%). Choose the two final
+  Kaggle submissions before 2027-01-15: **v11 and v10** (replacing v10 + v9) -- coordinator's call; no submission was
+  made in round 9. If a probe is wanted: `python experiments/src/kaggle_probe_r9.py push`, `... check`, then
+  `SB_COORDINATOR_OK=1 python experiments/src/kaggle_probe_r9.py submit`. The paper has one clearly marked appendix
+  note on v11 (Appendix G); the OpenReview upload by 2026-11-13 is unchanged otherwise.
 - Round 8: v10 is shipped; its Kaggle probe (ref 57816757) scored **0.01055** public (v9 0.01070), read 2026-10-31
   02:58Z and entered in `kaggle_feedback.json`, macros, AUDIT and the PDF by the coordinator. Choose the two final Kaggle submissions before 2027-01-15: **v10 and v9** (the coordinator's instruction after the ship; v8 is dropped from the pair). OpenReview upload of `paper/main.pdf` by 2026-11-13. All round-8 Kaggle shards are fetched and the dispatcher is stopped.
 - Round 6: v9 is shipped; its Kaggle probe (ref 57678857) was pending at hand-off. Choose the two final Kaggle

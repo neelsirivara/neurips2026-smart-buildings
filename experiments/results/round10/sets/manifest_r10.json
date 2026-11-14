@@ -1,0 +1,18 @@
+{
+ "heldout_scenarios_r10hc": {
+  "files": 160,
+  "sha256": "0cefe29d98f775eaac516eadb07cedca31b0331dee96e6eda421ddd919c03e85"
+ },
+ "heldout_scenarios_r10hh": {
+  "files": 160,
+  "sha256": "52dea4cd821b5ec0e0783c46da456efff1aca55f4ab7b44c79be6db8dbd4a511"
+ },
+ "heldout_scenarios_r10dev": {
+  "files": 96,
+  "sha256": "7140d5fd5c63922c988aec41b0636b72a10c7f390f3055e14fe2c64888007ee0"
+ },
+ "heldout_buildings_r10": {
+  "files": 9,
+  "sha256": "b9c0c0708ecdaee735b5411cbef6a532d8cfaf1401bc100ca04854c03d5cefd5"
+ }
+}

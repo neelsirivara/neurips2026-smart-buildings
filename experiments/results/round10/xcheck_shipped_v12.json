@@ -1,0 +1,14 @@
+{
+ "building_0700/denver_c1": {
+  "shipped_mac": -209.47960984798556,
+  "confirmation": -209.47960984798556,
+  "steps": 8640,
+  "identical": true
+ },
+ "building_train_8/denver_6": {
+  "shipped_mac": -32.43157610558296,
+  "confirmation": -32.43157610558296,
+  "steps": 8640,
+  "identical": true
+ }
+}

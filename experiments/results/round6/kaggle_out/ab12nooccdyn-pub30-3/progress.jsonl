@@ -1,0 +1,11 @@
+{"id": "ab12_nooccdyn/pub30/building_train_1/denver_7", "rc": 0, "wall_s": 1320.1, "ok": true, "total_reward": -21.71727264294168, "steps": 8640, "sec_per_step": 0.1495507463812828}
+{"id": "ab12_nooccdyn/pub30/building_train_1/singapore_8", "rc": 0, "wall_s": 1320.1, "ok": true, "total_reward": -57.489056030259235, "steps": 8640, "sec_per_step": 0.14924801968865925}
+{"id": "ab12_nooccdyn/pub30/building_train_1/atlanta_2", "rc": 0, "wall_s": 1330.1, "ok": true, "total_reward": -31.943593390800743, "steps": 8640, "sec_per_step": 0.15033986469109853}
+{"id": "ab12_nooccdyn/pub30/building_train_2/fairbanks_2", "rc": 0, "wall_s": 2405.1, "ok": true, "total_reward": -94.64851645486488, "steps": 8640, "sec_per_step": 0.2740194479900378}
+{"id": "ab12_nooccdyn/pub30/building_train_4/fairbanks_4", "rc": 0, "wall_s": 1755.1, "ok": true, "total_reward": -19.242774338588788, "steps": 8640, "sec_per_step": 0.20024625327852036}
+{"id": "ab12_nooccdyn/pub30/building_train_5/atlanta_6", "rc": 0, "wall_s": 1830.1, "ok": true, "total_reward": -37.471883965622055, "steps": 8640, "sec_per_step": 0.2083502999610371}
+{"id": "ab12_nooccdyn/pub30/building_train_5/phoenix_1", "rc": 0, "wall_s": 1830.1, "ok": true, "total_reward": -25.999198054603767, "steps": 8640, "sec_per_step": 0.20886637960319165}
+{"id": "ab12_nooccdyn/pub30/building_train_7/denver_5", "rc": 0, "wall_s": 875.1, "ok": true, "total_reward": -49.508570285393034, "steps": 8640, "sec_per_step": 0.09957124635025306}
+{"id": "ab12_nooccdyn/pub30/building_train_8/denver_6", "rc": 0, "wall_s": 665.0, "ok": true, "total_reward": -32.43157610558296, "steps": 8640, "sec_per_step": 0.07521112864768063}
+{"id": "ab12_nooccdyn/pub30/building_train_7/phoenix_3", "rc": 0, "wall_s": 760.1, "ok": true, "total_reward": -55.22359794055774, "steps": 8640, "sec_per_step": 0.08587536516564864}
+{"id": "ab12_nooccdyn/pub30/building_train_8/singapore_7", "rc": 0, "wall_s": 685.0, "ok": true, "total_reward": -48.04869771396261, "steps": 8640, "sec_per_step": 0.07735747885372904}

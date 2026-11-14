@@ -1,0 +1,3419 @@
+{
+ "ref": "v11",
+ "variants": {
+  "r10_d_e": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009160764426626113,
+    "ref": 0.009188906050264449,
+    "diff": -2.8141623638335594e-05,
+    "rel": -0.003062565172001699,
+    "ci_lo": -5.8940265063004194e-05,
+    "ci_hi": -4.9752635115787276e-06,
+    "rel_ci_lo": -0.006414285306715911,
+    "rel_ci_hi": -0.0005414424181032457,
+    "wins": 10,
+    "losses": 1,
+    "worst": "building_train_4/denver_1",
+    "worst_rel": 0.0015766827728558308
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -0.3658338875410616,
+     "wins": 6,
+     "comfort_pct": -0.058825829454500746
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -0.1980540591420795,
+     "wins": 2,
+     "comfort_pct": 0.05448592425742549
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.002730482551345966,
+     "wins": 2,
+     "comfort_pct": 3.4999789038544027e-06
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014885973082207076,
+     "d_pct": -0.07406491137388338,
+     "d_comfort_pct": 0.06412325333415063,
+     "d_energy_pct": -0.040688009657608,
+     "d_carbon_pct": -0.09750015582431934
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013931846027040356,
+     "d_pct": -0.2740543851752264,
+     "d_comfort_pct": -0.10204361649116507,
+     "d_energy_pct": -0.05408450633610951,
+     "d_carbon_pct": -0.11792607623437977
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004765443260659197,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.003078950431853979,
+     "d_pct": -0.004867383373796663,
+     "d_comfort_pct": 8.398802560098589e-06,
+     "d_energy_pct": -0.0012920640554965645,
+     "d_carbon_pct": -0.0035836840739016267
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.0031155316390311855,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0035810706999397433,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970824292925046,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.009956309712347152,
+     "d_pct": 0.15766827728558308,
+     "d_comfort_pct": 0.12097980724839896,
+     "d_energy_pct": -0.00010168988504295081,
+     "d_carbon_pct": 0.03679004359216543
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.02184583826707088,
+     "d_pct": -0.336122692371954,
+     "d_comfort_pct": -0.09669303027184475,
+     "d_energy_pct": -0.07596159119462198,
+     "d_carbon_pct": -0.1634680665297203
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004497039910533276,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.0030795071940713853,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.0027942819645168982,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.013043728593556302,
+     "d_pct": -0.1352596723929178,
+     "d_comfort_pct": -0.08656144540295756,
+     "d_energy_pct": -0.015512189679652144,
+     "d_carbon_pct": -0.03318605946653386
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0032952045036776616,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005330503739605142,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.0203349535781079,
+     "d_pct": -1.2719277207641766,
+     "d_comfort_pct": 0.14181248496200333,
+     "d_energy_pct": -0.4116797785152291,
+     "d_carbon_pct": -1.0020603862232371
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03136244132389897,
+     "d_pct": -0.22500822079815075,
+     "d_comfort_pct": -0.002445157596862156,
+     "d_energy_pct": -0.07192027210370368,
+     "d_carbon_pct": -0.15064271553606282
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0039047267983423027,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.003579805280204314,
+     "d_pct": -0.011515511934279132,
+     "d_comfort_pct": 1.2601070863027828e-05,
+     "d_energy_pct": -0.004371549077031136,
+     "d_carbon_pct": -0.007156528730366495
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.003329440207503793,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03388566787003937,
+     "d_pct": -1.0334284432022112,
+     "d_comfort_pct": -0.05138164765231903,
+     "d_energy_pct": -0.28368843063435173,
+     "d_carbon_pct": -0.6983583316980518
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016789492133884948,
+     "d_pct": -0.1911299113059095,
+     "d_comfort_pct": -0.013830079311855922,
+     "d_energy_pct": -0.05826068192377912,
+     "d_carbon_pct": -0.11903915529478701
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003781080852658489,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_ec": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009154809390946593,
+    "ref": 0.009188906050264449,
+    "diff": -3.40966593178554e-05,
+    "rel": -0.003710633140805061,
+    "ci_lo": -6.761495592018342e-05,
+    "ci_hi": -8.80908059358469e-06,
+    "rel_ci_lo": -0.007358324870264346,
+    "rel_ci_hi": -0.0009586647796155421,
+    "wins": 20,
+    "losses": 1,
+    "worst": "building_train_1/denver_1",
+    "worst_rel": 0.0012832466561856215
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -0.4847874506556049,
+     "wins": 6,
+     "comfort_pct": 0.6583211466949603
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -0.3482185878366166,
+     "wins": 5,
+     "comfort_pct": 0.4934133138152
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.10902448037446444,
+     "wins": 3,
+     "comfort_pct": 0.01608106367782226
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.07319560973716628,
+     "wins": 6,
+     "comfort_pct": -0.01861095232685829
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014916123070721638,
+     "d_pct": 0.12832466561856215,
+     "d_comfort_pct": 1.1960828079717376,
+     "d_energy_pct": -0.32271123378619193,
+     "d_carbon_pct": -0.745046973042593
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013866245473268127,
+     "d_pct": -0.7436315858630693,
+     "d_comfort_pct": 0.8771449384501787,
+     "d_energy_pct": -0.47160322702399127,
+     "d_carbon_pct": -1.1491729864839135
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004764491791299745,
+     "d_pct": -0.019966020103656668,
+     "d_comfort_pct": 0.004537667871979788,
+     "d_energy_pct": -0.027192475225953156,
+     "d_carbon_pct": 0.002688805183778948
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0030724918203611546,
+     "d_pct": -0.2146238335142936,
+     "d_comfort_pct": -0.014532867982342237,
+     "d_energy_pct": -0.0765665673484513,
+     "d_carbon_pct": -0.12352437937536156
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.003110151203359195,
+     "d_pct": -0.17269719249789484,
+     "d_comfort_pct": -0.09676619486029783,
+     "d_energy_pct": -0.03499306244705902,
+     "d_carbon_pct": -0.040937928446275945
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.003577722773932445,
+     "d_pct": -0.09348952555878753,
+     "d_comfort_pct": -0.031611867515989406,
+     "d_energy_pct": -0.02088428760986838,
+     "d_carbon_pct": -0.04099338088534679
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970824292925046,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.009926993512341074,
+     "d_pct": -0.13724442834449624,
+     "d_comfort_pct": 0.7635222889678678,
+     "d_energy_pct": -0.28312584996320816,
+     "d_carbon_pct": -0.6176410744755804
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.02183688913280548,
+     "d_pct": -0.37694993866630444,
+     "d_comfort_pct": 0.4750450012250351,
+     "d_energy_pct": -0.25785284339690684,
+     "d_carbon_pct": -0.5941421186577219
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004496829731244232,
+     "d_pct": -0.004673725233161896,
+     "d_comfort_pct": 0.005266931025473773,
+     "d_energy_pct": -0.0021139844045654547,
+     "d_carbon_pct": -0.00782666569222922
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003079329910865801,
+     "d_pct": -0.005756869343420679,
+     "d_comfort_pct": 0.06611180979198378,
+     "d_energy_pct": -0.023225949868573827,
+     "d_carbon_pct": -0.04864270566887896
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.002783407551252334,
+     "d_pct": -0.38916664111398047,
+     "d_comfort_pct": -0.04014821931029675,
+     "d_energy_pct": -0.22802066381650254,
+     "d_carbon_pct": -0.1209977395804971
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.013035729327030923,
+     "d_pct": -0.1965032553637336,
+     "d_comfort_pct": 0.5058110264475272,
+     "d_energy_pct": -0.2255072168359952,
+     "d_carbon_pct": -0.47680706494502245
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.003292529686901228,
+     "d_pct": -0.08117301288731449,
+     "d_comfort_pct": -0.0053069673541593955,
+     "d_energy_pct": -0.029500906607857993,
+     "d_carbon_pct": -0.04636521905839255
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005330503739605142,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020305827812607848,
+     "d_pct": -1.413335994475362,
+     "d_comfort_pct": 1.0936954365358045,
+     "d_energy_pct": -0.7381343986932237,
+     "d_carbon_pct": -1.768897125167203
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03141863574993817,
+     "d_pct": -0.046233923918859166,
+     "d_comfort_pct": 1.1172891264932874,
+     "d_energy_pct": -0.3497132695182503,
+     "d_carbon_pct": -0.8138096377044232
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0038974974926209373,
+     "d_pct": -0.18514242083298438,
+     "d_comfort_pct": -0.06609090915600822,
+     "d_energy_pct": -0.05227628433059551,
+     "d_carbon_pct": -0.06677518663795404
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.003564687787658411,
+     "d_pct": -0.43376617938907236,
+     "d_comfort_pct": 0.04490744025729202,
+     "d_energy_pct": -0.1698354603934937,
+     "d_carbon_pct": -0.3088382073561623
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0033259379048846812,
+     "d_pct": -0.10519193620652789,
+     "d_comfort_pct": 0.04409376358638483,
+     "d_energy_pct": -0.04456852352045365,
+     "d_carbon_pct": -0.10471728010612787
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.033862001702840205,
+     "d_pct": -1.1025479139641248,
+     "d_comfort_pct": 0.6412694153158146,
+     "d_energy_pct": -0.5083025450996329,
+     "d_carbon_pct": -1.2355146847227918
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016747147318160724,
+     "d_pct": -0.4428580861575382,
+     "d_comfort_pct": 0.333367372237919,
+     "d_energy_pct": -0.24033908639724777,
+     "d_carbon_pct": -0.535886383284683
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.0037790115066652285,
+     "d_pct": -0.05472895380709275,
+     "d_comfort_pct": -0.018460568832446282,
+     "d_energy_pct": -0.021523145210611945,
+     "d_carbon_pct": -0.014745191157829608
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_g10ec": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009107179513420665,
+    "ref": 0.009188906050264449,
+    "diff": -8.1726536843784e-05,
+    "rel": -0.00889404423080721,
+    "ci_lo": -0.00013222549427563778,
+    "ci_hi": -3.969652691827145e-05,
+    "rel_ci_lo": -0.014389688342915688,
+    "rel_ci_hi": -0.004320049274758774,
+    "wins": 21,
+    "losses": 0,
+    "worst": "building_train_1/atlanta_4",
+    "worst_rel": 0.0
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -1.2322215029601031,
+     "wins": 6,
+     "comfort_pct": 0.6590296964908535
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.287688132498168,
+     "wins": 6,
+     "comfort_pct": 0.49560689767079635
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.48449846107820327,
+     "wins": 3,
+     "comfort_pct": 0.016082186666114297
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.07319560973716628,
+     "wins": 6,
+     "comfort_pct": -0.01861095232685829
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014751753340727999,
+     "d_pct": -0.9750495564879946,
+     "d_comfort_pct": 1.196220900700311,
+     "d_energy_pct": -0.6329187710266798,
+     "d_carbon_pct": -1.5383517038362136
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013692487992014961,
+     "d_pct": -1.9874099833554038,
+     "d_comfort_pct": 0.7352153794508869,
+     "d_energy_pct": -0.7728715050511283,
+     "d_carbon_pct": -1.9497536236998316
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004764491791299745,
+     "d_pct": -0.019966020103656668,
+     "d_comfort_pct": 0.004537667871979788,
+     "d_energy_pct": -0.027192475225953156,
+     "d_carbon_pct": 0.002688805183778948
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0030569142352810537,
+     "d_pct": -0.7205373648969671,
+     "d_comfort_pct": -0.014526130052590028,
+     "d_energy_pct": -0.20538618872434738,
+     "d_carbon_pct": -0.5006250503198186
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.0030926940223539364,
+     "d_pct": -0.7330247072808049,
+     "d_comfort_pct": -0.08340689223945637,
+     "d_energy_pct": -0.17780577237517564,
+     "d_carbon_pct": -0.47181205195301873
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.003577722773932445,
+     "d_pct": -0.09348952555878753,
+     "d_comfort_pct": -0.031611867515989406,
+     "d_energy_pct": -0.02088428760986838,
+     "d_carbon_pct": -0.04099338088534679
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970824292925046,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.00980357037443119,
+     "d_pct": -1.3788463934972683,
+     "d_comfort_pct": 0.7632458369645073,
+     "d_energy_pct": -0.6322846865390694,
+     "d_carbon_pct": -1.5098076928199922
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.021755896362505897,
+     "d_pct": -0.7464506839917839,
+     "d_comfort_pct": 0.5592959391724306,
+     "d_energy_pct": -0.3782406172581848,
+     "d_carbon_pct": -0.9275061616972275
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004496829731244232,
+     "d_pct": -0.004673725233161896,
+     "d_comfort_pct": 0.005266931025473773,
+     "d_energy_pct": -0.0021139844045654547,
+     "d_carbon_pct": -0.00782666569222922
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003061173115817755,
+     "d_pct": -0.5953575393143007,
+     "d_comfort_pct": 0.06611180979198378,
+     "d_energy_pct": -0.17223638126804436,
+     "d_carbon_pct": -0.48923292763163206
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.0027626545841369964,
+     "d_pct": -1.1318607349408927,
+     "d_comfort_pct": -0.04016283409111631,
+     "d_energy_pct": -0.4093988862759937,
+     "d_carbon_pct": -0.6822990630733138
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.012935187820954121,
+     "d_pct": -0.966264089046398,
+     "d_comfort_pct": 0.5057744134691667,
+     "d_energy_pct": -0.4453413098913547,
+     "d_carbon_pct": -1.026697240738483
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.003292529686901228,
+     "d_pct": -0.08117301288731449,
+     "d_comfort_pct": -0.0053069673541593955,
+     "d_energy_pct": -0.029500906607857993,
+     "d_carbon_pct": -0.04636521905839255
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005330503739605142,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020173046608717278,
+     "d_pct": -2.0580009672611976,
+     "d_comfort_pct": 1.093664700337757,
+     "d_energy_pct": -0.9189718031556541,
+     "d_carbon_pct": -2.232693857033721
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03126760173802015,
+     "d_pct": -0.5267264066905031,
+     "d_comfort_pct": 1.1235837330798517,
+     "d_energy_pct": -0.4846465840137991,
+     "d_carbon_pct": -1.1656635014829937
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0038974974926209373,
+     "d_pct": -0.18514242083298438,
+     "d_comfort_pct": -0.06609090915600822,
+     "d_energy_pct": -0.05227628433059551,
+     "d_carbon_pct": -0.06677518663795404
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.003523252867118479,
+     "d_pct": -1.5910958622579519,
+     "d_comfort_pct": 0.04490744025729202,
+     "d_energy_pct": -0.46265465734127575,
+     "d_carbon_pct": -1.1733486688900565
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.003281185084533539,
+     "d_pct": -1.4493464355208485,
+     "d_comfort_pct": 0.04407967435277533,
+     "d_energy_pct": -0.3734537024759943,
+     "d_carbon_pct": -1.1199723998750921
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03372209141958525,
+     "d_pct": -1.5111702587379705,
+     "d_comfort_pct": 0.7069188231712491,
+     "d_energy_pct": -0.6393283287628875,
+     "d_carbon_pct": -1.5787606860321357
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016543193386119297,
+     "d_pct": -1.65530759593856,
+     "d_comfort_pct": 0.3233898906015362,
+     "d_energy_pct": -0.5695438940002314,
+     "d_carbon_pct": -1.4091536814837264
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.0037790115066652285,
+     "d_pct": -0.05472895380709275,
+     "d_comfort_pct": -0.018460568832446282,
+     "d_energy_pct": -0.021523145210611945,
+     "d_carbon_pct": -0.014745191157829608
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_g15ec": {
+   "n": 24,
+   "all": {
+    "n": 24,
+    "cand": 0.005961943609620868,
+    "ref": 0.0060092424601298185,
+    "diff": -4.729885050895234e-05,
+    "rel": -0.007871017157781738,
+    "ci_lo": -8.803565872471469e-05,
+    "ci_hi": -1.8887152457741175e-05,
+    "rel_ci_lo": -0.014650042714837112,
+    "rel_ci_hi": -0.0031430172077518657,
+    "wins": 15,
+    "losses": 0,
+    "worst": "building_train_1/atlanta_4",
+    "worst_rel": 0.0
+   },
+   "by_station": {
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.3629486357595348,
+     "wins": 6,
+     "comfort_pct": 0.4947943093873417
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.8142841613379748,
+     "wins": 3,
+     "comfort_pct": 0.01105416364283849
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.6164023434848379,
+     "wins": 6,
+     "comfort_pct": -0.013639687862295054
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014751753340727999,
+     "d_pct": -0.9750495564879946,
+     "d_comfort_pct": 1.196220900700311,
+     "d_energy_pct": -0.6329187710266798,
+     "d_carbon_pct": -1.5383517038362136
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004741590310340179,
+     "d_pct": -0.5005400130546955,
+     "d_comfort_pct": 0.009212641692830342,
+     "d_energy_pct": -0.12603664101440615,
+     "d_carbon_pct": -0.3837159791631662
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0030417865184317193,
+     "d_pct": -1.2118405170640223,
+     "d_comfort_pct": -0.039904319068656886,
+     "d_energy_pct": -0.3165710783379123,
+     "d_carbon_pct": -0.8553651615477827
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.003091585768378393,
+     "d_pct": -0.7685966129440058,
+     "d_comfort_pct": -0.10841276965740936,
+     "d_energy_pct": 0.11261629964025208,
+     "d_carbon_pct": -0.772800179441561
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.003565291253341235,
+     "d_pct": -0.4406348804778859,
+     "d_comfort_pct": -0.028194421637671274,
+     "d_energy_pct": -0.10615248467987703,
+     "d_carbon_pct": -0.30628792691284407
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970824292925046,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.00980357037443119,
+     "d_pct": -1.3788463934972683,
+     "d_comfort_pct": 0.7632458369645073,
+     "d_energy_pct": -0.6322846865390694,
+     "d_carbon_pct": -1.5098076928199922
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.00447982131253113,
+     "d_pct": -0.38288737357691227,
+     "d_comfort_pct": 0.005266439766067513,
+     "d_energy_pct": -0.09753272044176502,
+     "d_carbon_pct": -0.29062110893646964
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003047238883724093,
+     "d_pct": -1.0478400703013424,
+     "d_comfort_pct": 0.0661111532577213,
+     "d_energy_pct": -0.2863804723990287,
+     "d_carbon_pct": -0.8275707197668883
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.002774039246060293,
+     "d_pct": -0.7244336367502213,
+     "d_comfort_pct": 0.06393810960553875,
+     "d_energy_pct": 0.12891990011006735,
+     "d_carbon_pct": -0.9172916084898324
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0032796858552010563,
+     "d_pct": -0.4709464453354961,
+     "d_comfort_pct": 0.007471744768633487,
+     "d_energy_pct": -0.11778099787357793,
+     "d_carbon_pct": -0.3606372722899596
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005330503739605142,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020173046608717278,
+     "d_pct": -2.0580009672611976,
+     "d_comfort_pct": 1.093664700337757,
+     "d_energy_pct": -0.9189718031556541,
+     "d_carbon_pct": -2.232693857033721
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0038677560019280575,
+     "d_pct": -0.9468215914604006,
+     "d_comfort_pct": -0.05713359977182771,
+     "d_energy_pct": -0.24067865904458247,
+     "d_carbon_pct": -0.6490092528565217
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0034862001745630603,
+     "d_pct": -2.626024380662484,
+     "d_comfort_pct": 0.04011814766796653,
+     "d_energy_pct": -0.7150725176587066,
+     "d_carbon_pct": -1.9510700529791685
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.003253769867504117,
+     "d_pct": -2.272764647616521,
+     "d_comfort_pct": -0.03989092162665453,
+     "d_energy_pct": -0.3290549121545248,
+     "d_carbon_pct": -1.9038188199613755
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.0037449116473827833,
+     "d_pct": -0.9565837570036373,
+     "d_comfort_pct": -0.018460931991802678,
+     "d_energy_pct": -0.24904753890548648,
+     "d_carbon_pct": -0.6890752157069335
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_bnrec": {
+   "n": 26,
+   "all": {
+    "n": 26,
+    "cand": 0.007339743803517841,
+    "ref": 0.007401209981561602,
+    "diff": -6.146617804375857e-05,
+    "rel": -0.008304882336386522,
+    "ci_lo": -0.0001201349226105599,
+    "ci_hi": -9.988971653522618e-06,
+    "rel_ci_lo": -0.016231794924052717,
+    "rel_ci_hi": -0.00134964035318655,
+    "wins": 14,
+    "losses": 12,
+    "worst": "building_train_4/atlanta_4",
+    "worst_rel": 0.02870852280951608
+   },
+   "by_station": {
+    "cold": {
+     "n": 2,
+     "mean_pct": -1.7492901210466871,
+     "wins": 2,
+     "comfort_pct": 0.721067101311068
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.67606623111544,
+     "wins": 6,
+     "comfort_pct": 0.4279593402371023
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.4127179273448948,
+     "wins": 4,
+     "comfort_pct": -0.2747864784992355
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.09971044283506962,
+     "wins": 2,
+     "comfort_pct": -0.010348258025968471
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.2215015534079138,
+     "wins": 0,
+     "comfort_pct": 0.001897157252745393
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.00663404651545997,
+     "d_pct": 1.2185644675880347,
+     "d_comfort_pct": -0.3852349277503258,
+     "d_energy_pct": 1.1808550202975474,
+     "d_carbon_pct": 0.4229444027149994
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014751753340727999,
+     "d_pct": -0.9750495564879946,
+     "d_comfort_pct": 1.196220900700311,
+     "d_energy_pct": -0.6329187710266798,
+     "d_carbon_pct": -1.5383517038362136
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013692487992014961,
+     "d_pct": -1.9874099833554038,
+     "d_comfort_pct": 0.7352153794508869,
+     "d_energy_pct": -0.7728715050511283,
+     "d_carbon_pct": -1.9497536236998316
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004794629832884488,
+     "d_pct": 0.6124629048936292,
+     "d_comfort_pct": -0.05231132289649069,
+     "d_energy_pct": 1.378402421897568,
+     "d_carbon_pct": -0.7136282501248393
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008051924858090824,
+     "d_pct": 0.1693455114356368,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.042926662682552456,
+     "d_carbon_pct": 0.12641882613572078
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.003053618338946375,
+     "d_pct": -0.8275782537879195,
+     "d_comfort_pct": -0.3081171550401037,
+     "d_energy_pct": 0.5513014263444124,
+     "d_carbon_pct": -1.0707624118636105
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.00308972532745631,
+     "d_pct": -0.8283116515838129,
+     "d_comfort_pct": -0.21844414537461537,
+     "d_energy_pct": 0.5977798922638904,
+     "d_carbon_pct": -1.2076474265249162
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0035949035679634644,
+     "d_pct": 0.3862774343984299,
+     "d_comfort_pct": -0.21234961192703714,
+     "d_energy_pct": 1.3263079413916865,
+     "d_carbon_pct": -0.7276808857323487
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.0053834230281420105,
+     "d_pct": 0.10947880996741155,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.025717306160852375,
+     "d_carbon_pct": 0.08376148304562352
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.006142237838330097,
+     "d_pct": 2.870852280951608,
+     "d_comfort_pct": -0.03799827295418038,
+     "d_energy_pct": 2.6295262106270374,
+     "d_carbon_pct": 0.2793242120541395
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.00980357037443119,
+     "d_pct": -1.3788463934972683,
+     "d_comfort_pct": 0.7632458369645073,
+     "d_energy_pct": -0.6322846865390694,
+     "d_carbon_pct": -1.5098076928199922
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004523002307142207,
+     "d_pct": 0.5773219078647918,
+     "d_comfort_pct": 0.4556955004356743,
+     "d_energy_pct": 0.7768580342824908,
+     "d_carbon_pct": -0.6552316554103949
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006993147255465951,
+     "d_pct": 0.12993871032644932,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0329376012104493,
+     "d_carbon_pct": 0.09700108811826107
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003034810613931111,
+     "d_pct": -1.4514198968693215,
+     "d_comfort_pct": -0.07904293290697958,
+     "d_energy_pct": -0.03975525965456232,
+     "d_carbon_pct": -1.332621536508772
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.00276907426555521,
+     "d_pct": -0.902117226600152,
+     "d_comfort_pct": -0.005016773399237617,
+     "d_energy_pct": 0.5874496017954335,
+     "d_carbon_pct": -1.484550077566018
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0033208917496772806,
+     "d_pct": 0.7795341979822679,
+     "d_comfort_pct": 0.08185869175778876,
+     "d_energy_pct": 1.382454672129997,
+     "d_carbon_pct": -0.6847792365317592
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005605599762457848,
+     "d_pct": 0.11879772378660114,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.028169764785481333,
+     "d_carbon_pct": 0.0906279891236447
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005305833868698863,
+     "d_pct": -0.46280562047043006,
+     "d_comfort_pct": -0.6910584905667144,
+     "d_energy_pct": 0.6599493833524922,
+     "d_carbon_pct": -0.4316966458342106
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020173046608717278,
+     "d_pct": -2.0580009672611976,
+     "d_comfort_pct": 1.093664700337757,
+     "d_energy_pct": -0.9189718031556541,
+     "d_carbon_pct": -2.232693857033721
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.003833343428152181,
+     "d_pct": -1.8281271360758522,
+     "d_comfort_pct": -0.0055526815155876,
+     "d_energy_pct": -0.13318859667611496,
+     "d_carbon_pct": -1.6893857824935499
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.005964680613207181,
+     "d_pct": 0.2287408191378404,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.057982500210055445,
+     "d_carbon_pct": 0.17075825591577673
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0034433128858558527,
+     "d_pct": -3.8239205414813404,
+     "d_comfort_pct": -0.1472670917771089,
+     "d_energy_pct": -0.629512348975053,
+     "d_carbon_pct": -3.0471411753195223
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0031991235341938254,
+     "d_pct": -3.9140715912622137,
+     "d_comfort_pct": -0.2619144778061083,
+     "d_energy_pct": -0.3463976903876464,
+     "d_carbon_pct": -3.3057594028347865
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03372209141958525,
+     "d_pct": -1.5111702587379705,
+     "d_comfort_pct": 0.7069188231712491,
+     "d_energy_pct": -0.6393283287628875,
+     "d_carbon_pct": -1.5787606860321357
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003738516016837021,
+     "d_pct": -1.1257319660736842,
+     "d_comfort_pct": -0.3294301240101585,
+     "d_energy_pct": 0.5047860729678963,
+     "d_carbon_pct": -1.3010878266130095
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.006214543547539127,
+     "d_pct": 0.5727077457935437,
+     "d_comfort_pct": 0.011382943516472357,
+     "d_energy_pct": 0.139154252793469,
+     "d_carbon_pct": 0.42217053453657016
+    }
+   ]
+  },
+  "r10_d_be": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009116600877807296,
+    "ref": 0.009188906050264449,
+    "diff": -7.230517245715422e-05,
+    "rel": -0.007868746514725041,
+    "ci_lo": -0.00012496402644754975,
+    "ci_hi": -2.77566512887476e-05,
+    "rel_ci_lo": -0.013599445436048765,
+    "rel_ci_hi": -0.003020669831306936,
+    "wins": 18,
+    "losses": 12,
+    "worst": "building_train_4/atlanta_4",
+    "worst_rel": 0.02870852280951608
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -1.1148901114185705,
+     "wins": 6,
+     "comfort_pct": -0.03368915830752132
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.553552177418427,
+     "wins": 6,
+     "comfort_pct": -0.01195142771066017
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.267550143917981,
+     "wins": 4,
+     "comfort_pct": -0.2763020214570088
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.05577058015558597,
+     "wins": 2,
+     "comfort_pct": -0.007735781721503603
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.2215015534079138,
+     "wins": 0,
+     "comfort_pct": 0.001897157252745393
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.00663404651545997,
+     "d_pct": 1.2185644675880347,
+     "d_comfort_pct": -0.3852349277503258,
+     "d_energy_pct": 1.1808550202975474,
+     "d_carbon_pct": 0.4229444027149994
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.01472241924848445,
+     "d_pct": -1.171962219249434,
+     "d_comfort_pct": 0.06863651161224579,
+     "d_energy_pct": -0.3504503018806837,
+     "d_carbon_pct": -0.8901486087670446
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013769124532299665,
+     "d_pct": -1.4388357718900235,
+     "d_comfort_pct": -0.03994113628407091,
+     "d_energy_pct": -0.38818218841833935,
+     "d_carbon_pct": -1.0107122693827122
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004794135989098331,
+     "d_pct": 0.6020998859855187,
+     "d_comfort_pct": -0.054203303400369725,
+     "d_energy_pct": 1.3775850019808915,
+     "d_carbon_pct": -0.7212818958649373
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008051924858090824,
+     "d_pct": 0.1693455114356368,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.042926662682552456,
+     "d_carbon_pct": 0.12641882613572078
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0030635893460368136,
+     "d_pct": -0.5037496640144412,
+     "d_comfort_pct": -0.274152325228893,
+     "d_energy_pct": 0.6413869362940338,
+     "d_carbon_pct": -0.8709841644471771
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.003097051967438768,
+     "d_pct": -0.5931466514704997,
+     "d_comfort_pct": -0.12311991829413976,
+     "d_energy_pct": 0.6465231944143148,
+     "d_carbon_pct": -1.1165498035334636
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0035937213496561493,
+     "d_pct": 0.3532644501159643,
+     "d_comfort_pct": -0.263955677501207,
+     "d_energy_pct": 1.323340342038875,
+     "d_carbon_pct": -0.7061201593644493
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.0053834230281420105,
+     "d_pct": 0.10947880996741155,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.025717306160852375,
+     "d_carbon_pct": 0.08376148304562352
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.006142237838330097,
+     "d_pct": 2.870852280951608,
+     "d_comfort_pct": -0.03799827295418038,
+     "d_energy_pct": 2.6295262106270374,
+     "d_carbon_pct": 0.2793242120541395
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.009832498577102174,
+     "d_pct": -1.0878368316527554,
+     "d_comfort_pct": 0.11951201042091081,
+     "d_energy_pct": -0.3502597552467636,
+     "d_carbon_pct": -0.8570891476255638
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.021746091675925495,
+     "d_pct": -0.7911810838255096,
+     "d_comfort_pct": -0.07762266040025956,
+     "d_energy_pct": -0.2051556804121556,
+     "d_carbon_pct": -0.5084027019416971
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.00452080504462576,
+     "d_pct": 0.5284617118211266,
+     "d_comfort_pct": 0.4125312059026584,
+     "d_energy_pct": 0.7719745749711207,
+     "d_carbon_pct": -0.6560440806587049
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006993147255465951,
+     "d_pct": 0.12993871032644932,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0329376012104493,
+     "d_carbon_pct": 0.09700108811826107
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003041438831763588,
+     "d_pct": -1.2361835809666433,
+     "d_comfort_pct": -0.08403653257509752,
+     "d_energy_pct": 0.027763322125091635,
+     "d_carbon_pct": -1.1799103254928485
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.002773367886007034,
+     "d_pct": -0.7484598467671133,
+     "d_comfort_pct": 0.011785635821033731,
+     "d_energy_pct": 0.6228122674085202,
+     "d_carbon_pct": -1.3830576849115956
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.012943199089231375,
+     "d_pct": -0.9049286188651307,
+     "d_comfort_pct": -0.08659522929752068,
+     "d_energy_pct": -0.23532499814149363,
+     "d_carbon_pct": -0.5830083500516925
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0033233966383132037,
+     "d_pct": 0.8555503794704711,
+     "d_comfort_pct": 0.11089947276161315,
+     "d_energy_pct": 1.3991729077285568,
+     "d_carbon_pct": -0.6545221207571432
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005605599762457848,
+     "d_pct": 0.11879772378660114,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.028169764785481333,
+     "d_carbon_pct": 0.0906279891236447
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005305833868698863,
+     "d_pct": -0.46280562047043006,
+     "d_comfort_pct": -0.6910584905667144,
+     "d_energy_pct": 0.6599493833524922,
+     "d_carbon_pct": -0.4316966458342106
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.02020331835573146,
+     "d_pct": -1.9110288477648285,
+     "d_comfort_pct": 0.15748566042702936,
+     "d_energy_pct": -0.5954528077940875,
+     "d_carbon_pct": -1.4730617201531093
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.031223596630127724,
+     "d_pct": -0.6667221816643032,
+     "d_comfort_pct": 0.04715061709168707,
+     "d_energy_pct": -0.2087446151625017,
+     "d_carbon_pct": -0.5051281119943462
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0038429124159409657,
+     "d_pct": -1.5830654894365304,
+     "d_comfort_pct": 0.07038272873798149,
+     "d_energy_pct": -0.07792730360657485,
+     "d_carbon_pct": -1.5755208435998795
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.005964680613207181,
+     "d_pct": 0.2287408191378404,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.057982500210055445,
+     "d_carbon_pct": 0.17075825591577673
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0034551971242872577,
+     "d_pct": -3.491978746596014,
+     "d_comfort_pct": -0.1853315796668415,
+     "d_energy_pct": -0.5112547353080972,
+     "d_carbon_pct": -2.79539256286334
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0032026258696894864,
+     "d_pct": -3.8088786676059305,
+     "d_comfort_pct": -0.30600846625104094,
+     "d_energy_pct": -0.3018286763798579,
+     "d_carbon_pct": -3.2010414999878014
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03372618488487441,
+     "d_pct": -1.4992148731452049,
+     "d_comfort_pct": -0.03194269366459348,
+     "d_energy_pct": -0.41801732150983867,
+     "d_carbon_pct": -1.0492548338774723
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016588081849962084,
+     "d_pct": -1.3884581391212514,
+     "d_comfort_pct": -0.01318384729037036,
+     "d_energy_pct": -0.3859856961319524,
+     "d_carbon_pct": -0.98928853514925
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.0037398317402307754,
+     "d_pct": -1.090934418890066,
+     "d_comfort_pct": -0.3220691168296979,
+     "d_energy_pct": 0.5153734548256459,
+     "d_carbon_pct": -1.2842386850680754
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.006214543547539127,
+     "d_pct": 0.5727077457935437,
+     "d_comfort_pct": 0.011382943516472357,
+     "d_energy_pct": 0.139154252793469,
+     "d_carbon_pct": 0.42217053453657016
+    }
+   ]
+  },
+  "r10_d_bec": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009111102013852686,
+    "ref": 0.009188906050264449,
+    "diff": -7.780403641176609e-05,
+    "rel": -0.008467170736774152,
+    "ci_lo": -0.00013205851760797179,
+    "ci_hi": -3.073877491052658e-05,
+    "rel_ci_lo": -0.014371516792705836,
+    "rel_ci_hi": -0.003345205048607711,
+    "wins": 18,
+    "losses": 12,
+    "worst": "building_train_4/atlanta_4",
+    "worst_rel": 0.02870852280951608
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -1.2322215029601031,
+     "wins": 6,
+     "comfort_pct": 0.6590296964908535
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.67606623111544,
+     "wins": 6,
+     "comfort_pct": 0.4279593402371023
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.4127179273448948,
+     "wins": 4,
+     "comfort_pct": -0.2747864784992355
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.10863953729033371,
+     "wins": 2,
+     "comfort_pct": -0.010348258025968471
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.2215015534079138,
+     "wins": 0,
+     "comfort_pct": 0.001897157252745393
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.00663404651545997,
+     "d_pct": 1.2185644675880347,
+     "d_comfort_pct": -0.3852349277503258,
+     "d_energy_pct": 1.1808550202975474,
+     "d_carbon_pct": 0.4229444027149994
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014751753340727999,
+     "d_pct": -0.9750495564879946,
+     "d_comfort_pct": 1.196220900700311,
+     "d_energy_pct": -0.6329187710266798,
+     "d_carbon_pct": -1.5383517038362136
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013692487992014961,
+     "d_pct": -1.9874099833554038,
+     "d_comfort_pct": 0.7352153794508869,
+     "d_energy_pct": -0.7728715050511283,
+     "d_carbon_pct": -1.9497536236998316
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004794212608132082,
+     "d_pct": 0.6037076909589656,
+     "d_comfort_pct": -0.05231132289649069,
+     "d_energy_pct": 1.3762026687642137,
+     "d_carbon_pct": -0.7201837082118306
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008051924858090824,
+     "d_pct": 0.1693455114356368,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.042926662682552456,
+     "d_carbon_pct": 0.12641882613572078
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.003053618338946375,
+     "d_pct": -0.8275782537879195,
+     "d_comfort_pct": -0.3081171550401037,
+     "d_energy_pct": 0.5513014263444124,
+     "d_carbon_pct": -1.0707624118636105
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.00308972532745631,
+     "d_pct": -0.8283116515838129,
+     "d_comfort_pct": -0.21844414537461537,
+     "d_energy_pct": 0.5977798922638904,
+     "d_carbon_pct": -1.2076474265249162
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.003594595540190076,
+     "d_pct": 0.37767587918775547,
+     "d_comfort_pct": -0.21234961192703714,
+     "d_energy_pct": 1.324147652464281,
+     "d_carbon_pct": -0.7341221535206275
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.0053834230281420105,
+     "d_pct": 0.10947880996741155,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.025717306160852375,
+     "d_carbon_pct": 0.08376148304562352
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.006142237838330097,
+     "d_pct": 2.870852280951608,
+     "d_comfort_pct": -0.03799827295418038,
+     "d_energy_pct": 2.6295262106270374,
+     "d_carbon_pct": 0.2793242120541395
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.00980357037443119,
+     "d_pct": -1.3788463934972683,
+     "d_comfort_pct": 0.7632458369645073,
+     "d_energy_pct": -0.6322846865390694,
+     "d_carbon_pct": -1.5098076928199922
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.021755896362505897,
+     "d_pct": -0.7464506839917839,
+     "d_comfort_pct": 0.5592959391724306,
+     "d_energy_pct": -0.3782406172581848,
+     "d_carbon_pct": -0.9275061616972275
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004522800991527468,
+     "d_pct": 0.5728452828237751,
+     "d_comfort_pct": 0.4556955004356743,
+     "d_energy_pct": 0.775735091194934,
+     "d_carbon_pct": -0.6585853349668994
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006993147255465951,
+     "d_pct": 0.12993871032644932,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0329376012104493,
+     "d_carbon_pct": 0.09700108811826107
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003034810613931111,
+     "d_pct": -1.4514198968693215,
+     "d_comfort_pct": -0.07904293290697958,
+     "d_energy_pct": -0.03975525965456232,
+     "d_carbon_pct": -1.332621536508772
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.00276907426555521,
+     "d_pct": -0.902117226600152,
+     "d_comfort_pct": -0.005016773399237617,
+     "d_energy_pct": 0.5874496017954335,
+     "d_carbon_pct": -1.484550077566018
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.012935187820954121,
+     "d_pct": -0.966264089046398,
+     "d_comfort_pct": 0.5057744134691667,
+     "d_energy_pct": -0.4453413098913547,
+     "d_carbon_pct": -1.026697240738483
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0033208917496772806,
+     "d_pct": 0.7795341979822679,
+     "d_comfort_pct": 0.08185869175778876,
+     "d_energy_pct": 1.382454672129997,
+     "d_carbon_pct": -0.6847792365317592
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005605599762457848,
+     "d_pct": 0.11879772378660114,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.028169764785481333,
+     "d_carbon_pct": 0.0906279891236447
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005305833868698863,
+     "d_pct": -0.46280562047043006,
+     "d_comfort_pct": -0.6910584905667144,
+     "d_energy_pct": 0.6599493833524922,
+     "d_carbon_pct": -0.4316966458342106
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020173046608717278,
+     "d_pct": -2.0580009672611976,
+     "d_comfort_pct": 1.093664700337757,
+     "d_energy_pct": -0.9189718031556541,
+     "d_carbon_pct": -2.232693857033721
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03126760173802015,
+     "d_pct": -0.5267264066905031,
+     "d_comfort_pct": 1.1235837330798517,
+     "d_energy_pct": -0.4846465840137991,
+     "d_carbon_pct": -1.1656635014829937
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.003832362684470859,
+     "d_pct": -1.8532439683658475,
+     "d_comfort_pct": -0.0055526815155876,
+     "d_energy_pct": -0.13949100910999745,
+     "d_carbon_pct": -1.708200194620122
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.005964680613207181,
+     "d_pct": 0.2287408191378404,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.057982500210055445,
+     "d_carbon_pct": 0.17075825591577673
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0034433128858558527,
+     "d_pct": -3.8239205414813404,
+     "d_comfort_pct": -0.1472670917771089,
+     "d_energy_pct": -0.629512348975053,
+     "d_carbon_pct": -3.0471411753195223
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0031991235341938254,
+     "d_pct": -3.9140715912622137,
+     "d_comfort_pct": -0.2619144778061083,
+     "d_energy_pct": -0.3463976903876464,
+     "d_carbon_pct": -3.3057594028347865
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03372209141958525,
+     "d_pct": -1.5111702587379705,
+     "d_comfort_pct": 0.7069188231712491,
+     "d_energy_pct": -0.6393283287628875,
+     "d_carbon_pct": -1.5787606860321357
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016543193386119297,
+     "d_pct": -1.65530759593856,
+     "d_comfort_pct": 0.3233898906015362,
+     "d_energy_pct": -0.5695438940002314,
+     "d_carbon_pct": -1.4091536814837264
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003738265545176015,
+     "d_pct": -1.1323563063289188,
+     "d_comfort_pct": -0.3294301240101585,
+     "d_energy_pct": 0.5031213821213472,
+     "d_carbon_pct": -1.3060474851443202
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.006214543547539127,
+     "d_pct": 0.5727077457935437,
+     "d_comfort_pct": 0.011382943516472357,
+     "d_energy_pct": 0.139154252793469,
+     "d_carbon_pct": 0.42217053453657016
+    }
+   ]
+  },
+  "r10_d_bhe": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.00911185619752367,
+    "ref": 0.009188906050264449,
+    "diff": -7.704985274077795e-05,
+    "rel": -0.008385095278948958,
+    "ci_lo": -0.00012537178723037772,
+    "ci_hi": -3.745833385598541e-05,
+    "rel_ci_lo": -0.013643820770892486,
+    "rel_ci_hi": -0.00407647370112217,
+    "wins": 23,
+    "losses": 0,
+    "worst": "building_train_1/atlanta_4",
+    "worst_rel": 0.0
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -1.1148901114185705,
+     "wins": 6,
+     "comfort_pct": -0.03368915830752132
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -1.1717962527216705,
+     "wins": 6,
+     "comfort_pct": 0.05760280355017775
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.40598059637128775,
+     "wins": 5,
+     "comfort_pct": 2.557835086555366e-06
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.06556376709688967,
+     "wins": 6,
+     "comfort_pct": 0.0
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.01472241924848445,
+     "d_pct": -1.171962219249434,
+     "d_comfort_pct": 0.06863651161224579,
+     "d_energy_pct": -0.3504503018806837,
+     "d_carbon_pct": -0.8901486087670446
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013769124532299665,
+     "d_pct": -1.4388357718900235,
+     "d_comfort_pct": -0.03994113628407091,
+     "d_energy_pct": -0.38818218841833935,
+     "d_carbon_pct": -1.0107122693827122
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004763904476791147,
+     "d_pct": -0.03229046667606594,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.008173891767618737,
+     "d_carbon_pct": -0.024116569932170744
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0030623084599032202,
+     "d_pct": -0.5453490277035677,
+     "d_comfort_pct": 2.938119909168935e-06,
+     "d_energy_pct": -0.1388037581618379,
+     "d_carbon_pct": -0.4065481821494882
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.003095844665501741,
+     "d_pct": -0.6318977243821688,
+     "d_comfort_pct": 2.989441456272057e-06,
+     "d_energy_pct": -0.1557168183436709,
+     "d_carbon_pct": -0.4761838297128495
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0035770661041147947,
+     "d_pct": -0.11182677362432392,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.028558029531181955,
+     "d_carbon_pct": -0.08326875583233287
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970553028409643,
+     "d_pct": -0.004543166941362031,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.001105095305474254,
+     "d_carbon_pct": -0.003438070913769281
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.009832498577102174,
+     "d_pct": -1.0878368316527554,
+     "d_comfort_pct": 0.11951201042091081,
+     "d_energy_pct": -0.3502597552467636,
+     "d_carbon_pct": -0.8570891476255638
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.021746091675925495,
+     "d_pct": -0.7911810838255096,
+     "d_comfort_pct": -0.07762266040025956,
+     "d_energy_pct": -0.2051556804121556,
+     "d_carbon_pct": -0.5084027019416971
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004496192726916927,
+     "d_pct": -0.018838694634759623,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.004740606346222226,
+     "d_carbon_pct": -0.014098078221334688
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003059336383406817,
+     "d_pct": -0.6550012516093773,
+     "d_comfort_pct": -1.0584904676954693e-06,
+     "d_energy_pct": -0.1654655621516215,
+     "d_carbon_pct": -0.48953462772542183
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.0027727829411950122,
+     "d_pct": -0.7693934826510263,
+     "d_comfort_pct": -6.418214406119555e-06,
+     "d_energy_pct": -0.18791898878942925,
+     "d_carbon_pct": -0.5814679956217502
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.012943199089231375,
+     "d_pct": -0.9049286188651307,
+     "d_comfort_pct": -0.08659522929752068,
+     "d_energy_pct": -0.23532499814149363,
+     "d_carbon_pct": -0.5830083500516925
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0032925144533363,
+     "d_pct": -0.08163530786508,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.020741204533206756,
+     "d_carbon_pct": -0.06089410464034703
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005329973799597888,
+     "d_pct": -0.009941649666556085,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.0024247575637594463,
+     "d_carbon_pct": -0.007516889676188646
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.02020331835573146,
+     "d_pct": -1.9110288477648285,
+     "d_comfort_pct": 0.15748566042702936,
+     "d_energy_pct": -0.5954528077940875,
+     "d_carbon_pct": -1.4730617201531093
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.031223596630127724,
+     "d_pct": -0.6667221816643032,
+     "d_comfort_pct": 0.04715061709168707,
+     "d_energy_pct": -0.2087446151625017,
+     "d_carbon_pct": -0.5051281119943462
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.003900446522142431,
+     "d_pct": -0.10961781504633672,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.027714174856441447,
+     "d_carbon_pct": -0.08190364791943475
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.003536501368397972,
+     "d_pct": -1.2210484823068635,
+     "d_comfort_pct": 1.346738107785873e-05,
+     "d_energy_pct": -0.31033366319861816,
+     "d_carbon_pct": -0.9107283041681526
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0032808750478901484,
+     "d_pct": -1.4586584106298095,
+     "d_comfort_pct": -1.3932386169574699e-05,
+     "d_energy_pct": -0.35689060636858455,
+     "d_carbon_pct": -1.1017539068670574
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03372618488487441,
+     "d_pct": -1.4992148731452049,
+     "d_comfort_pct": -0.03194269366459348,
+     "d_energy_pct": -0.41801732150983867,
+     "d_carbon_pct": -1.0492548338774723
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016588081849962084,
+     "d_pct": -1.3884581391212514,
+     "d_comfort_pct": -0.01318384729037036,
+     "d_energy_pct": -0.3859856961319524,
+     "d_carbon_pct": -0.98928853514925
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003779599669259215,
+     "d_pct": -0.03917354473477186,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.009990951430584255,
+     "d_carbon_pct": -0.029182618391435832
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_re": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.00914347155769878,
+    "ref": 0.009188906050264449,
+    "diff": -4.543449256566946e-05,
+    "rel": -0.004944494188659367,
+    "ci_lo": -8.169696875405507e-05,
+    "ci_hi": -1.8155774890167577e-05,
+    "rel_ci_lo": -0.008890826427777429,
+    "rel_ci_hi": -0.001975836382574079,
+    "wins": 23,
+    "losses": 0,
+    "worst": "building_train_1/atlanta_4",
+    "worst_rel": 0.0
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -0.6304140538769062,
+     "wins": 6,
+     "comfort_pct": -0.058825829454500746
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -0.5549306626823217,
+     "wins": 6,
+     "comfort_pct": 0.05448592425742549
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": -0.1181796515232536,
+     "wins": 5,
+     "comfort_pct": 3.4999789038544027e-06
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": -0.06556376709688967,
+     "wins": 6,
+     "comfort_pct": 0.0
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 0.0,
+     "wins": 0,
+     "comfort_pct": 0.0
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006554179611571461,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.01482827014207723,
+     "d_pct": -0.4614107851031557,
+     "d_comfort_pct": 0.06412325333415063,
+     "d_energy_pct": -0.14803283707956905,
+     "d_carbon_pct": -0.3775012021316391
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013879461525846603,
+     "d_pct": -0.6490293818101622,
+     "d_comfort_pct": -0.10204361649116507,
+     "d_energy_pct": -0.15547091169800367,
+     "d_carbon_pct": -0.39151463232297923
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004763904476791147,
+     "d_pct": -0.03229046667606594,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.008173891767618737,
+     "d_carbon_pct": -0.024116569932170744
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008038312336953018,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.003073698547233998,
+     "d_pct": -0.17543294156824318,
+     "d_comfort_pct": 8.398802560098589e-06,
+     "d_energy_pct": -0.044232659332115606,
+     "d_carbon_pct": -0.13120865329311468
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.0031070702545921724,
+     "d_pct": -0.27158717738602345,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.06614588277126032,
+     "d_carbon_pct": -0.20544127177991028
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0035770661041147947,
+     "d_pct": -0.11182677362432392,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.028558029531181955,
+     "d_carbon_pct": -0.08326875583233287
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005377535765979844,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.005970553028409643,
+     "d_pct": -0.004543166941362031,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.001105095305474254,
+     "d_carbon_pct": -0.003438070913769281
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.00990502744047498,
+     "d_pct": -0.35821691743761486,
+     "d_comfort_pct": 0.12097980724839896,
+     "d_energy_pct": -0.1430305306001839,
+     "d_carbon_pct": -0.336166306078461
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.02180210353100291,
+     "d_pct": -0.5356468908152556,
+     "d_comfort_pct": -0.09669303027184475,
+     "d_energy_pct": -0.1300192628597701,
+     "d_carbon_pct": -0.30893458445616245
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004496192726916927,
+     "d_pct": -0.018838694634759623,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.004740606346222226,
+     "d_carbon_pct": -0.014098078221334688
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.006984072242066343,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.003072134646179618,
+     "d_pct": -0.23940674358420289,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.06027229890788559,
+     "d_carbon_pct": -0.17913444082597543
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.002785396773979285,
+     "d_pct": -0.3179775931864248,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.0773622982043111,
+     "d_carbon_pct": -0.24061530501184947
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.012998284644499512,
+     "d_pct": -0.48318535479781044,
+     "d_comfort_pct": -0.08656144540295756,
+     "d_energy_pct": -0.11383952270586076,
+     "d_carbon_pct": -0.28278440455381554
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0032925144533363,
+     "d_pct": -0.08163530786508,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.020741204533206756,
+     "d_carbon_pct": -0.06089410464034703
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005598948339274801,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005329973799597888,
+     "d_pct": -0.009941649666556085,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.0024247575637594463,
+     "d_carbon_pct": -0.007516889676188646
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020297722434009267,
+     "d_pct": -1.452688354000431,
+     "d_comfort_pct": 0.14181248496200333,
+     "d_energy_pct": -0.46213054117198143,
+     "d_carbon_pct": -1.1323702649668317
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03131549880373667,
+     "d_pct": -0.3743489406393463,
+     "d_comfort_pct": -0.002445157596862156,
+     "d_energy_pct": -0.1129272307283746,
+     "d_carbon_pct": -0.2589764855314503
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.003900446522142431,
+     "d_pct": -0.10961781504633672,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.027714174856441447,
+     "d_carbon_pct": -0.08190364791943475
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.0059510680913076736,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0035702017799674533,
+     "d_pct": -0.27975340737915744,
+     "d_comfort_pct": 1.2601070863027828e-05,
+     "d_energy_pct": -0.07191110850742323,
+     "d_carbon_pct": -0.2078548442716477
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.0033138683108098824,
+     "d_pct": -0.46770314898028076,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.11385884665006257,
+     "d_carbon_pct": -0.35384431787041626
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03383353071324614,
+     "d_pct": -1.1857003617706807,
+     "d_comfort_pct": -0.05138164765231903,
+     "d_energy_pct": -0.3251243619353277,
+     "d_carbon_pct": -0.8091943209803872
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.016728354967631275,
+     "d_pct": -0.5545733934281816,
+     "d_comfort_pct": -0.013830079311855922,
+     "d_energy_pct": -0.15638456268278544,
+     "d_carbon_pct": -0.38435872923208564
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003779599669259215,
+     "d_pct": -0.03917354473477186,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": -0.009990951430584255,
+     "d_carbon_pct": -0.029182618391435832
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.0061791550479548965,
+     "d_pct": 0.0,
+     "d_comfort_pct": 0.0,
+     "d_energy_pct": 0.0,
+     "d_carbon_pct": 0.0
+    }
+   ]
+  },
+  "r10_d_kc3": {
+   "n": 30,
+   "all": {
+    "n": 30,
+    "cand": 0.009261249173598945,
+    "ref": 0.009188906050264449,
+    "diff": 7.234312333449665e-05,
+    "rel": 0.00787287659039834,
+    "ci_lo": 1.7606783038610177e-05,
+    "ci_hi": 0.0001296756449611317,
+    "rel_ci_lo": 0.0019160913107935703,
+    "rel_ci_hi": 0.014112196190905634,
+    "wins": 10,
+    "losses": 20,
+    "worst": "building_train_8/singapore_5",
+    "worst_rel": 0.08386115916841863
+   },
+   "by_station": {
+    "cold": {
+     "n": 6,
+     "mean_pct": -0.0017042616075417054,
+     "wins": 2,
+     "comfort_pct": -0.05669660588918649
+    },
+    "denver": {
+     "n": 6,
+     "mean_pct": -0.725479539070469,
+     "wins": 5,
+     "comfort_pct": -0.9074738046843062
+    },
+    "atlanta": {
+     "n": 6,
+     "mean_pct": 0.4839255472880888,
+     "wins": 2,
+     "comfort_pct": -0.3305710631534766
+    },
+    "phoenix": {
+     "n": 6,
+     "mean_pct": 0.7063140728584679,
+     "wins": 1,
+     "comfort_pct": -0.1611281326917117
+    },
+    "singapore": {
+     "n": 6,
+     "mean_pct": 5.306913924368691,
+     "wins": 0,
+     "comfort_pct": 2.961610110805101
+    }
+   },
+   "rows": [
+    {
+     "scen": "building_train_1/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.006554179611571461,
+     "cand": 0.006732035676012692,
+     "d_pct": 2.7136281728871836,
+     "d_comfort_pct": 1.2286692249359796,
+     "d_energy_pct": 0.7019740044391168,
+     "d_carbon_pct": 0.7829849391587318
+    },
+    {
+     "scen": "building_train_1/denver_1",
+     "st": "denver",
+     "ref": 0.01489700653689599,
+     "cand": 0.014900394214620334,
+     "d_pct": 0.022740660789488665,
+     "d_comfort_pct": 0.02111477795270112,
+     "d_energy_pct": -0.0009287841160859631,
+     "d_carbon_pct": 0.002554662553164259
+    },
+    {
+     "scen": "building_train_1/denver_c3",
+     "st": "cold",
+     "ref": 0.013970131785814138,
+     "cand": 0.013959819090694138,
+     "d_pct": -0.073819597968805,
+     "d_comfort_pct": -0.15918949516696232,
+     "d_energy_pct": 0.0319313101080298,
+     "d_carbon_pct": 0.05343873096308224
+    },
+    {
+     "scen": "building_train_1/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004765443260659197,
+     "cand": 0.004844087879983234,
+     "d_pct": 1.6503106851210037,
+     "d_comfort_pct": 1.0267612540899105,
+     "d_energy_pct": 0.19693298902474338,
+     "d_carbon_pct": 0.4266165733712772
+    },
+    {
+     "scen": "building_train_1/singapore_2",
+     "st": "singapore",
+     "ref": 0.008038312336953018,
+     "cand": 0.008267555238543563,
+     "d_pct": 2.851878503609395,
+     "d_comfort_pct": 1.9797285045749478,
+     "d_energy_pct": 0.3184719667116147,
+     "d_carbon_pct": 0.553677982373239
+    },
+    {
+     "scen": "building_train_2/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030791003034702125,
+     "cand": 0.0031187328167922705,
+     "d_pct": 1.28714590029404,
+     "d_comfort_pct": 0.790183717177932,
+     "d_energy_pct": 0.16233308237255162,
+     "d_carbon_pct": 0.33462921111959615
+    },
+    {
+     "scen": "building_train_2/denver_4",
+     "st": "denver",
+     "ref": 0.0031155316390311855,
+     "cand": 0.0030962189502969505,
+     "d_pct": -0.619884211486954,
+     "d_comfort_pct": -1.2602062774743796,
+     "d_energy_pct": 0.6371029035389744,
+     "d_carbon_pct": 0.0032191048751737676
+    },
+    {
+     "scen": "building_train_2/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0035810706999397433,
+     "cand": 0.0036245073528127637,
+     "d_pct": 1.2129515586986717,
+     "d_comfort_pct": 0.7312013319478713,
+     "d_energy_pct": 0.20461796233521398,
+     "d_carbon_pct": 0.2771321865378101
+    },
+    {
+     "scen": "building_train_2/singapore_5",
+     "st": "singapore",
+     "ref": 0.005377535765979844,
+     "cand": 0.005744520630088556,
+     "d_pct": 6.82440582599908,
+     "d_comfort_pct": 4.730025151282116,
+     "d_energy_pct": 0.7348121349977926,
+     "d_carbon_pct": 1.3595685148282992
+    },
+    {
+     "scen": "building_train_4/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005970824292925046,
+     "cand": 0.006100558780532884,
+     "d_pct": 2.1728069901766123,
+     "d_comfort_pct": 1.542964336473853,
+     "d_energy_pct": 0.15796148597943285,
+     "d_carbon_pct": 0.47188118046731503
+    },
+    {
+     "scen": "building_train_4/denver_1",
+     "st": "denver",
+     "ref": 0.009940636482054675,
+     "cand": 0.009939497229915426,
+     "d_pct": -0.011460555280395912,
+     "d_comfort_pct": -0.09372454493549578,
+     "d_energy_pct": 0.027217621065538003,
+     "d_carbon_pct": 0.055046251393666285
+    },
+    {
+     "scen": "building_train_4/fairbanks_c4",
+     "st": "cold",
+     "ref": 0.02191951473013668,
+     "cand": 0.021925473755135903,
+     "d_pct": 0.027185934873941164,
+     "d_comfort_pct": -0.03366976157209965,
+     "d_energy_pct": 0.015315394193727521,
+     "d_carbon_pct": 0.04554033620103787
+    },
+    {
+     "scen": "building_train_4/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.004497039910533276,
+     "cand": 0.004561041765220187,
+     "d_pct": 1.4231996148622361,
+     "d_comfort_pct": 1.048458196659116,
+     "d_energy_pct": 0.056674732233972965,
+     "d_carbon_pct": 0.31806667137833466
+    },
+    {
+     "scen": "building_train_4/singapore_2",
+     "st": "singapore",
+     "ref": 0.006984072242066343,
+     "cand": 0.007358621472705885,
+     "d_pct": 5.362906018977931,
+     "d_comfort_pct": 3.3561734500018474,
+     "d_energy_pct": 0.7141609062816259,
+     "d_carbon_pct": 1.2925715543408138
+    },
+    {
+     "scen": "building_train_5/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.0030795071940713853,
+     "cand": 0.0030767843926192816,
+     "d_pct": -0.08841679140563219,
+     "d_comfort_pct": 0.18614819123785983,
+     "d_energy_pct": -0.047881640980193554,
+     "d_carbon_pct": -0.22668333980760275
+    },
+    {
+     "scen": "building_train_5/denver_4",
+     "st": "denver",
+     "ref": 0.0027942819645168982,
+     "cand": 0.002752458187008534,
+     "d_pct": -1.496762962344611,
+     "d_comfort_pct": -1.5068145042070245,
+     "d_energy_pct": 0.19268993099367196,
+     "d_carbon_pct": -0.18263830439810885
+    },
+    {
+     "scen": "building_train_5/denver_c2",
+     "st": "cold",
+     "ref": 0.013061395394176408,
+     "cand": 0.013061981231523398,
+     "d_pct": 0.004485258498876377,
+     "d_comfort_pct": -0.06431236089679457,
+     "d_energy_pct": 0.02108966724226977,
+     "d_carbon_pct": 0.04770786093423342
+    },
+    {
+     "scen": "building_train_5/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0032952045036776616,
+     "cand": 0.0033176590383206155,
+     "d_pct": 0.681430685649187,
+     "d_comfort_pct": 0.5523890365784356,
+     "d_energy_pct": 0.12819718118131024,
+     "d_carbon_pct": 0.0008443639149839736
+    },
+    {
+     "scen": "building_train_5/singapore_5",
+     "st": "singapore",
+     "ref": 0.005598948339274801,
+     "cand": 0.005803012339078948,
+     "d_pct": 3.6446844556986546,
+     "d_comfort_pct": 1.8951612499399648,
+     "d_energy_pct": 0.5647099977139087,
+     "d_carbon_pct": 1.184813304733663
+    },
+    {
+     "scen": "building_train_7/atlanta_4",
+     "st": "atlanta",
+     "ref": 0.005330503739605142,
+     "cand": 0.005100459090875823,
+     "d_pct": -4.315626814406093,
+     "d_comfort_pct": -6.042194530165305,
+     "d_energy_pct": 0.7712821586584109,
+     "d_carbon_pct": 0.9552854800742671
+    },
+    {
+     "scen": "building_train_7/denver_1",
+     "st": "denver",
+     "ref": 0.020596931661537855,
+     "cand": 0.020593765314298355,
+     "d_pct": -0.015372907438504502,
+     "d_comfort_pct": -0.06153676957128181,
+     "d_energy_pct": 0.01307927409067428,
+     "d_carbon_pct": 0.03308457889379343
+    },
+    {
+     "scen": "building_train_7/minneapolis_c2",
+     "st": "cold",
+     "ref": 0.03143316853716493,
+     "cand": 0.03144254708126768,
+     "d_pct": 0.029836457917586934,
+     "d_comfort_pct": 0.011617580880408871,
+     "d_energy_pct": 0.0036084933754304493,
+     "d_carbon_pct": 0.014610416068865779
+    },
+    {
+     "scen": "building_train_7/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.0039047267983423027,
+     "cand": 0.0037541531322110733,
+     "d_pct": -3.8561895340578856,
+     "d_comfort_pct": -4.87477038211301,
+     "d_energy_pct": 0.4379153698075303,
+     "d_carbon_pct": 0.5806655602574479
+    },
+    {
+     "scen": "building_train_7/singapore_2",
+     "st": "singapore",
+     "ref": 0.0059510680913076736,
+     "cand": 0.006235022878300356,
+     "d_pct": 4.771492825085222,
+     "d_comfort_pct": 2.092818584566951,
+     "d_energy_pct": 0.8243165180322108,
+     "d_carbon_pct": 1.8543575605498916
+    },
+    {
+     "scen": "building_train_8/atlanta_7",
+     "st": "atlanta",
+     "ref": 0.003580217560584776,
+     "cand": 0.0036208177943335695,
+     "d_pct": 1.1340158261824218,
+     "d_comfort_pct": 0.31080268141882067,
+     "d_energy_pct": 0.17603020411392645,
+     "d_carbon_pct": 0.6471830236035059
+    },
+    {
+     "scen": "building_train_8/denver_4",
+     "st": "denver",
+     "ref": 0.003329440207503793,
+     "cand": 0.003255122532127233,
+     "d_pct": -2.232137258661837,
+     "d_comfort_pct": -2.5436755098703565,
+     "d_energy_pct": 0.3497573834305197,
+     "d_carbon_pct": -0.03821921837180018
+    },
+    {
+     "scen": "building_train_8/fairbanks_c3",
+     "st": "cold",
+     "ref": 0.0342395086916718,
+     "cand": 0.03422475344733037,
+     "d_pct": -0.04309420580271839,
+     "d_comfort_pct": -0.07082628775737743,
+     "d_energy_pct": 0.006416229942604197,
+     "d_carbon_pct": 0.021315961749993763
+    },
+    {
+     "scen": "building_train_8/minneapolis_c3",
+     "st": "cold",
+     "ref": 0.016821643325853848,
+     "cand": 0.01682924344235104,
+     "d_pct": 0.04518058283586868,
+     "d_comfort_pct": -0.02379931082229388,
+     "d_energy_pct": 0.01992336131677264,
+     "d_carbon_pct": 0.04905646663495749
+    },
+    {
+     "scen": "building_train_8/phoenix_7",
+     "st": "phoenix",
+     "ref": 0.003781080852658489,
+     "cand": 0.003899284300009524,
+     "d_pct": 3.1261814268775945,
+     "d_comfort_pct": 0.5491917666874069,
+     "d_energy_pct": 0.969266166019799,
+     "d_carbon_pct": 1.6077235044685156
+    },
+    {
+     "scen": "building_train_8/singapore_5",
+     "st": "singapore",
+     "ref": 0.0061791550479548965,
+     "cand": 0.00669734615295778,
+     "d_pct": 8.386115916841863,
+     "d_comfort_pct": 3.7157537244647805,
+     "d_energy_pct": 1.3411210209020628,
+     "d_carbon_pct": 3.3292411391693886
+    }
+   ]
+  }
+ }
+}

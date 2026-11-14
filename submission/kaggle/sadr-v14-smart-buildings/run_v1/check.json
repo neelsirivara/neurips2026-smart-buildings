@@ -1,0 +1,10 @@
+{
+ "slug": "sadr-v14-smart-buildings",
+ "status": "neelsiri/sadr-v14-smart-buildings has status \"KernelWorkerStatus.ERROR\"",
+ "kaggle_atlanta_2_total": null,
+ "local_atlanta_2_total": -30.849723828052447,
+ "rel_diff": null,
+ "parquet": false,
+ "shipped_sha256": "1f2944e55bd38512e824d4b19293f63bd4b9032174eaff586d61fa42c6761a80",
+ "ok": false
+}

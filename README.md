@@ -1,30 +1,24 @@
-# Smart Buildings Challenge 2026: SADR controller
+# SADR: a structured rule-based HVAC controller for cross-building transfer
 
-Entry for the NeurIPS 2026 Smart Buildings Challenge (Kaggle code competition + OpenReview paper track): a Schedule-Aware Demand-based Reset (SADR) HVAC controller that reads the building metadata, with occupancy-gated modes, per-zone net-heat PI loops, supply-air-temperature and static-pressure resets, economizer logic and hot-water reset; tuned by random search with held-out buildings.
+Code, results and paper for our entry to the NeurIPS 2026 Smart Buildings Challenge (Kaggle code competition and OpenReview paper track). SADR (Schedule-Aware Demand-Based Reset) is a deterministic HVAC controller that reads the plant topology from the building metadata and otherwise encodes only physics shared by every generated building: occupancy-gated modes with optimum start, per-zone PI loops on net heat, closed-form supply-air and static-pressure resets, reheat and hot-water control, all scaled with zone floor area.
 
-**Deadlines.** Poster-paper round 2026-11-13 (OpenReview SB26_Challenge); Kaggle leaderboard + final paper 2027-01-15.
+**Headline (local, 30 public scenarios, lower is better).** Final controller 0.00730; base controller 0.00745; organizers' strongest baseline `pid_water` 0.0550 (about 7.5 times higher, lower on all 30 scenarios). Kaggle public leaderboard: 0.01018 (final controller).
 
-**Headline (local evaluation).** Full 30-scenario evaluation in progress at the time of the first commit; see STATUS.md for the current numbers.
+**Paper.** `paper/main.pdf` (NeurIPS 2026 workshop style). The paper's "base", "tuned" and "final" controllers are v12, v13 and v14 in the development record.
 
-**Submission artifact.** `submission/transfer_policy.py (drop-in for the kit's policy file) + submission/kaggle_notebook_template.py`
+**Policies.** The final controller is `submission/candidates/transfer_policy_v14.py`; the tuned and base controllers are `transfer_policy_v13.py` in the same folder and `submission/transfer_policy.py`. Each is a drop-in policy file for the starter kit; `submission/kaggle_notebook_template.py` wraps one for Kaggle.
 
 ## Layout
 ```
-STATUS.md            what is built, verified numbers, user to-dos, risks (start here)
-experiments/src/     pipeline code (data, evaluation harness, make_macros.py, make_figures.py, make_audit.py)
-experiments/results/ result JSON/CSV the paper is generated from (caches are git-ignored)
-paper/               NeurIPS 2026 LaTeX source, results_macros.tex (generated), main.pdf, AUDIT.md, review/
-submission/          the bundle and upload instructions (README.md)
+STATUS.md            development log: every round, its plan, numbers and decisions
+experiments/src/     evaluation harness, tuning (CMA-ES), confirmation and frost scripts
+experiments/results/ result JSON/CSV the paper is generated from (time series and caches are git-ignored)
+paper/               LaTeX source, generated macro files (make_macros_*.py), main.pdf, AUDIT.md
+submission/          policy files, Kaggle notebooks and the OpenReview form fields
 ```
 
 ## Reproduce
-`see STATUS.md (kit/.venv Python 3.12; experiments/src/run_eval_parallel.py; score_all.py; make_macros.py; paper build)`
+The starter kit (https://github.com/smart-buildings-2026/starter-kit) runs in a Python 3.12 environment. Scenario runs go through `experiments/src/run_scenario.py` and the round-specific job builders; `paper/make_macros_*.py` turns the result files into the numbers in the paper, and `paper/AUDIT.md` checks each claim against its source file. STATUS.md records the exact command of every round. Per-step logs (`diag.csv`, `ahu_log.csv`, time series) are left out for size; every run's `summary.json` is included, and re-running a scenario regenerates its logs.
 
-Every number in `paper/main.pdf` is a macro emitted by `experiments/src/make_macros.py` from the result files;
-`paper/AUDIT.md` re-derives each directional claim from the same files. `paper/bib_verification_log.json`
-records how every reference was verified.
-
-## Provenance and disclosure
-Built on a CPU-only laptop (8 cores, 34 GB RAM, no GPU) with an LLM coding assistant (Claude) for code and
-drafting; see the paper's disclosure section. Competition rules, starter kits and style files belong to their
-respective organizers. Repository created 2026-10-22 by `make_repos.py`; owner `neelsirivara`.
+## Provenance
+Runs used a Windows laptop, an Apple M5 Pro and private Kaggle CPU kernels; seeds are fixed and runs reproduce across machines. We used AI as an assistant. Competition rules, the starter kit and the LaTeX style belong to their respective organizers; our code is MIT-licensed.

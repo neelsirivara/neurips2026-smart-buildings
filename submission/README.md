@@ -9,11 +9,48 @@ Files:
 |---|---|
 | `transfer_policy.py` | The policy. Drop-in replacement for `smart_buildings/baselines/transfer_policy.py` in the starter kit. Class `TransferPolicy(building_meta_data, action_spec)` with `get_action(obs)`; pure numpy + stdlib; deterministic; shape-agnostic. |
 | `kaggle_notebook_template.py` | A self-contained script mirroring the kit's evaluation loop, with the policy inlined, for adapting to the official Kaggle notebook template. |
-| `best_params.json` | The final parameter set (v10: the v10 code's defaults + the overrides of `r7L_mbr2`). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round8.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v9.json`, `best_params_v8.json`, `best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v9 file is `transfer_policy_v9_shipped_before_round8.py` (here), v8 `transfer_policy_v8_shipped_before_round6.py` (here), the shipped v7 file `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, v6 `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, v5 `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
-| `transfer_policy_v9_shipped_before_round8.py` | The v9 file as shipped in round 6 (md5 866b9023..., sha256 02c1c2c6...), kept for provenance and as the second Kaggle selection. |
+| `best_params.json` | The final parameter set (v12: the v12 code's defaults + the six round-10 overrides below). Its values are baked into `DEFAULT_PARAMS` by `../experiments/src/ship_round10.py`; kept for provenance only, the policy file does not read it. Earlier sets: `../experiments/results/tune/best_params_v11.json`, `best_params_v10.json`, `best_params_v9.json`, `best_params_v8.json`, `best_params_v7.json`, `best_params_v6.json`, `best_params_v5.json`, `best_params_v4.json`; the shipped v9 file is `transfer_policy_v9_shipped_before_round8.py` (here), v8 `transfer_policy_v8_shipped_before_round6.py` (here), the shipped v7 file `../experiments/results/round5/transfer_policy_v7_shipped_before_round5.py`, v6 `../experiments/results/round4/transfer_policy_v6_shipped_before_round4.py`, v5 `../experiments/results/round3/transfer_policy_v5_shipped_before_round3.py`. |
+| `transfer_policy_v11_shipped_before_round10.py` | The v11 file as shipped in round 9 (md5 6335742f..., sha256 f9c0ad1a...), kept for provenance and as the second Kaggle selection. |
+| `transfer_policy_v10_shipped_before_round9.py` | The v10 file as shipped in round 8 (md5 7d7f6899..., sha256 dc606dbc...), kept for provenance and as the second Kaggle selection. |
+| `transfer_policy_v9_shipped_before_round8.py` | The v9 file as shipped in round 6 (md5 866b9023..., sha256 02c1c2c6...), kept for provenance. |
 | `transfer_policy_v8_shipped_before_round6.py` | The v8 file as shipped in round 5 (md5 98036ef2...), kept for provenance. |
 
-Version: **SADR v10 (final, round 8)**, baked 2026-10-30 from
+Version: **SADR v12 (final, round 10)**, baked 2026-11-02 from `../experiments/results/round10/policies/v12d_r10.py`
+(sha256 b31da04d...; = `../experiments/src/policy_candidates/transfer_policy_v12.py` as built by `make_v12_r10.py` from
+the shipped v11) + `../experiments/results/round10/params/r10_K.json` (`../experiments/src/ship_round10.py`).
+`transfer_policy.py`: md5 57bc72cb..., sha256 44ebbb3b.... With its round-10 switches off the code reproduces v11 bit for
+bit. v12 = v11 + three changes: a deeper weekend setback (`wk_ext_lo` 12, was 6); the second-order start model, which
+may only shorten the lead (`mpr_on` 1, `mpr_burst` 0, `mpr_safety` 1.3); and a longer heating season, 7 days after the
+last heating demand instead of 1 (hot loop, night-flush guard, set-back reheat), only while some step of the last 24 h was
+below 15 C (`season_ext_steps` 2016, `season_oat_k` 288.15). Round 9's setpoint ramp (`tw_ramp_k`) is off: its saving is
+billed gas, from the same billing approximation the quirk uses, so it was left out on the no-quirk constraint.
+Selection (`../experiments/results/round10/PREREG.md`, `confirm_r10_K.json`): chosen on development scenarios only,
+registered before any run on the fresh sets; v11 -> v12 at 8,640 steps, paired bootstrap, 5,000 resamples: HC3 (40 cold
+scenarios, 8 new shipped-family buildings) 0.02398 -> 0.02364, -1.41% (CI -1.75% to -1.11%, 40/40); public-30 0.00753 ->
+0.00745, -0.97% (CI -1.40% to -0.59%, 21/30); HH (40 hot, same buildings) +0.04% (CI -0.02% to +0.11%, 4/40; worst
+building_0702/phoenix_3 +1.19%); HS -1.36% (18/18); M -1.21% (12/12); FD -0.47% (CI -0.95% to -0.14%, 11/20; worst
+building_0639/phoenix_2 +0.60%). Rule met. Costs: comfort regret rises 20% on HC3 and 14% on the public 30 (3.7% -> 4.5% and
+2.8% -> 3.2% of the loss), paid for by energy and carbon; April Phoenix strips get slightly worse. v12 and v11 are the
+natural two final Kaggle selections; no Kaggle submission was made in round 10 (the coordinator decides).
+
+Previous version: **SADR v11 (round 9)**, baked 2026-11-01 from `../experiments/results/round9/policies/v11d_screen.py`
+(sha256 88e92f96...; = `../experiments/src/policy_candidates/transfer_policy_v11.py` as built by `make_v11_r9.py` from
+the shipped v10) + `../experiments/results/round9/params/r9_dow.json` (`../experiments/src/ship_round9.py`).
+`transfer_policy.py`: md5 6335742f..., sha256 f9c0ad1a.... v11 = v10 + one bug fix (`dow_snap` 1): the day-of-week
+observation is an integer day sent as float32 sin/cos, and v10 compared the decoded float with 5, so Saturday
+(decoded 4.999999999) counted as a workday -- v10 ran a full morning recovery every Saturday (2.9% of HC2's loss) --
+and the day after Sunday (6.99999998) did not, so Monday's recovery could not start before midnight. v11 rounds the
+decoded day. Every other round-9 switch (`obr_on`, `tw_ramp_k`, `mpr_on`) is off; with all of them off the code
+reproduces v10 bit for bit. Selection (`../experiments/results/round9/PREREG.md`, `screen_summary.json`,
+`confirm_r9_dow.json`): registered (amendment 2) before any run on the screening or confirmation sets; screen HS (18)
+-1.59% (CI -1.96% to -1.24%, 18/18), public-30 -1.23% (CI -1.88% to -0.69%, 28/30); confirmation HC2 (44) 0.02152 ->
+0.02120, -1.50% (CI -1.71% to -1.30%, 44/44): the pre-registered rule (public not worse AND HC2 better) is met for
+all 10 bootstrap seeds. Secondary (outside the rule): M (12) -1.70% (CI -2.75% to -0.76%, 11/12); FD (20 large
+default-range generated scenarios) -0.59% (CI -1.33% to +0.07%, 13/20; worst building_0639/denver_6 +2.8%). v11 and v10 are the natural two final Kaggle selections; no Kaggle submission was made in
+round 9 (the coordinator decides; `../experiments/src/kaggle_probe_r9.py` builds/pushes/checks a private notebook and
+refuses to submit without `SB_COORDINATOR_OK=1`).
+
+Previous version: **SADR v10 (round 8)**, baked 2026-10-30 from
 `../experiments/results/round6/policies/v10b_screen.py` (sha256 2827a88a...; the frozen code every round-7 ledger and
 round-8 run used; = `../experiments/src/policy_candidates/transfer_policy_v10.py`) + `r7L_mbr2.json`
 (`../experiments/src/ship_round8.py`). `transfer_policy.py`: md5 7d7f6899..., sha256 dc606dbc.... v10 keeps v9's

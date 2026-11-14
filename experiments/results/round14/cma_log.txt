@@ -1,0 +1,273 @@
+2026-11-09T11:49:38Z gen 0: Mac runner for 5 candidates started
+2026-11-09T11:49:38Z enqueue 5 -> enqueued 5 
+2026-11-09T11:49:38Z gen 0: enqueued 10 candidates (5 on the Mac), sigma 0.1500
+2026-11-09T11:54:43Z Mac fetch: 6 summaries
+2026-11-09T11:59:45Z Mac fetch: 18 summaries
+2026-11-09T12:04:46Z Mac fetch: 28 summaries
+2026-11-09T12:46:00Z Mac fetch: 96 summaries
+2026-11-09T14:41:04Z gen 0 scored: best 1.0020, median 1.0160; sigma -> 0.1378
+2026-11-09T14:41:06Z gen 1: Mac runner for 5 candidates started
+2026-11-09T14:41:06Z enqueue 5 -> enqueued 5 
+2026-11-09T14:41:06Z gen 1: enqueued 10 candidates (5 on the Mac), sigma 0.1378
+2026-11-09T14:46:07Z Mac fetch: 14 summaries
+2026-11-09T14:51:08Z Mac fetch: 28 summaries
+2026-11-09T14:56:09Z Mac fetch: 18 summaries
+2026-11-09T15:01:09Z Mac fetch: 26 summaries
+2026-11-09T15:06:10Z Mac fetch: 14 summaries
+2026-11-09T15:11:11Z Mac fetch: 26 summaries
+2026-11-09T15:16:12Z Mac fetch: 12 summaries
+2026-11-09T15:21:13Z Mac fetch: 24 summaries
+2026-11-09T15:26:14Z Mac fetch: 10 summaries
+2026-11-09T15:31:16Z Mac fetch: 20 summaries
+2026-11-09T15:36:17Z Mac fetch: 24 summaries
+2026-11-09T18:41:25Z gen 1: requeued 5 after 4.0 h ()
+2026-11-09T20:53:48Z gen 1: Mac runner for 5 candidates started
+2026-11-09T20:53:48Z gen 1: 5 candidates moved from stuck Kaggle (QUEUED 6 h) to the Mac
+2026-11-09T20:59:02Z Mac fetch: 10 summaries
+2026-11-09T21:04:03Z Mac fetch: 20 summaries
+2026-11-09T21:09:04Z Mac fetch: 30 summaries
+2026-11-09T21:14:06Z Mac fetch: 15 summaries
+2026-11-09T21:19:07Z Mac fetch: 26 summaries
+2026-11-09T21:24:09Z Mac fetch: 14 summaries
+2026-11-09T21:29:11Z Mac fetch: 24 summaries
+2026-11-09T21:34:12Z Mac fetch: 10 summaries
+2026-11-09T21:39:13Z Mac fetch: 20 summaries
+2026-11-09T21:44:15Z Mac fetch: 26 summaries
+2026-11-09T21:49:16Z Mac fetch: 14 summaries
+2026-11-09T21:54:20Z Mac fetch: 24 summaries
+2026-11-09T21:54:21Z gen 1 scored: best 1.0015, median 1.0133; sigma -> 0.1334
+2026-11-09T21:54:27Z gen 2: Mac runner for 10 candidates started
+2026-11-09T21:54:28Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-09T21:54:28Z gen 2: enqueued 10 candidates (10 on the Mac), sigma 0.1334
+2026-11-09T21:59:30Z Mac fetch: 7 summaries
+2026-11-09T22:04:31Z Mac fetch: 18 summaries
+2026-11-09T22:09:32Z Mac fetch: 28 summaries
+2026-11-09T22:14:33Z Mac fetch: 14 summaries
+2026-11-09T22:19:34Z Mac fetch: 26 summaries
+2026-11-09T22:24:36Z Mac fetch: 14 summaries
+2026-11-09T22:29:37Z Mac fetch: 24 summaries
+2026-11-09T22:34:39Z Mac fetch: 11 summaries
+2026-11-09T22:39:40Z Mac fetch: 20 summaries
+2026-11-09T22:44:41Z Mac fetch: 26 summaries
+2026-11-09T22:49:42Z Mac fetch: 14 summaries
+2026-11-09T22:54:43Z Mac fetch: 26 summaries
+2026-11-09T22:59:46Z Mac fetch: 12 summaries
+2026-11-09T23:04:48Z Mac fetch: 22 summaries
+2026-11-09T23:09:50Z Mac fetch: 32 summaries
+2026-11-09T23:14:51Z Mac fetch: 18 summaries
+2026-11-09T23:19:52Z Mac fetch: 30 summaries
+2026-11-09T23:24:53Z Mac fetch: 24 summaries
+2026-11-09T23:35:09Z Mac fetch: 30 summaries
+2026-11-09T23:40:11Z Mac fetch: 24 summaries
+2026-11-09T23:40:11Z gen 2 scored: best 1.0016, median 1.0108; sigma -> 0.1240
+2026-11-09T23:40:17Z gen 3: Mac runner for 10 candidates started
+2026-11-09T23:40:17Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-09T23:40:17Z gen 3: enqueued 10 candidates (10 on the Mac), sigma 0.1240
+2026-11-09T23:45:20Z Mac fetch: 12 summaries
+2026-11-09T23:50:21Z Mac fetch: 26 summaries
+2026-11-09T23:55:29Z Mac fetch: 18 summaries
+2026-11-10T00:00:36Z Mac fetch: 36 summaries
+2026-11-10T00:05:37Z Mac fetch: 26 summaries
+2026-11-10T00:10:38Z Mac fetch: 18 summaries
+2026-11-10T00:21:04Z Mac fetch: 50 summaries
+2026-11-10T00:26:06Z Mac fetch: 18 summaries
+2026-11-10T00:31:07Z Mac fetch: 36 summaries
+2026-11-10T00:36:15Z Mac fetch: 26 summaries
+2026-11-10T00:41:16Z Mac fetch: 14 summaries
+2026-11-10T00:46:17Z Mac fetch: 30 summaries
+2026-11-10T00:51:19Z Mac fetch: 24 summaries
+2026-11-10T00:56:21Z Mac fetch: 14 summaries
+2026-11-10T01:01:22Z Mac fetch: 24 summaries
+2026-11-10T01:01:22Z gen 3 scored: best 0.9967, median 1.0029; sigma -> 0.1151
+2026-11-10T01:01:25Z gen 4: Mac runner for 10 candidates started
+2026-11-10T01:01:25Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T01:01:25Z gen 4: enqueued 10 candidates (10 on the Mac), sigma 0.1151
+2026-11-10T01:06:26Z Mac fetch: 14 summaries
+2026-11-10T01:11:27Z Mac fetch: 28 summaries
+2026-11-10T01:16:28Z Mac fetch: 20 summaries
+2026-11-10T01:21:30Z Mac fetch: 36 summaries
+2026-11-10T01:26:33Z Mac fetch: 24 summaries
+2026-11-10T01:31:34Z Mac fetch: 14 summaries
+2026-11-10T01:36:35Z Mac fetch: 30 summaries
+2026-11-10T01:41:36Z Mac fetch: 20 summaries
+2026-11-10T01:46:37Z Mac fetch: 38 summaries
+2026-11-10T01:51:39Z Mac fetch: 26 summaries
+2026-11-10T01:56:40Z Mac fetch: 18 summaries
+2026-11-10T02:01:43Z Mac fetch: 32 summaries
+2026-11-10T02:06:46Z Mac fetch: 24 summaries
+2026-11-10T02:11:47Z Mac fetch: 14 summaries
+2026-11-10T02:16:48Z Mac fetch: 26 summaries
+2026-11-10T02:21:53Z Mac fetch: 14 summaries
+2026-11-10T02:26:54Z Mac fetch: 24 summaries
+2026-11-10T02:26:55Z gen 4 scored: best 0.9976, median 1.0023; sigma -> 0.1128
+2026-11-10T02:26:57Z gen 5: Mac runner for 10 candidates started
+2026-11-10T02:26:57Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T02:26:57Z gen 5: enqueued 10 candidates (10 on the Mac), sigma 0.1128
+2026-11-10T02:31:58Z Mac fetch: 10 summaries
+2026-11-10T02:37:00Z Mac fetch: 24 summaries
+2026-11-10T02:42:01Z Mac fetch: 6 summaries
+2026-11-10T02:47:04Z Mac fetch: 20 summaries
+2026-11-10T02:52:06Z Mac fetch: 32 summaries
+2026-11-10T02:57:08Z Mac fetch: 20 summaries
+2026-11-10T03:02:09Z Mac fetch: 30 summaries
+2026-11-10T03:07:10Z Mac fetch: 18 summaries
+2026-11-10T03:17:22Z Mac fetch: 40 summaries
+2026-11-10T03:22:23Z Mac fetch: 26 summaries
+2026-11-10T03:27:25Z Mac fetch: 14 summaries
+2026-11-10T03:32:26Z Mac fetch: 26 summaries
+2026-11-10T03:37:27Z Mac fetch: 14 summaries
+2026-11-10T03:42:30Z Mac fetch: 24 summaries
+2026-11-10T03:47:31Z Mac fetch: 10 summaries
+2026-11-10T03:52:32Z Mac fetch: 20 summaries
+2026-11-10T03:57:33Z Mac fetch: 30 summaries
+2026-11-10T04:02:35Z Mac fetch: 20 summaries
+2026-11-10T04:07:36Z Mac fetch: 33 summaries
+2026-11-10T04:12:37Z Mac fetch: 20 summaries
+2026-11-10T04:17:38Z Mac fetch: 24 summaries
+2026-11-10T04:17:39Z gen 5 scored: best 0.9972, median 1.0015; sigma -> 0.1099
+2026-11-10T04:17:41Z gen 6: Mac runner for 10 candidates started
+2026-11-10T04:17:41Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T04:17:41Z gen 6: enqueued 10 candidates (10 on the Mac), sigma 0.1099
+2026-11-10T04:22:42Z Mac fetch: 10 summaries
+2026-11-10T04:27:43Z Mac fetch: 20 summaries
+2026-11-10T04:32:45Z Mac fetch: 30 summaries
+2026-11-10T04:37:47Z Mac fetch: 18 summaries
+2026-11-10T04:42:48Z Mac fetch: 26 summaries
+2026-11-10T04:47:49Z Mac fetch: 14 summaries
+2026-11-10T04:52:50Z Mac fetch: 26 summaries
+2026-11-10T04:57:51Z Mac fetch: 14 summaries
+2026-11-10T05:02:53Z Mac fetch: 26 summaries
+2026-11-10T05:07:54Z Mac fetch: 14 summaries
+2026-11-10T05:12:55Z Mac fetch: 26 summaries
+2026-11-10T05:17:56Z Mac fetch: 15 summaries
+2026-11-10T05:22:58Z Mac fetch: 28 summaries
+2026-11-10T05:28:00Z Mac fetch: 17 summaries
+2026-11-10T05:33:01Z Mac fetch: 30 summaries
+2026-11-10T05:38:02Z Mac fetch: 15 summaries
+2026-11-10T05:43:04Z Mac fetch: 24 summaries
+2026-11-10T05:48:05Z Mac fetch: 12 summaries
+2026-11-10T05:53:06Z Mac fetch: 26 summaries
+2026-11-10T05:58:07Z Mac fetch: 14 summaries
+2026-11-10T06:03:08Z Mac fetch: 24 summaries
+2026-11-10T06:03:09Z gen 6 scored: best 0.9982, median 1.0051; sigma -> 0.1037
+2026-11-10T06:03:11Z gen 7: Mac runner for 10 candidates started
+2026-11-10T06:03:11Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T06:03:11Z gen 7: enqueued 10 candidates (10 on the Mac), sigma 0.1037
+2026-11-10T06:08:12Z Mac fetch: 10 summaries
+2026-11-10T06:13:13Z Mac fetch: 24 summaries
+2026-11-10T06:18:14Z Mac fetch: 12 summaries
+2026-11-10T06:23:15Z Mac fetch: 26 summaries
+2026-11-10T06:28:16Z Mac fetch: 14 summaries
+2026-11-10T06:33:17Z Mac fetch: 26 summaries
+2026-11-10T06:38:18Z Mac fetch: 15 summaries
+2026-11-10T06:43:19Z Mac fetch: 26 summaries
+2026-11-10T06:48:20Z Mac fetch: 14 summaries
+2026-11-10T06:53:21Z Mac fetch: 29 summaries
+2026-11-10T06:58:22Z Mac fetch: 18 summaries
+2026-11-10T07:03:23Z Mac fetch: 31 summaries
+2026-11-10T07:08:25Z Mac fetch: 21 summaries
+2026-11-10T07:13:26Z Mac fetch: 34 summaries
+2026-11-10T07:18:27Z Mac fetch: 24 summaries
+2026-11-10T07:23:28Z Mac fetch: 11 summaries
+2026-11-10T07:28:29Z Mac fetch: 24 summaries
+2026-11-10T07:33:30Z Mac fetch: 14 summaries
+2026-11-10T07:38:31Z Mac fetch: 24 summaries
+2026-11-10T07:38:31Z gen 7 scored: best 0.9967, median 1.0033; sigma -> 0.0947
+2026-11-10T07:38:33Z gen 8: Mac runner for 10 candidates started
+2026-11-10T07:38:33Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T07:38:33Z gen 8: enqueued 10 candidates (10 on the Mac), sigma 0.0947
+2026-11-10T07:43:34Z Mac fetch: 6 summaries
+2026-11-10T07:48:35Z Mac fetch: 20 summaries
+2026-11-10T07:53:37Z Mac fetch: 36 summaries
+2026-11-10T07:58:38Z Mac fetch: 26 summaries
+2026-11-10T08:03:40Z Mac fetch: 15 summaries
+2026-11-10T08:08:41Z Mac fetch: 30 summaries
+2026-11-10T08:13:42Z Mac fetch: 24 summaries
+2026-11-10T08:18:43Z Mac fetch: 14 summaries
+2026-11-10T08:23:43Z Mac fetch: 30 summaries
+2026-11-10T08:28:44Z Mac fetch: 22 summaries
+2026-11-10T08:33:45Z Mac fetch: 37 summaries
+2026-11-10T08:38:47Z Mac fetch: 27 summaries
+2026-11-10T08:43:48Z Mac fetch: 14 summaries
+2026-11-10T08:48:50Z Mac fetch: 29 summaries
+2026-11-10T08:53:51Z Mac fetch: 20 summaries
+2026-11-10T08:58:52Z Mac fetch: 37 summaries
+2026-11-10T09:03:53Z Mac fetch: 24 summaries
+2026-11-10T09:03:53Z gen 8 scored: best 0.9968, median 1.0005; sigma -> 0.0936
+2026-11-10T09:03:55Z gen 9: Mac runner for 10 candidates started
+2026-11-10T09:03:55Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T09:03:55Z gen 9: enqueued 10 candidates (10 on the Mac), sigma 0.0936
+2026-11-10T09:08:56Z Mac fetch: 14 summaries
+2026-11-10T09:13:57Z Mac fetch: 28 summaries
+2026-11-10T09:18:58Z Mac fetch: 20 summaries
+2026-11-10T09:23:59Z Mac fetch: 36 summaries
+2026-11-10T09:29:00Z Mac fetch: 26 summaries
+2026-11-10T09:34:01Z Mac fetch: 18 summaries
+2026-11-10T09:39:03Z Mac fetch: 36 summaries
+2026-11-10T09:44:04Z Mac fetch: 20 summaries
+2026-11-10T09:49:05Z Mac fetch: 34 summaries
+2026-11-10T09:54:06Z Mac fetch: 24 summaries
+2026-11-10T09:59:07Z Mac fetch: 14 summaries
+2026-11-10T10:04:08Z Mac fetch: 26 summaries
+2026-11-10T10:09:08Z Mac fetch: 18 summaries
+2026-11-10T10:14:09Z Mac fetch: 30 summaries
+2026-11-10T10:19:11Z Mac fetch: 24 summaries
+2026-11-10T10:24:13Z Mac fetch: 13 summaries
+2026-11-10T10:29:14Z Mac fetch: 24 summaries
+2026-11-10T10:29:14Z gen 9 scored: best 0.9969, median 1.0032; sigma -> 0.0903
+2026-11-10T10:29:16Z gen 10: Mac runner for 10 candidates started
+2026-11-10T10:29:16Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T10:29:16Z gen 10: enqueued 10 candidates (10 on the Mac), sigma 0.0903
+2026-11-10T10:34:17Z Mac fetch: 14 summaries
+2026-11-10T10:39:18Z Mac fetch: 26 summaries
+2026-11-10T10:44:18Z Mac fetch: 14 summaries
+2026-11-10T10:49:19Z Mac fetch: 28 summaries
+2026-11-10T10:54:20Z Mac fetch: 18 summaries
+2026-11-10T10:59:21Z Mac fetch: 30 summaries
+2026-11-10T11:04:22Z Mac fetch: 18 summaries
+2026-11-10T11:09:23Z Mac fetch: 30 summaries
+2026-11-10T11:14:25Z Mac fetch: 24 summaries
+2026-11-10T11:19:26Z Mac fetch: 10 summaries
+2026-11-10T11:24:27Z Mac fetch: 24 summaries
+2026-11-10T11:29:28Z Mac fetch: 10 summaries
+2026-11-10T11:34:29Z Mac fetch: 24 summaries
+2026-11-10T11:39:29Z Mac fetch: 14 summaries
+2026-11-10T11:44:30Z Mac fetch: 27 summaries
+2026-11-10T11:49:31Z Mac fetch: 18 summaries
+2026-11-10T11:54:32Z Mac fetch: 30 summaries
+2026-11-10T11:59:34Z Mac fetch: 20 summaries
+2026-11-10T12:04:43Z Mac fetch: 24 summaries
+2026-11-10T12:04:43Z gen 10 scored: best 0.9971, median 0.9999; sigma -> 0.0874
+2026-11-10T12:04:56Z gen 11: Mac runner for 10 candidates started
+2026-11-10T12:04:56Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T12:04:56Z gen 11: enqueued 10 candidates (10 on the Mac), sigma 0.0874
+2026-11-10T12:12:25Z Mac fetch: 5 summaries
+2026-11-10T12:22:37Z Mac fetch: 38 summaries
+2026-11-10T12:27:38Z Mac fetch: 28 summaries
+2026-11-10T12:39:10Z Mac fetch: 38 summaries
+2026-11-10T12:44:20Z Mac fetch: 24 summaries
+2026-11-10T12:49:22Z Mac fetch: 14 summaries
+2026-11-10T12:55:11Z Mac fetch: 27 summaries
+2026-11-10T13:20:54Z Mac fetch: 74 summaries
+2026-11-10T13:25:56Z Mac fetch: 15 summaries
+2026-11-10T13:30:58Z Mac fetch: 30 summaries
+2026-11-10T13:35:59Z Mac fetch: 19 summaries
+2026-11-10T13:41:00Z Mac fetch: 24 summaries
+2026-11-10T13:41:00Z gen 11 scored: best 0.9981, median 0.9994; sigma -> 0.0855
+2026-11-10T13:41:03Z gen 12: Mac runner for 10 candidates started
+2026-11-10T13:41:03Z enqueue 0 ->  usage: kaggle_sim.py enqueue [-h] [--front] files [files ...]
+kaggle_sim.py enqueue: error: the following arguments are required: files
+2026-11-10T13:41:03Z gen 12: enqueued 10 candidates (10 on the Mac), sigma 0.0855
+2026-11-10T13:46:03Z Mac fetch: 12 summaries
+2026-11-10T17:41:11Z gen 12: requeued 10 after 4.0 h ()
+2026-11-12T00:27:37Z Mac fetch: 240 summaries

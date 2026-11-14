@@ -1,4 +1,22 @@
-"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v10, final; round 8, r7L_mbr2).
+"""SADR: Schedule-Aware Demand-based Reset controller for the SB26 challenge (v12, final; round 10, r10_K:
+wk_ext_lo 12, season_ext_steps 2016, season_oat_k 288.15, mpr_on 1, mpr_burst 0, mpr_safety 1.3 on top of v11; every other round-10 switch off).
+
+Round-10 switches (default off): ``wk_free`` (weekend free-float: from the last workday's end until the lead into
+the workday that follows a non-workday, a set-back zone has no heating floor beyond ``wk_free_ext_k`` below the eco
+heating setpoint), ``wk_lead_max_h`` (> 0: that recovery's lead may be up to this long) and ``wk_no_mbr`` (1 = that
+recovery uses the learned-rate lead only, not the first-order model lead), ``ki_c_mult`` / ``kq_c_mult``
+(multipliers on the zone cooling loop's integral / proportional gain), ``tw_hold_steps`` (> 0: the loop is kept
+hot this long after the last heating demand, separately from the heating season that gates the night flush) and
+``tw_hold_oat_k`` (> 0: that hold only while the outside air was below this temperature in the last 24 h),
+``season_ext_steps`` / ``season_oat_k`` (> 0: the whole heating season is extended to this many steps after the last
+heating demand, only while the outside air was below season_oat_k in the last 24 h).
+
+Round-9 switches (default off): ``obr_on`` (occupied band riding: heat occupied zones in bursts at the
+discharge cap and let handlers stop between bursts; reheat the forced air of heating-regime zones to the
+cap while a handler runs) and ``tw_ramp_k`` (hot-water setpoint kept within this many K above the tank
+temperature, never below it, while the pump runs).
+
+v10:
 
 v10 turns on the overrides of r7L_mbr2 in DEFAULT_PARAMS (sb_boost 1, sb_boost_h 8, sb_boost_cold 1, sb_boost_floor_k 2, lead_safety 1.15, night_low_ext 10, mbr_on 1, mbr_lead_cap 1); with ``mbr_lead_cap`` the model may only shorten the learned-rate lead and is ignored where it predicts the target is unreachable at the cap. Round-7 switches (all off reproduces the v9 code bit for bit): ``mbr_on`` (model-based
 optimum start: a per-zone first-order thermal model dT/dt = a Q - k (T - Tout) + c fitted online by recursive
@@ -231,7 +249,7 @@ DEFAULT_PARAMS: dict[str, float] = {
     "mon_lead_mult": 1.0,     # lead multiplier for the recovery into a workday that follows a non-workday
     "mon_lead_max_h": 8.0,    # cap of that lead (h)
     "mon_no_learn": 0.0,      # 1 = recoveries into such a workday do not update the learned rates
-    "wk_ext_lo": 6.0,         # extra setback depth (K, below the floor) far from the next workday start
+    "wk_ext_lo": 12.0,         # extra setback depth (K, below the floor) far from the next workday start
     "wk_ext_hi": 4.0,         # extra setback height (K, above the ceiling) far from the next workday start
     "wk_ramp_h": 12.0,        # the extra depth ramps out over this many hours ...
     "wk_ramp_end_h": 10.0,    # ... ending this many hours before the next workday start
@@ -259,6 +277,32 @@ DEFAULT_PARAMS: dict[str, float] = {
     "mbr_lambda": 0.998,      # RLS forgetting factor per update
     "mbr_floor_ext_max": 16.0,  # deepest floor considered, K below the eco heating setpoint
     "mbr_lead_cap": 1.0,      # 1 = (post hoc, ledger) the model may only shorten the learned-rate lead
+    # --- round-9 candidate switches (defaults = v10) ---
+    "obr_on": 0.0,            # 1 = occupied band riding (bursts at the cap, handlers stop between bursts)
+    "obr_start_k": 0.3,       # a heating-regime occupied zone starts a burst below lo_s + this (K)
+    "obr_join_k": 0.6,        # ... joins a burst already running on its handler below lo_s + this
+    "obr_stop_k": 0.9,        # ... ends its burst above lo_s + this
+    "obr_boost_k": 0.9,       # forced air of heating-regime occupied zones on a running handler is reheated to
+                              #     the discharge cap below lo_s + this
+    "obr_cool_guard_k": 1.0,  # a zone within this of its cooling target is never in the heating regime
+    "tw_ramp_k": 0.0,         # > 0: pump on -> setpoint within [tank, tank + tw_ramp_k]
+    "dow_snap": 1.0,          # 1 = round the decoded day of week (fixes Saturday = workday, Sunday evening)
+    # --- round-10 candidate switches (defaults = v11) ---
+    "wk_free": 0.0,           # 1 = weekend free-float (no heating floor from Friday evening to Monday's lead)
+    "wk_free_ext_k": 30.0,    # ... the floor is then this many K below the eco heating setpoint
+    "wk_lead_max_h": 0.0,     # > 0: lead cap (h) of the recovery into a workday that follows a non-workday
+    "wk_no_mbr": 0.0,         # 1 = that recovery does not use the model lead (mbr)
+    "ki_c_mult": 1.0,         # multiplier on the zone cooling loop's integral gain
+    "kq_c_mult": 1.0,         # multiplier on the zone cooling loop's proportional gain
+    "tw_hold_steps": 0.0,     # > 0: loop kept hot this long after the last heating demand (heating season unchanged)
+    "tw_hold_oat_k": 0.0,     # > 0: ... only while the outside air was below this (K) at some step of the last 24 h
+    "season_ext_steps": 2016.0,  # > 0: heating season this long after the last heating demand (while cold, below)
+    "season_oat_k": 288.15,      # > 0: ... only while the outside air was below this (K) at some step of the last 24 h
+    "mpr_on": 1.0,            # 1 = model-predictive recovery start (second-order online zone model)
+    "mpr_safety": 1.3,        # multiplier on the model's recovery time
+    "mpr_min_n": 288.0,       # unoccupied 5-min samples a zone needs before its model is used
+    "mpr_lambda": 0.9995,     # RLS forgetting factor per sample
+    "mpr_burst": 0.0,         # 1 = (with mpr_on) a preconditioning zone below target heats at the request cap
 }
 
 
@@ -505,6 +549,10 @@ class TransferPolicy:
         self.sb_latch_h = np.zeros(Vn, dtype=bool)  # setback burst latches
         self.sb_latch_c = np.zeros(Vn, dtype=bool)
         self.heat_timer = 0
+        self.tw_timer = 0          # round 10: loop-hold timer (tw_hold_steps)
+        self.oat_min_hist = deque(maxlen=288)   # round 10: per-step minimum outside air, last 24 h (tw_hold_oat_k)
+        self.season_timer = 0      # round 10: extended heating season (season_ext_steps)
+        self.season_on = False     # round 10: extended season active (previous step's value at the flush guard)
         self.step_count = 0
         self.occ_min = math.inf
         self.last_hod = None
@@ -548,6 +596,16 @@ class TransferPolicy:
         self.mbr_q_prev = np.zeros(Vn)
         self.mbr_floor_cache = np.full(Vn, np.nan)
         self.mbr_floor_age = 10 ** 6
+        self.obr_latch = np.zeros(Vn, dtype=bool)        # round 9: occupied burst latches
+        self.obr_regime = np.zeros(Vn, dtype=bool)       # round 9: zone in the occupied heating regime
+        # round 9 (mpr): second-order zone model dT(k+1) = a dT(k) + b Q(k)[kW] - c (T - Tout) + d, RLS state
+        self.mpr_th = np.tile(np.array([0.5, 0.05, 0.002, 0.0]), (Vn, 1))
+        self.mpr_P = np.tile(np.diag([1.0, 1.0, 0.01, 0.1]), (Vn, 1, 1))
+        self.mpr_n = np.zeros(Vn)
+        self.mpr_T1 = None                               # T at the previous step
+        self.mpr_T2 = None                               # T two steps back
+        self.mpr_To1 = None                              # outside air at the previous step
+        self.mpr_U1 = np.zeros(Vn, dtype=bool)           # previous step was unoccupied (setback / precondition)
 
     # ---------------- round 7: first-order model helpers ----------------
     def _mbr_A(self, F_design, p):
@@ -650,6 +708,9 @@ class TransferPolicy:
         # ---------------- time & flags ----------------
         hod = self._cyclic(obs, self.hod_sin, self.hod_cos, 24.0)
         dow = self._cyclic(obs, self.dow_sin, self.dow_cos, 7.0)
+        if dow is not None and float(p.get("dow_snap", 0.0)) > 0.5:
+            # round 9: the feature is an integer day sent as float32 sin/cos; Saturday decodes to 4.999999999
+            dow = float(int(round(dow)) % 7)
         if self.now_idx >= 0 and math.isfinite(obs[self.now_idx]):
             now = float(obs[self.now_idx]) > 0.5
         else:  # reconstruct from the schedule
@@ -748,6 +809,32 @@ class TransferPolicy:
             a_m, k_m = self.mbr_th[:, 0], self.mbr_th[:, 1]
             mbr_ok = (self.mbr_n >= float(p.get("mbr_min_n", 36.0))) & (a_m > 1e-3) & (k_m > 1e-3) & (k_m < 3.0)
 
+        # ---------------- round 9: second-order zone model (mpr) ----------------
+        mpr_ok = np.zeros(V, dtype=bool)
+        if V and float(p.get("mpr_on", 0.0)) > 0.5:
+            oat_z9 = oat_f[self.z_a]
+            if self.mpr_T1 is not None and self.mpr_T2 is not None and len(self.mpr_T1) == V:
+                y9 = T - self.mpr_T1
+                q9 = self.mbr_q_prev / 1000.0 if mbr_active else np.zeros(V)
+                x9 = np.stack([self.mpr_T1 - self.mpr_T2, q9, -(self.mpr_T1 - self.mpr_To1), np.ones(V)], axis=1)
+                lam9 = float(p.get("mpr_lambda", 0.9995))
+                Px9 = np.einsum("vij,vj->vi", self.mpr_P, x9)
+                den9 = lam9 + np.einsum("vi,vi->v", x9, Px9)
+                K9 = Px9 / den9[:, None]
+                err9 = y9 - np.einsum("vi,vi->v", x9, self.mpr_th)
+                upd9 = self.mpr_U1 & np.isfinite(err9) & (np.abs(y9) < 2.0) & np.isfinite(x9).all(axis=1)
+                th9 = self.mpr_th + K9 * err9[:, None]
+                P9 = (self.mpr_P - np.einsum("vi,vj->vij", K9, Px9)) / lam9
+                self.mpr_th = np.where(upd9[:, None], th9, self.mpr_th)
+                self.mpr_P = np.where(upd9[:, None, None], P9, self.mpr_P)
+                self.mpr_n = self.mpr_n + upd9
+            a9, b9, c9 = self.mpr_th[:, 0], self.mpr_th[:, 1], self.mpr_th[:, 2]
+            mpr_ok = ((self.mpr_n >= float(p.get("mpr_min_n", 288.0))) & (a9 >= 0.0) & (a9 < 0.98)
+                      & (b9 > 1e-3) & (c9 > 1e-5) & (c9 < 0.05))
+            self.mpr_T2 = self.mpr_T1
+            self.mpr_T1 = T.copy()
+            self.mpr_To1 = oat_z9.copy()
+
         # ---------------- mode ----------------
         lo_pre = self.comfort_lo + p["margin_pre"]
         hi_pre = self.comfort_hi - p["margin_pre"]
@@ -804,12 +891,18 @@ class TransferPolicy:
                 lead_z = p["lead_base_h"] + np.maximum(
                     def_h_z / np.maximum(rate_h_eff / safety, 1e-3),
                     def_c_z / np.maximum(rate_c_eff / safety, 1e-3))
-                lead_z = np.clip(lead_z, p["lead_min_h"], p["lead_max_h"])
-                if mbr_active and float(p.get("mbr_on", 0.0)) > 0.5 and mbr_ok.any():
+                lead_cap = p["lead_max_h"]
+                wk_after = bool(self.after_off) and workday_ahead
+                if float(p.get("wk_lead_max_h", 0.0)) > 0.0 and wk_after:
+                    # round 10: the recovery into a workday that follows a non-workday may start earlier
+                    lead_cap = max(lead_cap, float(p["wk_lead_max_h"]))
+                lead_z = np.clip(lead_z, p["lead_min_h"], lead_cap)
+                if (mbr_active and float(p.get("mbr_on", 0.0)) > 0.5 and mbr_ok.any()
+                        and not (float(p.get("wk_no_mbr", 0.0)) > 0.5 and wk_after)):
                     # round 7: the model's recovery time to lo_pre at the preconditioning request cap
                     t_rec = self._mbr_trec(T, lo_pre, oat_f[self.z_a], F_design, p)
                     lead_m = np.clip(p["lead_base_h"] + float(p.get("mbr_safety", 1.1)) * t_rec,
-                                     p["lead_min_h"], p["lead_max_h"])
+                                     p["lead_min_h"], lead_cap)
                     use = mbr_ok & (def_h_z > 0.0) & (def_h_z >= def_c_z)
                     if float(p.get("mbr_lead_cap", 0.0)) > 0.5:
                         # post hoc (round 7 ledger): the latest feasible start -- the model may delay the start,
@@ -817,6 +910,28 @@ class TransferPolicy:
                         use = use & np.isfinite(t_rec)
                         lead_m = np.minimum(lead_m, lead_z)
                     lead_z = np.where(use, lead_m, lead_z)
+                if float(p.get("mpr_on", 0.0)) > 0.5 and mpr_ok.any() and self.mpr_T2 is not None:
+                    # round 9: simulate the zone heating at the preconditioning request cap from now on
+                    a9, b9, c9, d9 = (self.mpr_th[:, i] for i in range(4))
+                    tz = T.copy()
+                    dz = T - self.mpr_T2
+                    dz = np.where(np.isfinite(dz), np.clip(dz, -0.5, 0.5), 0.0)
+                    sc9 = self.scale[:V]
+                    steps9 = np.full(V, np.inf)
+                    to9 = oat_f[self.z_a]
+                    fcp9 = float(p.get("f_cap_pre", F_FLOOR100))
+                    for k9 in range(int(p["lead_max_h"] * 12)):
+                        qc9 = np.minimum(p["q_cap_w"] * sc9, F_design * fcp9 * np.maximum(DISCHARGE_MAX_K - tz, 0.5)) / 1000.0
+                        dz = a9 * dz + b9 * qc9 - c9 * (tz - to9) + d9
+                        tz = tz + dz
+                        hit = ~np.isfinite(steps9) & (tz >= lo_pre)
+                        steps9 = np.where(hit, k9 + 1.0, steps9)
+                        if np.isfinite(steps9).all():
+                            break
+                    lead_p = float(p.get("mpr_safety", 1.1)) * steps9 / 12.0
+                    use9 = mpr_ok & np.isfinite(lead_p) & (def_h_z > 0.0) & (def_h_z >= def_c_z)
+                    lead_z = np.where(use9, np.clip(np.minimum(lead_p, lead_z), p["lead_min_h"], p["lead_max_h"]),
+                                      lead_z)
                 m_lead = float(p.get("mon_lead_mult", 1.0))
                 if m_lead != 1.0 and self.after_off:
                     lead_z = np.clip(lead_z * m_lead, p["lead_min_h"],
@@ -928,6 +1043,8 @@ class TransferPolicy:
                     self.pre_active = False
         self.mode = mode
         self.zone_mode = zone_mode
+        if V and float(p.get("mpr_on", 0.0)) > 0.5:
+            self.mpr_U1 = zone_mode[:V] != self.OCCUPIED
 
         # ---------------- band for this mode (per zone) ----------------
         if V:
@@ -957,6 +1074,9 @@ class TransferPolicy:
                     self.mbr_floor_age = 0
                 fc = self.mbr_floor_cache
                 floor_z = np.where(mbr_ok & is_sb & np.isfinite(fc), np.minimum(floor_z, fc), floor_z)
+            if float(p.get("wk_free", 0.0)) > 0.5 and not now and self.after_off:
+                # round 10: weekend free-float (the LP bound heats almost nothing on Saturdays and Sundays)
+                floor_z = np.minimum(floor_z, self.eco_lo - float(p.get("wk_free_ext_k", 30.0)))
             frost = float(p.get("frost_floor_k", 0.0))
             if frost > 0.0:
                 # round 6: frost protection (sensible practice; the simulator does not charge for cold zones)
@@ -985,7 +1105,7 @@ class TransferPolicy:
             oat_z = oat[self.z_a]
             tgt = max(hi_pre - float(p.get("flush_depth_k", 1.0)), lo_pre + float(p.get("flush_lo_margin_k", 0.5)))
             ok = is_sb & np.isfinite(oat_z) & (oat_z <= T - float(p.get("flush_dt_k", 3.0)))
-            if float(p.get("flush_heat_guard", 0.0)) > 0.5 and self.heat_timer > 0:
+            if float(p.get("flush_heat_guard", 0.0)) > 0.5 and (self.heat_timer > 0 or self.season_on):
                 # heating season (some zone was heated in the last heat_season_steps): flushed heat
                 # would have to be bought back with gas in the morning
                 ok = np.zeros(V, dtype=bool)
@@ -1064,15 +1184,36 @@ class TransferPolicy:
             # PI for occupied / preconditioning zones; integrals of set-back zones are reset
             dec = max(p["i_decay_mult"], 0.0)
             dI_h = np.where(e_h > 0.0, ki_z * e_h, dec * ki_z * e_h)
-            dI_c = np.where(e_c > 0.0, ki_z * e_c, dec * ki_z * e_c)
+            ki_cz = ki_z * max(float(p.get("ki_c_mult", 1.0)), 0.0)   # round 10 (1.0 = v11 exactly)
+            dI_c = np.where(e_c > 0.0, ki_cz * e_c, dec * ki_cz * e_c)
             self.I_h = np.where(is_sb, 0.0, np.clip(self.I_h + dI_h, 0.0, q_cap_h))
             self.I_c = np.where(is_sb, 0.0, np.clip(self.I_c + dI_c, 0.0, q_cap_c))
             q_h_pi = np.clip(kq_z * np.maximum(e_h, 0.0) + self.I_h, 0.0, q_cap_h)
+            if float(p.get("mpr_on", 0.0)) > 0.5 and float(p.get("mpr_burst", 1.0)) > 0.5:
+                q_h_pi = np.where(is_pre & (e_h > 0.3), q_cap_h, q_h_pi)
             if float(p.get("pre_burst_h", 0.0)) > 0.5:
                 # round 5: recover at the floor-pressure cap from the start (the other zones' forced
                 # ventilation is paid per minute of handler run time, so a faster recovery is cheaper)
                 q_h_pi = np.where(is_pre & (e_h > float(p.get("pre_burst_e0", 0.3))), q_cap_h, q_h_pi)
-            q_c_pi = np.clip(kq_z * np.maximum(e_c, 0.0) + self.I_c, 0.0, q_cap_c)
+            q_c_pi = np.clip(kq_z * max(float(p.get("kq_c_mult", 1.0)), 0.0) * np.maximum(e_c, 0.0) + self.I_c,
+                             0.0, q_cap_c)
+            obr = float(p.get("obr_on", 0.0)) > 0.5
+            if obr:
+                # round 9: occupied band riding.  Heating regime = occupied, not near the cooling target and
+                # not cooling; there the PI is replaced by bursts at the cap (q_cap_h at the occupied flow cap).
+                reg = is_occ & (T < hi - float(p.get("obr_cool_guard_k", 1.0))) & (self.I_c <= 0.0) & (e_c <= 0.0)
+                start = reg & (T < lo_s + float(p.get("obr_start_k", 0.3)))
+                stop = T > lo_s + float(p.get("obr_stop_k", 0.9))
+                latch = reg & ~stop & (self.obr_latch | start)
+                burst_ahu = np.zeros(K, dtype=bool)
+                np.logical_or.at(burst_ahu, self.z_a, latch)
+                latch = latch | (reg & burst_ahu[self.z_a] & (T < lo_s + float(p.get("obr_join_k", 0.6))))
+                self.obr_latch = latch
+                self.obr_regime = reg
+                self.I_h = np.where(reg, 0.0, self.I_h)
+                q_h_pi = np.where(reg, np.where(latch, q_cap_h, 0.0), q_h_pi)
+            else:
+                self.obr_regime = np.zeros(V, dtype=bool)
             # a zone cannot be heated and cooled at once: the larger request wins
             heat_pi = ~is_sb & (q_h_pi > q_c_pi) & (q_h_pi > p["q_on_w"])
             cool_pi = ~is_sb & (q_c_pi >= q_h_pi) & (q_c_pi > p["q_on_w"])
@@ -1159,7 +1300,35 @@ class TransferPolicy:
             self.heat_timer = int(p["heat_season_steps"])
         else:
             self.heat_timer = max(self.heat_timer - 1, 0)
-        tw = p["tw_hot_k"] if self.heat_timer > 0 else p["tw_idle_k"]
+        hold = int(float(p.get("tw_hold_steps", 0.0)))
+        if hold > 0:
+            # round 10: keep the loop hot after the last heating demand without lengthening the heating season
+            # (heat_timer also gates the night-flush guard and the set-back reheat)
+            if any_heat_now or (mode == self.PRECOND and deficit_h > 0.0):
+                self.tw_timer = hold
+            else:
+                self.tw_timer = max(self.tw_timer - 1, 0)
+        hold_ok = hold > 0 and self.tw_timer > 0
+        thr = float(p.get("tw_hold_oat_k", 0.0))
+        ext = int(float(p.get("season_ext_steps", 0.0)))
+        thr_s = float(p.get("season_oat_k", 0.0))
+        if (hold > 0 and thr > 0.0) or (ext > 0 and thr_s > 0.0):
+            # round 10: per-step minimum outside air over the last 24 h (one entry per step)
+            fin = np.isfinite(oat)
+            if fin.any():
+                self.oat_min_hist.append(float(oat[fin].min()))
+        oat24 = min(self.oat_min_hist) if self.oat_min_hist else float("inf")
+        if hold > 0 and thr > 0.0:
+            # round 10: no hold in a warm spell (no step of the last 24 h below thr)
+            hold_ok = hold_ok and oat24 < thr
+        if ext > 0:
+            # round 10: round 9's long heating season, only while some step of the last 24 h was below season_oat_k
+            if any_heat_now or (mode == self.PRECOND and deficit_h > 0.0):
+                self.season_timer = ext
+            else:
+                self.season_timer = max(self.season_timer - 1, 0)
+            self.season_on = self.season_timer > 0 and (thr_s <= 0.0 or oat24 < thr_s)
+        tw = p["tw_hot_k"] if (self.heat_timer > 0 or self.season_on or hold_ok) else p["tw_idle_k"]
         tw = float(np.clip(tw, self.tw_rng[0], self.tw_rng[1]))
 
         # ---------------- zone flows, dampers, pressure, valves ----------------
@@ -1195,7 +1364,7 @@ class TransferPolicy:
             # sits on a running handler gets its forced minimum flow reheated to its own
             # temperature (1 J of gas per J now instead of ~2 J per J in the ventilated recovery)
             neutral = np.zeros(V, dtype=bool)
-            if float(p.get("sb_neutral", 0.0)) > 0.5 and self.heat_timer > 0:
+            if float(p.get("sb_neutral", 0.0)) > 0.5 and (self.heat_timer > 0 or self.season_on):
                 neutral = zone_on & is_sb & ~heat_zone & ~cool_zone & (T < lo_pre) & (T > t_sa_z + 0.5)
                 if float(p.get("sb_neutral_cold", 0.0)) > 0.5:
                     # only when the outside air is below the zone's setback floor, i.e. the zone will
@@ -1209,6 +1378,12 @@ class TransferPolicy:
                     # round 6 (added after c01's first screen shard): in mild weather a set-back zone may not
                     # need much recovery heat, and heat stored early leaks before 06:00
                     boost &= np.isfinite(oat[self.z_a]) & (oat[self.z_a] <= floor_z)
+            if float(p.get("obr_on", 0.0)) > 0.5:
+                # round 9: forced air of heating-regime occupied zones on a running handler goes in at the cap
+                occ_boost = (zone_on & self.obr_regime & ~heat_zone & ~cool_zone & (T > t_sa_z + 0.5)
+                             & (T < lo_s + float(p.get("obr_boost_k", 0.9))))
+                neutral = neutral | occ_boost
+                boost = boost | occ_boost
             bfk = float(p.get("sb_boost_floor_k", 0.0))
             if bfk > 0.0 and neutral.any():
                 # round 6: a zone near its setback floor will need a burst soon; heat it now through the forced
@@ -1252,6 +1427,11 @@ class TransferPolicy:
             cont[self.z_v[mv_]] = 2.0 * valve[mv_] - 1.0
         for s_ in self.orphan_slots:
             cont[s_] = -1.0
+        twr = float(p.get("tw_ramp_k", 0.0))
+        if twr > 0.0 and pump_on:
+            # round 9: never bill the loop for a setpoint the tank cannot reach this step, never go below the tank
+            tw = float(np.clip(tw, tw_obs, tw_obs + twr))
+            tw = float(np.clip(tw, self.tw_rng[0], self.tw_rng[1]))
         if self.water_temp_idx >= 0:
             cont[self.water_temp_idx] = self._norm(tw, *self.tw_rng)
         if self.water_press_idx >= 0:

@@ -1,0 +1,174 @@
+{
+ "variant": "LA",
+ "ref": "v13ref",
+ "harsh_ratio": 1.0186816167588648,
+ "public_ratio": 1.0172874590268044,
+ "mixture": 1.0177521782708245,
+ "harsh_wins": 0,
+ "public_wins": 0,
+ "components_per_step": {
+  "harsh": {
+   "comfort": {
+    "cand": 0.0005178043145400963,
+    "ref": 0.00036996834728487515
+   },
+   "energy": {
+    "cand": 0.006707665711703204,
+    "ref": 0.006571371056040477
+   },
+   "carbon": {
+    "cand": 0.01714424223816023,
+    "ref": 0.0170024529594244
+   }
+  },
+  "public": {
+   "comfort": {
+    "cand": 0.00010375427763723698,
+    "ref": 8.174921463125325e-05
+   },
+   "energy": {
+    "cand": 0.0032898212320117185,
+    "ref": 0.0032771571662737384
+   },
+   "carbon": {
+    "cand": 0.0011140962085932713,
+    "ref": 0.001096987970579755
+   }
+  }
+ },
+ "frost_hs12": {
+  "coldest_c": -9.951999999999998,
+  "below5_share": 0.03865515504447393
+ },
+ "frost_hs12_ref": {
+  "coldest_c": -9.951999999999998,
+  "below5_share": 0.03868202982947565
+ },
+ "per_window": {
+  "r6hs/building_train_1/fairbanks_2": {
+   "loss": 0.025361417604861863,
+   "ref": 0.024789632078546488,
+   "ratio": 1.0230655107951445
+  },
+  "r6hs/building_train_1/fairbanks_c2": {
+   "loss": 0.0349329846509742,
+   "ref": 0.034297169238203744,
+   "ratio": 1.0185384224673044
+  },
+  "r6hs/building_train_2/denver_c1": {
+   "loss": 0.0087960601274481,
+   "ref": 0.008777747210388043,
+   "ratio": 1.0020862889555973
+  },
+  "r6hs/building_train_2/fairbanks_8": {
+   "loss": 0.008499090942024619,
+   "ref": 0.008373878630959914,
+   "ratio": 1.01495272580161
+  },
+  "r6hs/building_train_4/denver_c1": {
+   "loss": 0.010588982477653218,
+   "ref": 0.010069064427654435,
+   "ratio": 1.0516351895187839
+  },
+  "r6hs/building_train_4/fairbanks_1": {
+   "loss": 0.03121759023071848,
+   "ref": 0.030716011203709953,
+   "ratio": 1.0163295625751023
+  },
+  "r6hs/building_train_5/fairbanks_1": {
+   "loss": 0.038513338829182155,
+   "ref": 0.03775555715336821,
+   "ratio": 1.020070732176875
+  },
+  "r6hs/building_train_5/fairbanks_c2": {
+   "loss": 0.032048973164761727,
+   "ref": 0.031383932069155934,
+   "ratio": 1.0211904962749838
+  },
+  "r6hs/building_train_7/denver_c1": {
+   "loss": 0.023053910532910647,
+   "ref": 0.022502048892420135,
+   "ratio": 1.024524950733549
+  },
+  "r6hs/building_train_7/fairbanks_8": {
+   "loss": 0.02129997907740477,
+   "ref": 0.02087685887680357,
+   "ratio": 1.0202674263929299
+  },
+  "r6hs/building_train_8/fairbanks_2": {
+   "loss": 0.02456425537991977,
+   "ref": 0.024445003890471686,
+   "ratio": 1.0048783583746765
+  },
+  "r6hs/building_train_8/fairbanks_c2": {
+   "loss": 0.033559964273167896,
+   "ref": 0.03333860470465446,
+   "ratio": 1.0066397370398208
+  },
+  "r10dev/building_train_1/atlanta_4": {
+   "loss": 0.004291915926904902,
+   "ref": 0.004291915926904902,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_1/phoenix_7": {
+   "loss": 0.006464359215137784,
+   "ref": 0.006464359215137784,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_2/denver_4": {
+   "loss": 0.002692839582790738,
+   "ref": 0.002650415429413789,
+   "ratio": 1.0160066051933345
+  },
+  "r10dev/building_train_2/singapore_5": {
+   "loss": 0.004917126678780249,
+   "ref": 0.004917126678780249,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_4/atlanta_4": {
+   "loss": 0.004270743742689583,
+   "ref": 0.0042548911728574005,
+   "ratio": 1.0037257286234036
+  },
+  "r10dev/building_train_4/phoenix_7": {
+   "loss": 0.00579769797744922,
+   "ref": 0.00579769797744922,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_5/denver_4": {
+   "loss": 0.0032040168843960846,
+   "ref": 0.002857187659168674,
+   "ratio": 1.1213883253745833
+  },
+  "r10dev/building_train_5/singapore_5": {
+   "loss": 0.004728893748006293,
+   "ref": 0.004728893748006293,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_7/atlanta_4": {
+   "loss": 0.0034145042455294055,
+   "ref": 0.003384459424923971,
+   "ratio": 1.0088772878717875
+  },
+  "r10dev/building_train_7/phoenix_7": {
+   "loss": 0.005113286816241598,
+   "ref": 0.005113286816241598,
+   "ratio": 1.0
+  },
+  "r10dev/building_train_8/denver_4": {
+   "loss": 0.003426779488123314,
+   "ref": 0.003240601852291822,
+   "ratio": 1.0574515612585431
+  },
+  "r10dev/building_train_8/singapore_5": {
+   "loss": 0.0057698963090417,
+   "ref": 0.0057698963090417,
+   "ratio": 1.0
+  }
+ },
+ "params": {
+  "st_late": 1,
+  "st_late_h": 2.0,
+  "st_late_fcap": 1.0
+ }
+}

@@ -1,0 +1,27 @@
+[{"stream_name":"stdout","time":152.227913885,"data":"[   150.6s] env: {'python': '3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.103', 'mem_total_gb': 33.658155008, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 9, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'r9dow-r6hs-1', 'pushed_utc': '2026-11-01T03:43:21Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v11d_screen_e6a6f6aaa2.py': 'e6a6f6aaa212c6cdbfb065a13cf84e09'}}\n"}
+,{"stream_name":"stdout","time":152.229989662,"data":"[   150.6s] start r9_dow/r6hs/building_train_2/denver_c1 (1 running, 8 pending)\n"}
+,{"stream_name":"stdout","time":152.230499625,"data":"[   150.6s] start r9_dow/r6hs/building_train_2/minneapolis_8 (2 running, 7 pending)\n"}
+,{"stream_name":"stdout","time":152.233556629,"data":"[   150.6s] start r9_dow/r6hs/building_train_1/minneapolis_3 (3 running, 6 pending)\n"}
+,{"stream_name":"stdout","time":152.235775618,"data":"[   150.6s] start r9_dow/r6hs/building_train_4/minneapolis_1 (4 running, 5 pending)\n"}
+,{"stream_name":"stdout","time":1487.300184377,"data":"[  1485.7s] done r9_dow/r6hs/building_train_1/minneapolis_3 rc=0 -59.51656780878329 (1 done)\n"}
+,{"stream_name":"stdout","time":1487.303774417,"data":"[  1485.7s] start r9_dow/r6hs/building_train_5/fairbanks_c2 (4 running, 4 pending)\n"}
+,{"stream_name":"stdout","time":1967.327038786,"data":"[  1965.7s] done r9_dow/r6hs/building_train_4/minneapolis_1 rc=0 -150.80219341997145 (2 done)\n"}
+,{"stream_name":"stdout","time":1967.334180813,"data":"[  1965.7s] start r9_dow/r6hs/building_train_7/denver_c1 (4 running, 3 pending)\n"}
+,{"stream_name":"stdout","time":2547.360898225,"data":"[  2545.7s] done r9_dow/r6hs/building_train_2/denver_c1 rc=0 -80.61829960526302 (3 done)\n"}
+,{"stream_name":"stdout","time":2547.364051955,"data":"[  2545.7s] start r9_dow/r6hs/building_train_7/fairbanks_8 (4 running, 2 pending)\n"}
+,{"stream_name":"stdout","time":2562.367582773,"data":"[  2560.7s] done r9_dow/r6hs/building_train_2/minneapolis_8 rc=0 -47.40479011178104 (4 done)\n"}
+,{"stream_name":"stdout","time":2562.369305204,"data":"[  2560.8s] start r9_dow/r6hs/building_train_7/minneapolis_3 (4 running, 1 pending)\n"}
+,{"stream_name":"stdout","time":2847.38511731,"data":"[  2845.8s] done r9_dow/r6hs/building_train_7/denver_c1 rc=0 -200.79552144500485 (5 done)\n"}
+,{"stream_name":"stdout","time":2847.38687138,"data":"[  2845.8s] start r9_dow/r6hs/building_train_8/fairbanks_c2 (4 running, 0 pending)\n"}
+,{"stream_name":"stdout","time":3297.40680445,"data":"[  3295.8s] done r9_dow/r6hs/building_train_5/fairbanks_c2 rc=0 -330.5029626959513 (6 done)\n"}
+,{"stream_name":"stdout","time":3392.412666868,"data":"[  3390.8s] done r9_dow/r6hs/building_train_7/fairbanks_8 rc=0 -255.07948527604458 (7 done)\n"}
+,{"stream_name":"stdout","time":3407.414016354,"data":"[  3405.8s] done r9_dow/r6hs/building_train_7/minneapolis_3 rc=0 -91.50435521203326 (8 done)\n"}
+,{"stream_name":"stdout","time":3542.41981512,"data":"[  3540.8s] done r9_dow/r6hs/building_train_8/fairbanks_c2 rc=0 -339.97839049453614 (9 done)\n"}
+,{"stream_name":"stdout","time":3542.419863551,"data":"[  3540.8s] all done: 9 jobs in 3541s\n"}
+,{"stream_name":"stderr","time":3545.866601808,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3545.866641176,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3546.325503171,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3546.32562914,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3547.528126539,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3548.241113007,"data":"[NbConvertApp] Writing 440495 bytes to __results__.html\n"}
+]

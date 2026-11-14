@@ -1,0 +1,696 @@
+{
+ "ref": "v10 (r7L_mbr2)",
+ "sets": {
+  "HS": "r6hs (18)",
+  "P": "pub30 (30)"
+ },
+ "cands": {
+  "r9_dow": {
+   "HS": {
+    "n": 18,
+    "cand": 0.021390161211464635,
+    "ref": 0.02173479601005999,
+    "diff": -0.00034463479859535615,
+    "rel": -0.015856362232976158,
+    "ci_lo": -0.00042569748387412816,
+    "ci_hi": -0.000269014268302343,
+    "rel_ci_lo": -0.01958598938205324,
+    "rel_ci_hi": -0.012377124136699016,
+    "wins": 18,
+    "losses": 0,
+    "worst": "building_train_1/fairbanks_2",
+    "worst_rel": -0.008687619815203829,
+    "per_scenario": {
+     "building_train_1/fairbanks_2": {
+      "cand": 0.021647149406616068,
+      "ref": 0.021836859742012604
+     },
+     "building_train_1/fairbanks_c2": {
+      "cand": 0.04470822926770392,
+      "ref": 0.045164698531866804
+     },
+     "building_train_1/minneapolis_3": {
+      "cand": 0.006888491644535103,
+      "ref": 0.006962237521218884
+     },
+     "building_train_2/denver_c1": {
+      "cand": 0.009330821713572109,
+      "ref": 0.009608534950471419
+     },
+     "building_train_2/fairbanks_8": {
+      "cand": 0.012313825366143023,
+      "ref": 0.012605640976381791
+     },
+     "building_train_2/minneapolis_8": {
+      "cand": 0.005486665522196879,
+      "ref": 0.005625587595117546
+     },
+     "building_train_4/denver_c1": {
+      "cand": 0.011272053717253264,
+      "ref": 0.011491698540716983
+     },
+     "building_train_4/fairbanks_1": {
+      "cand": 0.03108035146467753,
+      "ref": 0.03148223183333593
+     },
+     "building_train_4/minneapolis_1": {
+      "cand": 0.017453957571755954,
+      "ref": 0.017782624572293605
+     },
+     "building_train_5/fairbanks_1": {
+      "cand": 0.03771798209103576,
+      "ref": 0.038147269878812846
+     },
+     "building_train_5/fairbanks_c2": {
+      "cand": 0.0382526577194388,
+      "ref": 0.0386794180794928
+     },
+     "building_train_5/minneapolis_2": {
+      "cand": 0.016388178584795948,
+      "ref": 0.016641719873405236
+     },
+     "building_train_7/denver_c1": {
+      "cand": 0.023240222389468154,
+      "ref": 0.023876613445130108
+     },
+     "building_train_7/fairbanks_8": {
+      "cand": 0.029523088573616272,
+      "ref": 0.030159371920966873
+     },
+     "building_train_7/minneapolis_3": {
+      "cand": 0.01059078185324459,
+      "ref": 0.010794073597252532
+     },
+     "building_train_8/fairbanks_2": {
+      "cand": 0.019811093444710187,
+      "ref": 0.020156719916791292
+     },
+     "building_train_8/fairbanks_c2": {
+      "cand": 0.03934935075168242,
+      "ref": 0.04003698935002831
+     },
+     "building_train_8/minneapolis_8": {
+      "cand": 0.009968000723917477,
+      "ref": 0.010174037855784314
+     }
+    }
+   },
+   "P": {
+    "n": 30,
+    "cand": 0.007528169131763515,
+    "ref": 0.007621560760376955,
+    "diff": -9.339162861343962e-05,
+    "rel": -0.012253609404908892,
+    "ci_lo": -0.00014317164596555076,
+    "ci_hi": -5.293877979747461e-05,
+    "rel_ci_lo": -0.018785082277356223,
+    "rel_ci_hi": -0.006945923736866766,
+    "wins": 28,
+    "losses": 2,
+    "worst": "building_train_7/denver_5",
+    "worst_rel": 0.0041364918444011245,
+    "per_scenario": {
+     "building_train_1/atlanta_2": {
+      "cand": 0.0038009239660311777,
+      "ref": 0.0038312676695461
+     },
+     "building_train_1/denver_7": {
+      "cand": 0.002643598904838082,
+      "ref": 0.002738720815878537
+     },
+     "building_train_1/fairbanks_1": {
+      "cand": 0.043843410617853774,
+      "ref": 0.044342971596887326
+     },
+     "building_train_1/phoenix_5": {
+      "cand": 0.014772701478263777,
+      "ref": 0.014847797543694608
+     },
+     "building_train_1/singapore_8": {
+      "cand": 0.006653605396823642,
+      "ref": 0.006683363731039549
+     },
+     "building_train_2/atlanta_3": {
+      "cand": 0.0033065902226508325,
+      "ref": 0.0033339043858293636
+     },
+     "building_train_2/denver_8": {
+      "cand": 0.004523053596545247,
+      "ref": 0.004692096819851317
+     },
+     "building_train_2/fairbanks_2": {
+      "cand": 0.011044506454356486,
+      "ref": 0.011272923615865273
+     },
+     "building_train_2/phoenix_6": {
+      "cand": 0.0072986257902183755,
+      "ref": 0.007352845203260143
+     },
+     "building_train_2/singapore_1": {
+      "cand": 0.0047457498784218895,
+      "ref": 0.004780969653192049
+     },
+     "building_train_4/atlanta_5": {
+      "cand": 0.0066680107309306045,
+      "ref": 0.006693998677938113
+     },
+     "building_train_4/denver_2": {
+      "cand": 0.005793997186315715,
+      "ref": 0.005849721773798651
+     },
+     "building_train_4/fairbanks_4": {
+      "cand": 0.0023104559082705017,
+      "ref": 0.002343966308289627
+     },
+     "building_train_4/phoenix_8": {
+      "cand": 0.0022965258509718414,
+      "ref": 0.0023352084744997395
+     },
+     "building_train_4/singapore_3": {
+      "cand": 0.00700721181760955,
+      "ref": 0.007039104226475798
+     },
+     "building_train_5/atlanta_6": {
+      "cand": 0.004337023607132182,
+      "ref": 0.004365315509293758
+     },
+     "building_train_5/denver_3": {
+      "cand": 0.004366246106518243,
+      "ref": 0.004470487224457787
+     },
+     "building_train_5/fairbanks_5": {
+      "cand": 0.002233255890923639,
+      "ref": 0.0022724659601641513
+     },
+     "building_train_5/phoenix_1": {
+      "cand": 0.0030868436254755344,
+      "ref": 0.003127848628147629
+     },
+     "building_train_5/singapore_4": {
+      "cand": 0.00556442227292185,
+      "ref": 0.0056031882731514
+     },
+     "building_train_7/atlanta_8": {
+      "cand": 0.00703392101748553,
+      "ref": 0.00721234569407064
+     },
+     "building_train_7/denver_5": {
+      "cand": 0.00575090281802762,
+      "ref": 0.005727212251259133
+     },
+     "building_train_7/fairbanks_7": {
+      "cand": 0.00811671029445346,
+      "ref": 0.008266794416770322
+     },
+     "building_train_7/phoenix_3": {
+      "cand": 0.006391638738721086,
+      "ref": 0.006378097256716915
+     },
+     "building_train_7/singapore_6": {
+      "cand": 0.0057717996000127515,
+      "ref": 0.005827954214921004
+     },
+     "building_train_8/atlanta_1": {
+      "cand": 0.005257239780368966,
+      "ref": 0.0053033301249406075
+     },
+     "building_train_8/denver_6": {
+      "cand": 0.003847539458473411,
+      "ref": 0.0038811870066675328
+     },
+     "building_train_8/fairbanks_8": {
+      "cand": 0.021943759997511567,
+      "ref": 0.022482137940787822
+     },
+     "building_train_8/phoenix_4": {
+      "cand": 0.009873611079736179,
+      "ref": 0.009947507409520334
+     },
+     "building_train_8/singapore_7": {
+      "cand": 0.005561191865041969,
+      "ref": 0.00564209040439344
+     }
+    }
+   },
+   "class": "helps"
+  },
+  "r9_hwl": {
+   "HS": {
+    "n": 18,
+    "cand": 0.021702684272279484,
+    "ref": 0.02173479601005999,
+    "diff": -3.2111737780510186e-05,
+    "rel": -0.0014774345140229155,
+    "ci_lo": -5.017684790453683e-05,
+    "ci_hi": -1.5553645225891194e-05,
+    "rel_ci_lo": -0.002308595299505566,
+    "rel_ci_hi": -0.00071561036131612,
+    "wins": 18,
+    "losses": 0,
+    "worst": "building_train_4/fairbanks_1",
+    "worst_rel": -3.543956736262732e-05,
+    "per_scenario": {
+     "building_train_1/fairbanks_2": {
+      "cand": 0.021736274979017017,
+      "ref": 0.021836859742012604
+     },
+     "building_train_1/fairbanks_c2": {
+      "cand": 0.04512182861533768,
+      "ref": 0.045164698531866804
+     },
+     "building_train_1/minneapolis_3": {
+      "cand": 0.00685911921082615,
+      "ref": 0.006962237521218884
+     },
+     "building_train_2/denver_c1": {
+      "cand": 0.009606783841785163,
+      "ref": 0.009608534950471419
+     },
+     "building_train_2/fairbanks_8": {
+      "cand": 0.01259331707256066,
+      "ref": 0.012605640976381791
+     },
+     "building_train_2/minneapolis_8": {
+      "cand": 0.00560470861149956,
+      "ref": 0.005625587595117546
+     },
+     "building_train_4/denver_c1": {
+      "cand": 0.011490509116471778,
+      "ref": 0.011491698540716983
+     },
+     "building_train_4/fairbanks_1": {
+      "cand": 0.03148111611666014,
+      "ref": 0.03148223183333593
+     },
+     "building_train_4/minneapolis_1": {
+      "cand": 0.017763273991353665,
+      "ref": 0.017782624572293605
+     },
+     "building_train_5/fairbanks_1": {
+      "cand": 0.03813063366340565,
+      "ref": 0.038147269878812846
+     },
+     "building_train_5/fairbanks_c2": {
+      "cand": 0.03867725944687116,
+      "ref": 0.0386794180794928
+     },
+     "building_train_5/minneapolis_2": {
+      "cand": 0.016585830849551595,
+      "ref": 0.016641719873405236
+     },
+     "building_train_7/denver_c1": {
+      "cand": 0.023873253239270087,
+      "ref": 0.023876613445130108
+     },
+     "building_train_7/fairbanks_8": {
+      "cand": 0.030157876674721355,
+      "ref": 0.030159371920966873
+     },
+     "building_train_7/minneapolis_3": {
+      "cand": 0.010688169211209696,
+      "ref": 0.010794073597252532
+     },
+     "building_train_8/fairbanks_2": {
+      "cand": 0.02014999704120631,
+      "ref": 0.020156719916791292
+     },
+     "building_train_8/fairbanks_c2": {
+      "cand": 0.040030307967072076,
+      "ref": 0.04003698935002831
+     },
+     "building_train_8/minneapolis_8": {
+      "cand": 0.01009805725221095,
+      "ref": 0.010174037855784314
+     }
+    }
+   },
+   "P": {
+    "n": 30,
+    "cand": 0.007579342118376162,
+    "ref": 0.007621560760376955,
+    "diff": -4.2218642000793945e-05,
+    "rel": -0.005539369602651551,
+    "ci_lo": -6.219545742266355e-05,
+    "ci_hi": -2.3074951857680878e-05,
+    "rel_ci_lo": -0.00816046205995049,
+    "rel_ci_hi": -0.003027588781768055,
+    "wins": 18,
+    "losses": 7,
+    "worst": "building_train_5/atlanta_6",
+    "worst_rel": 0.0059361023817319225,
+    "per_scenario": {
+     "building_train_1/atlanta_2": {
+      "cand": 0.0037457574295872206,
+      "ref": 0.0038312676695461
+     },
+     "building_train_1/denver_7": {
+      "cand": 0.002579220912928627,
+      "ref": 0.002738720815878537
+     },
+     "building_train_1/fairbanks_1": {
+      "cand": 0.044303884187200784,
+      "ref": 0.044342971596887326
+     },
+     "building_train_1/phoenix_5": {
+      "cand": 0.014847797543694608,
+      "ref": 0.014847797543694608
+     },
+     "building_train_1/singapore_8": {
+      "cand": 0.006683363731039549,
+      "ref": 0.006683363731039549
+     },
+     "building_train_2/atlanta_3": {
+      "cand": 0.0033378122684417297,
+      "ref": 0.0033339043858293636
+     },
+     "building_train_2/denver_8": {
+      "cand": 0.004641498000258555,
+      "ref": 0.004692096819851317
+     },
+     "building_train_2/fairbanks_2": {
+      "cand": 0.011271041725658253,
+      "ref": 0.011272923615865273
+     },
+     "building_train_2/phoenix_6": {
+      "cand": 0.007352845203260143,
+      "ref": 0.007352845203260143
+     },
+     "building_train_2/singapore_1": {
+      "cand": 0.004780969653192049,
+      "ref": 0.004780969653192049
+     },
+     "building_train_4/atlanta_5": {
+      "cand": 0.006728134297725056,
+      "ref": 0.006693998677938113
+     },
+     "building_train_4/denver_2": {
+      "cand": 0.005820724177768894,
+      "ref": 0.005849721773798651
+     },
+     "building_train_4/fairbanks_4": {
+      "cand": 0.002274512473902885,
+      "ref": 0.002343966308289627
+     },
+     "building_train_4/phoenix_8": {
+      "cand": 0.002269072521731367,
+      "ref": 0.0023352084744997395
+     },
+     "building_train_4/singapore_3": {
+      "cand": 0.007039104226475798,
+      "ref": 0.007039104226475798
+     },
+     "building_train_5/atlanta_6": {
+      "cand": 0.004391228469085488,
+      "ref": 0.004365315509293758
+     },
+     "building_train_5/denver_3": {
+      "cand": 0.0043830230120407675,
+      "ref": 0.004470487224457787
+     },
+     "building_train_5/fairbanks_5": {
+      "cand": 0.0022597136148526167,
+      "ref": 0.0022724659601641513
+     },
+     "building_train_5/phoenix_1": {
+      "cand": 0.003052431400615037,
+      "ref": 0.003127848628147629
+     },
+     "building_train_5/singapore_4": {
+      "cand": 0.005609815598201904,
+      "ref": 0.0056031882731514
+     },
+     "building_train_7/atlanta_8": {
+      "cand": 0.007113022700791252,
+      "ref": 0.00721234569407064
+     },
+     "building_train_7/denver_5": {
+      "cand": 0.005628129754362337,
+      "ref": 0.005727212251259133
+     },
+     "building_train_7/fairbanks_7": {
+      "cand": 0.008134003468096665,
+      "ref": 0.008266794416770322
+     },
+     "building_train_7/phoenix_3": {
+      "cand": 0.006275933140995033,
+      "ref": 0.006378097256716915
+     },
+     "building_train_7/singapore_6": {
+      "cand": 0.005841298324844449,
+      "ref": 0.005827954214921004
+     },
+     "building_train_8/atlanta_1": {
+      "cand": 0.00516242099597127,
+      "ref": 0.0053033301249406075
+     },
+     "building_train_8/denver_6": {
+      "cand": 0.0037728106271236617,
+      "ref": 0.0038811870066675328
+     },
+     "building_train_8/fairbanks_8": {
+      "cand": 0.02246498822581139,
+      "ref": 0.022482137940787822
+     },
+     "building_train_8/phoenix_4": {
+      "cand": 0.009970303404797426,
+      "ref": 0.009947507409520334
+     },
+     "building_train_8/singapore_7": {
+      "cand": 0.005645402460830037,
+      "ref": 0.00564209040439344
+     }
+    }
+   },
+   "class": "helps"
+  },
+  "r9_mprs": {
+   "HS": {
+    "n": 18,
+    "cand": 0.021643933740242077,
+    "ref": 0.02173479601005999,
+    "diff": -9.0862269817918e-05,
+    "rel": -0.0041804979340897535,
+    "ci_lo": -0.0001274840858480473,
+    "ci_hi": -5.5622252842861906e-05,
+    "rel_ci_lo": -0.005865437420670571,
+    "rel_ci_hi": -0.002559133879936901,
+    "wins": 16,
+    "losses": 2,
+    "worst": "building_train_1/minneapolis_3",
+    "worst_rel": 0.009853247060065407,
+    "per_scenario": {
+     "building_train_1/fairbanks_2": {
+      "cand": 0.021764999798560218,
+      "ref": 0.021836859742012604
+     },
+     "building_train_1/fairbanks_c2": {
+      "cand": 0.045101705399375296,
+      "ref": 0.045164698531866804
+     },
+     "building_train_1/minneapolis_3": {
+      "cand": 0.007030838167606311,
+      "ref": 0.006962237521218884
+     },
+     "building_train_2/denver_c1": {
+      "cand": 0.009488519497096849,
+      "ref": 0.009608534950471419
+     },
+     "building_train_2/fairbanks_8": {
+      "cand": 0.012517884215122666,
+      "ref": 0.012605640976381791
+     },
+     "building_train_2/minneapolis_8": {
+      "cand": 0.005585640030292998,
+      "ref": 0.005625587595117546
+     },
+     "building_train_4/denver_c1": {
+      "cand": 0.01130715046183047,
+      "ref": 0.011491698540716983
+     },
+     "building_train_4/fairbanks_1": {
+      "cand": 0.0314182870033796,
+      "ref": 0.03148223183333593
+     },
+     "building_train_4/minneapolis_1": {
+      "cand": 0.01768897090302062,
+      "ref": 0.017782624572293605
+     },
+     "building_train_5/fairbanks_1": {
+      "cand": 0.03810001113115083,
+      "ref": 0.038147269878812846
+     },
+     "building_train_5/fairbanks_c2": {
+      "cand": 0.038685850731385724,
+      "ref": 0.0386794180794928
+     },
+     "building_train_5/minneapolis_2": {
+      "cand": 0.016641056524553766,
+      "ref": 0.016641719873405236
+     },
+     "building_train_7/denver_c1": {
+      "cand": 0.02361013658271026,
+      "ref": 0.023876613445130108
+     },
+     "building_train_7/fairbanks_8": {
+      "cand": 0.02999131912114771,
+      "ref": 0.030159371920966873
+     },
+     "building_train_7/minneapolis_3": {
+      "cand": 0.010696239020424618,
+      "ref": 0.010794073597252532
+     },
+     "building_train_8/fairbanks_2": {
+      "cand": 0.019981006563790725,
+      "ref": 0.020156719916791292
+     },
+     "building_train_8/fairbanks_c2": {
+      "cand": 0.03989329788561783,
+      "ref": 0.04003698935002831
+     },
+     "building_train_8/minneapolis_8": {
+      "cand": 0.010087894287290863,
+      "ref": 0.010174037855784314
+     }
+    }
+   },
+   "P": {
+    "n": 30,
+    "cand": 0.007611015919933821,
+    "ref": 0.007621560760376955,
+    "diff": -1.0544840443135561e-05,
+    "rel": -0.0013835539431708243,
+    "ci_lo": -2.4797785014325523e-05,
+    "ci_hi": 1.6708892046724188e-06,
+    "rel_ci_lo": -0.003253636071924335,
+    "rel_ci_hi": 0.00021923189451680998,
+    "wins": 14,
+    "losses": 6,
+    "worst": "building_train_1/denver_7",
+    "worst_rel": 0.01951577183733222,
+    "per_scenario": {
+     "building_train_1/atlanta_2": {
+      "cand": 0.0038370155613226533,
+      "ref": 0.0038312676695461
+     },
+     "building_train_1/denver_7": {
+      "cand": 0.0027921690664473747,
+      "ref": 0.002738720815878537
+     },
+     "building_train_1/fairbanks_1": {
+      "cand": 0.0443376099102234,
+      "ref": 0.044342971596887326
+     },
+     "building_train_1/phoenix_5": {
+      "cand": 0.014847797543694608,
+      "ref": 0.014847797543694608
+     },
+     "building_train_1/singapore_8": {
+      "cand": 0.006683363731039549,
+      "ref": 0.006683363731039549
+     },
+     "building_train_2/atlanta_3": {
+      "cand": 0.00332805362370589,
+      "ref": 0.0033339043858293636
+     },
+     "building_train_2/denver_8": {
+      "cand": 0.0046865287266267906,
+      "ref": 0.004692096819851317
+     },
+     "building_train_2/fairbanks_2": {
+      "cand": 0.011211377196553308,
+      "ref": 0.011272923615865273
+     },
+     "building_train_2/phoenix_6": {
+      "cand": 0.007352845203260143,
+      "ref": 0.007352845203260143
+     },
+     "building_train_2/singapore_1": {
+      "cand": 0.004780969653192049,
+      "ref": 0.004780969653192049
+     },
+     "building_train_4/atlanta_5": {
+      "cand": 0.006693998677938113,
+      "ref": 0.006693998677938113
+     },
+     "building_train_4/denver_2": {
+      "cand": 0.005842755243345984,
+      "ref": 0.005849721773798651
+     },
+     "building_train_4/fairbanks_4": {
+      "cand": 0.0023364260366726605,
+      "ref": 0.002343966308289627
+     },
+     "building_train_4/phoenix_8": {
+      "cand": 0.0023707485552230774,
+      "ref": 0.0023352084744997395
+     },
+     "building_train_4/singapore_3": {
+      "cand": 0.007039104226475798,
+      "ref": 0.007039104226475798
+     },
+     "building_train_5/atlanta_6": {
+      "cand": 0.00436530975884845,
+      "ref": 0.004365315509293758
+     },
+     "building_train_5/denver_3": {
+      "cand": 0.004455942868813378,
+      "ref": 0.004470487224457787
+     },
+     "building_train_5/fairbanks_5": {
+      "cand": 0.0022711793058867876,
+      "ref": 0.0022724659601641513
+     },
+     "building_train_5/phoenix_1": {
+      "cand": 0.003144114274788392,
+      "ref": 0.003127848628147629
+     },
+     "building_train_5/singapore_4": {
+      "cand": 0.0056031882731514,
+      "ref": 0.0056031882731514
+     },
+     "building_train_7/atlanta_8": {
+      "cand": 0.007106224841848214,
+      "ref": 0.00721234569407064
+     },
+     "building_train_7/denver_5": {
+      "cand": 0.0057240856331709986,
+      "ref": 0.005727212251259133
+     },
+     "building_train_7/fairbanks_7": {
+      "cand": 0.008187397119886723,
+      "ref": 0.008266794416770322
+     },
+     "building_train_7/phoenix_3": {
+      "cand": 0.006388417349679451,
+      "ref": 0.006378097256716915
+     },
+     "building_train_7/singapore_6": {
+      "cand": 0.005827954214921004,
+      "ref": 0.005827954214921004
+     },
+     "building_train_8/atlanta_1": {
+      "cand": 0.0053126791534939205,
+      "ref": 0.0053033301249406075
+     },
+     "building_train_8/denver_6": {
+      "cand": 0.003871549547071377,
+      "ref": 0.0038811870066675328
+     },
+     "building_train_8/fairbanks_8": {
+      "cand": 0.02234207448681934,
+      "ref": 0.022482137940787822
+     },
+     "building_train_8/phoenix_4": {
+      "cand": 0.009947507409520334,
+      "ref": 0.009947507409520334
+     },
+     "building_train_8/singapore_7": {
+      "cand": 0.00564209040439344,
+      "ref": 0.00564209040439344
+     }
+    }
+   },
+   "class": "helps"
+  }
+ }
+}

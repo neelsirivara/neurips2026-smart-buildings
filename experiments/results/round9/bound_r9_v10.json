@@ -1,0 +1,398 @@
+{
+ "P30/building_train_1/fairbanks_1": {
+  "acct": {
+   "gas_kwh": 109282.73926666669,
+   "coil_kwh": 108674.92791411717,
+   "tank_heat_kwh": 141.075,
+   "tank_credit_kwh": -123.65833333333333,
+   "dissip_kwh": 434.00132111994424,
+   "warmup_overbill_kwh": 35.76916544240302,
+   "tank_credit_clipped_kwh": 120.62419932047526,
+   "loop_rewarms": 4,
+   "loop_hot_share": 0.9539351851851852
+  },
+  "delivery": {
+   "coil_kwh_occ": 79338.05562011209,
+   "coil_kwh_unocc": 29336.872294005072,
+   "need_kwh_occ": 39505.28192036537,
+   "need_kwh_unocc": 17721.845697557896,
+   "lb_kwh_occ": 77834.67585591835,
+   "lb_kwh_unocc": 26955.844099315815,
+   "excess_share_of_gas": 0.03554456984651944,
+   "excess_occ_share_of_gas": 0.013756790635758824,
+   "excess_unocc_share_of_gas": 0.021787779210760666,
+   "g_median": 1.7746724545685049,
+   "inst_excess_occ_share_of_gas": 0.0029242052720185865,
+   "inst_excess_unocc_share_of_gas": 0.008975890735220645,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 2374.358050837199
+  }
+ },
+ "P30/building_train_1/phoenix_5": {
+  "acct": {
+   "gas_kwh": 7.794700000000001,
+   "coil_kwh": 0.0,
+   "tank_heat_kwh": 0.0,
+   "tank_credit_kwh": -52.25,
+   "dissip_kwh": 7.8322108937526735,
+   "warmup_overbill_kwh": 0.0013744952127337814,
+   "tank_credit_clipped_kwh": 52.21111461103459,
+   "loop_rewarms": 0,
+   "loop_hot_share": 0.0
+  },
+  "delivery": {
+   "coil_kwh_occ": 0.0,
+   "coil_kwh_unocc": 0.0,
+   "need_kwh_occ": 0.0,
+   "need_kwh_unocc": 0.0,
+   "lb_kwh_occ": 0.0,
+   "lb_kwh_unocc": 0.0,
+   "excess_share_of_gas": 0.0,
+   "excess_occ_share_of_gas": 0.0,
+   "excess_unocc_share_of_gas": 0.0,
+   "g_median": null,
+   "inst_excess_occ_share_of_gas": 0.0,
+   "inst_excess_unocc_share_of_gas": 0.0,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 16962.889349999998,
+   "net_cooling_kwh": 44571.386387402694
+  }
+ },
+ "P30/building_train_2/denver_8": {
+  "acct": {
+   "gas_kwh": 23247.657491666665,
+   "coil_kwh": 22621.976690972962,
+   "tank_heat_kwh": 210.74166666666665,
+   "tank_credit_kwh": -193.325,
+   "dissip_kwh": 302.9812208023071,
+   "warmup_overbill_kwh": 115.26644168491362,
+   "tank_credit_clipped_kwh": 190.01647153981526,
+   "loop_rewarms": 5,
+   "loop_hot_share": 0.9138888888888889
+  },
+  "delivery": {
+   "coil_kwh_occ": 14608.054888229686,
+   "coil_kwh_unocc": 8013.921802743275,
+   "need_kwh_occ": 8332.07901037451,
+   "need_kwh_unocc": 5716.167512383618,
+   "lb_kwh_occ": 11890.540540372967,
+   "lb_kwh_unocc": 7193.1442912512875,
+   "excess_share_of_gas": 0.1521999307077301,
+   "excess_occ_share_of_gas": 0.11689411498043784,
+   "excess_unocc_share_of_gas": 0.035305815727292224,
+   "g_median": 1.3356588355223695,
+   "inst_excess_occ_share_of_gas": 0.003756688817483129,
+   "inst_excess_unocc_share_of_gas": 0.01644407335222935,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 912.6690083333333,
+   "net_cooling_kwh": 14141.633023814995
+  }
+ },
+ "P30/building_train_4/singapore_3": {
+  "acct": {
+   "gas_kwh": 36.915575,
+   "coil_kwh": 0.0,
+   "tank_heat_kwh": 0.0,
+   "tank_credit_kwh": -52.25,
+   "dissip_kwh": 37.146037774086,
+   "warmup_overbill_kwh": 0.001260989697774141,
+   "tank_credit_clipped_kwh": 52.018276236216224,
+   "loop_rewarms": 0,
+   "loop_hot_share": 0.0
+  },
+  "delivery": {
+   "coil_kwh_occ": 0.0,
+   "coil_kwh_unocc": 0.0,
+   "need_kwh_occ": 0.0,
+   "need_kwh_unocc": 0.0,
+   "lb_kwh_occ": 0.0,
+   "lb_kwh_unocc": 0.0,
+   "excess_share_of_gas": 0.0,
+   "excess_occ_share_of_gas": 0.0,
+   "excess_unocc_share_of_gas": 0.0,
+   "g_median": null,
+   "inst_excess_occ_share_of_gas": 0.0,
+   "inst_excess_unocc_share_of_gas": 0.0,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 11796.339875,
+   "net_cooling_kwh": 36348.898473294095
+  }
+ },
+ "P30/building_train_7/atlanta_8": {
+  "acct": {
+   "gas_kwh": 17467.914441666664,
+   "coil_kwh": 16845.406941189445,
+   "tank_heat_kwh": 279.5375,
+   "tank_credit_kwh": -262.12083333333334,
+   "dissip_kwh": 282.6019062964121,
+   "warmup_overbill_kwh": 64.61585404688512,
+   "tank_credit_clipped_kwh": 257.87307346725464,
+   "loop_rewarms": 5,
+   "loop_hot_share": 0.8900462962962963
+  },
+  "delivery": {
+   "coil_kwh_occ": 12002.869941605568,
+   "coil_kwh_unocc": 4842.536999583879,
+   "need_kwh_occ": 8685.983419934888,
+   "need_kwh_unocc": 3748.7015116962184,
+   "lb_kwh_occ": 11165.481665786338,
+   "lb_kwh_unocc": 4454.3008034783825,
+   "excess_share_of_gas": 0.07016432763153531,
+   "excess_occ_share_of_gas": 0.04793865224240999,
+   "excess_unocc_share_of_gas": 0.022225675389125288,
+   "g_median": 1.2399027047141253,
+   "inst_excess_occ_share_of_gas": 0.0029988451039630257,
+   "inst_excess_unocc_share_of_gas": 0.01163806825464652,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 252.23670833333333,
+   "net_cooling_kwh": 2757.44790171198
+  }
+ },
+ "P30/building_train_8/fairbanks_8": {
+  "acct": {
+   "gas_kwh": 43377.39458333333,
+   "coil_kwh": 42882.976694107056,
+   "tank_heat_kwh": 71.40833333333333,
+   "tank_credit_kwh": -53.99166666666667,
+   "dissip_kwh": 389.2029606513977,
+   "warmup_overbill_kwh": 34.9963941713969,
+   "tank_credit_clipped_kwh": 52.801867736816405,
+   "loop_rewarms": 3,
+   "loop_hot_share": 0.9747685185185185
+  },
+  "delivery": {
+   "coil_kwh_occ": 27364.414399742127,
+   "coil_kwh_unocc": 15518.562294364929,
+   "need_kwh_occ": 14884.288054868464,
+   "need_kwh_unocc": 10383.177037325406,
+   "lb_kwh_occ": 25572.97559024777,
+   "lb_kwh_unocc": 14161.458963084653,
+   "excess_share_of_gas": 0.07258486064039402,
+   "excess_occ_share_of_gas": 0.041298902958608566,
+   "excess_unocc_share_of_gas": 0.03128595768178546,
+   "g_median": 1.5885546992390296,
+   "inst_excess_occ_share_of_gas": 0.0031383062295567603,
+   "inst_excess_unocc_share_of_gas": 0.016150086166313027,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 1557.7455209960938
+  }
+ },
+ "HC2/building_train_1/fairbanks_c3": {
+  "acct": {
+   "gas_kwh": 96709.83275833333,
+   "coil_kwh": 96041.00745663006,
+   "tank_heat_kwh": 209.8708333333333,
+   "tank_credit_kwh": -192.45416666666665,
+   "dissip_kwh": 414.6739191207886,
+   "warmup_overbill_kwh": 49.50335719693512,
+   "tank_credit_clipped_kwh": 187.23135871887206,
+   "loop_rewarms": 4,
+   "loop_hot_share": 0.9436342592592593
+  },
+  "delivery": {
+   "coil_kwh_occ": 71920.62259476216,
+   "coil_kwh_unocc": 24120.384861867904,
+   "need_kwh_occ": 36513.14417225313,
+   "need_kwh_unocc": 14377.50021793204,
+   "lb_kwh_occ": 70338.63991894202,
+   "lb_kwh_unocc": 22232.64407697738,
+   "excess_share_of_gas": 0.03587766995090459,
+   "excess_occ_share_of_gas": 0.016358033415002728,
+   "excess_unocc_share_of_gas": 0.019519636535901892,
+   "g_median": 1.7048171795320326,
+   "inst_excess_occ_share_of_gas": 0.003092052176922632,
+   "inst_excess_unocc_share_of_gas": 0.00884290916566727,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 2446.3517913716632
+  }
+ },
+ "HC2/building_train_2/fairbanks_c2": {
+  "acct": {
+   "gas_kwh": 131191.896575,
+   "coil_kwh": 130669.5238011929,
+   "tank_heat_kwh": 70.5375,
+   "tank_credit_kwh": -53.12083333333333,
+   "dissip_kwh": 441.8670593465169,
+   "warmup_overbill_kwh": 11.921965404065503,
+   "tank_credit_clipped_kwh": 51.16708238983154,
+   "loop_rewarms": 2,
+   "loop_hot_share": 0.9902777777777778
+  },
+  "delivery": {
+   "coil_kwh_occ": 80790.55994564183,
+   "coil_kwh_unocc": 49878.963855551076,
+   "need_kwh_occ": 39215.30185487542,
+   "need_kwh_unocc": 29171.610668480203,
+   "lb_kwh_occ": 77663.3271523312,
+   "lb_kwh_unocc": 42755.0488964565,
+   "excess_share_of_gas": 0.07813857425671725,
+   "excess_occ_share_of_gas": 0.023837088074436446,
+   "excess_unocc_share_of_gas": 0.05430148618228083,
+   "g_median": 1.7950771051073455,
+   "inst_excess_occ_share_of_gas": 0.004734854887256845,
+   "inst_excess_unocc_share_of_gas": 0.013254500769761365,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.04640833333333333,
+   "net_cooling_kwh": 13375.77410373165
+  }
+ },
+ "HC2/building_train_4/fairbanks_c3": {
+  "acct": {
+   "gas_kwh": 101944.00284166666,
+   "coil_kwh": 101449.80217382144,
+   "tank_heat_kwh": 69.66666666666666,
+   "tank_credit_kwh": -52.25,
+   "dissip_kwh": 421.7581995162964,
+   "warmup_overbill_kwh": 4.0708186147688545,
+   "tank_credit_clipped_kwh": 50.95498304748535,
+   "loop_rewarms": 1,
+   "loop_hot_share": 0.9829861111111111
+  },
+  "delivery": {
+   "coil_kwh_occ": 70012.54734648195,
+   "coil_kwh_unocc": 31437.25482733949,
+   "need_kwh_occ": 34231.466639226805,
+   "need_kwh_unocc": 18689.236622514476,
+   "lb_kwh_occ": 66684.1657760295,
+   "lb_kwh_unocc": 28133.804647377274,
+   "excess_share_of_gas": 0.06505367226667404,
+   "excess_occ_share_of_gas": 0.03264911596243572,
+   "excess_unocc_share_of_gas": 0.03240455630423826,
+   "g_median": 1.735080668940714,
+   "inst_excess_occ_share_of_gas": 0.0034197450512865185,
+   "inst_excess_unocc_share_of_gas": 0.011137798674610384,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 4186.173622292518
+  }
+ },
+ "HC2/building_train_5/minneapolis_c2": {
+  "acct": {
+   "gas_kwh": 106604.74579166666,
+   "coil_kwh": 106083.35478073754,
+   "tank_heat_kwh": 141.94583333333333,
+   "tank_credit_kwh": -124.52916666666665,
+   "dissip_kwh": 369.14100737126665,
+   "warmup_overbill_kwh": 13.842894397735654,
+   "tank_credit_clipped_kwh": 120.99044249343872,
+   "loop_rewarms": 5,
+   "loop_hot_share": 0.9689814814814814
+  },
+  "delivery": {
+   "coil_kwh_occ": 82640.23835830689,
+   "coil_kwh_unocc": 23443.11642243067,
+   "need_kwh_occ": 48639.348822616455,
+   "need_kwh_unocc": 15484.772947962054,
+   "lb_kwh_occ": 80529.71574217614,
+   "lb_kwh_unocc": 21411.28870338459,
+   "excess_share_of_gas": 0.0388570912525044,
+   "excess_occ_share_of_gas": 0.019797642219936983,
+   "excess_unocc_share_of_gas": 0.019059449032567483,
+   "g_median": 1.516644029534182,
+   "inst_excess_occ_share_of_gas": 0.0020149044204368816,
+   "inst_excess_unocc_share_of_gas": 0.009687668695419205,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 4468.761654876709
+  }
+ },
+ "HC2/building_train_7/fairbanks_c2": {
+  "acct": {
+   "gas_kwh": 127660.11900833332,
+   "coil_kwh": 127147.99113233629,
+   "tank_heat_kwh": 64.44166666666666,
+   "tank_credit_kwh": -47.025,
+   "dissip_kwh": 442.49214295450844,
+   "warmup_overbill_kwh": 6.925695589828445,
+   "tank_credit_clipped_kwh": 45.29337078603108,
+   "loop_rewarms": 2,
+   "loop_hot_share": 0.99375
+  },
+  "delivery": {
+   "coil_kwh_occ": 86245.68645710754,
+   "coil_kwh_unocc": 40902.304675228756,
+   "need_kwh_occ": 44292.27930887122,
+   "need_kwh_unocc": 26185.579613712394,
+   "lb_kwh_occ": 84467.03599046935,
+   "lb_kwh_unocc": 36135.72575857423,
+   "excess_share_of_gas": 0.0512707448037508,
+   "excess_occ_share_of_gas": 0.013932702557813547,
+   "excess_unocc_share_of_gas": 0.037338042245937175,
+   "g_median": 1.752619215756804,
+   "inst_excess_occ_share_of_gas": 0.0047294891425099204,
+   "inst_excess_unocc_share_of_gas": 0.008392780698567987,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 0.0,
+   "net_cooling_kwh": 3451.503484957993
+  }
+ },
+ "HC2/building_train_8/denver_c1": {
+  "acct": {
+   "gas_kwh": 31155.856666666663,
+   "coil_kwh": 30722.332721288043,
+   "tank_heat_kwh": 70.5375,
+   "tank_credit_kwh": -53.12083333333333,
+   "dissip_kwh": 356.40185320409137,
+   "warmup_overbill_kwh": 7.924432977040609,
+   "tank_credit_clipped_kwh": 51.78099253082275,
+   "loop_rewarms": 2,
+   "loop_hot_share": 0.9799768518518519
+  },
+  "delivery": {
+   "coil_kwh_occ": 17745.51782692337,
+   "coil_kwh_unocc": 12976.814894364674,
+   "need_kwh_occ": 10497.176749207922,
+   "need_kwh_unocc": 9119.098708902684,
+   "lb_kwh_occ": 16149.623306333524,
+   "lb_kwh_unocc": 11825.951545278635,
+   "excess_share_of_gas": 0.0881618470345132,
+   "excess_occ_share_of_gas": 0.05122293819952244,
+   "excess_unocc_share_of_gas": 0.03693890883499076,
+   "g_median": 1.4350758981524239,
+   "inst_excess_occ_share_of_gas": 0.0033454181136030217,
+   "inst_excess_unocc_share_of_gas": 0.01805049130115138,
+   "heated_box_steps_below_cap_occ": null
+  },
+  "steps": 8640,
+  "cooling": {
+   "chiller_elec_kwh": 30.59935833333333,
+   "net_cooling_kwh": 1653.0165313161212
+  }
+ }
+}

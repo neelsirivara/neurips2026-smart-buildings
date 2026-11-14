@@ -1,88 +1,112 @@
 {
-  "_note": "Every entry was checked on 2026-10-21 by fetching the listed source URL (arXiv abstract page, Crossref DOI record, or official publisher/standards page). 'verified' is true only when title+authors+venue were read from that source. Entries marked dropped are not cited.",
-  "goldfeder2023lightweight": {
-    "source_url": "https://arxiv.org/abs/2310.08569",
-    "title": "A Lightweight Calibrated Simulation Enabling Efficient Offline Learning for Optimal Control of Real Buildings",
-    "authors": "Judah Goldfeder, John Sipple",
-    "year": 2023,
-    "verified": true,
-    "note": "arXiv:2310.08569 (v1 12 Oct 2023). The user's hint arXiv:2312.07019 was checked and is an unrelated traffic-safety paper; not cited."
-  },
-  "goldfeder2025suite": {
-    "source_url": "https://arxiv.org/abs/2410.03756",
-    "title": "The Smart Buildings Control Suite: A Diverse Open Source Benchmark to Evaluate and Scale HVAC Control Policies for Sustainability",
-    "authors": "Judah Goldfeder, Victoria Dean, Zixin Jiang, Xuezheng Wang, Bing Dong, Hod Lipson, John Sipple",
-    "year": 2025,
-    "verified": true,
-    "note": "arXiv:2410.03756; v1 2 Oct 2024, v2 31 Jan 2025 (title of v2 used)."
-  },
-  "blum2021boptest": {
-    "source_url": "https://api.crossref.org/works/10.1080/19401493.2021.1986574",
-    "title": "Building optimization testing framework (BOPTEST) for simulation-based benchmarking of control strategies in buildings",
-    "authors": "David Blum, Javier Arroyo, Sen Huang, Jan Drgona, Filip Jorissen, et al.",
-    "venue": "Journal of Building Performance Simulation 14(5):586-610",
-    "year": 2021,
-    "doi": "10.1080/19401493.2021.1986574",
-    "verified": true
-  },
-  "vazquezcanteli2019citylearn": {
-    "source_url": "https://api.crossref.org/works/10.1145/3360322.3360998",
-    "title": "CityLearn v1.0: An OpenAI Gym Environment for Demand Response with Deep Reinforcement Learning",
-    "authors": "Jose R. Vazquez-Canteli, Jerome Kampf, Gregor Henze, Zoltan Nagy",
-    "venue": "BuildSys '19, pp. 356-357",
-    "year": 2019,
-    "doi": "10.1145/3360322.3360998",
-    "verified": true
-  },
-  "jimenezraboso2021sinergym": {
-    "source_url": "https://api.crossref.org/works/10.1145/3486611.3488729",
-    "title": "Sinergym: a building simulation and control framework for training reinforcement learning agents",
-    "authors": "Javier Jimenez-Raboso, Alejandro Campoy-Nieves, Antonio Manjavacas-Lucas, Juan Gomez-Romero, Miguel Molina-Solana",
-    "venue": "BuildSys '21",
-    "year": 2021,
-    "doi": "10.1145/3486611.3488729",
-    "verified": true
-  },
-  "wang2020rl": {
-    "source_url": "https://eta-publications.lbl.gov/publications/reinforcement-learning-building",
-    "title": "Reinforcement learning for building controls: The opportunities and challenges",
-    "authors": "Zhe Wang, Tianzhen Hong",
-    "venue": "Applied Energy 269:115036",
-    "year": 2020,
-    "doi": "10.1016/j.apenergy.2020.115036",
-    "verified": true
-  },
-  "ashrae2021g36": {
-    "source_url": "https://webstore.ansi.org/standards/ashrae/ashraeguideline362021",
-    "title": "ASHRAE Guideline 36-2021: High-Performance Sequences of Operation for HVAC Systems",
-    "authors": "ASHRAE",
-    "year": 2021,
-    "verified": true,
-    "note": "Official sales listing (ANSI webstore) and ASHRAE's own 2021 Journal article https://www.ashrae.org/news/ashraejournal/guideline-36-2021-what-s-new-and-why-it-s-important both read."
-  },
-  "taylor2018vav": {
-    "source_url": "https://www.amca.org/resources/Taylor%20VAV%20Design%20Tips-mgi(1).pdf",
-    "title": "VAV design tips (AMCA presentation, describes trim-and-respond setpoint reset)",
-    "authors": "Steven T. Taylor",
-    "year": 2018,
-    "verified": true,
-    "note": "Used as the accessible source for trim-and-respond. The 2007 ASHRAE Journal article 'Increasing Efficiency With VAV System Static Pressure Setpoint Reset' could not be verified from an official page in two searches; cited only if a verifiable record is found (see taylor2007 entry)."
-  },
-  "taylor2007reset": {
-    "source_url": null,
-    "title": "Increasing Efficiency With VAV System Static Pressure Setpoint Reset",
-    "authors": "Steven T. Taylor",
-    "venue": "ASHRAE Journal 49(6)",
-    "year": 2007,
-    "verified": false,
-    "note": "DROPPED unless verified: no official record was reachable (ASHRAE Journal archive is behind the member portal)."
-  },
-  "sb26kit": {
-    "source_url": "https://github.com/smart-buildings-2026/starter-kit",
-    "title": "Smart Buildings Challenge starter kit (NeurIPS 2026 competition)",
-    "authors": "Judah Goldfeder, Ayush Rai (pyproject authors)",
-    "year": 2026,
-    "verified": true,
-    "note": "Repository linked from the competition page https://smart-buildings-2026.github.io/competition/index.html (read 2026-10-21: deadlines Nov 13 2026 poster round, Jan 15 2027 final; OpenReview group NeurIPS.cc/2026/Workshop/SB26_Challenge)."
-  }
+ "_note": "Every entry was checked on 2026-10-21 by fetching the listed source URL (arXiv abstract page, Crossref DOI record, or official publisher/standards page). 'verified' is true only when title+authors+venue were read from that source. Entries marked dropped are not cited.",
+ "goldfeder2023lightweight": {
+  "source_url": "https://arxiv.org/abs/2310.08569",
+  "title": "A Lightweight Calibrated Simulation Enabling Efficient Offline Learning for Optimal Control of Real Buildings",
+  "authors": "Judah Goldfeder, John Sipple",
+  "year": 2023,
+  "verified": true,
+  "note": "arXiv:2310.08569 (v1 12 Oct 2023). The user's hint arXiv:2312.07019 was checked and is an unrelated traffic-safety paper; not cited."
+ },
+ "goldfeder2025suite": {
+  "source_url": "https://arxiv.org/abs/2410.03756",
+  "title": "The Smart Buildings Control Suite: A Diverse Open Source Benchmark to Evaluate and Scale HVAC Control Policies for Sustainability",
+  "authors": "Judah Goldfeder, Victoria Dean, Zixin Jiang, Xuezheng Wang, Bing Dong, Hod Lipson, John Sipple",
+  "year": 2025,
+  "verified": true,
+  "note": "arXiv:2410.03756; v1 2 Oct 2024, v2 31 Jan 2025 (title of v2 used)."
+ },
+ "blum2021boptest": {
+  "source_url": "https://api.crossref.org/works/10.1080/19401493.2021.1986574",
+  "title": "Building optimization testing framework (BOPTEST) for simulation-based benchmarking of control strategies in buildings",
+  "authors": "David Blum, Javier Arroyo, Sen Huang, Jan Drgona, Filip Jorissen, et al.",
+  "venue": "Journal of Building Performance Simulation 14(5):586-610",
+  "year": 2021,
+  "doi": "10.1080/19401493.2021.1986574",
+  "verified": true
+ },
+ "vazquezcanteli2019citylearn": {
+  "source_url": "https://api.crossref.org/works/10.1145/3360322.3360998",
+  "title": "CityLearn v1.0: An OpenAI Gym Environment for Demand Response with Deep Reinforcement Learning",
+  "authors": "Jose R. Vazquez-Canteli, Jerome Kampf, Gregor Henze, Zoltan Nagy",
+  "venue": "BuildSys '19, pp. 356-357",
+  "year": 2019,
+  "doi": "10.1145/3360322.3360998",
+  "verified": true
+ },
+ "jimenezraboso2021sinergym": {
+  "source_url": "https://api.crossref.org/works/10.1145/3486611.3488729",
+  "title": "Sinergym: a building simulation and control framework for training reinforcement learning agents",
+  "authors": "Javier Jimenez-Raboso, Alejandro Campoy-Nieves, Antonio Manjavacas-Lucas, Juan Gomez-Romero, Miguel Molina-Solana",
+  "venue": "BuildSys '21",
+  "year": 2021,
+  "doi": "10.1145/3486611.3488729",
+  "verified": true
+ },
+ "wang2020rl": {
+  "source_url": "https://eta-publications.lbl.gov/publications/reinforcement-learning-building",
+  "title": "Reinforcement learning for building controls: The opportunities and challenges",
+  "authors": "Zhe Wang, Tianzhen Hong",
+  "venue": "Applied Energy 269:115036",
+  "year": 2020,
+  "doi": "10.1016/j.apenergy.2020.115036",
+  "verified": true
+ },
+ "ashrae2021g36": {
+  "source_url": "https://webstore.ansi.org/standards/ashrae/ashraeguideline362021",
+  "title": "ASHRAE Guideline 36-2021: High-Performance Sequences of Operation for HVAC Systems",
+  "authors": "ASHRAE",
+  "year": 2021,
+  "verified": true,
+  "note": "Official sales listing (ANSI webstore) and ASHRAE's own 2021 Journal article https://www.ashrae.org/news/ashraejournal/guideline-36-2021-what-s-new-and-why-it-s-important both read."
+ },
+ "taylor2018vav": {
+  "source_url": "https://www.amca.org/resources/Taylor%20VAV%20Design%20Tips-mgi(1).pdf",
+  "title": "VAV design tips (AMCA presentation, describes trim-and-respond setpoint reset)",
+  "authors": "Steven T. Taylor",
+  "year": 2018,
+  "verified": true,
+  "note": "Used as the accessible source for trim-and-respond. The 2007 ASHRAE Journal article 'Increasing Efficiency With VAV System Static Pressure Setpoint Reset' could not be verified from an official page in two searches; cited only if a verifiable record is found (see taylor2007 entry)."
+ },
+ "taylor2007reset": {
+  "source_url": null,
+  "title": "Increasing Efficiency With VAV System Static Pressure Setpoint Reset",
+  "authors": "Steven T. Taylor",
+  "venue": "ASHRAE Journal 49(6)",
+  "year": 2007,
+  "verified": false,
+  "note": "DROPPED unless verified: no official record was reachable (ASHRAE Journal archive is behind the member portal)."
+ },
+ "sb26kit": {
+  "source_url": "https://github.com/smart-buildings-2026/starter-kit",
+  "title": "Smart Buildings Challenge starter kit (NeurIPS 2026 competition)",
+  "authors": "Judah Goldfeder, Ayush Rai (pyproject authors)",
+  "year": 2026,
+  "verified": true,
+  "note": "Repository linked from the competition page https://smart-buildings-2026.github.io/competition/index.html (read 2026-10-21: deadlines Nov 13 2026 poster round, Jan 15 2027 final; OpenReview group NeurIPS.cc/2026/Workshop/SB26_Challenge)."
+ },
+ "drgona2020mpc": {
+  "source_url": "https://api.crossref.org/works/10.1016/j.arcontrol.2020.09.001",
+  "title": "All you need to know about model predictive control for buildings",
+  "authors": "Jan Drgona, Javier Arroyo, Iago Cupeiro Figueroa, David Blum, Krzysztof Arendt, Donghun Kim, Enric Perarnau Olle, Juraj Oravec, Michael Wetter, Draguna L. Vrabie, Lieve Helsen",
+  "year": 2020,
+  "verified": true,
+  "note": "Crossref DOI record read 2026-11-05: Annual Reviews in Control 50:190-232"
+ },
+ "oldewurtel2012mpc": {
+  "source_url": "https://api.crossref.org/works/10.1016/j.enbuild.2011.09.022",
+  "title": "Use of model predictive control and weather forecasts for energy efficient building climate control",
+  "authors": "Frauke Oldewurtel, Alessandra Parisio, Colin N. Jones, Dimitrios Gyalistras, Markus Gwerder, Vanessa Stauch, Beat Lehmann, Manfred Morari",
+  "year": 2012,
+  "verified": true,
+  "note": "Crossref DOI record read 2026-11-05: Energy and Buildings 45:15-27"
+ },
+ "hansen2016cma": {
+  "source_url": "https://arxiv.org/abs/1604.00772",
+  "title": "The CMA Evolution Strategy: A Tutorial",
+  "authors": "Nikolaus Hansen",
+  "year": 2016,
+  "verified": true,
+  "note": "checked 2026-11-08 (round-12 paper update) from the arXiv abstract page"
+ }
 }

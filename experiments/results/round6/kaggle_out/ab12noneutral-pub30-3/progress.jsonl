@@ -1,0 +1,11 @@
+{"id": "ab12_noneutral/pub30/building_train_1/denver_7", "rc": 0, "wall_s": 1250.1, "ok": true, "total_reward": -21.697845916467486, "steps": 8640, "sec_per_step": 0.14091237043892896}
+{"id": "ab12_noneutral/pub30/building_train_1/atlanta_2", "rc": 0, "wall_s": 1260.1, "ok": true, "total_reward": -32.12223676658323, "steps": 8640, "sec_per_step": 0.14175771074714483}
+{"id": "ab12_noneutral/pub30/building_train_1/singapore_8", "rc": 0, "wall_s": 1260.1, "ok": true, "total_reward": -57.487150628556265, "steps": 8640, "sec_per_step": 0.1419535272927196}
+{"id": "ab12_noneutral/pub30/building_train_2/fairbanks_2", "rc": 0, "wall_s": 2300.1, "ok": true, "total_reward": -97.81352570257513, "steps": 8640, "sec_per_step": 0.26157912509860815}
+{"id": "ab12_noneutral/pub30/building_train_4/fairbanks_4", "rc": 0, "wall_s": 1695.1, "ok": true, "total_reward": -19.082203363515873, "steps": 8640, "sec_per_step": 0.19328224137425423}
+{"id": "ab12_noneutral/pub30/building_train_5/atlanta_6", "rc": 0, "wall_s": 1750.1, "ok": true, "total_reward": -37.4687836893595, "steps": 8640, "sec_per_step": 0.19973743028110927}
+{"id": "ab12_noneutral/pub30/building_train_5/phoenix_1", "rc": 0, "wall_s": 1755.1, "ok": true, "total_reward": -25.96897553112285, "steps": 8640, "sec_per_step": 0.2002386661315406}
+{"id": "ab12_noneutral/pub30/building_train_7/denver_5", "rc": 0, "wall_s": 855.1, "ok": true, "total_reward": -49.46676086474599, "steps": 8640, "sec_per_step": 0.09686873505512873}
+{"id": "ab12_noneutral/pub30/building_train_8/denver_6", "rc": 0, "wall_s": 655.0, "ok": true, "total_reward": -32.412702472357296, "steps": 8640, "sec_per_step": 0.07413165872847592}
+{"id": "ab12_noneutral/pub30/building_train_7/phoenix_3", "rc": 0, "wall_s": 745.0, "ok": true, "total_reward": -55.21839770758197, "steps": 8640, "sec_per_step": 0.08455937493730474}
+{"id": "ab12_noneutral/pub30/building_train_8/singapore_7", "rc": 0, "wall_s": 675.0, "ok": true, "total_reward": -48.04869771396261, "steps": 8640, "sec_per_step": 0.07619845599487976}

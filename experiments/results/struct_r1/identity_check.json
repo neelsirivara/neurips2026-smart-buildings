@@ -1,0 +1,11 @@
+{
+ "window": "r6hs/building_train_1/fairbanks_2",
+ "steps": 2016,
+ "struct_all_off_total_reward": -49.97589827034972,
+ "v13_total_reward": -49.97589827034972,
+ "identical_total": true,
+ "timeseries_sha256_struct": "18a9d4073f199dcf13c0722377d5225cfa53aa1e20b45a8d392854c022962bdb",
+ "timeseries_sha256_v13": "18a9d4073f199dcf13c0722377d5225cfa53aa1e20b45a8d392854c022962bdb",
+ "identical_timeseries": true,
+ "struct_policy_sha256": "04eea10899a103203fa2b9b01390a9d881f94af79caa095e169e44d6a076a82c"
+}

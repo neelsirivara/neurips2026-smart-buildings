@@ -1,0 +1,89 @@
+[{"stream_name":"stderr","time":10.745319356,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.745378861,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.745384494,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.745387321,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.685736068,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.685775469,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.685780209,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.685783298,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":18.273332217,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":18.274020869,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":18.27404378,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":18.274050921,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":18.274056224,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":18.274060505,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":18.27406445,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":18.274068246,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":18.27407238,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":18.274076077,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":18.274079893,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":18.274083489,"data":"Exception encountered at \"In [1]\":\n"}
+,{"stream_name":"stderr","time":18.27408749,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":18.274091821,"data":"FileNotFoundError                         Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":18.274095426,"data":"/tmp/ipykernel_16/3336385658.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":18.274099405,"data":"   1591 \n"}
+,{"stream_name":"stderr","time":18.274103175,"data":"   1592 \n"}
+,{"stream_name":"stderr","time":18.274106686,"data":"-\u003e 1593 smart_buildings_inference_server.SmartBuildingsInferenceServer(TransferPolicy).run(\n"}
+,{"stream_name":"stderr","time":18.274110814,"data":"   1594     competition_data_folder=COMPETITION_DATA_FOLDER,\n"}
+,{"stream_name":"stderr","time":18.274115057,"data":"   1595 )\n"}
+,{"stream_name":"stderr","time":18.274119121,"data":"\n"}
+,{"stream_name":"stderr","time":18.274122993,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/core/templates.py in run(self, opponents, competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274140208,"data":"    376             if opponents is None:\n"}
+,{"stream_name":"stderr","time":18.274144461,"data":"    377                 opponents = []\n"}
+,{"stream_name":"stderr","time":18.274148178,"data":"--\u003e 378             self.run_local_game(opponents, competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274152086,"data":"    379 \n"}
+,{"stream_name":"stderr","time":18.274155605,"data":"    380     def _get_gateway_for_test(\n"}
+,{"stream_name":"stderr","time":18.274159001,"data":"\n"}
+,{"stream_name":"stderr","time":18.274162459,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/core/templates.py in run_local_game(self, opponents, competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274166207,"data":"    452             self.gateway.run()\n"}
+,{"stream_name":"stderr","time":18.274169508,"data":"    453         except Exception as err:\n"}
+,{"stream_name":"stderr","time":18.274172875,"data":"--\u003e 454             raise err from None\n"}
+,{"stream_name":"stderr","time":18.27417629,"data":"    455         finally:\n"}
+,{"stream_name":"stderr","time":18.274181063,"data":"    456             for server in servers:\n"}
+,{"stream_name":"stderr","time":18.274184504,"data":"\n"}
+,{"stream_name":"stderr","time":18.274187665,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/core/templates.py in run_local_game(self, opponents, competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274191613,"data":"    438 \n"}
+,{"stream_name":"stderr","time":18.274194976,"data":"    439         try:\n"}
+,{"stream_name":"stderr","time":18.274198891,"data":"--\u003e 440             self.gateway = self._get_gateway_for_test(competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274203357,"data":"    441 \n"}
+,{"stream_name":"stderr","time":18.274206848,"data":"    442             # Build clients dict: main agent first, then opponents\n"}
+,{"stream_name":"stderr","time":18.274210437,"data":"\n"}
+,{"stream_name":"stderr","time":18.274214028,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/smart_buildings_inference_server.py in _get_gateway_for_test(self, competition_data_folder, file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.274217857,"data":"    122         from gateway import SmartBuildingsGateway\n"}
+,{"stream_name":"stderr","time":18.274222104,"data":"    123 \n"}
+,{"stream_name":"stderr","time":18.274225828,"data":"--\u003e 124         return SmartBuildingsGateway(competition_data_folder=competition_data_folder, file_share_dir=file_share_dir, **kwargs)\n"}
+,{"stream_name":"stderr","time":18.27423005,"data":"    125 \n"}
+,{"stream_name":"stderr","time":18.274233616,"data":"    126 \n"}
+,{"stream_name":"stderr","time":18.274237261,"data":"\n"}
+,{"stream_name":"stderr","time":18.274240806999998,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/gateway.py in __init__(self, competition_data_folder, file_share_dir, server_names, server_ports)\n"}
+,{"stream_name":"stderr","time":18.274245025,"data":"    266         )\n"}
+,{"stream_name":"stderr","time":18.274248748,"data":"    267         self.set_response_timeout_seconds(FIRST_TURN_TIMEOUT_SECONDS)\n"}
+,{"stream_name":"stderr","time":18.274252956,"data":"--\u003e 268         self.simulator_root = self._resolve_simulator_root()\n"}
+,{"stream_name":"stderr","time":18.274257621,"data":"    269         self.scenarios = self._discover_scenarios()\n"}
+,{"stream_name":"stderr","time":18.274267672,"data":"    270         # Truncates every episode. For host smoke tests only: a full run leaves this None\n"}
+,{"stream_name":"stderr","time":18.274271913,"data":"\n"}
+,{"stream_name":"stderr","time":18.274275102,"data":"/kaggle/input/neurips-2026-smart-buildings/kaggle_evaluation/gateway.py in _resolve_simulator_root(self)\n"}
+,{"stream_name":"stderr","time":18.274278865,"data":"    284             raise GatewayRuntimeError(\n"}
+,{"stream_name":"stderr","time":18.274282367,"data":"    285                 GatewayRuntimeErrorType.GATEWAY_RAISED_EXCEPTION,\n"}
+,{"stream_name":"stderr","time":18.274285976,"data":"--\u003e 286                 f'Expected a `smart_buildings` package directory under {root}, found: {sorted(p.name for p in root.iterdir())[:10]}',\n"}
+,{"stream_name":"stderr","time":18.274290565,"data":"    287             )\n"}
+,{"stream_name":"stderr","time":18.274294123,"data":"    288         return root\n"}
+,{"stream_name":"stderr","time":18.274297837,"data":"\n"}
+,{"stream_name":"stderr","time":18.274301237,"data":"/usr/lib/python3.13/pathlib/_local.py in iterdir(self)\n"}
+,{"stream_name":"stderr","time":18.274304957,"data":"    573         \"\"\"\n"}
+,{"stream_name":"stderr","time":18.274308759,"data":"    574         root_dir = str(self)\n"}
+,{"stream_name":"stderr","time":18.274311763,"data":"--\u003e 575         with os.scandir(root_dir) as scandir_it:\n"}
+,{"stream_name":"stderr","time":18.27431532,"data":"    576             paths = [entry.path for entry in scandir_it]\n"}
+,{"stream_name":"stderr","time":18.274319357,"data":"    577         if root_dir == '.':\n"}
+,{"stream_name":"stderr","time":18.274322997,"data":"\n"}
+,{"stream_name":"stderr","time":18.274327287,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/input/competitions/neurips-2026-smart-buildings'\n"}
+,{"stream_name":"stderr","time":18.274331062,"data":"\n"}
+,{"stream_name":"stderr","time":21.280739119,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":21.280857857,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":21.524979626,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":21.525012384,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":22.57275741,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":22.688939132,"data":"[NbConvertApp] Writing 123847 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":26.125731114,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":27.247439073,"data":"[NbConvertApp] Writing 717724 bytes to __results__.html\n"}
+]

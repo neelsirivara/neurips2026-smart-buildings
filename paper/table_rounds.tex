@@ -1,0 +1,24 @@
+% moved from main.tex to the appendix, 2026-11-14
+\begin{table}[!htbp]
+\caption{Development rounds. From v6 on, each version shipped only if it met a rule fixed beforehand (rounds 4--10 pre-registered in \texttt{PREREG.md}, rounds 12--13 in their own plans) on scenarios not used to choose it; round 9 reused HC2, which had confirmed v10, and v4 and v5 were selected on the public set. Loss reductions are relative to the previous version at full length, with paired bootstrap 95\% CIs over scenarios. Sets: P, the 30 public scenarios; HO, never-screened generated buildings; M, the kit's unused Minneapolis station; HC and HC2, harsh-weather strips of the shipped six buildings; HC3 (cold) and HH (hot, a guard), strips of \RTenNNewBuild{} new buildings; HS, a harsh screening set; Mix, $\tfrac13$\,HC3 $+$ $\tfrac23$\,HH (Table~\ref{tab:tuning13}); FD, larger default-range generated buildings. Kaggle: public-leaderboard score (about ten hidden scenarios); -- = not submitted. Details: Appendices~\ref{app:rounds} and~\ref{app:note-v11}.}
+\label{tab:rounds}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}cl>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{5.4cm}c@{}}
+\toprule
+Round & Version & Change & Loss reduction [95\% CI] & Kaggle \\
+\midrule
+1--2 & v4, v5 & random search (\NTuneConfigs{} configs), then \NCandV{} physics-motivated candidates & P: \CandWinnerRelRed{} (v4 $\to$ v5) & -- \\
+3 & v6 & gains, request cap, setback burst, start scaled with zone area & HO (\NHeldUnscr): \HeldUnscrVFiveRelRed; P: \RelRedOursVFive{} [\RelRedLoOursVFive, \RelRedHiOursVFive] & -- \\
+4 & v7 & discharge margin, error-proportional occupied flow, night flush, reheated set-back minimum air, preconditioning cap & P: \RFConfPubRed{} [\RFConfPubRedLo, \RFConfPubRedHi]; HO: \RFConfOldCleanRed{} (old), \RFConfFreshRed{} (fresh) & \RFiveKagVSeven \\
+5 & v8 & deeper weekend setback; request cap 20\,kW/100\,m$^2$ & P: \RFiveConfPubRelAbs{} [\RFiveConfPubRelHiAbs, \RFiveConfPubRelLoAbs]; M: \RFiveConfMinnRelAbs & \RFiveKagVEight \\
+6 & v9 & heat set-back zones through the handlers' forced air; deeper weeknight setback & HC (\RSixConfHarshCN): \RSixConfHarshCRelAbs{} [\RSixConfHarshCRelHiAbs, \RSixConfHarshCRelLoAbs]; P: tie (\RSixConfPubRel{} change) & \RSevKagVNine \\
+7 & -- & per-zone model for start and setback floor & public only: none confirmed, nothing shipped & -- \\
+8 & v10 & the zone model may only \emph{shorten} the learned start & HC2 (\REigConfHarshCTwoN): \REigConfHarshCTwoRelAbs{} [\REigConfHarshCTwoRelHiAbs, \REigConfHarshCTwoRelLoAbs], \REigConfHarshCTwoWins{} wins; P: \REigConfPubRelAbs & \REigKagVTen \\
+9 & v11 & round the decoded day of week (the Saturday bug) & HC2 (\RNineConfHarshCTwoN): \RNineConfHarshCTwoRelAbs{} [\RNineConfHarshCTwoRelHiAbs, \RNineConfHarshCTwoRelLoAbs], \RNineConfHarshCTwoWins{} wins; P: \RNineConfPubRelAbs & \RNineKagVEleven \\
+10 & v12 & deeper weekend setback; second-order model start; \RTenSeasonDays-day heating season below \RTenSeasonOatC\,$^\circ$C & HC3 (\RTenConfHarshCThreeN): \RTenConfHarshCThreeRelAbs{} [\RTenConfHarshCThreeRelHiAbs, \RTenConfHarshCThreeRelLoAbs], \RTenConfHarshCThreeWins{} wins; P: \RTenConfPubRelAbs & \RTenKagVTwelve \\
+12--13 & v13 & CMA-ES on \RTwNParams{} constants; v12's setback depths restored under a frost guard & Mix: \RTwVarMixAbs{} [\RTwVarMixHiAbs, \RTwVarMixLoAbs]; P: \RTwVarPubAbs & \RTwKagVThirteen \\
+14 & v14 & cooling handover ramp: the first occupied hour starts from the preconditioning target & Mix: \RFtMixAbs{} [\RFtMixHiAbs, \RFtMixLoAbs]; P: \RFtPubAbs & \RFtKagVFourteen \\
+\bottomrule
+\end{tabular}
+\end{table}

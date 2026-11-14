@@ -1,0 +1,236 @@
+{
+ "r10hc": [
+  "building_0700/fairbanks_c1",
+  "building_0700/denver_c1",
+  "building_0700/minneapolis_c2",
+  "building_0700/fairbanks_c3",
+  "building_0700/denver_c3",
+  "building_0701/minneapolis_c1",
+  "building_0701/fairbanks_c2",
+  "building_0701/denver_c2",
+  "building_0701/minneapolis_c3",
+  "building_0701/fairbanks_c4",
+  "building_0702/denver_c1",
+  "building_0702/minneapolis_c2",
+  "building_0702/fairbanks_c3",
+  "building_0702/denver_c3",
+  "building_0702/fairbanks_c1",
+  "building_0703/fairbanks_c2",
+  "building_0703/denver_c2",
+  "building_0703/minneapolis_c3",
+  "building_0703/fairbanks_c4",
+  "building_0703/minneapolis_c1",
+  "building_0704/minneapolis_c2",
+  "building_0704/fairbanks_c3",
+  "building_0704/denver_c3",
+  "building_0704/fairbanks_c1",
+  "building_0704/denver_c1",
+  "building_0705/denver_c2",
+  "building_0705/minneapolis_c3",
+  "building_0705/fairbanks_c4",
+  "building_0705/minneapolis_c1",
+  "building_0705/fairbanks_c2",
+  "building_0706/fairbanks_c3",
+  "building_0706/denver_c3",
+  "building_0706/fairbanks_c1",
+  "building_0706/denver_c1",
+  "building_0706/minneapolis_c2",
+  "building_0708/minneapolis_c3",
+  "building_0708/fairbanks_c4",
+  "building_0708/minneapolis_c1",
+  "building_0708/fairbanks_c2",
+  "building_0708/denver_c2"
+ ],
+ "r10hh": [
+  "building_0700/phoenix_3",
+  "building_0700/phoenix_5",
+  "building_0700/phoenix_7",
+  "building_0700/singapore_3",
+  "building_0700/singapore_6",
+  "building_0701/phoenix_4",
+  "building_0701/phoenix_6",
+  "building_0701/singapore_1",
+  "building_0701/singapore_4",
+  "building_0701/singapore_8",
+  "building_0702/phoenix_5",
+  "building_0702/phoenix_7",
+  "building_0702/singapore_3",
+  "building_0702/singapore_6",
+  "building_0702/phoenix_3",
+  "building_0703/phoenix_6",
+  "building_0703/singapore_1",
+  "building_0703/singapore_4",
+  "building_0703/singapore_8",
+  "building_0703/phoenix_4",
+  "building_0704/phoenix_7",
+  "building_0704/singapore_3",
+  "building_0704/singapore_6",
+  "building_0704/phoenix_3",
+  "building_0704/phoenix_5",
+  "building_0705/singapore_1",
+  "building_0705/singapore_4",
+  "building_0705/singapore_8",
+  "building_0705/phoenix_4",
+  "building_0705/phoenix_6",
+  "building_0706/singapore_3",
+  "building_0706/singapore_6",
+  "building_0706/phoenix_3",
+  "building_0706/phoenix_5",
+  "building_0706/phoenix_7",
+  "building_0708/singapore_4",
+  "building_0708/singapore_8",
+  "building_0708/phoenix_4",
+  "building_0708/phoenix_6",
+  "building_0708/singapore_1"
+ ],
+ "r10dev": [
+  "building_train_1/atlanta_4",
+  "building_train_1/denver_1",
+  "building_train_1/phoenix_7",
+  "building_train_1/singapore_2",
+  "building_train_2/atlanta_7",
+  "building_train_2/denver_4",
+  "building_train_2/phoenix_7",
+  "building_train_2/singapore_5",
+  "building_train_4/atlanta_4",
+  "building_train_4/denver_1",
+  "building_train_4/phoenix_7",
+  "building_train_4/singapore_2",
+  "building_train_5/atlanta_7",
+  "building_train_5/denver_4",
+  "building_train_5/phoenix_7",
+  "building_train_5/singapore_5",
+  "building_train_7/atlanta_4",
+  "building_train_7/denver_1",
+  "building_train_7/phoenix_7",
+  "building_train_7/singapore_2",
+  "building_train_8/atlanta_7",
+  "building_train_8/denver_4",
+  "building_train_8/phoenix_7",
+  "building_train_8/singapore_5"
+ ],
+ "strips": {
+  "fairbanks_c1": {
+   "name": "fairbanks_c1",
+   "weather_csv": "csv/fairbanks.csv",
+   "convection_coefficient": "8.8",
+   "start_timestamp": "2023-11-26 06:00"
+  },
+  "minneapolis_c1": {
+   "name": "minneapolis_c1",
+   "weather_csv": "csv/minneapolis.csv",
+   "convection_coefficient": "21.5",
+   "start_timestamp": "2023-11-26 06:00"
+  },
+  "denver_c1": {
+   "name": "denver_c1",
+   "weather_csv": "csv/denver.csv",
+   "convection_coefficient": "26.7",
+   "start_timestamp": "2023-01-22 06:00"
+  },
+  "fairbanks_c2": {
+   "name": "fairbanks_c2",
+   "weather_csv": "csv/fairbanks.csv",
+   "convection_coefficient": "8.8",
+   "start_timestamp": "2023-01-15 06:00"
+  },
+  "minneapolis_c2": {
+   "name": "minneapolis_c2",
+   "weather_csv": "csv/minneapolis.csv",
+   "convection_coefficient": "21.5",
+   "start_timestamp": "2023-01-22 06:00"
+  },
+  "denver_c2": {
+   "name": "denver_c2",
+   "weather_csv": "csv/denver.csv",
+   "convection_coefficient": "26.7",
+   "start_timestamp": "2023-01-01 06:00"
+  },
+  "fairbanks_c3": {
+   "name": "fairbanks_c3",
+   "weather_csv": "csv/fairbanks.csv",
+   "convection_coefficient": "8.8",
+   "start_timestamp": "2023-01-29 06:00"
+  },
+  "minneapolis_c3": {
+   "name": "minneapolis_c3",
+   "weather_csv": "csv/minneapolis.csv",
+   "convection_coefficient": "21.5",
+   "start_timestamp": "2023-02-05 06:00"
+  },
+  "denver_c3": {
+   "name": "denver_c3",
+   "weather_csv": "csv/denver.csv",
+   "convection_coefficient": "26.7",
+   "start_timestamp": "2023-02-05 06:00"
+  },
+  "fairbanks_c4": {
+   "name": "fairbanks_c4",
+   "weather_csv": "csv/fairbanks.csv",
+   "convection_coefficient": "8.8",
+   "start_timestamp": "2023-11-05 06:00"
+  }
+ },
+ "hot_strips": {
+  "phoenix_3": {
+   "name": "phoenix_3",
+   "weather_csv": "csv/phoenix.csv",
+   "convection_coefficient": "19.5",
+   "start_timestamp": "2023-04-23 06:00"
+  },
+  "phoenix_4": {
+   "name": "phoenix_4",
+   "weather_csv": "csv/phoenix.csv",
+   "convection_coefficient": "19.5",
+   "start_timestamp": "2023-06-04 06:00"
+  },
+  "phoenix_5": {
+   "name": "phoenix_5",
+   "weather_csv": "csv/phoenix.csv",
+   "convection_coefficient": "19.5",
+   "start_timestamp": "2023-07-16 06:00"
+  },
+  "phoenix_6": {
+   "name": "phoenix_6",
+   "weather_csv": "csv/phoenix.csv",
+   "convection_coefficient": "19.5",
+   "start_timestamp": "2023-08-27 06:00"
+  },
+  "phoenix_7": {
+   "name": "phoenix_7",
+   "weather_csv": "csv/phoenix.csv",
+   "convection_coefficient": "19.5",
+   "start_timestamp": "2023-10-08 06:00"
+  },
+  "singapore_1": {
+   "name": "singapore_1",
+   "weather_csv": "csv/singapore.csv",
+   "convection_coefficient": "17.6",
+   "start_timestamp": "2023-02-05 06:00"
+  },
+  "singapore_3": {
+   "name": "singapore_3",
+   "weather_csv": "csv/singapore.csv",
+   "convection_coefficient": "17.6",
+   "start_timestamp": "2023-04-30 06:00"
+  },
+  "singapore_4": {
+   "name": "singapore_4",
+   "weather_csv": "csv/singapore.csv",
+   "convection_coefficient": "17.6",
+   "start_timestamp": "2023-06-11 06:00"
+  },
+  "singapore_6": {
+   "name": "singapore_6",
+   "weather_csv": "csv/singapore.csv",
+   "convection_coefficient": "17.6",
+   "start_timestamp": "2023-09-03 06:00"
+  },
+  "singapore_8": {
+   "name": "singapore_8",
+   "weather_csv": "csv/singapore.csv",
+   "convection_coefficient": "17.6",
+   "start_timestamp": "2023-11-26 06:00"
+  }
+ }
+}

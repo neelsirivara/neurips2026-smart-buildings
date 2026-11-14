@@ -1,0 +1,34 @@
+{
+ "variant": "r13cand",
+ "complete": true,
+ "n": {
+  "r10hc": 40,
+  "r10hh": 40,
+  "pub30": 30
+ },
+ "mixture": -0.007398284057349547,
+ "mixture_ci": [
+  -0.009330616437874745,
+  -0.005446620523926316
+ ],
+ "hc3": -0.006999711015965415,
+ "hh": -0.007597570578041668,
+ "hc3_wins": 34,
+ "hh_wins": 34,
+ "pub30": -0.029521666737512997,
+ "pub30_wins": 29,
+ "primary_pass": true,
+ "guard_pass": true,
+ "ship": true,
+ "frost": {
+  "n_cand": 18,
+  "n_ts_cand": 18,
+  "n_ts_ref": 18,
+  "coldest_c_cand": -11.045999999999992,
+  "coldest_c_v12": -9.382999999999981,
+  "below5_cand": 0.046580810686847836,
+  "below5_v12": 0.042426805030004205,
+  "hs_loss_ratio": 0.9924725378294289
+ },
+ "frost_complete": true
+}

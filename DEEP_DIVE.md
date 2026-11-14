@@ -1,4 +1,115 @@
-# SB26 improvement deep dive (round 6, 2026-10-26; updated after rounds 7-8, 2026-10-30)
+# SB26 improvement deep dive (round 6, 2026-10-26; updated after rounds 7-8, 2026-10-30; round 9, 2026-11-01)
+
+## R10. Round 10 (2026-11-02): v12 shipped
+
+v12 = v11 + deeper weekend setback + second-order start model + 7-day heating season gated at 15 C. HC3 (fresh, 40 cold) -1.41% [-1.75, -1.11], 40/40; public-30 -0.97% [-1.40, -0.59], 21/30; HH (fresh, 40 hot) +0.04% [-0.02, +0.11]. Comfort regret +20% on HC3, April Phoenix slightly worse. The setpoint ramp is left out as billing-related; a cooling integral x3 is worse. Details: `STATUS.md` (round 10), `experiments/results/round10/PREREG.md`. The sections below predate this.
+
+## R9. Round 9 (2026-11-01): is there a large legitimate gain? (v11 shipped; all screens complete; round-10 dev added)
+
+Question (coordinator): v10 is 0.01055 on Kaggle; #10 needs about -45%. Where could that come from?
+
+**Five-line summary**
+1. v10's loss is heating gas (HC2 94%, public 51%, Kaggle mixture ~79%) and, on hot strips, chiller electricity
+   (public 41%); comfort is 2.7-2.8%, fans 2.5-4.9%.
+2. Heat delivery is already at the physical minimum (occupied coil duty within 0.5% of the instantaneous bound;
+   the zone air follows the slab within one step, so the handlers cannot be cycled off in occupied hours); the
+   remaining legitimate slack is *when* zones are heated: a perfect-foresight LP on the kit's own linear building
+   model finds 10.5-15.1% of v10's loss (mean 12%) on seven heating scenarios, about 11% after v11 -- mostly
+   weekends and weeknight recovery timing. That bound is loose: its largest piece, the weekend free-float, tested
+   directly in the simulator (round-10 dev, 6 cold HC2 scenarios) gives -0.3 to -0.45%, not 4-9%.
+3. A quarter of that is a v10 bug: the float32 day-of-week feature decodes to 4.999999999 on Saturdays, so v10
+   recovers the building every Saturday morning (2.9% of HC2's loss, 1.7% of the public 30's). Fix = candidate D.
+4. The top of the leaderboard is the billing quirk: the simple published saw-tooth alone takes v10 to ~0.0069
+   (rank ~37), a tuned one to ~0.0058 (rank ~10); no legitimate lever comes within a factor of three of the 45%.
+5. Prototypes: band riding and burst recovery fail physically; the Saturday fix (D) met the pre-registered rule
+   (HC2 -1.50% [-1.71, -1.30], 44/44; public -1.23%) and is **shipped as v11**; the hot-water loop (B: HS -0.15%,
+   public -0.55%), the second-order start model (C: HS -0.42%, public -0.14%) and the weekend free-float (E, dev:
+   -0.3 to -0.45%) are small (ledger only).
+
+**Leaderboard read (2026-11-01 ~03:00 UTC, read-only CLI, `experiments/results/round9/intel/lb_p{1,2}_*.csv`)**:
+#1 0.00470, #3 0.00514, #10 0.00588, #20 0.00612, #30 0.00647, #50 0.00781, #100 0.01037; v10 0.01055 is #113 of
+400 shown. The top moved from 0.00521 (10-26) to 0.00470; 39 teams are below 0.007.
+
+**What v10's loss is made of** (all 74 scenarios: v10 with `run_diag.py` on private Kaggle kernels, totals identical
+to round 8's runs; `results/round9/decomp_v10_{pub30,hc2}.json`, `src/decomp_r9.py`):
+
+| set | loss | gas | chiller | fan | comfort | pump |
+|---|---|---|---|---|---|---|
+| HC2 (44) | 0.02152 | 94.2% | 0.1% | 2.5% | 2.8% | 0.5% |
+| public 30 | 0.00762 | 51.0% | 41.2% | 4.9% | 2.7% | 0.2% |
+| public Fairbanks / Denver / Atlanta | 0.01516 / 0.00456 / 0.00512 | 92 / 57 / 45% | 3 / 30 / 46% | 3 / 6 / 6% | 2 / 6 / 2% | 0 |
+| public Phoenix / Singapore | 0.00733 / 0.00593 | 8 / 1% | 84 / 91% | 6 / 6% | 3 / 2% | 0 |
+| Kaggle mixture (66% public, 34% HC2) | | ~79% | ~17% | ~3.6% | ~2.8% | ~0.3% |
+
+By the score's own terms: HC2 carbon 70% / energy cost 27% / comfort 2.8%; public 30 energy 51% / carbon 47% /
+comfort 2.7%. By mode on HC2: occupied hours 68% of the loss, preconditioning 25%, setback 7%. Comfort: on cold sets
+below the band (6-8 am: 68% of it), on hot strips above it (slow cooling PI, see the bounds table).
+
+**Bounds, lever by lever** (share of the gas or of the loss that any controller paying for its gas could still remove):
+
+| lever | bound | evidence |
+|---|---|---|
+| occupied heat delivery | 0.2-0.5% of gas | coil duty vs the instantaneous minimum (need at the 308.15 K cap, or need + the forced air's outside-air share while the handler runs), 12 runs, `bound_r9_v10.json` |
+| handler off between occupied bursts | infeasible | the zone air relaxes to the slab within one 5-min step; band riding: -178.56 vs -85.98 (7 days, fairbanks_1) |
+| unoccupied delivery | 0.8-1.8% of gas | same instantaneous bound on night bursts / recovery |
+| hot-water loop (tank charging, dissipation, flow billed at a setpoint the tank has not reached) | 0.4-0.7% of gas cold, 1.1-3.6% mild | `bound_r9_v10.json`; candidate B |
+| heating cost per joule g = (T_cap - T_sa)/(T_cap - T) | physics | 30% outside air at the 0.7 recirculation cap; median g 1.75 |
+| chiller per joule of net cooling | physics | 1.14 (Singapore) - 1.33 (Phoenix) = the outside-air share at 285 K supply air |
+| comfort | <= 2.8% of loss, partly physical | building_train_7 deep cold: perimeter boxes at the coil's water-side limit (~20 kW at -24 C); on hot strips a control gap: the occupied cooling PI's integral adds only 30-60 W per step, so on mild Phoenix mornings zones drift 0.1-0.3 K above 297 K for hours with dampers 20-35% open (building_train_7/phoenix_3: comfort 10% of its loss; `experiments/src/debug_cooling_pi_r9.py`) |
+| trajectory (when and how deep zones are heated) | independent per-zone LP: 12-16% of gas, 17-20% of loss (optimistic: each zone free-rides on neighbours held at v10's temperatures); **coordinated (16 damped Gauss-Seidel sweeps over the cross-zone responses, scored jointly): 10.5-15.1% of the loss, mean 12.2% over seven heating scenarios** (HS building_train_8/fairbanks_c2 11.2%, building_train_4/minneapolis_1 10.6%, building_train_7/denver_c1 15.1%; public building_train_1/fairbanks_1 10.5%, building_train_2/fairbanks_2 11.6%, building_train_7/fairbanks_7 11.9%, building_train_4/denver_2 14.2%; `results/round9/lp_summary.json`), of which the Saturday bug is about 2-3 points. Check with v11 as the base: public building_train_8/fairbanks_8 from v10 (0.02248) -12.7%, from v11 (0.02194) -10.6%, both to the same optimum 0.0196; building_train_1/fairbanks_1 from v10 (0.04434) -10.5%, from v11 (0.04384) -9.4%, both to 0.0397; HS building_train_7/denver_c1 from v10 (0.02388) -15.1%, from v11 (0.02324) -13.2%, both to 0.0202. So **after v11 about 9-13% (mean 11%) of the loss remains for a perfect-foresight controller** on heating scenarios (`results/round9/mac/lp_bound_dow`). **Realisability check (round-10 dev, below): the LP's biggest piece does not transfer** -- free-floating the weekend in the real simulator gives -0.3 to -0.45% of the loss (the Monday recovery costs nearly what the weekend saves, and Monday comfort pays the rest), so the LP is an order of magnitude looser than what a causal controller can reach | perfect-foresight LP on the exact linear building model (`lp_bound_r9.py`: v10's logged heat replayed through the kit's own solver, RMSE 0.14-0.51 K; 1 kW impulse responses; 30-min blocks; comfort hard or score-priced at the expected occupancy share 1/V; holiday mornings kept until 06:15). Where it saves (HS building_train_8/fairbanks_c2): **Saturday 0-7 h -1,406 kWh (the Saturday bug, candidate D)**, Saturday 7 h-Sunday -4,643 kWh with +1,091 kWh more Monday recovery (free-float the weekend instead of re-heating to the floor on Sunday afternoon), weeknights -821, occupied hours -242 kWh |
+
+**Prototypes** (all in `experiments/src/policy_candidates/transfer_policy_v11.py`, built by `make_v11_r9.py` from the
+shipped v10; every round-9 switch off = v10 bit for bit):
+
+| id | idea (aimed at) | dev run (7 days, building_train_1/fairbanks_1, v10 -85.98) | status |
+|---|---|---|---|
+| A `obr_on` | occupied band riding: bursts at the cap, handlers off between (the forced-air share of occupied gas) | -178.56 (comfort regret -106.8 vs -2.25) | dropped: the zone air follows the slab within one step |
+| B `r9_hwl` | hot-water loop kept hot 7 days, setpoint within [tank, tank + 2.5 K] (loop re-warms, warm-up over-billing) | building_train_7/atlanta_8: -12.44 vs -12.50 | screen HS -0.15% [-0.23, -0.07] 18/18, public-30 -0.55% [-0.82, -0.30] 18/30 ("helps"); not confirmed: it cannot displace D under amendment 2; January composite with v11 |
+| C `mpr_on` + burst | model-predictive recovery: second-order online zone model, latest start, recovery at the cap (morning gas) | -91.86 (comfort -10.09) | dropped: the air reaches the target, the slab does not |
+| C `r9_mprs` | the same model, start only (may only shorten v10's lead), safety 1.3 | -85.32 (-0.8%) | screen HS -0.42% [-0.59, -0.26] 16/18, public-30 -0.14% [-0.33, +0.02] 14/30 ("helps"); not confirmed (ledger only) |
+| E `wk_free` (round-10 dev, not registered) | weekend free-float: no heating floor from Friday evening to Monday's lead, Monday lead cap 8/12/16 h, with or without the model lead (aimed at the LP's largest piece) | 6 cold HC2 scenarios, 30 days, vs v11: **-0.34% mean / -0.42% pooled** (5/6; energy + carbon -1.3%, comfort +0.9%); 16 h cap = 12 h cap; learned-rate lead only -0.24% / -0.45% (4/6); deeper weekend setback alone (`wk_ext_lo` 12, the round-5 parameter) -0.37% / -0.45%, 6/6, comfort-neutral | not pursued this year: far below the LP's 4-9%; `wk_ext_lo` 12 joins B in a January composite (`results/round10/dev/dev_table.json`) |
+| **D `r9_dow`** | **bug fix**: v10 decodes the float32 day-of-week feature as 4.999999999 on Saturdays and compares it with 5, so it runs a full morning recovery every Saturday (1.5-5.1% of the gas in all 12 diagnosed runs) and cannot start Monday's recovery before midnight on Sunday; `dow_snap` rounds the day | building_train_8/fairbanks_8, 14 days: -78.05 vs -81.18 (**-3.9%**) | **shipped as v11**: screen HS -1.59% [-1.96, -1.24] 18/18, public-30 -1.23% [-1.88, -0.69] 28/30; confirmation **HC2 -1.50% [-1.71, -1.30], 44/44**; M -1.70% [-2.75, -0.76] 11/12; FD -0.59% [-1.33, +0.07] 13/20 (losses on the two largest-room generated buildings, worst +2.8%) |
+
+**The billing quirk, measured** (analysis only: `quirk_probe_r9.py` overrides v10's hot-water setpoint in the harness
+with the saw-tooth published in topic 752142; never in a policy file, nothing submitted; Mac, 10 probes + 1 harness
+check, `results/round9/quirk_summary.json`): the harness without the override reproduces the official v10 run on
+building_train_1/atlanta_2 (-33.1021529 vs -33.1021527). With it, loss x0.54-0.62 on the Fairbanks, Minneapolis and
+Denver scenarios with comfort unchanged, x0.83 Atlanta, x1.00 Phoenix and Singapore (no heating). Scaled by station
+to the public 30 (x0.77) and HC2 (x0.58) and through the 66/34 Kaggle mixture (calibrated on v10's 0.01055):
+**v10 + the simple published saw-tooth = 0.0069 (-35%, about rank 37)**. PR #2 reports 0.38x billing for a tuned
+saw-tooth (round 6's estimate 0.0058, about rank 10); the leader's 0.0047 needs about 0.27x. The top of the board is
+what this quirk produces on a controller of v10's class; no legitimate lever in the table comes close.
+
+
+**Why the leaders are ahead, and what that means for us.**
+- Legitimate ceiling. Through the 66/34 Kaggle mixture (calibrated on v10's 0.01055), v11 should score about
+  **0.0104** (HC2 -1.50%, public -1.23%; below the public split's ~0.0005 resolution). A perfect-foresight controller
+  on the kit's exact linear model would remove another ~9-13% (mean 11%) on heating scenarios (and less on hot strips, where
+  the chiller's outside-air share is physics), i.e. roughly **0.0094-0.0097**: about rank 80-90 on today's board.
+  About 70 teams are below that. That LP ceiling is loose: its largest piece (the weekend) realises about a tenth of
+  its value in the simulator (round-10 dev), so the reachable legitimate score is more like **0.0102-0.0103**.
+- The billing quirk explains the board: the published simple saw-tooth alone takes v10 to ~0.0069 (rank ~37);
+  PR #2's tuned saw-tooth (0.38x billing) to ~0.0058 (rank ~10); the leader's 0.0047 needs ~0.27x. The quirk's
+  reproduction code has been public in topic 752142 since 10-23.
+- So the ranking we can influence is the one after a fix: if the hosts re-run with PR #2-style billing (v7 moved
+  -0.4% under PR #2 in round 5), quirk users lose 30-50% and a v11-class controller should rank near the top of the
+  legitimate field. Whether to ask the hosts for the ruling is the coordinator's call (no posting from this round).
+
+**Next steps (ranked)**
+1. Final selections v11 + v10 (coordinator); optional private probe of v11 (`src/kaggle_probe_r9.py build/push/check`;
+   submit only with the coordinator's go-ahead).
+2. Weekends: tested (round-10 dev, prototype E): a weekend free-float gives -0.3 to -0.45% on cold scenarios, a
+   deeper weekend setback (`wk_ext_lo` 12) -0.37% with no comfort cost. The LP's weekend slack is mostly not
+   realisable; a 2-node (air + slab) recovery model is the only route left to more of it. January composite
+   (B + `wk_ext_lo` 12) needs a fresh confirmation set: `src/make_sets_r10.py` builds one (8 new shipped-range
+   buildings x 5 cold strips = 40; written, not yet run).
+3. Hot strips: the occupied cooling PI's integral is too slow at the morning load ramp (zones 0.1-0.3 K above 297 K
+   for hours; comfort 2-10% of hot-strip loss). A faster cooling integral or a drift feed-forward is cheap, but the
+   cold HC2 rule cannot confirm it: it needs a hot-window confirmation set.
+4. Hot-water loop (B): -0.15% on HS (18/18), -0.55% on the public 30 (18/30); fold into a January composite.
+5. CMA-ES distribution tuning (section 4, item 3) on top of v11.
+
+## R6. Round 6 deep dive (2026-10-26) and updates after rounds 7-8
 
 Scope: how to lower SADR's Kaggle score before the poster deadline (Nov 13, 2026) and the final deadline (Jan 15,
 2027) without the gas-billing quirk. Every number below comes from a result file named next to it; third-party numbers
@@ -56,7 +167,7 @@ Numbers file: `experiments/results/round6/deep_dive_numbers.json` (`experiments/
 |---|---|---|
 | SADR v8 (round 5; best scored file) | 0.01074, rank 87 (86 teams ahead; 82 on 10-26 07:10 UTC) | `results/kaggle_feedback.json`, `round6/intel/lb_page1_2026-10-26T1905Z.csv` |
 | SADR v9 (shipped in round 6) | 0.01070 (probe 57678857) | `results/kaggle_feedback.json` |
-| SADR v10 (shipped in round 8) | probe 57816757 pending | `results/kaggle_feedback.json` |
+| SADR v10 (shipped in round 8) | 0.01055 (probe 57816757; read 2026-10-31) | `results/kaggle_feedback.json` |
 | round-6 single c01 (probe) | 0.01071 (v8 0.01074: noise) | same |
 | #1-#2 (Joe Penn, Pardheev Krishna) | 0.00521 | same CSV |
 | #8 (last leaderboard prize) | 0.00603 | same CSV |
@@ -130,7 +241,7 @@ the ~0.0005 public-LB resolution, so most items can only be verified locally. Co
 
 | # | change | evidence so far | expected gain | cost | Nov 13 (poster) | Jan 15 (final) |
 |---|---|---|---|---|---|---|
-| 1 | **Ship v9 (round-6 composite)** -- done | confirmed at full length: harsh confirmation set (48) -2.05% [-2.70, -1.43], public-30 -0.27% [-1.35, +0.65], M -1.28%; FD (large default-range buildings) +0.60% [-0.37, +1.36], n.s.; rule met; **shipped** (`submission/transfer_policy.py`); Kaggle probe 57678857 pending | about -1% (P part -0.3%, harsh part about -2.4%); not resolvable on the public LB | done | yes | yes |
+| 1 | **Ship v9 (round-6 composite)** -- done | confirmed at full length: harsh confirmation set (48) -2.05% [-2.70, -1.43], public-30 -0.27% [-1.35, +0.65], M -1.28%; FD (large default-range buildings) +0.60% [-0.37, +1.36], n.s.; rule met; **shipped** (`submission/transfer_policy.py`); Kaggle probe 57678857: 0.01070 | about -1% (P part -0.3%, harsh part about -2.4%); not resolvable on the public LB | done | yes | yes |
 | 2 | **Fix the cooling-side cost of c06** (preconditioning margin 0.5 K): apply it to the heating target only, or use c07 (lead safety 1.15) in the recovery family | confirmation: FD +0.60% (n.s.) with comfort up by more than the net change; r6_comp is +0.2% to +4.0% on the six public Singapore strips (five above +2.5%) and +3.1% / +3.7% on two Atlanta strips; the screen ledger puts it on c06 (+2.6% on building_train_7/singapore_6, +1.5% on phoenix_5) while c07 is -0.6% there; post-hoc `r6_compb` (c07 instead of c06): public-30 -0.92% [-1.80, -0.24] vs v8, -0.65% [-1.13, -0.20] vs v9, HS (9 of 18) -2.52% | +0.5-1% on the public-like two-thirds of Kaggle | one pre-registered screen + confirmation (about 3 h of Kaggle + Mac) | yes (round 7) | yes |
 | 3 | **Joint distribution tuning (CMA-ES) of SADR's continuous constants** on generated shipped-range buildings x many stations (shipped six + NOAA ISD cold and hot stations), objective = the Kaggle mixture (1/3 harsh, 2/3 public-like), 7-day windows for speed, held out by station | topic 752324: -16.1% on the public LB for a weaker public controller; round 6: single constants move the harsh-set loss by 0.3-1% each and add nearly linearly (sum of the four members -2.6%, composite -2.3%) | 2-5% (much less than 16%: SADR's constants are already physics-set) | about 400-500 core-hours (12 candidates x 30 generations x ~20 scenario-weeks); 1-2 days of Kaggle + Mac; tooling exists (job files, dispatcher, Mac runner) | no | **yes, top item** |
 | 4 | **Model-based morning recovery**: per-zone RC/ARMAX model fitted online in each episode, plan the preheat start and power to reach the band at 06:00 at least gas (an LP over the next 8 h with the replayed strip as forecast) | preconditioning = 24.3% of HS gas (05:00-06:00 alone 14.5%); weekend setback 7.0%; third-party twin-based LP planner -85.4 vs v8 -88.42 on fairbanks_1, 7 days; Seem et al. 2016 recommend 2-parameter recovery models without outdoor temperature (consistent with our round-6 fit) | 1-3% (cold part), 3-7% on the worst public scenario | 1-2 weeks of development; policy time must stay < 10 ms/step | no | yes |

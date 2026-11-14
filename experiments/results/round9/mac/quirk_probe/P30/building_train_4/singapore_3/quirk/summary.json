@@ -1,0 +1,14 @@
+{
+ "building": "building_train_4",
+ "weather": "singapore_3",
+ "mode": "quirk",
+ "total_reward": -60.8178605167509,
+ "total_steps": 8640,
+ "avg_reward": -0.007039104226475798,
+ "total_normalized_productivity_regret": -3.3686455230542833,
+ "total_normalized_energy_cost": 238.9321741403337,
+ "total_normalized_carbon_emission": 55.05119145500976,
+ "steps_overridden": 0,
+ "wall_s": 346.3904929161072,
+ "policy_file": "/Users/neel.sirivara/neurips/sb/r9/policies/v10.py"
+}

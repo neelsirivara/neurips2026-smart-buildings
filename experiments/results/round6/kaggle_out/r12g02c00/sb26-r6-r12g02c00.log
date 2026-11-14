@@ -1,0 +1,57 @@
+[{"stream_name":"stdout","time":64.064479957,"data":"[    63.1s] env: {'python': '3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]', 'platform': 'Linux-6.18.55+-x86_64-with-glibc2.39', 'cpu_count': 4, 'numpy': '2.1.3', 'numba': '0.61.2', 'pandas': '2.3.3', 'gin': '?', 'gymnasium': '1.2.0', 'scipy': '1.16.3', 'holidays': '0.107', 'mem_total_gb': 33.658159104, 'dataset_root': '/kaggle/input/datasets/neelsiri/sb26-sim-r6', 'n_jobs': 24, 'config': {'workers': 4, 'deadline_h': 11.0, 'name': 'r12g02c00', 'pushed_utc': '2026-11-07T05:11:26Z'}, 'runner_md5': {'run_scenario.py': '880fbf59cf38bd8d28a1d9b916539df1', 'run_diag.py': '27e9b6eb6a52cdd4bdf83d3157144661'}, 'policy_md5': {'v12_57bc72cbe0.py': '57bc72cbe0e859a361f379a240435a10'}}\n"}
+,{"stream_name":"stdout","time":64.065669336,"data":"[    63.1s] start r12g02c00/r6hs/building_train_1/fairbanks_2 (1 running, 23 pending)\n"}
+,{"stream_name":"stdout","time":64.066723468,"data":"[    63.1s] start r12g02c00/r6hs/building_train_1/fairbanks_c2 (2 running, 22 pending)\n"}
+,{"stream_name":"stdout","time":64.069648255,"data":"[    63.1s] start r12g02c00/r6hs/building_train_2/denver_c1 (3 running, 21 pending)\n"}
+,{"stream_name":"stdout","time":64.073612432,"data":"[    63.1s] start r12g02c00/r6hs/building_train_2/fairbanks_8 (4 running, 20 pending)\n"}
+,{"stream_name":"stdout","time":404.086901231,"data":"[   403.1s] done r12g02c00/r6hs/building_train_1/fairbanks_2 rc=0 -49.147334049863275 (1 done)\n"}
+,{"stream_name":"stdout","time":404.089626417,"data":"[   403.1s] start r12g02c00/r6hs/building_train_4/denver_c1 (4 running, 19 pending)\n"}
+,{"stream_name":"stdout","time":409.091563653,"data":"[   408.1s] done r12g02c00/r6hs/building_train_1/fairbanks_c2 rc=0 -68.39879274948908 (2 done)\n"}
+,{"stream_name":"stdout","time":409.095676923,"data":"[   408.1s] start r12g02c00/r6hs/building_train_4/fairbanks_1 (4 running, 18 pending)\n"}
+,{"stream_name":"stdout","time":669.109278783,"data":"[   668.2s] done r12g02c00/r6hs/building_train_2/denver_c1 rc=0 -18.02393124775699 (3 done)\n"}
+,{"stream_name":"stdout","time":669.110032131,"data":"[   668.2s] done r12g02c00/r6hs/building_train_2/fairbanks_8 rc=0 -16.889749375794054 (4 done)\n"}
+,{"stream_name":"stdout","time":669.113529336,"data":"[   668.2s] start r12g02c00/r6hs/building_train_5/fairbanks_1 (3 running, 17 pending)\n"}
+,{"stream_name":"stdout","time":669.113756793,"data":"[   668.2s] start r12g02c00/r6hs/building_train_5/fairbanks_c2 (4 running, 16 pending)\n"}
+,{"stream_name":"stdout","time":844.122610616,"data":"[   843.2s] done r12g02c00/r6hs/building_train_4/denver_c1 rc=0 -19.976496361996396 (5 done)\n"}
+,{"stream_name":"stdout","time":844.126496554,"data":"[   843.2s] start r12g02c00/r6hs/building_train_7/denver_c1 (4 running, 15 pending)\n"}
+,{"stream_name":"stdout","time":849.128417153,"data":"[   848.2s] done r12g02c00/r6hs/building_train_4/fairbanks_1 rc=0 -62.09073742669716 (6 done)\n"}
+,{"stream_name":"stdout","time":849.130088721,"data":"[   848.2s] start r12g02c00/r6hs/building_train_7/fairbanks_8 (4 running, 14 pending)\n"}
+,{"stream_name":"stdout","time":1069.144732504,"data":"[  1068.2s] done r12g02c00/r6hs/building_train_7/denver_c1 rc=0 -45.2950220771163 (7 done)\n"}
+,{"stream_name":"stdout","time":1069.150495249,"data":"[  1068.2s] start r12g02c00/r6hs/building_train_8/fairbanks_2 (4 running, 13 pending)\n"}
+,{"stream_name":"stdout","time":1074.149351708,"data":"[  1073.2s] done r12g02c00/r6hs/building_train_7/fairbanks_8 rc=0 -41.82187848514877 (8 done)\n"}
+,{"stream_name":"stdout","time":1074.149943284,"data":"[  1073.2s] start r12g02c00/r6hs/building_train_8/fairbanks_c2 (4 running, 12 pending)\n"}
+,{"stream_name":"stdout","time":1119.153625507,"data":"[  1118.2s] done r12g02c00/r6hs/building_train_5/fairbanks_1 rc=0 -76.45686483443569 (9 done)\n"}
+,{"stream_name":"stdout","time":1119.153693969,"data":"[  1118.2s] done r12g02c00/r6hs/building_train_5/fairbanks_c2 rc=0 -63.33610469887208 (10 done)\n"}
+,{"stream_name":"stdout","time":1119.155125887,"data":"[  1118.2s] start r12g02c00/r10dev/building_train_1/atlanta_4 (3 running, 11 pending)\n"}
+,{"stream_name":"stdout","time":1119.156743655,"data":"[  1118.2s] start r12g02c00/r10dev/building_train_1/phoenix_7 (4 running, 10 pending)\n"}
+,{"stream_name":"stdout","time":1269.165267243,"data":"[  1268.2s] done r12g02c00/r6hs/building_train_8/fairbanks_2 rc=0 -49.28899796164478 (11 done)\n"}
+,{"stream_name":"stdout","time":1269.171690136,"data":"[  1268.2s] start r12g02c00/r10dev/building_train_2/denver_4 (4 running, 9 pending)\n"}
+,{"stream_name":"stdout","time":1274.172731506,"data":"[  1273.2s] done r12g02c00/r6hs/building_train_8/fairbanks_c2 rc=0 -67.98721786521492 (12 done)\n"}
+,{"stream_name":"stdout","time":1274.175991853,"data":"[  1273.2s] start r12g02c00/r10dev/building_train_2/singapore_5 (4 running, 8 pending)\n"}
+,{"stream_name":"stdout","time":1439.185497063,"data":"[  1438.2s] done r12g02c00/r10dev/building_train_1/atlanta_4 rc=0 -9.50043096299214 (13 done)\n"}
+,{"stream_name":"stdout","time":1439.18553835,"data":"[  1438.2s] done r12g02c00/r10dev/building_train_1/phoenix_7 rc=0 -13.644312071252443 (14 done)\n"}
+,{"stream_name":"stdout","time":1439.187718864,"data":"[  1438.2s] start r12g02c00/r10dev/building_train_4/atlanta_4 (3 running, 7 pending)\n"}
+,{"stream_name":"stdout","time":1439.189750633,"data":"[  1438.2s] start r12g02c00/r10dev/building_train_4/phoenix_7 (4 running, 6 pending)\n"}
+,{"stream_name":"stdout","time":1844.210814039,"data":"[  1843.3s] done r12g02c00/r10dev/building_train_2/denver_4 rc=0 -6.07610239215137 (15 done)\n"}
+,{"stream_name":"stdout","time":1844.213801732,"data":"[  1843.3s] start r12g02c00/r10dev/building_train_5/denver_4 (4 running, 5 pending)\n"}
+,{"stream_name":"stdout","time":1849.215586563,"data":"[  1848.3s] done r12g02c00/r10dev/building_train_2/singapore_5 rc=0 -10.52885619379731 (16 done)\n"}
+,{"stream_name":"stdout","time":1849.218579649,"data":"[  1848.3s] start r12g02c00/r10dev/building_train_5/singapore_5 (4 running, 4 pending)\n"}
+,{"stream_name":"stdout","time":1869.221959212,"data":"[  1868.3s] done r12g02c00/r10dev/building_train_4/atlanta_4 rc=0 -9.635669400225197 (17 done)\n"}
+,{"stream_name":"stdout","time":1869.222560525,"data":"[  1868.3s] done r12g02c00/r10dev/building_train_4/phoenix_7 rc=0 -12.455873435909098 (18 done)\n"}
+,{"stream_name":"stdout","time":1869.224153112,"data":"[  1868.3s] start r12g02c00/r10dev/building_train_7/atlanta_4 (3 running, 3 pending)\n"}
+,{"stream_name":"stdout","time":1869.226768483,"data":"[  1868.3s] start r12g02c00/r10dev/building_train_7/phoenix_7 (4 running, 2 pending)\n"}
+,{"stream_name":"stdout","time":2084.238105865,"data":"[  2083.3s] done r12g02c00/r10dev/building_train_7/atlanta_4 rc=0 -7.998160569480206 (19 done)\n"}
+,{"stream_name":"stdout","time":2084.238597081,"data":"[  2083.3s] done r12g02c00/r10dev/building_train_7/phoenix_7 rc=0 -11.729613753985632 (20 done)\n"}
+,{"stream_name":"stdout","time":2084.240242006,"data":"[  2083.3s] start r12g02c00/r10dev/building_train_8/denver_4 (3 running, 1 pending)\n"}
+,{"stream_name":"stdout","time":2084.241906225,"data":"[  2083.3s] start r12g02c00/r10dev/building_train_8/singapore_5 (4 running, 0 pending)\n"}
+,{"stream_name":"stdout","time":2284.252562801,"data":"[  2283.3s] done r12g02c00/r10dev/building_train_5/denver_4 rc=0 -6.249375612514996 (21 done)\n"}
+,{"stream_name":"stdout","time":2284.253180765,"data":"[  2283.3s] done r12g02c00/r10dev/building_train_8/denver_4 rc=0 -7.210125480996794 (22 done)\n"}
+,{"stream_name":"stdout","time":2284.253768854,"data":"[  2283.3s] done r12g02c00/r10dev/building_train_8/singapore_5 rc=0 -11.824028750703292 (23 done)\n"}
+,{"stream_name":"stdout","time":2289.254902302,"data":"[  2288.3s] done r12g02c00/r10dev/building_train_5/singapore_5 rc=0 -10.399318037844296 (24 done)\n"}
+,{"stream_name":"stdout","time":2289.254935124,"data":"[  2288.3s] all done: 24 jobs in 2288s\n"}
+,{"stream_name":"stderr","time":2292.113995556,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2292.114035006,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2292.445800092,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2292.445840327,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2293.427707811,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2294.115000037,"data":"[NbConvertApp] Writing 465000 bytes to __results__.html\n"}
+]

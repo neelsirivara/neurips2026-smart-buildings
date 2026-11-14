@@ -1,0 +1,11 @@
+{"id": "ab12_noweekend/pub30/building_train_1/singapore_8", "rc": 0, "wall_s": 1310.1, "ok": true, "total_reward": -57.487150628556265, "steps": 8640, "sec_per_step": 0.14772380008189767}
+{"id": "ab12_noweekend/pub30/building_train_1/denver_7", "rc": 0, "wall_s": 1315.1, "ok": true, "total_reward": -21.71727264294168, "steps": 8640, "sec_per_step": 0.14880347679610606}
+{"id": "ab12_noweekend/pub30/building_train_1/atlanta_2", "rc": 0, "wall_s": 1320.1, "ok": true, "total_reward": -32.15028044619794, "steps": 8640, "sec_per_step": 0.14896121588018205}
+{"id": "ab12_noweekend/pub30/building_train_2/fairbanks_2", "rc": 0, "wall_s": 2420.1, "ok": true, "total_reward": -97.53985346036279, "steps": 8640, "sec_per_step": 0.2756511666432575}
+{"id": "ab12_noweekend/pub30/building_train_4/fairbanks_4", "rc": 0, "wall_s": 1775.1, "ok": true, "total_reward": -19.242774338588788, "steps": 8640, "sec_per_step": 0.20241323908170064}
+{"id": "ab12_noweekend/pub30/building_train_5/atlanta_6", "rc": 0, "wall_s": 1820.1, "ok": true, "total_reward": -37.471883965622055, "steps": 8640, "sec_per_step": 0.20768660254500532}
+{"id": "ab12_noweekend/pub30/building_train_5/phoenix_1", "rc": 0, "wall_s": 1820.1, "ok": true, "total_reward": -26.17141281992008, "steps": 8640, "sec_per_step": 0.20758473599950472}
+{"id": "ab12_noweekend/pub30/building_train_7/denver_5", "rc": 0, "wall_s": 895.1, "ok": true, "total_reward": -49.508570285393034, "steps": 8640, "sec_per_step": 0.10150368368184125}
+{"id": "ab12_noweekend/pub30/building_train_8/singapore_7", "rc": 0, "wall_s": 700.0, "ok": true, "total_reward": -48.08528866765755, "steps": 8640, "sec_per_step": 0.07926105150470027}
+{"id": "ab12_noweekend/pub30/building_train_8/denver_6", "rc": 0, "wall_s": 715.0, "ok": true, "total_reward": -32.46265255728508, "steps": 8640, "sec_per_step": 0.0808224953159138}
+{"id": "ab12_noweekend/pub30/building_train_7/phoenix_3", "rc": 0, "wall_s": 785.0, "ok": true, "total_reward": -55.22359794055774, "steps": 8640, "sec_per_step": 0.0888005521286417}

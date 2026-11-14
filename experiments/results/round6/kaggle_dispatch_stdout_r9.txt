@@ -1,0 +1,595 @@
+2026-11-01T02:56:28Z running 5, queued 5
+2026-11-01T02:58:34Z running 5, queued 5
+2026-11-01T03:00:42Z running 5, queued 5
+2026-11-01T03:02:50Z running 5, queued 5
+2026-11-01T03:04:59Z running 5, queued 5
+2026-11-01T03:07:08Z running 5, queued 5
+2026-11-01T03:09:17Z running 5, queued 5
+2026-11-01T03:11:24Z complete r9-v10diag-4
+r9-v10diag-4 0 100%|##########| 729k/729k [00:00<00:00, 2.20MB/s]
+
+  0%|          | 0.00/1.35M [00:00<?, ?B/s]
+ 74%|#######4  | 1.00M/1.35M [00:00<00:00, 2.78MB/s]
+100%|##########| 1.35M/1.35M [00:00<00:00, 3.63MB/s]
+
+  0%|          | 0.00/3.31k [00:00<?, ?B/s]
+100%|##########| 3.31k/3.31k [00:00<00:00, 1.65MB/s]
+
+r9-v10diag-4: merged 15 summaries (15 progress lines, 15 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9hwl-r6hs-1
+ 
+2026-11-01T03:12:49Z pushed r9hwl-r6hs-1 rc=0
+2026-11-01T03:12:49Z running 5, queued 4
+2026-11-01T03:14:57Z running 5, queued 9
+2026-11-01T03:17:03Z running 5, queued 9
+2026-11-01T03:19:10Z running 5, queued 9
+2026-11-01T03:21:17Z running 5, queued 9
+2026-11-01T03:23:24Z running 5, queued 9
+2026-11-01T03:25:31Z running 5, queued 9
+2026-11-01T03:27:38Z running 5, queued 9
+2026-11-01T03:29:44Z running 5, queued 9
+2026-11-01T03:31:51Z running 5, queued 9
+2026-11-01T03:33:58Z running 5, queued 9
+2026-11-01T03:36:06Z running 5, queued 9
+2026-11-01T03:38:13Z running 5, queued 9
+2026-11-01T03:40:20Z running 5, queued 21
+2026-11-01T03:42:25Z complete r9-v10diag-5
+r9-v10diag-5 0 100%|##########| 722k/722k [00:00<00:00, 2.54MB/s]
+
+  0%|          | 0.00/1.30M [00:00<?, ?B/s]
+ 77%|#######7  | 1.00M/1.30M [00:00<00:00, 2.14MB/s]
+100%|##########| 1.30M/1.30M [00:00<00:00, 2.35MB/s]
+
+  0%|          | 0.00/3.15k [00:00<?, ?B/s]
+100%|##########| 3.15k/3.15k [00:00<00:00, 6.60MB/s]
+
+r9-v10diag-5: merged 14 summaries (14 progress lines, 14 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r6hs-1
+ 
+2026-11-01T03:43:24Z pushed r9dow-r6hs-1 rc=0
+2026-11-01T03:43:24Z running 5, queued 20
+2026-11-01T03:45:28Z complete r9-v10diag-3
+r9-v10diag-3 0 100%|##########| 744k/744k [00:00<00:00, 2.54MB/s]
+
+  0%|          | 0.00/1.42M [00:00<?, ?B/s]
+ 70%|#######   | 1.00M/1.42M [00:00<00:00, 2.79MB/s]
+100%|##########| 1.42M/1.42M [00:00<00:00, 3.38MB/s]
+
+  0%|          | 0.00/3.30k [00:00<?, ?B/s]
+100%|##########| 3.30k/3.30k [00:00<00:00, 6.05MB/s]
+
+r9-v10diag-3: merged 15 summaries (15 progress lines, 15 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r6hs-2
+ 
+2026-11-01T03:46:30Z pushed r9dow-r6hs-2 rc=0
+2026-11-01T03:46:30Z running 5, queued 19
+2026-11-01T03:48:37Z running 5, queued 19
+2026-11-01T03:50:43Z running 5, queued 19
+2026-11-01T03:52:49Z running 5, queued 19
+2026-11-01T03:54:51Z complete r9-v10diag-2
+r9-v10diag-2 0 100%|##########| 750k/750k [00:00<00:00, 2.39MB/s]
+
+  0%|          | 0.00/1.46M [00:00<?, ?B/s]
+ 69%|######8   | 1.00M/1.46M [00:00<00:00, 2.72MB/s]
+100%|##########| 1.46M/1.46M [00:00<00:00, 3.48MB/s]
+
+  0%|          | 0.00/3.29k [00:00<?, ?B/s]
+100%|##########| 3.29k/3.29k [00:00<00:00, 8.18MB/s]
+
+r9-v10diag-2: merged 15 summaries (15 progress lines, 15 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-pub30-1
+ 
+2026-11-01T03:55:58Z pushed r9dow-pub30-1 rc=0
+2026-11-01T03:55:58Z running 5, queued 18
+2026-11-01T03:57:59Z complete r9-v10diag-1
+r9-v10diag-1 0   0%|          | 0.00/1.66M [00:00<?, ?B/s]
+ 60%|######    | 1.00M/1.66M [00:00<00:00, 2.91MB/s]
+100%|##########| 1.66M/1.66M [00:00<00:00, 4.03MB/s]
+100%|##########| 1.66M/1.66M [00:00<00:00, 3.77MB/s]
+
+  0%|          | 0.00/3.31k [00:00<?, ?B/s]
+100%|##########| 3.31k/3.31k [00:00<00:00, 385kB/s]
+
+r9-v10diag-1: merged 15 summaries (15 progress lines, 15 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-pub30-2
+ 
+2026-11-01T03:59:01Z pushed r9dow-pub30-2 rc=0
+2026-11-01T03:59:01Z running 5, queued 17
+2026-11-01T04:01:08Z running 5, queued 17
+2026-11-01T04:03:14Z running 5, queued 17
+2026-11-01T04:05:21Z running 5, queued 17
+2026-11-01T04:07:27Z running 5, queued 17
+2026-11-01T04:09:32Z running 5, queued 17
+2026-11-01T04:11:38Z running 5, queued 17
+2026-11-01T04:13:44Z running 5, queued 17
+2026-11-01T04:15:51Z running 5, queued 17
+2026-11-01T04:17:56Z running 5, queued 17
+2026-11-01T04:20:02Z running 5, queued 17
+2026-11-01T04:22:04Z complete r9hwl-r6hs-1
+r9hwl-r6hs-1 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.36MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/2.25k [00:00<?, ?B/s]
+100%|##########| 2.25k/2.25k [00:00<00:00, 2.52MB/s]
+
+r9hwl-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-pub30-3
+ 
+2026-11-01T04:22:24Z pushed r9dow-pub30-3 rc=0
+2026-11-01T04:22:24Z running 5, queued 16
+2026-11-01T04:24:29Z running 5, queued 16
+2026-11-01T04:26:36Z running 5, queued 16
+2026-11-01T04:28:42Z running 5, queued 16
+2026-11-01T04:30:49Z running 5, queued 16
+2026-11-01T04:32:56Z running 5, queued 16
+2026-11-01T04:35:02Z running 5, queued 16
+2026-11-01T04:37:08Z running 5, queued 16
+2026-11-01T04:39:14Z running 5, queued 16
+2026-11-01T04:41:20Z running 5, queued 16
+2026-11-01T04:43:22Z complete r9dow-r6hs-1
+r9dow-r6hs-1 0 28MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 911kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 964kB/s]
+
+  0%|          | 0.00/2.25k [00:00<?, ?B/s]
+100%|##########| 2.25k/2.25k [00:00<00:00, 2.46MB/s]
+
+r9dow-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r7hc-1
+ 
+2026-11-01T04:43:42Z pushed r9dow-r7hc-1 rc=0
+2026-11-01T04:43:42Z running 5, queued 15
+2026-11-01T04:45:48Z running 5, queued 15
+2026-11-01T04:47:54Z running 5, queued 15
+2026-11-01T04:50:00Z running 5, queued 15
+2026-11-01T04:52:01Z complete r9dow-r6hs-2
+r9dow-r6hs-2 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.11MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/2.25k [00:00<?, ?B/s]
+100%|##########| 2.25k/2.25k [00:00<00:00, 5.70MB/s]
+
+r9dow-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r7hc-2
+ 
+2026-11-01T04:52:22Z pushed r9dow-r7hc-2 rc=0
+2026-11-01T04:52:22Z running 5, queued 14
+2026-11-01T04:54:28Z running 5, queued 14
+2026-11-01T04:56:35Z running 5, queued 14
+2026-11-01T04:58:40Z running 5, queued 14
+2026-11-01T05:00:43Z complete r9dow-pub30-2
+r9dow-pub30-2 0 89kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 984kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 927kB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|##########| 2.41k/2.41k [00:00<00:00, 2.60MB/s]
+
+r9dow-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r7hc-3
+ 
+2026-11-01T05:01:01Z pushed r9dow-r7hc-3 rc=0
+2026-11-01T05:01:01Z running 5, queued 13
+2026-11-01T05:03:02Z complete r9dow-pub30-1
+r9dow-pub30-1 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.36MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.04MB/s]
+
+  0%|          | 0.00/2.23k [00:00<?, ?B/s]
+100%|##########| 2.23k/2.23k [00:00<00:00, 5.18MB/s]
+
+r9dow-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r7hc-4
+ 
+2026-11-01T05:03:23Z pushed r9dow-r7hc-4 rc=0
+2026-11-01T05:03:23Z running 5, queued 12
+2026-11-01T05:05:28Z running 5, queued 12
+2026-11-01T05:07:34Z running 5, queued 12
+2026-11-01T05:09:41Z running 5, queued 12
+2026-11-01T05:11:47Z running 5, queued 12
+2026-11-01T05:13:53Z running 5, queued 12
+2026-11-01T05:16:00Z running 5, queued 12
+2026-11-01T05:18:05Z running 5, queued 12
+2026-11-01T05:20:11Z running 5, queued 12
+2026-11-01T05:22:17Z running 5, queued 12
+2026-11-01T05:24:23Z running 5, queued 12
+2026-11-01T05:26:29Z running 5, queued 12
+2026-11-01T05:28:35Z running 5, queued 12
+2026-11-01T05:30:36Z complete r9dow-pub30-3
+r9dow-pub30-3 0 kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 2.62MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.87MB/s]
+
+  0%|          | 0.00/2.58k [00:00<?, ?B/s]
+100%|##########| 2.58k/2.58k [00:00<00:00, 3.17MB/s]
+
+r9dow-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r5m-1
+ 
+2026-11-01T05:30:57Z pushed r9dow-r5m-1 rc=0
+2026-11-01T05:30:57Z running 5, queued 11
+2026-11-01T05:33:03Z running 5, queued 11
+2026-11-01T05:35:09Z running 5, queued 11
+2026-11-01T05:37:14Z running 5, queued 11
+2026-11-01T05:39:21Z running 5, queued 11
+2026-11-01T05:41:27Z running 5, queued 11
+2026-11-01T05:43:33Z running 5, queued 11
+2026-11-01T05:45:39Z running 5, queued 11
+2026-11-01T05:47:45Z running 5, queued 11
+2026-11-01T05:49:51Z running 5, queued 11
+2026-11-01T05:51:58Z running 5, queued 11
+2026-11-01T05:54:03Z running 5, queued 11
+2026-11-01T05:56:09Z running 5, queued 11
+2026-11-01T05:58:15Z running 5, queued 11
+2026-11-01T06:00:21Z running 5, queued 11
+2026-11-01T06:02:27Z running 5, queued 11
+2026-11-01T06:04:29Z complete r9dow-r7hc-1
+r9dow-r7hc-1 0 8MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.24MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 736kB/s]
+
+  0%|          | 0.00/2.61k [00:00<?, ?B/s]
+100%|##########| 2.61k/2.61k [00:00<00:00, 1.24MB/s]
+
+r9dow-r7hc-1: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r4c-1
+ 
+2026-11-01T06:04:51Z pushed r9dow-r4c-1 rc=0
+2026-11-01T06:04:51Z running 5, queued 10
+2026-11-01T06:06:53Z complete r9dow-r7hc-2
+r9dow-r7hc-2 0 9MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.28MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 971kB/s]
+
+  0%|          | 0.00/2.60k [00:00<?, ?B/s]
+100%|##########| 2.60k/2.60k [00:00<00:00, 5.85MB/s]
+
+r9dow-r7hc-2: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9dow-r4c-2
+ 
+2026-11-01T06:07:16Z pushed r9dow-r4c-2 rc=0
+2026-11-01T06:07:16Z running 5, queued 9
+2026-11-01T06:09:22Z running 5, queued 9
+2026-11-01T06:11:28Z running 5, queued 9
+2026-11-01T06:13:30Z complete r9dow-r7hc-3
+r9dow-r7hc-3 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.08MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.18MB/s]
+
+  0%|          | 0.00/2.42k [00:00<?, ?B/s]
+100%|##########| 2.42k/2.42k [00:00<00:00, 2.62MB/s]
+
+r9dow-r7hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9hwl-r6hs-2
+ 
+2026-11-01T06:13:50Z pushed r9hwl-r6hs-2 rc=0
+2026-11-01T06:13:50Z running 5, queued 8
+2026-11-01T06:15:56Z running 5, queued 8
+2026-11-01T06:18:02Z running 5, queued 8
+2026-11-01T06:20:08Z running 5, queued 8
+2026-11-01T06:22:15Z running 5, queued 8
+2026-11-01T06:24:16Z complete r9dow-r7hc-4
+r9dow-r7hc-4 0 4MB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 442kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.15MB/s]
+
+  0%|          | 0.00/2.76k [00:00<?, ?B/s]
+100%|##########| 2.76k/2.76k [00:00<00:00, 6.01MB/s]
+
+r9dow-r7hc-4: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9hwl-pub30-1
+ 
+2026-11-01T06:24:39Z pushed r9hwl-pub30-1 rc=0
+2026-11-01T06:24:39Z running 5, queued 7
+2026-11-01T06:26:46Z running 5, queued 7
+2026-11-01T06:28:53Z running 5, queued 7
+2026-11-01T06:30:59Z running 5, queued 7
+2026-11-01T06:33:06Z running 5, queued 7
+2026-11-01T06:35:14Z running 5, queued 7
+2026-11-01T06:37:22Z running 5, queued 7
+2026-11-01T06:39:28Z running 5, queued 7
+2026-11-01T06:41:35Z running 5, queued 7
+2026-11-01T06:43:42Z running 5, queued 7
+2026-11-01T06:45:48Z running 5, queued 7
+2026-11-01T06:48:00Z running 5, queued 7
+2026-11-01T06:50:02Z complete r9dow-r5m-1
+r9dow-r5m-1 0 434kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 356kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 273kB/s]
+
+  0%|          | 0.00/2.78k [00:00<?, ?B/s]
+100%|##########| 2.78k/2.78k [00:00<00:00, 454kB/s]
+
+r9dow-r5m-1: merged 12 summaries (12 progress lines, 12 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9hwl-pub30-2
+ 
+2026-11-01T06:50:50Z pushed r9hwl-pub30-2 rc=0
+2026-11-01T06:50:50Z running 5, queued 6
+2026-11-01T06:53:01Z running 5, queued 6
+2026-11-01T06:55:12Z running 5, queued 6
+2026-11-01T06:57:25Z running 5, queued 6
+2026-11-01T06:59:37Z running 5, queued 6
+2026-11-01T07:01:50Z running 5, queued 6
+2026-11-01T07:04:00Z running 5, queued 6
+2026-11-01T07:06:10Z running 5, queued 6
+2026-11-01T07:08:25Z running 5, queued 6
+2026-11-01T07:10:38Z running 5, queued 6
+2026-11-01T07:12:48Z running 5, queued 6
+2026-11-01T07:14:58Z running 5, queued 6
+2026-11-01T07:17:05Z complete r9hwl-r6hs-2
+r9hwl-r6hs-2 0 59kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 791kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 539kB/s]
+
+  0%|          | 0.00/2.25k [00:00<?, ?B/s]
+100%|##########| 2.25k/2.25k [00:00<00:00, 1.96MB/s]
+
+r9hwl-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9hwl-pub30-3
+ 
+2026-11-01T07:17:33Z pushed r9hwl-pub30-3 rc=0
+2026-11-01T07:17:33Z running 5, queued 5
+2026-11-01T07:19:46Z running 5, queued 5
+2026-11-01T07:22:00Z running 5, queued 5
+2026-11-01T07:24:15Z running 5, queued 5
+2026-11-01T07:26:30Z running 5, queued 5
+2026-11-01T07:28:44Z running 5, queued 5
+2026-11-01T07:30:58Z running 5, queued 5
+2026-11-01T07:33:09Z running 5, queued 5
+2026-11-01T07:35:20Z running 5, queued 5
+2026-11-01T07:37:31Z running 5, queued 5
+2026-11-01T07:39:37Z complete r9hwl-pub30-1
+r9hwl-pub30-1 0 41kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.19MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 666kB/s]
+
+  0%|          | 0.00/2.23k [00:00<?, ?B/s]
+100%|##########| 2.23k/2.23k [00:00<00:00, 913kB/s]
+
+r9hwl-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9mprs-r6hs-1
+ 
+2026-11-01T07:40:13Z pushed r9mprs-r6hs-1 rc=0
+2026-11-01T07:40:13Z running 5, queued 4
+2026-11-01T07:42:27Z running 5, queued 4
+2026-11-01T07:44:41Z running 5, queued 4
+2026-11-01T07:46:55Z running 5, queued 4
+2026-11-01T07:49:10Z running 5, queued 4
+2026-11-01T07:51:21Z running 5, queued 4
+2026-11-01T07:53:27Z complete r9hwl-pub30-2
+r9hwl-pub30-2 0 5MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 911kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.43MB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|##########| 2.41k/2.41k [00:00<00:00, 2.24MB/s]
+
+r9hwl-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9mprs-r6hs-2
+ 
+2026-11-01T07:53:59Z pushed r9mprs-r6hs-2 rc=0
+2026-11-01T07:53:59Z running 5, queued 3
+2026-11-01T07:56:11Z running 5, queued 3
+2026-11-01T07:58:22Z running 5, queued 3
+2026-11-01T08:00:34Z running 5, queued 3
+2026-11-01T08:02:42Z complete r9hwl-pub30-3
+r9hwl-pub30-3 0 20MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 951kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 521kB/s]
+
+  0%|          | 0.00/2.57k [00:00<?, ?B/s]
+100%|##########| 2.57k/2.57k [00:00<00:00, 2.45MB/s]
+
+r9hwl-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9mprs-pub30-1
+ 
+2026-11-01T08:03:25Z pushed r9mprs-pub30-1 rc=0
+2026-11-01T08:03:25Z running 5, queued 2
+2026-11-01T08:05:35Z running 5, queued 2
+2026-11-01T08:07:46Z running 5, queued 2
+2026-11-01T08:09:58Z running 5, queued 2
+2026-11-01T08:12:08Z running 5, queued 2
+2026-11-01T08:14:17Z running 5, queued 2
+2026-11-01T08:16:27Z running 5, queued 2
+2026-11-01T08:18:42Z running 5, queued 2
+2026-11-01T08:20:56Z running 5, queued 2
+2026-11-01T08:23:10Z running 5, queued 2
+2026-11-01T08:25:25Z running 5, queued 2
+2026-11-01T08:27:40Z running 5, queued 2
+2026-11-01T08:29:56Z running 5, queued 2
+2026-11-01T08:32:10Z running 5, queued 2
+2026-11-01T08:34:25Z running 5, queued 2
+2026-11-01T08:36:39Z running 5, queued 2
+2026-11-01T08:38:53Z running 5, queued 2
+2026-11-01T08:41:07Z running 5, queued 2
+2026-11-01T08:43:16Z complete r9mprs-r6hs-1
+r9mprs-r6hs-1 0 02kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 665kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 844kB/s]
+
+  0%|          | 0.00/2.27k [00:00<?, ?B/s]
+100%|##########| 2.27k/2.27k [00:00<00:00, 1.22MB/s]
+
+r9mprs-r6hs-1: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9mprs-pub30-2
+ 
+2026-11-01T08:43:53Z pushed r9mprs-pub30-2 rc=0
+2026-11-01T08:43:53Z running 5, queued 1
+2026-11-01T08:46:07Z running 5, queued 1
+2026-11-01T08:48:22Z running 5, queued 1
+2026-11-01T08:50:36Z running 5, queued 1
+2026-11-01T08:52:45Z complete r9mprs-r6hs-2
+r9mprs-r6hs-2 0 4kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.13MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 881kB/s]
+
+  0%|          | 0.00/2.27k [00:00<?, ?B/s]
+100%|##########| 2.27k/2.27k [00:00<00:00, 1.78MB/s]
+
+r9mprs-r6hs-2: merged 9 summaries (9 progress lines, 9 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r9mprs-pub30-3
+ 
+2026-11-01T08:53:20Z pushed r9mprs-pub30-3 rc=0
+2026-11-01T08:53:20Z running 5, queued 0
+2026-11-01T08:55:35Z running 5, queued 0
+2026-11-01T08:57:50Z running 5, queued 0
+2026-11-01T09:00:05Z running 5, queued 0
+2026-11-01T09:02:20Z running 5, queued 0
+2026-11-01T09:04:35Z running 5, queued 0
+2026-11-01T09:06:50Z running 5, queued 0
+2026-11-01T09:08:53Z complete r9dow-r4c-1
+r9dow-r4c-1 0 27kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 733kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 528kB/s]
+
+  0%|          | 0.00/2.31k [00:00<?, ?B/s]
+100%|##########| 2.31k/2.31k [00:00<00:00, 1.35MB/s]
+
+r9dow-r4c-1: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-01T09:09:34Z running 4, queued 0
+2026-11-01T09:11:46Z running 4, queued 0
+2026-11-01T09:13:58Z running 4, queued 0
+2026-11-01T09:16:01Z complete r9dow-r4c-2
+r9dow-r4c-2 0 39kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 819kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 581kB/s]
+
+  0%|          | 0.00/2.31k [00:00<?, ?B/s]
+100%|##########| 2.31k/2.31k [00:00<00:00, 1.05MB/s]
+
+r9dow-r4c-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-01T09:16:38Z running 3, queued 0
+2026-11-01T09:18:41Z complete r9mprs-pub30-1
+r9mprs-pub30-1 0 71kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 487kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 708kB/s]
+
+  0%|          | 0.00/2.25k [00:00<?, ?B/s]
+100%|##########| 2.25k/2.25k [00:00<00:00, 1.26MB/s]
+
+r9mprs-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-11-01T09:19:13Z running 2, queued 0
+2026-11-01T09:21:19Z running 2, queued 0
+2026-11-01T09:23:25Z running 2, queued 0
+2026-11-01T09:25:31Z running 2, queued 0
+2026-11-01T09:27:37Z running 2, queued 0
+2026-11-01T09:29:43Z running 2, queued 0
+2026-11-01T09:31:49Z running 2, queued 0
+2026-11-01T09:33:55Z running 2, queued 0
+2026-11-01T09:36:01Z running 2, queued 0
+2026-11-01T09:38:07Z running 2, queued 0
+2026-11-01T09:40:13Z running 2, queued 0
+2026-11-01T09:42:19Z running 2, queued 0
+2026-11-01T09:44:25Z running 2, queued 0
+2026-11-01T09:46:31Z running 2, queued 0
+2026-11-01T09:48:36Z complete r9mprs-pub30-3
+r9mprs-pub30-3 0 02kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 698kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 441kB/s]
+
+  0%|          | 0.00/2.59k [00:00<?, ?B/s]
+100%|##########| 2.59k/2.59k [00:00<00:00, 1.28MB/s]
+
+r9mprs-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+2026-11-01T09:49:07Z running 1, queued 0
+2026-11-01T09:51:10Z running 1, queued 0
+2026-11-01T09:53:12Z complete r9mprs-pub30-2
+r9mprs-pub30-2 0 27kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 713kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 628kB/s]
+
+  0%|          | 0.00/2.43k [00:00<?, ?B/s]
+100%|##########| 2.43k/2.43k [00:00<00:00, 2.73MB/s]
+
+r9mprs-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-01T09:53:40Z running 0, queued 0

@@ -1,0 +1,2825 @@
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12ref
+ 
+2026-11-07T01:29:17Z pushed r12ref rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c00
+ 
+2026-11-07T01:29:20Z pushed r12g00c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c01
+ 
+2026-11-07T01:29:23Z pushed r12g00c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c02
+ 
+2026-11-07T01:29:26Z pushed r12g00c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c03
+ 
+2026-11-07T01:29:29Z pushed r12g00c03 rc=0
+2026-11-07T01:29:29Z running 5, queued 6
+2026-11-07T01:31:35Z running 5, queued 6
+2026-11-07T01:33:41Z running 5, queued 6
+2026-11-07T01:35:47Z running 5, queued 6
+2026-11-07T01:37:53Z running 5, queued 6
+2026-11-07T01:39:59Z running 5, queued 6
+2026-11-07T01:42:05Z running 5, queued 6
+2026-11-07T01:44:11Z running 5, queued 6
+2026-11-07T01:46:17Z running 5, queued 6
+2026-11-07T01:48:23Z running 5, queued 6
+2026-11-07T01:50:29Z running 5, queued 6
+2026-11-07T01:52:34Z running 5, queued 6
+2026-11-07T01:54:40Z running 5, queued 6
+2026-11-07T01:56:45Z running 5, queued 6
+2026-11-07T01:58:51Z running 5, queued 6
+2026-11-07T02:00:56Z running 5, queued 6
+2026-11-07T02:03:04Z running 5, queued 6
+2026-11-07T02:05:10Z running 5, queued 6
+2026-11-07T02:07:16Z running 5, queued 6
+2026-11-07T02:09:19Z complete r12g00c00
+r12g00c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.12MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.20MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.9MB/s]
+
+r12g00c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T02:09:50Z complete r12g00c03
+r12g00c03 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.92MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.16MB/s]
+
+r12g00c03: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c04
+ 
+2026-11-07T02:10:19Z pushed r12g00c04 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c05
+ 
+2026-11-07T02:10:22Z pushed r12g00c05 rc=0
+2026-11-07T02:10:22Z running 5, queued 4
+2026-11-07T02:12:25Z complete r12ref
+r12ref 0 :00<00:00, 373kB/s]
+
+  0%|          | 0.00/974 [00:00<?, ?B/s]
+100%|##########| 974/974 [00:00<00:00, 736kB/s]
+
+  0%|          | 0.00/976 [00:00<?, ?B/s]
+100%|##########| 976/976 [00:00<00:00, 429kB/s]
+
+  0%|          | 0.00/4.79k [00:00<?, ?B/s]
+100%|##########| 4.79k/4.79k [00:00<00:00, 3.54MB/s]
+
+r12ref: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T02:14:08Z complete r12g00c02
+r12g00c02 0 11kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 376kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 401kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.56MB/s]
+
+r12g00c02: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c06
+ 
+2026-11-07T02:15:26Z pushed r12g00c06 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c07
+ 
+2026-11-07T02:15:30Z pushed r12g00c07 rc=0
+2026-11-07T02:15:30Z running 5, queued 2
+2026-11-07T02:17:46Z running 5, queued 2
+2026-11-07T02:19:49Z complete r12g00c01
+r12g00c01 0 34kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 374kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 460kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 2.19MB/s]
+
+r12g00c01: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c08
+ 
+2026-11-07T02:21:06Z pushed r12g00c08 rc=0
+2026-11-07T02:21:06Z running 5, queued 1
+2026-11-07T02:23:21Z running 5, queued 1
+2026-11-07T02:25:36Z running 5, queued 1
+2026-11-07T02:27:52Z running 5, queued 1
+2026-11-07T02:30:07Z running 5, queued 1
+2026-11-07T02:32:23Z running 5, queued 1
+2026-11-07T02:34:39Z running 5, queued 1
+2026-11-07T02:36:47Z running 5, queued 1
+2026-11-07T02:38:53Z running 5, queued 1
+2026-11-07T02:40:59Z running 5, queued 1
+2026-11-07T02:43:05Z running 5, queued 1
+2026-11-07T02:45:11Z running 5, queued 1
+2026-11-07T02:47:17Z running 5, queued 1
+2026-11-07T02:49:22Z running 5, queued 1
+2026-11-07T02:51:24Z complete r12g00c04
+r12g00c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.15MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.06MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.42MB/s]
+
+r12g00c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T02:51:49Z complete r12g00c05
+r12g00c05 0 5kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 487kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.28MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.55MB/s]
+
+r12g00c05: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g00c09
+ 
+2026-11-07T02:52:22Z pushed r12g00c09 rc=0
+2026-11-07T02:52:22Z running 4, queued 0
+2026-11-07T02:54:25Z complete r12g00c07
+r12g00c07 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.00MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.34MB/s]
+
+r12g00c07: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T02:54:54Z running 3, queued 0
+2026-11-07T02:56:55Z complete r12g00c06
+r12g00c06 0 5MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 326kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 4.87MB/s]
+
+r12g00c06: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T02:57:22Z running 2, queued 0
+2026-11-07T02:59:24Z running 2, queued 0
+2026-11-07T03:01:26Z complete r12g00c08
+r12g00c08 0 13kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 986kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 400kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 5.54MB/s]
+
+r12g00c08: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T03:01:55Z running 1, queued 0
+2026-11-07T03:03:56Z running 1, queued 0
+2026-11-07T03:05:57Z running 1, queued 0
+2026-11-07T03:07:58Z running 1, queued 0
+2026-11-07T03:09:59Z running 1, queued 0
+2026-11-07T03:12:01Z running 1, queued 0
+2026-11-07T03:14:02Z running 1, queued 0
+2026-11-07T03:16:03Z running 1, queued 0
+2026-11-07T03:18:04Z running 1, queued 0
+2026-11-07T03:20:05Z running 1, queued 0
+2026-11-07T03:22:06Z running 1, queued 0
+2026-11-07T03:24:08Z running 1, queued 0
+2026-11-07T03:26:09Z running 1, queued 0
+2026-11-07T03:28:10Z running 1, queued 0
+2026-11-07T03:30:11Z running 1, queued 0
+2026-11-07T03:32:12Z running 1, queued 0
+2026-11-07T03:34:14Z complete r12g00c09
+r12g00c09 0 72kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 270kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 423kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 2.47MB/s]
+
+r12g00c09: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T03:34:41Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c00
+ 
+2026-11-07T03:36:44Z pushed r12g01c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c01
+ 
+2026-11-07T03:36:47Z pushed r12g01c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c02
+ 
+2026-11-07T03:36:50Z pushed r12g01c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c03
+ 
+2026-11-07T03:36:53Z pushed r12g01c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c04
+ 
+2026-11-07T03:36:55Z pushed r12g01c04 rc=0
+2026-11-07T03:36:55Z running 5, queued 5
+2026-11-07T03:39:02Z running 5, queued 5
+2026-11-07T03:41:07Z running 5, queued 5
+2026-11-07T03:43:13Z running 5, queued 5
+2026-11-07T03:45:20Z running 5, queued 5
+2026-11-07T03:47:26Z running 5, queued 5
+2026-11-07T03:49:32Z running 5, queued 5
+2026-11-07T03:51:37Z running 5, queued 5
+2026-11-07T03:53:43Z running 5, queued 5
+2026-11-07T03:55:49Z running 5, queued 5
+2026-11-07T03:57:55Z running 5, queued 5
+2026-11-07T04:00:01Z running 5, queued 5
+2026-11-07T04:02:07Z running 5, queued 5
+2026-11-07T04:04:13Z running 5, queued 5
+2026-11-07T04:06:16Z complete r12g01c02
+r12g01c02 0 3kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 544kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.56MB/s]
+
+r12g01c02: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c05
+ 
+2026-11-07T04:06:49Z pushed r12g01c05 rc=0
+2026-11-07T04:06:49Z running 5, queued 4
+2026-11-07T04:08:55Z running 5, queued 4
+2026-11-07T04:11:01Z running 5, queued 4
+2026-11-07T04:13:08Z running 5, queued 4
+2026-11-07T04:15:10Z complete r12g01c01
+r12g01c01 0 8MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.10MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 276kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 7.29MB/s]
+
+r12g01c01: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c06
+ 
+2026-11-07T04:15:43Z pushed r12g01c06 rc=0
+2026-11-07T04:15:43Z running 5, queued 3
+2026-11-07T04:17:45Z complete r12g01c03
+r12g01c03 0 0MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.21MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 728kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 3.09MB/s]
+
+r12g01c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T04:18:13Z complete r12g01c04
+r12g01c04 0 58kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 524kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 435kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 5.61MB/s]
+
+r12g01c04: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c07
+ 
+2026-11-07T04:19:02Z pushed r12g01c07 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c08
+ 
+2026-11-07T04:19:05Z pushed r12g01c08 rc=0
+2026-11-07T04:19:05Z running 5, queued 1
+2026-11-07T04:21:07Z complete r12g01c00
+r12g01c00 0 9kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 278kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.19MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 1.34MB/s]
+
+r12g01c00: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g01c09
+ 
+2026-11-07T04:21:39Z pushed r12g01c09 rc=0
+2026-11-07T04:21:39Z running 5, queued 0
+2026-11-07T04:23:44Z running 5, queued 0
+2026-11-07T04:25:50Z running 5, queued 0
+2026-11-07T04:27:56Z running 5, queued 0
+2026-11-07T04:30:02Z running 5, queued 0
+2026-11-07T04:32:08Z running 5, queued 0
+2026-11-07T04:34:13Z running 5, queued 0
+2026-11-07T04:36:19Z running 5, queued 0
+2026-11-07T04:38:26Z running 5, queued 0
+2026-11-07T04:40:31Z running 5, queued 0
+2026-11-07T04:42:33Z complete r12g01c05
+r12g01c05 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.09MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.93MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 4.89MB/s]
+
+r12g01c05: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T04:43:05Z running 4, queued 0
+2026-11-07T04:45:10Z running 4, queued 0
+2026-11-07T04:47:15Z running 4, queued 0
+2026-11-07T04:49:20Z running 4, queued 0
+2026-11-07T04:51:25Z running 4, queued 0
+2026-11-07T04:53:30Z running 4, queued 0
+2026-11-07T04:55:35Z running 4, queued 0
+2026-11-07T04:57:36Z complete r12g01c06
+r12g01c06 0 08MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 477kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 297kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.25MB/s]
+
+r12g01c06: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T04:58:04Z complete r12g01c07
+r12g01c07 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.16MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.11MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 3.90MB/s]
+
+r12g01c07: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T04:58:30Z running 2, queued 0
+2026-11-07T05:00:31Z complete r12g01c08
+r12g01c08 0 2kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 589kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.10MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.36MB/s]
+
+r12g01c08: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:00:56Z running 1, queued 0
+2026-11-07T05:02:57Z running 1, queued 0
+2026-11-07T05:04:58Z complete r12g01c09
+r12g01c09 0 10MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 335kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 849kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 1.26MB/s]
+
+r12g01c09: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:05:26Z running 0, queued 0
+2026-11-07T05:07:26Z running 0, queued 0
+2026-11-07T05:09:26Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g02c00
+ 
+2026-11-07T05:11:28Z pushed r12g02c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g02c01
+ 
+2026-11-07T05:11:31Z pushed r12g02c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g02c02
+ 
+2026-11-07T05:11:34Z pushed r12g02c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g02c03
+ 
+2026-11-07T05:11:36Z pushed r12g02c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g02c04
+ 
+2026-11-07T05:11:39Z pushed r12g02c04 rc=0
+2026-11-07T05:11:39Z running 5, queued 0
+2026-11-07T05:13:45Z running 5, queued 0
+2026-11-07T05:15:51Z running 5, queued 0
+2026-11-07T05:17:57Z running 5, queued 0
+2026-11-07T05:20:02Z running 5, queued 0
+2026-11-07T05:22:08Z running 5, queued 0
+2026-11-07T05:24:14Z running 5, queued 0
+2026-11-07T05:26:21Z running 5, queued 0
+2026-11-07T05:28:26Z running 5, queued 0
+2026-11-07T05:30:32Z running 5, queued 0
+2026-11-07T05:32:38Z running 5, queued 0
+2026-11-07T05:34:43Z running 5, queued 0
+2026-11-07T05:36:49Z running 5, queued 0
+2026-11-07T05:38:55Z complete r12g02c04
+r12g02c04 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.08MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.19MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.76MB/s]
+
+r12g02c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:39:24Z running 4, queued 0
+2026-11-07T05:41:29Z running 4, queued 0
+2026-11-07T05:43:36Z running 4, queued 0
+2026-11-07T05:45:41Z running 4, queued 0
+2026-11-07T05:47:43Z complete r12g02c01
+r12g02c01 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.11MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.93MB/s]
+
+r12g02c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:48:09Z running 3, queued 0
+2026-11-07T05:50:10Z complete r12g02c00
+r12g02c00 0 9MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.03MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 471kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.40MB/s]
+
+r12g02c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:50:36Z complete r12g02c02
+r12g02c02 0 0kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.21MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 967kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 7.94MB/s]
+
+r12g02c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:51:01Z running 1, queued 0
+2026-11-07T05:53:03Z complete r12g02c03
+r12g02c03 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.11MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.16MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.29MB/s]
+
+r12g02c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T05:53:30Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g03c00
+ 
+2026-11-07T05:55:33Z pushed r12g03c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g03c01
+ 
+2026-11-07T05:55:36Z pushed r12g03c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g03c02
+ 
+2026-11-07T05:55:38Z pushed r12g03c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g03c03
+ 
+2026-11-07T05:55:41Z pushed r12g03c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g03c04
+ 
+2026-11-07T05:55:44Z pushed r12g03c04 rc=0
+2026-11-07T05:55:44Z running 5, queued 0
+2026-11-07T05:57:50Z running 5, queued 0
+2026-11-07T05:59:56Z running 5, queued 0
+2026-11-07T06:02:01Z running 5, queued 0
+2026-11-07T06:04:07Z running 5, queued 0
+2026-11-07T06:06:13Z running 5, queued 0
+2026-11-07T06:08:19Z running 5, queued 0
+2026-11-07T06:10:25Z running 5, queued 0
+2026-11-07T06:12:31Z running 5, queued 0
+2026-11-07T06:14:37Z running 5, queued 0
+2026-11-07T06:16:42Z running 5, queued 0
+2026-11-07T06:18:48Z running 5, queued 0
+2026-11-07T06:20:54Z running 5, queued 0
+2026-11-07T06:23:00Z running 5, queued 0
+2026-11-07T06:25:06Z running 5, queued 0
+2026-11-07T06:27:12Z running 5, queued 0
+2026-11-07T06:29:18Z running 5, queued 0
+2026-11-07T06:31:23Z running 5, queued 0
+2026-11-07T06:33:29Z running 5, queued 0
+2026-11-07T06:35:30Z complete r12g03c00
+r12g03c00 0 2kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 383kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.07MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.86MB/s]
+
+r12g03c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T06:35:56Z complete r12g03c01
+r12g03c01 0 3MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.06MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 739kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.22MB/s]
+
+r12g03c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T06:36:21Z complete r12g03c02
+r12g03c02 0 1MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 965kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.13MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.59MB/s]
+
+r12g03c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T06:36:47Z complete r12g03c03
+r12g03c03 0 4MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 211kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.64MB/s]
+
+r12g03c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T06:37:14Z complete r12g03c04
+r12g03c04 0 9kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 989kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.27MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.75MB/s]
+
+r12g03c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T06:37:41Z running 0, queued 0
+2026-11-07T06:39:41Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g04c00
+ 
+2026-11-07T06:41:44Z pushed r12g04c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g04c01
+ 
+2026-11-07T06:41:47Z pushed r12g04c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g04c02
+ 
+2026-11-07T06:41:50Z pushed r12g04c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g04c03
+ 
+2026-11-07T06:41:53Z pushed r12g04c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g04c04
+ 
+2026-11-07T06:41:56Z pushed r12g04c04 rc=0
+2026-11-07T06:41:56Z running 5, queued 0
+2026-11-07T06:44:02Z running 5, queued 0
+2026-11-07T06:46:08Z running 5, queued 0
+2026-11-07T06:48:15Z running 5, queued 0
+2026-11-07T06:50:20Z running 5, queued 0
+2026-11-07T06:52:27Z running 5, queued 0
+2026-11-07T06:54:32Z running 5, queued 0
+2026-11-07T06:56:38Z running 5, queued 0
+2026-11-07T06:58:44Z running 5, queued 0
+2026-11-07T07:00:50Z running 5, queued 0
+2026-11-07T07:02:56Z running 5, queued 0
+2026-11-07T07:05:02Z running 5, queued 0
+2026-11-07T07:07:08Z running 5, queued 0
+2026-11-07T07:09:09Z complete r12g04c00
+r12g04c00 0 5MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 621kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.10MB/s]
+
+r12g04c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T07:09:41Z running 4, queued 0
+2026-11-07T07:11:47Z running 4, queued 0
+2026-11-07T07:13:51Z running 4, queued 0
+2026-11-07T07:15:57Z running 4, queued 0
+2026-11-07T07:18:02Z running 4, queued 0
+2026-11-07T07:20:06Z running 4, queued 0
+2026-11-07T07:22:08Z complete r12g04c01
+r12g04c01 0 4MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 742kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.18MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.2MB/s]
+
+r12g04c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T07:22:36Z complete r12g04c02
+r12g04c02 0 32MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 684kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 700kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.08MB/s]
+
+r12g04c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T07:23:04Z complete r12g04c03
+r12g04c03 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.36MB/s]
+
+r12g04c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T07:23:34Z complete r12g04c04
+r12g04c04 0 6MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 916kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.12MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.31MB/s]
+
+r12g04c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T07:24:00Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g05c00
+ 
+2026-11-07T07:26:03Z pushed r12g05c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g05c01
+ 
+2026-11-07T07:26:06Z pushed r12g05c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g05c02
+ 
+2026-11-07T07:26:09Z pushed r12g05c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g05c03
+ 
+2026-11-07T07:26:12Z pushed r12g05c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g05c04
+ 
+2026-11-07T07:26:14Z pushed r12g05c04 rc=0
+2026-11-07T07:26:14Z running 5, queued 0
+2026-11-07T07:28:20Z running 5, queued 0
+2026-11-07T07:30:27Z running 5, queued 0
+2026-11-07T07:32:32Z running 5, queued 0
+2026-11-07T07:34:38Z running 5, queued 0
+2026-11-07T07:36:44Z running 5, queued 0
+2026-11-07T07:38:50Z running 5, queued 0
+2026-11-07T07:40:58Z running 5, queued 0
+2026-11-07T07:43:05Z running 5, queued 0
+2026-11-07T07:45:10Z running 5, queued 0
+2026-11-07T07:47:16Z running 5, queued 0
+2026-11-07T07:49:22Z running 5, queued 0
+2026-11-07T07:51:28Z running 5, queued 0
+2026-11-07T07:53:35Z running 5, queued 0
+2026-11-07T07:55:40Z running 5, queued 0
+2026-11-07T07:57:46Z running 5, queued 0
+2026-11-07T07:59:52Z running 5, queued 0
+2026-11-07T08:01:56Z complete r12g05c02
+r12g05c02 1 Nv41wgmKTdYzS1sbaRRlB8LESilcTIlsYOUGxzT8SmMQ8uwwrxMbgah_PMJIorsouR95gBEpjGE7zOwr5loBsBmLczE1F5BUrkI-YTCN16SrmyGrezdl_htFBuiTm9AQGs4-3u6.eJa5sbzzWX9PAaCLe3MXtQ/logs/r12g05c02__r6hs__building_train_1__fairbanks_c2.log
+
+This is a problem on Kaggle's side, not with your command. Please try again later.
+
+r12g05c02: output download failed (rc=1, 0 summaries); will retry
+r12g05c02: merged 0 summaries (0 progress lines, 24 jobs)
+2026-11-07T08:02:14Z running 4, queued 0
+2026-11-07T08:04:15Z complete r12g05c00
+r12g05c00 0 0MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.10MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 466kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.37MB/s]
+
+r12g05c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:04:40Z complete r12g05c01
+r12g05c01 0 7MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 936kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.19MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.65MB/s]
+
+r12g05c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:05:04Z complete r12g05c02
+r12g05c02 0 7MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.14MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 869kB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 2.64MB/s]
+
+r12g05c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:05:30Z running 2, queued 0
+2026-11-07T08:07:31Z complete r12g05c03
+r12g05c03 0 1kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.17MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 707kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.89MB/s]
+
+r12g05c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:07:58Z complete r12g05c04
+r12g05c04 0 5kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.06MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 469kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.08MB/s]
+
+r12g05c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:08:23Z running 0, queued 0
+2026-11-07T08:10:23Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g06c00
+ 
+2026-11-07T08:12:26Z pushed r12g06c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g06c01
+ 
+2026-11-07T08:12:29Z pushed r12g06c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g06c02
+ 
+2026-11-07T08:12:32Z pushed r12g06c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g06c03
+ 
+2026-11-07T08:12:34Z pushed r12g06c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g06c04
+ 
+2026-11-07T08:12:37Z pushed r12g06c04 rc=0
+2026-11-07T08:12:37Z running 5, queued 0
+2026-11-07T08:14:43Z running 5, queued 0
+2026-11-07T08:16:49Z running 5, queued 0
+2026-11-07T08:18:54Z running 5, queued 0
+2026-11-07T08:21:00Z running 5, queued 0
+2026-11-07T08:23:06Z running 5, queued 0
+2026-11-07T08:25:12Z running 5, queued 0
+2026-11-07T08:27:19Z running 5, queued 0
+2026-11-07T08:29:25Z running 5, queued 0
+2026-11-07T08:31:30Z running 5, queued 0
+2026-11-07T08:33:36Z running 5, queued 0
+2026-11-07T08:35:42Z running 5, queued 0
+2026-11-07T08:37:49Z running 5, queued 0
+2026-11-07T08:39:56Z complete r12g06c04
+r12g06c04 0 68kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 633kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 239kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 3.60MB/s]
+
+r12g06c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:40:25Z running 4, queued 0
+2026-11-07T08:42:30Z running 4, queued 0
+2026-11-07T08:44:35Z running 4, queued 0
+2026-11-07T08:46:40Z running 4, queued 0
+2026-11-07T08:48:46Z complete r12g06c03
+r12g06c03 0 09MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.99MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 860kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 933kB/s]
+
+r12g06c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:49:16Z running 3, queued 0
+2026-11-07T08:51:32Z complete r12g06c00
+r12g06c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.07MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.01MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.8MB/s]
+
+r12g06c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:52:12Z complete r12g06c02
+r12g06c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.15MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.73MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.8MB/s]
+
+r12g06c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:52:35Z running 1, queued 0
+2026-11-07T08:54:36Z complete r12g06c01
+r12g06c01 0 6kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 335kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.64MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.68MB/s]
+
+r12g06c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T08:55:01Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g07c00
+ 
+2026-11-07T08:57:03Z pushed r12g07c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g07c01
+ 
+2026-11-07T08:57:06Z pushed r12g07c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g07c02
+ 
+2026-11-07T08:57:09Z pushed r12g07c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g07c03
+ 
+2026-11-07T08:57:11Z pushed r12g07c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g07c04
+ 
+2026-11-07T08:57:14Z pushed r12g07c04 rc=0
+2026-11-07T08:57:14Z running 5, queued 0
+2026-11-07T08:59:20Z running 5, queued 0
+2026-11-07T09:01:26Z running 5, queued 0
+2026-11-07T09:03:32Z running 5, queued 0
+2026-11-07T09:05:38Z running 5, queued 0
+2026-11-07T09:07:44Z running 5, queued 0
+2026-11-07T09:09:50Z running 5, queued 0
+2026-11-07T09:11:56Z running 5, queued 0
+2026-11-07T09:14:03Z running 5, queued 0
+2026-11-07T09:16:08Z running 5, queued 0
+2026-11-07T09:18:15Z running 5, queued 0
+2026-11-07T09:20:21Z running 5, queued 0
+2026-11-07T09:22:27Z running 5, queued 0
+2026-11-07T09:24:28Z complete r12g07c00
+r12g07c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.10MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.58MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 13.7MB/s]
+
+r12g07c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T09:24:57Z running 4, queued 0
+2026-11-07T09:27:02Z running 4, queued 0
+2026-11-07T09:29:06Z complete r12g07c04
+r12g07c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.99MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.28MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 14.1MB/s]
+
+r12g07c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T09:29:31Z running 3, queued 0
+2026-11-07T09:31:34Z running 3, queued 0
+2026-11-07T09:33:38Z complete r12g07c03
+r12g07c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.08MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.88MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.2MB/s]
+
+r12g07c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T09:34:00Z running 2, queued 0
+2026-11-07T09:36:02Z running 2, queued 0
+2026-11-07T09:38:03Z complete r12g07c01
+r12g07c01 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.80MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.95MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.54MB/s]
+
+r12g07c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T09:38:27Z running 1, queued 0
+2026-11-07T09:40:28Z complete r12g07c02
+r12g07c02 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.66MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.04MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.74MB/s]
+
+r12g07c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T09:40:54Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g08c00
+ 
+2026-11-07T09:42:57Z pushed r12g08c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g08c01
+ 
+2026-11-07T09:43:00Z pushed r12g08c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g08c02
+ 
+2026-11-07T09:43:03Z pushed r12g08c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g08c03
+ 
+2026-11-07T09:43:06Z pushed r12g08c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g08c04
+ 
+2026-11-07T09:43:09Z pushed r12g08c04 rc=0
+2026-11-07T09:43:09Z running 5, queued 0
+2026-11-07T09:45:15Z running 5, queued 0
+2026-11-07T09:47:20Z running 5, queued 0
+2026-11-07T09:49:26Z running 5, queued 0
+2026-11-07T09:51:32Z running 5, queued 0
+2026-11-07T09:53:37Z running 5, queued 0
+2026-11-07T09:55:43Z running 5, queued 0
+2026-11-07T09:57:48Z running 5, queued 0
+2026-11-07T09:59:55Z running 5, queued 0
+2026-11-07T10:02:00Z running 5, queued 0
+2026-11-07T10:04:06Z running 5, queued 0
+2026-11-07T10:06:12Z running 5, queued 0
+2026-11-07T10:08:18Z running 5, queued 0
+2026-11-07T10:10:23Z running 5, queued 0
+2026-11-07T10:12:29Z running 5, queued 0
+2026-11-07T10:14:35Z running 5, queued 0
+2026-11-07T10:16:40Z running 5, queued 0
+2026-11-07T10:18:43Z complete r12g08c01
+r12g08c01 0 kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.30MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.04MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 9.80MB/s]
+
+r12g08c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T10:19:09Z running 4, queued 0
+2026-11-07T10:21:11Z complete r12g08c00
+r12g08c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.91MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.72MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.3MB/s]
+
+r12g08c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T10:21:37Z running 3, queued 0
+2026-11-07T10:23:38Z complete r12g08c02
+r12g08c02 0 1MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.75MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 565kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.68MB/s]
+
+r12g08c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T10:24:05Z complete r12g08c03
+r12g08c03 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.92MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.75MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.9MB/s]
+
+r12g08c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T10:24:29Z complete r12g08c04
+r12g08c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.61MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.04MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.9MB/s]
+
+r12g08c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T10:24:55Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g09c00
+ 
+2026-11-07T10:26:57Z pushed r12g09c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g09c01
+ 
+2026-11-07T10:27:00Z pushed r12g09c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g09c02
+ 
+2026-11-07T10:27:03Z pushed r12g09c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g09c03
+ 
+2026-11-07T10:27:06Z pushed r12g09c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g09c04
+ 
+2026-11-07T10:27:09Z pushed r12g09c04 rc=0
+2026-11-07T10:27:09Z running 5, queued 0
+2026-11-07T10:29:14Z running 5, queued 0
+2026-11-07T10:31:20Z running 5, queued 0
+2026-11-07T10:33:25Z running 5, queued 0
+2026-11-07T10:35:30Z running 5, queued 0
+2026-11-07T10:37:36Z running 5, queued 0
+2026-11-07T10:39:41Z running 5, queued 0
+2026-11-07T10:41:47Z running 5, queued 0
+2026-11-07T10:43:53Z running 5, queued 0
+2026-11-07T10:45:59Z running 5, queued 0
+2026-11-07T10:48:04Z running 5, queued 0
+2026-11-07T10:50:10Z running 5, queued 0
+2026-11-07T10:52:16Z running 5, queued 0
+2026-11-07T10:54:22Z running 5, queued 0
+2026-11-07T10:56:27Z running 5, queued 0
+2026-11-07T10:58:33Z running 5, queued 0
+2026-11-07T11:00:39Z running 5, queued 0
+2026-11-07T11:02:45Z running 5, queued 0
+2026-11-07T11:04:46Z complete r12g09c00
+r12g09c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.99MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.70MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.9MB/s]
+
+r12g09c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:05:12Z running 4, queued 0
+2026-11-07T11:07:14Z complete r12g09c02
+r12g09c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.05MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.65MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.4MB/s]
+
+r12g09c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:07:38Z complete r12g09c03
+r12g09c03 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.84MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.94MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.5MB/s]
+
+r12g09c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:08:01Z running 2, queued 0
+2026-11-07T11:10:02Z complete r12g09c01
+r12g09c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.45MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.19MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.19MB/s]
+
+r12g09c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:10:29Z complete r12g09c04
+r12g09c04 0 kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.82MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.86MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.59MB/s]
+
+r12g09c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:10:52Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g10c00
+ 
+2026-11-07T11:12:55Z pushed r12g10c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g10c01
+ 
+2026-11-07T11:12:58Z pushed r12g10c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g10c02
+ 
+2026-11-07T11:13:01Z pushed r12g10c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g10c03
+ 
+2026-11-07T11:13:03Z pushed r12g10c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g10c04
+ 
+2026-11-07T11:13:06Z pushed r12g10c04 rc=0
+2026-11-07T11:13:06Z running 5, queued 0
+2026-11-07T11:15:12Z running 5, queued 0
+2026-11-07T11:17:17Z running 5, queued 0
+2026-11-07T11:19:23Z running 5, queued 0
+2026-11-07T11:21:28Z running 5, queued 0
+2026-11-07T11:23:34Z running 5, queued 0
+2026-11-07T11:25:40Z running 5, queued 0
+2026-11-07T11:27:46Z running 5, queued 0
+2026-11-07T11:29:52Z running 5, queued 0
+2026-11-07T11:31:58Z running 5, queued 0
+2026-11-07T11:34:04Z running 5, queued 0
+2026-11-07T11:36:09Z running 5, queued 0
+2026-11-07T11:38:15Z running 5, queued 0
+2026-11-07T11:40:21Z running 5, queued 0
+2026-11-07T11:42:26Z running 5, queued 0
+2026-11-07T11:44:32Z running 5, queued 0
+2026-11-07T11:46:38Z running 5, queued 0
+2026-11-07T11:48:44Z running 5, queued 0
+2026-11-07T11:50:49Z complete r12g10c04
+r12g10c04 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.77MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.88MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.5MB/s]
+
+r12g10c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:51:13Z running 4, queued 0
+2026-11-07T11:53:14Z complete r12g10c00
+r12g10c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.08MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.07MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.1MB/s]
+
+r12g10c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:53:38Z complete r12g10c01
+r12g10c01 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.69MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.79MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.5MB/s]
+
+r12g10c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:54:05Z complete r12g10c02
+r12g10c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.01MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.54MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.5MB/s]
+
+r12g10c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:54:31Z complete r12g10c03
+r12g10c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.93MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.34MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 14.9MB/s]
+
+r12g10c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T11:54:54Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g11c00
+ 
+2026-11-07T11:56:56Z pushed r12g11c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g11c01
+ 
+2026-11-07T11:56:59Z pushed r12g11c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g11c02
+ 
+2026-11-07T11:57:02Z pushed r12g11c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g11c03
+ 
+2026-11-07T11:57:05Z pushed r12g11c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g11c04
+ 
+2026-11-07T11:57:07Z pushed r12g11c04 rc=0
+2026-11-07T11:57:07Z running 5, queued 0
+2026-11-07T11:59:13Z running 5, queued 0
+2026-11-07T12:01:18Z running 5, queued 0
+2026-11-07T12:03:25Z running 5, queued 0
+2026-11-07T12:05:30Z running 5, queued 0
+2026-11-07T12:07:36Z running 5, queued 0
+2026-11-07T12:09:42Z running 5, queued 0
+2026-11-07T12:11:48Z running 5, queued 0
+2026-11-07T12:13:54Z running 5, queued 0
+2026-11-07T12:15:59Z running 5, queued 0
+2026-11-07T12:18:05Z running 5, queued 0
+2026-11-07T12:20:10Z running 5, queued 0
+2026-11-07T12:22:16Z running 5, queued 0
+2026-11-07T12:24:22Z running 5, queued 0
+2026-11-07T12:26:28Z running 5, queued 0
+2026-11-07T12:28:34Z running 5, queued 0
+2026-11-07T12:30:40Z running 5, queued 0
+2026-11-07T12:32:45Z running 5, queued 0
+2026-11-07T12:34:51Z running 5, queued 0
+2026-11-07T12:36:53Z complete r12g11c00
+r12g11c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.50MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.38MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 10.7MB/s]
+
+r12g11c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T12:37:19Z complete r12g11c01
+r12g11c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.77MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.94MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.7MB/s]
+
+r12g11c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T12:37:43Z complete r12g11c02
+r12g11c02 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.66MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.53MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.7MB/s]
+
+r12g11c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T12:38:06Z complete r12g11c03
+r12g11c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.84MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.07MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.9MB/s]
+
+r12g11c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T12:38:30Z complete r12g11c04
+r12g11c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.06MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.01MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.9MB/s]
+
+r12g11c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T12:38:52Z running 0, queued 0
+2026-11-07T12:40:52Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g12c00
+ 
+2026-11-07T12:42:56Z pushed r12g12c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g12c01
+ 
+2026-11-07T12:42:59Z pushed r12g12c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g12c02
+ 
+2026-11-07T12:43:02Z pushed r12g12c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g12c03
+ 
+2026-11-07T12:43:05Z pushed r12g12c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g12c04
+ 
+2026-11-07T12:43:08Z pushed r12g12c04 rc=0
+2026-11-07T12:43:08Z running 5, queued 0
+2026-11-07T12:45:14Z running 5, queued 0
+2026-11-07T12:47:19Z running 5, queued 0
+2026-11-07T12:49:26Z running 5, queued 0
+2026-11-07T12:51:32Z running 5, queued 0
+2026-11-07T12:53:38Z running 5, queued 0
+2026-11-07T12:55:43Z running 5, queued 0
+2026-11-07T12:57:49Z running 5, queued 0
+2026-11-07T12:59:56Z running 5, queued 0
+2026-11-07T13:02:01Z running 5, queued 0
+2026-11-07T13:04:07Z running 5, queued 0
+2026-11-07T13:06:14Z running 5, queued 0
+2026-11-07T13:08:19Z running 5, queued 0
+2026-11-07T13:10:23Z complete r12g12c02
+r12g12c02 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.81MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.66MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 14.0MB/s]
+
+r12g12c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T13:10:50Z complete r12g12c03
+r12g12c03 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.93MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.93MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.1MB/s]
+
+r12g12c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T13:11:17Z running 3, queued 0
+2026-11-07T13:13:19Z complete r12g12c00
+r12g12c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.07MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.92MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 13.8MB/s]
+
+r12g12c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T13:13:45Z running 2, queued 0
+2026-11-07T13:15:47Z running 2, queued 0
+2026-11-07T13:17:50Z running 2, queued 0
+2026-11-07T13:19:52Z running 2, queued 0
+2026-11-07T13:21:55Z complete r12g12c04
+r12g12c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.89MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.36MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.9MB/s]
+
+r12g12c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T13:22:19Z running 1, queued 0
+2026-11-07T13:24:20Z complete r12g12c01
+r12g12c01 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.11MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.83MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 9.95MB/s]
+
+r12g12c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T13:24:42Z running 0, queued 0
+2026-11-07T13:26:42Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g13c00
+ 
+2026-11-07T13:28:44Z pushed r12g13c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g13c01
+ 
+2026-11-07T13:28:47Z pushed r12g13c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g13c02
+ 
+2026-11-07T13:28:50Z pushed r12g13c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g13c03
+ 
+2026-11-07T13:28:53Z pushed r12g13c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g13c04
+ 
+2026-11-07T13:28:56Z pushed r12g13c04 rc=0
+2026-11-07T13:28:56Z running 5, queued 0
+2026-11-07T13:31:02Z running 5, queued 0
+2026-11-07T13:33:07Z running 5, queued 0
+2026-11-07T13:35:13Z running 5, queued 0
+2026-11-07T13:37:19Z running 5, queued 0
+2026-11-07T13:39:25Z running 5, queued 0
+2026-11-07T13:41:31Z running 5, queued 0
+2026-11-07T13:43:36Z running 5, queued 0
+2026-11-07T13:45:42Z running 5, queued 0
+2026-11-07T13:47:48Z running 5, queued 0
+2026-11-07T13:49:54Z running 5, queued 0
+2026-11-07T13:52:00Z running 5, queued 0
+2026-11-07T13:54:06Z running 5, queued 0
+2026-11-07T13:56:12Z running 5, queued 0
+2026-11-07T13:58:18Z running 5, queued 0
+2026-11-07T14:00:24Z running 5, queued 0
+2026-11-07T14:02:29Z running 5, queued 0
+2026-11-07T14:04:35Z running 5, queued 0
+2026-11-07T14:06:39Z complete r12g13c02
+r12g13c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.80MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.31MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 14.3MB/s]
+
+r12g13c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:07:04Z complete r12g13c04
+r12g13c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.02MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.75MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 11.1MB/s]
+
+r12g13c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:07:27Z running 3, queued 0
+2026-11-07T14:09:28Z complete r12g13c00
+r12g13c00 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.06MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.09MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 3.95MB/s]
+
+r12g13c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:09:54Z complete r12g13c01
+r12g13c01 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.67MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.78MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 13.2MB/s]
+
+r12g13c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:10:18Z complete r12g13c03
+r12g13c03 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.00MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.00MB/s]
+
+  0%|          | 0.00/4.93k [00:00<?, ?B/s]
+100%|##########| 4.93k/4.93k [00:00<00:00, 2.72MB/s]
+
+r12g13c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:10:45Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g14c00
+ 
+2026-11-07T14:12:48Z pushed r12g14c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g14c01
+ 
+2026-11-07T14:12:51Z pushed r12g14c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g14c02
+ 
+2026-11-07T14:12:54Z pushed r12g14c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g14c03
+ 
+2026-11-07T14:12:56Z pushed r12g14c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12g14c04
+ 
+2026-11-07T14:12:59Z pushed r12g14c04 rc=0
+2026-11-07T14:12:59Z running 5, queued 0
+2026-11-07T14:15:05Z running 5, queued 0
+2026-11-07T14:17:11Z running 5, queued 0
+2026-11-07T14:19:17Z running 5, queued 0
+2026-11-07T14:21:22Z running 5, queued 0
+2026-11-07T14:23:28Z running 5, queued 0
+2026-11-07T14:25:34Z running 5, queued 0
+2026-11-07T14:27:40Z running 5, queued 0
+2026-11-07T14:29:46Z running 5, queued 0
+2026-11-07T14:31:52Z running 5, queued 0
+2026-11-07T14:33:57Z running 5, queued 0
+2026-11-07T14:36:03Z running 5, queued 0
+2026-11-07T14:38:09Z running 5, queued 0
+2026-11-07T14:40:15Z running 5, queued 0
+2026-11-07T14:42:17Z complete r12g14c01
+r12g14c01 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.95MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.77MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 10.8MB/s]
+
+r12g14c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:42:43Z running 4, queued 0
+2026-11-07T14:44:48Z running 4, queued 0
+2026-11-07T14:46:53Z running 4, queued 0
+2026-11-07T14:48:58Z running 4, queued 0
+2026-11-07T14:51:02Z complete r12g14c03
+r12g14c03 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.83MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.10MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 14.1MB/s]
+
+r12g14c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:51:28Z complete r12g14c04
+r12g14c04 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.08MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.46MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 7.20MB/s]
+
+r12g14c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:51:55Z running 2, queued 0
+2026-11-07T14:53:56Z complete r12g14c00
+r12g14c00 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.11MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.33MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 12.4MB/s]
+
+r12g14c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:54:22Z complete r12g14c02
+r12g14c02 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.76MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.05MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 14.2MB/s]
+
+r12g14c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-07T14:54:45Z running 0, queued 0
+2026-11-07T14:56:45Z running 0, queued 0
+2026-11-07T14:58:45Z running 0, queued 0
+2026-11-07T15:00:45Z running 0, queued 0
+2026-11-07T15:02:45Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-pub30-1
+ 
+2026-11-07T15:04:48Z pushed r12cand-pub30-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-pub30-2
+ 
+2026-11-07T15:04:50Z pushed r12cand-pub30-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-pub30-3
+ 
+2026-11-07T15:04:53Z pushed r12cand-pub30-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-r10hc-1
+ 
+2026-11-07T15:04:56Z pushed r12cand-r10hc-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-r10hc-2
+ 
+2026-11-07T15:04:59Z pushed r12cand-r10hc-2 rc=0
+2026-11-07T15:04:59Z running 5, queued 2
+2026-11-07T15:07:05Z running 5, queued 2
+2026-11-07T15:09:11Z running 5, queued 2
+2026-11-07T15:11:17Z running 5, queued 2
+2026-11-07T15:13:23Z running 5, queued 2
+2026-11-07T15:15:29Z running 5, queued 2
+2026-11-07T15:17:35Z running 5, queued 2
+2026-11-07T15:19:40Z running 5, queued 2
+2026-11-07T15:21:46Z running 5, queued 2
+2026-11-07T15:23:52Z running 5, queued 2
+2026-11-07T15:25:58Z running 5, queued 2
+2026-11-07T15:28:04Z running 5, queued 2
+2026-11-07T15:30:09Z running 5, queued 2
+2026-11-07T15:32:16Z running 5, queued 2
+2026-11-07T15:34:22Z running 5, queued 2
+2026-11-07T15:36:29Z running 5, queued 2
+2026-11-07T15:38:35Z running 5, queued 2
+2026-11-07T15:40:41Z running 5, queued 2
+2026-11-07T15:42:47Z running 5, queued 2
+2026-11-07T15:44:53Z running 5, queued 2
+2026-11-07T15:46:59Z running 5, queued 2
+2026-11-07T15:49:05Z running 5, queued 2
+2026-11-07T15:51:09Z complete r12cand-pub30-3
+r12cand-pub30-3 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.46MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.51MB/s]
+
+  0%|          | 0.00/2.59k [00:00<?, ?B/s]
+100%|##########| 2.59k/2.59k [00:00<00:00, 7.42MB/s]
+
+r12cand-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-r10hc-3
+ 
+2026-11-07T15:51:28Z pushed r12cand-r10hc-3 rc=0
+2026-11-07T15:51:28Z running 5, queued 1
+2026-11-07T15:53:34Z running 5, queued 1
+2026-11-07T15:55:40Z running 5, queued 1
+2026-11-07T15:57:46Z running 5, queued 1
+2026-11-07T15:59:51Z running 5, queued 1
+2026-11-07T16:01:57Z running 5, queued 1
+2026-11-07T16:04:00Z complete r12cand-pub30-2
+r12cand-pub30-2 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.11MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.10MB/s]
+
+  0%|          | 0.00/2.43k [00:00<?, ?B/s]
+100%|##########| 2.43k/2.43k [00:00<00:00, 6.31MB/s]
+
+r12cand-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12cand-r10hc-4
+ 
+2026-11-07T16:04:17Z pushed r12cand-r10hc-4 rc=0
+2026-11-07T16:04:17Z running 5, queued 0
+2026-11-07T16:06:23Z running 5, queued 0
+2026-11-07T16:08:28Z running 5, queued 0
+2026-11-07T16:10:35Z running 5, queued 0
+2026-11-07T16:12:36Z complete r12cand-pub30-1
+r12cand-pub30-1 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.60MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.61MB/s]
+
+  0%|          | 0.00/2.24k [00:00<?, ?B/s]
+100%|##########| 2.24k/2.24k [00:00<00:00, 5.99MB/s]
+
+r12cand-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-11-07T16:12:51Z running 4, queued 0
+2026-11-07T16:14:56Z running 4, queued 0
+2026-11-07T16:17:00Z running 4, queued 0
+2026-11-07T16:19:05Z running 4, queued 0
+2026-11-07T16:21:10Z running 4, queued 0
+2026-11-07T16:23:14Z running 4, queued 0
+2026-11-07T16:25:20Z complete r12cand-r10hc-2
+r12cand-r10hc-2 0 MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.92MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.05MB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|##########| 2.39k/2.39k [00:00<00:00, 6.53MB/s]
+
+r12cand-r10hc-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-07T16:25:36Z running 3, queued 0
+2026-11-07T16:27:40Z running 3, queued 0
+2026-11-07T16:29:43Z running 3, queued 0
+2026-11-07T16:31:45Z complete r12cand-r10hc-1
+r12cand-r10hc-1 0 5MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 3.00MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 954kB/s]
+
+  0%|          | 0.00/2.42k [00:00<?, ?B/s]
+100%|##########| 2.42k/2.42k [00:00<00:00, 6.06MB/s]
+
+r12cand-r10hc-1: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-07T16:31:59Z running 2, queued 0
+2026-11-07T16:34:01Z running 2, queued 0
+2026-11-07T16:36:04Z running 2, queued 0
+2026-11-07T16:38:06Z running 2, queued 0
+2026-11-07T16:40:08Z running 2, queued 0
+2026-11-07T16:42:11Z running 2, queued 0
+2026-11-07T16:44:14Z running 2, queued 0
+2026-11-07T16:46:16Z running 2, queued 0
+2026-11-07T16:48:19Z running 2, queued 0
+2026-11-07T16:50:21Z running 2, queued 0
+2026-11-07T16:52:23Z running 2, queued 0
+2026-11-07T16:54:26Z running 2, queued 0
+2026-11-07T16:56:28Z running 2, queued 0
+2026-11-07T16:58:31Z running 2, queued 0
+2026-11-07T17:00:33Z running 2, queued 0
+2026-11-07T17:02:36Z running 2, queued 0
+2026-11-07T17:04:38Z running 2, queued 0
+2026-11-07T17:06:40Z running 2, queued 0
+2026-11-07T17:08:43Z running 2, queued 0
+2026-11-07T17:10:45Z running 2, queued 0
+2026-11-07T17:12:48Z running 2, queued 0
+2026-11-07T17:14:50Z running 2, queued 0
+2026-11-07T17:16:53Z running 2, queued 0
+2026-11-07T17:18:55Z running 2, queued 0
+2026-11-07T17:20:57Z running 2, queued 0
+2026-11-07T17:22:59Z complete r12cand-r10hc-3
+r12cand-r10hc-3 0 MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.64MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 3.04MB/s]
+
+  0%|          | 0.00/2.42k [00:00<?, ?B/s]
+100%|##########| 2.42k/2.42k [00:00<00:00, 6.67MB/s]
+
+r12cand-r10hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-07T17:23:12Z running 1, queued 0
+2026-11-07T17:25:14Z running 1, queued 0
+2026-11-07T17:27:15Z running 1, queued 0
+2026-11-07T17:29:16Z complete r12cand-r10hc-4
+r12cand-r10hc-4 0 MB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 3.07MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.13MB/s]
+
+  0%|          | 0.00/2.40k [00:00<?, ?B/s]
+100%|##########| 2.40k/2.40k [00:00<00:00, 2.40MB/s]
+
+r12cand-r10hc-4: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-07T17:29:29Z running 0, queued 0
+2026-11-07T17:31:29Z running 0, queued 0
+2026-11-07T17:33:29Z running 0, queued 0
+2026-11-07T17:35:29Z running 0, queued 0
+2026-11-07T17:37:29Z running 0, queued 0
+2026-11-07T17:39:29Z running 0, queued 0
+2026-11-07T17:41:29Z running 0, queued 0
+2026-11-07T17:43:29Z running 0, queued 0
+2026-11-07T17:45:29Z running 0, queued 0
+2026-11-07T17:47:29Z running 0, queued 0
+2026-11-07T17:49:29Z running 0, queued 0
+2026-11-07T17:51:29Z running 0, queued 0
+2026-11-07T17:53:29Z running 0, queued 0
+2026-11-07T17:55:29Z running 0, queued 0
+2026-11-07T17:57:29Z running 0, queued 0
+2026-11-07T17:59:29Z running 0, queued 0
+2026-11-07T18:01:29Z running 0, queued 0
+2026-11-07T18:03:29Z running 0, queued 0
+2026-11-07T18:05:29Z running 0, queued 0
+2026-11-07T18:07:29Z running 0, queued 0
+2026-11-07T18:09:29Z running 0, queued 0
+2026-11-07T18:11:29Z running 0, queued 0
+2026-11-07T18:13:29Z running 0, queued 0
+2026-11-07T18:15:29Z running 0, queued 0
+2026-11-07T18:17:29Z running 0, queued 0
+2026-11-07T18:19:29Z running 0, queued 0
+2026-11-07T18:21:29Z running 0, queued 0
+2026-11-07T18:23:29Z running 0, queued 0
+2026-11-07T18:25:29Z running 0, queued 0
+2026-11-07T18:27:29Z running 0, queued 0
+2026-11-07T18:29:29Z running 0, queued 0
+2026-11-07T18:31:29Z running 0, queued 0
+2026-11-07T18:33:29Z running 0, queued 0
+2026-11-07T18:35:29Z running 0, queued 0
+2026-11-07T18:37:29Z running 0, queued 0
+2026-11-07T18:39:29Z running 0, queued 0
+2026-11-07T18:41:29Z running 0, queued 0
+2026-11-07T18:43:29Z running 0, queued 0
+2026-11-07T18:45:29Z running 0, queued 0
+2026-11-07T18:47:29Z running 0, queued 0
+2026-11-07T18:49:29Z running 0, queued 0
+2026-11-07T18:51:29Z running 0, queued 0
+2026-11-07T18:53:29Z running 0, queued 0
+2026-11-07T18:55:29Z running 0, queued 0
+2026-11-07T18:57:29Z running 0, queued 0
+2026-11-07T18:59:29Z running 0, queued 0
+2026-11-07T19:01:29Z running 0, queued 0
+2026-11-07T19:03:29Z running 0, queued 0
+2026-11-07T19:05:29Z running 0, queued 0
+2026-11-07T19:07:29Z running 0, queued 0
+2026-11-07T19:09:29Z running 0, queued 0
+2026-11-07T19:11:29Z running 0, queued 0
+2026-11-07T19:13:29Z running 0, queued 0
+2026-11-07T19:15:30Z running 0, queued 0
+2026-11-07T19:17:30Z running 0, queued 0
+2026-11-07T19:19:30Z running 0, queued 0
+2026-11-07T19:21:30Z running 0, queued 0
+2026-11-07T19:23:30Z running 0, queued 0
+2026-11-07T19:25:30Z running 0, queued 0
+2026-11-07T19:27:30Z running 0, queued 0
+2026-11-07T19:29:30Z running 0, queued 0
+2026-11-07T19:31:30Z running 0, queued 0
+2026-11-07T19:33:30Z running 0, queued 0
+2026-11-07T19:35:30Z running 0, queued 0
+2026-11-07T19:37:30Z running 0, queued 0
+2026-11-07T19:39:30Z running 0, queued 0
+2026-11-07T19:41:30Z running 0, queued 0
+2026-11-07T19:43:30Z running 0, queued 0
+2026-11-07T19:45:30Z running 0, queued 0
+2026-11-07T19:47:30Z running 0, queued 0
+2026-11-07T19:49:30Z running 0, queued 0
+2026-11-07T19:51:30Z running 0, queued 0
+2026-11-07T19:53:30Z running 0, queued 0
+2026-11-07T19:55:30Z running 0, queued 0
+2026-11-07T19:57:30Z running 0, queued 0
+2026-11-07T19:59:30Z running 0, queued 0
+2026-11-07T20:01:30Z running 0, queued 0
+2026-11-07T20:03:30Z running 0, queued 0
+2026-11-07T20:05:30Z running 0, queued 0
+2026-11-07T20:07:30Z running 0, queued 0
+2026-11-07T20:09:30Z running 0, queued 0
+2026-11-07T20:11:30Z running 0, queued 0
+2026-11-07T20:13:30Z running 0, queued 0
+2026-11-07T20:15:30Z running 0, queued 0
+2026-11-07T20:17:30Z running 0, queued 0
+2026-11-07T20:19:30Z running 0, queued 0
+2026-11-07T20:21:30Z running 0, queued 0
+2026-11-07T20:23:30Z running 0, queued 0
+2026-11-07T20:25:30Z running 0, queued 0
+2026-11-07T20:27:30Z running 0, queued 0
+2026-11-07T20:29:30Z running 0, queued 0
+2026-11-07T20:31:30Z running 0, queued 0
+2026-11-07T20:33:30Z running 0, queued 0
+2026-11-07T20:35:30Z running 0, queued 0
+2026-11-07T20:37:30Z running 0, queued 0
+2026-11-07T20:39:30Z running 0, queued 0
+2026-11-07T20:41:30Z running 0, queued 0
+2026-11-07T20:43:30Z running 0, queued 0
+2026-11-07T20:45:30Z running 0, queued 0
+2026-11-07T20:47:30Z running 0, queued 0
+2026-11-07T20:49:30Z running 0, queued 0
+2026-11-07T20:51:30Z running 0, queued 0
+2026-11-07T20:53:30Z running 0, queued 0
+2026-11-07T20:55:30Z running 0, queued 0
+2026-11-07T20:57:30Z running 0, queued 0
+2026-11-07T20:59:30Z running 0, queued 0
+2026-11-07T21:01:30Z running 0, queued 0
+2026-11-07T21:03:30Z running 0, queued 0
+2026-11-07T21:05:30Z running 0, queued 0
+2026-11-07T21:07:30Z running 0, queued 0
+2026-11-07T21:09:30Z running 0, queued 0
+2026-11-07T21:11:30Z running 0, queued 0
+2026-11-07T21:13:30Z running 0, queued 0
+2026-11-07T21:15:30Z running 0, queued 0
+2026-11-07T21:17:30Z running 0, queued 0
+2026-11-07T21:19:30Z running 0, queued 0
+2026-11-07T21:21:30Z running 0, queued 0
+2026-11-07T21:23:30Z running 0, queued 0
+2026-11-07T21:25:30Z running 0, queued 0
+2026-11-07T21:27:30Z running 0, queued 0
+2026-11-07T21:29:30Z running 0, queued 0
+2026-11-07T21:31:30Z running 0, queued 0
+2026-11-07T21:33:30Z running 0, queued 0
+2026-11-07T21:35:30Z running 0, queued 0
+2026-11-07T21:37:30Z running 0, queued 0
+2026-11-07T21:39:30Z running 0, queued 0
+2026-11-07T21:41:30Z running 0, queued 0
+2026-11-07T21:43:30Z running 0, queued 0
+2026-11-07T21:45:30Z running 0, queued 0
+2026-11-07T21:47:30Z running 0, queued 0
+2026-11-07T21:49:30Z running 0, queued 0
+2026-11-07T21:51:30Z running 0, queued 0
+2026-11-07T21:53:30Z running 0, queued 0
+2026-11-07T21:55:30Z running 0, queued 0
+2026-11-07T21:57:30Z running 0, queued 0
+2026-11-07T21:59:30Z running 0, queued 0
+2026-11-07T22:01:30Z running 0, queued 0
+2026-11-07T22:03:30Z running 0, queued 0
+2026-11-07T22:05:30Z running 0, queued 0
+2026-11-07T22:07:30Z running 0, queued 0
+2026-11-07T22:09:30Z running 0, queued 0
+2026-11-07T22:11:30Z running 0, queued 0
+2026-11-07T22:13:30Z running 0, queued 0
+2026-11-07T22:15:30Z running 0, queued 0
+2026-11-07T22:17:30Z running 0, queued 0
+2026-11-07T22:19:30Z running 0, queued 0
+2026-11-07T22:21:30Z running 0, queued 0
+2026-11-07T22:23:30Z running 0, queued 0
+2026-11-07T22:25:30Z running 0, queued 0
+2026-11-07T22:27:30Z running 0, queued 0
+2026-11-07T22:29:30Z running 0, queued 0
+2026-11-07T22:31:30Z running 0, queued 0
+2026-11-07T22:33:30Z running 0, queued 0
+2026-11-07T22:35:30Z running 0, queued 0
+2026-11-07T22:37:30Z running 0, queued 0
+2026-11-07T22:39:30Z running 0, queued 0
+2026-11-07T22:41:30Z running 0, queued 0
+2026-11-07T22:43:30Z running 0, queued 0
+2026-11-07T22:45:30Z running 0, queued 0
+2026-11-07T22:47:30Z running 0, queued 0
+2026-11-07T22:49:30Z running 0, queued 0
+2026-11-07T22:51:30Z running 0, queued 0
+2026-11-07T22:53:30Z running 0, queued 0
+2026-11-07T22:55:30Z running 0, queued 0
+2026-11-07T22:57:30Z running 0, queued 0
+2026-11-07T22:59:30Z running 0, queued 0
+2026-11-07T23:01:30Z running 0, queued 0
+2026-11-07T23:03:30Z running 0, queued 0
+2026-11-07T23:05:30Z running 0, queued 0
+2026-11-07T23:07:30Z running 0, queued 0
+2026-11-07T23:09:30Z running 0, queued 0
+2026-11-07T23:11:30Z running 0, queued 0
+2026-11-07T23:13:30Z running 0, queued 0
+2026-11-07T23:15:30Z running 0, queued 0
+2026-11-07T23:17:30Z running 0, queued 0
+2026-11-07T23:19:30Z running 0, queued 0
+2026-11-07T23:21:30Z running 0, queued 0
+2026-11-07T23:23:30Z running 0, queued 0
+2026-11-07T23:25:30Z running 0, queued 0
+2026-11-07T23:27:30Z running 0, queued 0
+2026-11-07T23:29:30Z running 0, queued 0
+2026-11-07T23:31:30Z running 0, queued 0
+2026-11-07T23:33:30Z running 0, queued 0
+2026-11-07T23:35:30Z running 0, queued 0
+2026-11-07T23:37:30Z running 0, queued 0
+2026-11-07T23:39:30Z running 0, queued 0
+2026-11-07T23:41:30Z running 0, queued 0
+2026-11-07T23:43:30Z running 0, queued 0
+2026-11-07T23:45:30Z running 0, queued 0
+2026-11-07T23:47:30Z running 0, queued 0
+2026-11-07T23:49:30Z running 0, queued 0
+2026-11-07T23:51:30Z running 0, queued 0
+2026-11-07T23:53:30Z running 0, queued 0
+2026-11-07T23:55:30Z running 0, queued 0
+2026-11-07T23:57:30Z running 0, queued 0
+2026-11-07T23:59:30Z running 0, queued 0
+2026-11-08T00:01:30Z running 0, queued 0
+2026-11-08T00:03:30Z running 0, queued 0
+2026-11-08T00:05:30Z running 0, queued 0
+2026-11-08T00:07:30Z running 0, queued 0
+2026-11-08T00:09:30Z running 0, queued 0
+2026-11-08T00:11:30Z running 0, queued 0
+2026-11-08T00:13:30Z running 0, queued 0
+2026-11-08T00:15:30Z running 0, queued 0
+2026-11-08T00:17:30Z running 0, queued 0
+2026-11-08T00:19:30Z running 0, queued 0
+2026-11-08T00:21:30Z running 0, queued 0
+2026-11-08T00:23:30Z running 0, queued 0
+2026-11-08T00:25:30Z running 0, queued 0
+2026-11-08T00:27:30Z running 0, queued 0
+2026-11-08T00:29:30Z running 0, queued 0
+2026-11-08T00:31:30Z running 0, queued 0
+2026-11-08T00:33:30Z running 0, queued 0
+2026-11-08T00:35:30Z running 0, queued 0
+2026-11-08T00:37:30Z running 0, queued 0
+2026-11-08T00:39:30Z running 0, queued 0
+2026-11-08T00:41:30Z running 0, queued 0
+2026-11-08T00:43:30Z running 0, queued 0
+2026-11-08T00:45:30Z running 0, queued 0
+2026-11-08T00:47:30Z running 0, queued 0
+2026-11-08T00:49:30Z running 0, queued 0
+2026-11-08T00:51:30Z running 0, queued 0
+2026-11-08T00:53:30Z running 0, queued 0
+2026-11-08T00:55:30Z running 0, queued 0
+2026-11-08T00:57:30Z running 0, queued 0
+2026-11-08T00:59:30Z running 0, queued 0
+2026-11-08T01:01:30Z running 0, queued 0
+2026-11-08T01:03:31Z running 0, queued 0
+2026-11-08T01:05:31Z running 0, queued 0
+2026-11-08T01:07:31Z running 0, queued 0
+2026-11-08T01:09:31Z running 0, queued 0
+2026-11-08T01:11:31Z running 0, queued 0
+2026-11-08T01:13:31Z running 0, queued 0
+2026-11-08T01:15:31Z running 0, queued 0
+2026-11-08T01:17:31Z running 0, queued 0
+2026-11-08T01:19:31Z running 0, queued 0
+2026-11-08T01:21:31Z running 0, queued 0
+2026-11-08T01:23:31Z running 0, queued 0
+2026-11-08T01:25:31Z running 0, queued 0
+2026-11-08T01:27:31Z running 0, queued 0
+2026-11-08T01:29:31Z running 0, queued 0
+2026-11-08T01:31:31Z running 0, queued 0
+2026-11-08T01:33:31Z running 0, queued 0
+2026-11-08T01:35:31Z running 0, queued 0
+2026-11-08T01:37:31Z running 0, queued 0
+2026-11-08T01:39:31Z running 0, queued 0
+2026-11-08T01:41:31Z running 0, queued 0
+2026-11-08T01:43:31Z running 0, queued 0
+2026-11-08T01:45:31Z running 0, queued 0
+2026-11-08T01:47:31Z running 0, queued 0
+2026-11-08T01:49:31Z running 0, queued 0
+2026-11-08T01:51:31Z running 0, queued 0
+2026-11-08T01:53:31Z running 0, queued 0
+2026-11-08T01:55:31Z running 0, queued 0
+2026-11-08T01:57:31Z running 0, queued 0
+2026-11-08T01:59:31Z running 0, queued 0
+2026-11-08T02:01:31Z running 0, queued 0
+2026-11-08T02:03:31Z running 0, queued 0
+2026-11-08T02:05:31Z running 0, queued 0
+2026-11-08T02:07:31Z running 0, queued 0
+2026-11-08T02:09:31Z running 0, queued 0
+2026-11-08T02:11:31Z running 0, queued 0
+2026-11-08T02:13:31Z running 0, queued 0
+2026-11-08T02:15:31Z running 0, queued 0
+2026-11-08T02:17:31Z running 0, queued 0
+2026-11-08T02:19:31Z running 0, queued 0
+2026-11-08T02:21:31Z running 0, queued 0
+2026-11-08T02:23:31Z running 0, queued 0
+2026-11-08T02:25:31Z running 0, queued 0
+2026-11-08T02:27:31Z running 0, queued 0
+2026-11-08T02:29:31Z running 0, queued 0
+2026-11-08T02:31:31Z running 0, queued 0
+2026-11-08T02:33:31Z running 0, queued 0
+2026-11-08T02:35:31Z running 0, queued 0
+2026-11-08T02:37:31Z running 0, queued 0
+2026-11-08T02:39:31Z running 0, queued 0
+2026-11-08T02:41:31Z running 0, queued 0
+2026-11-08T02:43:31Z running 0, queued 0
+2026-11-08T02:45:31Z running 0, queued 0
+2026-11-08T02:47:31Z running 0, queued 0
+2026-11-08T02:49:31Z running 0, queued 0
+2026-11-08T02:51:31Z running 0, queued 0
+2026-11-08T02:53:31Z running 0, queued 0
+2026-11-08T02:55:31Z running 0, queued 0
+2026-11-08T02:57:31Z running 0, queued 0
+2026-11-08T02:59:31Z running 0, queued 0
+2026-11-08T03:01:31Z running 0, queued 0
+2026-11-08T03:03:31Z running 0, queued 0
+2026-11-08T03:05:31Z running 0, queued 0
+2026-11-08T03:07:31Z running 0, queued 0
+2026-11-08T03:09:31Z running 0, queued 0
+2026-11-08T03:11:31Z running 0, queued 0
+2026-11-08T03:13:31Z running 0, queued 0
+2026-11-08T03:15:31Z running 0, queued 0
+2026-11-08T03:17:31Z running 0, queued 0
+2026-11-08T03:19:31Z running 0, queued 0
+2026-11-08T03:21:31Z running 0, queued 0
+2026-11-08T03:23:31Z running 0, queued 0
+2026-11-08T03:25:32Z running 0, queued 0
+2026-11-08T03:27:32Z running 0, queued 0
+2026-11-08T03:29:32Z running 0, queued 0
+2026-11-08T03:31:32Z running 0, queued 0
+2026-11-08T03:33:32Z running 0, queued 0
+2026-11-08T03:35:32Z running 0, queued 0
+2026-11-08T03:37:32Z running 0, queued 0
+2026-11-08T03:39:32Z running 0, queued 0
+2026-11-08T03:41:32Z running 0, queued 0
+2026-11-08T03:43:32Z running 0, queued 0
+2026-11-08T03:45:32Z running 0, queued 0
+2026-11-08T03:47:32Z running 0, queued 0
+2026-11-08T03:49:32Z running 0, queued 0
+2026-11-08T03:51:32Z running 0, queued 0
+2026-11-08T03:53:32Z running 0, queued 0
+2026-11-08T03:55:32Z running 0, queued 0
+2026-11-08T03:57:32Z running 0, queued 0
+2026-11-08T03:59:32Z running 0, queued 0
+2026-11-08T04:01:32Z running 0, queued 0
+2026-11-08T04:03:32Z running 0, queued 0
+2026-11-08T04:05:32Z running 0, queued 0
+2026-11-08T04:07:32Z running 0, queued 0
+2026-11-08T04:09:32Z running 0, queued 0
+2026-11-08T04:11:32Z running 0, queued 0
+2026-11-08T04:13:32Z running 0, queued 0
+2026-11-08T04:15:32Z running 0, queued 0
+2026-11-08T04:17:32Z running 0, queued 0
+2026-11-08T04:19:32Z running 0, queued 0
+2026-11-08T04:21:32Z running 0, queued 0
+2026-11-08T04:23:32Z running 0, queued 0
+2026-11-08T04:25:32Z running 0, queued 0
+2026-11-08T04:27:32Z running 0, queued 0
+2026-11-08T04:29:32Z running 0, queued 0
+2026-11-08T04:31:32Z running 0, queued 0
+2026-11-08T04:33:32Z running 0, queued 0
+2026-11-08T04:35:32Z running 0, queued 0
+2026-11-08T04:37:32Z running 0, queued 0
+2026-11-08T04:39:32Z running 0, queued 0
+2026-11-08T04:41:32Z running 0, queued 0
+2026-11-08T04:43:32Z running 0, queued 0
+2026-11-08T04:45:32Z running 0, queued 0
+2026-11-08T04:47:32Z running 0, queued 0
+2026-11-08T04:49:32Z running 0, queued 0
+2026-11-08T04:51:32Z running 0, queued 0
+2026-11-08T04:53:32Z running 0, queued 0
+2026-11-08T04:55:32Z running 0, queued 0
+2026-11-08T04:57:32Z running 0, queued 0
+2026-11-08T04:59:32Z running 0, queued 0
+2026-11-08T05:01:32Z running 0, queued 0
+2026-11-08T05:03:32Z running 0, queued 0
+2026-11-08T05:05:32Z running 0, queued 0
+2026-11-08T05:07:32Z running 0, queued 0
+2026-11-08T05:09:32Z running 0, queued 0
+2026-11-08T05:11:32Z running 0, queued 0
+2026-11-08T05:13:32Z running 0, queued 0
+2026-11-08T05:15:32Z running 0, queued 0
+2026-11-08T05:17:32Z running 0, queued 0
+2026-11-08T05:19:32Z running 0, queued 0
+2026-11-08T05:21:32Z running 0, queued 0
+2026-11-08T05:23:32Z running 0, queued 0
+2026-11-08T05:25:32Z running 0, queued 0
+2026-11-08T05:27:33Z running 0, queued 0
+2026-11-08T05:29:33Z running 0, queued 0
+2026-11-08T05:31:33Z running 0, queued 0
+2026-11-08T05:33:33Z running 0, queued 0
+2026-11-08T05:35:33Z running 0, queued 0
+2026-11-08T05:37:33Z running 0, queued 0
+2026-11-08T05:39:33Z running 0, queued 0
+2026-11-08T05:41:33Z running 0, queued 0
+2026-11-08T05:43:33Z running 0, queued 0
+2026-11-08T05:45:33Z running 0, queued 0
+2026-11-08T05:47:33Z running 0, queued 0
+2026-11-08T05:49:33Z running 0, queued 0
+2026-11-08T05:51:33Z running 0, queued 0
+2026-11-08T05:53:33Z running 0, queued 0
+2026-11-08T05:55:33Z running 0, queued 0
+2026-11-08T05:57:33Z running 0, queued 0
+2026-11-08T05:59:33Z running 0, queued 0
+2026-11-08T06:01:33Z running 0, queued 0
+2026-11-08T06:03:33Z running 0, queued 0
+2026-11-08T06:05:33Z running 0, queued 0
+2026-11-08T06:07:33Z running 0, queued 0
+2026-11-08T06:09:33Z running 0, queued 0
+2026-11-08T06:11:33Z running 0, queued 0
+2026-11-08T06:13:33Z running 0, queued 0
+2026-11-08T06:15:33Z running 0, queued 0
+2026-11-08T06:17:33Z running 0, queued 0
+2026-11-08T06:19:33Z running 0, queued 0
+2026-11-08T06:21:33Z running 0, queued 0
+2026-11-08T06:23:33Z running 0, queued 0
+2026-11-08T06:25:33Z running 0, queued 0
+2026-11-08T06:27:33Z running 0, queued 0
+2026-11-08T06:29:33Z running 0, queued 0
+2026-11-08T06:31:34Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-pub30-1
+ 
+2026-11-08T06:33:40Z pushed r12var-pub30-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-pub30-2
+ 
+2026-11-08T06:33:44Z pushed r12var-pub30-2 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-pub30-3
+ 
+2026-11-08T06:33:48Z pushed r12var-pub30-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-r10hc-1
+ 
+2026-11-08T06:33:52Z pushed r12var-r10hc-1 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-r10hc-2
+ 
+2026-11-08T06:33:55Z pushed r12var-r10hc-2 rc=0
+2026-11-08T06:33:55Z running 5, queued 2
+2026-11-08T06:36:09Z running 5, queued 2
+2026-11-08T06:38:21Z running 5, queued 2
+2026-11-08T06:40:34Z running 5, queued 2
+2026-11-08T06:42:46Z running 5, queued 2
+2026-11-08T06:45:00Z running 5, queued 2
+2026-11-08T06:47:12Z running 5, queued 2
+2026-11-08T06:49:24Z running 5, queued 2
+2026-11-08T06:51:35Z running 5, queued 2
+2026-11-08T06:53:48Z running 5, queued 2
+2026-11-08T06:56:00Z running 5, queued 2
+2026-11-08T06:58:12Z running 5, queued 2
+2026-11-08T07:00:24Z running 5, queued 2
+2026-11-08T07:02:36Z running 5, queued 2
+2026-11-08T07:04:49Z running 5, queued 2
+2026-11-08T07:07:00Z running 5, queued 2
+2026-11-08T07:09:12Z running 5, queued 2
+2026-11-08T07:11:24Z running 5, queued 2
+2026-11-08T07:13:35Z running 5, queued 2
+2026-11-08T07:15:50Z running 5, queued 2
+2026-11-08T07:18:06Z running 5, queued 2
+2026-11-08T07:20:21Z running 5, queued 2
+2026-11-08T07:22:36Z running 5, queued 2
+2026-11-08T07:24:51Z running 5, queued 2
+2026-11-08T07:27:06Z running 5, queued 2
+2026-11-08T07:29:22Z running 5, queued 2
+2026-11-08T07:31:38Z running 5, queued 2
+2026-11-08T07:33:53Z running 5, queued 2
+2026-11-08T07:36:09Z running 5, queued 2
+2026-11-08T07:38:12Z complete r12var-pub30-1
+r12var-pub30-1 0 355kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 367kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 419kB/s]
+
+  0%|          | 0.00/2.22k [00:00<?, ?B/s]
+100%|##########| 2.22k/2.22k [00:00<00:00, 749kB/s]
+
+r12var-pub30-1: merged 9 summaries (9 progress lines, 9 jobs)
+2026-11-08T07:38:44Z complete r12var-pub30-2
+r12var-pub30-2 0 19kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 484kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 471kB/s]
+
+  0%|          | 0.00/2.41k [00:00<?, ?B/s]
+100%|##########| 2.41k/2.41k [00:00<00:00, 1.03MB/s]
+
+r12var-pub30-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T07:39:16Z complete r12var-pub30-3
+r12var-pub30-3 0 58kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 303kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 458kB/s]
+
+  0%|          | 0.00/2.57k [00:00<?, ?B/s]
+100%|##########| 2.57k/2.57k [00:00<00:00, 1.06MB/s]
+
+r12var-pub30-3: merged 11 summaries (11 progress lines, 11 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-r10hc-3
+ 
+2026-11-08T07:39:58Z pushed r12var-r10hc-3 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r12var-r10hc-4
+ 
+2026-11-08T07:40:03Z pushed r12var-r10hc-4 rc=0
+2026-11-08T07:40:03Z running 4, queued 0
+2026-11-08T07:42:15Z running 4, queued 0
+2026-11-08T07:44:27Z running 4, queued 0
+2026-11-08T07:46:33Z complete r12var-r10hc-2
+r12var-r10hc-2 0 43kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 321kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 439kB/s]
+
+  0%|          | 0.00/2.37k [00:00<?, ?B/s]
+100%|##########| 2.37k/2.37k [00:00<00:00, 1.75MB/s]
+
+r12var-r10hc-2: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T07:47:08Z running 3, queued 0
+2026-11-08T07:49:17Z running 3, queued 0
+2026-11-08T07:51:27Z running 3, queued 0
+2026-11-08T07:53:31Z complete r12var-r10hc-1
+r12var-r10hc-1 0 337kB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 462kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 504kB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|##########| 2.39k/2.39k [00:00<00:00, 811kB/s]
+
+r12var-r10hc-1: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T07:54:06Z running 2, queued 0
+2026-11-08T07:56:12Z running 2, queued 0
+2026-11-08T07:58:18Z running 2, queued 0
+2026-11-08T08:00:23Z running 2, queued 0
+2026-11-08T08:02:27Z running 2, queued 0
+2026-11-08T08:04:33Z running 2, queued 0
+2026-11-08T08:06:37Z running 2, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g00c00
+ 
+2026-11-08T08:08:42Z pushed r13g00c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g00c01
+ 
+2026-11-08T08:08:45Z pushed r13g00c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g00c02
+ 
+2026-11-08T08:08:48Z pushed r13g00c02 rc=0
+2026-11-08T08:08:48Z running 5, queued 2
+2026-11-08T08:10:57Z running 5, queued 2
+2026-11-08T08:13:14Z running 5, queued 2
+2026-11-08T08:15:40Z running 5, queued 2
+2026-11-08T08:17:49Z running 5, queued 2
+2026-11-08T08:19:55Z running 5, queued 2
+2026-11-08T08:22:01Z running 5, queued 2
+2026-11-08T08:24:07Z running 5, queued 2
+2026-11-08T08:26:12Z running 5, queued 2
+2026-11-08T08:28:30Z running 5, queued 2
+2026-11-08T08:30:36Z running 5, queued 2
+2026-11-08T08:32:42Z running 5, queued 2
+2026-11-08T08:34:48Z running 5, queued 2
+2026-11-08T08:36:54Z running 5, queued 2
+2026-11-08T08:39:11Z running 5, queued 2
+2026-11-08T08:41:17Z running 5, queued 2
+2026-11-08T08:43:20Z complete r13g00c00
+r13g00c00 0 47kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 424kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 828kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 3.01MB/s]
+
+r13g00c00: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g00c03
+ 
+2026-11-08T08:43:56Z pushed r13g00c03 rc=0
+2026-11-08T08:43:56Z running 5, queued 1
+2026-11-08T08:46:02Z running 5, queued 1
+2026-11-08T08:48:05Z complete r13g00c01
+r13g00c01 0 9MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.00MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 561kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.67MB/s]
+
+r13g00c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T08:48:39Z complete r13g00c02
+r13g00c02 0 3kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 450kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.25MB/s]
+
+r13g00c02: merged 24 summaries (24 progress lines, 24 jobs)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g00c04
+ 
+2026-11-08T08:49:17Z pushed r13g00c04 rc=0
+2026-11-08T08:49:17Z running 4, queued 0
+2026-11-08T08:51:31Z running 4, queued 0
+2026-11-08T08:54:08Z running 4, queued 0
+2026-11-08T08:56:13Z running 4, queued 0
+2026-11-08T08:58:18Z running 4, queued 0
+2026-11-08T09:00:22Z running 4, queued 0
+2026-11-08T09:02:27Z running 4, queued 0
+2026-11-08T09:04:28Z complete r12var-r10hc-3
+r12var-r10hc-3 0 82kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 429kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 833kB/s]
+
+  0%|          | 0.00/2.39k [00:00<?, ?B/s]
+100%|##########| 2.39k/2.39k [00:00<00:00, 6.63MB/s]
+
+r12var-r10hc-3: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T09:04:46Z complete r12var-r10hc-4
+r12var-r10hc-4 0 56MB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|##########| 1.01k/1.01k [00:00<00:00, 792kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 2.04MB/s]
+
+  0%|          | 0.00/2.38k [00:00<?, ?B/s]
+100%|##########| 2.38k/2.38k [00:00<00:00, 535kB/s]
+
+r12var-r10hc-4: merged 10 summaries (10 progress lines, 10 jobs)
+2026-11-08T09:06:24Z running 2, queued 0
+2026-11-08T09:08:27Z running 2, queued 0
+2026-11-08T09:10:29Z running 2, queued 0
+2026-11-08T09:12:31Z running 2, queued 0
+2026-11-08T09:14:34Z running 2, queued 0
+2026-11-08T09:16:36Z running 2, queued 0
+2026-11-08T09:18:39Z running 2, queued 0
+2026-11-08T09:20:41Z running 2, queued 0
+2026-11-08T09:22:43Z running 2, queued 0
+2026-11-08T09:24:45Z complete r13g00c03
+r13g00c03 0 02kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 506kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 739kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.71MB/s]
+
+r13g00c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T09:25:19Z running 1, queued 0
+2026-11-08T09:27:20Z complete r13g00c04
+r13g00c04 0 85MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 941kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 314kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.65MB/s]
+
+r13g00c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T09:27:50Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g01c00
+ 
+2026-11-08T09:29:53Z pushed r13g01c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g01c01
+ 
+2026-11-08T09:29:56Z pushed r13g01c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g01c02
+ 
+2026-11-08T09:29:58Z pushed r13g01c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g01c03
+ 
+2026-11-08T09:30:01Z pushed r13g01c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g01c04
+ 
+2026-11-08T09:30:04Z pushed r13g01c04 rc=0
+2026-11-08T09:30:04Z running 5, queued 0
+2026-11-08T09:32:10Z running 5, queued 0
+2026-11-08T09:34:15Z running 5, queued 0
+2026-11-08T09:36:21Z running 5, queued 0
+2026-11-08T09:38:26Z running 5, queued 0
+2026-11-08T09:40:33Z running 5, queued 0
+2026-11-08T09:42:39Z running 5, queued 0
+2026-11-08T09:44:46Z running 5, queued 0
+2026-11-08T09:46:51Z running 5, queued 0
+2026-11-08T09:48:57Z running 5, queued 0
+2026-11-08T09:51:03Z running 5, queued 0
+2026-11-08T09:53:09Z running 5, queued 0
+2026-11-08T09:55:15Z running 5, queued 0
+2026-11-08T09:57:21Z running 5, queued 0
+2026-11-08T09:59:23Z complete r13g01c01
+r13g01c01 0 05MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 428kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 416kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.49MB/s]
+
+r13g01c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:00:01Z running 4, queued 0
+2026-11-08T10:02:06Z running 4, queued 0
+2026-11-08T10:04:10Z running 4, queued 0
+2026-11-08T10:06:15Z running 4, queued 0
+2026-11-08T10:08:16Z complete r13g01c00
+r13g01c00 0 0kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.02MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 485kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 4.88MB/s]
+
+r13g01c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:08:49Z complete r13g01c02
+r13g01c02 0 09MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 472kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 430kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.27MB/s]
+
+r13g01c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:09:22Z complete r13g01c04
+r13g01c04 0 26kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 442kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 813kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.67MB/s]
+
+r13g01c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:09:58Z running 1, queued 0
+2026-11-08T10:11:59Z complete r13g01c03
+r13g01c03 0 6kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.08MB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 404kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 2.14MB/s]
+
+r13g01c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:12:34Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g02c00
+ 
+2026-11-08T10:14:36Z pushed r13g02c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g02c01
+ 
+2026-11-08T10:14:39Z pushed r13g02c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g02c02
+ 
+2026-11-08T10:14:42Z pushed r13g02c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g02c03
+ 
+2026-11-08T10:14:45Z pushed r13g02c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g02c04
+ 
+2026-11-08T10:14:48Z pushed r13g02c04 rc=0
+2026-11-08T10:14:48Z running 5, queued 0
+2026-11-08T10:16:54Z running 5, queued 0
+2026-11-08T10:19:00Z running 5, queued 0
+2026-11-08T10:21:05Z running 5, queued 0
+2026-11-08T10:23:11Z running 5, queued 0
+2026-11-08T10:25:16Z running 5, queued 0
+2026-11-08T10:27:22Z running 5, queued 0
+2026-11-08T10:29:28Z running 5, queued 0
+2026-11-08T10:31:34Z running 5, queued 0
+2026-11-08T10:33:39Z running 5, queued 0
+2026-11-08T10:35:45Z running 5, queued 0
+2026-11-08T10:37:51Z running 5, queued 0
+2026-11-08T10:39:56Z running 5, queued 0
+2026-11-08T10:41:59Z complete r13g02c01
+r13g02c01 0 1kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 2.25MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 194kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.88MB/s]
+
+r13g02c01: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:42:37Z running 4, queued 0
+2026-11-08T10:44:42Z running 4, queued 0
+2026-11-08T10:46:47Z running 4, queued 0
+2026-11-08T10:48:51Z running 4, queued 0
+2026-11-08T10:50:56Z running 4, queued 0
+2026-11-08T10:53:01Z running 4, queued 0
+2026-11-08T10:55:02Z complete r13g02c00
+r13g02c00 0 4kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 1.12MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 467kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 5.00MB/s]
+
+r13g02c00: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:55:36Z complete r13g02c02
+r13g02c02 0 27kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 453kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 716kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.09MB/s]
+
+r13g02c02: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:56:11Z complete r13g02c04
+r13g02c04 0 02kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 464kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 1.20MB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 998kB/s]
+
+r13g02c04: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T10:56:44Z running 1, queued 0
+2026-11-08T10:58:45Z running 1, queued 0
+2026-11-08T11:00:46Z running 1, queued 0
+2026-11-08T11:02:48Z running 1, queued 0
+2026-11-08T11:04:49Z running 1, queued 0
+2026-11-08T11:06:50Z complete r13g02c03
+r13g02c03 0 06kB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|##########| 1.03k/1.03k [00:00<00:00, 804kB/s]
+
+  0%|          | 0.00/1.02k [00:00<?, ?B/s]
+100%|##########| 1.02k/1.02k [00:00<00:00, 443kB/s]
+
+  0%|          | 0.00/4.94k [00:00<?, ?B/s]
+100%|##########| 4.94k/4.94k [00:00<00:00, 1.99MB/s]
+
+r13g02c03: merged 24 summaries (24 progress lines, 24 jobs)
+2026-11-08T11:07:24Z running 0, queued 0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g03c00
+ 
+2026-11-08T11:09:27Z pushed r13g03c00 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g03c01
+ 
+2026-11-08T11:09:30Z pushed r13g03c01 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g03c02
+ 
+2026-11-08T11:09:33Z pushed r13g03c02 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g03c03
+ 
+2026-11-08T11:09:35Z pushed r13g03c03 rc=0
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/neelsiri/sb26-r6-r13g03c04
+ 
+2026-11-08T11:09:38Z pushed r13g03c04 rc=0
+2026-11-08T11:09:38Z running 5, queued 0
+2026-11-08T11:11:44Z running 5, queued 0
+2026-11-08T11:13:50Z running 5, queued 0
+2026-11-08T11:15:56Z running 5, queued 0
+2026-11-08T11:18:01Z running 5, queued 0
+2026-11-08T11:20:08Z running 5, queued 0
+2026-11-08T11:22:14Z running 5, queued 0
+2026-11-08T11:24:20Z running 5, queued 0
+2026-11-08T11:28:02Z running 5, queued 0

@@ -1,0 +1,401 @@
+[
+ {
+  "id": "quirk__P30__building_train_1__fairbanks_1",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "fairbanks_1",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__P30__building_train_8__fairbanks_8",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_8",
+   "--weather",
+   "fairbanks_8",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__P30__building_train_2__denver_8",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_2",
+   "--weather",
+   "denver_8",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__P30__building_train_1__atlanta_2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "atlanta_2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__P30__building_train_1__phoenix_5",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "phoenix_5",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__P30__building_train_4__singapore_3",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_4",
+   "--weather",
+   "singapore_3",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30"
+  ]
+ },
+ {
+  "id": "quirk__HC2__building_train_7__fairbanks_c2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_7",
+   "--weather",
+   "fairbanks_c2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r7hc",
+   "--results-dir",
+   "out/quirk_probe/HC2"
+  ]
+ },
+ {
+  "id": "quirk__HC2__building_train_5__minneapolis_c2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_5",
+   "--weather",
+   "minneapolis_c2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r7hc",
+   "--results-dir",
+   "out/quirk_probe/HC2"
+  ]
+ },
+ {
+  "id": "quirk__HC2__building_train_2__denver_c2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_2",
+   "--weather",
+   "denver_c2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r7hc",
+   "--results-dir",
+   "out/quirk_probe/HC2"
+  ]
+ },
+ {
+  "id": "quirk__HC2__building_train_1__fairbanks_c3",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "fairbanks_c3",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r7hc",
+   "--results-dir",
+   "out/quirk_probe/HC2"
+  ]
+ },
+ {
+  "id": "quirkref__P30__building_train_1__atlanta_2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/quirk_probe_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "atlanta_2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/quirk_probe/P30",
+   "--no-quirk"
+  ]
+ },
+ {
+  "id": "lp__P30__building_train_8__fairbanks_8",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_8",
+   "--weather",
+   "fairbanks_8",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/lp_bound/P30",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__P30__building_train_1__fairbanks_1",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_1",
+   "--weather",
+   "fairbanks_1",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/lp_bound/P30",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__P30__building_train_7__fairbanks_7",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_7",
+   "--weather",
+   "fairbanks_7",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/lp_bound/P30",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__P30__building_train_2__fairbanks_2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_2",
+   "--weather",
+   "fairbanks_2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/lp_bound/P30",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__P30__building_train_4__denver_2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_4",
+   "--weather",
+   "denver_2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/training_scenarios",
+   "--results-dir",
+   "out/lp_bound/P30",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__HS__building_train_8__fairbanks_c2",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_8",
+   "--weather",
+   "fairbanks_c2",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r6hs",
+   "--results-dir",
+   "out/lp_bound/HS",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__HS__building_train_7__denver_c1",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_7",
+   "--weather",
+   "denver_c1",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r6hs",
+   "--results-dir",
+   "out/lp_bound/HS",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ },
+ {
+  "id": "lp__HS__building_train_4__minneapolis_1",
+  "cwd": "/Users/neel.sirivara/neurips/sb/r9",
+  "argv": [
+   "/Users/neel.sirivara/neurips/sb/kit/.venv/bin/python",
+   "src/lp_bound_r9.py",
+   "--policy-file",
+   "policies/v10.py",
+   "--building",
+   "building_train_4",
+   "--weather",
+   "minneapolis_1",
+   "--scenarios-dir",
+   "/Users/neel.sirivara/neurips/sb/r6/sb/kit/smart_buildings/heldout_scenarios_r6hs",
+   "--results-dir",
+   "out/lp_bound/HS",
+   "--steps",
+   "8640",
+   "--win",
+   "8640",
+   "--blk",
+   "6",
+   "--both"
+  ]
+ }
+]

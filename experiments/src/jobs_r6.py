@@ -28,6 +28,8 @@ SETS = {
     "pub30": "training_scenarios", "r6hc": "heldout_scenarios_r6hc", "r6hs": "heldout_scenarios_r6hs",
     "r5m": "heldout_scenarios_r5m", "r5ms": "heldout_scenarios_r5ms", "r5x": "heldout_scenarios_r5x",
     "r4c": "heldout_scenarios_r4c", "r7hc": "heldout_scenarios_r7hc",
+    # round 10 (make_sets_r10.py): HC3 cold confirmation, HH hot confirmation, D10 development only
+    "r10hc": "heldout_scenarios_r10hc", "r10hh": "heldout_scenarios_r10hh", "r10dev": "heldout_scenarios_r10dev",
 }
 FD_BUILDINGS = ("building_0604", "building_0607", "building_0610", "building_0639")
 V9 = R6 / "policies" / "v9_screen2.py"  # frozen copy of policy_candidates/transfer_policy_v9.py (v9_screen.py + sb_boost_cold)

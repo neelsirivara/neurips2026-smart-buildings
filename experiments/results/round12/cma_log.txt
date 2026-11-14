@@ -1,0 +1,237 @@
+2026-11-07T01:29:11Z enqueue 1 -> enqueued 1 
+2026-11-07T01:29:12Z enqueue 10 -> enqueued 10 
+2026-11-07T01:29:12Z gen 0: enqueued 10 candidates, sigma 0.2500
+2026-11-07T02:39:08Z Mac not used this generation (LOCK SPEECH FREE 59)
+2026-11-07T03:36:10Z gen 0 scored: best 0.9854, median 1.0053; sigma -> 0.2354
+2026-11-07T03:36:11Z Mac not used this generation (LOCK SPEECH FREE 64)
+2026-11-07T03:36:11Z enqueue 10 -> enqueued 10 
+2026-11-07T03:36:11Z gen 1: enqueued 10 candidates (0 on the Mac), sigma 0.2354
+2026-11-07T05:06:12Z gen 1 scored: best 0.9834, median 0.9907; sigma -> 0.2219
+2026-11-07T05:09:34Z enqueue 5 -> enqueued 5 
+2026-11-07T05:09:34Z gen 2: recovered after the launch-ssh timeout (5 on the Mac, already running; 5 enqueued on Kaggle)
+2026-11-07T05:09:58Z Mac fetch: 10 summaries
+2026-11-07T05:10:05Z Mac fetch: 10 summaries
+2026-11-07T05:15:06Z Mac fetch: 24 summaries
+2026-11-07T05:20:07Z Mac fetch: 14 summaries
+2026-11-07T05:25:08Z Mac fetch: 30 summaries
+2026-11-07T05:30:08Z Mac fetch: 24 summaries
+2026-11-07T05:35:09Z Mac fetch: 14 summaries
+2026-11-07T05:40:10Z Mac fetch: 30 summaries
+2026-11-07T05:45:11Z Mac fetch: 24 summaries
+2026-11-07T05:55:11Z gen 2 scored: best 0.9832, median 1.0033; sigma -> 0.2044
+2026-11-07T05:55:15Z gen 3: Mac runner for 5 candidates started
+2026-11-07T05:55:15Z enqueue 5 -> enqueued 5 
+2026-11-07T05:55:15Z gen 3: enqueued 10 candidates (5 on the Mac), sigma 0.2044
+2026-11-07T06:00:16Z Mac fetch: 14 summaries
+2026-11-07T06:05:17Z Mac fetch: 28 summaries
+2026-11-07T06:10:17Z Mac fetch: 20 summaries
+2026-11-07T06:15:18Z Mac fetch: 37 summaries
+2026-11-07T06:20:19Z Mac fetch: 27 summaries
+2026-11-07T06:25:19Z Mac fetch: 20 summaries
+2026-11-07T06:30:21Z Mac fetch: 36 summaries
+2026-11-07T06:35:21Z Mac fetch: 24 summaries
+2026-11-07T06:40:21Z gen 3 scored: best 0.9778, median 1.0014; sigma -> 0.1952
+2026-11-07T06:40:23Z gen 4: Mac runner for 5 candidates started
+2026-11-07T06:40:24Z enqueue 5 -> enqueued 5 
+2026-11-07T06:40:24Z gen 4: enqueued 10 candidates (5 on the Mac), sigma 0.1952
+2026-11-07T06:45:25Z Mac fetch: 14 summaries
+2026-11-07T06:50:26Z Mac fetch: 28 summaries
+2026-11-07T06:55:27Z Mac fetch: 20 summaries
+2026-11-07T07:00:28Z Mac fetch: 37 summaries
+2026-11-07T07:05:28Z Mac fetch: 27 summaries
+2026-11-07T07:10:29Z Mac fetch: 20 summaries
+2026-11-07T07:15:31Z Mac fetch: 36 summaries
+2026-11-07T07:20:31Z Mac fetch: 24 summaries
+2026-11-07T07:25:31Z gen 4 scored: best 0.9824, median 0.9942; sigma -> 0.1846
+2026-11-07T07:25:34Z gen 5: Mac runner for 5 candidates started
+2026-11-07T07:25:34Z enqueue 5 -> enqueued 5 
+2026-11-07T07:25:34Z gen 5: enqueued 10 candidates (5 on the Mac), sigma 0.1846
+2026-11-07T07:30:35Z Mac fetch: 14 summaries
+2026-11-07T07:35:36Z Mac fetch: 28 summaries
+2026-11-07T07:40:37Z Mac fetch: 20 summaries
+2026-11-07T07:45:39Z Mac fetch: 36 summaries
+2026-11-07T07:50:40Z Mac fetch: 26 summaries
+2026-11-07T07:55:40Z Mac fetch: 19 summaries
+2026-11-07T08:00:41Z Mac fetch: 36 summaries
+2026-11-07T08:05:45Z Mac fetch: 24 summaries
+2026-11-07T08:10:45Z gen 5 scored: best 0.9837, median 0.9896; sigma -> 0.1733
+2026-11-07T08:10:47Z gen 6: Mac runner for 5 candidates started
+2026-11-07T08:10:47Z enqueue 5 -> enqueued 5 
+2026-11-07T08:10:47Z gen 6: enqueued 10 candidates (5 on the Mac), sigma 0.1733
+2026-11-07T08:15:48Z Mac fetch: 14 summaries
+2026-11-07T08:20:49Z Mac fetch: 28 summaries
+2026-11-07T08:25:49Z Mac fetch: 20 summaries
+2026-11-07T08:30:50Z Mac fetch: 37 summaries
+2026-11-07T08:35:52Z Mac fetch: 27 summaries
+2026-11-07T08:40:53Z Mac fetch: 19 summaries
+2026-11-07T08:45:54Z Mac fetch: 36 summaries
+2026-11-07T08:50:55Z Mac fetch: 24 summaries
+2026-11-07T08:55:55Z gen 6 scored: best 0.9797, median 0.9909; sigma -> 0.1591
+2026-11-07T08:55:57Z gen 7: Mac runner for 5 candidates started
+2026-11-07T08:55:57Z enqueue 5 -> enqueued 5 
+2026-11-07T08:55:57Z gen 7: enqueued 10 candidates (5 on the Mac), sigma 0.1591
+2026-11-07T09:00:58Z Mac fetch: 14 summaries
+2026-11-07T09:05:59Z Mac fetch: 28 summaries
+2026-11-07T09:10:59Z Mac fetch: 20 summaries
+2026-11-07T09:16:00Z Mac fetch: 36 summaries
+2026-11-07T09:21:01Z Mac fetch: 26 summaries
+2026-11-07T09:26:01Z Mac fetch: 18 summaries
+2026-11-07T09:31:03Z Mac fetch: 36 summaries
+2026-11-07T09:36:04Z Mac fetch: 24 summaries
+2026-11-07T09:41:04Z gen 7 scored: best 0.9813, median 0.9932; sigma -> 0.1505
+2026-11-07T09:41:06Z gen 8: Mac runner for 5 candidates started
+2026-11-07T09:41:06Z enqueue 5 -> enqueued 5 
+2026-11-07T09:41:06Z gen 8: enqueued 10 candidates (5 on the Mac), sigma 0.1505
+2026-11-07T09:46:07Z Mac fetch: 14 summaries
+2026-11-07T09:51:07Z Mac fetch: 28 summaries
+2026-11-07T09:56:08Z Mac fetch: 20 summaries
+2026-11-07T10:01:09Z Mac fetch: 37 summaries
+2026-11-07T10:06:10Z Mac fetch: 27 summaries
+2026-11-07T10:11:10Z Mac fetch: 19 summaries
+2026-11-07T10:16:11Z Mac fetch: 36 summaries
+2026-11-07T10:21:12Z Mac fetch: 24 summaries
+2026-11-07T10:26:12Z gen 8 scored: best 0.9786, median 0.9882; sigma -> 0.1394
+2026-11-07T10:26:16Z gen 9: Mac runner for 5 candidates started
+2026-11-07T10:26:16Z enqueue 5 -> enqueued 5 
+2026-11-07T10:26:16Z gen 9: enqueued 10 candidates (5 on the Mac), sigma 0.1394
+2026-11-07T10:31:17Z Mac fetch: 14 summaries
+2026-11-07T10:36:18Z Mac fetch: 28 summaries
+2026-11-07T10:41:19Z Mac fetch: 20 summaries
+2026-11-07T10:46:20Z Mac fetch: 36 summaries
+2026-11-07T10:51:20Z Mac fetch: 26 summaries
+2026-11-07T10:56:21Z Mac fetch: 19 summaries
+2026-11-07T11:01:22Z Mac fetch: 36 summaries
+2026-11-07T11:06:23Z Mac fetch: 24 summaries
+2026-11-07T11:11:23Z gen 9 scored: best 0.9807, median 0.9857; sigma -> 0.1294
+2026-11-07T11:11:25Z gen 10: Mac runner for 5 candidates started
+2026-11-07T11:11:25Z enqueue 5 -> enqueued 5 
+2026-11-07T11:11:25Z gen 10: enqueued 10 candidates (5 on the Mac), sigma 0.1294
+2026-11-07T11:16:25Z Mac fetch: 14 summaries
+2026-11-07T11:21:26Z Mac fetch: 28 summaries
+2026-11-07T11:26:27Z Mac fetch: 20 summaries
+2026-11-07T11:31:28Z Mac fetch: 36 summaries
+2026-11-07T11:36:29Z Mac fetch: 24 summaries
+2026-11-07T11:41:31Z Mac fetch: 14 summaries
+2026-11-07T11:46:32Z Mac fetch: 30 summaries
+2026-11-07T11:51:32Z Mac fetch: 24 summaries
+2026-11-07T11:56:33Z gen 10 scored: best 0.9829, median 0.9917; sigma -> 0.1214
+2026-11-07T11:56:34Z gen 11: Mac runner for 5 candidates started
+2026-11-07T11:56:34Z enqueue 5 -> enqueued 5 
+2026-11-07T11:56:34Z gen 11: enqueued 10 candidates (5 on the Mac), sigma 0.1214
+2026-11-07T12:01:35Z Mac fetch: 14 summaries
+2026-11-07T12:06:36Z Mac fetch: 28 summaries
+2026-11-07T12:11:36Z Mac fetch: 20 summaries
+2026-11-07T12:16:37Z Mac fetch: 36 summaries
+2026-11-07T12:21:38Z Mac fetch: 26 summaries
+2026-11-07T12:26:38Z Mac fetch: 18 summaries
+2026-11-07T12:31:39Z Mac fetch: 36 summaries
+2026-11-07T12:36:40Z Mac fetch: 24 summaries
+2026-11-07T12:41:40Z gen 11 scored: best 0.9845, median 0.9920; sigma -> 0.1150
+2026-11-07T12:41:42Z gen 12: Mac runner for 5 candidates started
+2026-11-07T12:41:42Z enqueue 5 -> enqueued 5 
+2026-11-07T12:41:42Z gen 12: enqueued 10 candidates (5 on the Mac), sigma 0.1150
+2026-11-07T12:46:43Z Mac fetch: 14 summaries
+2026-11-07T12:51:44Z Mac fetch: 28 summaries
+2026-11-07T12:56:45Z Mac fetch: 20 summaries
+2026-11-07T13:01:46Z Mac fetch: 36 summaries
+2026-11-07T13:06:46Z Mac fetch: 26 summaries
+2026-11-07T13:11:47Z Mac fetch: 19 summaries
+2026-11-07T13:16:48Z Mac fetch: 36 summaries
+2026-11-07T13:21:49Z Mac fetch: 24 summaries
+2026-11-07T13:26:49Z gen 12 scored: best 0.9819, median 0.9873; sigma -> 0.1087
+2026-11-07T13:26:51Z gen 13: Mac runner for 5 candidates started
+2026-11-07T13:26:51Z enqueue 5 -> enqueued 5 
+2026-11-07T13:26:51Z gen 13: enqueued 10 candidates (5 on the Mac), sigma 0.1087
+2026-11-07T13:31:51Z Mac fetch: 14 summaries
+2026-11-07T13:36:52Z Mac fetch: 28 summaries
+2026-11-07T13:41:53Z Mac fetch: 20 summaries
+2026-11-07T13:46:54Z Mac fetch: 38 summaries
+2026-11-07T13:51:54Z Mac fetch: 27 summaries
+2026-11-07T13:56:56Z Mac fetch: 20 summaries
+2026-11-07T14:01:58Z Mac fetch: 36 summaries
+2026-11-07T14:06:59Z Mac fetch: 24 summaries
+2026-11-07T14:11:59Z gen 13 scored: best 0.9785, median 0.9835; sigma -> 0.1013
+2026-11-07T14:12:01Z gen 14: Mac runner for 5 candidates started
+2026-11-07T14:12:01Z enqueue 5 -> enqueued 5 
+2026-11-07T14:12:01Z gen 14: enqueued 10 candidates (5 on the Mac), sigma 0.1013
+2026-11-07T14:17:02Z Mac fetch: 14 summaries
+2026-11-07T14:22:02Z Mac fetch: 28 summaries
+2026-11-07T14:27:03Z Mac fetch: 20 summaries
+2026-11-07T14:32:04Z Mac fetch: 38 summaries
+2026-11-07T14:37:04Z Mac fetch: 26 summaries
+2026-11-07T14:42:05Z Mac fetch: 18 summaries
+2026-11-07T14:47:06Z Mac fetch: 36 summaries
+2026-11-07T14:52:06Z Mac fetch: 24 summaries
+2026-11-07T14:57:07Z gen 14 scored: best 0.9774, median 0.9840; sigma -> 0.0986
+2026-11-07T15:02:07Z done: generations or sigma limit reached
+2026-11-07T15:03:57Z confirm: HH on the Mac started
+2026-11-07T15:03:57Z enqueue 7 -> enqueued 7 
+2026-11-07T15:09:24Z Mac fetch: 4 summaries
+2026-11-07T15:14:25Z Mac fetch: 5 summaries
+2026-11-07T15:19:26Z Mac fetch: 9 summaries
+2026-11-07T15:24:27Z Mac fetch: 13 summaries
+2026-11-07T15:29:28Z Mac fetch: 18 summaries
+2026-11-07T15:34:29Z Mac fetch: 21 summaries
+2026-11-07T15:39:30Z Mac fetch: 24 summaries
+2026-11-07T15:44:31Z Mac fetch: 29 summaries
+2026-11-07T15:49:32Z Mac fetch: 32 summaries
+2026-11-07T15:54:35Z Mac fetch: 34 summaries
+2026-11-07T15:59:36Z Mac fetch: 37 summaries
+2026-11-07T16:04:38Z Mac fetch: 40 summaries
+2026-11-07T16:09:39Z Mac fetch: 40 summaries
+2026-11-07T16:14:41Z Mac fetch: 40 summaries
+2026-11-07T16:19:42Z Mac fetch: 40 summaries
+2026-11-07T16:24:43Z Mac fetch: 40 summaries
+2026-11-07T16:29:44Z Mac fetch: 40 summaries
+2026-11-07T16:34:45Z Mac fetch: 40 summaries
+2026-11-07T16:39:46Z Mac fetch: 40 summaries
+2026-11-07T16:44:48Z Mac fetch: 40 summaries
+2026-11-07T16:49:49Z Mac fetch: 40 summaries
+2026-11-07T16:54:50Z Mac fetch: 40 summaries
+2026-11-07T16:59:53Z Mac fetch: 40 summaries
+2026-11-07T17:04:55Z Mac fetch: 40 summaries
+2026-11-07T17:09:56Z Mac fetch: 40 summaries
+2026-11-07T17:14:57Z Mac fetch: 40 summaries
+2026-11-07T17:19:58Z Mac fetch: 40 summaries
+2026-11-07T17:24:59Z Mac fetch: 40 summaries
+2026-11-07T17:30:01Z Mac fetch: 40 summaries
+2026-11-08T06:32:33Z r12var: HH (40) + HS frost (18) on the Mac started
+2026-11-08T06:32:33Z enqueue 7 -> enqueued 7 
+2026-11-08T06:42:41Z Mac fetch: 5 summaries
+2026-11-08T06:52:44Z Mac fetch: 13 summaries
+2026-11-08T07:02:46Z Mac fetch: 21 summaries
+2026-11-08T07:12:49Z Mac fetch: 29 summaries
+2026-11-08T07:22:51Z Mac fetch: 34 summaries
+2026-11-08T07:32:55Z Mac fetch: 41 summaries
+2026-11-08T07:43:01Z Mac fetch: 47 summaries
+2026-11-08T07:53:20Z Mac fetch: 57 summaries
+2026-11-08T07:59:01Z Mac fetch: 58 summaries
+2026-11-08T07:59:24Z Mac fetch: 58 summaries
+2026-11-08T08:03:41Z Mac fetch: 58 summaries
+2026-11-08T08:14:07Z Mac fetch: 58 summaries
+2026-11-08T08:27:25Z Mac fetch: 58 summaries
+2026-11-08T08:38:45Z Mac fetch: 58 summaries
+2026-11-08T08:50:44Z Mac fetch: 58 summaries
+2026-11-08T09:04:46Z Mac fetch: 58 summaries
+2026-11-08T22:15:55Z r13cand: HH (40) + HS frost (18) on the Mac started
+2026-11-08T22:15:55Z enqueue 7 -> enqueued 7 
+2026-11-08T22:26:08Z Mac fetch: 5 summaries
+2026-11-08T22:36:10Z Mac fetch: 13 summaries
+2026-11-08T22:46:12Z Mac fetch: 21 summaries
+2026-11-08T22:56:14Z Mac fetch: 29 summaries
+2026-11-08T23:06:16Z Mac fetch: 34 summaries
+2026-11-08T23:16:18Z Mac fetch: 41 summaries
+2026-11-08T23:26:24Z Mac fetch: 47 summaries
+2026-11-08T23:37:02Z Mac fetch: 57 summaries
+2026-11-08T23:47:43Z Mac fetch: 58 summaries
+2026-11-08T23:58:23Z Mac fetch: 58 summaries
+2026-11-09T00:09:04Z Mac fetch: 58 summaries
+2026-11-09T00:19:43Z Mac fetch: 58 summaries
+2026-11-09T00:30:24Z Mac fetch: 58 summaries
+2026-11-09T00:42:08Z Mac fetch: 58 summaries
+2026-11-09T00:52:43Z Mac fetch: 58 summaries
+2026-11-09T11:00:01Z structHA: Mac batch (46 runs) started
+2026-11-09T11:00:01Z enqueue 7 -> enqueued 7 
+2026-11-09T14:53:01Z structHA: v13fresh Mac batch started
+2026-11-09T14:53:01Z enqueue 7 -> enqueued 7 
+2026-11-09T20:54:14Z structHA: v13fresh pub30+r10hc (70 runs) moved to the Mac (Kaggle queue stuck) started
