@@ -392,6 +392,8 @@ Missing or placeholder values (rounds 9-10): 0
 
 | check | result | detail |
 |---|---|---|
+| v14: 30 public scenarios | PASS | 30 found |
+| v13: 30 public scenarios | PASS | 30 found |
 | v12: 30 public scenarios | PASS | 30 found |
 | v11: 30 public scenarios | PASS | 30 found |
 | v10: 30 public scenarios | PASS | 30 found |

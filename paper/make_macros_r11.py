@@ -126,7 +126,9 @@ def boot_ratio(a: dict, b: dict, cluster: bool = False):
 
 # ---------------------------------------------------------------- Table 1 and the version table
 ROWS = [
-    ("v12", "SADR v12 (shipped)", "round6/runs/r10_K/pub30/*/*/transfer/summary.json", "M5 Pro"),
+    ("v14", "SADR v14 (final)", "round6/runs/struct_HA/pub30/*/*/transfer/summary.json", "M5 Pro"),
+    ("v13", "SADR v13 (tuned)", "round6/runs/v13fresh/pub30/*/*/transfer/summary.json", "M5 Pro"),
+    ("v12", "SADR v12 (base)", "round6/runs/r10_K/pub30/*/*/transfer/summary.json", "M5 Pro"),
     ("v11", "SADR v11", "round6/runs/r9_dow/pub30/*/*/transfer/summary.json", "Kaggle"),
     ("v10", "SADR v10", "round6/runs/r7L_mbr2/pub30/*/*/transfer/summary.json", "Kaggle"),
     ("v9", "SADR v9", "round6/runs/r6_comp/pub30/*/*/transfer/summary.json", "M5 Pro"),
@@ -394,7 +396,8 @@ def main() -> int:
                 r"Per-scenario numbers: Appendix~\ref{app:per_scenario}.",
                 "tab:main", MAIN_ROWS, data, ref)
     write_table(PAPER / "table_versions_r11.tex",
-                r"Every SADR version on the public scenarios, as Table~\ref{tab:main}. Machines: v12 and v9 the M5 Pro, "
+                r"Every SADR version on the public scenarios (base = v12, tuned = v13, final = v14); ratios and wins "
+                r"are against v12. Machines: v14, v13, v12 and v9 the M5 Pro, "
                 r"v11 and v10 Kaggle CPU kernels, v8 and earlier the laptop; SADR reproduces bit for bit on laptop and "
                 r"Kaggle and within \RSixMacReproMaxRel{} on the M5 Pro.",
                 "tab:versions", [r[0] for r in ROWS], data, ref)

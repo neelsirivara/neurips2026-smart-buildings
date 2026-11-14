@@ -82,7 +82,7 @@ The challenge~\citep{goldfeder2026smart} builds on the Smart Buildings Control S
 \section{Method: SADR}
 \label{sec:method}
 
-SADR is a single policy class. Its only state is per-zone integrals, per-AHU dwell counters and the optimum-start statistics, and all gains live in one parameter dictionary (Table~\ref{tab:params}, Appendix~\ref{app:tuning}). Figure~\ref{fig:sadr} shows one control step; Algorithm~\ref{alg:sadr} (Appendix~\ref{app:figs}) gives it in full.
+SADR is a single policy class. Its only state is per-zone integrals, per-AHU dwell counters and the optimum-start statistics, and all gains live in one parameter dictionary (Table~\ref{tab:params}, Appendix~\ref{app:figs}). Figure~\ref{fig:sadr} shows one control step; Algorithm~\ref{alg:sadr} (Appendix~\ref{app:figs}) gives it in full.
 
 \begin{figure}[t]
 \centering
@@ -193,68 +193,27 @@ A controller assembled from the plant topology and a handful of physical facts t
 % appendix floats stay inside their own section, below its heading
 \let\oldsection\section
 \renewcommand{\section}{\FloatBarrier\oldsection}
-\section{Per-scenario results}
-\label{app:per_scenario}
+\section{Controller details}
+\label{app:figs}
 \paragraph{Version numbers.} The appendix keeps the development record, where versions are numbered as they shipped: the base controller of the main text is v12, the tuned controller v13 and the final controller (with the cooling handover ramp) v14. Set codes: P is the public set, HC3 the cold set, HH the hot set and HS the harsh screening set of Section~\ref{sec:results}; the remaining codes are defined in Table~\ref{tab:rounds}.
 
-\input{table_versions_r11}
-Table~\ref{tab:versions} gives every SADR version on the public scenarios. Tables~\ref{tab:per_scenario}, \ref{tab:per_scenario_held} and~\ref{tab:per_scenario_held_r3}
-list every scenario's total return and leaderboard score (SADR v6), and
-Table~\ref{tab:per_scenario_fresh} the round-4 confirmation set, Table~\ref{tab:r4} round 4 at full length and
-Table~\ref{tab:per_scenario_r5m} the round-5 Minneapolis set; all values are generated from the
-result files by \texttt{make\_macros.py}.
+Algorithm~\ref{alg:sadr} gives one control step and Table~\ref{tab:params} the constants of the base controller.
+\begin{algorithm}[!htbp]
+\caption{SADR, one step (vectorized over zones $z$ and handlers $k$)}
+\label{alg:sadr}
+\begin{algorithmic}[1]
+\State mode $\gets$ \textsc{Occupied} / \textsc{Precondition} / \textsc{Setback} from flags, time, occupancy count, lead $\ell$
+\State $(T_h^\star, T_c^\star)_z \gets$ band for the mode; update $I_h, I_c$; $q_h, q_c \gets$ PI requests (W), or setback bursts
+\State run$_k \gets$ hysteresis on $\max_{z\in k}(q_h, q_c)$
+\State SAT$_k \gets$ \ParSatCoolHi\,K if cooling (\ParSatMixFloor\,K if also heating), 305\,K otherwise; recirc$_k \gets$ economizer
+\State $F_z \gets q_c/(T_z - T_{\text{sa},k})$ or $q_h/(308.15-\delta-T_z)$; $P_k \gets P_{\text{design}}\max_z f_z^2$; damper$_z \gets f_z/\sqrt{P_k/P_{\text{design}}}$
+\State $W_z \gets F_z (T_{\text{disch},z} - T_{\text{sa}})/(T_w - T_{\text{sa}})$; $\Delta p \gets (\max_z W_z / (0.9 k_v))^2$; valve$_z \gets W_z/(k_v\sqrt{\Delta p})$
+\State $T_w^{\text{sp}} \gets 350$\,K if heating season else 310\,K; pump $\gets$ any valve open
+\State scatter all setpoints into the normalized action vectors; clip
+\end{algorithmic}
+\end{algorithm}
 \begin{table}[!htbp]
-\caption{Round 4 at full length (8,640 steps): the composite v7 against the shipped
-v6 on the same scenarios; $\Delta$ = paired mean difference in $10^{-5}$ per step with its
-bootstrap 95\% CI (\NBoot{} resamples; negative favours v7). Old clean = the round-2/3 held-out
-scenarios no screen touched; fresh = \RFFreshNBuild{} buildings generated for round 4 and run only
-for this table, half in the shipped six's parameter ranges, half in the kit's default ranges.}
-\label{tab:r4}
-\centering\scriptsize
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrrrr}
-\toprule
-set & $n$ & v6 & v7 & $\Delta$ [95\% CI] & relative [95\% CI] & wins \\
-\midrule
-public & \RFConfPubN & \RFConfPubVSix & \RFConfPubCand & \RFConfPubDiff{} [\RFConfPubLo, \RFConfPubHi] & \RFConfPubRel{} [\RFConfPubRelLo, \RFConfPubRelHi] & \RFConfPubWins \\
-old held-out, clean & \RFConfOldCleanN & \RFConfOldCleanVSix & \RFConfOldCleanCand & \RFConfOldCleanDiff{} [\RFConfOldCleanLo, \RFConfOldCleanHi] & \RFConfOldCleanRel{} [\RFConfOldCleanRelLo, \RFConfOldCleanRelHi] & \RFConfOldCleanWins \\
-fresh, shipped ranges & \RFConfFreshShipN & \RFConfFreshShipVSix & \RFConfFreshShipCand & \RFConfFreshShipDiff{} [\RFConfFreshShipLo, \RFConfFreshShipHi] & \RFConfFreshShipRel{} [\RFConfFreshShipRelLo, \RFConfFreshShipRelHi] & \RFConfFreshShipWins \\
-fresh, default ranges & \RFConfFreshDefN & \RFConfFreshDefVSix & \RFConfFreshDefCand & \RFConfFreshDefDiff{} [\RFConfFreshDefLo, \RFConfFreshDefHi] & \RFConfFreshDefRel{} [\RFConfFreshDefRelLo, \RFConfFreshDefRelHi] & \RFConfFreshDefWins \\
-fresh, all & \RFConfFreshN & \RFConfFreshVSix & \RFConfFreshCand & \RFConfFreshDiff{} [\RFConfFreshLo, \RFConfFreshHi] & \RFConfFreshRel{} [\RFConfFreshRelLo, \RFConfFreshRelHi] & \RFConfFreshWins \\
-clean held-out, pooled & \RFConfPoolN & \RFConfPoolVSix & \RFConfPoolCand & \RFConfPoolDiff{} [\RFConfPoolLo, \RFConfPoolHi] & \RFConfPoolRel{} [\RFConfPoolRelLo, \RFConfPoolRelHi] & \RFConfPoolWins \\
-\bottomrule
-\end{tabular}
-\end{table}
-\input{per_scenario_table}
-\input{per_scenario_table_r4}
-\input{per_scenario_table_r5}
-\begin{figure}[!htbp]
-\centering
-\figfile{0.92\linewidth}{figures/fig_round4_buildings.pdf}
-\caption{Round 4: change of the metric from v6 to v7 on every generated held-out building
-(diamonds: the building's five strips pooled; dots: single scenarios; negative is better), each
-run once at full length; buildings grouped by set and ordered by zone count.}
-\label{fig:r4buildings}
-\end{figure}
-\begin{figure}[!htbp]
-\centering
-\figfile{0.86\linewidth}{figures/fig_scores_by_scenario.pdf}
-\caption{Per-scenario leaderboard score (log scale, lower is better), SADR v6 vs
-\texttt{pid\_water} on the same machine, grouped by station and labelled by building (b =
-public, g = generated held-out). Left: the 30 public scenarios; right: the \NHeld{}
-held-out scenarios of buildings 0501 and 0502.}
-\label{fig:scores}
-\end{figure}
-
-\section{Parameters, ablation and candidates}
-\label{app:tuning}
-\begin{table}[!htbp]
-\caption{SADR parameters of v12 (v13 changes twelve of them, Table~\ref{tab:params13}); values that changed from v4 to v5 are marked; the sixth row
-is new in v6 (round 3), the discharge margin (v6: \VSixDischMargin\,K), the preconditioning cap
-(v6: \VSixFCapPre) and the seventh row are round 4, the eighth row round 5 (its weekend floor is v12's; v8--v11:
-$-$\RTenWkExtLoVEleven\,K), the ninth row and the setback widening (v8: 8\,K) round 6, the model-start row and the lead
-safety (v9: \REigVNineLeadSafety, with precondition margin \REigVNineMarginPre\,K) round 8, and the last two rows
-rounds 9--10 (the day of week v11, the rest v12). The full dictionary is in the code.}
+\caption{SADR parameters of the base controller (v12). A version in parentheses marks the release that introduced a parameter or changed its value (earlier values after the colon); Table~\ref{tab:rounds} gives each release's confirmation, and Table~\ref{tab:params13} the twelve constants the tuned controller (v13) changes. The full dictionary is in the code.}
 \label{tab:params}
 \centering\footnotesize
 \begin{tabular}{llll}
@@ -274,50 +233,7 @@ heating season (v12) & \RTenSeasonSteps{} steps if $<$\RTenSeasonOatC\,$^\circ$C
 \bottomrule
 \end{tabular}
 \end{table}
-
-Table~\ref{tab:ablation} reverts each tuned v4 value on its own (and adds each on its own to
-the defaults) on the screening set; Table~\ref{tab:candidates} lists every v5 candidate at
-full length on the 30 public scenarios against v4 on the same machine;
-Table~\ref{tab:candidates_r3} lists every round-3 (v6) variant on both screening sets against
-v5, Table~\ref{tab:candidates_r4} every round-4 candidate against v6 and Table~\ref{tab:candidates_r5}
-every round-5 candidate against v7, Table~\ref{tab:kaggle_r5} the round-5 comparison of local sets with Kaggle
-(v7 reference) and Table~\ref{tab:candidates_r6} every round-6 candidate against v8. The ideas tried and rejected,
-with their numbers, are in \texttt{experiments/results/round3/candidates.json}, \texttt{round4/candidates.json},
-\texttt{round5/screen\_summary.json} and \texttt{round6/screen\_summary.json}.
-\input{tuning_tables}
-\input{tuning_tables_r5}
-\input{round5_kaggle_table}
-\input{tuning_tables_r6}
-\input{tuning_tables_r7}
 \input{table_params_r12}
-
-\section{Area scaling and the round-4 refinements (v6, v7)}
-\label{app:versions}
-
-\paragraph{Scaling with the building (v6).}
-Every VAV box in the generator has the same design flow (2\,m$^3$/s) and hot-water $k_v$, so
-a 450\,m$^2$ zone has a fifth of the heating authority per square metre of a 100\,m$^2$ zone
-and several times its thermal mass; v5's fixed 12\,kW cap, gains and building-wide lead were
-tuned on the public zones (median \PubZoneAreaMedian\,m$^2$). v6 (i) reads each zone's floor
-area from the metadata zone map (4-connected free cells in raster order reproduce the
-simulator's room numbering) and scales $k_q$, $k_i$, the request cap and the setback burst with
-area/\ParAreaRef\,m$^2$, clipped to $[\ParAreaScaleMin, \ParAreaScaleMax]$; (ii) bounds each
-request by what the box delivers at a flow fraction $f_{\text{cap}}$ (\VSixFCapPre{} while
-preconditioning or set back, \ParFCapOcc{} occupied) at the discharge limit, at 285\,K supply,
-and on the water side (valve fully open at 20\,bar: asking for more raises the airflow, cools
-the discharge and delivers \emph{less}); (iii) runs the optimum start per zone; (iv) raises the
-setback floor of a zone whose learned rate could not recover it within the maximum lead. With
-these off the code reproduces v5 bit for bit.
-
-\paragraph{Round 4 (v7).}
-\label{sec:v7}
-Five switches of the v6 code (all off reproduces v6 bit for bit): (i) discharge margin $\delta$ from
-\VSixDischMargin{} to \ParRFDischMargin\,K (at the cap the gas per joule of net heat is
-$1 + 0.3\,(T - T_{\text{out}})/(308.15 - \delta - T)$); (ii) occupied flow above the 200\,Pa floor only in
-proportion to the zone's error (from \ParRFOccEzero\,K, full \ParRFOccSpan\,K later); (iii) a night flush with
-outside air at least \ParRFFlushDt\,K colder, outside heating season; (iv) in heating season the forced minimum
-flow of set-back zones on a running handler is reheated to the zone temperature (1\,J of gas per joule instead
-of the ventilated recovery's 1.9 later); (v) the preconditioning cap at the floor-pressure flow.
 
 \section{Development history and confirmation results}
 \label{app:rounds}
@@ -382,6 +298,34 @@ run on HC2, the one set it had not seen, it lowers the HC2 loss by \REigConfHars
 and it shipped as v10 (M \REigConfMinnRel, wins \REigConfMinnWins; FD \REigConfFreshDefRel, wins
 \REigConfFreshDefWins; Kaggle \REigKagVTen).
 
+\section{Area scaling and the round-4 refinements (v6, v7)}
+\label{app:versions}
+
+\paragraph{Scaling with the building (v6).}
+Every VAV box in the generator has the same design flow (2\,m$^3$/s) and hot-water $k_v$, so
+a 450\,m$^2$ zone has a fifth of the heating authority per square metre of a 100\,m$^2$ zone
+and several times its thermal mass; v5's fixed 12\,kW cap, gains and building-wide lead were
+tuned on the public zones (median \PubZoneAreaMedian\,m$^2$). v6 (i) reads each zone's floor
+area from the metadata zone map (4-connected free cells in raster order reproduce the
+simulator's room numbering) and scales $k_q$, $k_i$, the request cap and the setback burst with
+area/\ParAreaRef\,m$^2$, clipped to $[\ParAreaScaleMin, \ParAreaScaleMax]$; (ii) bounds each
+request by what the box delivers at a flow fraction $f_{\text{cap}}$ (\VSixFCapPre{} while
+preconditioning or set back, \ParFCapOcc{} occupied) at the discharge limit, at 285\,K supply,
+and on the water side (valve fully open at 20\,bar: asking for more raises the airflow, cools
+the discharge and delivers \emph{less}); (iii) runs the optimum start per zone; (iv) raises the
+setback floor of a zone whose learned rate could not recover it within the maximum lead. With
+these off the code reproduces v5 bit for bit.
+
+\paragraph{Round 4 (v7).}
+\label{sec:v7}
+Five switches of the v6 code (all off reproduces v6 bit for bit): (i) discharge margin $\delta$ from
+\VSixDischMargin{} to \ParRFDischMargin\,K (at the cap the gas per joule of net heat is
+$1 + 0.3\,(T - T_{\text{out}})/(308.15 - \delta - T)$); (ii) occupied flow above the 200\,Pa floor only in
+proportion to the zone's error (from \ParRFOccEzero\,K, full \ParRFOccSpan\,K later); (iii) a night flush with
+outside air at least \ParRFFlushDt\,K colder, outside heating season; (iv) in heating season the forced minimum
+flow of set-back zones on a running handler is reheated to the zone temperature (1\,J of gas per joule instead
+of the ventilated recovery's 1.9 later); (v) the preconditioning cap at the floor-pressure flow.
+
 \section{Where the early versions lost (rounds 3--5)}
 \label{app:diag}
 \paragraph{What rounds 3 and 4 found.}
@@ -406,63 +350,6 @@ does not rest on that gap.
 
 \paragraph{Model checks.} In this model a deeper setback floor never costs gas if the zone reaches it and recovers in time (its trajectory lies below the shallower one, and both the losses and $g$ grow with $T$). Depth pays only where the floor binds, on \RSevBindLo--\RSevBindHi{} of unoccupied zone periods in a mid-development version. With capped heat the latest feasible start is optimal, so a start rule can save at most the time zones hold at the target before 06:00: \RSevHoldH\,h per recovery, \RSevHoldGas{} of the gas. Twelve seven-day checks on three harsh scenarios test these predictions (Table~\ref{tab:checks_r7}). Floor predictions hold within 0.5 points in buildings~7 and~8 and fail in building~1, whose zones cool slowest: a 2\,K deeper floor changes the gas by $\RSevChkEightNleMeas$ (predicted $\RSevChkEightNlePred$) in building~8, where the floor binds most, but by $\RSevChkOneNleMeas$ (predicted $\RSevChkOneNlePred$) in building~1. Start-time predictions overstate the saving in buildings~8 and~1; in building~7 a lead safety of 1.0 changes the gas by $\RSevChkSevenLsOMeas$ (predicted $\RSevChkSevenLsOPred$) but the loss only by $\RSevChkSevenLsOLoss$, because part returns as comfort.
 
-\section{Algorithm and additional figures}
-\label{app:figs}
-\begin{figure}[!htbp]
-\centering
-\begin{minipage}[t]{0.5\linewidth}\centering
-\figfile{\linewidth}{figures/fig_loss_decomp.pdf}
-\caption{Per-station decomposition of the per-step loss (metric units) into comfort, fan,
-chiller, pump and gas on the 30 public scenarios, SADR v5 and v6.}
-\label{fig:decomp}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.44\linewidth}\centering
-\figfile{\linewidth}{figures/fig_heldout_buildings.pdf}
-\caption{Metric per generated held-out building (log scale, lower is better; ordered by zone
-count): \texttt{pid\_water}, SADR v5 and v6, each run once at full length on the building's
-five strips.}
-\label{fig:heldout}
-\end{minipage}
-\end{figure}
-\begin{algorithm}[!htbp]
-\caption{SADR, one step (vectorized over zones $z$ and handlers $k$)}
-\label{alg:sadr}
-\begin{algorithmic}[1]
-\State mode $\gets$ \textsc{Occupied} / \textsc{Precondition} / \textsc{Setback} from flags, time, occupancy count, lead $\ell$
-\State $(T_h^\star, T_c^\star)_z \gets$ band for the mode; update $I_h, I_c$; $q_h, q_c \gets$ PI requests (W), or setback bursts
-\State run$_k \gets$ hysteresis on $\max_{z\in k}(q_h, q_c)$
-\State SAT$_k \gets$ \ParSatCoolHi\,K if cooling (\ParSatMixFloor\,K if also heating), 305\,K otherwise; recirc$_k \gets$ economizer
-\State $F_z \gets q_c/(T_z - T_{\text{sa},k})$ or $q_h/(308.15-\delta-T_z)$; $P_k \gets P_{\text{design}}\max_z f_z^2$; damper$_z \gets f_z/\sqrt{P_k/P_{\text{design}}}$
-\State $W_z \gets F_z (T_{\text{disch},z} - T_{\text{sa}})/(T_w - T_{\text{sa}})$; $\Delta p \gets (\max_z W_z / (0.9 k_v))^2$; valve$_z \gets W_z/(k_v\sqrt{\Delta p})$
-\State $T_w^{\text{sp}} \gets 350$\,K if heating season else 310\,K; pump $\gets$ any valve open
-\State scatter all setpoints into the normalized action vectors; clip
-\end{algorithmic}
-\end{algorithm}
-\begin{figure}[!htbp]
-\centering
-\figfile{\linewidth}{figures/fig_loss_by_hour.pdf}
-\caption{Mean per-step loss by hour of day over the \NAnalysis{} public scenarios, split
-into comfort regret and energy\,+\,carbon; comfort hours (06--19) shaded. Left: SADR v6;
-right: \texttt{pid\_water}.}
-\label{fig:hours}
-\end{figure}
-\begin{figure}[!htbp]
-\centering
-\figfile{\linewidth}{figures/fig_trace_building_train_8_fairbanks_8_day8.pdf}
-\caption{One weekday on \texttt{building\_train\_8/fairbanks\_8}: zone-temperature
-envelope (min--max shaded, median line) against the comfort band (green wash), with the
-building occupancy count shaded in grey. Left: SADR v6; right: \texttt{pid\_water}.}
-\label{fig:trace}
-\end{figure}
-\begin{figure}[!htbp]
-\centering
-\figfile{0.5\linewidth}{figures/fig_tuning.pdf}
-\caption{Screening score (six scenarios, five days) of every random-search configuration,
-sorted, with the design defaults highlighted and \texttt{pid\_water} on the same runs.}
-\label{fig:tuning}
-\end{figure}
-
-\clearpage
 \section{The day-of-week fix and the base controller (v11, v12)}
 \label{app:note-v11}
 \paragraph{Round 9: v11.}
@@ -513,4 +400,94 @@ exercise the gate, which is therefore supported only by the development runs and
 rounds 12--13, and it is the controller analysed in this paper; v13 (Section~\ref{sec:tuning}) changes only its
 constants. v12 scored \RTenKagVTwelve{} on Kaggle; v11 was not submitted.
 
+\section{Per-scenario results, screening tables and figures}
+\label{app:per_scenario}
+\label{app:tuning}
+
+\input{table_versions_r11}
+Table~\ref{tab:versions} gives every version on the public scenarios; the per-scenario tables and figures that follow come from the development rounds named in their captions and are generated from the result files.
+\begin{table}[!htbp]
+\caption{Round 4 at full length (8,640 steps): the composite v7 against the shipped
+v6 on the same scenarios; $\Delta$ = paired mean difference in $10^{-5}$ per step with its
+bootstrap 95\% CI (\NBoot{} resamples; negative favours v7). Old clean = the round-2/3 held-out
+scenarios no screen touched; fresh = \RFFreshNBuild{} buildings generated for round 4 and run only
+for this table, half in the shipped six's parameter ranges, half in the kit's default ranges.}
+\label{tab:r4}
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+set & $n$ & v6 & v7 & $\Delta$ [95\% CI] & relative [95\% CI] & wins \\
+\midrule
+public & \RFConfPubN & \RFConfPubVSix & \RFConfPubCand & \RFConfPubDiff{} [\RFConfPubLo, \RFConfPubHi] & \RFConfPubRel{} [\RFConfPubRelLo, \RFConfPubRelHi] & \RFConfPubWins \\
+old held-out, clean & \RFConfOldCleanN & \RFConfOldCleanVSix & \RFConfOldCleanCand & \RFConfOldCleanDiff{} [\RFConfOldCleanLo, \RFConfOldCleanHi] & \RFConfOldCleanRel{} [\RFConfOldCleanRelLo, \RFConfOldCleanRelHi] & \RFConfOldCleanWins \\
+fresh, shipped ranges & \RFConfFreshShipN & \RFConfFreshShipVSix & \RFConfFreshShipCand & \RFConfFreshShipDiff{} [\RFConfFreshShipLo, \RFConfFreshShipHi] & \RFConfFreshShipRel{} [\RFConfFreshShipRelLo, \RFConfFreshShipRelHi] & \RFConfFreshShipWins \\
+fresh, default ranges & \RFConfFreshDefN & \RFConfFreshDefVSix & \RFConfFreshDefCand & \RFConfFreshDefDiff{} [\RFConfFreshDefLo, \RFConfFreshDefHi] & \RFConfFreshDefRel{} [\RFConfFreshDefRelLo, \RFConfFreshDefRelHi] & \RFConfFreshDefWins \\
+fresh, all & \RFConfFreshN & \RFConfFreshVSix & \RFConfFreshCand & \RFConfFreshDiff{} [\RFConfFreshLo, \RFConfFreshHi] & \RFConfFreshRel{} [\RFConfFreshRelLo, \RFConfFreshRelHi] & \RFConfFreshWins \\
+clean held-out, pooled & \RFConfPoolN & \RFConfPoolVSix & \RFConfPoolCand & \RFConfPoolDiff{} [\RFConfPoolLo, \RFConfPoolHi] & \RFConfPoolRel{} [\RFConfPoolRelLo, \RFConfPoolRelHi] & \RFConfPoolWins \\
+\bottomrule
+\end{tabular}
+\end{table}
+\input{per_scenario_table}
+\input{per_scenario_table_r4}
+\input{per_scenario_table_r5}
+\begin{figure}[!htbp]
+\centering
+\figfile{0.92\linewidth}{figures/fig_round4_buildings.pdf}
+\caption{Round 4: change of the metric from v6 to v7 on every generated held-out building
+(diamonds: the building's five strips pooled; dots: single scenarios; negative is better), each
+run once at full length; buildings grouped by set and ordered by zone count.}
+\label{fig:r4buildings}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\figfile{0.86\linewidth}{figures/fig_scores_by_scenario.pdf}
+\caption{Per-scenario leaderboard score (log scale, lower is better), SADR v6 vs
+\texttt{pid\_water} on the same machine, grouped by station and labelled by building (b =
+public, g = generated held-out). Left: the 30 public scenarios; right: the \NHeld{}
+held-out scenarios of buildings 0501 and 0502.}
+\label{fig:scores}
+\end{figure}
+
+
+\paragraph{Screening tables.} The tables below list every candidate screened in rounds 1--7 with its result; ideas tried and rejected are in \texttt{experiments/results/round*/}.
+\input{tuning_tables}
+\input{tuning_tables_r5}
+\input{round5_kaggle_table}
+\input{tuning_tables_r6}
+\input{tuning_tables_r7}
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{0.5\linewidth}\centering
+\figfile{\linewidth}{figures/fig_loss_decomp.pdf}
+\caption{Per-station decomposition of the per-step loss (metric units) into comfort, fan,
+chiller, pump and gas on the 30 public scenarios, SADR v5 and v6.}
+\label{fig:decomp}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}\centering
+\figfile{\linewidth}{figures/fig_heldout_buildings.pdf}
+\caption{Metric per generated held-out building (log scale, lower is better; ordered by zone
+count): \texttt{pid\_water}, SADR v5 and v6, each run once at full length on the building's
+five strips.}
+\label{fig:heldout}
+\end{minipage}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\figfile{\linewidth}{figures/fig_trace_building_train_8_fairbanks_8_day8.pdf}
+\caption{One weekday on \texttt{building\_train\_8/fairbanks\_8}: zone-temperature
+envelope (min--max shaded, median line) against the comfort band (green wash), with the
+building occupancy count shaded in grey. Left: SADR v6; right: \texttt{pid\_water}.}
+\label{fig:trace}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\figfile{0.5\linewidth}{figures/fig_tuning.pdf}
+\caption{Screening score (six scenarios, five days) of every random-search configuration,
+sorted, with the design defaults highlighted and \texttt{pid\_water} on the same runs.}
+\label{fig:tuning}
+\end{figure}
+
+\clearpage
 \end{document}
