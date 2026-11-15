@@ -1,3 +1,9 @@
+# MPC baseline DONE on the current kit (2026-11-15 ~00:30 UTC): experiments/results/baseline_mpc/table.json
+
+- Online-RC short-horizon MPC (policies_baseline/mpc_rc.py): loss 0.0910 public / 0.2102 cold / 0.0920 hot; ratio to pid_water
+  1.66 [1.34, 2.06] / 1.81 [1.64, 2.00] / 1.55 [1.33, 1.84] (wins 4/30, 2/40, 7/40); to v14 12.5x / 9.0x / 12.7x (0 wins).
+  Weak, as expected from the smoke test (no fan/ventilation cost in its model). Usable as an honest "naive MPC" row.
+
 # Build-up ladder DONE on the current kit (2026-11-14 ~23:55 UTC): experiments/results/buildup/RESULTS.md
 
 - Idling + coldest supply air explain only ~7-9% of the v14 -> pid_water gap; ~87-92% lies between bu4 (zone net-heat PI
